@@ -80,9 +80,9 @@ namespace WinFormsApp1.Data
             );
 
             modelBuilder.Entity<Category>().HasData(
-                new Category { id = 1, name = "Tools" },
-                new Category { id = 2, name = "Accessories" },
-                new Category { id = 3, name = "Electronics" }
+                new Category { id = 1, name = "Tools", description = "sample description", is_active = true, },
+                new Category { id = 2, name = "Accessories", description = "sample description", is_active = true, },
+                new Category { id = 3, name = "Electronics", description = "sample description", is_active = true, }
             );
 
             modelBuilder.Entity<SupplierDetails>().HasData(

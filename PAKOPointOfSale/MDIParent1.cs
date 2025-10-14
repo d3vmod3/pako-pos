@@ -103,7 +103,13 @@ namespace PAKOPointOfSale
         private void usersToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Users.UsersList usersListForm = new Users.UsersList();
-            usersListForm.Show(); // ✅ This will now work
+            usersListForm.Show();
+        }
+
+        private void categoriesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Categories.CategoriesList categoriesList = new Categories.CategoriesList();
+            categoriesList.Show(); 
         }
     }
 }

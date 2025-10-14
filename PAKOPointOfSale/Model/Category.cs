@@ -5,6 +5,6 @@ public class Category
     public int id { get; set; }
     public string name { get; set; }
     public string? description { get; set; }
-
+    public Boolean is_active { get; set; }
     public ICollection<Product> Products { get; set; }
 }
