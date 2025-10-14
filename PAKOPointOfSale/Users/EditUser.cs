@@ -16,6 +16,7 @@ namespace PAKOPointOfSale.Users
     public partial class EditUser : Form
     {
         private int _userId;
+        private string _username="";
         public EditUser(int userId)
         {
             InitializeComponent();
@@ -62,6 +63,7 @@ namespace PAKOPointOfSale.Users
                         {
                             if (reader.Read())
                             {
+                                _username = reader["username"].ToString();
                                 txtUsername.Text = reader["username"].ToString();
                                 txtFirstName.Text = reader["first_name"].ToString();
                                 txtMiddleName.Text = reader["middle_name"] != DBNull.Value ? reader["middle_name"].ToString() : "";
@@ -90,6 +92,10 @@ namespace PAKOPointOfSale.Users
         {
             try
             {
+                if (!validateForm())
+                {
+                    return;
+                }
                 // Connection string from Program.cs
                 string connString = PAKOPointOfSale.Program.ConnString;
 
@@ -141,6 +147,91 @@ namespace PAKOPointOfSale.Users
             {
                 MessageBox.Show("Error updating user: " + ex.Message);
             }
+        }
+
+        public bool validateForm()
+        {
+
+            if (string.IsNullOrWhiteSpace(txtUsername.Text))
+            {
+                MessageBox.Show("Please enter a username.");
+                txtUsername.Focus();
+                return false;
+            }
+
+            if (_username != txtUsername.Text)
+            {
+                if (isUsernameExists() == true)
+                {
+
+                    MessageBox.Show("Username already exists. Please choose another one.");
+                    txtUsername.Focus();
+                    return false;
+                }
+            }
+
+
+
+            if (string.IsNullOrWhiteSpace(txtFirstName.Text))
+            {
+                MessageBox.Show("Please enter the first name.");
+                txtFirstName.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtLastName.Text))
+            {
+                MessageBox.Show("Please enter the last name.");
+                txtLastName.Focus();
+                return false;
+            }
+
+            if (cmbGender.SelectedIndex < 0)
+            {
+                MessageBox.Show("Please select a gender.");
+                cmbGender.DroppedDown = true;
+                return false;
+            }
+
+            if (cmbRole.SelectedIndex < 0)
+            {
+                MessageBox.Show("Please select a user role.");
+                cmbRole.DroppedDown = true;
+                return false;
+            }
+
+            // Optional: check if birthdate is in the future
+            if (dtpBirthdate.Value.Date > DateTime.Now.Date)
+            {
+                MessageBox.Show("Birthdate cannot be in the future.");
+                dtpBirthdate.Focus();
+                return false;
+            }
+
+            // All good
+            return true;
+        }
+
+        public bool isUsernameExists()
+        {
+
+            string connString = PAKOPointOfSale.Program.ConnString;
+            using (SqlConnection conn = new SqlConnection(connString))
+            {
+                conn.Open();
+                string query = "SELECT COUNT(*) FROM Users WHERE username = @username";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@username", txtUsername.Text.Trim());
+                    int count = (int)cmd.ExecuteScalar();
+
+                    if (count > 0)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
     }
 }
