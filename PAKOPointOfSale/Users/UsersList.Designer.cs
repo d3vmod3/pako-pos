@@ -55,12 +55,15 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { id, usertypeidDataGridViewTextBoxColumn, usernameDataGridViewTextBoxColumn, passwordDataGridViewTextBoxColumn, firstnameDataGridViewTextBoxColumn, middlenameDataGridViewTextBoxColumn, lastnameDataGridViewTextBoxColumn, birthdayDataGridViewTextBoxColumn, genderDataGridViewTextBoxColumn, suffixDataGridViewTextBoxColumn, userType, createdatDataGridViewTextBoxColumn, is_active, edit, deactivate });
             dataGridView1.DataSource = userBindingSource;
             dataGridView1.Location = new Point(12, 57);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
             dataGridView1.Size = new Size(1206, 594);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
@@ -101,6 +104,7 @@
             id.DataPropertyName = "id";
             id.HeaderText = "id";
             id.Name = "id";
+            id.ReadOnly = true;
             id.Visible = false;
             // 
             // usertypeidDataGridViewTextBoxColumn
@@ -108,6 +112,7 @@
             usertypeidDataGridViewTextBoxColumn.DataPropertyName = "user_type_id";
             usertypeidDataGridViewTextBoxColumn.HeaderText = "user_type_id";
             usertypeidDataGridViewTextBoxColumn.Name = "usertypeidDataGridViewTextBoxColumn";
+            usertypeidDataGridViewTextBoxColumn.ReadOnly = true;
             usertypeidDataGridViewTextBoxColumn.Visible = false;
             // 
             // usernameDataGridViewTextBoxColumn
@@ -115,12 +120,14 @@
             usernameDataGridViewTextBoxColumn.DataPropertyName = "username";
             usernameDataGridViewTextBoxColumn.HeaderText = "Username";
             usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
+            usernameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // passwordDataGridViewTextBoxColumn
             // 
             passwordDataGridViewTextBoxColumn.DataPropertyName = "password";
             passwordDataGridViewTextBoxColumn.HeaderText = "password";
             passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
+            passwordDataGridViewTextBoxColumn.ReadOnly = true;
             passwordDataGridViewTextBoxColumn.Visible = false;
             // 
             // firstnameDataGridViewTextBoxColumn
@@ -128,54 +135,63 @@
             firstnameDataGridViewTextBoxColumn.DataPropertyName = "first_name";
             firstnameDataGridViewTextBoxColumn.HeaderText = "First Name";
             firstnameDataGridViewTextBoxColumn.Name = "firstnameDataGridViewTextBoxColumn";
+            firstnameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // middlenameDataGridViewTextBoxColumn
             // 
             middlenameDataGridViewTextBoxColumn.DataPropertyName = "middle_name";
             middlenameDataGridViewTextBoxColumn.HeaderText = "Middle Name";
             middlenameDataGridViewTextBoxColumn.Name = "middlenameDataGridViewTextBoxColumn";
+            middlenameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // lastnameDataGridViewTextBoxColumn
             // 
             lastnameDataGridViewTextBoxColumn.DataPropertyName = "last_name";
             lastnameDataGridViewTextBoxColumn.HeaderText = "Last Name";
             lastnameDataGridViewTextBoxColumn.Name = "lastnameDataGridViewTextBoxColumn";
+            lastnameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // birthdayDataGridViewTextBoxColumn
             // 
             birthdayDataGridViewTextBoxColumn.DataPropertyName = "birthday";
             birthdayDataGridViewTextBoxColumn.HeaderText = "Birthdate";
             birthdayDataGridViewTextBoxColumn.Name = "birthdayDataGridViewTextBoxColumn";
+            birthdayDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // genderDataGridViewTextBoxColumn
             // 
             genderDataGridViewTextBoxColumn.DataPropertyName = "gender";
             genderDataGridViewTextBoxColumn.HeaderText = "Gender";
             genderDataGridViewTextBoxColumn.Name = "genderDataGridViewTextBoxColumn";
+            genderDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // suffixDataGridViewTextBoxColumn
             // 
             suffixDataGridViewTextBoxColumn.DataPropertyName = "suffix";
             suffixDataGridViewTextBoxColumn.HeaderText = "Suffix";
             suffixDataGridViewTextBoxColumn.Name = "suffixDataGridViewTextBoxColumn";
+            suffixDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // userType
             // 
             userType.DataPropertyName = "user_type";
             userType.HeaderText = "Role";
             userType.Name = "userType";
+            userType.ReadOnly = true;
             // 
             // createdatDataGridViewTextBoxColumn
             // 
             createdatDataGridViewTextBoxColumn.DataPropertyName = "created_at";
             createdatDataGridViewTextBoxColumn.HeaderText = "Date Created";
             createdatDataGridViewTextBoxColumn.Name = "createdatDataGridViewTextBoxColumn";
+            createdatDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // is_active
             // 
             is_active.DataPropertyName = "is_active";
             is_active.HeaderText = "Active";
             is_active.Name = "is_active";
+            is_active.ReadOnly = true;
             is_active.Resizable = DataGridViewTriState.True;
             is_active.SortMode = DataGridViewColumnSortMode.NotSortable;
             // 
@@ -184,6 +200,7 @@
             edit.DataPropertyName = "id";
             edit.HeaderText = "";
             edit.Name = "edit";
+            edit.ReadOnly = true;
             edit.Text = "Edit";
             edit.UseColumnTextForButtonValue = true;
             // 
@@ -192,6 +209,7 @@
             deactivate.DataPropertyName = "id";
             deactivate.HeaderText = "";
             deactivate.Name = "deactivate";
+            deactivate.ReadOnly = true;
             deactivate.Text = "Deactivate";
             deactivate.UseColumnTextForButtonValue = true;
             // 
