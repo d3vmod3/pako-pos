@@ -30,6 +30,10 @@
         {
             components = new System.ComponentModel.Container();
             dataGridView1 = new DataGridView();
+            userBindingSource = new BindingSource(components);
+            txtSearch = new TextBox();
+            label1 = new Label();
+            btnAdd = new Button();
             id = new DataGridViewTextBoxColumn();
             usertypeidDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             usernameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -45,10 +49,6 @@
             is_active = new DataGridViewTextBoxColumn();
             edit = new DataGridViewButtonColumn();
             deactivate = new DataGridViewButtonColumn();
-            userBindingSource = new BindingSource(components);
-            txtSearch = new TextBox();
-            label1 = new Label();
-            btnAdd = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)userBindingSource).BeginInit();
             SuspendLayout();
@@ -64,6 +64,37 @@
             dataGridView1.Size = new Size(1206, 594);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            // 
+            // userBindingSource
+            // 
+            userBindingSource.DataSource = typeof(User);
+            // 
+            // txtSearch
+            // 
+            txtSearch.Location = new Point(63, 25);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(391, 23);
+            txtSearch.TabIndex = 1;
+            txtSearch.TextChanged += txtSearch_TextChanged;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(12, 28);
+            label1.Name = "label1";
+            label1.Size = new Size(45, 15);
+            label1.TabIndex = 2;
+            label1.Text = "Search:";
+            // 
+            // btnAdd
+            // 
+            btnAdd.Location = new Point(1143, 28);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(75, 23);
+            btnAdd.TabIndex = 3;
+            btnAdd.Text = "Add User";
+            btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
             // 
             // id
             // 
@@ -163,37 +194,6 @@
             deactivate.Name = "deactivate";
             deactivate.Text = "Deactivate";
             deactivate.UseColumnTextForButtonValue = true;
-            // 
-            // userBindingSource
-            // 
-            userBindingSource.DataSource = typeof(User);
-            // 
-            // txtSearch
-            // 
-            txtSearch.Location = new Point(63, 25);
-            txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(391, 23);
-            txtSearch.TabIndex = 1;
-            txtSearch.TextChanged += txtSearch_TextChanged;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(12, 28);
-            label1.Name = "label1";
-            label1.Size = new Size(45, 15);
-            label1.TabIndex = 2;
-            label1.Text = "Search:";
-            // 
-            // btnAdd
-            // 
-            btnAdd.Location = new Point(1143, 28);
-            btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(75, 23);
-            btnAdd.TabIndex = 3;
-            btnAdd.Text = "Add User";
-            btnAdd.UseVisualStyleBackColor = true;
-            btnAdd.Click += btnAdd_Click;
             // 
             // UsersList
             // 
