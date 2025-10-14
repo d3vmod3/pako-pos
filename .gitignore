@@ -2,3 +2,4 @@
 bin/
 obj/
 /PAKOPointOfSale/Program.cs
+/PAKOPointOfSale/Migrations/
