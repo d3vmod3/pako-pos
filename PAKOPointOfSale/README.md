@@ -13,4 +13,10 @@ Install-Package Microsoft.EntityFrameworkCore.Tools
 dotnet ef migrations add SeedAllData
 dotnet ef database update
 
+
 #Note: Ensure the connection string is correct; steps 3 and 4 will fail if it’s incorrect.
+
+#If you want to migrate fresh (drop datababase and create and seed again)
+Run the following commands on Package Manager Console terminal:
+Drop-Database
+Update-Database

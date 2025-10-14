@@ -44,7 +44,6 @@
             statusStrip = new StatusStrip();
             toolStripStatusLabel = new ToolStripStatusLabel();
             toolTip = new ToolTip(components);
-            setupToolStripMenuItem1 = new ToolStripMenuItem();
             menuStrip.SuspendLayout();
             statusStrip.SuspendLayout();
             SuspendLayout();
@@ -61,7 +60,7 @@
             // 
             // setupToolStripMenuItem
             // 
-            setupToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { categoriesToolStripMenuItem, usersToolStripMenuItem, supplierProductsToolStripMenuItem, suppliersToolStripMenuItem, transactionsToolStripMenuItem, usersToolStripMenuItem1, userAccessControlToolStripMenuItem, setupToolStripMenuItem1 });
+            setupToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { categoriesToolStripMenuItem, usersToolStripMenuItem, supplierProductsToolStripMenuItem, suppliersToolStripMenuItem, transactionsToolStripMenuItem, usersToolStripMenuItem1, userAccessControlToolStripMenuItem });
             setupToolStripMenuItem.Name = "setupToolStripMenuItem";
             setupToolStripMenuItem.Size = new Size(49, 20);
             setupToolStripMenuItem.Text = "Setup";
@@ -71,6 +70,7 @@
             categoriesToolStripMenuItem.Name = "categoriesToolStripMenuItem";
             categoriesToolStripMenuItem.Size = new Size(180, 22);
             categoriesToolStripMenuItem.Text = "Categories";
+            categoriesToolStripMenuItem.Click += categoriesToolStripMenuItem_Click;
             // 
             // usersToolStripMenuItem
             // 
@@ -108,6 +108,7 @@
             userAccessControlToolStripMenuItem.Name = "userAccessControlToolStripMenuItem";
             userAccessControlToolStripMenuItem.Size = new Size(180, 22);
             userAccessControlToolStripMenuItem.Text = "User Access Control";
+            userAccessControlToolStripMenuItem.Click += userAccessControlToolStripMenuItem_Click;
             // 
             // logoutToolStripMenuItem
             // 
@@ -143,12 +144,6 @@
             toolStripStatusLabel.Name = "toolStripStatusLabel";
             toolStripStatusLabel.Size = new Size(39, 17);
             toolStripStatusLabel.Text = "Status";
-            // 
-            // setupToolStripMenuItem1
-            // 
-            setupToolStripMenuItem1.Name = "setupToolStripMenuItem1";
-            setupToolStripMenuItem1.Size = new Size(180, 22);
-            setupToolStripMenuItem1.Text = "Setup";
             // 
             // SuperAdminForm
             // 
@@ -192,7 +187,6 @@
         private ToolStripMenuItem logoutToolStripMenuItem;
         private ToolStripMenuItem resetAllToolStripMenuItem;
         private ToolStripMenuItem logoutToolStripMenuItem1;
-        private ToolStripMenuItem setupToolStripMenuItem1;
     }
 }
 

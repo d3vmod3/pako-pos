@@ -53,7 +53,7 @@ namespace PAKOPointOfSale.Users
 
                     using (SqlCommand cmd = new SqlCommand(sql, conn))
                     {
-                        cmd.Parameters.AddWithValue("@isActive", 1); // 1 = active, 0 = inactive
+                        cmd.Parameters.AddWithValue("@isActive", 0); // 1 = active, 0 = inactive
                         cmd.Parameters.AddWithValue("@id", _userId); // _userId should be set before opening this form
 
                         int rowsAffected = cmd.ExecuteNonQuery();

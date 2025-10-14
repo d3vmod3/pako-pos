@@ -1,6 +1,6 @@
 ﻿namespace PAKOPointOfSale.Categories
 {
-    partial class AddCategories
+    partial class AddCategory
     {
         /// <summary>
         /// Required designer variable.
@@ -28,51 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            txtCategoryID = new TextBox();
             txtCategoryName = new TextBox();
             txtDescription = new TextBox();
-            label1 = new Label();
             label2 = new Label();
             label3 = new Label();
             btnSubmit = new Button();
             SuspendLayout();
             // 
-            // txtCategoryID
-            // 
-            txtCategoryID.Location = new Point(179, 27);
-            txtCategoryID.Name = "txtCategoryID";
-            txtCategoryID.Size = new Size(197, 23);
-            txtCategoryID.TabIndex = 0;
-            txtCategoryID.TextChanged += textBox1_TextChanged;
-            // 
             // txtCategoryName
             // 
-            txtCategoryName.Location = new Point(179, 74);
+            txtCategoryName.Location = new Point(140, 5);
             txtCategoryName.Name = "txtCategoryName";
-            txtCategoryName.Size = new Size(197, 23);
+            txtCategoryName.Size = new Size(332, 23);
             txtCategoryName.TabIndex = 1;
             // 
             // txtDescription
             // 
-            txtDescription.Location = new Point(179, 115);
+            txtDescription.Location = new Point(140, 46);
+            txtDescription.Multiline = true;
             txtDescription.Name = "txtDescription";
-            txtDescription.Size = new Size(197, 23);
+            txtDescription.Size = new Size(332, 87);
             txtDescription.TabIndex = 2;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(53, 35);
-            label1.Name = "label1";
-            label1.Size = new Size(66, 15);
-            label1.TabIndex = 3;
-            label1.Text = "CategoryID";
-            label1.Click += label1_Click;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(51, 78);
+            label2.Location = new Point(12, 9);
             label2.Name = "label2";
             label2.Size = new Size(90, 15);
             label2.TabIndex = 4;
@@ -82,7 +63,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(54, 119);
+            label3.Location = new Point(15, 50);
             label3.Name = "label3";
             label3.Size = new Size(67, 15);
             label3.TabIndex = 5;
@@ -90,37 +71,34 @@
             // 
             // btnSubmit
             // 
-            btnSubmit.Location = new Point(413, 167);
+            btnSubmit.Location = new Point(397, 139);
             btnSubmit.Name = "btnSubmit";
             btnSubmit.Size = new Size(75, 23);
             btnSubmit.TabIndex = 6;
             btnSubmit.Text = "Submit";
             btnSubmit.UseVisualStyleBackColor = true;
+            btnSubmit.Click += btnSubmit_Click;
             // 
-            // Categories
+            // AddCategory
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(520, 214);
+            ClientSize = new Size(481, 172);
             Controls.Add(btnSubmit);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(label1);
             Controls.Add(txtDescription);
             Controls.Add(txtCategoryName);
-            Controls.Add(txtCategoryID);
-            Name = "Categories";
+            Name = "AddCategory";
             Text = "Categories";
+            Load += AddCategory_Load;
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private TextBox txtCategoryID;
         private TextBox txtCategoryName;
         private TextBox txtDescription;
-        private Label label1;
         private Label label2;
         private Label label3;
         private Button btnSubmit;
