@@ -83,6 +83,7 @@ namespace PAKOPointOfSale.Users
                         cmd.Parameters.AddWithValue("@suffix", string.IsNullOrEmpty(txtSuffix.Text) ? (object)DBNull.Value : txtSuffix.Text);
                         cmd.Parameters.AddWithValue("@user_type_id", (int)cmbRole.SelectedValue);
                         cmd.Parameters.AddWithValue("@created_at", DateTime.Now);
+                        cmd.Parameters.AddWithValue("@is_active", false);
 
                         cmd.ExecuteNonQuery();
                     }
