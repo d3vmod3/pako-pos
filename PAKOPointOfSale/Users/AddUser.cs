@@ -1,8 +1,10 @@
 ﻿using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -59,8 +61,11 @@ namespace PAKOPointOfSale.Users
             {
                 // Connection string from Program.cs
                 string connString = PAKOPointOfSale.Program.ConnString;
-
-                using (SqlConnection conn = new SqlConnection(connString))
+                if (!validateForm())
+                {
+                    return;
+                }
+                    using (SqlConnection conn = new SqlConnection(connString))
                 {
                     conn.Open();
 
@@ -89,12 +94,91 @@ namespace PAKOPointOfSale.Users
                     }
 
                     MessageBox.Show("User added successfully!");
+                    this.Close();
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error adding user: " + ex.Message);
             }
+        }
+        public bool validateForm()
+        {
+
+            if (string.IsNullOrWhiteSpace(txtUsername.Text))
+            {
+                MessageBox.Show("Please enter a username.");
+                txtUsername.Focus();
+                return false;
+            }
+
+            if (isUsernameExists() == true)
+            {
+                MessageBox.Show("Username already exists. Please choose another one.");
+                txtUsername.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtFirstName.Text))
+            {
+                MessageBox.Show("Please enter the first name.");
+                txtFirstName.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtLastName.Text))
+            {
+                MessageBox.Show("Please enter the last name.");
+                txtLastName.Focus();
+                return false;
+            }
+
+            if (cmbGender.SelectedIndex < 0)
+            {
+                MessageBox.Show("Please select a gender.");
+                cmbGender.DroppedDown = true;
+                return false;
+            }
+
+            if (cmbRole.SelectedIndex < 0)
+            {
+                MessageBox.Show("Please select a user role.");
+                cmbRole.DroppedDown = true;
+                return false;
+            }
+
+            // Optional: check if birthdate is in the future
+            if (dtpBirthdate.Value.Date > DateTime.Now.Date)
+            {
+                MessageBox.Show("Birthdate cannot be in the future.");
+                dtpBirthdate.Focus();
+                return false;
+            }
+
+            // All good
+            return true;
+        }
+
+        public bool isUsernameExists()
+        {
+
+            string connString = PAKOPointOfSale.Program.ConnString;
+            using (SqlConnection conn = new SqlConnection(connString))
+            {
+                conn.Open();
+                string query = "SELECT COUNT(*) FROM Users WHERE username = @username";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@username", txtUsername.Text.Trim());
+                    int count = (int)cmd.ExecuteScalar();
+
+                    if (count > 0)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
     }
 }
