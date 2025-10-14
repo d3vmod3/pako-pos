@@ -10,10 +10,10 @@
     <Compile Update="Categories\ArchiveCategory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Categories\EditCategory.cs">
+    <Compile Update="Categories\CategoriesList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Categories\CategoriesList.cs">
+    <Compile Update="Categories\EditCategory.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Dashboard.cs">
@@ -22,7 +22,6 @@
     <Compile Update="MDIParent1.cs">
       <SubType>Form</SubType>
     </Compile>
-<<<<<<< HEAD
     <Compile Update="Products\AddProduct.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -45,9 +44,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Supplier Details\SupplierDetailsLists.cs">
-=======
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="UAC\UAC.cs">
->>>>>>> 1ad18954c66ec3733f90966162dbad8cd982d110
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Users\AddUser.cs">
