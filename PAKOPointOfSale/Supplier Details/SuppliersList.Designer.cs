@@ -1,6 +1,6 @@
 ﻿namespace PAKOPointOfSale.Supplier_Details
 {
-    partial class SupplierDetails
+    partial class SuppliersList
     {
         /// <summary>
         /// Required designer variable.
@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            dataGridView1 = new DataGridView();
-            lblSearch = new Label();
-            txtSearch = new TextBox();
-            btnAdd = new Button();
             btnPrint = new Button();
+            btnAdd = new Button();
+            txtSearch = new TextBox();
+            lblSearch = new Label();
+            dataGridView1 = new DataGridView();
             supplierDetailsBindingSource = new BindingSource(components);
             idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -47,50 +47,50 @@
             ((System.ComponentModel.ISupportInitialize)supplierDetailsBindingSource).BeginInit();
             SuspendLayout();
             // 
+            // btnPrint
+            // 
+            btnPrint.Location = new Point(561, 2);
+            btnPrint.Name = "btnPrint";
+            btnPrint.Size = new Size(75, 23);
+            btnPrint.TabIndex = 9;
+            btnPrint.Text = "Print";
+            btnPrint.UseVisualStyleBackColor = true;
+            // 
+            // btnAdd
+            // 
+            btnAdd.Location = new Point(469, 3);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(75, 23);
+            btnAdd.TabIndex = 8;
+            btnAdd.Text = "Add";
+            btnAdd.UseVisualStyleBackColor = true;
+            // 
+            // txtSearch
+            // 
+            txtSearch.Location = new Point(12, 3);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(433, 23);
+            txtSearch.TabIndex = 7;
+            // 
+            // lblSearch
+            // 
+            lblSearch.AutoSize = true;
+            lblSearch.Location = new Point(-133, 7);
+            lblSearch.Name = "lblSearch";
+            lblSearch.Size = new Size(45, 15);
+            lblSearch.TabIndex = 6;
+            lblSearch.Text = "Search:";
+            // 
             // dataGridView1
             // 
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, nameDataGridViewTextBoxColumn, addressDataGridViewTextBoxColumn, contactnumberDataGridViewTextBoxColumn, accountnumberDataGridViewTextBoxColumn, gatewayDataGridViewTextBoxColumn, createdatDataGridViewTextBoxColumn, productsDataGridViewTextBoxColumn });
             dataGridView1.DataSource = supplierDetailsBindingSource;
-            dataGridView1.Location = new Point(-1, 45);
+            dataGridView1.Location = new Point(12, 32);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(1093, 413);
-            dataGridView1.TabIndex = 0;
-            // 
-            // lblSearch
-            // 
-            lblSearch.AutoSize = true;
-            lblSearch.Location = new Point(12, 16);
-            lblSearch.Name = "lblSearch";
-            lblSearch.Size = new Size(45, 15);
-            lblSearch.TabIndex = 1;
-            lblSearch.Text = "Search:";
-            // 
-            // txtSearch
-            // 
-            txtSearch.Location = new Point(58, 12);
-            txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(433, 23);
-            txtSearch.TabIndex = 2;
-            // 
-            // btnAdd
-            // 
-            btnAdd.Location = new Point(515, 12);
-            btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(75, 23);
-            btnAdd.TabIndex = 3;
-            btnAdd.Text = "Add";
-            btnAdd.UseVisualStyleBackColor = true;
-            // 
-            // btnPrint
-            // 
-            btnPrint.Location = new Point(607, 11);
-            btnPrint.Name = "btnPrint";
-            btnPrint.Size = new Size(75, 23);
-            btnPrint.TabIndex = 4;
-            btnPrint.Text = "Print";
-            btnPrint.UseVisualStyleBackColor = true;
+            dataGridView1.Size = new Size(980, 413);
+            dataGridView1.TabIndex = 5;
             // 
             // supplierDetailsBindingSource
             // 
@@ -101,41 +101,42 @@
             idDataGridViewTextBoxColumn.DataPropertyName = "id";
             idDataGridViewTextBoxColumn.HeaderText = "id";
             idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            idDataGridViewTextBoxColumn.Visible = false;
             // 
             // nameDataGridViewTextBoxColumn
             // 
             nameDataGridViewTextBoxColumn.DataPropertyName = "name";
-            nameDataGridViewTextBoxColumn.HeaderText = "name";
+            nameDataGridViewTextBoxColumn.HeaderText = "Name";
             nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             // 
             // addressDataGridViewTextBoxColumn
             // 
             addressDataGridViewTextBoxColumn.DataPropertyName = "address";
-            addressDataGridViewTextBoxColumn.HeaderText = "address";
+            addressDataGridViewTextBoxColumn.HeaderText = "Address";
             addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
             // 
             // contactnumberDataGridViewTextBoxColumn
             // 
             contactnumberDataGridViewTextBoxColumn.DataPropertyName = "contact_number";
-            contactnumberDataGridViewTextBoxColumn.HeaderText = "contact_number";
+            contactnumberDataGridViewTextBoxColumn.HeaderText = "Contact Number";
             contactnumberDataGridViewTextBoxColumn.Name = "contactnumberDataGridViewTextBoxColumn";
             // 
             // accountnumberDataGridViewTextBoxColumn
             // 
             accountnumberDataGridViewTextBoxColumn.DataPropertyName = "account_number";
-            accountnumberDataGridViewTextBoxColumn.HeaderText = "account_number";
+            accountnumberDataGridViewTextBoxColumn.HeaderText = "Account Number";
             accountnumberDataGridViewTextBoxColumn.Name = "accountnumberDataGridViewTextBoxColumn";
             // 
             // gatewayDataGridViewTextBoxColumn
             // 
             gatewayDataGridViewTextBoxColumn.DataPropertyName = "gateway";
-            gatewayDataGridViewTextBoxColumn.HeaderText = "gateway";
+            gatewayDataGridViewTextBoxColumn.HeaderText = "Gateway";
             gatewayDataGridViewTextBoxColumn.Name = "gatewayDataGridViewTextBoxColumn";
             // 
             // createdatDataGridViewTextBoxColumn
             // 
             createdatDataGridViewTextBoxColumn.DataPropertyName = "created_at";
-            createdatDataGridViewTextBoxColumn.HeaderText = "created_at";
+            createdatDataGridViewTextBoxColumn.HeaderText = "Date Created";
             createdatDataGridViewTextBoxColumn.Name = "createdatDataGridViewTextBoxColumn";
             // 
             // productsDataGridViewTextBoxColumn
@@ -143,19 +144,21 @@
             productsDataGridViewTextBoxColumn.DataPropertyName = "products";
             productsDataGridViewTextBoxColumn.HeaderText = "products";
             productsDataGridViewTextBoxColumn.Name = "productsDataGridViewTextBoxColumn";
+            productsDataGridViewTextBoxColumn.Visible = false;
             // 
-            // SupplierDetails
+            // SuppliersList
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1092, 450);
+            ClientSize = new Size(1004, 499);
             Controls.Add(btnPrint);
             Controls.Add(btnAdd);
             Controls.Add(txtSearch);
             Controls.Add(lblSearch);
             Controls.Add(dataGridView1);
-            Name = "SupplierDetails";
-            Text = "SupplierDetails";
+            Name = "SuppliersList";
+            Text = "SuppliersList";
+            Load += SuppliersList_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)supplierDetailsBindingSource).EndInit();
             ResumeLayout(false);
@@ -164,11 +167,12 @@
 
         #endregion
 
-        private DataGridView dataGridView1;
-        private Label lblSearch;
-        private TextBox txtSearch;
-        private Button btnAdd;
         private Button btnPrint;
+        private Button btnAdd;
+        private TextBox txtSearch;
+        private Label lblSearch;
+        private DataGridView dataGridView1;
+        private BindingSource supplierDetailsBindingSource;
         private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
@@ -177,6 +181,5 @@
         private DataGridViewTextBoxColumn gatewayDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn createdatDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn productsDataGridViewTextBoxColumn;
-        private BindingSource supplierDetailsBindingSource;
     }
 }

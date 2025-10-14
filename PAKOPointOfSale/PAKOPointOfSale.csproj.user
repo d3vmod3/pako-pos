@@ -43,7 +43,7 @@
     <Compile Update="Supplier Details\EditSupplierDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Supplier Details\SupplierDetailsLists.cs">
+    <Compile Update="Supplier Details\SuppliersList.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="UAC\UAC.cs">

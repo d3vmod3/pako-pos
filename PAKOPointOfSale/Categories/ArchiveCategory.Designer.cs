@@ -34,11 +34,8 @@
             txtDescription = new TextBox();
             txtCategoryName = new TextBox();
             btnNo = new Button();
-<<<<<<< HEAD:PAKOPointOfSale/Categories/Archive.Designer.cs
             btnArchive = new Button();
-=======
             label1 = new Label();
->>>>>>> 1ad18954c66ec3733f90966162dbad8cd982d110:PAKOPointOfSale/Categories/ArchiveCategory.Designer.cs
             SuspendLayout();
             // 
             // btnYes
@@ -96,15 +93,6 @@
             btnNo.UseVisualStyleBackColor = true;
             btnNo.Click += btnNo_Click;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(12, 18);
-            label1.Name = "label1";
-            label1.Size = new Size(250, 15);
-            label1.TabIndex = 15;
-            label1.Text = "Are you sure you want to delete this category?";
-            // 
             // btnArchive
             // 
             btnArchive.Location = new Point(63, 210);
@@ -114,24 +102,29 @@
             btnArchive.Text = "Archive";
             btnArchive.UseVisualStyleBackColor = true;
             // 
-            // Archive
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(15, 19);
+            label1.Name = "label1";
+            label1.Size = new Size(256, 15);
+            label1.TabIndex = 16;
+            label1.Text = "Are you sure you want to archive this category?";
+            // 
+            // ArchiveCategory
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-<<<<<<< HEAD:PAKOPointOfSale/Categories/Archive.Designer.cs
             ClientSize = new Size(533, 273);
-            Controls.Add(btnArchive);
-=======
-            ClientSize = new Size(357, 289);
             Controls.Add(label1);
->>>>>>> 1ad18954c66ec3733f90966162dbad8cd982d110:PAKOPointOfSale/Categories/ArchiveCategory.Designer.cs
+            Controls.Add(btnArchive);
             Controls.Add(btnNo);
             Controls.Add(btnYes);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(txtDescription);
             Controls.Add(txtCategoryName);
-            Name = "Archive";
+            Name = "ArchiveCategory";
             Text = "Archive";
             Load += Archive_Load;
             ResumeLayout(false);
@@ -146,10 +139,7 @@
         private TextBox txtDescription;
         private TextBox txtCategoryName;
         private Button btnNo;
-<<<<<<< HEAD:PAKOPointOfSale/Categories/Archive.Designer.cs
         private Button btnArchive;
-=======
         private Label label1;
->>>>>>> 1ad18954c66ec3733f90966162dbad8cd982d110:PAKOPointOfSale/Categories/ArchiveCategory.Designer.cs
     }
 }
