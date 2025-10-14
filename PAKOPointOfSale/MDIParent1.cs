@@ -109,7 +109,13 @@ namespace PAKOPointOfSale
         private void categoriesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Categories.CategoriesList categoriesList = new Categories.CategoriesList();
-            categoriesList.Show(); 
+            categoriesList.Show();
+        }
+
+        private void userAccessControlToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UAC.UAC userAccessControlForm = new UAC.UAC();
+            userAccessControlForm.Show();
         }
     }
 }

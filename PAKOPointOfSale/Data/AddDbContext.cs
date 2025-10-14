@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using PAKOPointOfSale;
+using PAKOPointOfSale.Model;
 using WinFormsApp1.Model;
 
 namespace WinFormsApp1.Data
@@ -12,6 +13,7 @@ namespace WinFormsApp1.Data
     public class AppDbContext : DbContext
     {
         public DbSet<UserType> UserTypes { get; set; }
+        public DbSet<Permission> Permissions { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<SupplierDetails> SupplierDetails { get; set; }
@@ -19,6 +21,7 @@ namespace WinFormsApp1.Data
         public DbSet<SuppliedProduct> SuppliedProducts { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
         public DbSet<SalesInvoiceItem> SalesInvoiceItems { get; set; }
+        
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
@@ -34,6 +37,25 @@ namespace WinFormsApp1.Data
                 new UserType { id = 1, name = "Super Admin" },
                 new UserType { id = 2, name = "Admin" },
                 new UserType { id = 3, name = "Cashier" }
+            );
+            modelBuilder.Entity<Permission>().HasData(
+            // Admin full access to all modules
+                new Permission { id = 1, user_type_id = 1, module_name = "Users", can_view = true, can_add = true, can_edit = true, can_delete = true },
+                new Permission { id = 2, user_type_id = 1, module_name = "Categories", can_view = true, can_add = true, can_edit = true, can_delete = true },
+                new Permission { id = 3, user_type_id = 1, module_name = "Suppliers", can_view = true, can_add = true, can_edit = true, can_delete = true },
+                new Permission { id = 4, user_type_id = 1, module_name = "SuppliedProducts", can_view = true, can_add = true, can_edit = true, can_delete = true },
+
+                // Cashier: view only Products
+                new Permission { id = 5, user_type_id = 2, module_name = "Users", can_view = false, can_add = false, can_edit = false, can_delete = false },
+                new Permission { id = 6, user_type_id = 2, module_name = "Categories", can_view = true, can_add = false, can_edit = false, can_delete = false },
+                new Permission { id = 7, user_type_id = 2, module_name = "Suppliers", can_view = true, can_add = false, can_edit = false, can_delete = false },
+                new Permission { id = 8, user_type_id = 2, module_name = "SuppliedProducts", can_view = true, can_add = false, can_edit = false, can_delete = false },
+
+                // Manager: view, add, edit Products and Categories
+                new Permission { id = 9, user_type_id = 3, module_name = "Users", can_view = false, can_add = false, can_edit = false, can_delete = false },
+                new Permission { id = 10, user_type_id = 3, module_name = "Categories", can_view = true, can_add = true, can_edit = true, can_delete = false },
+                new Permission { id = 11, user_type_id = 3, module_name = "Suppliers", can_view = true, can_add = true, can_edit = true, can_delete = false },
+                new Permission { id = 12, user_type_id = 3, module_name = "SuppliedProducts", can_view = true, can_add = true, can_edit = true, can_delete = false }
             );
 
             // Example: Seeding Users

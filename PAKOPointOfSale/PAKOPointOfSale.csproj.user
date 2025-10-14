@@ -22,6 +22,9 @@
     <Compile Update="MDIParent1.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="UAC\UAC.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Users\AddUser.cs">
       <SubType>Form</SubType>
     </Compile>

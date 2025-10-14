@@ -38,7 +38,6 @@
             transactionsToolStripMenuItem = new ToolStripMenuItem();
             usersToolStripMenuItem1 = new ToolStripMenuItem();
             userAccessControlToolStripMenuItem = new ToolStripMenuItem();
-            setupToolStripMenuItem1 = new ToolStripMenuItem();
             logoutToolStripMenuItem = new ToolStripMenuItem();
             resetAllToolStripMenuItem = new ToolStripMenuItem();
             logoutToolStripMenuItem1 = new ToolStripMenuItem();
@@ -61,7 +60,7 @@
             // 
             // setupToolStripMenuItem
             // 
-            setupToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { categoriesToolStripMenuItem, usersToolStripMenuItem, supplierProductsToolStripMenuItem, suppliersToolStripMenuItem, transactionsToolStripMenuItem, usersToolStripMenuItem1, userAccessControlToolStripMenuItem, setupToolStripMenuItem1 });
+            setupToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { categoriesToolStripMenuItem, usersToolStripMenuItem, supplierProductsToolStripMenuItem, suppliersToolStripMenuItem, transactionsToolStripMenuItem, usersToolStripMenuItem1, userAccessControlToolStripMenuItem });
             setupToolStripMenuItem.Name = "setupToolStripMenuItem";
             setupToolStripMenuItem.Size = new Size(49, 20);
             setupToolStripMenuItem.Text = "Setup";
@@ -109,12 +108,7 @@
             userAccessControlToolStripMenuItem.Name = "userAccessControlToolStripMenuItem";
             userAccessControlToolStripMenuItem.Size = new Size(180, 22);
             userAccessControlToolStripMenuItem.Text = "User Access Control";
-            // 
-            // setupToolStripMenuItem1
-            // 
-            setupToolStripMenuItem1.Name = "setupToolStripMenuItem1";
-            setupToolStripMenuItem1.Size = new Size(180, 22);
-            setupToolStripMenuItem1.Text = "Setup";
+            userAccessControlToolStripMenuItem.Click += userAccessControlToolStripMenuItem_Click;
             // 
             // logoutToolStripMenuItem
             // 
@@ -193,7 +187,6 @@
         private ToolStripMenuItem logoutToolStripMenuItem;
         private ToolStripMenuItem resetAllToolStripMenuItem;
         private ToolStripMenuItem logoutToolStripMenuItem1;
-        private ToolStripMenuItem setupToolStripMenuItem1;
     }
 }
 
