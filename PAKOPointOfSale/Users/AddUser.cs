@@ -68,7 +68,7 @@ namespace PAKOPointOfSale.Users
                         INSERT INTO Users
                         (username, password, first_name, middle_name, last_name, birthday, gender, suffix, user_type_id, created_at, is_active)
                         VALUES
-                        (@username, @password, @first_name, @middle_name, @last_name, @birthday, @gender, @suffix, @user_type_id, @created_at)
+                        (@username, @password, @first_name, @middle_name, @last_name, @birthday, @gender, @suffix, @user_type_id, @created_at,@is_active)
                     ";
 
                     using (SqlCommand cmd = new SqlCommand(sql, conn))
