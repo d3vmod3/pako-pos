@@ -36,6 +36,7 @@
             txtCategoryName = new TextBox();
             txtCategoryID = new TextBox();
             btnNo = new Button();
+            btnArchive = new Button();
             SuspendLayout();
             // 
             // btnYes
@@ -104,11 +105,21 @@
             btnNo.Text = "No";
             btnNo.UseVisualStyleBackColor = true;
             // 
+            // btnArchive
+            // 
+            btnArchive.Location = new Point(63, 210);
+            btnArchive.Name = "btnArchive";
+            btnArchive.Size = new Size(75, 23);
+            btnArchive.TabIndex = 15;
+            btnArchive.Text = "Archive";
+            btnArchive.UseVisualStyleBackColor = true;
+            // 
             // Archive
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(533, 273);
+            Controls.Add(btnArchive);
             Controls.Add(btnNo);
             Controls.Add(btnYes);
             Controls.Add(label3);
@@ -133,5 +144,6 @@
         private TextBox txtCategoryName;
         private TextBox txtCategoryID;
         private Button btnNo;
+        private Button btnArchive;
     }
 }

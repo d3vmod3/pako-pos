@@ -35,7 +35,7 @@
             btnAdd = new Button();
             btnPrint = new Button();
             txtSearch = new TextBox();
-            label1 = new Label();
+            lblSearch = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -71,7 +71,7 @@
             // 
             // btnAdd
             // 
-            btnAdd.Location = new Point(432, 12);
+            btnAdd.Location = new Point(432, 14);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(75, 23);
             btnAdd.TabIndex = 1;
@@ -80,7 +80,7 @@
             // 
             // btnPrint
             // 
-            btnPrint.Location = new Point(513, 12);
+            btnPrint.Location = new Point(513, 14);
             btnPrint.Name = "btnPrint";
             btnPrint.Size = new Size(75, 23);
             btnPrint.TabIndex = 3;
@@ -94,21 +94,21 @@
             txtSearch.Size = new Size(366, 23);
             txtSearch.TabIndex = 7;
             // 
-            // label1
+            // lblSearch
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(12, 20);
-            label1.Name = "label1";
-            label1.Size = new Size(42, 15);
-            label1.TabIndex = 8;
-            label1.Text = "Search";
+            lblSearch.AutoSize = true;
+            lblSearch.Location = new Point(12, 20);
+            lblSearch.Name = "lblSearch";
+            lblSearch.Size = new Size(45, 15);
+            lblSearch.TabIndex = 8;
+            lblSearch.Text = "Search:";
             // 
             // CategoryList
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(640, 417);
-            Controls.Add(label1);
+            Controls.Add(lblSearch);
             Controls.Add(txtSearch);
             Controls.Add(btnPrint);
             Controls.Add(btnAdd);
@@ -129,6 +129,6 @@
         private Button btnAdd;
         private Button btnPrint;
         private TextBox txtSearch;
-        private Label label1;
+        private Label lblSearch;
     }
 }

@@ -22,6 +22,30 @@
     <Compile Update="MDIParent1.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Products\AddProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Products\Archive.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Products\EditProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Products\ProductsList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Supplier Details\AddSupplierDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Supplier Details\Arhive.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Supplier Details\EditSupplierDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Supplier Details\SupplierDetailsLists.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Users\AddUser.cs">
       <SubType>Form</SubType>
     </Compile>
