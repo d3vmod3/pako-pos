@@ -32,6 +32,7 @@
             btnSubmit = new Button();
             label8 = new Label();
             cmbRole = new ComboBox();
+            userTypeBindingSource = new BindingSource(components);
             label7 = new Label();
             label6 = new Label();
             label5 = new Label();
@@ -46,13 +47,14 @@
             txtMiddleName = new TextBox();
             txtFirstName = new TextBox();
             txtUsername = new TextBox();
-            userTypeBindingSource = new BindingSource(components);
+            chkIsActive = new CheckBox();
+            lblCreatedAt = new Label();
             ((System.ComponentModel.ISupportInitialize)userTypeBindingSource).BeginInit();
             SuspendLayout();
             // 
             // btnSubmit
             // 
-            btnSubmit.Location = new Point(512, 255);
+            btnSubmit.Location = new Point(403, 288);
             btnSubmit.Name = "btnSubmit";
             btnSubmit.Size = new Size(75, 23);
             btnSubmit.TabIndex = 33;
@@ -79,6 +81,10 @@
             cmbRole.Size = new Size(121, 23);
             cmbRole.TabIndex = 31;
             cmbRole.ValueMember = "id";
+            // 
+            // userTypeBindingSource
+            // 
+            userTypeBindingSource.DataSource = typeof(UserType);
             // 
             // label7
             // 
@@ -194,15 +200,32 @@
             txtUsername.Size = new Size(121, 23);
             txtUsername.TabIndex = 17;
             // 
-            // userTypeBindingSource
+            // chkIsActive
             // 
-            userTypeBindingSource.DataSource = typeof(UserType);
+            chkIsActive.AutoSize = true;
+            chkIsActive.Location = new Point(182, 292);
+            chkIsActive.Name = "chkIsActive";
+            chkIsActive.Size = new Size(59, 19);
+            chkIsActive.TabIndex = 34;
+            chkIsActive.Text = "Active";
+            chkIsActive.UseVisualStyleBackColor = true;
+            // 
+            // lblCreatedAt
+            // 
+            lblCreatedAt.AutoSize = true;
+            lblCreatedAt.Location = new Point(25, 260);
+            lblCreatedAt.Name = "lblCreatedAt";
+            lblCreatedAt.Size = new Size(81, 15);
+            lblCreatedAt.TabIndex = 35;
+            lblCreatedAt.Text = "Date Created: ";
             // 
             // EditUser
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(591, 286);
+            ClientSize = new Size(487, 334);
+            Controls.Add(lblCreatedAt);
+            Controls.Add(chkIsActive);
             Controls.Add(btnSubmit);
             Controls.Add(label8);
             Controls.Add(cmbRole);
@@ -248,5 +271,7 @@
         private TextBox txtFirstName;
         private TextBox txtUsername;
         private BindingSource userTypeBindingSource;
+        private CheckBox chkIsActive;
+        private Label lblCreatedAt;
     }
 }

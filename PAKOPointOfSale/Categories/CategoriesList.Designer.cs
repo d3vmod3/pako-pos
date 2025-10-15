@@ -10,7 +10,7 @@ namespace PAKOPointOfSale.Categories
 
         /// <summary>
         /// Clean up any resources being used.
-        /// </summary>
+        /// </summary>w
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
@@ -32,7 +32,6 @@ namespace PAKOPointOfSale.Categories
             components = new System.ComponentModel.Container();
             dataGridView1 = new DataGridView();
             id = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
             description = new DataGridViewTextBoxColumn();
             is_active = new DataGridViewTextBoxColumn();
             categoryBindingSource1 = new BindingSource(components);
@@ -54,7 +53,7 @@ namespace PAKOPointOfSale.Categories
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { id, dataGridViewTextBoxColumn2, description, is_active });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { id, description, is_active });
             dataGridView1.DataSource = categoryBindingSource1;
             dataGridView1.Location = new Point(10, 107);
             dataGridView1.Name = "dataGridView1";
@@ -70,14 +69,6 @@ namespace PAKOPointOfSale.Categories
             id.Name = "id";
             id.ReadOnly = true;
             id.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            dataGridViewTextBoxColumn2.DataPropertyName = "name";
-            dataGridViewTextBoxColumn2.HeaderText = "Category Name";
-            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            dataGridViewTextBoxColumn2.ReadOnly = true;
-            dataGridViewTextBoxColumn2.Width = 150;
             // 
             // description
             // 
@@ -97,13 +88,9 @@ namespace PAKOPointOfSale.Categories
             is_active.Resizable = DataGridViewTriState.True;
             is_active.SortMode = DataGridViewColumnSortMode.NotSortable;
             // 
-            // categoryBindingSource1
-            // 
-            categoryBindingSource1.DataSource = typeof(Category);
-            // 
             // btnAdd
             // 
-            btnAdd.Location = new Point(471, 78);
+            btnAdd.Location = new Point(500, 14);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(75, 23);
             btnAdd.TabIndex = 1;
@@ -113,7 +100,7 @@ namespace PAKOPointOfSale.Categories
             // 
             // btnPrint
             // 
-            btnPrint.Location = new Point(552, 78);
+            btnPrint.Location = new Point(581, 14);
             btnPrint.Name = "btnPrint";
             btnPrint.Size = new Size(75, 23);
             btnPrint.TabIndex = 3;
@@ -122,7 +109,7 @@ namespace PAKOPointOfSale.Categories
             // 
             // txtSearch
             // 
-            txtSearch.Location = new Point(63, 79);
+            txtSearch.Location = new Point(60, 15);
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(366, 23);
             txtSearch.TabIndex = 7;
@@ -131,19 +118,18 @@ namespace PAKOPointOfSale.Categories
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(15, 86);
+            label1.Location = new Point(12, 20);
             label1.Name = "label1";
-            label1.Size = new Size(45, 15);
+            label1.Size = new Size(42, 15);
             label1.TabIndex = 8;
-            label1.Text = "Search:";
+            label1.Text = "Search";
             // 
             // pictureBox2
             // 
-            pictureBox2.BackColor = Color.DimGray;
-            pictureBox2.Location = new Point(1, 12);
+            pictureBox2.Location = new Point(0, 0);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(662, 57);
-            pictureBox2.TabIndex = 20;
+            pictureBox2.Size = new Size(100, 50);
+            pictureBox2.TabIndex = 0;
             pictureBox2.TabStop = false;
             // 
             // CategoriesList

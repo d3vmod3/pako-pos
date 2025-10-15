@@ -33,11 +33,12 @@
             label2 = new Label();
             txtDescription = new TextBox();
             txtCategoryName = new TextBox();
+            chkIsActive = new CheckBox();
             SuspendLayout();
             // 
             // btnSubmit
             // 
-            btnSubmit.Location = new Point(341, 181);
+            btnSubmit.Location = new Point(341, 206);
             btnSubmit.Name = "btnSubmit";
             btnSubmit.Size = new Size(75, 23);
             btnSubmit.TabIndex = 13;
@@ -79,11 +80,22 @@
             txtCategoryName.Size = new Size(276, 23);
             txtCategoryName.TabIndex = 8;
             // 
+            // chkIsActive
+            // 
+            chkIsActive.AutoSize = true;
+            chkIsActive.Location = new Point(357, 161);
+            chkIsActive.Name = "chkIsActive";
+            chkIsActive.Size = new Size(59, 19);
+            chkIsActive.TabIndex = 27;
+            chkIsActive.Text = "Active";
+            chkIsActive.UseVisualStyleBackColor = true;
+            // 
             // EditCategory
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(444, 216);
+            ClientSize = new Size(431, 241);
+            Controls.Add(chkIsActive);
             Controls.Add(btnSubmit);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -103,5 +115,6 @@
         private Label label2;
         private TextBox txtDescription;
         private TextBox txtCategoryName;
+        private CheckBox chkIsActive;
     }
 }

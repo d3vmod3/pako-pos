@@ -7,9 +7,6 @@
     <Compile Update="Categories\AddCategory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Categories\ArchiveCategory.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Categories\CategoriesList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -37,12 +34,6 @@
     <Compile Update="Supplier Details\AddSupplierDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Supplier Details\Archive.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Supplier Details\Arhive.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Supplier Details\EditSupplierDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -55,9 +46,6 @@
     <Compile Update="Users\AddUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Users\DeactivatedUser.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Users\EditUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,5 +55,10 @@
     <Compile Update="Users\UsersList.cs">
       <SubType>Form</SubType>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Categories\CategoriesList.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

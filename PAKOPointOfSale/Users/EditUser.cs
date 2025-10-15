@@ -72,6 +72,9 @@ namespace PAKOPointOfSale.Users
                                 cmbGender.SelectedItem = reader["gender"].ToString();
                                 txtSuffix.Text = reader["suffix"] != DBNull.Value ? reader["suffix"].ToString() : "";
                                 cmbRole.SelectedValue = Convert.ToInt32(reader["user_type_id"]);
+                                chkIsActive.Checked = Convert.ToBoolean(reader["is_active"]);
+                                DateTime createdAt = Convert.ToDateTime(reader["created_at"]);
+                                lblCreatedAt.Text = "Date Created: " + createdAt.ToString("yyyy-MM-dd HH:mm");
                             }
                             else
                             {
@@ -113,7 +116,8 @@ namespace PAKOPointOfSale.Users
                             birthday = @birthday,
                             gender = @gender,
                             suffix = @suffix,
-                            user_type_id = @user_type_id
+                            user_type_id = @user_type_id,
+                            is_active = @is_active
                         WHERE id = @id
                     ";
 
@@ -127,6 +131,7 @@ namespace PAKOPointOfSale.Users
                         cmd.Parameters.AddWithValue("@gender", cmbGender.SelectedItem?.ToString() ?? "Unspecified");
                         cmd.Parameters.AddWithValue("@suffix", string.IsNullOrEmpty(txtSuffix.Text) ? (object)DBNull.Value : txtSuffix.Text);
                         cmd.Parameters.AddWithValue("@user_type_id", (int)cmbRole.SelectedValue);
+                        cmd.Parameters.AddWithValue("@is_active", chkIsActive.Checked);
                         cmd.Parameters.AddWithValue("@id", _userId);
 
                         int rowsAffected = cmd.ExecuteNonQuery();
@@ -163,7 +168,6 @@ namespace PAKOPointOfSale.Users
             {
                 if (isUsernameExists() == true)
                 {
-
                     MessageBox.Show("Username already exists. Please choose another one.");
                     txtUsername.Focus();
                     return false;

@@ -79,14 +79,6 @@ namespace PAKOPointOfSale.Users
                 loadUsers();
 
             }
-
-            if (e.ColumnIndex == dataGridView1.Columns["deactivate"].Index)
-            {
-                DeactivatedUser deleteUserForm = new DeactivatedUser(userId);
-                deleteUserForm.ShowDialog();
-                loadUsers();
-
-            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
