@@ -60,6 +60,7 @@
             // 
             // txtPassword
             // 
+            txtPassword.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtPassword.Location = new Point(64, 325);
             txtPassword.Multiline = true;
             txtPassword.Name = "txtPassword";
@@ -69,6 +70,7 @@
             // 
             // txtUsername
             // 
+            txtUsername.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtUsername.Location = new Point(64, 266);
             txtUsername.Multiline = true;
             txtUsername.Name = "txtUsername";
@@ -127,9 +129,9 @@
             checkBox1.ForeColor = Color.White;
             checkBox1.Location = new Point(65, 362);
             checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(107, 19);
+            checkBox1.Size = new Size(108, 19);
             checkBox1.TabIndex = 8;
-            checkBox1.Text = "show password";
+            checkBox1.Text = "Show Password";
             checkBox1.UseVisualStyleBackColor = true;
             // 
             // linkLabel1
@@ -148,7 +150,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.CadetBlue;
+            BackColor = Color.DarkSlateGray;
             ClientSize = new Size(356, 462);
             ControlBox = false;
             Controls.Add(linkLabel1);
@@ -161,6 +163,8 @@
             Controls.Add(txtPassword);
             Controls.Add(btnLogin);
             FormBorderStyle = FormBorderStyle.None;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "Login";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "PAKO Point-Of-Sale";

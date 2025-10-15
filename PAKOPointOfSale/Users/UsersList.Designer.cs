@@ -29,11 +29,8 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UsersList));
             dataGridView1 = new DataGridView();
-            userBindingSource = new BindingSource(components);
-            txtSearch = new TextBox();
-            label1 = new Label();
-            btnAdd = new Button();
             id = new DataGridViewTextBoxColumn();
             usertypeidDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             usernameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -48,8 +45,17 @@
             createdatDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             is_active = new DataGridViewTextBoxColumn();
             edit = new DataGridViewButtonColumn();
+            userBindingSource = new BindingSource(components);
+            txtSearch = new TextBox();
+            label1 = new Label();
+            btnAdd = new Button();
+            pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
+            lbluserslist = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)userBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // dataGridView1
@@ -60,43 +66,12 @@
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { id, usertypeidDataGridViewTextBoxColumn, usernameDataGridViewTextBoxColumn, passwordDataGridViewTextBoxColumn, firstnameDataGridViewTextBoxColumn, middlenameDataGridViewTextBoxColumn, lastnameDataGridViewTextBoxColumn, birthdayDataGridViewTextBoxColumn, genderDataGridViewTextBoxColumn, suffixDataGridViewTextBoxColumn, userType, createdatDataGridViewTextBoxColumn, is_active, edit });
             dataGridView1.DataSource = userBindingSource;
-            dataGridView1.Location = new Point(12, 57);
+            dataGridView1.Location = new Point(12, 121);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
-            dataGridView1.Size = new Size(1206, 594);
+            dataGridView1.Size = new Size(1193, 545);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
-            // 
-            // userBindingSource
-            // 
-            userBindingSource.DataSource = typeof(User);
-            // 
-            // txtSearch
-            // 
-            txtSearch.Location = new Point(63, 25);
-            txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(391, 23);
-            txtSearch.TabIndex = 1;
-            txtSearch.TextChanged += txtSearch_TextChanged;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(12, 28);
-            label1.Name = "label1";
-            label1.Size = new Size(45, 15);
-            label1.TabIndex = 2;
-            label1.Text = "Search:";
-            // 
-            // btnAdd
-            // 
-            btnAdd.Location = new Point(1143, 28);
-            btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(75, 23);
-            btnAdd.TabIndex = 3;
-            btnAdd.Text = "Add User";
-            btnAdd.UseVisualStyleBackColor = true;
-            btnAdd.Click += btnAdd_Click;
             // 
             // id
             // 
@@ -142,6 +117,7 @@
             middlenameDataGridViewTextBoxColumn.HeaderText = "Middle Name";
             middlenameDataGridViewTextBoxColumn.Name = "middlenameDataGridViewTextBoxColumn";
             middlenameDataGridViewTextBoxColumn.ReadOnly = true;
+            middlenameDataGridViewTextBoxColumn.Width = 150;
             // 
             // lastnameDataGridViewTextBoxColumn
             // 
@@ -203,20 +179,95 @@
             edit.Text = "Edit";
             edit.UseColumnTextForButtonValue = true;
             // 
+            // userBindingSource
+            // 
+            userBindingSource.DataSource = typeof(User);
+            // 
+            // txtSearch
+            // 
+            txtSearch.Location = new Point(61, 93);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(391, 23);
+            txtSearch.TabIndex = 1;
+            txtSearch.TextChanged += txtSearch_TextChanged;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(12, 100);
+            label1.Name = "label1";
+            label1.Size = new Size(45, 15);
+            label1.TabIndex = 2;
+            label1.Text = "Search:";
+            // 
+            // btnAdd
+            // 
+            btnAdd.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnAdd.Location = new Point(1130, 93);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(75, 23);
+            btnAdd.TabIndex = 3;
+            btnAdd.Text = "Add User";
+            btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.DimGray;
+            pictureBox1.Location = new Point(28, 1);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(1196, 86);
+            pictureBox1.TabIndex = 4;
+            pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.BackColor = Color.DimGray;
+            pictureBox2.BackgroundImage = Properties.Resources.PakoLogo;
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(-2, -1);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(139, 86);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 5;
+            pictureBox2.TabStop = false;
+            // 
+            // lbluserslist
+            // 
+            lbluserslist.AutoSize = true;
+            lbluserslist.BackColor = Color.DimGray;
+            lbluserslist.Font = new Font("Impact", 27.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbluserslist.ForeColor = Color.White;
+            lbluserslist.Location = new Point(566, 20);
+            lbluserslist.Name = "lbluserslist";
+            lbluserslist.Size = new Size(181, 45);
+            lbluserslist.TabIndex = 6;
+            lbluserslist.Text = "USERS LIST";
+            // 
             // UsersList
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1234, 663);
+            BackColor = Color.CadetBlue;
+            ClientSize = new Size(1223, 663);
+            Controls.Add(lbluserslist);
+            Controls.Add(pictureBox2);
+            Controls.Add(pictureBox1);
             Controls.Add(btnAdd);
             Controls.Add(label1);
             Controls.Add(txtSearch);
             Controls.Add(dataGridView1);
+            FormBorderStyle = FormBorderStyle.None;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "UsersList";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Users List";
             Load += UsersList_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)userBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -243,5 +294,8 @@
         private DataGridViewTextBoxColumn createdatDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn is_active;
         private DataGridViewButtonColumn edit;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
+        private Label lbluserslist;
     }
 }

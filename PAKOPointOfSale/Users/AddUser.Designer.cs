@@ -49,6 +49,7 @@
             pictureBox1 = new PictureBox();
             lblAddUser = new Label();
             pictureBox2 = new PictureBox();
+            btnClose = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
@@ -56,6 +57,7 @@
             // txtUsername
             // 
             txtUsername.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtUsername.ForeColor = Color.Black;
             txtUsername.Location = new Point(143, 113);
             txtUsername.Name = "txtUsername";
             txtUsername.Size = new Size(205, 24);
@@ -65,6 +67,7 @@
             // 
             txtFirstName.BackColor = Color.White;
             txtFirstName.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtFirstName.ForeColor = Color.Black;
             txtFirstName.Location = new Point(143, 158);
             txtFirstName.Name = "txtFirstName";
             txtFirstName.Size = new Size(205, 24);
@@ -74,7 +77,7 @@
             // 
             txtMiddleName.BackColor = Color.White;
             txtMiddleName.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtMiddleName.ForeColor = Color.White;
+            txtMiddleName.ForeColor = Color.Black;
             txtMiddleName.Location = new Point(143, 200);
             txtMiddleName.Name = "txtMiddleName";
             txtMiddleName.Size = new Size(205, 24);
@@ -84,6 +87,7 @@
             // 
             txtLastName.BackColor = Color.White;
             txtLastName.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtLastName.ForeColor = Color.Black;
             txtLastName.Location = new Point(143, 251);
             txtLastName.Name = "txtLastName";
             txtLastName.Size = new Size(205, 24);
@@ -124,7 +128,7 @@
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.White;
+            label1.ForeColor = Color.Black;
             label1.Location = new Point(46, 116);
             label1.Name = "label1";
             label1.Size = new Size(77, 18);
@@ -136,7 +140,7 @@
             label2.AutoSize = true;
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.White;
+            label2.ForeColor = Color.Black;
             label2.Location = new Point(44, 160);
             label2.Name = "label2";
             label2.Size = new Size(81, 18);
@@ -148,7 +152,7 @@
             label3.AutoSize = true;
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.ForeColor = Color.White;
+            label3.ForeColor = Color.Black;
             label3.Location = new Point(44, 203);
             label3.Name = "label3";
             label3.Size = new Size(95, 18);
@@ -160,7 +164,7 @@
             label4.AutoSize = true;
             label4.BackColor = Color.Transparent;
             label4.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.ForeColor = Color.White;
+            label4.ForeColor = Color.Black;
             label4.Location = new Point(44, 254);
             label4.Name = "label4";
             label4.Size = new Size(80, 18);
@@ -172,7 +176,7 @@
             label5.AutoSize = true;
             label5.BackColor = Color.Transparent;
             label5.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.ForeColor = Color.White;
+            label5.ForeColor = Color.Black;
             label5.Location = new Point(388, 120);
             label5.Name = "label5";
             label5.Size = new Size(44, 18);
@@ -184,7 +188,7 @@
             label6.AutoSize = true;
             label6.BackColor = Color.Transparent;
             label6.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.ForeColor = Color.White;
+            label6.ForeColor = Color.Black;
             label6.Location = new Point(388, 164);
             label6.Name = "label6";
             label6.Size = new Size(66, 18);
@@ -196,7 +200,7 @@
             label7.AutoSize = true;
             label7.BackColor = Color.Transparent;
             label7.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.ForeColor = Color.White;
+            label7.ForeColor = Color.Black;
             label7.Location = new Point(388, 206);
             label7.Name = "label7";
             label7.Size = new Size(57, 18);
@@ -208,7 +212,7 @@
             label8.AutoSize = true;
             label8.BackColor = Color.Transparent;
             label8.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label8.ForeColor = Color.White;
+            label8.ForeColor = Color.Black;
             label8.Location = new Point(388, 257);
             label8.Name = "label8";
             label8.Size = new Size(75, 18);
@@ -233,9 +237,9 @@
             btnSubmit.BackColor = Color.SeaGreen;
             btnSubmit.FlatStyle = FlatStyle.Popup;
             btnSubmit.ForeColor = Color.White;
-            btnSubmit.Location = new Point(593, 301);
+            btnSubmit.Location = new Point(512, 301);
             btnSubmit.Name = "btnSubmit";
-            btnSubmit.Size = new Size(107, 24);
+            btnSubmit.Size = new Size(80, 24);
             btnSubmit.TabIndex = 16;
             btnSubmit.Text = "Submit";
             btnSubmit.UseVisualStyleBackColor = false;
@@ -245,9 +249,9 @@
             // 
             pictureBox1.BackColor = Color.DimGray;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(12, 12);
+            pictureBox1.Location = new Point(4, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(105, 66);
+            pictureBox1.Size = new Size(113, 76);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 17;
             pictureBox1.TabStop = false;
@@ -259,7 +263,7 @@
             lblAddUser.BackColor = Color.DimGray;
             lblAddUser.Font = new Font("Impact", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblAddUser.ForeColor = Color.White;
-            lblAddUser.Location = new Point(281, 25);
+            lblAddUser.Location = new Point(294, 18);
             lblAddUser.Name = "lblAddUser";
             lblAddUser.Size = new Size(151, 43);
             lblAddUser.TabIndex = 18;
@@ -274,13 +278,26 @@
             pictureBox2.TabIndex = 19;
             pictureBox2.TabStop = false;
             // 
+            // btnClose
+            // 
+            btnClose.BackColor = Color.Red;
+            btnClose.FlatStyle = FlatStyle.Popup;
+            btnClose.ForeColor = Color.White;
+            btnClose.Location = new Point(598, 301);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(84, 24);
+            btnClose.TabIndex = 20;
+            btnClose.Text = "Close";
+            btnClose.UseVisualStyleBackColor = false;
+            // 
             // AddUser
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.AppWorkspace;
-            ClientSize = new Size(736, 346);
+            BackColor = SystemColors.ActiveBorder;
+            ClientSize = new Size(737, 346);
             ControlBox = false;
+            Controls.Add(btnClose);
             Controls.Add(lblAddUser);
             Controls.Add(pictureBox1);
             Controls.Add(btnSubmit);
@@ -302,6 +319,8 @@
             Controls.Add(txtUsername);
             Controls.Add(pictureBox2);
             FormBorderStyle = FormBorderStyle.None;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "AddUser";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Add User";
@@ -334,5 +353,6 @@
         private PictureBox pictureBox1;
         private Label lblAddUser;
         private PictureBox pictureBox2;
+        private Button btnClose;
     }
 }

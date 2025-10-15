@@ -115,5 +115,10 @@ namespace PAKOPointOfSale.Categories
                 MessageBox.Show("Error searching users: " + ex.Message);
             }
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
