@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddUser));
             txtUsername = new TextBox();
             txtFirstName = new TextBox();
             txtMiddleName = new TextBox();
@@ -45,155 +46,229 @@
             label8 = new Label();
             cmbRole = new ComboBox();
             btnSubmit = new Button();
+            pictureBox1 = new PictureBox();
+            lblAddUser = new Label();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // txtUsername
             // 
-            txtUsername.Location = new Point(107, 12);
+            txtUsername.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtUsername.Location = new Point(204, 77);
             txtUsername.Name = "txtUsername";
-            txtUsername.Size = new Size(121, 23);
+            txtUsername.Size = new Size(205, 24);
             txtUsername.TabIndex = 0;
             // 
             // txtFirstName
             // 
-            txtFirstName.Location = new Point(107, 41);
+            txtFirstName.BackColor = Color.Gray;
+            txtFirstName.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtFirstName.Location = new Point(204, 122);
             txtFirstName.Name = "txtFirstName";
-            txtFirstName.Size = new Size(121, 23);
+            txtFirstName.Size = new Size(205, 24);
             txtFirstName.TabIndex = 1;
             // 
             // txtMiddleName
             // 
-            txtMiddleName.Location = new Point(107, 70);
+            txtMiddleName.BackColor = Color.Gray;
+            txtMiddleName.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtMiddleName.ForeColor = Color.White;
+            txtMiddleName.Location = new Point(204, 164);
             txtMiddleName.Name = "txtMiddleName";
-            txtMiddleName.Size = new Size(121, 23);
+            txtMiddleName.Size = new Size(205, 24);
             txtMiddleName.TabIndex = 2;
             // 
             // txtLastName
             // 
-            txtLastName.Location = new Point(107, 99);
+            txtLastName.BackColor = Color.Gray;
+            txtLastName.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtLastName.Location = new Point(204, 215);
             txtLastName.Name = "txtLastName";
-            txtLastName.Size = new Size(121, 23);
+            txtLastName.Size = new Size(205, 24);
             txtLastName.TabIndex = 3;
             // 
             // txtSuffix
             // 
-            txtSuffix.Location = new Point(107, 128);
+            txtSuffix.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtSuffix.ForeColor = Color.Black;
+            txtSuffix.Location = new Point(204, 260);
             txtSuffix.Name = "txtSuffix";
-            txtSuffix.Size = new Size(121, 23);
+            txtSuffix.Size = new Size(205, 24);
             txtSuffix.TabIndex = 4;
             // 
             // dtpBirthdate
             // 
-            dtpBirthdate.Location = new Point(107, 157);
+            dtpBirthdate.Location = new Point(204, 317);
             dtpBirthdate.Name = "dtpBirthdate";
-            dtpBirthdate.Size = new Size(200, 23);
+            dtpBirthdate.Size = new Size(205, 23);
             dtpBirthdate.TabIndex = 5;
             // 
             // cmbGender
             // 
+            cmbGender.BackColor = Color.Gray;
+            cmbGender.FlatStyle = FlatStyle.Popup;
+            cmbGender.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cmbGender.ForeColor = Color.White;
             cmbGender.FormattingEnabled = true;
             cmbGender.Items.AddRange(new object[] { "Male", "Female" });
-            cmbGender.Location = new Point(107, 186);
+            cmbGender.Location = new Point(204, 363);
             cmbGender.Name = "cmbGender";
-            cmbGender.Size = new Size(121, 23);
+            cmbGender.Size = new Size(205, 26);
             cmbGender.TabIndex = 6;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 15);
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(95, 84);
             label1.Name = "label1";
-            label1.Size = new Size(60, 15);
+            label1.Size = new Size(77, 18);
             label1.TabIndex = 7;
             label1.Text = "Username";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(12, 49);
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(93, 128);
             label2.Name = "label2";
-            label2.Size = new Size(64, 15);
+            label2.Size = new Size(81, 18);
             label2.TabIndex = 8;
             label2.Text = "First Name";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(12, 78);
+            label3.BackColor = Color.Transparent;
+            label3.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(93, 171);
             label3.Name = "label3";
-            label3.Size = new Size(79, 15);
+            label3.Size = new Size(95, 18);
             label3.TabIndex = 9;
             label3.Text = "Middle Name";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(12, 102);
+            label4.BackColor = Color.Transparent;
+            label4.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.White;
+            label4.Location = new Point(93, 222);
             label4.Name = "label4";
-            label4.Size = new Size(63, 15);
+            label4.Size = new Size(80, 18);
             label4.TabIndex = 10;
             label4.Text = "Last Name";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(12, 131);
+            label5.BackColor = Color.Transparent;
+            label5.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.White;
+            label5.Location = new Point(93, 267);
             label5.Name = "label5";
-            label5.Size = new Size(36, 15);
+            label5.Size = new Size(44, 18);
             label5.TabIndex = 11;
             label5.Text = "Suffix";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(12, 157);
+            label6.BackColor = Color.Transparent;
+            label6.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.ForeColor = Color.White;
+            label6.Location = new Point(93, 317);
             label6.Name = "label6";
-            label6.Size = new Size(55, 15);
+            label6.Size = new Size(66, 18);
             label6.TabIndex = 12;
             label6.Text = "Birthdate";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(12, 189);
+            label7.BackColor = Color.Transparent;
+            label7.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.ForeColor = Color.White;
+            label7.Location = new Point(93, 370);
             label7.Name = "label7";
-            label7.Size = new Size(45, 15);
+            label7.Size = new Size(57, 18);
             label7.TabIndex = 13;
             label7.Text = "Gender";
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(12, 219);
+            label8.BackColor = Color.Transparent;
+            label8.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.ForeColor = Color.White;
+            label8.Location = new Point(85, 422);
             label8.Name = "label8";
-            label8.Size = new Size(56, 15);
+            label8.Size = new Size(75, 18);
             label8.TabIndex = 15;
             label8.Text = "User Role";
             label8.Click += label8_Click;
             // 
             // cmbRole
             // 
+            cmbRole.BackColor = Color.Gray;
+            cmbRole.FlatStyle = FlatStyle.Popup;
+            cmbRole.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cmbRole.ForeColor = Color.White;
             cmbRole.FormattingEnabled = true;
-            cmbRole.Location = new Point(107, 216);
+            cmbRole.Location = new Point(204, 415);
             cmbRole.Name = "cmbRole";
-            cmbRole.Size = new Size(121, 23);
+            cmbRole.Size = new Size(205, 26);
             cmbRole.TabIndex = 14;
             // 
             // btnSubmit
             // 
-            btnSubmit.Location = new Point(499, 244);
+            btnSubmit.BackColor = Color.Goldenrod;
+            btnSubmit.FlatStyle = FlatStyle.Popup;
+            btnSubmit.Location = new Point(424, 466);
             btnSubmit.Name = "btnSubmit";
             btnSubmit.Size = new Size(75, 23);
             btnSubmit.TabIndex = 16;
             btnSubmit.Text = "Submit";
-            btnSubmit.UseVisualStyleBackColor = true;
+            btnSubmit.UseVisualStyleBackColor = false;
             btnSubmit.Click += button1_Click;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(2, 1);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(101, 66);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 17;
+            pictureBox1.TabStop = false;
+            // 
+            // lblAddUser
+            // 
+            lblAddUser.AutoSize = true;
+            lblAddUser.BackColor = Color.Transparent;
+            lblAddUser.Font = new Font("Impact", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblAddUser.ForeColor = Color.White;
+            lblAddUser.Location = new Point(204, 18);
+            lblAddUser.Name = "lblAddUser";
+            lblAddUser.Size = new Size(119, 34);
+            lblAddUser.TabIndex = 18;
+            lblAddUser.Text = "ADD USER";
             // 
             // AddUser
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(584, 271);
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            ClientSize = new Size(515, 517);
+            ControlBox = false;
+            Controls.Add(lblAddUser);
+            Controls.Add(pictureBox1);
             Controls.Add(btnSubmit);
             Controls.Add(label8);
             Controls.Add(cmbRole);
@@ -211,9 +286,13 @@
             Controls.Add(txtMiddleName);
             Controls.Add(txtFirstName);
             Controls.Add(txtUsername);
+            Cursor = Cursors.Arrow;
+            FormBorderStyle = FormBorderStyle.None;
             Name = "AddUser";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Add User";
             Load += AddUser_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -237,5 +316,7 @@
         private Label label8;
         private ComboBox cmbRole;
         private Button btnSubmit;
+        private PictureBox pictureBox1;
+        private Label lblAddUser;
     }
 }
