@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PAKOPointOfSale.Supplier_Details
 {
-    public partial class SupplierDetails : Form
+    public partial class Archive : Form
     {
-        public SupplierDetails()
+        public Archive()
         {
             InitializeComponent();
         }

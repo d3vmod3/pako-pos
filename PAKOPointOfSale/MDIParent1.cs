@@ -117,5 +117,11 @@ namespace PAKOPointOfSale
             UAC.UAC userAccessControlForm = new UAC.UAC();
             userAccessControlForm.Show();
         }
+
+        private void suppliersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Supplier_Details.SuppliersList suppliersList = new Supplier_Details.SuppliersList();
+            suppliersList.Show();
+        }
     }
 }
