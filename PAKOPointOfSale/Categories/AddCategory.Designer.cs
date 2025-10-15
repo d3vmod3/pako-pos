@@ -33,6 +33,7 @@
             label2 = new Label();
             label3 = new Label();
             btnSubmit = new Button();
+            btnClose = new Button();
             SuspendLayout();
             // 
             // txtCategoryName
@@ -53,10 +54,11 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(25, 28);
+            label2.Location = new Point(34, 34);
             label2.Name = "label2";
-            label2.Size = new Size(90, 15);
+            label2.Size = new Size(100, 17);
             label2.TabIndex = 4;
             label2.Text = "Category Name";
             label2.Click += label2_Click;
@@ -64,10 +66,11 @@
             // label3
             // 
             label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(25, 73);
+            label3.Location = new Point(34, 79);
             label3.Name = "label3";
-            label3.Size = new Size(67, 15);
+            label3.Size = new Size(74, 17);
             label3.TabIndex = 5;
             label3.Text = "Description";
             // 
@@ -76,25 +79,41 @@
             btnSubmit.BackColor = Color.SeaGreen;
             btnSubmit.FlatStyle = FlatStyle.Popup;
             btnSubmit.ForeColor = Color.White;
-            btnSubmit.Location = new Point(396, 183);
+            btnSubmit.Location = new Point(314, 183);
             btnSubmit.Name = "btnSubmit";
             btnSubmit.Size = new Size(76, 24);
             btnSubmit.TabIndex = 17;
             btnSubmit.Text = "Submit";
             btnSubmit.UseVisualStyleBackColor = false;
             // 
+            // btnClose
+            // 
+            btnClose.BackColor = Color.Red;
+            btnClose.FlatStyle = FlatStyle.Popup;
+            btnClose.ForeColor = Color.White;
+            btnClose.Location = new Point(396, 183);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(76, 24);
+            btnClose.TabIndex = 18;
+            btnClose.Text = "Close";
+            btnClose.UseVisualStyleBackColor = false;
+            // 
             // AddCategory
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ButtonShadow;
-            ClientSize = new Size(503, 219);
+            BackColor = SystemColors.ControlDarkDark;
+            ClientSize = new Size(498, 232);
+            Controls.Add(btnClose);
             Controls.Add(btnSubmit);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(txtDescription);
             Controls.Add(txtCategoryName);
             ForeColor = Color.White;
+            FormBorderStyle = FormBorderStyle.None;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "AddCategory";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Categories";
@@ -109,5 +128,6 @@
         private Label label2;
         private Label label3;
         private Button btnSubmit;
+        private Button btnClose;
     }
 }

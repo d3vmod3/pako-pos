@@ -34,73 +34,99 @@
             txtDescription = new TextBox();
             txtCategoryName = new TextBox();
             chkIsActive = new CheckBox();
+            btnClose = new Button();
             SuspendLayout();
             // 
             // btnSubmit
             // 
-            btnSubmit.Location = new Point(341, 206);
+            btnSubmit.BackColor = Color.SeaGreen;
+            btnSubmit.FlatStyle = FlatStyle.Popup;
+            btnSubmit.ForeColor = Color.White;
+            btnSubmit.Location = new Point(347, 200);
             btnSubmit.Name = "btnSubmit";
             btnSubmit.Size = new Size(75, 23);
             btnSubmit.TabIndex = 13;
             btnSubmit.Text = "Submit";
-            btnSubmit.UseVisualStyleBackColor = true;
+            btnSubmit.UseVisualStyleBackColor = false;
             btnSubmit.Click += btnSubmit_Click;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(15, 62);
+            label3.Font = new Font("Segoe UI", 9.75F);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(23, 86);
             label3.Name = "label3";
-            label3.Size = new Size(67, 15);
+            label3.Size = new Size(74, 17);
             label3.TabIndex = 12;
             label3.Text = "Description";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(12, 21);
+            label2.Font = new Font("Segoe UI", 9.75F);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(23, 42);
             label2.Name = "label2";
-            label2.Size = new Size(90, 15);
+            label2.Size = new Size(100, 17);
             label2.TabIndex = 11;
             label2.Text = "Category Name";
             // 
             // txtDescription
             // 
-            txtDescription.Location = new Point(140, 58);
+            txtDescription.Location = new Point(140, 85);
             txtDescription.Multiline = true;
             txtDescription.Name = "txtDescription";
-            txtDescription.Size = new Size(276, 97);
+            txtDescription.Size = new Size(363, 84);
             txtDescription.TabIndex = 9;
             txtDescription.TextChanged += txtDescription_TextChanged;
             // 
             // txtCategoryName
             // 
-            txtCategoryName.Location = new Point(140, 17);
+            txtCategoryName.Location = new Point(140, 36);
             txtCategoryName.Name = "txtCategoryName";
-            txtCategoryName.Size = new Size(276, 23);
+            txtCategoryName.Size = new Size(363, 23);
             txtCategoryName.TabIndex = 8;
             // 
             // chkIsActive
             // 
             chkIsActive.AutoSize = true;
-            chkIsActive.Location = new Point(357, 161);
+            chkIsActive.ForeColor = Color.White;
+            chkIsActive.Location = new Point(444, 175);
             chkIsActive.Name = "chkIsActive";
             chkIsActive.Size = new Size(59, 19);
             chkIsActive.TabIndex = 27;
             chkIsActive.Text = "Active";
             chkIsActive.UseVisualStyleBackColor = true;
             // 
+            // btnClose
+            // 
+            btnClose.BackColor = Color.Red;
+            btnClose.FlatStyle = FlatStyle.Popup;
+            btnClose.ForeColor = Color.White;
+            btnClose.Location = new Point(428, 200);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(75, 23);
+            btnClose.TabIndex = 28;
+            btnClose.Text = "Close";
+            btnClose.UseVisualStyleBackColor = false;
+            // 
             // EditCategory
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(431, 241);
+            BackColor = SystemColors.ControlDarkDark;
+            ClientSize = new Size(530, 250);
+            Controls.Add(btnClose);
             Controls.Add(chkIsActive);
             Controls.Add(btnSubmit);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(txtDescription);
             Controls.Add(txtCategoryName);
+            FormBorderStyle = FormBorderStyle.None;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "EditCategory";
             Text = "Edit Category";
             Load += EditCategory_Load;
@@ -116,5 +142,6 @@
         private TextBox txtDescription;
         private TextBox txtCategoryName;
         private CheckBox chkIsActive;
+        private Button btnClose;
     }
 }
