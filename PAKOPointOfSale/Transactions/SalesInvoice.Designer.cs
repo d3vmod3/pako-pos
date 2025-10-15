@@ -53,6 +53,7 @@
             label3 = new Label();
             label2 = new Label();
             sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
+            txtScannedBarcode = new TextBox();
             ((System.ComponentModel.ISupportInitialize)productBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)userTypeBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dtgvCart).BeginInit();
@@ -265,11 +266,20 @@
             sqlCommand1.CommandTimeout = 30;
             sqlCommand1.EnableOptimizedParameterBinding = false;
             // 
+            // txtScannedBarcode
+            // 
+            txtScannedBarcode.Location = new Point(545, 21);
+            txtScannedBarcode.Name = "txtScannedBarcode";
+            txtScannedBarcode.Size = new Size(256, 23);
+            txtScannedBarcode.TabIndex = 9;
+            txtScannedBarcode.TextChanged += textBox1_TextChanged;
+            // 
             // SalesInvoice
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1232, 655);
+            Controls.Add(txtScannedBarcode);
             Controls.Add(groupBox1);
             Controls.Add(button2);
             Controls.Add(button1);
@@ -285,6 +295,7 @@
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)num_CashAmount).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -312,5 +323,6 @@
         private DataGridViewTextBoxColumn unit_price;
         private DataGridViewTextBoxColumn category;
         private DataGridViewButtonColumn remove;
+        private TextBox txtScannedBarcode;
     }
 }

@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinFormsApp1.Model;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace PAKOPointOfSale.Transactions
 {
@@ -133,6 +134,67 @@ namespace PAKOPointOfSale.Transactions
         private void dtgvCart_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             ComputeGrandTotal();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            string barcode = txtScannedBarcode.Text.Trim();
+
+            if (string.IsNullOrEmpty(barcode))
+                return;
+
+            
+                using (SqlConnection conn = new SqlConnection(Program.ConnString))
+                {
+                    conn.Open();
+
+                    // Query product by barcode
+                    string query = @"
+                                SELECT p.id,product_name,c.name as category,product_brand,quantity,unit_of_measurement,unit_price
+                                FROM Products as p LEFT JOIN Categories c ON p.category_id = c.id
+                                WHERE p.is_active = 1 and p.product_code=@code";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@code", barcode);
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                int product_id = Convert.ToInt32(reader["id"]);
+                                string product = reader["product_name"].ToString();
+                                string brand = reader["product_brand"].ToString();
+                                string unit = reader["unit_of_measurement"].ToString();
+                                decimal price = Convert.ToDecimal(reader["unit_price"]);
+                                string category = reader["category"].ToString();
+                                int quantity = 1; // default to 1 when scanned
+
+                                // Validation: Do not add if quantity is 0
+                                if (quantity <= 0)
+                                {
+                                    MessageBox.Show("Cannot add product with quantity 0.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    txtScannedBarcode.Clear();
+                                    txtScannedBarcode.Focus();
+                                    return;
+                                }
+
+                                // Add product to cart
+                                AddProductToCart(product_id, product, brand, unit, price, category, quantity);
+
+                                // Clear the textbox for next scan
+                                txtScannedBarcode.Clear();
+                                txtScannedBarcode.Focus();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Product not found for barcode: " + barcode, "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                txtScannedBarcode.Clear();
+                                txtScannedBarcode.Focus();
+                            }
+                        }
+                    }
+                }
+            
         }
     }
 }
