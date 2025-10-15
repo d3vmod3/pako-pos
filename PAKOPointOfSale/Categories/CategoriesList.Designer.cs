@@ -31,18 +31,17 @@ namespace PAKOPointOfSale.Categories
         {
             components = new System.ComponentModel.Container();
             dataGridView1 = new DataGridView();
-            id = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
-            description = new DataGridViewTextBoxColumn();
-            is_active = new DataGridViewTextBoxColumn();
-            edit = new DataGridViewButtonColumn();
-            archive = new DataGridViewButtonColumn();
             categoryBindingSource1 = new BindingSource(components);
             categoryBindingSource = new BindingSource(components);
             btnAdd = new Button();
             btnPrint = new Button();
             txtSearch = new TextBox();
             label1 = new Label();
+            id = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
+            description = new DataGridViewTextBoxColumn();
+            is_active = new DataGridViewTextBoxColumn();
+            edit = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)categoryBindingSource1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)categoryBindingSource).BeginInit();
@@ -54,7 +53,7 @@ namespace PAKOPointOfSale.Categories
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { id, dataGridViewTextBoxColumn2, description, is_active, edit, archive });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { id, dataGridViewTextBoxColumn2, description, is_active, edit });
             dataGridView1.DataSource = categoryBindingSource1;
             dataGridView1.Location = new Point(12, 44);
             dataGridView1.Name = "dataGridView1";
@@ -62,6 +61,46 @@ namespace PAKOPointOfSale.Categories
             dataGridView1.Size = new Size(644, 379);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick_1;
+            // 
+            // categoryBindingSource1
+            // 
+            categoryBindingSource1.DataSource = typeof(Category);
+            // 
+            // btnAdd
+            // 
+            btnAdd.Location = new Point(500, 14);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(75, 23);
+            btnAdd.TabIndex = 1;
+            btnAdd.Text = "Add";
+            btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
+            // 
+            // btnPrint
+            // 
+            btnPrint.Location = new Point(581, 14);
+            btnPrint.Name = "btnPrint";
+            btnPrint.Size = new Size(75, 23);
+            btnPrint.TabIndex = 3;
+            btnPrint.Text = "Print";
+            btnPrint.UseVisualStyleBackColor = true;
+            // 
+            // txtSearch
+            // 
+            txtSearch.Location = new Point(60, 15);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(366, 23);
+            txtSearch.TabIndex = 7;
+            txtSearch.TextChanged += txtSearch_TextChanged;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(12, 20);
+            label1.Name = "label1";
+            label1.Size = new Size(42, 15);
+            label1.TabIndex = 8;
+            label1.Text = "Search";
             // 
             // id
             // 
@@ -105,55 +144,6 @@ namespace PAKOPointOfSale.Categories
             edit.Text = "Edit";
             edit.UseColumnTextForButtonValue = true;
             // 
-            // archive
-            // 
-            archive.DataPropertyName = "id";
-            archive.HeaderText = "";
-            archive.Name = "archive";
-            archive.ReadOnly = true;
-            archive.Text = "Archive";
-            archive.UseColumnTextForButtonValue = true;
-            // 
-            // categoryBindingSource1
-            // 
-            categoryBindingSource1.DataSource = typeof(Category);
-            // 
-            // btnAdd
-            // 
-            btnAdd.Location = new Point(500, 14);
-            btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(75, 23);
-            btnAdd.TabIndex = 1;
-            btnAdd.Text = "Add";
-            btnAdd.UseVisualStyleBackColor = true;
-            btnAdd.Click += btnAdd_Click;
-            // 
-            // btnPrint
-            // 
-            btnPrint.Location = new Point(581, 14);
-            btnPrint.Name = "btnPrint";
-            btnPrint.Size = new Size(75, 23);
-            btnPrint.TabIndex = 3;
-            btnPrint.Text = "Print";
-            btnPrint.UseVisualStyleBackColor = true;
-            // 
-            // txtSearch
-            // 
-            txtSearch.Location = new Point(60, 15);
-            txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(366, 23);
-            txtSearch.TabIndex = 7;
-            txtSearch.TextChanged += txtSearch_TextChanged;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(12, 20);
-            label1.Name = "label1";
-            label1.Size = new Size(42, 15);
-            label1.TabIndex = 8;
-            label1.Text = "Search";
-            // 
             // CategoriesList
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -195,6 +185,5 @@ namespace PAKOPointOfSale.Categories
         private DataGridViewTextBoxColumn description;
         private DataGridViewTextBoxColumn is_active;
         private DataGridViewButtonColumn edit;
-        private DataGridViewButtonColumn archive;
     }
 }

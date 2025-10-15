@@ -37,7 +37,7 @@
             txtAddress = new TextBox();
             txtContactNumber = new TextBox();
             txtAccountNumber = new TextBox();
-            txtPaymentGateway = new TextBox();
+            txtGateway = new TextBox();
             btnSubmit = new Button();
             SuspendLayout();
             // 
@@ -85,11 +85,11 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe Print", 9F);
-            label6.Location = new Point(16, 225);
+            label6.Location = new Point(52, 225);
             label6.Name = "label6";
-            label6.Size = new Size(122, 21);
+            label6.Size = new Size(63, 21);
             label6.TabIndex = 5;
-            label6.Text = "Payment Gateway";
+            label6.Text = "Gateway";
             // 
             // txtSupplierName
             // 
@@ -123,13 +123,13 @@
             txtAccountNumber.Size = new Size(209, 29);
             txtAccountNumber.TabIndex = 11;
             // 
-            // txtPaymentGateway
+            // txtGateway
             // 
-            txtPaymentGateway.Font = new Font("Segoe Print", 9F);
-            txtPaymentGateway.Location = new Point(145, 222);
-            txtPaymentGateway.Name = "txtPaymentGateway";
-            txtPaymentGateway.Size = new Size(209, 29);
-            txtPaymentGateway.TabIndex = 12;
+            txtGateway.Font = new Font("Segoe Print", 9F);
+            txtGateway.Location = new Point(145, 222);
+            txtGateway.Name = "txtGateway";
+            txtGateway.Size = new Size(209, 29);
+            txtGateway.TabIndex = 12;
             // 
             // btnSubmit
             // 
@@ -148,7 +148,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(371, 337);
             Controls.Add(btnSubmit);
-            Controls.Add(txtPaymentGateway);
+            Controls.Add(txtGateway);
             Controls.Add(txtAccountNumber);
             Controls.Add(txtContactNumber);
             Controls.Add(txtAddress);
@@ -160,6 +160,7 @@
             Controls.Add(label2);
             Name = "AddSupplierDetails";
             Text = "AddSupplierDetails";
+            Load += AddSupplierDetails_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -174,7 +175,7 @@
         private TextBox txtAddress;
         private TextBox txtContactNumber;
         private TextBox txtAccountNumber;
-        private TextBox txtPaymentGateway;
+        private TextBox txtGateway;
         private Button btnSubmit;
     }
 }

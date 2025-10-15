@@ -70,14 +70,6 @@ namespace PAKOPointOfSale.Categories
                 loadCategories();
 
             }
-
-            if (e.ColumnIndex == dataGridView1.Columns["archive"].Index)
-            {
-                ArchiveCategory archiveCategoryForm = new ArchiveCategory(categoryId);
-                archiveCategoryForm.ShowDialog();
-                loadCategories();
-
-            }
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
@@ -90,15 +82,15 @@ namespace PAKOPointOfSale.Categories
                     conn.Open();
 
                     string query = @"
-                SELECT 
-                    id,
-                    name,
-                    description,
-                    is_active
-                FROM Categories
-                WHERE 
-                    name LIKE @search
-                ";
+                                    SELECT 
+                                        id,
+                                        name,
+                                        description,
+                                        is_active
+                                    FROM Categories
+                                    WHERE 
+                                        name LIKE @search
+                                    ";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {

@@ -48,7 +48,6 @@
             createdatDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             is_active = new DataGridViewTextBoxColumn();
             edit = new DataGridViewButtonColumn();
-            deactivate = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)userBindingSource).BeginInit();
             SuspendLayout();
@@ -59,7 +58,7 @@
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { id, usertypeidDataGridViewTextBoxColumn, usernameDataGridViewTextBoxColumn, passwordDataGridViewTextBoxColumn, firstnameDataGridViewTextBoxColumn, middlenameDataGridViewTextBoxColumn, lastnameDataGridViewTextBoxColumn, birthdayDataGridViewTextBoxColumn, genderDataGridViewTextBoxColumn, suffixDataGridViewTextBoxColumn, userType, createdatDataGridViewTextBoxColumn, is_active, edit, deactivate });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { id, usertypeidDataGridViewTextBoxColumn, usernameDataGridViewTextBoxColumn, passwordDataGridViewTextBoxColumn, firstnameDataGridViewTextBoxColumn, middlenameDataGridViewTextBoxColumn, lastnameDataGridViewTextBoxColumn, birthdayDataGridViewTextBoxColumn, genderDataGridViewTextBoxColumn, suffixDataGridViewTextBoxColumn, userType, createdatDataGridViewTextBoxColumn, is_active, edit });
             dataGridView1.DataSource = userBindingSource;
             dataGridView1.Location = new Point(12, 57);
             dataGridView1.Name = "dataGridView1";
@@ -204,15 +203,6 @@
             edit.Text = "Edit";
             edit.UseColumnTextForButtonValue = true;
             // 
-            // deactivate
-            // 
-            deactivate.DataPropertyName = "id";
-            deactivate.HeaderText = "";
-            deactivate.Name = "deactivate";
-            deactivate.ReadOnly = true;
-            deactivate.Text = "Deactivate";
-            deactivate.UseColumnTextForButtonValue = true;
-            // 
             // UsersList
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -253,6 +243,5 @@
         private DataGridViewTextBoxColumn createdatDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn is_active;
         private DataGridViewButtonColumn edit;
-        private DataGridViewButtonColumn deactivate;
     }
 }

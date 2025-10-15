@@ -41,7 +41,7 @@ namespace PAKOPointOfSale.Categories
                 {
                     conn.Open();
 
-                    string sql = @"SELECT name,description FROM categories where id=@id";
+                    string sql = @"SELECT name,description,is_active FROM categories where id=@id";
 
 
                     using (SqlCommand cmd = new SqlCommand(sql, conn))
@@ -56,6 +56,7 @@ namespace PAKOPointOfSale.Categories
                                 _categoryName = reader["name"].ToString();
                                 txtCategoryName.Text = reader["name"].ToString();
                                 txtDescription.Text = reader["description"].ToString();
+                                chkIsActive.Checked = Convert.ToBoolean(reader["is_active"]);
                             }
                             else
                             {
@@ -91,7 +92,8 @@ namespace PAKOPointOfSale.Categories
                         UPDATE Categories
                         SET 
                             name = @name,
-                            description = @description
+                            description = @description,
+                            is_active = @is_active
                         WHERE id = @id
                     ";
 
@@ -99,6 +101,7 @@ namespace PAKOPointOfSale.Categories
                     {
                         cmd.Parameters.AddWithValue("@name", txtCategoryName.Text);
                         cmd.Parameters.AddWithValue("@description", txtDescription.Text);
+                        cmd.Parameters.AddWithValue("@is_active", chkIsActive.Checked);
                         cmd.Parameters.AddWithValue("@id", _categoryId);
 
 
@@ -106,19 +109,19 @@ namespace PAKOPointOfSale.Categories
 
                         if (rowsAffected > 0)
                         {
-                            MessageBox.Show("User updated successfully!");
+                            MessageBox.Show("Category updated successfully!");
                             this.Close(); // close the EditUser form
                         }
                         else
                         {
-                            MessageBox.Show("User not found.");
+                            MessageBox.Show("Category not found.");
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error updating user: " + ex.Message);
+                MessageBox.Show("Error updating category: " + ex.Message);
             }
         }
         public bool validateForm()
@@ -126,14 +129,14 @@ namespace PAKOPointOfSale.Categories
 
             if (string.IsNullOrWhiteSpace(txtCategoryName.Text))
             {
-                MessageBox.Show("Please enter a username.");
+                MessageBox.Show("Please enter a category name.");
                 txtCategoryName.Focus();
                 return false;
             }
 
             if (_categoryName != txtCategoryName.Text)
             {
-                if (isUsernameExists() == true)
+                if (isAlreadyExists() == true)
                 {
 
                     MessageBox.Show("Category name already exists. Please choose another one.");
@@ -146,7 +149,7 @@ namespace PAKOPointOfSale.Categories
             return true;
         }
 
-        public bool isUsernameExists()
+        public bool isAlreadyExists()
         {
 
             string connString = PAKOPointOfSale.Program.ConnString;
