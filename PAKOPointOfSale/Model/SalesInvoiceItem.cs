@@ -1,9 +1,12 @@
-﻿using WinFormsApp1.Model;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using WinFormsApp1.Model;
 
 public class SalesInvoiceItem
 {
     public int id { get; set; }
+    [ForeignKey("transaction")]
     public int transaction_id { get; set; }
+    [ForeignKey("product")]
     public int product_id { get; set; }
     public decimal quantity { get; set; }
     public decimal unit_price { get; set; }

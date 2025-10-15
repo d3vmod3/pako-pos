@@ -42,7 +42,7 @@
             category = new DataGridViewTextBoxColumn();
             remove = new DataGridViewButtonColumn();
             label1 = new Label();
-            button1 = new Button();
+            btnConfirm = new Button();
             button2 = new Button();
             groupBox1 = new GroupBox();
             lblChange = new Label();
@@ -155,14 +155,15 @@
             label1.Text = "Grand Total:";
             label1.Click += label1_Click;
             // 
-            // button1
+            // btnConfirm
             // 
-            button1.Location = new Point(1145, 582);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 61);
-            button1.TabIndex = 6;
-            button1.Text = "Confirm";
-            button1.UseVisualStyleBackColor = true;
+            btnConfirm.Location = new Point(1145, 582);
+            btnConfirm.Name = "btnConfirm";
+            btnConfirm.Size = new Size(75, 61);
+            btnConfirm.TabIndex = 6;
+            btnConfirm.Text = "Confirm";
+            btnConfirm.UseVisualStyleBackColor = true;
+            btnConfirm.Click += button1_Click;
             // 
             // button2
             // 
@@ -282,11 +283,11 @@
             Controls.Add(txtScannedBarcode);
             Controls.Add(groupBox1);
             Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(btnConfirm);
             Controls.Add(dtgvCart);
             Controls.Add(btnSearchProduct);
             Name = "SalesInvoice";
-            Text = "SalesInvoice";
+            Text = "Sales Invoice";
             Load += SalesInvoice_Load;
             ((System.ComponentModel.ISupportInitialize)productBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)userTypeBindingSource).EndInit();
@@ -304,7 +305,7 @@
         private Button btnSearchProduct;
         private DataGridView dtgvCart;
         private Label label1;
-        private Button button1;
+        private Button btnConfirm;
         private Button button2;
         private GroupBox groupBox1;
         private NumericUpDown num_CashAmount;
