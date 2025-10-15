@@ -63,7 +63,7 @@ namespace PAKOPointOfSale.Categories
             // Get the ID of the selected user
             int categoryId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["id"].Value);
 
-            if (e.ColumnIndex == dataGridView1.Columns["edit"].Index)
+            if (e.ColumnIndex == dataGridView1.Columns["editCategory"].Index)
             {
                 EditCategory editCategoryForm = new EditCategory(categoryId);
                 editCategoryForm.ShowDialog(); // modal so user finishes editing first
