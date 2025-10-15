@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace PAKOPointOfSale
 {
-    public partial class SuperAdminForm : Form
+    public partial class MDIParent1 : Form
     {
         private int childFormNumber = 0;
 
-        public SuperAdminForm()
+        public MDIParent1()
         {
             InitializeComponent();
         }
@@ -128,6 +128,12 @@ namespace PAKOPointOfSale
         {
             Products.ProductsList productsForm = new Products.ProductsList();
             productsForm.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Transactions.SalesInvoice salesInvoiceForm = new Transactions.SalesInvoice();
+            salesInvoiceForm.Show();
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace PAKOPointOfSale
 {
-    partial class SuperAdminForm
+    partial class MDIParent1
     {
         /// <summary>
         /// Required designer variable.
@@ -44,6 +44,7 @@
             statusStrip = new StatusStrip();
             toolStripStatusLabel = new ToolStripStatusLabel();
             toolTip = new ToolTip(components);
+            button1 = new Button();
             menuStrip.SuspendLayout();
             statusStrip.SuspendLayout();
             SuspendLayout();
@@ -68,47 +69,47 @@
             // categoriesToolStripMenuItem
             // 
             categoriesToolStripMenuItem.Name = "categoriesToolStripMenuItem";
-            categoriesToolStripMenuItem.Size = new Size(180, 22);
+            categoriesToolStripMenuItem.Size = new Size(179, 22);
             categoriesToolStripMenuItem.Text = "Categories";
             categoriesToolStripMenuItem.Click += categoriesToolStripMenuItem_Click;
             // 
             // usersToolStripMenuItem
             // 
             usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-            usersToolStripMenuItem.Size = new Size(180, 22);
+            usersToolStripMenuItem.Size = new Size(179, 22);
             usersToolStripMenuItem.Text = "Products";
             usersToolStripMenuItem.Click += usersToolStripMenuItem_Click;
             // 
             // supplierProductsToolStripMenuItem
             // 
             supplierProductsToolStripMenuItem.Name = "supplierProductsToolStripMenuItem";
-            supplierProductsToolStripMenuItem.Size = new Size(180, 22);
+            supplierProductsToolStripMenuItem.Size = new Size(179, 22);
             supplierProductsToolStripMenuItem.Text = "Supplier Products";
             // 
             // suppliersToolStripMenuItem
             // 
             suppliersToolStripMenuItem.Name = "suppliersToolStripMenuItem";
-            suppliersToolStripMenuItem.Size = new Size(180, 22);
+            suppliersToolStripMenuItem.Size = new Size(179, 22);
             suppliersToolStripMenuItem.Text = "Suppliers";
             suppliersToolStripMenuItem.Click += suppliersToolStripMenuItem_Click;
             // 
             // transactionsToolStripMenuItem
             // 
             transactionsToolStripMenuItem.Name = "transactionsToolStripMenuItem";
-            transactionsToolStripMenuItem.Size = new Size(180, 22);
+            transactionsToolStripMenuItem.Size = new Size(179, 22);
             transactionsToolStripMenuItem.Text = "Transactions";
             // 
             // usersToolStripMenuItem1
             // 
             usersToolStripMenuItem1.Name = "usersToolStripMenuItem1";
-            usersToolStripMenuItem1.Size = new Size(180, 22);
+            usersToolStripMenuItem1.Size = new Size(179, 22);
             usersToolStripMenuItem1.Text = "Users";
             usersToolStripMenuItem1.Click += usersToolStripMenuItem1_Click;
             // 
             // userAccessControlToolStripMenuItem
             // 
             userAccessControlToolStripMenuItem.Name = "userAccessControlToolStripMenuItem";
-            userAccessControlToolStripMenuItem.Size = new Size(180, 22);
+            userAccessControlToolStripMenuItem.Size = new Size(179, 22);
             userAccessControlToolStripMenuItem.Text = "User Access Control";
             userAccessControlToolStripMenuItem.Click += userAccessControlToolStripMenuItem_Click;
             // 
@@ -147,17 +148,29 @@
             toolStripStatusLabel.Size = new Size(39, 17);
             toolStripStatusLabel.Text = "Status";
             // 
-            // SuperAdminForm
+            // button1
+            // 
+            button1.BackgroundImage = Properties.Resources.pos_terminal;
+            button1.BackgroundImageLayout = ImageLayout.Stretch;
+            button1.Location = new Point(627, 49);
+            button1.Name = "button1";
+            button1.Size = new Size(81, 68);
+            button1.TabIndex = 4;
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // MDIParent1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(737, 523);
+            Controls.Add(button1);
             Controls.Add(statusStrip);
             Controls.Add(menuStrip);
             IsMdiContainer = true;
             MainMenuStrip = menuStrip;
             Margin = new Padding(4, 3, 4, 3);
-            Name = "SuperAdminForm";
+            Name = "MDIParent1";
             SizeGripStyle = SizeGripStyle.Hide;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Super Admin";
@@ -189,6 +202,7 @@
         private ToolStripMenuItem logoutToolStripMenuItem;
         private ToolStripMenuItem resetAllToolStripMenuItem;
         private ToolStripMenuItem logoutToolStripMenuItem1;
+        private Button button1;
     }
 }
 
