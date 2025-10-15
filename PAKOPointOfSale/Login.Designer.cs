@@ -36,8 +36,6 @@
             pictureBox3 = new PictureBox();
             label1 = new Label();
             pictureBox1 = new PictureBox();
-            label2 = new Label();
-            label3 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -51,7 +49,7 @@
             btnLogin.FlatStyle = FlatStyle.Popup;
             btnLogin.Font = new Font("Impact", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnLogin.ForeColor = Color.Black;
-            btnLogin.Location = new Point(190, 435);
+            btnLogin.Location = new Point(184, 408);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(117, 31);
             btnLogin.TabIndex = 0;
@@ -104,7 +102,7 @@
             label1.BackColor = SystemColors.ButtonShadow;
             label1.Font = new Font("Impact", 27.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(72, 207);
+            label1.Location = new Point(76, 222);
             label1.Name = "label1";
             label1.Size = new Size(343, 45);
             label1.TabIndex = 7;
@@ -122,28 +120,6 @@
             pictureBox1.TabIndex = 4;
             pictureBox1.TabStop = false;
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.DarkGray;
-            label2.Font = new Font("Times New Roman", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(99, 268);
-            label2.Name = "label2";
-            label2.Size = new Size(93, 23);
-            label2.TabIndex = 8;
-            label2.Text = "Username";
-            label2.Click += label2_Click;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Times New Roman", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(102, 331);
-            label3.Name = "label3";
-            label3.Size = new Size(90, 23);
-            label3.TabIndex = 9;
-            label3.Text = "Password";
-            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -152,8 +128,6 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(498, 489);
             ControlBox = false;
-            Controls.Add(label3);
-            Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(pictureBox3);
             Controls.Add(pictureBox2);
@@ -181,7 +155,5 @@
         private PictureBox pictureBox3;
         private Label label1;
         private PictureBox pictureBox1;
-        private Label label2;
-        private Label label3;
     }
 }
