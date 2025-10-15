@@ -15,6 +15,7 @@ namespace PAKOPointOfSale.Users
 {
     public partial class UsersList : Form
     {
+        private DataTable usersTable;
         public UsersList()
         {
             InitializeComponent();
@@ -52,10 +53,10 @@ namespace PAKOPointOfSale.Users
 
                     using (SqlDataAdapter da = new SqlDataAdapter(query, conn))
                     {
-                        DataTable dt = new DataTable();
-                        da.Fill(dt);
+                        usersTable = new DataTable();
+                        da.Fill(usersTable);
 
-                        dataGridView1.DataSource = dt; // Bind DataTable to DataGridView
+                        dataGridView1.DataSource = usersTable; // Bind DataTable to DataGridView
                     }
                 }
             }
@@ -90,55 +91,26 @@ namespace PAKOPointOfSale.Users
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            try
-            {
-                string connString = PAKOPointOfSale.Program.ConnString;
-                using (SqlConnection conn = new SqlConnection(connString))
-                {
-                    conn.Open();
+            if (usersTable == null) return;
 
-                    string query = @"
-                SELECT 
-                    u.id, 
-                    u.username, 
-                    u.first_name, 
-                    u.middle_name, 
-                    u.last_name, 
-                    u.gender,
-                    u.birthday,
-                    u.suffix,
-                    u.is_active,
-                    u.created_at,
-                    ut.name AS user_type
-                FROM Users u
-                INNER JOIN UserTypes ut ON u.user_type_id = ut.id
-                WHERE 
-                    u.username LIKE @search OR
-                    u.first_name LIKE @search OR
-                    u.last_name LIKE @search
+            string filter = txtSearch.Text.Trim().Replace("'", "''"); // escape single quotes
+
+            if (string.IsNullOrEmpty(filter))
+            {
+                dataGridView1.DataSource = usersTable;
+            }
+            else
+            {
+                string rowFilter = $@"
+            username LIKE '%{filter}%' OR 
+            first_name LIKE '%{filter}%' OR 
+            last_name LIKE '%{filter}%' OR
+            middle_name LIKE '%{filter}%'
                 ";
 
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
-                    {
-                        string searchValue = "%" + txtSearch.Text.Trim() + "%";
-                        cmd.Parameters.AddWithValue("@search", searchValue);
-
-                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                        {
-                            DataTable dt = new DataTable();
-                            da.Fill(dt);
-                            dataGridView1.DataSource = dt;
-
-                            // Hide the ID column
-                            if (dataGridView1.Columns.Contains("id"))
-                                dataGridView1.Columns["id"].Visible = false;
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error searching users: " + ex.Message);
+                DataView dv = new DataView(usersTable);
+                dv.RowFilter = rowFilter;
+                dataGridView1.DataSource = dv;
             }
         }
     }

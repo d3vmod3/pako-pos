@@ -14,6 +14,7 @@ namespace PAKOPointOfSale.Supplier_Details
 {
     public partial class SuppliersList : Form
     {
+        private DataTable suppliersTable;
         public SuppliersList()
         {
             InitializeComponent();
@@ -33,14 +34,14 @@ namespace PAKOPointOfSale.Supplier_Details
                     conn.Open();
 
 
-                    string query = @"SELECT id,name,address,contact_number,account_number,gateway,created_at FROM SupplierDetails";
+                    string query = @"SELECT id,name,address,contact_number,account_number,gateway,created_at,is_active FROM SupplierDetails";
 
                     using (SqlDataAdapter da = new SqlDataAdapter(query, conn))
                     {
-                        DataTable dt = new DataTable();
-                        da.Fill(dt);
+                        suppliersTable = new DataTable();
+                        da.Fill(suppliersTable);
 
-                        dataGridView1.DataSource = dt; // Bind DataTable to DataGridView
+                        dataGridView1.DataSource = suppliersTable; // Bind DataTable to DataGridView
                     }
                 }
             }
@@ -75,36 +76,21 @@ namespace PAKOPointOfSale.Supplier_Details
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            try
+            if (suppliersTable == null) return;
+
+            string filter = txtSearch.Text.Trim().Replace("'", "''"); // escape single quotes
+
+            if (string.IsNullOrEmpty(filter))
             {
-                string connString = PAKOPointOfSale.Program.ConnString;
-                using (SqlConnection conn = new SqlConnection(connString))
-                {
-                    conn.Open();
-
-                    string query = @"SELECT * FROM SupplierDetails WHERE name LIKE @search";
-
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
-                    {
-                        string searchValue = "%" + txtSearch.Text.Trim() + "%";
-                        cmd.Parameters.AddWithValue("@search", searchValue);
-
-                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                        {
-                            DataTable dt = new DataTable();
-                            da.Fill(dt);
-                            dataGridView1.DataSource = dt;
-
-                            // Hide the ID column
-                            if (dataGridView1.Columns.Contains("id"))
-                                dataGridView1.Columns["id"].Visible = false;
-                        }
-                    }
-                }
+                dataGridView1.DataSource = suppliersTable;
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Error searching users: " + ex.Message);
+                // Filter by name, contact_number, or address
+                string rowFilter = $"name LIKE '%{filter}%' OR contact_number LIKE '%{filter}%' OR address LIKE '%{filter}%'";
+                DataView dv = new DataView(suppliersTable);
+                dv.RowFilter = rowFilter;
+                dataGridView1.DataSource = dv;
             }
         }
     }

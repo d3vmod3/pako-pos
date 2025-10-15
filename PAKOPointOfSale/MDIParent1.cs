@@ -123,5 +123,11 @@ namespace PAKOPointOfSale
             Supplier_Details.SuppliersList suppliersList = new Supplier_Details.SuppliersList();
             suppliersList.Show();
         }
+
+        private void usersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Products.ProductsList productsForm = new Products.ProductsList();
+            productsForm.Show();
+        }
     }
 }

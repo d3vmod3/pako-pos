@@ -48,6 +48,7 @@ namespace PAKOPointOfSale.Supplier_Details
                         {
                             if (reader.Read())
                             {
+                                _supplierName = reader["name"].ToString();
                                 txtSupplierName.Text = reader["name"].ToString();
                                 txtAddress.Text = reader["address"].ToString();
                                 txtContactNumber.Text = reader["contact_number"].ToString();

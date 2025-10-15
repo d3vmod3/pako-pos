@@ -77,6 +77,7 @@
             usersToolStripMenuItem.Name = "usersToolStripMenuItem";
             usersToolStripMenuItem.Size = new Size(180, 22);
             usersToolStripMenuItem.Text = "Products";
+            usersToolStripMenuItem.Click += usersToolStripMenuItem_Click;
             // 
             // supplierProductsToolStripMenuItem
             // 

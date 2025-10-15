@@ -28,6 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            chkIsActive = new CheckBox();
+            cmbStatus = new ComboBox();
+            num_quantity = new NumericUpDown();
+            txtRemarks = new TextBox();
+            num_unitPrice = new NumericUpDown();
+            num_costPrice = new NumericUpDown();
+            cmbUnitofMeasurements = new ComboBox();
+            cmbCategory = new ComboBox();
+            cmbSupplier = new ComboBox();
+            dtpDateExpiration = new DateTimePicker();
+            dtpDateReceived = new DateTimePicker();
+            btnSubmit = new Button();
             lblDateExpiration = new Label();
             label7 = new Label();
             lblStatus = new Label();
@@ -36,7 +48,7 @@
             lblCostPrice = new Label();
             lblUnitofMeasurement = new Label();
             lblQuantity = new Label();
-            txxSKU = new TextBox();
+            txtSKU = new TextBox();
             txtProductCode = new TextBox();
             txtDescription = new TextBox();
             txtProductBrand = new TextBox();
@@ -47,286 +59,299 @@
             lblProductBrand = new Label();
             lblProductName = new Label();
             lblCategory = new Label();
-            btnSubmit = new Button();
-            dtpDateReceived = new DateTimePicker();
-            dtpDateExpiration = new DateTimePicker();
             lblSupplierID = new Label();
-            cmbSupplier = new ComboBox();
-            cmbCategory = new ComboBox();
-            cmbUnitofMeasurements = new ComboBox();
-            num_costPrice = new NumericUpDown();
-            num_unitPrice = new NumericUpDown();
-            textBox1 = new TextBox();
-            num_quantity = new NumericUpDown();
-            cmbStatus = new ComboBox();
-            ((System.ComponentModel.ISupportInitialize)num_costPrice).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)num_unitPrice).BeginInit();
             ((System.ComponentModel.ISupportInitialize)num_quantity).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)num_unitPrice).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)num_costPrice).BeginInit();
             SuspendLayout();
+            // 
+            // chkIsActive
+            // 
+            chkIsActive.AutoSize = true;
+            chkIsActive.Location = new Point(770, 507);
+            chkIsActive.Name = "chkIsActive";
+            chkIsActive.Size = new Size(59, 19);
+            chkIsActive.TabIndex = 142;
+            chkIsActive.Text = "Active";
+            chkIsActive.UseVisualStyleBackColor = true;
+            // 
+            // cmbStatus
+            // 
+            cmbStatus.FormattingEnabled = true;
+            cmbStatus.Items.AddRange(new object[] { "Good", "Deffective", "Damaged" });
+            cmbStatus.Location = new Point(676, 397);
+            cmbStatus.Name = "cmbStatus";
+            cmbStatus.Size = new Size(257, 23);
+            cmbStatus.TabIndex = 141;
+            // 
+            // num_quantity
+            // 
+            num_quantity.DecimalPlaces = 2;
+            num_quantity.Location = new Point(680, 26);
+            num_quantity.Name = "num_quantity";
+            num_quantity.Size = new Size(254, 23);
+            num_quantity.TabIndex = 140;
+            // 
+            // txtRemarks
+            // 
+            txtRemarks.Location = new Point(677, 222);
+            txtRemarks.Multiline = true;
+            txtRemarks.Name = "txtRemarks";
+            txtRemarks.Size = new Size(257, 161);
+            txtRemarks.TabIndex = 139;
+            // 
+            // num_unitPrice
+            // 
+            num_unitPrice.DecimalPlaces = 2;
+            num_unitPrice.Location = new Point(679, 183);
+            num_unitPrice.Name = "num_unitPrice";
+            num_unitPrice.Size = new Size(254, 23);
+            num_unitPrice.TabIndex = 138;
+            // 
+            // num_costPrice
+            // 
+            num_costPrice.DecimalPlaces = 2;
+            num_costPrice.Location = new Point(679, 132);
+            num_costPrice.Name = "num_costPrice";
+            num_costPrice.Size = new Size(254, 23);
+            num_costPrice.TabIndex = 137;
+            // 
+            // cmbUnitofMeasurements
+            // 
+            cmbUnitofMeasurements.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cmbUnitofMeasurements.AutoCompleteSource = AutoCompleteSource.ListItems;
+            cmbUnitofMeasurements.FormattingEnabled = true;
+            cmbUnitofMeasurements.Items.AddRange(new object[] { "Bag", "Box", "Bottle", "Bundle", "Can", "Carton", "Case", "Dozen", "Gallon", "Gram", "Hour", "Job", "Kit", "Kilogram", "Liter", "Milliliter", "Pair", "Pack", "Piece", "Roll", "Sheet", "Tray", "Tin", "Set" });
+            cmbUnitofMeasurements.Location = new Point(680, 77);
+            cmbUnitofMeasurements.Name = "cmbUnitofMeasurements";
+            cmbUnitofMeasurements.Size = new Size(253, 23);
+            cmbUnitofMeasurements.TabIndex = 136;
+            // 
+            // cmbCategory
+            // 
+            cmbCategory.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cmbCategory.AutoCompleteSource = AutoCompleteSource.ListItems;
+            cmbCategory.FormattingEnabled = true;
+            cmbCategory.Location = new Point(189, 80);
+            cmbCategory.Name = "cmbCategory";
+            cmbCategory.Size = new Size(257, 23);
+            cmbCategory.TabIndex = 135;
+            // 
+            // cmbSupplier
+            // 
+            cmbSupplier.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cmbSupplier.AutoCompleteSource = AutoCompleteSource.ListItems;
+            cmbSupplier.FormattingEnabled = true;
+            cmbSupplier.Location = new Point(189, 28);
+            cmbSupplier.Name = "cmbSupplier";
+            cmbSupplier.Size = new Size(257, 23);
+            cmbSupplier.TabIndex = 134;
+            // 
+            // dtpDateExpiration
+            // 
+            dtpDateExpiration.Format = DateTimePickerFormat.Short;
+            dtpDateExpiration.Location = new Point(676, 470);
+            dtpDateExpiration.Name = "dtpDateExpiration";
+            dtpDateExpiration.Size = new Size(257, 23);
+            dtpDateExpiration.TabIndex = 133;
+            // 
+            // dtpDateReceived
+            // 
+            dtpDateReceived.Location = new Point(676, 427);
+            dtpDateReceived.Name = "dtpDateReceived";
+            dtpDateReceived.Size = new Size(257, 23);
+            dtpDateReceived.TabIndex = 132;
+            // 
+            // btnSubmit
+            // 
+            btnSubmit.Location = new Point(858, 504);
+            btnSubmit.Name = "btnSubmit";
+            btnSubmit.Size = new Size(75, 23);
+            btnSubmit.TabIndex = 131;
+            btnSubmit.Text = "Submit";
+            btnSubmit.UseVisualStyleBackColor = true;
+            btnSubmit.Click += btnSubmit_Click;
             // 
             // lblDateExpiration
             // 
             lblDateExpiration.AutoSize = true;
-            lblDateExpiration.Location = new Point(570, 487);
+            lblDateExpiration.Location = new Point(536, 476);
             lblDateExpiration.Name = "lblDateExpiration";
             lblDateExpiration.Size = new Size(86, 15);
-            lblDateExpiration.TabIndex = 57;
+            lblDateExpiration.TabIndex = 130;
             lblDateExpiration.Text = "Date Expiration";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(570, 444);
+            label7.Location = new Point(536, 433);
             label7.Name = "label7";
             label7.Size = new Size(81, 15);
-            label7.TabIndex = 56;
+            label7.TabIndex = 129;
             label7.Text = "Date Received";
             // 
             // lblStatus
             // 
             lblStatus.AutoSize = true;
-            lblStatus.Location = new Point(570, 408);
+            lblStatus.Location = new Point(536, 397);
             lblStatus.Name = "lblStatus";
             lblStatus.Size = new Size(39, 15);
-            lblStatus.TabIndex = 55;
+            lblStatus.TabIndex = 128;
             lblStatus.Text = "Status";
             // 
             // lblRemarks
             // 
             lblRemarks.AutoSize = true;
-            lblRemarks.Location = new Point(571, 244);
+            lblRemarks.Location = new Point(537, 233);
             lblRemarks.Name = "lblRemarks";
             lblRemarks.Size = new Size(52, 15);
-            lblRemarks.TabIndex = 54;
+            lblRemarks.TabIndex = 127;
             lblRemarks.Text = "Remarks";
             // 
             // lblUnitPrice
             // 
             lblUnitPrice.AutoSize = true;
-            lblUnitPrice.Location = new Point(573, 196);
+            lblUnitPrice.Location = new Point(539, 185);
             lblUnitPrice.Name = "lblUnitPrice";
             lblUnitPrice.Size = new Size(58, 15);
-            lblUnitPrice.TabIndex = 53;
+            lblUnitPrice.TabIndex = 126;
             lblUnitPrice.Text = "Unit Price";
             // 
             // lblCostPrice
             // 
             lblCostPrice.AutoSize = true;
-            lblCostPrice.Location = new Point(571, 145);
+            lblCostPrice.Location = new Point(537, 134);
             lblCostPrice.Name = "lblCostPrice";
             lblCostPrice.Size = new Size(60, 15);
-            lblCostPrice.TabIndex = 52;
+            lblCostPrice.TabIndex = 125;
             lblCostPrice.Text = "Cost Price";
             // 
             // lblUnitofMeasurement
             // 
             lblUnitofMeasurement.AutoSize = true;
-            lblUnitofMeasurement.Location = new Point(570, 91);
+            lblUnitofMeasurement.Location = new Point(536, 80);
             lblUnitofMeasurement.Name = "lblUnitofMeasurement";
             lblUnitofMeasurement.Size = new Size(124, 15);
-            lblUnitofMeasurement.TabIndex = 51;
+            lblUnitofMeasurement.TabIndex = 124;
             lblUnitofMeasurement.Text = "Unit of Measurements";
             // 
             // lblQuantity
             // 
             lblQuantity.AutoSize = true;
-            lblQuantity.Location = new Point(570, 40);
+            lblQuantity.Location = new Point(536, 29);
             lblQuantity.Name = "lblQuantity";
             lblQuantity.Size = new Size(53, 15);
-            lblQuantity.TabIndex = 50;
+            lblQuantity.TabIndex = 123;
             lblQuantity.Text = "Quantity";
             // 
-            // txxSKU
+            // txtSKU
             // 
-            txxSKU.Location = new Point(223, 476);
-            txxSKU.Name = "txxSKU";
-            txxSKU.Size = new Size(257, 23);
-            txxSKU.TabIndex = 49;
+            txtSKU.Location = new Point(189, 465);
+            txtSKU.Name = "txtSKU";
+            txtSKU.Size = new Size(257, 23);
+            txtSKU.TabIndex = 122;
             // 
             // txtProductCode
             // 
-            txtProductCode.Location = new Point(223, 424);
+            txtProductCode.Location = new Point(189, 413);
             txtProductCode.Name = "txtProductCode";
             txtProductCode.Size = new Size(257, 23);
-            txtProductCode.TabIndex = 48;
+            txtProductCode.TabIndex = 121;
             // 
             // txtDescription
             // 
-            txtDescription.Location = new Point(223, 246);
+            txtDescription.Location = new Point(189, 235);
             txtDescription.Multiline = true;
             txtDescription.Name = "txtDescription";
             txtDescription.Size = new Size(257, 161);
-            txtDescription.TabIndex = 47;
+            txtDescription.TabIndex = 120;
             // 
             // txtProductBrand
             // 
-            txtProductBrand.Location = new Point(223, 200);
+            txtProductBrand.Location = new Point(189, 189);
             txtProductBrand.Name = "txtProductBrand";
             txtProductBrand.Size = new Size(257, 23);
-            txtProductBrand.TabIndex = 46;
+            txtProductBrand.TabIndex = 119;
             // 
             // txtProductName
             // 
-            txtProductName.Location = new Point(223, 141);
+            txtProductName.Location = new Point(189, 130);
             txtProductName.Name = "txtProductName";
             txtProductName.Size = new Size(257, 23);
-            txtProductName.TabIndex = 45;
+            txtProductName.TabIndex = 118;
             // 
             // lblSKU
             // 
             lblSKU.AutoSize = true;
-            lblSKU.Location = new Point(99, 484);
+            lblSKU.Location = new Point(65, 473);
             lblSKU.Name = "lblSKU";
             lblSKU.Size = new Size(28, 15);
-            lblSKU.TabIndex = 41;
+            lblSKU.TabIndex = 117;
             lblSKU.Text = "SKU";
             // 
             // lblProductCode
             // 
             lblProductCode.AutoSize = true;
-            lblProductCode.Location = new Point(99, 432);
+            lblProductCode.Location = new Point(65, 421);
             lblProductCode.Name = "lblProductCode";
             lblProductCode.Size = new Size(80, 15);
-            lblProductCode.TabIndex = 40;
+            lblProductCode.TabIndex = 116;
             lblProductCode.Text = "Product Code";
             // 
             // lblProductDescription
             // 
             lblProductDescription.AutoSize = true;
-            lblProductDescription.Location = new Point(99, 254);
+            lblProductDescription.Location = new Point(65, 243);
             lblProductDescription.Name = "lblProductDescription";
             lblProductDescription.Size = new Size(112, 15);
-            lblProductDescription.TabIndex = 39;
+            lblProductDescription.TabIndex = 115;
             lblProductDescription.Text = "Product Description";
             // 
             // lblProductBrand
             // 
             lblProductBrand.AutoSize = true;
-            lblProductBrand.Location = new Point(99, 208);
+            lblProductBrand.Location = new Point(65, 197);
             lblProductBrand.Name = "lblProductBrand";
             lblProductBrand.Size = new Size(83, 15);
-            lblProductBrand.TabIndex = 38;
+            lblProductBrand.TabIndex = 114;
             lblProductBrand.Text = "Product Brand";
             // 
             // lblProductName
             // 
             lblProductName.AutoSize = true;
-            lblProductName.Location = new Point(99, 149);
+            lblProductName.Location = new Point(65, 138);
             lblProductName.Name = "lblProductName";
             lblProductName.Size = new Size(87, 15);
-            lblProductName.TabIndex = 37;
+            lblProductName.TabIndex = 113;
             lblProductName.Text = "Product  Name";
             // 
             // lblCategory
             // 
             lblCategory.AutoSize = true;
-            lblCategory.Location = new Point(99, 94);
+            lblCategory.Location = new Point(65, 83);
             lblCategory.Name = "lblCategory";
             lblCategory.Size = new Size(55, 15);
-            lblCategory.TabIndex = 36;
+            lblCategory.TabIndex = 112;
             lblCategory.Text = "Category";
-            // 
-            // btnSubmit
-            // 
-            btnSubmit.Location = new Point(892, 515);
-            btnSubmit.Name = "btnSubmit";
-            btnSubmit.Size = new Size(75, 23);
-            btnSubmit.TabIndex = 68;
-            btnSubmit.Text = "Submit";
-            btnSubmit.UseVisualStyleBackColor = true;
-            // 
-            // dtpDateReceived
-            // 
-            dtpDateReceived.Location = new Point(710, 438);
-            dtpDateReceived.Name = "dtpDateReceived";
-            dtpDateReceived.Size = new Size(257, 23);
-            dtpDateReceived.TabIndex = 69;
-            // 
-            // dtpDateExpiration
-            // 
-            dtpDateExpiration.Location = new Point(710, 481);
-            dtpDateExpiration.Name = "dtpDateExpiration";
-            dtpDateExpiration.Size = new Size(257, 23);
-            dtpDateExpiration.TabIndex = 70;
             // 
             // lblSupplierID
             // 
             lblSupplierID.AutoSize = true;
-            lblSupplierID.Location = new Point(99, 42);
+            lblSupplierID.Location = new Point(65, 31);
             lblSupplierID.Name = "lblSupplierID";
             lblSupplierID.Size = new Size(50, 15);
-            lblSupplierID.TabIndex = 35;
+            lblSupplierID.TabIndex = 111;
             lblSupplierID.Text = "Supplier";
-            // 
-            // cmbSupplier
-            // 
-            cmbSupplier.FormattingEnabled = true;
-            cmbSupplier.Location = new Point(223, 39);
-            cmbSupplier.Name = "cmbSupplier";
-            cmbSupplier.Size = new Size(257, 23);
-            cmbSupplier.TabIndex = 71;
-            // 
-            // cmbCategory
-            // 
-            cmbCategory.FormattingEnabled = true;
-            cmbCategory.Location = new Point(223, 91);
-            cmbCategory.Name = "cmbCategory";
-            cmbCategory.Size = new Size(257, 23);
-            cmbCategory.TabIndex = 72;
-            // 
-            // cmbUnitofMeasurements
-            // 
-            cmbUnitofMeasurements.FormattingEnabled = true;
-            cmbUnitofMeasurements.Location = new Point(714, 88);
-            cmbUnitofMeasurements.Name = "cmbUnitofMeasurements";
-            cmbUnitofMeasurements.Size = new Size(253, 23);
-            cmbUnitofMeasurements.TabIndex = 73;
-            // 
-            // num_costPrice
-            // 
-            num_costPrice.Location = new Point(713, 143);
-            num_costPrice.Name = "num_costPrice";
-            num_costPrice.Size = new Size(254, 23);
-            num_costPrice.TabIndex = 74;
-            // 
-            // num_unitPrice
-            // 
-            num_unitPrice.Location = new Point(713, 194);
-            num_unitPrice.Name = "num_unitPrice";
-            num_unitPrice.Size = new Size(254, 23);
-            num_unitPrice.TabIndex = 75;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(711, 233);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(257, 161);
-            textBox1.TabIndex = 76;
-            // 
-            // num_quantity
-            // 
-            num_quantity.Location = new Point(714, 37);
-            num_quantity.Name = "num_quantity";
-            num_quantity.Size = new Size(254, 23);
-            num_quantity.TabIndex = 77;
-            // 
-            // cmbStatus
-            // 
-            cmbStatus.FormattingEnabled = true;
-            cmbStatus.Location = new Point(710, 408);
-            cmbStatus.Name = "cmbStatus";
-            cmbStatus.Size = new Size(257, 23);
-            cmbStatus.TabIndex = 78;
             // 
             // EditProduct
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(998, 552);
+            Controls.Add(chkIsActive);
             Controls.Add(cmbStatus);
             Controls.Add(num_quantity);
-            Controls.Add(textBox1);
+            Controls.Add(txtRemarks);
             Controls.Add(num_unitPrice);
             Controls.Add(num_costPrice);
             Controls.Add(cmbUnitofMeasurements);
@@ -343,7 +368,7 @@
             Controls.Add(lblCostPrice);
             Controls.Add(lblUnitofMeasurement);
             Controls.Add(lblQuantity);
-            Controls.Add(txxSKU);
+            Controls.Add(txtSKU);
             Controls.Add(txtProductCode);
             Controls.Add(txtDescription);
             Controls.Add(txtProductBrand);
@@ -357,14 +382,28 @@
             Controls.Add(lblSupplierID);
             Name = "EditProduct";
             Text = "EditProducts";
-            ((System.ComponentModel.ISupportInitialize)num_costPrice).EndInit();
-            ((System.ComponentModel.ISupportInitialize)num_unitPrice).EndInit();
+            Load += EditProduct_Load;
             ((System.ComponentModel.ISupportInitialize)num_quantity).EndInit();
+            ((System.ComponentModel.ISupportInitialize)num_unitPrice).EndInit();
+            ((System.ComponentModel.ISupportInitialize)num_costPrice).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
+
+        private CheckBox chkIsActive;
+        private ComboBox cmbStatus;
+        private NumericUpDown num_quantity;
+        private TextBox txtRemarks;
+        private NumericUpDown num_unitPrice;
+        private NumericUpDown num_costPrice;
+        private ComboBox cmbUnitofMeasurements;
+        private ComboBox cmbCategory;
+        private ComboBox cmbSupplier;
+        private DateTimePicker dtpDateExpiration;
+        private DateTimePicker dtpDateReceived;
+        private Button btnSubmit;
         private Label lblDateExpiration;
         private Label label7;
         private Label lblStatus;
@@ -373,7 +412,7 @@
         private Label lblCostPrice;
         private Label lblUnitofMeasurement;
         private Label lblQuantity;
-        private TextBox txxSKU;
+        private TextBox txtSKU;
         private TextBox txtProductCode;
         private TextBox txtDescription;
         private TextBox txtProductBrand;
@@ -384,17 +423,6 @@
         private Label lblProductBrand;
         private Label lblProductName;
         private Label lblCategory;
-        private Button btnSubmit;
-        private DateTimePicker dtpDateReceived;
-        private DateTimePicker dtpDateExpiration;
         private Label lblSupplierID;
-        private ComboBox cmbSupplier;
-        private ComboBox cmbCategory;
-        private ComboBox cmbUnitofMeasurements;
-        private NumericUpDown num_costPrice;
-        private NumericUpDown num_unitPrice;
-        private TextBox textBox1;
-        private NumericUpDown num_quantity;
-        private ComboBox cmbStatus;
     }
 }

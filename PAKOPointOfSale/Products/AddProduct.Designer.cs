@@ -30,7 +30,7 @@
         {
             cmbStatus = new ComboBox();
             num_quantity = new NumericUpDown();
-            textBox1 = new TextBox();
+            txtRemarks = new TextBox();
             num_unitPrice = new NumericUpDown();
             num_costPrice = new NumericUpDown();
             cmbUnitofMeasurements = new ComboBox();
@@ -47,7 +47,7 @@
             lblCostPrice = new Label();
             lblUnitofMeasurement = new Label();
             lblQuantity = new Label();
-            txxSKU = new TextBox();
+            txtSKU = new TextBox();
             txtProductCode = new TextBox();
             txtDescription = new TextBox();
             txtProductBrand = new TextBox();
@@ -59,6 +59,7 @@
             lblProductName = new Label();
             lblCategory = new Label();
             lblSupplierID = new Label();
+            chkIsActive = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)num_quantity).BeginInit();
             ((System.ComponentModel.ISupportInitialize)num_unitPrice).BeginInit();
             ((System.ComponentModel.ISupportInitialize)num_costPrice).BeginInit();
@@ -67,6 +68,7 @@
             // cmbStatus
             // 
             cmbStatus.FormattingEnabled = true;
+            cmbStatus.Items.AddRange(new object[] { "Good", "Deffective", "Damaged" });
             cmbStatus.Location = new Point(643, 396);
             cmbStatus.Name = "cmbStatus";
             cmbStatus.Size = new Size(257, 23);
@@ -74,21 +76,23 @@
             // 
             // num_quantity
             // 
+            num_quantity.DecimalPlaces = 2;
             num_quantity.Location = new Point(647, 25);
             num_quantity.Name = "num_quantity";
             num_quantity.Size = new Size(254, 23);
             num_quantity.TabIndex = 108;
             // 
-            // textBox1
+            // txtRemarks
             // 
-            textBox1.Location = new Point(644, 221);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(257, 161);
-            textBox1.TabIndex = 107;
+            txtRemarks.Location = new Point(644, 221);
+            txtRemarks.Multiline = true;
+            txtRemarks.Name = "txtRemarks";
+            txtRemarks.Size = new Size(257, 161);
+            txtRemarks.TabIndex = 107;
             // 
             // num_unitPrice
             // 
+            num_unitPrice.DecimalPlaces = 2;
             num_unitPrice.Location = new Point(646, 182);
             num_unitPrice.Name = "num_unitPrice";
             num_unitPrice.Size = new Size(254, 23);
@@ -96,6 +100,7 @@
             // 
             // num_costPrice
             // 
+            num_costPrice.DecimalPlaces = 2;
             num_costPrice.Location = new Point(646, 131);
             num_costPrice.Name = "num_costPrice";
             num_costPrice.Size = new Size(254, 23);
@@ -103,7 +108,10 @@
             // 
             // cmbUnitofMeasurements
             // 
+            cmbUnitofMeasurements.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cmbUnitofMeasurements.AutoCompleteSource = AutoCompleteSource.ListItems;
             cmbUnitofMeasurements.FormattingEnabled = true;
+            cmbUnitofMeasurements.Items.AddRange(new object[] { "Bag", "Box", "Bottle", "Bundle", "Can", "Carton", "Case", "Dozen", "Gallon", "Gram", "Hour", "Job", "Kit", "Kilogram", "Liter", "Milliliter", "Pair", "Pack", "Piece", "Roll", "Sheet", "Tray", "Tin", "Set" });
             cmbUnitofMeasurements.Location = new Point(647, 76);
             cmbUnitofMeasurements.Name = "cmbUnitofMeasurements";
             cmbUnitofMeasurements.Size = new Size(253, 23);
@@ -111,6 +119,8 @@
             // 
             // cmbCategory
             // 
+            cmbCategory.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cmbCategory.AutoCompleteSource = AutoCompleteSource.ListItems;
             cmbCategory.FormattingEnabled = true;
             cmbCategory.Location = new Point(156, 79);
             cmbCategory.Name = "cmbCategory";
@@ -119,6 +129,8 @@
             // 
             // cmbSupplier
             // 
+            cmbSupplier.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cmbSupplier.AutoCompleteSource = AutoCompleteSource.ListItems;
             cmbSupplier.FormattingEnabled = true;
             cmbSupplier.Location = new Point(156, 27);
             cmbSupplier.Name = "cmbSupplier";
@@ -127,6 +139,7 @@
             // 
             // dtpDateExpiration
             // 
+            dtpDateExpiration.Format = DateTimePickerFormat.Short;
             dtpDateExpiration.Location = new Point(643, 469);
             dtpDateExpiration.Name = "dtpDateExpiration";
             dtpDateExpiration.Size = new Size(257, 23);
@@ -147,6 +160,7 @@
             btnSubmit.TabIndex = 99;
             btnSubmit.Text = "Submit";
             btnSubmit.UseVisualStyleBackColor = true;
+            btnSubmit.Click += btnSubmit_Click;
             // 
             // lblDateExpiration
             // 
@@ -220,12 +234,12 @@
             lblQuantity.TabIndex = 91;
             lblQuantity.Text = "Quantity";
             // 
-            // txxSKU
+            // txtSKU
             // 
-            txxSKU.Location = new Point(156, 464);
-            txxSKU.Name = "txxSKU";
-            txxSKU.Size = new Size(257, 23);
-            txxSKU.TabIndex = 90;
+            txtSKU.Location = new Point(156, 464);
+            txtSKU.Name = "txtSKU";
+            txtSKU.Size = new Size(257, 23);
+            txtSKU.TabIndex = 90;
             // 
             // txtProductCode
             // 
@@ -319,14 +333,25 @@
             lblSupplierID.TabIndex = 79;
             lblSupplierID.Text = "Supplier";
             // 
+            // chkIsActive
+            // 
+            chkIsActive.AutoSize = true;
+            chkIsActive.Location = new Point(737, 506);
+            chkIsActive.Name = "chkIsActive";
+            chkIsActive.Size = new Size(59, 19);
+            chkIsActive.TabIndex = 110;
+            chkIsActive.Text = "Active";
+            chkIsActive.UseVisualStyleBackColor = true;
+            // 
             // AddProducts
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(932, 550);
+            Controls.Add(chkIsActive);
             Controls.Add(cmbStatus);
             Controls.Add(num_quantity);
-            Controls.Add(textBox1);
+            Controls.Add(txtRemarks);
             Controls.Add(num_unitPrice);
             Controls.Add(num_costPrice);
             Controls.Add(cmbUnitofMeasurements);
@@ -343,7 +368,7 @@
             Controls.Add(lblCostPrice);
             Controls.Add(lblUnitofMeasurement);
             Controls.Add(lblQuantity);
-            Controls.Add(txxSKU);
+            Controls.Add(txtSKU);
             Controls.Add(txtProductCode);
             Controls.Add(txtDescription);
             Controls.Add(txtProductBrand);
@@ -357,6 +382,7 @@
             Controls.Add(lblSupplierID);
             Name = "AddProducts";
             Text = "AddProducts";
+            Load += AddProducts_Load;
             ((System.ComponentModel.ISupportInitialize)num_quantity).EndInit();
             ((System.ComponentModel.ISupportInitialize)num_unitPrice).EndInit();
             ((System.ComponentModel.ISupportInitialize)num_costPrice).EndInit();
@@ -368,7 +394,7 @@
 
         private ComboBox cmbStatus;
         private NumericUpDown num_quantity;
-        private TextBox textBox1;
+        private TextBox txtRemarks;
         private NumericUpDown num_unitPrice;
         private NumericUpDown num_costPrice;
         private ComboBox cmbUnitofMeasurements;
@@ -385,7 +411,7 @@
         private Label lblCostPrice;
         private Label lblUnitofMeasurement;
         private Label lblQuantity;
-        private TextBox txxSKU;
+        private TextBox txtSKU;
         private TextBox txtProductCode;
         private TextBox txtDescription;
         private TextBox txtProductBrand;
@@ -397,5 +423,6 @@
         private Label lblProductName;
         private Label lblCategory;
         private Label lblSupplierID;
+        private CheckBox chkIsActive;
     }
 }

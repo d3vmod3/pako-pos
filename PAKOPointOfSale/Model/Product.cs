@@ -27,8 +27,9 @@ namespace WinFormsApp1.Model
         public string status { get; set; }
         public DateTime date_received { get; set; }
         public DateTime date_expiration { get; set; }
+        public Boolean is_active { get; set; }
         public DateTime created_at { get; set; }
-
+        
         public SupplierDetails supplier { get; set; }
         public Category category { get; set; }
     }

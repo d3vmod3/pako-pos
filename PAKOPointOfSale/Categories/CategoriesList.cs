@@ -12,8 +12,10 @@ using System.Windows.Forms;
 
 namespace PAKOPointOfSale.Categories
 {
+    
     public partial class CategoriesList : Form
     {
+        private DataTable categoriesTable;
         public CategoriesList()
         {
             InitializeComponent();
@@ -43,10 +45,10 @@ namespace PAKOPointOfSale.Categories
 
                     using (SqlDataAdapter da = new SqlDataAdapter(query, conn))
                     {
-                        DataTable dt = new DataTable();
-                        da.Fill(dt);
+                        categoriesTable = new DataTable();
+                        da.Fill(categoriesTable);
 
-                        dataGridView1.DataSource = dt; // Bind DataTable to DataGridView
+                        dataGridView1.DataSource = categoriesTable; // Bind DataTable to DataGridView
                     }
                 }
             }

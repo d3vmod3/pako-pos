@@ -22,9 +22,6 @@
     <Compile Update="Products\AddProduct.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Products\Archive.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Products\EditProduct.cs">
       <SubType>Form</SubType>
     </Compile>

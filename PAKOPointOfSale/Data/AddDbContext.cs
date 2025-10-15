@@ -333,7 +333,8 @@ namespace WinFormsApp1.Data
                     status = "Available",
                     date_received = DateTime.Parse("2025-10-01"),
                     date_expiration = DateTime.Parse("2026-10-01"),
-                    created_at = new DateTime(2025, 10, 14, 10, 0, 0)
+                    created_at = new DateTime(2025, 10, 14, 10, 0, 0),
+                    is_active = true
                 },
                 new Product
                 {
@@ -353,7 +354,8 @@ namespace WinFormsApp1.Data
                     status = "Available",
                     date_received = DateTime.Parse("2025-10-02"),
                     date_expiration = DateTime.Parse("2026-10-02"),
-                    created_at = new DateTime(2025, 10, 14, 10, 0, 0)
+                    created_at = new DateTime(2025, 10, 14, 10, 0, 0),
+                    is_active = true
                 },
                 new Product
                 {
@@ -373,7 +375,8 @@ namespace WinFormsApp1.Data
                     status = "Available",
                     date_received = DateTime.Parse("2025-10-03"),
                     date_expiration = DateTime.Parse("2026-04-03"),
-                    created_at = new DateTime(2025, 10, 14, 10, 0, 0)
+                    created_at = new DateTime(2025, 10, 14, 10, 0, 0),
+                    is_active = true
                 },
                 new Product
                 {
@@ -393,7 +396,8 @@ namespace WinFormsApp1.Data
                     status = "Available",
                     date_received = DateTime.Parse("2025-10-04"),
                     date_expiration = DateTime.Parse("2026-04-04"),
-                    created_at = new DateTime(2025, 10, 14, 10, 0, 0)
+                    created_at = new DateTime(2025, 10, 14, 10, 0, 0),
+                    is_active = true
                 },
                 new Product
                 {
@@ -413,7 +417,8 @@ namespace WinFormsApp1.Data
                     status = "Available",
                     date_received = DateTime.Parse("2025-10-05"),
                     date_expiration = DateTime.Parse("2030-10-05"),
-                    created_at = new DateTime(2025, 10, 14, 10, 0, 0)
+                    created_at = new DateTime(2025, 10, 14, 10, 0, 0),
+                    is_active = true
                 },
                 new Product
                 {
@@ -433,7 +438,8 @@ namespace WinFormsApp1.Data
                     status = "Available",
                     date_received = DateTime.Parse("2025-10-06"),
                     date_expiration = DateTime.Parse("2030-10-06"),
-                    created_at = new DateTime(2025, 10, 14, 10, 0, 0)
+                    created_at = new DateTime(2025, 10, 14, 10, 0, 0),
+                    is_active = true
                 },
                 new Product
                 {
@@ -453,7 +459,8 @@ namespace WinFormsApp1.Data
                     status = "Available",
                     date_received = DateTime.Parse("2025-10-07"),
                     date_expiration = DateTime.Parse("2026-10-07"),
-                    created_at = new DateTime(2025, 10, 14, 10, 0, 0)
+                    created_at = new DateTime(2025, 10, 14, 10, 0, 0),
+                    is_active = true
                 },
                 new Product
                 {
@@ -473,7 +480,8 @@ namespace WinFormsApp1.Data
                     status = "Available",
                     date_received = DateTime.Parse("2025-10-08"),
                     date_expiration = DateTime.Parse("2026-04-08"),
-                    created_at = new DateTime(2025, 10, 14, 10, 0, 0)
+                    created_at = new DateTime(2025, 10, 14, 10, 0, 0),
+                    is_active = true
                 },
                 new Product
                 {
@@ -493,7 +501,8 @@ namespace WinFormsApp1.Data
                     status = "Available",
                     date_received = DateTime.Parse("2025-10-09"),
                     date_expiration = DateTime.Parse("2030-10-09"),
-                    created_at = new DateTime(2025, 10, 14, 10, 0, 0)
+                    created_at = new DateTime(2025, 10, 14, 10, 0, 0),
+                    is_active = true
                 },
                 new Product
                 {
@@ -513,11 +522,10 @@ namespace WinFormsApp1.Data
                     status = "Available",
                     date_received = DateTime.Parse("2025-10-10"),
                     date_expiration = DateTime.Parse("2026-10-10"),
-                    created_at = new DateTime(2025, 10, 14, 10, 0, 0)
+                    created_at = new DateTime(2025, 10, 14, 10, 0, 0),
+                    is_active = true
                 }
             );
-
-
 
         }
 
