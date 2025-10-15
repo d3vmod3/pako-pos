@@ -65,7 +65,7 @@ namespace PAKOPointOfSale.Users
                 {
                     return;
                 }
-                    using (SqlConnection conn = new SqlConnection(connString))
+                using (SqlConnection conn = new SqlConnection(connString))
                 {
                     conn.Open();
 
@@ -179,6 +179,11 @@ namespace PAKOPointOfSale.Users
                 }
             }
             return false;
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
