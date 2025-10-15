@@ -40,11 +40,12 @@ namespace PAKOPointOfSale.Categories
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            string connString = PAKOPointOfSale.Program.ConnString;
+            
             if (!validateForm())
             {
                 return;
             }
+            string connString = PAKOPointOfSale.Program.ConnString;
             try
             {
                 using (SqlConnection conn = new SqlConnection(connString))
@@ -83,11 +84,38 @@ namespace PAKOPointOfSale.Categories
         {
             if (string.IsNullOrWhiteSpace(txtCategoryName.Text))
             {
-                MessageBox.Show("Please enter a username.");
+                MessageBox.Show("Please enter a Category name.");
+                txtCategoryName.Focus();
+                return false;
+            }
+            if (isAlreadyExists() == true)
+            {
+                MessageBox.Show("Category name already exists. Please choose another one.");
                 txtCategoryName.Focus();
                 return false;
             }
             return true;
+        }
+        public bool isAlreadyExists()
+        {
+
+            string connString = PAKOPointOfSale.Program.ConnString;
+            using (SqlConnection conn = new SqlConnection(connString))
+            {
+                conn.Open();
+                string query = "SELECT COUNT(*) FROM Categories WHERE name = @name";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@name", txtCategoryName.Text.Trim());
+                    int count = (int)cmd.ExecuteScalar();
+
+                    if (count > 0)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
     }
 }

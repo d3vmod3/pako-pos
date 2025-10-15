@@ -39,6 +39,8 @@
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
+            chkIsActive = new CheckBox();
+            lblCreatedAt = new Label();
             SuspendLayout();
             // 
             // btnSubmit
@@ -50,6 +52,7 @@
             btnSubmit.TabIndex = 25;
             btnSubmit.Text = "Submit";
             btnSubmit.UseVisualStyleBackColor = true;
+            btnSubmit.Click += btnSubmit_Click;
             // 
             // txtPaymentGateway
             // 
@@ -141,11 +144,33 @@
             label2.TabIndex = 15;
             label2.Text = "Supplier Name";
             // 
+            // chkIsActive
+            // 
+            chkIsActive.AutoSize = true;
+            chkIsActive.Location = new Point(299, 257);
+            chkIsActive.Name = "chkIsActive";
+            chkIsActive.Size = new Size(59, 19);
+            chkIsActive.TabIndex = 26;
+            chkIsActive.Text = "Active";
+            chkIsActive.UseVisualStyleBackColor = true;
+            // 
+            // lblCreatedAt
+            // 
+            lblCreatedAt.AutoSize = true;
+            lblCreatedAt.Font = new Font("Segoe Print", 9F);
+            lblCreatedAt.Location = new Point(16, 280);
+            lblCreatedAt.Name = "lblCreatedAt";
+            lblCreatedAt.Size = new Size(91, 21);
+            lblCreatedAt.TabIndex = 27;
+            lblCreatedAt.Text = "Date Created";
+            // 
             // EditSupplierDetails
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(370, 341);
+            Controls.Add(lblCreatedAt);
+            Controls.Add(chkIsActive);
             Controls.Add(btnSubmit);
             Controls.Add(txtPaymentGateway);
             Controls.Add(txtAccountNumber);
@@ -159,6 +184,7 @@
             Controls.Add(label2);
             Name = "EditSupplierDetails";
             Text = "EditSupplierDetails";
+            Load += EditSupplierDetails_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -176,5 +202,7 @@
         private Label label4;
         private Label label3;
         private Label label2;
+        private CheckBox chkIsActive;
+        private Label lblCreatedAt;
     }
 }

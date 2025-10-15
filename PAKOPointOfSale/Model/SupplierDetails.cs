@@ -10,6 +10,6 @@ public class SupplierDetails
     public string? account_number { get; set; }
     public string? gateway { get; set; }
     public DateTime created_at { get; set; }
-
+    public Boolean is_active { get; set; }
     public ICollection<Product> products { get; set; }
 }

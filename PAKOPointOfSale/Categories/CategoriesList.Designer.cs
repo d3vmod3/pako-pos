@@ -10,7 +10,7 @@ namespace PAKOPointOfSale.Categories
 
         /// <summary>
         /// Clean up any resources being used.
-        /// </summary>
+        /// </summary>w
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
@@ -32,20 +32,19 @@ namespace PAKOPointOfSale.Categories
             components = new System.ComponentModel.Container();
             dataGridView1 = new DataGridView();
             id = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
             description = new DataGridViewTextBoxColumn();
             is_active = new DataGridViewTextBoxColumn();
-            edit = new DataGridViewButtonColumn();
-            archive = new DataGridViewButtonColumn();
             categoryBindingSource1 = new BindingSource(components);
             categoryBindingSource = new BindingSource(components);
             btnAdd = new Button();
             btnPrint = new Button();
             txtSearch = new TextBox();
             label1 = new Label();
+            pictureBox2 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)categoryBindingSource1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)categoryBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // dataGridView1
@@ -54,12 +53,12 @@ namespace PAKOPointOfSale.Categories
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { id, dataGridViewTextBoxColumn2, description, is_active, edit, archive });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { id, description, is_active });
             dataGridView1.DataSource = categoryBindingSource1;
-            dataGridView1.Location = new Point(12, 44);
+            dataGridView1.Location = new Point(10, 107);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
-            dataGridView1.Size = new Size(644, 379);
+            dataGridView1.Size = new Size(644, 343);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick_1;
             // 
@@ -70,13 +69,6 @@ namespace PAKOPointOfSale.Categories
             id.Name = "id";
             id.ReadOnly = true;
             id.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            dataGridViewTextBoxColumn2.DataPropertyName = "name";
-            dataGridViewTextBoxColumn2.HeaderText = "Category Name";
-            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // description
             // 
@@ -95,28 +87,6 @@ namespace PAKOPointOfSale.Categories
             is_active.ReadOnly = true;
             is_active.Resizable = DataGridViewTriState.True;
             is_active.SortMode = DataGridViewColumnSortMode.NotSortable;
-            // 
-            // edit
-            // 
-            edit.DataPropertyName = "id";
-            edit.HeaderText = "";
-            edit.Name = "edit";
-            edit.ReadOnly = true;
-            edit.Text = "Edit";
-            edit.UseColumnTextForButtonValue = true;
-            // 
-            // archive
-            // 
-            archive.DataPropertyName = "id";
-            archive.HeaderText = "";
-            archive.Name = "archive";
-            archive.ReadOnly = true;
-            archive.Text = "Archive";
-            archive.UseColumnTextForButtonValue = true;
-            // 
-            // categoryBindingSource1
-            // 
-            categoryBindingSource1.DataSource = typeof(Category);
             // 
             // btnAdd
             // 
@@ -154,11 +124,20 @@ namespace PAKOPointOfSale.Categories
             label1.TabIndex = 8;
             label1.Text = "Search";
             // 
+            // pictureBox2
+            // 
+            pictureBox2.Location = new Point(0, 0);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(100, 50);
+            pictureBox2.TabIndex = 0;
+            pictureBox2.TabStop = false;
+            // 
             // CategoriesList
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(672, 417);
+            ClientSize = new Size(661, 450);
+            Controls.Add(pictureBox2);
             Controls.Add(label1);
             Controls.Add(txtSearch);
             Controls.Add(btnPrint);
@@ -170,6 +149,7 @@ namespace PAKOPointOfSale.Categories
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)categoryBindingSource1).EndInit();
             ((System.ComponentModel.ISupportInitialize)categoryBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -196,5 +176,6 @@ namespace PAKOPointOfSale.Categories
         private DataGridViewTextBoxColumn is_active;
         private DataGridViewButtonColumn edit;
         private DataGridViewButtonColumn archive;
+        private PictureBox pictureBox2;
     }
 }

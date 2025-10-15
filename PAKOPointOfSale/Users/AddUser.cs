@@ -112,7 +112,7 @@ namespace PAKOPointOfSale.Users
                 return false;
             }
 
-            if (isUsernameExists() == true)
+            if (isAlreadyExists() == true)
             {
                 MessageBox.Show("Username already exists. Please choose another one.");
                 txtUsername.Focus();
@@ -159,7 +159,7 @@ namespace PAKOPointOfSale.Users
             return true;
         }
 
-        public bool isUsernameExists()
+        public bool isAlreadyExists()
         {
 
             string connString = PAKOPointOfSale.Program.ConnString;
