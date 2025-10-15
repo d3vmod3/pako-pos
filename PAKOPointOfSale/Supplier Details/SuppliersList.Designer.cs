@@ -34,7 +34,6 @@
             txtSearch = new TextBox();
             lblSearch = new Label();
             dataGridView1 = new DataGridView();
-            supplierDetailsBindingSource = new BindingSource(components);
             id = new DataGridViewTextBoxColumn();
             nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             addressDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -45,6 +44,7 @@
             createdatDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             productsDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             edit = new DataGridViewButtonColumn();
+            supplierDetailsBindingSource = new BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)supplierDetailsBindingSource).BeginInit();
             SuspendLayout();
@@ -74,6 +74,7 @@
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(433, 23);
             txtSearch.TabIndex = 7;
+            txtSearch.TextChanged += txtSearch_TextChanged;
             // 
             // lblSearch
             // 
@@ -98,10 +99,6 @@
             dataGridView1.Size = new Size(980, 413);
             dataGridView1.TabIndex = 5;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
-            // 
-            // supplierDetailsBindingSource
-            // 
-            supplierDetailsBindingSource.DataSource = typeof(SupplierDetails);
             // 
             // id
             // 
@@ -178,6 +175,10 @@
             edit.ReadOnly = true;
             edit.Text = "Edit";
             edit.UseColumnTextForButtonValue = true;
+            // 
+            // supplierDetailsBindingSource
+            // 
+            supplierDetailsBindingSource.DataSource = typeof(SupplierDetails);
             // 
             // SuppliersList
             // 
