@@ -36,7 +36,10 @@ namespace PAKOPointOfSale.Categories
             btnPrint = new Button();
             txtSearch = new TextBox();
             label1 = new Label();
+            pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
+            lblcategorieslist = new Label();
+            btnClose = new Button();
             id = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
             descriptionDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -45,6 +48,7 @@ namespace PAKOPointOfSale.Categories
             editCategory = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)categoryBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
@@ -53,13 +57,15 @@ namespace PAKOPointOfSale.Categories
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.AutoGenerateColumns = false;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.BackgroundColor = Color.DarkGray;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { id, dataGridViewTextBoxColumn3, descriptionDataGridViewTextBoxColumn, isactiveDataGridViewCheckBoxColumn, productsDataGridViewTextBoxColumn, editCategory });
             dataGridView1.DataSource = categoryBindingSource;
-            dataGridView1.Location = new Point(10, 107);
+            dataGridView1.Location = new Point(12, 120);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
-            dataGridView1.Size = new Size(644, 343);
+            dataGridView1.Size = new Size(1331, 613);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick_1;
             // 
@@ -69,47 +75,92 @@ namespace PAKOPointOfSale.Categories
             // 
             // btnAdd
             // 
-            btnAdd.Location = new Point(500, 14);
+            btnAdd.BackColor = Color.ForestGreen;
+            btnAdd.FlatStyle = FlatStyle.Popup;
+            btnAdd.Location = new Point(1105, 95);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(75, 23);
+            btnAdd.Size = new Size(75, 22);
             btnAdd.TabIndex = 1;
             btnAdd.Text = "Add";
-            btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.UseVisualStyleBackColor = false;
             btnAdd.Click += btnAdd_Click;
             // 
             // btnPrint
             // 
-            btnPrint.Location = new Point(581, 14);
+            btnPrint.BackColor = Color.Gold;
+            btnPrint.FlatStyle = FlatStyle.Popup;
+            btnPrint.Location = new Point(1186, 95);
             btnPrint.Name = "btnPrint";
-            btnPrint.Size = new Size(75, 23);
+            btnPrint.Size = new Size(75, 22);
             btnPrint.TabIndex = 3;
             btnPrint.Text = "Print";
-            btnPrint.UseVisualStyleBackColor = true;
+            btnPrint.UseVisualStyleBackColor = false;
             // 
             // txtSearch
             // 
-            txtSearch.Location = new Point(60, 15);
+            txtSearch.Location = new Point(57, 95);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(366, 23);
+            txtSearch.Size = new Size(468, 23);
             txtSearch.TabIndex = 7;
             txtSearch.TextChanged += txtSearch_TextChanged;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 20);
+            label1.ForeColor = Color.Black;
+            label1.Location = new Point(12, 102);
             label1.Name = "label1";
             label1.Size = new Size(42, 15);
             label1.TabIndex = 8;
             label1.Text = "Search";
             // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = SystemColors.ControlDarkDark;
+            pictureBox1.ErrorImage = null;
+            pictureBox1.InitialImage = null;
+            pictureBox1.Location = new Point(-3, 0);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(1381, 90);
+            pictureBox1.TabIndex = 9;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
+            // 
             // pictureBox2
             // 
-            pictureBox2.Location = new Point(0, 0);
+            pictureBox2.BackColor = SystemColors.ControlDarkDark;
+            pictureBox2.BackgroundImage = Properties.Resources.PakoLogo;
+            pictureBox2.Image = Properties.Resources.PakoLogo;
+            pictureBox2.Location = new Point(-3, 0);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(100, 50);
-            pictureBox2.TabIndex = 0;
+            pictureBox2.Size = new Size(166, 90);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 10;
             pictureBox2.TabStop = false;
+            // 
+            // lblcategorieslist
+            // 
+            lblcategorieslist.AutoSize = true;
+            lblcategorieslist.BackColor = SystemColors.ControlDarkDark;
+            lblcategorieslist.Font = new Font("Impact", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblcategorieslist.ForeColor = Color.White;
+            lblcategorieslist.Location = new Point(595, 9);
+            lblcategorieslist.Name = "lblcategorieslist";
+            lblcategorieslist.Size = new Size(339, 60);
+            lblcategorieslist.TabIndex = 11;
+            lblcategorieslist.Text = "CATEGORIES LIST";
+            // 
+            // btnClose
+            // 
+            btnClose.BackColor = Color.Red;
+            btnClose.FlatStyle = FlatStyle.Popup;
+            btnClose.ForeColor = Color.White;
+            btnClose.Location = new Point(1267, 94);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(75, 22);
+            btnClose.TabIndex = 12;
+            btnClose.Text = "Close";
+            btnClose.UseVisualStyleBackColor = false;
             // 
             // id
             // 
@@ -125,6 +176,7 @@ namespace PAKOPointOfSale.Categories
             dataGridViewTextBoxColumn3.HeaderText = "Category Name";
             dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             dataGridViewTextBoxColumn3.ReadOnly = true;
+            dataGridViewTextBoxColumn3.Resizable = DataGridViewTriState.False;
             // 
             // descriptionDataGridViewTextBoxColumn
             // 
@@ -132,6 +184,7 @@ namespace PAKOPointOfSale.Categories
             descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
             descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
             descriptionDataGridViewTextBoxColumn.ReadOnly = true;
+            descriptionDataGridViewTextBoxColumn.Resizable = DataGridViewTriState.False;
             // 
             // isactiveDataGridViewCheckBoxColumn
             // 
@@ -139,7 +192,7 @@ namespace PAKOPointOfSale.Categories
             isactiveDataGridViewCheckBoxColumn.HeaderText = "Active";
             isactiveDataGridViewCheckBoxColumn.Name = "isactiveDataGridViewCheckBoxColumn";
             isactiveDataGridViewCheckBoxColumn.ReadOnly = true;
-            isactiveDataGridViewCheckBoxColumn.Resizable = DataGridViewTriState.True;
+            isactiveDataGridViewCheckBoxColumn.Resizable = DataGridViewTriState.False;
             isactiveDataGridViewCheckBoxColumn.SortMode = DataGridViewColumnSortMode.NotSortable;
             // 
             // productsDataGridViewTextBoxColumn
@@ -156,8 +209,6 @@ namespace PAKOPointOfSale.Categories
             editCategory.HeaderText = "";
             editCategory.Name = "editCategory";
             editCategory.ReadOnly = true;
-            editCategory.Resizable = DataGridViewTriState.True;
-            editCategory.SortMode = DataGridViewColumnSortMode.Automatic;
             editCategory.Text = "Edit";
             editCategory.UseColumnTextForButtonValue = true;
             // 
@@ -165,18 +216,25 @@ namespace PAKOPointOfSale.Categories
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(661, 450);
+            AutoSize = true;
+            BackColor = Color.CadetBlue;
+            ClientSize = new Size(1359, 749);
+            Controls.Add(btnClose);
+            Controls.Add(lblcategorieslist);
             Controls.Add(pictureBox2);
+            Controls.Add(pictureBox1);
             Controls.Add(label1);
             Controls.Add(txtSearch);
             Controls.Add(btnPrint);
             Controls.Add(btnAdd);
             Controls.Add(dataGridView1);
+            ForeColor = SystemColors.ControlDark;
             Name = "CategoriesList";
             Text = "Categories List";
             Load += CategoryList_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)categoryBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -199,8 +257,11 @@ namespace PAKOPointOfSale.Categories
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private DataGridViewButtonColumn edit;
         private DataGridViewButtonColumn archive;
-        private PictureBox pictureBox2;
         private BindingSource categoryBindingSource;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
+        private Label lblcategorieslist;
+        private Button btnClose;
         private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
