@@ -308,5 +308,10 @@ namespace PAKOPointOfSale.Products
                 }
             }
         }
+
+        private void lblSupplierID_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

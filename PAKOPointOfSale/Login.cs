@@ -107,5 +107,27 @@ namespace PAKOPointOfSale
         {
 
         }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                txtPassword.PasswordChar = '\0'; // show encripted text
+            }
+            else
+            {
+                txtPassword.PasswordChar = '*'; // encripted text
+            }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

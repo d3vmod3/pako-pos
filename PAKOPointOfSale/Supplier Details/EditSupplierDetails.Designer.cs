@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditSupplierDetails));
             btnSubmit = new Button();
             txtPaymentGateway = new TextBox();
             txtAccountNumber = new TextBox();
@@ -41,12 +42,18 @@
             label2 = new Label();
             chkIsActive = new CheckBox();
             lblCreatedAt = new Label();
+            dateTimePicker1 = new DateTimePicker();
+            lblAddUser = new Label();
+            pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // btnSubmit
             // 
             btnSubmit.Font = new Font("Segoe Print", 9F);
-            btnSubmit.Location = new Point(279, 300);
+            btnSubmit.Location = new Point(646, 283);
             btnSubmit.Name = "btnSubmit";
             btnSubmit.Size = new Size(75, 23);
             btnSubmit.TabIndex = 25;
@@ -57,97 +64,103 @@
             // txtPaymentGateway
             // 
             txtPaymentGateway.Font = new Font("Segoe Print", 9F);
-            txtPaymentGateway.Location = new Point(145, 222);
+            txtPaymentGateway.Location = new Point(516, 149);
+            txtPaymentGateway.Multiline = true;
             txtPaymentGateway.Name = "txtPaymentGateway";
-            txtPaymentGateway.Size = new Size(209, 29);
+            txtPaymentGateway.Size = new Size(209, 23);
             txtPaymentGateway.TabIndex = 24;
             // 
             // txtAccountNumber
             // 
             txtAccountNumber.Font = new Font("Segoe Print", 9F);
-            txtAccountNumber.Location = new Point(145, 172);
+            txtAccountNumber.Location = new Point(516, 97);
+            txtAccountNumber.Multiline = true;
             txtAccountNumber.Name = "txtAccountNumber";
-            txtAccountNumber.Size = new Size(209, 29);
+            txtAccountNumber.Size = new Size(209, 23);
             txtAccountNumber.TabIndex = 23;
             // 
             // txtContactNumber
             // 
             txtContactNumber.Font = new Font("Segoe Print", 9F);
-            txtContactNumber.Location = new Point(145, 123);
+            txtContactNumber.Location = new Point(151, 199);
+            txtContactNumber.Multiline = true;
             txtContactNumber.Name = "txtContactNumber";
-            txtContactNumber.Size = new Size(209, 29);
+            txtContactNumber.Size = new Size(209, 23);
             txtContactNumber.TabIndex = 22;
             // 
             // txtAddress
             // 
             txtAddress.Font = new Font("Segoe Print", 9F);
-            txtAddress.Location = new Point(145, 72);
+            txtAddress.Location = new Point(151, 150);
+            txtAddress.Multiline = true;
             txtAddress.Name = "txtAddress";
-            txtAddress.Size = new Size(209, 29);
+            txtAddress.Size = new Size(209, 23);
             txtAddress.TabIndex = 21;
             // 
             // txtSupplierName
             // 
             txtSupplierName.Font = new Font("Segoe Print", 9F);
-            txtSupplierName.Location = new Point(145, 12);
+            txtSupplierName.Location = new Point(151, 98);
+            txtSupplierName.Multiline = true;
             txtSupplierName.Name = "txtSupplierName";
-            txtSupplierName.Size = new Size(209, 29);
+            txtSupplierName.Size = new Size(209, 23);
             txtSupplierName.TabIndex = 20;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Font = new Font("Segoe Print", 9F);
-            label6.Location = new Point(16, 225);
+            label6.Font = new Font("Calibri", 11.25F);
+            label6.Location = new Point(393, 154);
             label6.Name = "label6";
-            label6.Size = new Size(122, 21);
+            label6.Size = new Size(120, 18);
             label6.TabIndex = 19;
             label6.Text = "Payment Gateway";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Segoe Print", 9F);
-            label5.Location = new Point(16, 175);
+            label5.Font = new Font("Calibri", 11.25F);
+            label5.Location = new Point(393, 102);
             label5.Name = "label5";
-            label5.Size = new Size(112, 21);
+            label5.Size = new Size(112, 18);
             label5.TabIndex = 18;
             label5.Text = "Account Number";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Segoe Print", 9F);
-            label4.Location = new Point(16, 126);
+            label4.Font = new Font("Calibri", 11.25F);
+            label4.Location = new Point(32, 208);
             label4.Name = "label4";
-            label4.Size = new Size(111, 21);
+            label4.Size = new Size(109, 18);
             label4.TabIndex = 17;
             label4.Text = "Contact Number";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Segoe Print", 9F);
-            label3.Location = new Point(16, 72);
+            label3.Font = new Font("Calibri", 11.25F);
+            label3.Location = new Point(32, 153);
             label3.Name = "label3";
-            label3.Size = new Size(57, 21);
+            label3.Size = new Size(58, 18);
             label3.TabIndex = 16;
             label3.Text = "Address";
+            label3.Click += label3_Click;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe Print", 9F);
-            label2.Location = new Point(16, 20);
+            label2.Font = new Font("Calibri", 11.25F);
+            label2.Location = new Point(32, 102);
             label2.Name = "label2";
-            label2.Size = new Size(99, 21);
+            label2.Size = new Size(100, 18);
             label2.TabIndex = 15;
             label2.Text = "Supplier Name";
             // 
             // chkIsActive
             // 
             chkIsActive.AutoSize = true;
-            chkIsActive.Location = new Point(299, 257);
+            chkIsActive.Location = new Point(666, 240);
             chkIsActive.Name = "chkIsActive";
             chkIsActive.Size = new Size(59, 19);
             chkIsActive.TabIndex = 26;
@@ -157,18 +170,62 @@
             // lblCreatedAt
             // 
             lblCreatedAt.AutoSize = true;
-            lblCreatedAt.Font = new Font("Segoe Print", 9F);
-            lblCreatedAt.Location = new Point(16, 280);
+            lblCreatedAt.Font = new Font("Calibri", 11.25F);
+            lblCreatedAt.Location = new Point(393, 203);
             lblCreatedAt.Name = "lblCreatedAt";
-            lblCreatedAt.Size = new Size(91, 21);
+            lblCreatedAt.Size = new Size(89, 18);
             lblCreatedAt.TabIndex = 27;
             lblCreatedAt.Text = "Date Created";
+            // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Location = new Point(516, 198);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(209, 23);
+            dateTimePicker1.TabIndex = 28;
+            // 
+            // lblAddUser
+            // 
+            lblAddUser.AutoSize = true;
+            lblAddUser.BackColor = Color.DimGray;
+            lblAddUser.Font = new Font("Impact", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblAddUser.ForeColor = Color.White;
+            lblAddUser.Location = new Point(298, 21);
+            lblAddUser.Name = "lblAddUser";
+            lblAddUser.Size = new Size(215, 43);
+            lblAddUser.TabIndex = 30;
+            lblAddUser.Text = "EDIT SUPPLIER";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.DimGray;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(0, 2);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(113, 76);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 29;
+            pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.BackColor = Color.DimGray;
+            pictureBox2.Location = new Point(-3, 2);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(771, 76);
+            pictureBox2.TabIndex = 31;
+            pictureBox2.TabStop = false;
             // 
             // EditSupplierDetails
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(370, 341);
+            BackColor = SystemColors.ButtonShadow;
+            ClientSize = new Size(768, 336);
+            Controls.Add(lblAddUser);
+            Controls.Add(pictureBox1);
+            Controls.Add(pictureBox2);
+            Controls.Add(dateTimePicker1);
             Controls.Add(lblCreatedAt);
             Controls.Add(chkIsActive);
             Controls.Add(btnSubmit);
@@ -182,9 +239,13 @@
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "EditSupplierDetails";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "EditSupplierDetails";
             Load += EditSupplierDetails_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -204,5 +265,9 @@
         private Label label2;
         private CheckBox chkIsActive;
         private Label lblCreatedAt;
+        private DateTimePicker dateTimePicker1;
+        private Label lblAddUser;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
     }
 }

@@ -67,6 +67,7 @@
             txtPassword.PasswordChar = '•';
             txtPassword.Size = new Size(250, 35);
             txtPassword.TabIndex = 1;
+            txtPassword.TextChanged += txtPassword_TextChanged;
             // 
             // txtUsername
             // 
@@ -126,25 +127,29 @@
             // checkBox1
             // 
             checkBox1.AutoSize = true;
+            checkBox1.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             checkBox1.ForeColor = Color.White;
-            checkBox1.Location = new Point(65, 362);
+            checkBox1.Location = new Point(65, 364);
             checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(108, 19);
+            checkBox1.Size = new Size(118, 21);
             checkBox1.TabIndex = 8;
             checkBox1.Text = "Show Password";
             checkBox1.UseVisualStyleBackColor = true;
+            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
             // 
             // linkLabel1
             // 
             linkLabel1.AutoSize = true;
+            linkLabel1.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             linkLabel1.ForeColor = Color.White;
             linkLabel1.LinkColor = Color.White;
-            linkLabel1.Location = new Point(202, 363);
+            linkLabel1.Location = new Point(202, 365);
             linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(99, 15);
+            linkLabel1.Size = new Size(113, 17);
             linkLabel1.TabIndex = 9;
             linkLabel1.TabStop = true;
-            linkLabel1.Text = "Forget Password?";
+            linkLabel1.Text = "Forgot Password?";
+            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
             // 
             // Login
             // 

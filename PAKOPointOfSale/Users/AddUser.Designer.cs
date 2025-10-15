@@ -58,7 +58,7 @@
             // 
             txtUsername.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtUsername.ForeColor = Color.Black;
-            txtUsername.Location = new Point(143, 113);
+            txtUsername.Location = new Point(143, 109);
             txtUsername.Name = "txtUsername";
             txtUsername.Size = new Size(205, 24);
             txtUsername.TabIndex = 0;
@@ -68,7 +68,7 @@
             txtFirstName.BackColor = Color.White;
             txtFirstName.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtFirstName.ForeColor = Color.Black;
-            txtFirstName.Location = new Point(143, 158);
+            txtFirstName.Location = new Point(143, 154);
             txtFirstName.Name = "txtFirstName";
             txtFirstName.Size = new Size(205, 24);
             txtFirstName.TabIndex = 1;
@@ -78,7 +78,7 @@
             txtMiddleName.BackColor = Color.White;
             txtMiddleName.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtMiddleName.ForeColor = Color.Black;
-            txtMiddleName.Location = new Point(143, 200);
+            txtMiddleName.Location = new Point(143, 196);
             txtMiddleName.Name = "txtMiddleName";
             txtMiddleName.Size = new Size(205, 24);
             txtMiddleName.TabIndex = 2;
@@ -88,7 +88,7 @@
             txtLastName.BackColor = Color.White;
             txtLastName.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtLastName.ForeColor = Color.Black;
-            txtLastName.Location = new Point(143, 251);
+            txtLastName.Location = new Point(143, 247);
             txtLastName.Name = "txtLastName";
             txtLastName.Size = new Size(205, 24);
             txtLastName.TabIndex = 3;
@@ -97,7 +97,7 @@
             // 
             txtSuffix.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtSuffix.ForeColor = Color.Black;
-            txtSuffix.Location = new Point(477, 113);
+            txtSuffix.Location = new Point(477, 109);
             txtSuffix.Name = "txtSuffix";
             txtSuffix.Size = new Size(205, 24);
             txtSuffix.TabIndex = 4;
@@ -105,7 +105,7 @@
             // dtpBirthdate
             // 
             dtpBirthdate.CalendarFont = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dtpBirthdate.Location = new Point(477, 158);
+            dtpBirthdate.Location = new Point(477, 154);
             dtpBirthdate.Name = "dtpBirthdate";
             dtpBirthdate.Size = new Size(205, 23);
             dtpBirthdate.TabIndex = 5;
@@ -118,7 +118,7 @@
             cmbGender.ForeColor = Color.White;
             cmbGender.FormattingEnabled = true;
             cmbGender.Items.AddRange(new object[] { "Male", "Female" });
-            cmbGender.Location = new Point(477, 198);
+            cmbGender.Location = new Point(477, 194);
             cmbGender.Name = "cmbGender";
             cmbGender.Size = new Size(205, 26);
             cmbGender.TabIndex = 6;
@@ -129,7 +129,7 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(46, 116);
+            label1.Location = new Point(46, 112);
             label1.Name = "label1";
             label1.Size = new Size(77, 18);
             label1.TabIndex = 7;
@@ -141,7 +141,7 @@
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.Black;
-            label2.Location = new Point(44, 160);
+            label2.Location = new Point(44, 156);
             label2.Name = "label2";
             label2.Size = new Size(81, 18);
             label2.TabIndex = 8;
@@ -153,7 +153,7 @@
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.Black;
-            label3.Location = new Point(44, 203);
+            label3.Location = new Point(44, 199);
             label3.Name = "label3";
             label3.Size = new Size(95, 18);
             label3.TabIndex = 9;
@@ -165,7 +165,7 @@
             label4.BackColor = Color.Transparent;
             label4.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.Black;
-            label4.Location = new Point(44, 254);
+            label4.Location = new Point(44, 250);
             label4.Name = "label4";
             label4.Size = new Size(80, 18);
             label4.TabIndex = 10;
@@ -177,7 +177,7 @@
             label5.BackColor = Color.Transparent;
             label5.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.Black;
-            label5.Location = new Point(388, 120);
+            label5.Location = new Point(388, 116);
             label5.Name = "label5";
             label5.Size = new Size(44, 18);
             label5.TabIndex = 11;
@@ -189,7 +189,7 @@
             label6.BackColor = Color.Transparent;
             label6.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.Black;
-            label6.Location = new Point(388, 164);
+            label6.Location = new Point(388, 160);
             label6.Name = "label6";
             label6.Size = new Size(66, 18);
             label6.TabIndex = 12;
@@ -201,7 +201,7 @@
             label7.BackColor = Color.Transparent;
             label7.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label7.ForeColor = Color.Black;
-            label7.Location = new Point(388, 206);
+            label7.Location = new Point(388, 202);
             label7.Name = "label7";
             label7.Size = new Size(57, 18);
             label7.TabIndex = 13;
@@ -213,7 +213,7 @@
             label8.BackColor = Color.Transparent;
             label8.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label8.ForeColor = Color.Black;
-            label8.Location = new Point(388, 257);
+            label8.Location = new Point(388, 253);
             label8.Name = "label8";
             label8.Size = new Size(75, 18);
             label8.TabIndex = 15;
@@ -227,7 +227,7 @@
             cmbRole.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cmbRole.ForeColor = Color.White;
             cmbRole.FormattingEnabled = true;
-            cmbRole.Location = new Point(477, 249);
+            cmbRole.Location = new Point(477, 245);
             cmbRole.Name = "cmbRole";
             cmbRole.Size = new Size(205, 26);
             cmbRole.TabIndex = 14;
@@ -237,7 +237,7 @@
             btnSubmit.BackColor = Color.SeaGreen;
             btnSubmit.FlatStyle = FlatStyle.Popup;
             btnSubmit.ForeColor = Color.White;
-            btnSubmit.Location = new Point(512, 301);
+            btnSubmit.Location = new Point(512, 297);
             btnSubmit.Name = "btnSubmit";
             btnSubmit.Size = new Size(80, 24);
             btnSubmit.TabIndex = 16;
@@ -274,7 +274,7 @@
             pictureBox2.BackColor = Color.DimGray;
             pictureBox2.Location = new Point(1, 2);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(735, 80);
+            pictureBox2.Size = new Size(735, 76);
             pictureBox2.TabIndex = 19;
             pictureBox2.TabStop = false;
             // 
@@ -283,7 +283,7 @@
             btnClose.BackColor = Color.Red;
             btnClose.FlatStyle = FlatStyle.Popup;
             btnClose.ForeColor = Color.White;
-            btnClose.Location = new Point(598, 301);
+            btnClose.Location = new Point(598, 297);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(84, 24);
             btnClose.TabIndex = 20;
