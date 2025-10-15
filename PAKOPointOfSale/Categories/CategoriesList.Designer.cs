@@ -42,7 +42,7 @@ namespace PAKOPointOfSale.Categories
             descriptionDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             isactiveDataGridViewCheckBoxColumn = new DataGridViewTextBoxColumn();
             productsDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            editCategory = new DataGridViewTextBoxColumn();
+            editCategory = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)categoryBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -156,6 +156,10 @@ namespace PAKOPointOfSale.Categories
             editCategory.HeaderText = "";
             editCategory.Name = "editCategory";
             editCategory.ReadOnly = true;
+            editCategory.Resizable = DataGridViewTriState.True;
+            editCategory.SortMode = DataGridViewColumnSortMode.Automatic;
+            editCategory.Text = "Edit";
+            editCategory.UseColumnTextForButtonValue = true;
             // 
             // CategoriesList
             // 
@@ -202,6 +206,6 @@ namespace PAKOPointOfSale.Categories
         private DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn isactiveDataGridViewCheckBoxColumn;
         private DataGridViewTextBoxColumn productsDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn editCategory;
+        private DataGridViewButtonColumn editCategory;
     }
 }
