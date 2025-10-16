@@ -303,10 +303,6 @@ namespace PAKOPointOfSale.Categories
         private DataGridViewTextBoxColumn isactiveDataGridViewCheckBoxColumn;
         private DataGridViewTextBoxColumn productsDataGridViewTextBoxColumn;
         private DataGridViewButtonColumn editCategory;
-<<<<<<< HEAD
         private PictureBox pictureBox3;
-=======
-        private DataGridViewButtonColumn editCategory;
->>>>>>> sales-invoice
     }
 }
