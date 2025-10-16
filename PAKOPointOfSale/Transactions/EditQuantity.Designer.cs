@@ -98,6 +98,7 @@
             num_AppliedQty.Name = "num_AppliedQty";
             num_AppliedQty.Size = new Size(257, 23);
             num_AppliedQty.TabIndex = 5;
+            num_AppliedQty.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // lblCurrentQty
             // 

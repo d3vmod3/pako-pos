@@ -37,6 +37,9 @@
     <Compile Update="Supplier Details\SuppliersList.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Transactions\Discounts\DiscountTypes.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Transactions\EditQuantity.cs">
       <SubType>Form</SubType>
     </Compile>

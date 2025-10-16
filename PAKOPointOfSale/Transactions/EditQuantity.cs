@@ -76,10 +76,12 @@ namespace PAKOPointOfSale.Transactions
                 string brand = lblProductBrand.Text;
                 string unit = lblUOM.Text;
                 decimal price = decimal.Parse(lblUnitPrice.Text);
+                
                 string category = lblCategory.Text;
                 int quantity = int.Parse(num_AppliedQty.Text);
+                decimal subTotal = decimal.Parse(lblUnitPrice.Text) * quantity;
                 // Add to cart
-                _salesInvoice.AddProductToCart(product_id, product, brand, unit, price, category, quantity);
+                _salesInvoice.AddProductToCart(product_id, product, brand, unit, price, category, quantity, subTotal);
                 this.Close();
             }
             catch (Exception ex)

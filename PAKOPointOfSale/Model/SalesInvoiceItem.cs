@@ -10,6 +10,9 @@ public class SalesInvoiceItem
     public int product_id { get; set; }
     public decimal quantity { get; set; }
     public decimal unit_price { get; set; }
+    public decimal vat_amount { get; set; }
+    public decimal vatable_sales { get; set; }
+    public decimal vat_exempt { get; set; }
     public decimal discount { get; set; }
     public string? discount_type { get; set; }
     public decimal total_amount { get; set; }

@@ -5,18 +5,20 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinFormsApp1.Model;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using TextBox = System.Windows.Forms.TextBox;
 
 namespace PAKOPointOfSale.Transactions
 {
     public partial class SalesInvoice : Form
     {
         private DataTable productsTable;
-
+        private Double manualCashInputAmount = 0.00;
         public SalesInvoice()
         {
             InitializeComponent();
@@ -63,10 +65,14 @@ namespace PAKOPointOfSale.Transactions
                 }
             }
         }
-        public void AddProductToCart(int id, string product, string brand, string unit, decimal price, string category, int quantity)
+        public void AddProductToCart(int id, string product, string brand, string unit, decimal price, string category, int quantity, decimal subTotal)
         {
             // Create a new row in your DataGridView (e.g., dgvCart)
-            dtgvCart.Rows.Add(id, product, brand, unit, quantity, price, category);
+            string VATableSales = Convert.ToString(SalesInvoiceFunctions.getVATableSales(price, quantity));
+            string VATAmount = Convert.ToString(SalesInvoiceFunctions.getVATAmount(price, quantity));
+
+            //string VATExempt = Convert.ToString(SalesInvoiceFunctions.getVATExempt(price, quantity));
+            dtgvCart.Rows.Add(id, 0, product, brand, unit, quantity, price, category, "none", "0.00", subTotal, VATableSales, VATAmount, "0.00");
             ComputeGrandTotal();
         }
 
@@ -76,11 +82,11 @@ namespace PAKOPointOfSale.Transactions
 
             foreach (DataGridViewRow row in dtgvCart.Rows)
             {
-                if (row.Cells["unit_price"].Value != null && row.Cells["appliedQty"].Value != null)
+                if (row.Cells["subTotal"].Value != null)
                 {
-                    decimal price = Convert.ToDecimal(row.Cells["unit_price"].Value);
-                    int qty = Convert.ToInt32(row.Cells["appliedQty"].Value);
-                    total += price * qty;
+                    decimal subTotal = Convert.ToDecimal(row.Cells["subTotal"].Value);
+                    //int qty = Convert.ToInt32(row.Cells["appliedQty"].Value);
+                    total += subTotal;
                 }
             }
 
@@ -89,12 +95,12 @@ namespace PAKOPointOfSale.Transactions
 
         private void num_CashAmount_ValueChanged(object sender, EventArgs e)
         {
-            lblChange.Text = Convert.ToString(Convert.ToDecimal(num_CashAmount.Value) - Convert.ToDecimal(lblTotal.Text));
+            lblChange.Text = Convert.ToString(Convert.ToDecimal(Convert.ToDecimal(txtCash.Text)) - Convert.ToDecimal(lblTotal.Text));
         }
 
         private void num_CashAmount_KeyUp(object sender, KeyEventArgs e)
         {
-            lblChange.Text = Convert.ToString(Convert.ToDecimal(num_CashAmount.Value) - Convert.ToDecimal(lblTotal.Text));
+            lblChange.Text = Convert.ToString(Convert.ToDecimal(Convert.ToDecimal(txtCash.Text)) - Convert.ToDecimal(lblTotal.Text));
         }
 
         private void dtgvCart_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -166,6 +172,7 @@ namespace PAKOPointOfSale.Transactions
                             string brand = reader["product_brand"].ToString();
                             string unit = reader["unit_of_measurement"].ToString();
                             decimal price = Convert.ToDecimal(reader["unit_price"]);
+                            decimal subTotal = Convert.ToDecimal(reader["subTotal"]);
                             string category = reader["category"].ToString();
                             int quantity = 1; // default to 1 when scanned
 
@@ -179,7 +186,7 @@ namespace PAKOPointOfSale.Transactions
                             }
 
                             // Add product to cart
-                            AddProductToCart(product_id, product, brand, unit, price, category, quantity);
+                            AddProductToCart(product_id, product, brand, unit, price, category, quantity, subTotal);
 
                             // Clear the textbox for next scan
                             txtScannedBarcode.Clear();
@@ -199,22 +206,24 @@ namespace PAKOPointOfSale.Transactions
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //generate invoice number here if status is success
-            using (SqlConnection conn = new SqlConnection(Program.ConnString))
-            {
-                conn.Open();
-                SqlTransaction sqlTran = conn.BeginTransaction(); // begin transaction for safety
+            //bool isInsufficientCash = Convert.ToDecimal(lblTotal.Text) < Convert.ToDecimal(txtCash.Text);
+            if (validateTransaction())
+            { 
+                using (SqlConnection conn = new SqlConnection(Program.ConnString))
+                {
+                    conn.Open();
+                    SqlTransaction sqlTran = conn.BeginTransaction(); // begin transaction for safety
 
-                //try
-                //{
+                    //try
+                    //{
                     // Generate invoice number
-                    
+
 
                     // Calculate totals from DataGridView
                     decimal subTotal = 0;
-                    decimal vatAmount = 0;
-                    decimal vatableSales = 0;
-                    decimal vatExempt = 0;
+                    decimal totalVatAmount = 0;
+                    decimal totalVatableSales = 0;
+                    decimal totalVatExempt = 0;
                     decimal grandTotal = Convert.ToDecimal(lblTotal.Text);
 
                     foreach (DataGridViewRow row in dtgvCart.Rows)
@@ -223,10 +232,15 @@ namespace PAKOPointOfSale.Transactions
                         {
                             decimal quantity = Convert.ToDecimal(row.Cells["appliedQty"].Value);
                             decimal unitPrice = Convert.ToDecimal(row.Cells["appliedQty"].Value);
+                            decimal vatableSales = Convert.ToDecimal(row.Cells["vatableSales"].Value);
+                            decimal vatAmount = Convert.ToDecimal(row.Cells["vatAmount"].Value);
+                            decimal vatExempt = Convert.ToDecimal(row.Cells["vatExempt"].Value);
                             decimal discount = 0;
                             //decimal discount = row.Cells["Discount"].Value != null ? Convert.ToDecimal(row.Cells["Discount"].Value) : 0;
                             decimal totalAmount = (quantity * unitPrice) - discount;
-
+                            totalVatableSales += vatableSales;
+                            totalVatAmount += vatAmount;
+                            totalVatExempt += vatExempt;
                             subTotal += quantity * unitPrice;
                             //grandTotal += totalAmount;
                         }
@@ -235,20 +249,21 @@ namespace PAKOPointOfSale.Transactions
                     // Insert into Transactions table
                     string insertTransaction = @"
                 INSERT INTO Transactions (invoice_number, vat_amount, vatable_sales, vat_exempt, sub_total, grand_total, payment_method, status,cash_received,cash_change)
-                VALUES (@invoice, @vatAmount, @vatable, @vatExempt, @subTotal, @grandTotal, @payment, @status,@cashReceived,@cashChange);
+                VALUES (@invoice, @vatAmount, @vatableSales, @vatExempt, @subTotal, @grandTotal, @payment, @status,@cashReceived,@cashChange);
                 SELECT SCOPE_IDENTITY();"; // get the inserted transaction id
-                string invoiceNumber = GenerateNextInvoiceNumber();
-                int transactionId;
+                    string invoiceNumber = SalesInvoiceFunctions.GenerateNextInvoiceNumber();
+                    ;
+                    int transactionId;
                     using (SqlCommand cmd = new SqlCommand(insertTransaction, conn, sqlTran))
                     {
                         cmd.Parameters.AddWithValue("@invoice", invoiceNumber);
-                        cmd.Parameters.AddWithValue("@vatAmount", vatAmount);
-                        cmd.Parameters.AddWithValue("@vatable", vatableSales);
-                        cmd.Parameters.AddWithValue("@vatExempt", vatExempt);
+                        cmd.Parameters.AddWithValue("@vatAmount", totalVatAmount);
+                        cmd.Parameters.AddWithValue("@vatableSales", totalVatableSales);
+                        cmd.Parameters.AddWithValue("@vatExempt", totalVatExempt);
                         cmd.Parameters.AddWithValue("@subTotal", subTotal);
                         cmd.Parameters.AddWithValue("@grandTotal", grandTotal);
                         cmd.Parameters.AddWithValue("@payment", "cash");
-                        cmd.Parameters.AddWithValue("@cashReceived", num_CashAmount.Value);
+                        cmd.Parameters.AddWithValue("@cashReceived", Convert.ToDecimal(txtCash.Text));
                         cmd.Parameters.AddWithValue("@cashChange", Convert.ToDecimal(lblChange.Text));
                         cmd.Parameters.AddWithValue("@status", "success");
 
@@ -263,6 +278,9 @@ namespace PAKOPointOfSale.Transactions
                             int productId = Convert.ToInt32(row.Cells["id"].Value);
                             decimal quantity = Convert.ToDecimal(row.Cells["appliedQty"].Value);
                             decimal unitPrice = Convert.ToDecimal(row.Cells["unit_price"].Value);
+                            decimal vatableSales = Convert.ToDecimal(row.Cells["vatableSales"].Value);
+                            decimal vatAmount = Convert.ToDecimal(row.Cells["vatAmount"].Value);
+                            decimal vatExempt = Convert.ToDecimal(row.Cells["vatExempt"].Value);
                             //decimal discount = row.Cells["Discount"].Value != null ? Convert.ToDecimal(row.Cells["Discount"].Value) : 0;
                             decimal discount = 0;
                             //string discountType = row.Cells["DiscountType"].Value?.ToString() ?? null;
@@ -270,11 +288,12 @@ namespace PAKOPointOfSale.Transactions
                             decimal totalAmount = (quantity * unitPrice) - discount;
                             string unit = row.Cells["unit_of_measurement"].Value.ToString();
 
+
                             // Insert SalesInvoiceItem
                             string insertItem = @"
                             INSERT INTO SalesInvoiceItems 
-                            (transaction_id, product_id, quantity, unit_price, discount, discount_type, total_amount, unit_of_measurement)
-                            VALUES (@transId, @prodId, @qty, @unitPrice, @discount, @discountType, @total, @unit)";
+                            (transaction_id, product_id, quantity, unit_price, discount, discount_type, total_amount, unit_of_measurement,vatable_sales,vat_amount,vat_exempt)
+                            VALUES (@transId, @prodId, @qty, @unitPrice, @discount, @discountType, @total, @unit,@vatableSales,@vatAmount,@vatExempt)";
 
                             using (SqlCommand cmdItem = new SqlCommand(insertItem, conn, sqlTran))
                             {
@@ -286,6 +305,11 @@ namespace PAKOPointOfSale.Transactions
                                 cmdItem.Parameters.AddWithValue("@discountType", (object)discountType ?? DBNull.Value);
                                 cmdItem.Parameters.AddWithValue("@total", totalAmount);
                                 cmdItem.Parameters.AddWithValue("@unit", unit);
+                                cmdItem.Parameters.AddWithValue("@vatableSales", vatableSales);
+                                cmdItem.Parameters.AddWithValue("@vatAmount", vatAmount);
+                                cmdItem.Parameters.AddWithValue("@vatExempt", vatExempt);
+
+
 
                                 cmdItem.ExecuteNonQuery();
                             }
@@ -311,41 +335,259 @@ namespace PAKOPointOfSale.Transactions
 
                     MessageBox.Show("Transaction successfully saved with invoice: " + invoiceNumber, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     dtgvCart.Rows.Clear();
-                //}
-                //catch (Exception ex)
-                //{
-                //    sqlTran.Rollback();
-                //    MessageBox.Show("Error saving transaction: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //}
+                    //}
+                    //catch (Exception ex)
+                    //{
+                    //    sqlTran.Rollback();
+                    //    MessageBox.Show("Error saving transaction: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //}
 
 
+                }
             }
         }
-        private string GenerateNextInvoiceNumber()
+
+
+        private void button6_Click(object sender, EventArgs e)
         {
-            string lastInvoice = null;
-            using (SqlConnection conn = new SqlConnection(Program.ConnString))
+            txtCash.Text = txtCash.Text + "1";
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+            lblChange.Text = Convert.ToString(Convert.ToDecimal(txtCash.Text) - Convert.ToDecimal(lblTotal.Text));
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
             {
-                conn.Open();
-                string query = "SELECT TOP 1 invoice_number FROM Transactions WHERE status='success' ORDER BY id DESC";
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    var result = cmd.ExecuteScalar();
-                    if (result != null)
-                        lastInvoice = result.ToString();
-                }
-
-                int nextNumber = 1;
-
-                if (!string.IsNullOrEmpty(lastInvoice))
-                {
-                    if (int.TryParse(lastInvoice, out int lastNumber))
-                        nextNumber = lastNumber + 1;
-                }
-
-                // Pad with zeros to make 6 digits
-                return nextNumber.ToString("D6"); // e.g., "000001", "000002"
+                e.Handled = true;
             }
+
+            // Allow only one decimal point
+            if (e.KeyChar == '.' && (sender as TextBox).Text.IndexOf('.') > -1)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            txtCash.Text = "1000.00";
+        }
+
+        private void btn5h_Click(object sender, EventArgs e)
+        {
+            txtCash.Text = "500.00";
+        }
+
+        private void btn2h_Click(object sender, EventArgs e)
+        {
+            txtCash.Text = "200.00";
+        }
+
+        private void btn1h_Click(object sender, EventArgs e)
+        {
+            txtCash.Text = "100.00";
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            txtCash.Clear();
+        }
+
+        private void txtCash_MouseLeave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnKey2_Click(object sender, EventArgs e)
+        {
+            txtCash.Text = txtCash.Text + "2";
+        }
+
+        private void btnKey3_Click(object sender, EventArgs e)
+        {
+            txtCash.Text = txtCash.Text + "3";
+        }
+
+        private void btnKey4_Click(object sender, EventArgs e)
+        {
+            txtCash.Text = txtCash.Text + "4";
+        }
+
+        private void btnKey5_Click(object sender, EventArgs e)
+        {
+            txtCash.Text = txtCash.Text + "5";
+        }
+
+        private void btnKey6_Click(object sender, EventArgs e)
+        {
+            txtCash.Text = txtCash.Text + "6";
+        }
+
+        private void btnKey7_Click(object sender, EventArgs e)
+        {
+            txtCash.Text = txtCash.Text + "7";
+        }
+
+        private void btnKey8_Click(object sender, EventArgs e)
+        {
+            txtCash.Text = txtCash.Text + "8";
+        }
+
+        private void btnKey9_Click(object sender, EventArgs e)
+        {
+            txtCash.Text = txtCash.Text + "9";
+        }
+
+        private void btnDot_Click(object sender, EventArgs e)
+        {
+            txtCash.Text = txtCash.Text + ".";
+        }
+
+        private void btn00_Click(object sender, EventArgs e)
+        {
+            txtCash.Text = txtCash.Text + "0";
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            bool hasSelectedItems = false;
+
+            foreach (DataGridViewRow row in dtgvCart.Rows)
+            {
+                // Make sure the row is not new
+                if (!row.IsNewRow)
+                {
+                    // Check if the "select" cell is checked
+                    object value = row.Cells["select"].Value;
+                    if (value != null && value != DBNull.Value && (bool)value)
+                    {
+                        hasSelectedItems = true;
+                        break; // No need to continue, we found at least one
+                    }
+                }
+            }
+
+            if (!hasSelectedItems)
+            {
+                MessageBox.Show("Please select at least one item from the cart.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                var applyDiscountForm = new Transactions.Discounts.DiscountTypes();
+                applyDiscountForm.DiscountSelected += ApplyDiscountToSelectedRows;
+                applyDiscountForm.Show();
+            }
+
+            
+        }
+        private void ApplyDiscountToSelectedRows(string selectedDiscount)
+        {
+            foreach (DataGridViewRow row in dtgvCart.Rows)
+            {
+                bool isSelected = Convert.ToBoolean(row.Cells["select"].Value?.ToString() == "1");
+                bool isAlreadyDiscounted = Convert.ToBoolean(row.Cells["discountType"].Value?.ToString() == "None");
+                decimal itemSubTotal = 0;
+                if (isSelected)
+                {
+                    if (!isAlreadyDiscounted)
+                    {
+                        row.Cells["DiscountType"].Value = selectedDiscount;
+                        itemSubTotal = Convert.ToDecimal(row.Cells["subTotal"].Value);
+                        //// Optional logic to auto-apply discount value:
+                        decimal discountAmount = 0;
+                        decimal price = Convert.ToDecimal(row.Cells["unit_price"].Value);
+                        decimal qty = Convert.ToDecimal(row.Cells["appliedQty"].Value);
+                        if (selectedDiscount.Contains("Senior Citizen 5%"))
+                        {
+                            discountAmount = SalesInvoiceFunctions.getSCDiscount(price, 0.05m, qty);
+                            row.Cells["vatAmount"].Value = 0.00;
+                            row.Cells["vatExempt"].Value = 0.12m * ((price * qty) / 1.12m);
+                        }
+                        if (selectedDiscount.Contains("Senior Citizen 20%"))
+                        {
+                            discountAmount = SalesInvoiceFunctions.getSCDiscount(price, 0.20m, qty);
+                            row.Cells["vatAmount"].Value = 0.00;
+                            row.Cells["vatExempt"].Value = 0.12m * ((price * qty) / 1.12m);
+                        }
+                        if (selectedDiscount.Contains("Person With Disability 5%"))
+                        {
+                            discountAmount = SalesInvoiceFunctions.getSCDiscount(price, 0.05m, qty);
+                            row.Cells["vatAmount"].Value = 0.00;
+                            row.Cells["vatExempt"].Value = 0.12m * ((price * qty) / 1.12m);
+                        }
+                        if (selectedDiscount.Contains("Person With Disability 20%"))
+                        {
+                            discountAmount = SalesInvoiceFunctions.getSCDiscount(price, 0.20m, qty);
+                            row.Cells["vatAmount"].Value = 0.00;
+                            row.Cells["vatExempt"].Value = 0.12m * ((price * qty) / 1.12m);
+                        }
+                        if (selectedDiscount.Contains("National Athletes and Coaches 20%"))
+                        {
+                            discountAmount = SalesInvoiceFunctions.getSCDiscount(price, 0.20m, qty);
+                        }
+                        if (selectedDiscount.Contains("None"))
+                        {
+                            row.Cells["vatAmount"].Value = 0.12m * ((price * qty) / 1.12m);
+                            row.Cells["vatExempt"].Value = 0.00;
+
+                        }
+
+                        //decimal discountAmount = total * discountPercent;
+
+                        row.Cells["discountAmount"].Value = discountAmount;
+                        row.Cells["subTotal"].Value = itemSubTotal - discountAmount;
+                    }
+                }
+            }
+        }
+
+        public void setDiscounts()
+        {
+
+        }
+
+        private void btnClearCash_Click(object sender, EventArgs e)
+        {
+            txtCash.Clear();
+        }
+
+        private bool validateTransaction()
+        {
+            if (dtgvCart.Rows.Count == 0)
+            {
+                MessageBox.Show("Cart is empty!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if (!isSufficient())
+            {
+                return false;
+            }
+            return true;
+        }
+        private bool isSufficient()
+        {
+            if (txtCash.Text.Trim() != "")
+            {
+                 double cash = Convert.ToDouble(txtCash.Text.Trim());
+                 double total = Convert.ToDouble(lblTotal.Text);
+                if (cash < total)
+                {
+                    MessageBox.Show("Insufficient Cash Amount", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please choose Cash Amount", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+                
+
+                return true;
         }
     }
 }
