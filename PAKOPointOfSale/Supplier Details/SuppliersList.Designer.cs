@@ -108,7 +108,7 @@
             dataGridView1.DataSource = supplierDetailsBindingSource;
             dataGridView1.Location = new Point(12, 131);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(1327, 533);
+            dataGridView1.Size = new Size(1343, 533);
             dataGridView1.TabIndex = 5;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -187,7 +187,7 @@
             pictureBox2.BackColor = SystemColors.ControlDarkDark;
             pictureBox2.Location = new Point(-1, 0);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(1351, 95);
+            pictureBox2.Size = new Size(1370, 95);
             pictureBox2.TabIndex = 11;
             pictureBox2.TabStop = false;
             // 
@@ -245,7 +245,7 @@
             pictureBox3.InitialImage = null;
             pictureBox3.Location = new Point(-33, 671);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(1386, 79);
+            pictureBox3.Size = new Size(1402, 93);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 150;
             pictureBox3.TabStop = false;
@@ -256,7 +256,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
-            ClientSize = new Size(1351, 749);
+            ClientSize = new Size(1367, 749);
             Controls.Add(pictureBox3);
             Controls.Add(btnClose);
             Controls.Add(label2);
@@ -270,7 +270,9 @@
             Controls.Add(pictureBox2);
             FormBorderStyle = FormBorderStyle.None;
             Name = "SuppliersList";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Suppliers List";
+            WindowState = FormWindowState.Maximized;
             Load += SuppliersList_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)supplierDetailsBindingSource).EndInit();

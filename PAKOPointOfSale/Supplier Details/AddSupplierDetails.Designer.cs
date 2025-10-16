@@ -39,10 +39,11 @@
             txtContactNumber = new TextBox();
             txtAccountNumber = new TextBox();
             txtGateway = new TextBox();
-            btnSubmit = new Button();
             lblAddUser = new Label();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
+            btnSubmit = new Button();
+            btnClose = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
@@ -51,7 +52,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Calibri", 11.25F);
-            label2.Location = new Point(16, 115);
+            label2.Location = new Point(14, 100);
             label2.Name = "label2";
             label2.Size = new Size(100, 18);
             label2.TabIndex = 1;
@@ -61,7 +62,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Calibri", 11.25F);
-            label3.Location = new Point(16, 167);
+            label3.Location = new Point(14, 135);
             label3.Name = "label3";
             label3.Size = new Size(58, 18);
             label3.TabIndex = 2;
@@ -71,7 +72,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Calibri", 11.25F);
-            label4.Location = new Point(16, 221);
+            label4.Location = new Point(14, 178);
             label4.Name = "label4";
             label4.Size = new Size(109, 18);
             label4.TabIndex = 3;
@@ -81,7 +82,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Calibri", 11.25F);
-            label5.Location = new Point(403, 110);
+            label5.Location = new Point(13, 217);
             label5.Name = "label5";
             label5.Size = new Size(112, 18);
             label5.TabIndex = 4;
@@ -91,7 +92,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Calibri", 11.25F);
-            label6.Location = new Point(403, 160);
+            label6.Location = new Point(13, 259);
             label6.Name = "label6";
             label6.Size = new Size(62, 18);
             label6.TabIndex = 5;
@@ -99,69 +100,58 @@
             // 
             // txtSupplierName
             // 
-            txtSupplierName.Font = new Font("Segoe Print", 9F);
-            txtSupplierName.Location = new Point(145, 107);
+            txtSupplierName.Font = new Font("Calibri", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtSupplierName.Location = new Point(124, 93);
             txtSupplierName.Multiline = true;
             txtSupplierName.Name = "txtSupplierName";
-            txtSupplierName.Size = new Size(209, 23);
+            txtSupplierName.Size = new Size(219, 20);
             txtSupplierName.TabIndex = 8;
             // 
             // txtAddress
             // 
-            txtAddress.Font = new Font("Segoe Print", 9F);
-            txtAddress.Location = new Point(145, 167);
+            txtAddress.Font = new Font("Calibri", 8.25F);
+            txtAddress.Location = new Point(124, 135);
             txtAddress.Multiline = true;
             txtAddress.Name = "txtAddress";
-            txtAddress.Size = new Size(209, 23);
+            txtAddress.Size = new Size(219, 20);
             txtAddress.TabIndex = 9;
             // 
             // txtContactNumber
             // 
-            txtContactNumber.Font = new Font("Segoe Print", 9F);
-            txtContactNumber.Location = new Point(145, 218);
+            txtContactNumber.Font = new Font("Calibri", 8.25F);
+            txtContactNumber.Location = new Point(124, 175);
             txtContactNumber.Multiline = true;
             txtContactNumber.Name = "txtContactNumber";
-            txtContactNumber.Size = new Size(209, 23);
+            txtContactNumber.Size = new Size(219, 20);
             txtContactNumber.TabIndex = 10;
             // 
             // txtAccountNumber
             // 
-            txtAccountNumber.Font = new Font("Segoe Print", 9F);
-            txtAccountNumber.Location = new Point(532, 107);
+            txtAccountNumber.Font = new Font("Calibri", 8.25F);
+            txtAccountNumber.Location = new Point(124, 215);
             txtAccountNumber.Multiline = true;
             txtAccountNumber.Name = "txtAccountNumber";
-            txtAccountNumber.Size = new Size(209, 23);
+            txtAccountNumber.Size = new Size(219, 20);
             txtAccountNumber.TabIndex = 11;
             // 
             // txtGateway
             // 
-            txtGateway.Font = new Font("Segoe Print", 9F);
-            txtGateway.Location = new Point(532, 157);
+            txtGateway.Font = new Font("Calibri", 8.25F);
+            txtGateway.Location = new Point(124, 256);
             txtGateway.Multiline = true;
             txtGateway.Name = "txtGateway";
-            txtGateway.Size = new Size(209, 23);
+            txtGateway.Size = new Size(219, 20);
             txtGateway.TabIndex = 12;
-            // 
-            // btnSubmit
-            // 
-            btnSubmit.Font = new Font("Segoe Print", 9F);
-            btnSubmit.Location = new Point(640, 284);
-            btnSubmit.Name = "btnSubmit";
-            btnSubmit.Size = new Size(75, 23);
-            btnSubmit.TabIndex = 14;
-            btnSubmit.Text = "Submit";
-            btnSubmit.UseVisualStyleBackColor = true;
-            btnSubmit.Click += button1_Click;
             // 
             // lblAddUser
             // 
             lblAddUser.AutoSize = true;
             lblAddUser.BackColor = Color.DimGray;
-            lblAddUser.Font = new Font("Impact", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblAddUser.Font = new Font("Impact", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblAddUser.ForeColor = Color.White;
-            lblAddUser.Location = new Point(300, 20);
+            lblAddUser.Location = new Point(124, 22);
             lblAddUser.Name = "lblAddUser";
-            lblAddUser.Size = new Size(210, 43);
+            lblAddUser.Size = new Size(143, 29);
             lblAddUser.TabIndex = 33;
             lblAddUser.Text = "ADD SUPPLIER";
             // 
@@ -171,7 +161,7 @@
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(2, 1);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(113, 76);
+            pictureBox1.Size = new Size(97, 66);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 32;
             pictureBox1.TabStop = false;
@@ -181,20 +171,44 @@
             pictureBox2.BackColor = Color.DimGray;
             pictureBox2.Location = new Point(-1, 1);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(774, 76);
+            pictureBox2.Size = new Size(372, 66);
             pictureBox2.TabIndex = 34;
             pictureBox2.TabStop = false;
             // 
+            // btnSubmit
+            // 
+            btnSubmit.BackColor = Color.SeaGreen;
+            btnSubmit.FlatStyle = FlatStyle.Popup;
+            btnSubmit.ForeColor = Color.White;
+            btnSubmit.Location = new Point(263, 311);
+            btnSubmit.Name = "btnSubmit";
+            btnSubmit.Size = new Size(80, 24);
+            btnSubmit.TabIndex = 35;
+            btnSubmit.Text = "Submit";
+            btnSubmit.UseVisualStyleBackColor = false;
+            // 
+            // btnClose
+            // 
+            btnClose.BackColor = Color.Red;
+            btnClose.FlatStyle = FlatStyle.Popup;
+            btnClose.Location = new Point(156, 311);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(79, 24);
+            btnClose.TabIndex = 150;
+            btnClose.Text = "Close";
+            btnClose.UseVisualStyleBackColor = false;
+            // 
             // AddSupplierDetails
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.AppWorkspace;
-            ClientSize = new Size(774, 346);
+            BackColor = SystemColors.ButtonShadow;
+            ClientSize = new Size(372, 360);
+            Controls.Add(btnClose);
+            Controls.Add(btnSubmit);
             Controls.Add(lblAddUser);
             Controls.Add(pictureBox1);
             Controls.Add(pictureBox2);
-            Controls.Add(btnSubmit);
             Controls.Add(txtGateway);
             Controls.Add(txtAccountNumber);
             Controls.Add(txtContactNumber);
@@ -205,7 +219,10 @@
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
+            Font = new Font("Calibri", 8.25F);
             FormBorderStyle = FormBorderStyle.None;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "AddSupplierDetails";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AddSupplierDetails";
@@ -227,9 +244,10 @@
         private TextBox txtContactNumber;
         private TextBox txtAccountNumber;
         private TextBox txtGateway;
-        private Button btnSubmit;
         private Label lblAddUser;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
+        private Button btnSubmit;
+        private Button btnClose;
     }
 }

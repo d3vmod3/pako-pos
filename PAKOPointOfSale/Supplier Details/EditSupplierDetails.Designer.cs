@@ -52,13 +52,16 @@
             // 
             // btnSubmit
             // 
+            btnSubmit.BackColor = Color.SeaGreen;
+            btnSubmit.FlatStyle = FlatStyle.Popup;
             btnSubmit.Font = new Font("Segoe Print", 9F);
+            btnSubmit.ForeColor = SystemColors.ControlText;
             btnSubmit.Location = new Point(646, 283);
             btnSubmit.Name = "btnSubmit";
             btnSubmit.Size = new Size(75, 23);
             btnSubmit.TabIndex = 25;
             btnSubmit.Text = "Submit";
-            btnSubmit.UseVisualStyleBackColor = true;
+            btnSubmit.UseVisualStyleBackColor = false;
             btnSubmit.Click += btnSubmit_Click;
             // 
             // txtPaymentGateway
