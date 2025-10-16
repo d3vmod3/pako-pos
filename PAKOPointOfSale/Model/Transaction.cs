@@ -8,13 +8,14 @@ public class Transaction
 
     [MaxLength(10)]
     public string invoice_number { get; set; }  // will be assigned manually
-
     public decimal vat_amount { get; set; }
     public decimal vatable_sales { get; set; }
     public decimal vat_exempt { get; set; }
     public decimal sub_total { get; set; }
     public decimal grand_total { get; set; }
     public string payment_method { get; set; }
+    public decimal cash_received { get; set; }
+    public decimal cash_change { get; set; }
     public string status { get; set; }  // "success" or other
 
     public ICollection<SalesInvoiceItem> sales_invoice_items { get; set; }

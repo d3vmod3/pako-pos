@@ -26,7 +26,7 @@ namespace PAKOPointOfSale
                 switch (user_type_id)
                 {
                     case 1:
-                        SuperAdminForm SuperAdminForm = new SuperAdminForm();
+                        MDIParent1 SuperAdminForm = new MDIParent1();
                         SuperAdminForm.Show();
                         break;
                     case 2:
