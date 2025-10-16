@@ -172,10 +172,9 @@ namespace PAKOPointOfSale.Transactions
                             string brand = reader["product_brand"].ToString();
                             string unit = reader["unit_of_measurement"].ToString();
                             decimal price = Convert.ToDecimal(reader["unit_price"]);
-                            decimal subTotal = Convert.ToDecimal(reader["subTotal"]);
                             string category = reader["category"].ToString();
                             int quantity = 1; // default to 1 when scanned
-
+                            decimal subTotal = price * quantity;
                             // Validation: Do not add if quantity is 0
                             if (quantity <= 0)
                             {
@@ -206,6 +205,9 @@ namespace PAKOPointOfSale.Transactions
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //Transactions.ReceiptPrinter receiptPrinterForm =  new Transactions.ReceiptPrinter();
+            //receiptPrinterForm.ShowDialog();
+
             //bool isInsufficientCash = Convert.ToDecimal(lblTotal.Text) < Convert.ToDecimal(txtCash.Text);
             if (validateTransaction())
             { 
@@ -355,7 +357,14 @@ namespace PAKOPointOfSale.Transactions
 
         private void textBox1_TextChanged_1(object sender, EventArgs e)
         {
-            lblChange.Text = Convert.ToString(Convert.ToDecimal(txtCash.Text) - Convert.ToDecimal(lblTotal.Text));
+            if(txtCash.Text.Trim() != "")
+            {
+                lblChange.Text = Convert.ToString(Convert.ToDecimal(txtCash.Text) - Convert.ToDecimal(lblTotal.Text));
+            }
+            else
+            {
+                lblChange.Text = "0.00";
+            }
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
@@ -463,7 +472,7 @@ namespace PAKOPointOfSale.Transactions
                 {
                     // Check if the "select" cell is checked
                     object value = row.Cells["select"].Value;
-                    if (value != null && value != DBNull.Value && (bool)value)
+                    if (value != null && value != DBNull.Value)
                     {
                         hasSelectedItems = true;
                         break; // No need to continue, we found at least one
@@ -488,59 +497,52 @@ namespace PAKOPointOfSale.Transactions
         {
             foreach (DataGridViewRow row in dtgvCart.Rows)
             {
-                bool isSelected = Convert.ToBoolean(row.Cells["select"].Value?.ToString() == "1");
-                bool isAlreadyDiscounted = Convert.ToBoolean(row.Cells["discountType"].Value?.ToString() == "None");
-                decimal itemSubTotal = 0;
-                if (isSelected)
+                // Check if the row is selected
+                bool isSelected = row.Cells["select"].Value?.ToString() == "1";
+
+                if (!isSelected)
+                    continue;
+
+                // Get original values
+                decimal price = Convert.ToDecimal(row.Cells["unit_price"].Value);
+                decimal qty = Convert.ToDecimal(row.Cells["appliedQty"].Value);
+                decimal originalSubTotal = price * qty;
+
+                if (selectedDiscount == "None")
                 {
-                    if (!isAlreadyDiscounted)
+                    // Restore original values
+                    row.Cells["DiscountType"].Value = "None";
+                    row.Cells["discountAmount"].Value = 0m;
+                    row.Cells["subTotal"].Value = originalSubTotal;
+                    row.Cells["vatAmount"].Value = 0.12m * (originalSubTotal / 1.12m);
+                    row.Cells["vatExempt"].Value = 0.00m;
+                }
+                else
+                {
+                    // Apply selected discount
+                    row.Cells["DiscountType"].Value = selectedDiscount;
+                    decimal discountAmount = 0m;
+
+                    if (selectedDiscount.Contains("Senior Citizen 5%") || selectedDiscount.Contains("Person With Disability 5%"))
                     {
-                        row.Cells["DiscountType"].Value = selectedDiscount;
-                        itemSubTotal = Convert.ToDecimal(row.Cells["subTotal"].Value);
-                        //// Optional logic to auto-apply discount value:
-                        decimal discountAmount = 0;
-                        decimal price = Convert.ToDecimal(row.Cells["unit_price"].Value);
-                        decimal qty = Convert.ToDecimal(row.Cells["appliedQty"].Value);
-                        if (selectedDiscount.Contains("Senior Citizen 5%"))
-                        {
-                            discountAmount = SalesInvoiceFunctions.getSCDiscount(price, 0.05m, qty);
-                            row.Cells["vatAmount"].Value = 0.00;
-                            row.Cells["vatExempt"].Value = 0.12m * ((price * qty) / 1.12m);
-                        }
-                        if (selectedDiscount.Contains("Senior Citizen 20%"))
-                        {
-                            discountAmount = SalesInvoiceFunctions.getSCDiscount(price, 0.20m, qty);
-                            row.Cells["vatAmount"].Value = 0.00;
-                            row.Cells["vatExempt"].Value = 0.12m * ((price * qty) / 1.12m);
-                        }
-                        if (selectedDiscount.Contains("Person With Disability 5%"))
-                        {
-                            discountAmount = SalesInvoiceFunctions.getSCDiscount(price, 0.05m, qty);
-                            row.Cells["vatAmount"].Value = 0.00;
-                            row.Cells["vatExempt"].Value = 0.12m * ((price * qty) / 1.12m);
-                        }
-                        if (selectedDiscount.Contains("Person With Disability 20%"))
-                        {
-                            discountAmount = SalesInvoiceFunctions.getSCDiscount(price, 0.20m, qty);
-                            row.Cells["vatAmount"].Value = 0.00;
-                            row.Cells["vatExempt"].Value = 0.12m * ((price * qty) / 1.12m);
-                        }
-                        if (selectedDiscount.Contains("National Athletes and Coaches 20%"))
-                        {
-                            discountAmount = SalesInvoiceFunctions.getSCDiscount(price, 0.20m, qty);
-                        }
-                        if (selectedDiscount.Contains("None"))
-                        {
-                            row.Cells["vatAmount"].Value = 0.12m * ((price * qty) / 1.12m);
-                            row.Cells["vatExempt"].Value = 0.00;
-
-                        }
-
-                        //decimal discountAmount = total * discountPercent;
-
-                        row.Cells["discountAmount"].Value = discountAmount;
-                        row.Cells["subTotal"].Value = itemSubTotal - discountAmount;
+                        discountAmount = SalesInvoiceFunctions.getSCDiscount(price, 0.05m, qty);
+                        row.Cells["vatAmount"].Value = 0.00m;
+                        row.Cells["vatExempt"].Value = 0.12m * ((price * qty) / 1.12m);
                     }
+                    else if (selectedDiscount.Contains("Senior Citizen 20%") || selectedDiscount.Contains("Person With Disability 20%") ||
+                             selectedDiscount.Contains("National Athletes and Coaches 20%"))
+                    {
+                        discountAmount = SalesInvoiceFunctions.getSCDiscount(price, 0.20m, qty);
+                        if (!selectedDiscount.Contains("National Athletes and Coaches 20%"))
+                        {
+                            row.Cells["vatAmount"].Value = 0.00m;
+                            row.Cells["vatExempt"].Value = 0.12m * ((price * qty) / 1.12m);
+                        }
+                    }
+
+                    // Update row with discount
+                    row.Cells["discountAmount"].Value = discountAmount;
+                    row.Cells["subTotal"].Value = originalSubTotal - discountAmount;
                 }
             }
         }

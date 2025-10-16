@@ -58,7 +58,6 @@
             label3 = new Label();
             label2 = new Label();
             label4 = new Label();
-            sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
             txtScannedBarcode = new TextBox();
             groupBox2 = new GroupBox();
             btn1h = new Button();
@@ -80,6 +79,7 @@
             btn00 = new Button();
             btnApplyDiscount = new Button();
             panel1 = new Panel();
+            printDocument1 = new System.Drawing.Printing.PrintDocument();
             ((System.ComponentModel.ISupportInitialize)productBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)userTypeBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dtgvCart).BeginInit();
@@ -319,11 +319,6 @@
             label4.Size = new Size(103, 47);
             label4.TabIndex = 8;
             label4.Text = "Cash:";
-            // 
-            // sqlCommand1
-            // 
-            sqlCommand1.CommandTimeout = 30;
-            sqlCommand1.EnableOptimizedParameterBinding = false;
             // 
             // txtScannedBarcode
             // 
@@ -609,7 +604,6 @@
         private Label label2;
         private Label label6;
         private Label lblTotal;
-        private Microsoft.Data.SqlClient.SqlCommand sqlCommand1;
         private Label lblChange;
         private TextBox txtScannedBarcode;
         private GroupBox groupBox2;
@@ -647,5 +641,6 @@
         private DataGridViewTextBoxColumn vatAmount;
         private DataGridViewTextBoxColumn vatExempt;
         private DataGridViewButtonColumn remove;
+        private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }

@@ -20,3 +20,6 @@ dotnet ef database update
 Run the following commands on Package Manager Console terminal:
 Drop-Database
 Update-Database
+
+#For PDF printing, run:
+Install-Package PdfSharp.NETStandard
