@@ -17,6 +17,7 @@ namespace WinFormsApp1.Model
         public string product_name { get; set; }
         public string? product_brand { get; set; }
         public string? product_description { get; set; }
+        public string? barcode { get; set; }
         public string? product_code { get; set; }
         public string sku { get; set; }
         public decimal quantity { get; set; }

@@ -65,6 +65,8 @@
             pictureBox1 = new PictureBox();
             label1 = new Label();
             btnClose = new Button();
+            txtBarcode = new TextBox();
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)num_quantity).BeginInit();
             ((System.ComponentModel.ISupportInitialize)num_unitPrice).BeginInit();
             ((System.ComponentModel.ISupportInitialize)num_costPrice).BeginInit();
@@ -437,12 +439,32 @@
             btnClose.Text = "Close";
             btnClose.UseVisualStyleBackColor = false;
             // 
+            // txtBarcode
+            // 
+            txtBarcode.Font = new Font("Segoe UI", 9.75F);
+            txtBarcode.Location = new Point(264, 285);
+            txtBarcode.Name = "txtBarcode";
+            txtBarcode.Size = new Size(369, 25);
+            txtBarcode.TabIndex = 116;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Microsoft Sans Serif", 11.25F);
+            label2.Location = new Point(120, 286);
+            label2.Name = "label2";
+            label2.Size = new Size(64, 18);
+            label2.TabIndex = 115;
+            label2.Text = "Barcode";
+            // 
             // AddProducts
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveBorder;
             ClientSize = new Size(1370, 788);
+            Controls.Add(txtBarcode);
+            Controls.Add(label2);
             Controls.Add(btnClose);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
@@ -533,5 +555,7 @@
         private PictureBox pictureBox1;
         private Label label1;
         private Button btnClose;
+        private TextBox txtBarcode;
+        private Label label2;
     }
 }
