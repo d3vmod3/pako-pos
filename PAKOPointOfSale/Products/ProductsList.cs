@@ -91,7 +91,7 @@ namespace PAKOPointOfSale.Products
             // Get the ID of the selected user
             int productId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["id"].Value);
 
-            if (e.ColumnIndex == dataGridView1.Columns["product_name"].Index)
+            if (e.ColumnIndex == dataGridView1.Columns["edit"].Index)
             {
                 Products.EditProduct editProductForm = new Products.EditProduct(productId);
                 editProductForm.ShowDialog(); // modal so user finishes editing first

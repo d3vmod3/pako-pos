@@ -31,22 +31,6 @@
             components = new System.ComponentModel.Container();
             btnVoid = new Button();
             dgvItems = new DataGridView();
-            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            productCode = new DataGridViewTextBoxColumn();
-            productName = new DataGridViewTextBoxColumn();
-            transactionidDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            productidDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            quantityDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            unitpriceDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            vatamountDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            vatablesalesDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            vatexemptDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            discountDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            discounttypeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            totalamountDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            unitofmeasurementDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            transactionDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            productDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             salesInvoiceItemBindingSource = new BindingSource(components);
             label1 = new Label();
             label2 = new Label();
@@ -72,6 +56,22 @@
             label12 = new Label();
             btnReturn = new Button();
             button1 = new Button();
+            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            productCode = new DataGridViewTextBoxColumn();
+            productName = new DataGridViewTextBoxColumn();
+            transactionidDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            productidDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            quantityDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            unitpriceDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            vatamountDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            vatablesalesDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            vatexemptDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            discountDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            discounttypeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            totalamountDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            unitofmeasurementDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            transactionDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            productDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvItems).BeginInit();
             ((System.ComponentModel.ISupportInitialize)salesInvoiceItemBindingSource).BeginInit();
             SuspendLayout();
@@ -100,123 +100,6 @@
             dgvItems.ReadOnly = true;
             dgvItems.Size = new Size(776, 290);
             dgvItems.TabIndex = 1;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            idDataGridViewTextBoxColumn.HeaderText = "id";
-            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            idDataGridViewTextBoxColumn.ReadOnly = true;
-            idDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // productCode
-            // 
-            productCode.DataPropertyName = "id";
-            productCode.HeaderText = "Prodcut Code";
-            productCode.Name = "productCode";
-            productCode.ReadOnly = true;
-            // 
-            // productName
-            // 
-            productName.DataPropertyName = "id";
-            productName.HeaderText = "Product";
-            productName.Name = "productName";
-            productName.ReadOnly = true;
-            // 
-            // transactionidDataGridViewTextBoxColumn
-            // 
-            transactionidDataGridViewTextBoxColumn.DataPropertyName = "transaction_id";
-            transactionidDataGridViewTextBoxColumn.HeaderText = "transaction_id";
-            transactionidDataGridViewTextBoxColumn.Name = "transactionidDataGridViewTextBoxColumn";
-            transactionidDataGridViewTextBoxColumn.ReadOnly = true;
-            transactionidDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // productidDataGridViewTextBoxColumn
-            // 
-            productidDataGridViewTextBoxColumn.DataPropertyName = "product_id";
-            productidDataGridViewTextBoxColumn.HeaderText = "product_id";
-            productidDataGridViewTextBoxColumn.Name = "productidDataGridViewTextBoxColumn";
-            productidDataGridViewTextBoxColumn.ReadOnly = true;
-            productidDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // quantityDataGridViewTextBoxColumn
-            // 
-            quantityDataGridViewTextBoxColumn.DataPropertyName = "quantity";
-            quantityDataGridViewTextBoxColumn.HeaderText = "Applied Quantity";
-            quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
-            quantityDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // unitpriceDataGridViewTextBoxColumn
-            // 
-            unitpriceDataGridViewTextBoxColumn.DataPropertyName = "unit_price";
-            unitpriceDataGridViewTextBoxColumn.HeaderText = "Unit Price";
-            unitpriceDataGridViewTextBoxColumn.Name = "unitpriceDataGridViewTextBoxColumn";
-            unitpriceDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // vatamountDataGridViewTextBoxColumn
-            // 
-            vatamountDataGridViewTextBoxColumn.DataPropertyName = "vat_amount";
-            vatamountDataGridViewTextBoxColumn.HeaderText = "VAT Amount";
-            vatamountDataGridViewTextBoxColumn.Name = "vatamountDataGridViewTextBoxColumn";
-            vatamountDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // vatablesalesDataGridViewTextBoxColumn
-            // 
-            vatablesalesDataGridViewTextBoxColumn.DataPropertyName = "vatable_sales";
-            vatablesalesDataGridViewTextBoxColumn.HeaderText = "VATable Sales";
-            vatablesalesDataGridViewTextBoxColumn.Name = "vatablesalesDataGridViewTextBoxColumn";
-            vatablesalesDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // vatexemptDataGridViewTextBoxColumn
-            // 
-            vatexemptDataGridViewTextBoxColumn.DataPropertyName = "vat_exempt";
-            vatexemptDataGridViewTextBoxColumn.HeaderText = "VAT Exempt";
-            vatexemptDataGridViewTextBoxColumn.Name = "vatexemptDataGridViewTextBoxColumn";
-            vatexemptDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // discountDataGridViewTextBoxColumn
-            // 
-            discountDataGridViewTextBoxColumn.DataPropertyName = "discount";
-            discountDataGridViewTextBoxColumn.HeaderText = "Discount Amount";
-            discountDataGridViewTextBoxColumn.Name = "discountDataGridViewTextBoxColumn";
-            discountDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // discounttypeDataGridViewTextBoxColumn
-            // 
-            discounttypeDataGridViewTextBoxColumn.DataPropertyName = "discount_type";
-            discounttypeDataGridViewTextBoxColumn.HeaderText = "Discount Type";
-            discounttypeDataGridViewTextBoxColumn.Name = "discounttypeDataGridViewTextBoxColumn";
-            discounttypeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // totalamountDataGridViewTextBoxColumn
-            // 
-            totalamountDataGridViewTextBoxColumn.DataPropertyName = "total_amount";
-            totalamountDataGridViewTextBoxColumn.HeaderText = "Subtotal";
-            totalamountDataGridViewTextBoxColumn.Name = "totalamountDataGridViewTextBoxColumn";
-            totalamountDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // unitofmeasurementDataGridViewTextBoxColumn
-            // 
-            unitofmeasurementDataGridViewTextBoxColumn.DataPropertyName = "unit_of_measurement";
-            unitofmeasurementDataGridViewTextBoxColumn.HeaderText = "Unit";
-            unitofmeasurementDataGridViewTextBoxColumn.Name = "unitofmeasurementDataGridViewTextBoxColumn";
-            unitofmeasurementDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // transactionDataGridViewTextBoxColumn
-            // 
-            transactionDataGridViewTextBoxColumn.DataPropertyName = "transaction";
-            transactionDataGridViewTextBoxColumn.HeaderText = "transaction";
-            transactionDataGridViewTextBoxColumn.Name = "transactionDataGridViewTextBoxColumn";
-            transactionDataGridViewTextBoxColumn.ReadOnly = true;
-            transactionDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // productDataGridViewTextBoxColumn
-            // 
-            productDataGridViewTextBoxColumn.DataPropertyName = "product";
-            productDataGridViewTextBoxColumn.HeaderText = "product";
-            productDataGridViewTextBoxColumn.Name = "productDataGridViewTextBoxColumn";
-            productDataGridViewTextBoxColumn.ReadOnly = true;
-            productDataGridViewTextBoxColumn.Visible = false;
             // 
             // salesInvoiceItemBindingSource
             // 
@@ -438,6 +321,123 @@
             button1.Text = "View Receipt";
             button1.UseVisualStyleBackColor = true;
             // 
+            // idDataGridViewTextBoxColumn
+            // 
+            idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            idDataGridViewTextBoxColumn.HeaderText = "id";
+            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            idDataGridViewTextBoxColumn.ReadOnly = true;
+            idDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // productCode
+            // 
+            productCode.DataPropertyName = "product_code";
+            productCode.HeaderText = "Prodcut Code";
+            productCode.Name = "productCode";
+            productCode.ReadOnly = true;
+            // 
+            // productName
+            // 
+            productName.DataPropertyName = "product_name";
+            productName.HeaderText = "Product";
+            productName.Name = "productName";
+            productName.ReadOnly = true;
+            // 
+            // transactionidDataGridViewTextBoxColumn
+            // 
+            transactionidDataGridViewTextBoxColumn.DataPropertyName = "transaction_id";
+            transactionidDataGridViewTextBoxColumn.HeaderText = "transaction_id";
+            transactionidDataGridViewTextBoxColumn.Name = "transactionidDataGridViewTextBoxColumn";
+            transactionidDataGridViewTextBoxColumn.ReadOnly = true;
+            transactionidDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // productidDataGridViewTextBoxColumn
+            // 
+            productidDataGridViewTextBoxColumn.DataPropertyName = "product_id";
+            productidDataGridViewTextBoxColumn.HeaderText = "product_id";
+            productidDataGridViewTextBoxColumn.Name = "productidDataGridViewTextBoxColumn";
+            productidDataGridViewTextBoxColumn.ReadOnly = true;
+            productidDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // quantityDataGridViewTextBoxColumn
+            // 
+            quantityDataGridViewTextBoxColumn.DataPropertyName = "quantity";
+            quantityDataGridViewTextBoxColumn.HeaderText = "Applied Quantity";
+            quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
+            quantityDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // unitpriceDataGridViewTextBoxColumn
+            // 
+            unitpriceDataGridViewTextBoxColumn.DataPropertyName = "unit_price";
+            unitpriceDataGridViewTextBoxColumn.HeaderText = "Unit Price";
+            unitpriceDataGridViewTextBoxColumn.Name = "unitpriceDataGridViewTextBoxColumn";
+            unitpriceDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // vatamountDataGridViewTextBoxColumn
+            // 
+            vatamountDataGridViewTextBoxColumn.DataPropertyName = "vat_amount";
+            vatamountDataGridViewTextBoxColumn.HeaderText = "VAT Amount";
+            vatamountDataGridViewTextBoxColumn.Name = "vatamountDataGridViewTextBoxColumn";
+            vatamountDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // vatablesalesDataGridViewTextBoxColumn
+            // 
+            vatablesalesDataGridViewTextBoxColumn.DataPropertyName = "vatable_sales";
+            vatablesalesDataGridViewTextBoxColumn.HeaderText = "VATable Sales";
+            vatablesalesDataGridViewTextBoxColumn.Name = "vatablesalesDataGridViewTextBoxColumn";
+            vatablesalesDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // vatexemptDataGridViewTextBoxColumn
+            // 
+            vatexemptDataGridViewTextBoxColumn.DataPropertyName = "vat_exempt";
+            vatexemptDataGridViewTextBoxColumn.HeaderText = "VAT Exempt";
+            vatexemptDataGridViewTextBoxColumn.Name = "vatexemptDataGridViewTextBoxColumn";
+            vatexemptDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // discountDataGridViewTextBoxColumn
+            // 
+            discountDataGridViewTextBoxColumn.DataPropertyName = "discount";
+            discountDataGridViewTextBoxColumn.HeaderText = "Discount Amount";
+            discountDataGridViewTextBoxColumn.Name = "discountDataGridViewTextBoxColumn";
+            discountDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // discounttypeDataGridViewTextBoxColumn
+            // 
+            discounttypeDataGridViewTextBoxColumn.DataPropertyName = "discount_type";
+            discounttypeDataGridViewTextBoxColumn.HeaderText = "Discount Type";
+            discounttypeDataGridViewTextBoxColumn.Name = "discounttypeDataGridViewTextBoxColumn";
+            discounttypeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // totalamountDataGridViewTextBoxColumn
+            // 
+            totalamountDataGridViewTextBoxColumn.DataPropertyName = "total_amount";
+            totalamountDataGridViewTextBoxColumn.HeaderText = "Subtotal";
+            totalamountDataGridViewTextBoxColumn.Name = "totalamountDataGridViewTextBoxColumn";
+            totalamountDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // unitofmeasurementDataGridViewTextBoxColumn
+            // 
+            unitofmeasurementDataGridViewTextBoxColumn.DataPropertyName = "unit_of_measurement";
+            unitofmeasurementDataGridViewTextBoxColumn.HeaderText = "Unit";
+            unitofmeasurementDataGridViewTextBoxColumn.Name = "unitofmeasurementDataGridViewTextBoxColumn";
+            unitofmeasurementDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // transactionDataGridViewTextBoxColumn
+            // 
+            transactionDataGridViewTextBoxColumn.DataPropertyName = "transaction";
+            transactionDataGridViewTextBoxColumn.HeaderText = "transaction";
+            transactionDataGridViewTextBoxColumn.Name = "transactionDataGridViewTextBoxColumn";
+            transactionDataGridViewTextBoxColumn.ReadOnly = true;
+            transactionDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // productDataGridViewTextBoxColumn
+            // 
+            productDataGridViewTextBoxColumn.DataPropertyName = "product";
+            productDataGridViewTextBoxColumn.HeaderText = "product";
+            productDataGridViewTextBoxColumn.Name = "productDataGridViewTextBoxColumn";
+            productDataGridViewTextBoxColumn.ReadOnly = true;
+            productDataGridViewTextBoxColumn.Visible = false;
+            // 
             // ViewTransaction
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -505,6 +505,8 @@
         private Label lblChange;
         private Label label12;
         private BindingSource salesInvoiceItemBindingSource;
+        private Button btnReturn;
+        private Button button1;
         private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn productCode;
         private DataGridViewTextBoxColumn productName;
@@ -521,7 +523,5 @@
         private DataGridViewTextBoxColumn unitofmeasurementDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn transactionDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn productDataGridViewTextBoxColumn;
-        private Button btnReturn;
-        private Button button1;
     }
 }
