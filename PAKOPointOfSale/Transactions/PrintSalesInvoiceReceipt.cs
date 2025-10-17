@@ -127,7 +127,7 @@ namespace PAKOPointOfSale.Transactions
                 double y = 10;
                 double lineHeight = 12;
 
-                gfx.DrawString("MOTO SHOP POS", bold, XBrushes.Black, new XPoint(x, y)); y += lineHeight;
+                gfx.DrawString("PAKO Riderstuff", bold, XBrushes.Black, new XPoint(x, y)); y += lineHeight;
                 gfx.DrawString("**Sales Invoice**", bold, XBrushes.Black, new XPoint(x, y)); y += lineHeight;
                 gfx.DrawString($"Invoice: {invoiceNumber}", font, XBrushes.Black, new XPoint(x, y)); y += lineHeight;
                 gfx.DrawString($"Date: {DateTime.Now:yyyy-MM-dd HH:mm}", font, XBrushes.Black, new XPoint(x, y)); y += lineHeight;
