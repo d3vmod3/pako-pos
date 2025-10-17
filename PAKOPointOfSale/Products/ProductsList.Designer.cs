@@ -32,18 +32,6 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductsList));
             dataGridView1 = new DataGridView();
-            productBindingSource = new BindingSource(components);
-            lblSearch = new Label();
-            txtSearch = new TextBox();
-            btnAdd = new Button();
-            btnPrint = new Button();
-            panel1 = new Panel();
-            pictureBox3 = new PictureBox();
-            label1 = new Label();
-            pictureBox1 = new PictureBox();
-            btnClose = new Button();
-            pictureBox2 = new PictureBox();
-            label2 = new Label();
             id = new DataGridViewTextBoxColumn();
             barcode = new DataGridViewTextBoxColumn();
             product_name = new DataGridViewLinkColumn();
@@ -63,6 +51,18 @@
             createdatDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             supplierDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             categoryDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            productBindingSource = new BindingSource(components);
+            lblSearch = new Label();
+            txtSearch = new TextBox();
+            btnAdd = new Button();
+            btnPrint = new Button();
+            panel1 = new Panel();
+            pictureBox3 = new PictureBox();
+            label1 = new Label();
+            pictureBox1 = new PictureBox();
+            btnClose = new Button();
+            pictureBox2 = new PictureBox();
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)productBindingSource).BeginInit();
             panel1.SuspendLayout();
@@ -92,138 +92,6 @@
             dataGridView1.Size = new Size(1344, 549);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
-            // 
-            // productBindingSource
-            // 
-            productBindingSource.DataSource = typeof(WinFormsApp1.Model.Product);
-            // 
-            // lblSearch
-            // 
-            lblSearch.AutoSize = true;
-            lblSearch.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblSearch.Location = new Point(12, 115);
-            lblSearch.Name = "lblSearch";
-            lblSearch.Size = new Size(45, 15);
-            lblSearch.TabIndex = 1;
-            lblSearch.Text = "Search:";
-            lblSearch.Click += lblSearch_Click;
-            // 
-            // txtSearch
-            // 
-            txtSearch.Location = new Point(63, 110);
-            txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(326, 23);
-            txtSearch.TabIndex = 2;
-            txtSearch.TextChanged += txtSearch_TextChanged;
-            // 
-            // btnAdd
-            // 
-            btnAdd.BackColor = Color.ForestGreen;
-            btnAdd.FlatStyle = FlatStyle.Popup;
-            btnAdd.Font = new Font("Microsoft Sans Serif", 9.75F);
-            btnAdd.ForeColor = Color.White;
-            btnAdd.Location = new Point(1069, 118);
-            btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(75, 23);
-            btnAdd.TabIndex = 3;
-            btnAdd.Text = "Add";
-            btnAdd.UseVisualStyleBackColor = false;
-            btnAdd.Click += btnAdd_Click;
-            // 
-            // btnPrint
-            // 
-            btnPrint.BackColor = Color.Goldenrod;
-            btnPrint.FlatStyle = FlatStyle.Flat;
-            btnPrint.Font = new Font("Microsoft Sans Serif", 9.75F);
-            btnPrint.ForeColor = Color.White;
-            btnPrint.Location = new Point(1150, 117);
-            btnPrint.Name = "btnPrint";
-            btnPrint.Size = new Size(75, 23);
-            btnPrint.TabIndex = 5;
-            btnPrint.Text = "Print";
-            btnPrint.UseVisualStyleBackColor = false;
-            // 
-            // panel1
-            // 
-            panel1.Controls.Add(pictureBox3);
-            panel1.Controls.Add(dataGridView1);
-            panel1.Dock = DockStyle.Bottom;
-            panel1.Location = new Point(0, 152);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1368, 636);
-            panel1.TabIndex = 6;
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.BackColor = SystemColors.ControlDarkDark;
-            pictureBox3.ErrorImage = null;
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.InitialImage = null;
-            pictureBox3.Location = new Point(0, 557);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(1386, 79);
-            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox3.TabIndex = 14;
-            pictureBox3.TabStop = false;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.Black;
-            label1.Location = new Point(45, 136);
-            label1.Name = "label1";
-            label1.Size = new Size(181, 16);
-            label1.TabIndex = 7;
-            label1.Text = "Click the product name to edit";
-            label1.Click += label1_Click;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.BackColor = SystemColors.ControlDarkDark;
-            pictureBox1.ErrorImage = null;
-            pictureBox1.InitialImage = null;
-            pictureBox1.Location = new Point(-53, -3);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(1439, 107);
-            pictureBox1.TabIndex = 10;
-            pictureBox1.TabStop = false;
-            // 
-            // btnClose
-            // 
-            btnClose.BackColor = Color.Red;
-            btnClose.FlatStyle = FlatStyle.Popup;
-            btnClose.Font = new Font("Microsoft Sans Serif", 9.75F);
-            btnClose.ForeColor = Color.White;
-            btnClose.Location = new Point(1281, 118);
-            btnClose.Name = "btnClose";
-            btnClose.Size = new Size(75, 23);
-            btnClose.TabIndex = 11;
-            btnClose.Text = "Close";
-            btnClose.UseVisualStyleBackColor = false;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.BackColor = Color.DimGray;
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(0, -3);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(254, 107);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 145;
-            pictureBox2.TabStop = false;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.DimGray;
-            label2.Font = new Font("Impact", 45F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.White;
-            label2.Location = new Point(576, 17);
-            label2.Name = "label2";
-            label2.Size = new Size(395, 75);
-            label2.TabIndex = 146;
-            label2.Text = "PRODUCTS LIST";
             // 
             // id
             // 
@@ -348,6 +216,138 @@
             categoryDataGridViewTextBoxColumn.Name = "categoryDataGridViewTextBoxColumn";
             categoryDataGridViewTextBoxColumn.Visible = false;
             // 
+            // productBindingSource
+            // 
+            productBindingSource.DataSource = typeof(WinFormsApp1.Model.Product);
+            // 
+            // lblSearch
+            // 
+            lblSearch.AutoSize = true;
+            lblSearch.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblSearch.Location = new Point(12, 115);
+            lblSearch.Name = "lblSearch";
+            lblSearch.Size = new Size(45, 15);
+            lblSearch.TabIndex = 1;
+            lblSearch.Text = "Search:";
+            lblSearch.Click += lblSearch_Click;
+            // 
+            // txtSearch
+            // 
+            txtSearch.Location = new Point(63, 110);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(326, 23);
+            txtSearch.TabIndex = 2;
+            txtSearch.TextChanged += txtSearch_TextChanged;
+            // 
+            // btnAdd
+            // 
+            btnAdd.BackColor = Color.ForestGreen;
+            btnAdd.FlatStyle = FlatStyle.Popup;
+            btnAdd.Font = new Font("Microsoft Sans Serif", 9.75F);
+            btnAdd.ForeColor = Color.White;
+            btnAdd.Location = new Point(1069, 118);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(75, 23);
+            btnAdd.TabIndex = 3;
+            btnAdd.Text = "Add";
+            btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnAdd_Click;
+            // 
+            // btnPrint
+            // 
+            btnPrint.BackColor = Color.Goldenrod;
+            btnPrint.FlatStyle = FlatStyle.Flat;
+            btnPrint.Font = new Font("Microsoft Sans Serif", 9.75F);
+            btnPrint.ForeColor = Color.White;
+            btnPrint.Location = new Point(1150, 117);
+            btnPrint.Name = "btnPrint";
+            btnPrint.Size = new Size(75, 23);
+            btnPrint.TabIndex = 5;
+            btnPrint.Text = "Print";
+            btnPrint.UseVisualStyleBackColor = false;
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(pictureBox3);
+            panel1.Controls.Add(dataGridView1);
+            panel1.Location = new Point(0, 152);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1368, 636);
+            panel1.TabIndex = 6;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.BackColor = SystemColors.ControlDarkDark;
+            pictureBox3.ErrorImage = null;
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.InitialImage = null;
+            pictureBox3.Location = new Point(0, 557);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(1386, 79);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 14;
+            pictureBox3.TabStop = false;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.Black;
+            label1.Location = new Point(45, 136);
+            label1.Name = "label1";
+            label1.Size = new Size(181, 16);
+            label1.TabIndex = 7;
+            label1.Text = "Click the product name to edit";
+            label1.Click += label1_Click;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = SystemColors.ControlDarkDark;
+            pictureBox1.ErrorImage = null;
+            pictureBox1.InitialImage = null;
+            pictureBox1.Location = new Point(-53, -3);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(1439, 107);
+            pictureBox1.TabIndex = 10;
+            pictureBox1.TabStop = false;
+            // 
+            // btnClose
+            // 
+            btnClose.BackColor = Color.Red;
+            btnClose.FlatStyle = FlatStyle.Popup;
+            btnClose.Font = new Font("Microsoft Sans Serif", 9.75F);
+            btnClose.ForeColor = Color.White;
+            btnClose.Location = new Point(1281, 118);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(75, 23);
+            btnClose.TabIndex = 11;
+            btnClose.Text = "Close";
+            btnClose.UseVisualStyleBackColor = false;
+            btnClose.Click += btnClose_Click;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.BackColor = Color.DimGray;
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(0, -3);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(254, 107);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 145;
+            pictureBox2.TabStop = false;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.DimGray;
+            label2.Font = new Font("Impact", 45F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(576, 17);
+            label2.Name = "label2";
+            label2.Size = new Size(395, 75);
+            label2.TabIndex = 146;
+            label2.Text = "PRODUCTS LIST";
+            // 
             // ProductsList
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -373,7 +373,6 @@
             Name = "ProductsList";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ProductsList";
-            WindowState = FormWindowState.Minimized;
             Load += ProductsList_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)productBindingSource).EndInit();

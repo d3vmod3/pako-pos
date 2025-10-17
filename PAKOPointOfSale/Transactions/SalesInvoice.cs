@@ -143,7 +143,7 @@ namespace PAKOPointOfSale.Transactions
 
             DataGridViewRow row = dtgvCart.Rows[e.RowIndex];
             string columnName = dtgvCart.Columns[e.ColumnIndex].Name;
-            
+
 
             // Only recalculate subtotal when quantity or unit price changes
             if (columnName == "appliedQty" || columnName == "unit_price")
@@ -165,7 +165,7 @@ namespace PAKOPointOfSale.Transactions
                 row.Cells["vatableSales"].Value = Convert.ToString(SalesInvoiceFunctions.getVATableSales(price, qty));
                 row.Cells["vatAmount"].Value = Convert.ToString(SalesInvoiceFunctions.getVATAmount(price, qty));
 
-                if(discountType != "none")
+                if (discountType != "none")
                 {
                     RecalculateValues(discountType, dtgvCart.CurrentRow);
                 }
@@ -333,7 +333,7 @@ namespace PAKOPointOfSale.Transactions
                                 cmdItem.Parameters.AddWithValue("@qty", quantity);
                                 cmdItem.Parameters.AddWithValue("@unitPrice", unitPrice);
                                 cmdItem.Parameters.AddWithValue("@discount", discountAmount);
-                                cmdItem.Parameters.AddWithValue("@discountType",discountType);
+                                cmdItem.Parameters.AddWithValue("@discountType", discountType);
                                 cmdItem.Parameters.AddWithValue("@total", totalAmount);
                                 cmdItem.Parameters.AddWithValue("@unit", unit);
                                 cmdItem.Parameters.AddWithValue("@vatableSales", vatableSales);
@@ -384,7 +384,7 @@ namespace PAKOPointOfSale.Transactions
                         // ❌ Optionally do nothing or close the form
                         MessageBox.Show("You chose not to print the receipt.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                    
+
                     //}
                     //catch (Exception ex)
                     //{
@@ -702,6 +702,11 @@ namespace PAKOPointOfSale.Transactions
         {
             lblDate.Text = DateTime.Now.ToString("MM/dd/yyyy");
             lblTime.Text = DateTime.Now.ToString("hh:mm:ss tt");
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

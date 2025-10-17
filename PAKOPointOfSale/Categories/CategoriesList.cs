@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace PAKOPointOfSale.Categories
 {
-    
+
     public partial class CategoriesList : Form
     {
         private DataTable categoriesTable;
@@ -121,6 +121,11 @@ namespace PAKOPointOfSale.Categories
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

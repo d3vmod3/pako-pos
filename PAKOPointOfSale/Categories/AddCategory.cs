@@ -40,7 +40,7 @@ namespace PAKOPointOfSale.Categories
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            
+
             if (!validateForm())
             {
                 return;
@@ -116,6 +116,11 @@ namespace PAKOPointOfSale.Categories
                 }
             }
             return false;
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -132,7 +132,7 @@ namespace PAKOPointOfSale.UAC
                     foreach (DataGridViewRow row in dataGridView1.Rows)
                     {
                         if (row.IsNewRow) continue;
-                        
+
 
                         // ✅ Correct column names based on your SELECT query
                         string moduleName = row.Cells["module_name"].Value?.ToString();
@@ -178,6 +178,11 @@ namespace PAKOPointOfSale.UAC
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

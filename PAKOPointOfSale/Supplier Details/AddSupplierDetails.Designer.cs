@@ -197,6 +197,7 @@
             btnClose.TabIndex = 150;
             btnClose.Text = "Close";
             btnClose.UseVisualStyleBackColor = false;
+            btnClose.Click += btnClose_Click;
             // 
             // AddSupplierDetails
             // 

@@ -90,6 +90,7 @@
             lblDate = new Label();
             lblTime = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
+            btnClose = new Button();
             ((System.ComponentModel.ISupportInitialize)productBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)userTypeBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dtgvCart).BeginInit();
@@ -260,7 +261,7 @@
             button2.BackColor = SystemColors.Highlight;
             button2.FlatStyle = FlatStyle.Popup;
             button2.ForeColor = Color.White;
-            button2.Location = new Point(119, 564);
+            button2.Location = new Point(111, 564);
             button2.Name = "button2";
             button2.Size = new Size(75, 25);
             button2.TabIndex = 7;
@@ -578,7 +579,7 @@
             btnApplyDiscount.BackColor = Color.ForestGreen;
             btnApplyDiscount.FlatStyle = FlatStyle.Popup;
             btnApplyDiscount.ForeColor = Color.White;
-            btnApplyDiscount.Location = new Point(852, 109);
+            btnApplyDiscount.Location = new Point(782, 110);
             btnApplyDiscount.Name = "btnApplyDiscount";
             btnApplyDiscount.Size = new Size(111, 22);
             btnApplyDiscount.TabIndex = 45;
@@ -713,12 +714,26 @@
             timer1.Interval = 1000;
             timer1.Tick += timer1_Tick;
             // 
+            // btnClose
+            // 
+            btnClose.BackColor = Color.Red;
+            btnClose.FlatStyle = FlatStyle.Popup;
+            btnClose.ForeColor = Color.White;
+            btnClose.Location = new Point(1291, -1);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(75, 25);
+            btnClose.TabIndex = 45;
+            btnClose.Text = "Close";
+            btnClose.UseVisualStyleBackColor = false;
+            btnClose.Click += btnClose_Click;
+            // 
             // SalesInvoice
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
             ClientSize = new Size(1367, 777);
+            Controls.Add(btnClose);
             Controls.Add(lblTime);
             Controls.Add(lblDate);
             Controls.Add(label8);
@@ -816,5 +831,6 @@
         private Label lblDate;
         private Label lblTime;
         private System.Windows.Forms.Timer timer1;
+        private Button btnClose;
     }
 }
