@@ -43,12 +43,15 @@
             // 
             // btnPrint
             // 
+            btnPrint.BackColor = Color.Green;
+            btnPrint.FlatStyle = FlatStyle.Popup;
+            btnPrint.ForeColor = Color.White;
             btnPrint.Location = new Point(463, 231);
             btnPrint.Name = "btnPrint";
             btnPrint.Size = new Size(126, 39);
             btnPrint.TabIndex = 0;
             btnPrint.Text = "Print";
-            btnPrint.UseVisualStyleBackColor = true;
+            btnPrint.UseVisualStyleBackColor = false;
             btnPrint.Click += btnPrint_Click;
             // 
             // ReceiptPrinter

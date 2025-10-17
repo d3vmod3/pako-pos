@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SalesInvoice));
             productBindingSource = new BindingSource(components);
             userTypeBindingSource = new BindingSource(components);
             btnSearchProduct = new Button();
@@ -80,12 +81,24 @@
             btnApplyDiscount = new Button();
             panel1 = new Panel();
             printDocument1 = new System.Drawing.Printing.PrintDocument();
+            pictureBox2 = new PictureBox();
+            pictureBox1 = new PictureBox();
+            pictureBox3 = new PictureBox();
+            label5 = new Label();
+            label7 = new Label();
+            label8 = new Label();
+            lblDate = new Label();
+            lblTime = new Label();
+            timer1 = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)productBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)userTypeBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dtgvCart).BeginInit();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // productBindingSource
@@ -98,12 +111,14 @@
             // 
             // btnSearchProduct
             // 
-            btnSearchProduct.Location = new Point(12, 12);
+            btnSearchProduct.BackColor = Color.Khaki;
+            btnSearchProduct.FlatStyle = FlatStyle.Popup;
+            btnSearchProduct.Location = new Point(12, 108);
             btnSearchProduct.Name = "btnSearchProduct";
-            btnSearchProduct.Size = new Size(149, 38);
+            btnSearchProduct.Size = new Size(111, 24);
             btnSearchProduct.TabIndex = 3;
             btnSearchProduct.Text = "Search Product";
-            btnSearchProduct.UseVisualStyleBackColor = true;
+            btnSearchProduct.UseVisualStyleBackColor = false;
             btnSearchProduct.Click += btnSearchProduct_Click;
             // 
             // dtgvCart
@@ -113,10 +128,10 @@
             dtgvCart.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgvCart.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgvCart.Columns.AddRange(new DataGridViewColumn[] { id, select, product, brand, unit_of_measurement, appliedQty, unit_price, category, discountType, discountAmount, subTotal, vatableSales, vatAmount, vatExempt, remove });
-            dtgvCart.Location = new Point(12, 56);
+            dtgvCart.Location = new Point(12, 137);
             dtgvCart.Name = "dtgvCart";
             dtgvCart.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
-            dtgvCart.Size = new Size(1450, 973);
+            dtgvCart.Size = new Size(951, 549);
             dtgvCart.TabIndex = 4;
             dtgvCart.CellContentClick += dtgvCart_CellContentClick;
             dtgvCart.CellEndEdit += dtgvCart_CellEndEdit;
@@ -219,32 +234,38 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Impact", 17.25F);
             label1.Location = new Point(6, 19);
             label1.Name = "label1";
-            label1.Size = new Size(207, 47);
+            label1.Size = new Size(126, 28);
             label1.TabIndex = 5;
             label1.Text = "Grand Total:";
             label1.Click += label1_Click;
             // 
             // btnConfirm
             // 
-            btnConfirm.Location = new Point(345, 852);
+            btnConfirm.BackColor = Color.ForestGreen;
+            btnConfirm.FlatStyle = FlatStyle.Popup;
+            btnConfirm.ForeColor = Color.White;
+            btnConfirm.Location = new Point(213, 564);
             btnConfirm.Name = "btnConfirm";
-            btnConfirm.Size = new Size(75, 61);
+            btnConfirm.Size = new Size(75, 25);
             btnConfirm.TabIndex = 6;
             btnConfirm.Text = "Confirm";
-            btnConfirm.UseVisualStyleBackColor = true;
+            btnConfirm.UseVisualStyleBackColor = false;
             btnConfirm.Click += button1_Click;
             // 
             // button2
             // 
-            button2.Location = new Point(264, 852);
+            button2.BackColor = SystemColors.Highlight;
+            button2.FlatStyle = FlatStyle.Popup;
+            button2.ForeColor = Color.White;
+            button2.Location = new Point(119, 564);
             button2.Name = "button2";
-            button2.Size = new Size(75, 61);
+            button2.Size = new Size(75, 25);
             button2.TabIndex = 7;
             button2.Text = "Park";
-            button2.UseVisualStyleBackColor = true;
+            button2.UseVisualStyleBackColor = false;
             // 
             // groupBox1
             // 
@@ -254,77 +275,78 @@
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
-            groupBox1.Location = new Point(7, 690);
+            groupBox1.Location = new Point(21, 431);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(413, 156);
+            groupBox1.Size = new Size(357, 129);
             groupBox1.TabIndex = 8;
             groupBox1.TabStop = false;
             // 
             // lblChange
             // 
             lblChange.AutoSize = true;
-            lblChange.Font = new Font("Segoe UI", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblChange.Location = new Point(148, 104);
+            lblChange.Font = new Font("Impact", 17.25F);
+            lblChange.Location = new Point(113, 97);
             lblChange.Name = "lblChange";
-            lblChange.Size = new Size(85, 47);
+            lblChange.Size = new Size(52, 28);
             lblChange.TabIndex = 12;
             lblChange.Text = "0.00";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.Location = new Point(177, 66);
+            label6.Font = new Font("Impact", 17.25F);
+            label6.Location = new Point(128, 57);
             label6.Name = "label6";
-            label6.Size = new Size(85, 47);
+            label6.Size = new Size(52, 28);
             label6.TabIndex = 10;
             label6.Text = "0.00";
             // 
             // lblTotal
             // 
             lblTotal.AutoSize = true;
-            lblTotal.Font = new Font("Segoe UI", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblTotal.Location = new Point(210, 19);
+            lblTotal.Font = new Font("Impact", 17.25F);
+            lblTotal.Location = new Point(148, 19);
             lblTotal.Name = "lblTotal";
-            lblTotal.Size = new Size(85, 47);
+            lblTotal.Size = new Size(52, 28);
             lblTotal.TabIndex = 9;
             lblTotal.Text = "0.00";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(6, 66);
+            label3.Font = new Font("Impact", 17.25F);
+            label3.Location = new Point(7, 57);
             label3.Name = "label3";
-            label3.Size = new Size(165, 47);
+            label3.Size = new Size(101, 28);
             label3.TabIndex = 7;
             label3.Text = "Discount:";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(6, 104);
+            label2.Font = new Font("Impact", 17.25F);
+            label2.Location = new Point(6, 97);
             label2.Name = "label2";
-            label2.Size = new Size(147, 47);
+            label2.Size = new Size(90, 28);
             label2.TabIndex = 6;
             label2.Text = "Change:";
+            label2.Click += label2_Click;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(7, 625);
+            label4.Font = new Font("Impact", 15.75F);
+            label4.Location = new Point(21, 402);
             label4.Name = "label4";
-            label4.Size = new Size(103, 47);
+            label4.Size = new Size(60, 26);
             label4.TabIndex = 8;
             label4.Text = "Cash:";
             // 
             // txtScannedBarcode
             // 
-            txtScannedBarcode.Location = new Point(167, 21);
+            txtScannedBarcode.Location = new Point(132, 109);
             txtScannedBarcode.Name = "txtScannedBarcode";
-            txtScannedBarcode.Size = new Size(256, 23);
+            txtScannedBarcode.Size = new Size(287, 23);
             txtScannedBarcode.TabIndex = 9;
             txtScannedBarcode.TextChanged += textBox1_TextChanged;
             // 
@@ -334,173 +356,194 @@
             groupBox2.Controls.Add(btn2h);
             groupBox2.Controls.Add(btn5h);
             groupBox2.Controls.Add(btn1k);
-            groupBox2.Location = new Point(7, 7);
+            groupBox2.Font = new Font("Impact", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            groupBox2.ForeColor = Color.Black;
+            groupBox2.Location = new Point(6, 3);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(413, 123);
+            groupBox2.Size = new Size(388, 104);
             groupBox2.TabIndex = 28;
             groupBox2.TabStop = false;
             groupBox2.Text = "Quick Amounts";
             // 
             // btn1h
             // 
+            btn1h.BackColor = Color.YellowGreen;
             btn1h.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
-            btn1h.Location = new Point(319, 22);
+            btn1h.ForeColor = Color.Black;
+            btn1h.Location = new Point(288, 25);
             btn1h.Name = "btn1h";
-            btn1h.Size = new Size(88, 87);
+            btn1h.Size = new Size(88, 69);
             btn1h.TabIndex = 31;
             btn1h.Text = "₱100";
-            btn1h.UseVisualStyleBackColor = true;
+            btn1h.UseVisualStyleBackColor = false;
             btn1h.Click += btn1h_Click;
             // 
             // btn2h
             // 
+            btn2h.BackColor = Color.YellowGreen;
             btn2h.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
-            btn2h.Location = new Point(214, 22);
+            btn2h.ForeColor = Color.Black;
+            btn2h.Location = new Point(194, 26);
             btn2h.Name = "btn2h";
-            btn2h.Size = new Size(88, 87);
+            btn2h.Size = new Size(88, 68);
             btn2h.TabIndex = 30;
             btn2h.Text = "₱200";
-            btn2h.UseVisualStyleBackColor = true;
+            btn2h.UseVisualStyleBackColor = false;
             btn2h.Click += btn2h_Click;
             // 
             // btn5h
             // 
+            btn5h.BackColor = Color.YellowGreen;
             btn5h.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
-            btn5h.Location = new Point(109, 22);
+            btn5h.ForeColor = Color.Black;
+            btn5h.Location = new Point(100, 25);
             btn5h.Name = "btn5h";
-            btn5h.Size = new Size(88, 87);
+            btn5h.Size = new Size(88, 69);
             btn5h.TabIndex = 29;
             btn5h.Text = "₱500";
-            btn5h.UseVisualStyleBackColor = true;
+            btn5h.UseVisualStyleBackColor = false;
             btn5h.Click += btn5h_Click;
             // 
             // btn1k
             // 
+            btn1k.BackColor = Color.YellowGreen;
             btn1k.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
-            btn1k.Location = new Point(6, 22);
+            btn1k.ForeColor = Color.Black;
+            btn1k.Location = new Point(6, 25);
             btn1k.Name = "btn1k";
-            btn1k.Size = new Size(88, 87);
+            btn1k.Size = new Size(88, 72);
             btn1k.TabIndex = 0;
             btn1k.Text = "₱1000";
-            btn1k.UseVisualStyleBackColor = true;
+            btn1k.UseVisualStyleBackColor = false;
             btn1k.Click += button1_Click_1;
             // 
             // btnKey1
             // 
+            btnKey1.BackColor = Color.LightSeaGreen;
             btnKey1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnKey1.Location = new Point(7, 136);
+            btnKey1.Location = new Point(12, 113);
             btnKey1.Name = "btnKey1";
-            btnKey1.Size = new Size(116, 105);
+            btnKey1.Size = new Size(104, 63);
             btnKey1.TabIndex = 32;
             btnKey1.Text = "1";
-            btnKey1.UseVisualStyleBackColor = true;
+            btnKey1.UseVisualStyleBackColor = false;
             btnKey1.Click += button6_Click;
             // 
             // btnKey2
             // 
+            btnKey2.BackColor = Color.LightSeaGreen;
             btnKey2.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
-            btnKey2.Location = new Point(160, 136);
+            btnKey2.Location = new Point(144, 113);
             btnKey2.Name = "btnKey2";
-            btnKey2.Size = new Size(116, 105);
+            btnKey2.Size = new Size(104, 63);
             btnKey2.TabIndex = 33;
             btnKey2.Text = "2";
-            btnKey2.UseVisualStyleBackColor = true;
+            btnKey2.UseVisualStyleBackColor = false;
             btnKey2.Click += btnKey2_Click;
             // 
             // btnKey3
             // 
+            btnKey3.BackColor = Color.LightSeaGreen;
             btnKey3.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
-            btnKey3.Location = new Point(304, 136);
+            btnKey3.Location = new Point(274, 113);
             btnKey3.Name = "btnKey3";
-            btnKey3.Size = new Size(116, 105);
+            btnKey3.Size = new Size(104, 63);
             btnKey3.TabIndex = 34;
             btnKey3.Text = "3";
-            btnKey3.UseVisualStyleBackColor = true;
+            btnKey3.UseVisualStyleBackColor = false;
             btnKey3.Click += btnKey3_Click;
             // 
             // btnKey4
             // 
+            btnKey4.BackColor = Color.LightSeaGreen;
             btnKey4.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
-            btnKey4.Location = new Point(7, 267);
+            btnKey4.Location = new Point(13, 184);
             btnKey4.Name = "btnKey4";
-            btnKey4.Size = new Size(116, 105);
+            btnKey4.Size = new Size(104, 60);
             btnKey4.TabIndex = 35;
             btnKey4.Text = "4";
-            btnKey4.UseVisualStyleBackColor = true;
+            btnKey4.UseVisualStyleBackColor = false;
             btnKey4.Click += btnKey4_Click;
             // 
             // btnKey7
             // 
+            btnKey7.BackColor = Color.LightSeaGreen;
             btnKey7.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
-            btnKey7.Location = new Point(7, 393);
+            btnKey7.Location = new Point(13, 251);
             btnKey7.Name = "btnKey7";
-            btnKey7.Size = new Size(116, 105);
+            btnKey7.Size = new Size(104, 60);
             btnKey7.TabIndex = 36;
             btnKey7.Text = "7";
-            btnKey7.UseVisualStyleBackColor = true;
+            btnKey7.UseVisualStyleBackColor = false;
             btnKey7.Click += btnKey7_Click;
             // 
             // btnKey9
             // 
+            btnKey9.BackColor = Color.LightSeaGreen;
             btnKey9.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
-            btnKey9.Location = new Point(304, 393);
+            btnKey9.Location = new Point(274, 251);
             btnKey9.Name = "btnKey9";
-            btnKey9.Size = new Size(116, 105);
+            btnKey9.Size = new Size(104, 58);
             btnKey9.TabIndex = 37;
             btnKey9.Text = "9";
-            btnKey9.UseVisualStyleBackColor = true;
+            btnKey9.UseVisualStyleBackColor = false;
             btnKey9.Click += btnKey9_Click;
             // 
             // btnKey5
             // 
+            btnKey5.BackColor = Color.LightSeaGreen;
             btnKey5.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
-            btnKey5.Location = new Point(160, 267);
+            btnKey5.Location = new Point(146, 184);
             btnKey5.Name = "btnKey5";
-            btnKey5.Size = new Size(116, 105);
+            btnKey5.Size = new Size(104, 60);
             btnKey5.TabIndex = 38;
             btnKey5.Text = "5";
-            btnKey5.UseVisualStyleBackColor = true;
+            btnKey5.UseVisualStyleBackColor = false;
             btnKey5.Click += btnKey5_Click;
             // 
             // btnKey8
             // 
+            btnKey8.BackColor = Color.LightSeaGreen;
             btnKey8.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
-            btnKey8.Location = new Point(160, 393);
+            btnKey8.Location = new Point(147, 251);
             btnKey8.Name = "btnKey8";
-            btnKey8.Size = new Size(116, 105);
+            btnKey8.Size = new Size(104, 60);
             btnKey8.TabIndex = 39;
             btnKey8.Text = "8";
-            btnKey8.UseVisualStyleBackColor = true;
+            btnKey8.UseVisualStyleBackColor = false;
             btnKey8.Click += btnKey8_Click;
             // 
             // btnKey6
             // 
+            btnKey6.BackColor = Color.LightSeaGreen;
             btnKey6.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
-            btnKey6.Location = new Point(304, 267);
+            btnKey6.Location = new Point(274, 184);
             btnKey6.Name = "btnKey6";
-            btnKey6.Size = new Size(116, 105);
+            btnKey6.Size = new Size(104, 60);
             btnKey6.TabIndex = 40;
             btnKey6.Text = "6";
-            btnKey6.UseVisualStyleBackColor = true;
+            btnKey6.UseVisualStyleBackColor = false;
             btnKey6.Click += btnKey6_Click;
             // 
             // btnClearCash
             // 
+            btnClearCash.BackColor = Color.LightSeaGreen;
             btnClearCash.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
-            btnClearCash.Location = new Point(304, 517);
+            btnClearCash.Location = new Point(274, 320);
             btnClearCash.Name = "btnClearCash";
-            btnClearCash.Size = new Size(116, 105);
+            btnClearCash.Size = new Size(104, 57);
             btnClearCash.TabIndex = 41;
             btnClearCash.Text = "CLEAR";
-            btnClearCash.UseVisualStyleBackColor = true;
+            btnClearCash.UseVisualStyleBackColor = false;
             btnClearCash.Click += btnClearCash_Click;
             // 
             // txtCash
             // 
-            txtCash.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtCash.Location = new Point(98, 624);
+            txtCash.Font = new Font("Impact", 15.75F);
+            txtCash.Location = new Point(85, 396);
+            txtCash.Multiline = true;
             txtCash.Name = "txtCash";
-            txtCash.Size = new Size(322, 50);
+            txtCash.Size = new Size(293, 32);
             txtCash.TabIndex = 42;
             txtCash.TextChanged += textBox1_TextChanged_1;
             txtCash.KeyPress += textBox1_KeyPress;
@@ -508,38 +551,44 @@
             // 
             // btnDot
             // 
+            btnDot.BackColor = Color.LightSeaGreen;
             btnDot.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
-            btnDot.Location = new Point(7, 517);
+            btnDot.Location = new Point(12, 322);
             btnDot.Name = "btnDot";
-            btnDot.Size = new Size(116, 105);
+            btnDot.Size = new Size(105, 57);
             btnDot.TabIndex = 43;
             btnDot.Text = ".";
-            btnDot.UseVisualStyleBackColor = true;
+            btnDot.UseVisualStyleBackColor = false;
             btnDot.Click += btnDot_Click;
             // 
             // btn00
             // 
+            btn00.BackColor = Color.LightSeaGreen;
             btn00.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
-            btn00.Location = new Point(160, 517);
+            btn00.Location = new Point(150, 322);
             btn00.Name = "btn00";
-            btn00.Size = new Size(116, 105);
+            btn00.Size = new Size(101, 57);
             btn00.TabIndex = 44;
             btn00.Text = "0";
-            btn00.UseVisualStyleBackColor = true;
+            btn00.UseVisualStyleBackColor = false;
             btn00.Click += btn00_Click;
             // 
             // btnApplyDiscount
             // 
-            btnApplyDiscount.Location = new Point(1290, 12);
+            btnApplyDiscount.BackColor = Color.ForestGreen;
+            btnApplyDiscount.FlatStyle = FlatStyle.Popup;
+            btnApplyDiscount.ForeColor = Color.White;
+            btnApplyDiscount.Location = new Point(852, 109);
             btnApplyDiscount.Name = "btnApplyDiscount";
-            btnApplyDiscount.Size = new Size(172, 38);
+            btnApplyDiscount.Size = new Size(111, 22);
             btnApplyDiscount.TabIndex = 45;
             btnApplyDiscount.Text = "Apply Discount";
-            btnApplyDiscount.UseVisualStyleBackColor = true;
+            btnApplyDiscount.UseVisualStyleBackColor = false;
             btnApplyDiscount.Click += button1_Click_2;
             // 
             // panel1
             // 
+            panel1.BackColor = Color.LightSkyBlue;
             panel1.Controls.Add(btnKey2);
             panel1.Controls.Add(groupBox2);
             panel1.Controls.Add(txtCash);
@@ -558,23 +607,136 @@
             panel1.Controls.Add(btnKey9);
             panel1.Controls.Add(btnKey8);
             panel1.Controls.Add(btnKey5);
-            panel1.Dock = DockStyle.Right;
-            panel1.Location = new Point(1468, 0);
+            panel1.Location = new Point(969, 100);
             panel1.Name = "panel1";
-            panel1.Size = new Size(436, 1041);
+            panel1.Size = new Size(386, 594);
             panel1.TabIndex = 46;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.BackColor = Color.DimGray;
+            pictureBox2.Location = new Point(-4, -2);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(1371, 104);
+            pictureBox2.TabIndex = 144;
+            pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.DimGray;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(12, -1);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(256, 104);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 145;
+            pictureBox1.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.BackColor = SystemColors.ControlDarkDark;
+            pictureBox3.ErrorImage = null;
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.InitialImage = null;
+            pictureBox3.Location = new Point(-4, 693);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(1377, 83);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 151;
+            pictureBox3.TabStop = false;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.BackColor = SystemColors.ControlDarkDark;
+            label5.FlatStyle = FlatStyle.System;
+            label5.Font = new Font("Impact", 48F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.ForeColor = SystemColors.ButtonHighlight;
+            label5.Location = new Point(498, 9);
+            label5.Name = "label5";
+            label5.Size = new Size(395, 80);
+            label5.TabIndex = 152;
+            label5.Text = "POINT OF SALE";
+            label5.Click += label5_Click;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.BackColor = Color.DimGray;
+            label7.Font = new Font("Impact", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.ForeColor = Color.White;
+            label7.Location = new Point(1075, 19);
+            label7.Name = "label7";
+            label7.Size = new Size(62, 29);
+            label7.TabIndex = 153;
+            label7.Text = "Date:";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.BackColor = Color.DimGray;
+            label8.Font = new Font("Impact", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.ForeColor = Color.White;
+            label8.Location = new Point(1075, 58);
+            label8.Name = "label8";
+            label8.Size = new Size(66, 29);
+            label8.TabIndex = 154;
+            label8.Text = "Time:";
+            // 
+            // lblDate
+            // 
+            lblDate.AutoSize = true;
+            lblDate.BackColor = Color.DimGray;
+            lblDate.Font = new Font("Impact", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblDate.ForeColor = Color.White;
+            lblDate.Location = new Point(1178, 19);
+            lblDate.Name = "lblDate";
+            lblDate.Size = new Size(26, 29);
+            lblDate.TabIndex = 155;
+            lblDate.Text = "0";
+            // 
+            // lblTime
+            // 
+            lblTime.AutoSize = true;
+            lblTime.BackColor = Color.DimGray;
+            lblTime.Font = new Font("Impact", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTime.ForeColor = Color.White;
+            lblTime.Location = new Point(1178, 58);
+            lblTime.Name = "lblTime";
+            lblTime.Size = new Size(26, 29);
+            lblTime.TabIndex = 156;
+            lblTime.Text = "0";
+            // 
+            // timer1
+            // 
+            timer1.Enabled = true;
+            timer1.Interval = 1000;
+            timer1.Tick += timer1_Tick;
             // 
             // SalesInvoice
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1904, 1041);
+            BackColor = Color.CadetBlue;
+            ClientSize = new Size(1367, 777);
+            Controls.Add(lblTime);
+            Controls.Add(lblDate);
+            Controls.Add(label8);
+            Controls.Add(label7);
+            Controls.Add(label5);
+            Controls.Add(pictureBox3);
+            Controls.Add(pictureBox1);
+            Controls.Add(pictureBox2);
             Controls.Add(panel1);
             Controls.Add(btnApplyDiscount);
             Controls.Add(txtScannedBarcode);
             Controls.Add(dtgvCart);
             Controls.Add(btnSearchProduct);
+            FormBorderStyle = FormBorderStyle.None;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "SalesInvoice";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Sales Invoice";
             WindowState = FormWindowState.Maximized;
             Load += SalesInvoice_Load;
@@ -586,6 +748,9 @@
             groupBox2.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -642,5 +807,14 @@
         private DataGridViewTextBoxColumn vatExempt;
         private DataGridViewButtonColumn remove;
         private System.Drawing.Printing.PrintDocument printDocument1;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox3;
+        private Label label5;
+        private Label label7;
+        private Label label8;
+        private Label lblDate;
+        private Label lblTime;
+        private System.Windows.Forms.Timer timer1;
     }
 }

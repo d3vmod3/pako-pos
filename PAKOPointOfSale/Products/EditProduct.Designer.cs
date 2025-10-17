@@ -396,7 +396,7 @@
             pictureBox2.BackColor = Color.DimGray;
             pictureBox2.Location = new Point(0, -3);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(1371, 104);
+            pictureBox2.Size = new Size(1387, 104);
             pictureBox2.TabIndex = 143;
             pictureBox2.TabStop = false;
             // 

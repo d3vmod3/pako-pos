@@ -108,7 +108,7 @@
             dataGridView1.DataSource = supplierDetailsBindingSource;
             dataGridView1.Location = new Point(12, 131);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(1343, 533);
+            dataGridView1.Size = new Size(1343, 520);
             dataGridView1.TabIndex = 5;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -243,9 +243,9 @@
             pictureBox3.ErrorImage = null;
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
             pictureBox3.InitialImage = null;
-            pictureBox3.Location = new Point(-33, 671);
+            pictureBox3.Location = new Point(-33, 657);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(1402, 93);
+            pictureBox3.Size = new Size(1402, 91);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 150;
             pictureBox3.TabStop = false;
