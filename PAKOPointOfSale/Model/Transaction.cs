@@ -16,7 +16,9 @@ public class Transaction
     public string payment_method { get; set; }
     public decimal cash_received { get; set; }
     public decimal cash_change { get; set; }
-    public string status { get; set; }  // "success" or other
+    public string status { get; set; }  // "success" or pending
+    public string transaction_type { get; set; }
+    public DateTime created_at { get; set; }
 
     public ICollection<SalesInvoiceItem> sales_invoice_items { get; set; }
 

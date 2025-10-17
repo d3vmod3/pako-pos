@@ -1,0 +1,223 @@
+﻿namespace PAKOPointOfSale.Transactions
+{
+    partial class TransactionsList
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            components = new System.ComponentModel.Container();
+            dtgvTransactions = new DataGridView();
+            transactionBindingSource = new BindingSource(components);
+            textBox1 = new TextBox();
+            label1 = new Label();
+            id = new DataGridViewTextBoxColumn();
+            invoicenumberDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            vatamountDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            vatablesalesDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            vatexemptDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            subtotalDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            grandtotalDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            paymentmethodDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            cashreceivedDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            cashchangeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            statusDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            salesinvoiceitemsDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            viewInvoice = new DataGridViewButtonColumn();
+            ((System.ComponentModel.ISupportInitialize)dtgvTransactions).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)transactionBindingSource).BeginInit();
+            SuspendLayout();
+            // 
+            // dtgvTransactions
+            // 
+            dtgvTransactions.AllowUserToAddRows = false;
+            dtgvTransactions.AllowUserToDeleteRows = false;
+            dtgvTransactions.AutoGenerateColumns = false;
+            dtgvTransactions.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dtgvTransactions.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtgvTransactions.Columns.AddRange(new DataGridViewColumn[] { id, invoicenumberDataGridViewTextBoxColumn, vatamountDataGridViewTextBoxColumn, vatablesalesDataGridViewTextBoxColumn, vatexemptDataGridViewTextBoxColumn, subtotalDataGridViewTextBoxColumn, grandtotalDataGridViewTextBoxColumn, paymentmethodDataGridViewTextBoxColumn, cashreceivedDataGridViewTextBoxColumn, cashchangeDataGridViewTextBoxColumn, statusDataGridViewTextBoxColumn, salesinvoiceitemsDataGridViewTextBoxColumn, viewInvoice });
+            dtgvTransactions.DataSource = transactionBindingSource;
+            dtgvTransactions.Location = new Point(12, 35);
+            dtgvTransactions.Name = "dtgvTransactions";
+            dtgvTransactions.ReadOnly = true;
+            dtgvTransactions.Size = new Size(1066, 561);
+            dtgvTransactions.TabIndex = 0;
+            dtgvTransactions.CellContentClick += dtgvTransactions_CellContentClick;
+            // 
+            // transactionBindingSource
+            // 
+            transactionBindingSource.DataSource = typeof(Transaction);
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(151, 6);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(248, 23);
+            textBox1.TabIndex = 1;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(12, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(133, 15);
+            label1.TabIndex = 2;
+            label1.Text = "Search Invoice Number:";
+            // 
+            // id
+            // 
+            id.DataPropertyName = "id";
+            id.HeaderText = "id";
+            id.Name = "id";
+            id.ReadOnly = true;
+            // 
+            // invoicenumberDataGridViewTextBoxColumn
+            // 
+            invoicenumberDataGridViewTextBoxColumn.DataPropertyName = "invoice_number";
+            invoicenumberDataGridViewTextBoxColumn.HeaderText = "Invoice Number";
+            invoicenumberDataGridViewTextBoxColumn.Name = "invoicenumberDataGridViewTextBoxColumn";
+            invoicenumberDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // vatamountDataGridViewTextBoxColumn
+            // 
+            vatamountDataGridViewTextBoxColumn.DataPropertyName = "vat_amount";
+            vatamountDataGridViewTextBoxColumn.HeaderText = "vat_amount";
+            vatamountDataGridViewTextBoxColumn.Name = "vatamountDataGridViewTextBoxColumn";
+            vatamountDataGridViewTextBoxColumn.ReadOnly = true;
+            vatamountDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // vatablesalesDataGridViewTextBoxColumn
+            // 
+            vatablesalesDataGridViewTextBoxColumn.DataPropertyName = "vatable_sales";
+            vatablesalesDataGridViewTextBoxColumn.HeaderText = "vatable_sales";
+            vatablesalesDataGridViewTextBoxColumn.Name = "vatablesalesDataGridViewTextBoxColumn";
+            vatablesalesDataGridViewTextBoxColumn.ReadOnly = true;
+            vatablesalesDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // vatexemptDataGridViewTextBoxColumn
+            // 
+            vatexemptDataGridViewTextBoxColumn.DataPropertyName = "vat_exempt";
+            vatexemptDataGridViewTextBoxColumn.HeaderText = "vat_exempt";
+            vatexemptDataGridViewTextBoxColumn.Name = "vatexemptDataGridViewTextBoxColumn";
+            vatexemptDataGridViewTextBoxColumn.ReadOnly = true;
+            vatexemptDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // subtotalDataGridViewTextBoxColumn
+            // 
+            subtotalDataGridViewTextBoxColumn.DataPropertyName = "sub_total";
+            subtotalDataGridViewTextBoxColumn.HeaderText = "Sub Total";
+            subtotalDataGridViewTextBoxColumn.Name = "subtotalDataGridViewTextBoxColumn";
+            subtotalDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // grandtotalDataGridViewTextBoxColumn
+            // 
+            grandtotalDataGridViewTextBoxColumn.DataPropertyName = "grand_total";
+            grandtotalDataGridViewTextBoxColumn.HeaderText = "Grand Total";
+            grandtotalDataGridViewTextBoxColumn.Name = "grandtotalDataGridViewTextBoxColumn";
+            grandtotalDataGridViewTextBoxColumn.ReadOnly = true;
+            grandtotalDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // paymentmethodDataGridViewTextBoxColumn
+            // 
+            paymentmethodDataGridViewTextBoxColumn.DataPropertyName = "payment_method";
+            paymentmethodDataGridViewTextBoxColumn.HeaderText = "Payment Method";
+            paymentmethodDataGridViewTextBoxColumn.Name = "paymentmethodDataGridViewTextBoxColumn";
+            paymentmethodDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cashreceivedDataGridViewTextBoxColumn
+            // 
+            cashreceivedDataGridViewTextBoxColumn.DataPropertyName = "cash_received";
+            cashreceivedDataGridViewTextBoxColumn.HeaderText = "Cash Received";
+            cashreceivedDataGridViewTextBoxColumn.Name = "cashreceivedDataGridViewTextBoxColumn";
+            cashreceivedDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cashchangeDataGridViewTextBoxColumn
+            // 
+            cashchangeDataGridViewTextBoxColumn.DataPropertyName = "cash_change";
+            cashchangeDataGridViewTextBoxColumn.HeaderText = "Change";
+            cashchangeDataGridViewTextBoxColumn.Name = "cashchangeDataGridViewTextBoxColumn";
+            cashchangeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // statusDataGridViewTextBoxColumn
+            // 
+            statusDataGridViewTextBoxColumn.DataPropertyName = "status";
+            statusDataGridViewTextBoxColumn.HeaderText = "Status";
+            statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            statusDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // salesinvoiceitemsDataGridViewTextBoxColumn
+            // 
+            salesinvoiceitemsDataGridViewTextBoxColumn.DataPropertyName = "sales_invoice_items";
+            salesinvoiceitemsDataGridViewTextBoxColumn.HeaderText = "sales_invoice_items";
+            salesinvoiceitemsDataGridViewTextBoxColumn.Name = "salesinvoiceitemsDataGridViewTextBoxColumn";
+            salesinvoiceitemsDataGridViewTextBoxColumn.ReadOnly = true;
+            salesinvoiceitemsDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // viewInvoice
+            // 
+            viewInvoice.HeaderText = "";
+            viewInvoice.Name = "viewInvoice";
+            viewInvoice.ReadOnly = true;
+            viewInvoice.Text = "View Transaction";
+            viewInvoice.UseColumnTextForButtonValue = true;
+            // 
+            // TransactionsList
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1090, 608);
+            Controls.Add(label1);
+            Controls.Add(textBox1);
+            Controls.Add(dtgvTransactions);
+            Name = "TransactionsList";
+            Text = "Transactions";
+            Load += TransactionsList_Load;
+            ((System.ComponentModel.ISupportInitialize)dtgvTransactions).EndInit();
+            ((System.ComponentModel.ISupportInitialize)transactionBindingSource).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
+        }
+
+        #endregion
+
+        private DataGridView dtgvTransactions;
+        private TextBox textBox1;
+        private Label label1;
+        private BindingSource transactionBindingSource;
+        private DataGridViewTextBoxColumn id;
+        private DataGridViewTextBoxColumn invoicenumberDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn vatamountDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn vatablesalesDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn vatexemptDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn subtotalDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn grandtotalDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn paymentmethodDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn cashreceivedDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn cashchangeDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn salesinvoiceitemsDataGridViewTextBoxColumn;
+        private DataGridViewButtonColumn viewInvoice;
+    }
+}

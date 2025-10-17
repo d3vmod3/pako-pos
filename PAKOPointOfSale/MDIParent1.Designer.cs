@@ -69,47 +69,48 @@
             // categoriesToolStripMenuItem
             // 
             categoriesToolStripMenuItem.Name = "categoriesToolStripMenuItem";
-            categoriesToolStripMenuItem.Size = new Size(179, 22);
+            categoriesToolStripMenuItem.Size = new Size(180, 22);
             categoriesToolStripMenuItem.Text = "Categories";
             categoriesToolStripMenuItem.Click += categoriesToolStripMenuItem_Click;
             // 
             // usersToolStripMenuItem
             // 
             usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-            usersToolStripMenuItem.Size = new Size(179, 22);
+            usersToolStripMenuItem.Size = new Size(180, 22);
             usersToolStripMenuItem.Text = "Products";
             usersToolStripMenuItem.Click += usersToolStripMenuItem_Click;
             // 
             // supplierProductsToolStripMenuItem
             // 
             supplierProductsToolStripMenuItem.Name = "supplierProductsToolStripMenuItem";
-            supplierProductsToolStripMenuItem.Size = new Size(179, 22);
+            supplierProductsToolStripMenuItem.Size = new Size(180, 22);
             supplierProductsToolStripMenuItem.Text = "Supplier Products";
             // 
             // suppliersToolStripMenuItem
             // 
             suppliersToolStripMenuItem.Name = "suppliersToolStripMenuItem";
-            suppliersToolStripMenuItem.Size = new Size(179, 22);
+            suppliersToolStripMenuItem.Size = new Size(180, 22);
             suppliersToolStripMenuItem.Text = "Suppliers";
             suppliersToolStripMenuItem.Click += suppliersToolStripMenuItem_Click;
             // 
             // transactionsToolStripMenuItem
             // 
             transactionsToolStripMenuItem.Name = "transactionsToolStripMenuItem";
-            transactionsToolStripMenuItem.Size = new Size(179, 22);
+            transactionsToolStripMenuItem.Size = new Size(180, 22);
             transactionsToolStripMenuItem.Text = "Transactions";
+            transactionsToolStripMenuItem.Click += transactionsToolStripMenuItem_Click;
             // 
             // usersToolStripMenuItem1
             // 
             usersToolStripMenuItem1.Name = "usersToolStripMenuItem1";
-            usersToolStripMenuItem1.Size = new Size(179, 22);
+            usersToolStripMenuItem1.Size = new Size(180, 22);
             usersToolStripMenuItem1.Text = "Users";
             usersToolStripMenuItem1.Click += usersToolStripMenuItem1_Click;
             // 
             // userAccessControlToolStripMenuItem
             // 
             userAccessControlToolStripMenuItem.Name = "userAccessControlToolStripMenuItem";
-            userAccessControlToolStripMenuItem.Size = new Size(179, 22);
+            userAccessControlToolStripMenuItem.Size = new Size(180, 22);
             userAccessControlToolStripMenuItem.Text = "User Access Control";
             userAccessControlToolStripMenuItem.Click += userAccessControlToolStripMenuItem_Click;
             // 

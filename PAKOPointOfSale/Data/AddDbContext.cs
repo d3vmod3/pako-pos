@@ -20,6 +20,7 @@ namespace WinFormsApp1.Data
         public DbSet<Product> Products { get; set; }
         public DbSet<SuppliedProduct> SuppliedProducts { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
+        public DbSet<VoidTransaction> VoidTransactions { get; set; }
         public DbSet<SalesInvoiceItem> SalesInvoiceItems { get; set; }
         
 

@@ -135,5 +135,11 @@ namespace PAKOPointOfSale
             Transactions.SalesInvoice salesInvoiceForm = new Transactions.SalesInvoice();
             salesInvoiceForm.Show();
         }
+
+        private void transactionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Transactions.TransactionsList transactionsListForm = new Transactions.TransactionsList();
+            transactionsListForm.Show();
+        }
     }
 }

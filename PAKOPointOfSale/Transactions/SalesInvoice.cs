@@ -281,8 +281,8 @@ namespace PAKOPointOfSale.Transactions
 
                     // Insert into Transactions table
                     string insertTransaction = @"
-                INSERT INTO Transactions (invoice_number, vat_amount, vatable_sales, vat_exempt, sub_total, grand_total, payment_method, status,cash_received,cash_change)
-                VALUES (@invoice, @vatAmount, @vatableSales, @vatExempt, @subTotal, @grandTotal, @payment, @status,@cashReceived,@cashChange);
+                INSERT INTO Transactions (invoice_number,transaction_type ,vat_amount, vatable_sales, vat_exempt, sub_total, grand_total, payment_method, status,cash_received,cash_change,created_at)
+                VALUES (@invoice,@transactionType, @vatAmount, @vatableSales, @vatExempt, @subTotal, @grandTotal, @payment, @status,@cashReceived,@cashChange,@created_at);
                 SELECT SCOPE_IDENTITY();"; // get the inserted transaction id
                     string invoiceNumber = SalesInvoiceFunctions.GenerateNextInvoiceNumber();
                     ;
@@ -290,6 +290,7 @@ namespace PAKOPointOfSale.Transactions
                     using (SqlCommand cmd = new SqlCommand(insertTransaction, conn, sqlTran))
                     {
                         cmd.Parameters.AddWithValue("@invoice", invoiceNumber);
+                        cmd.Parameters.AddWithValue("@transactionType", "Sales Invoice");
                         cmd.Parameters.AddWithValue("@vatAmount", totalVatAmount);
                         cmd.Parameters.AddWithValue("@vatableSales", totalVatableSales);
                         cmd.Parameters.AddWithValue("@vatExempt", totalVatExempt);
@@ -299,6 +300,7 @@ namespace PAKOPointOfSale.Transactions
                         cmd.Parameters.AddWithValue("@cashReceived", Convert.ToDecimal(txtCash.Text));
                         cmd.Parameters.AddWithValue("@cashChange", Convert.ToDecimal(lblChange.Text));
                         cmd.Parameters.AddWithValue("@status", "success");
+                        cmd.Parameters.AddWithValue("@created_at", DateTime.Now);
 
                         transactionId = Convert.ToInt32(cmd.ExecuteScalar());
                     }
@@ -323,8 +325,8 @@ namespace PAKOPointOfSale.Transactions
                             // Insert SalesInvoiceItem
                             string insertItem = @"
                             INSERT INTO SalesInvoiceItems 
-                            (transaction_id, product_id, quantity, unit_price, discount, discount_type, total_amount, unit_of_measurement,vatable_sales,vat_amount,vat_exempt)
-                            VALUES (@transId, @prodId, @qty, @unitPrice, @discount, @discountType, @total, @unit,@vatableSales,@vatAmount,@vatExempt)";
+                            (transaction_id, product_id, quantity, unit_price, discount, discount_type, total_amount, unit_of_measurement,vatable_sales,vat_amount,vat_exempt,transaction_type)
+                            VALUES (@transId, @prodId, @qty, @unitPrice, @discount, @discountType, @total, @unit,@vatableSales,@vatAmount,@vatExempt,@transactioType)";
 
                             using (SqlCommand cmdItem = new SqlCommand(insertItem, conn, sqlTran))
                             {
@@ -339,6 +341,7 @@ namespace PAKOPointOfSale.Transactions
                                 cmdItem.Parameters.AddWithValue("@vatableSales", vatableSales);
                                 cmdItem.Parameters.AddWithValue("@vatAmount", vatAmount);
                                 cmdItem.Parameters.AddWithValue("@vatExempt", vatExempt);
+                                cmdItem.Parameters.AddWithValue("@transactioType", "salesInvoice");
 
 
 
@@ -377,7 +380,7 @@ namespace PAKOPointOfSale.Transactions
                     {
                         //Transactions.ReceiptPrinter receiptForm = new Transactions.ReceiptPrinter();
                         //receiptForm.GenerateReceiptFromDatabase(invoiceNumber);
-                        Transactions.PrintReceipt.GenerateReceiptFromDatabase(invoiceNumber);
+                        Transactions.PrintSalesInvoiceReceipt.GenerateReceiptFromDatabase(invoiceNumber);
                     }
                     else
                     {

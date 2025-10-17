@@ -36,6 +36,32 @@ namespace PAKOPointOfSale
                 return nextNumber.ToString("D6"); // e.g., "000001", "000002"
             }
         }
+        public static string GenerateNextVoidNumber()
+        {
+            string lastInvoice = null;
+            using (SqlConnection conn = new SqlConnection(Program.ConnString))
+            {
+                conn.Open();
+                string query = "SELECT TOP 1 void_number FROM VoidTransactions ORDER BY id DESC";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    var result = cmd.ExecuteScalar();
+                    if (result != null)
+                        lastInvoice = result.ToString();
+                }
+
+                int nextNumber = 1;
+
+                if (!string.IsNullOrEmpty(lastInvoice))
+                {
+                    if (int.TryParse(lastInvoice, out int lastNumber))
+                        nextNumber = lastNumber + 1;
+                }
+
+                // Pad with zeros to make 6 digits
+                return nextNumber.ToString("D6"); // e.g., "000001", "000002"
+            }
+        }
 
         public static decimal getVATAmount(decimal unit_price, decimal qty)
         {

@@ -17,6 +17,7 @@ public class SalesInvoiceItem
     public string? discount_type { get; set; }
     public decimal total_amount { get; set; }
     public string unit_of_measurement { get; set; }
+    public string transaction_type { get; set; }
 
     public Transaction transaction { get; set; }
     public Product product { get; set; }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace PAKOPointOfSale.Transactions
 {
-    public static class PrintReceipt
+    public class PrintSalesInvoiceReceipt ()
     {
         public static void GenerateReceiptFromDatabase(string invoiceNumber)
         {
@@ -128,6 +128,7 @@ namespace PAKOPointOfSale.Transactions
                 double lineHeight = 12;
 
                 gfx.DrawString("MOTO SHOP POS", bold, XBrushes.Black, new XPoint(x, y)); y += lineHeight;
+                gfx.DrawString("**Sales Invoice**", bold, XBrushes.Black, new XPoint(x, y)); y += lineHeight;
                 gfx.DrawString($"Invoice: {invoiceNumber}", font, XBrushes.Black, new XPoint(x, y)); y += lineHeight;
                 gfx.DrawString($"Date: {DateTime.Now:yyyy-MM-dd HH:mm}", font, XBrushes.Black, new XPoint(x, y)); y += lineHeight;
                 gfx.DrawString("--------------------------------------", font, XBrushes.Black, new XPoint(x, y)); y += lineHeight;
