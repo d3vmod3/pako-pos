@@ -56,6 +56,7 @@ namespace PAKOPointOfSale.Products
                                 txtProductName.Text = reader["product_name"].ToString();
                                 txtProductBrand.Text = reader["product_brand"].ToString();
                                 txtDescription.Text = reader["product_description"].ToString();
+                                txtBarcode.Text = reader["barcode"].ToString();
                                 txtProductCode.Text = reader["product_code"].ToString();
                                 txtSKU.Text = reader["sku"].ToString();
                                 num_quantity.Text = reader["quantity"].ToString();
@@ -168,82 +169,13 @@ namespace PAKOPointOfSale.Products
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (!validateForm()) // Make sure you have a validateForm() method
-                return;
-
-            string connString = PAKOPointOfSale.Program.ConnString;
-
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(connString))
-                {
-                    conn.Open();
-
-                    string sql = @"
-                UPDATE Products
-                SET 
-                    supplier_id = @supplier_id,
-                    category_id = @category_id,
-                    product_name = @product_name,
-                    product_brand = @product_brand,
-                    product_description = @product_description,
-                    product_code = @product_code,
-                    sku = @sku,
-                    quantity = @quantity,
-                    unit_of_measurement = @unit_of_measurement,
-                    cost_price = @cost_price,
-                    unit_price = @unit_price,
-                    remarks = @remarks,
-                    status = @status,
-                    date_received = @date_received,
-                    date_expiration = @date_expiration,
-                    is_active = @is_active
-                WHERE id = @id";
-
-                    using (SqlCommand cmd = new SqlCommand(sql, conn))
-                    {
-                        // Parameters
-                        cmd.Parameters.AddWithValue("@id", _productId);
-                        cmd.Parameters.AddWithValue("@supplier_id", cmbSupplier.SelectedValue);
-                        cmd.Parameters.AddWithValue("@category_id", cmbCategory.SelectedValue);
-                        cmd.Parameters.AddWithValue("@product_name", txtProductName.Text.Trim());
-                        cmd.Parameters.AddWithValue("@product_brand", string.IsNullOrWhiteSpace(txtProductBrand.Text) ? DBNull.Value : txtProductBrand.Text.Trim());
-                        cmd.Parameters.AddWithValue("@product_description", string.IsNullOrWhiteSpace(txtDescription.Text) ? DBNull.Value : txtDescription.Text.Trim());
-                        cmd.Parameters.AddWithValue("@product_code", string.IsNullOrWhiteSpace(txtProductCode.Text) ? DBNull.Value : txtProductCode.Text.Trim());
-                        cmd.Parameters.AddWithValue("@sku", string.IsNullOrWhiteSpace(txtSKU.Text) ? DBNull.Value : txtSKU.Text.Trim());
-                        cmd.Parameters.AddWithValue("@quantity", decimal.Parse(num_quantity.Text.Trim()));
-                        cmd.Parameters.AddWithValue("@unit_of_measurement", cmbUnitofMeasurements.Text.Trim());
-                        cmd.Parameters.AddWithValue("@cost_price", decimal.Parse(num_costPrice.Text.Trim()));
-                        cmd.Parameters.AddWithValue("@unit_price", decimal.Parse(num_unitPrice.Text.Trim()));
-                        cmd.Parameters.AddWithValue("@remarks", string.IsNullOrWhiteSpace(txtRemarks.Text) ? DBNull.Value : txtRemarks.Text.Trim());
-                        cmd.Parameters.AddWithValue("@status", cmbStatus.Text.Trim());
-                        cmd.Parameters.AddWithValue("@date_received", dtpDateReceived.Value);
-                        cmd.Parameters.AddWithValue("@date_expiration", dtpDateExpiration.Value);
-                        cmd.Parameters.AddWithValue("@is_active", chkIsActive.Checked);
-
-                        int rowsAffected = cmd.ExecuteNonQuery();
-
-                        if (rowsAffected > 0)
-                        {
-                            MessageBox.Show("Product updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.Close(); // or reload your products grid
-                        }
-                        else
-                        {
-                            MessageBox.Show("No changes were made.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error updating product: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            
         }
 
         private Boolean validateForm()
         {
-            if (_productSku != txtSKU.Text) { 
+            if (_productSku != txtSKU.Text)
+            {
                 if (IsSkuExists(txtSKU.Text))
                 {
                     MessageBox.Show("SKU already exists. Please use a different one.",
@@ -382,5 +314,81 @@ namespace PAKOPointOfSale.Products
             }
         }
 
+        private void btnSubmit_Click_1(object sender, EventArgs e)
+        {
+            if (!validateForm()) // Make sure you have a validateForm() method
+                return;
+
+            string connString = PAKOPointOfSale.Program.ConnString;
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connString))
+                {
+                    conn.Open();
+
+                    string sql = @"
+                UPDATE Products
+                SET 
+                    supplier_id = @supplier_id,
+                    category_id = @category_id,
+                    product_name = @product_name,
+                    product_brand = @product_brand,
+                    product_description = @product_description,
+                    barcode = @barcode,
+                    product_code = @product_code,
+                    sku = @sku,
+                    quantity = @quantity,
+                    unit_of_measurement = @unit_of_measurement,
+                    cost_price = @cost_price,
+                    unit_price = @unit_price,
+                    remarks = @remarks,
+                    status = @status,
+                    date_received = @date_received,
+                    date_expiration = @date_expiration,
+                    is_active = @is_active
+                WHERE id = @id";
+
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    {
+                        // Parameters
+                        cmd.Parameters.AddWithValue("@id", _productId);
+                        cmd.Parameters.AddWithValue("@supplier_id", cmbSupplier.SelectedValue);
+                        cmd.Parameters.AddWithValue("@category_id", cmbCategory.SelectedValue);
+                        cmd.Parameters.AddWithValue("@product_name", txtProductName.Text.Trim());
+                        cmd.Parameters.AddWithValue("@product_brand", string.IsNullOrWhiteSpace(txtProductBrand.Text) ? DBNull.Value : txtProductBrand.Text.Trim());
+                        cmd.Parameters.AddWithValue("@product_description", string.IsNullOrWhiteSpace(txtDescription.Text) ? DBNull.Value : txtDescription.Text.Trim());
+                        cmd.Parameters.AddWithValue("@barcode", string.IsNullOrWhiteSpace(txtBarcode.Text) ? DBNull.Value : txtDescription.Text.Trim());
+                        cmd.Parameters.AddWithValue("@product_code", string.IsNullOrWhiteSpace(txtProductCode.Text) ? DBNull.Value : txtProductCode.Text.Trim());
+                        cmd.Parameters.AddWithValue("@sku", string.IsNullOrWhiteSpace(txtSKU.Text) ? DBNull.Value : txtSKU.Text.Trim());
+                        cmd.Parameters.AddWithValue("@quantity", decimal.Parse(num_quantity.Text.Trim()));
+                        cmd.Parameters.AddWithValue("@unit_of_measurement", cmbUnitofMeasurements.Text.Trim());
+                        cmd.Parameters.AddWithValue("@cost_price", decimal.Parse(num_costPrice.Text.Trim()));
+                        cmd.Parameters.AddWithValue("@unit_price", decimal.Parse(num_unitPrice.Text.Trim()));
+                        cmd.Parameters.AddWithValue("@remarks", string.IsNullOrWhiteSpace(txtRemarks.Text) ? DBNull.Value : txtRemarks.Text.Trim());
+                        cmd.Parameters.AddWithValue("@status", cmbStatus.Text.Trim());
+                        cmd.Parameters.AddWithValue("@date_received", dtpDateReceived.Value);
+                        cmd.Parameters.AddWithValue("@date_expiration", dtpDateExpiration.Value);
+                        cmd.Parameters.AddWithValue("@is_active", chkIsActive.Checked);
+
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Product updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.Close(); // or reload your products grid
+                        }
+                        else
+                        {
+                            MessageBox.Show("No changes were made.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error updating product: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

@@ -139,7 +139,40 @@ namespace PAKOPointOfSale.Transactions
 
         private void dtgvCart_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex < 0) return;
+
+            DataGridViewRow row = dtgvCart.Rows[e.RowIndex];
+            string columnName = dtgvCart.Columns[e.ColumnIndex].Name;
+            
+
+            // Only recalculate subtotal when quantity or unit price changes
+            if (columnName == "appliedQty" || columnName == "unit_price")
+            {
+                decimal qty = 0, price = 0;
+
+                string discountType = row.Cells["discountType"].Value.ToString();
+
+                if (row.Cells["appliedQty"].Value != null)
+                    decimal.TryParse(row.Cells["appliedQty"].Value.ToString(), out qty);
+
+                if (row.Cells["unit_price"].Value != null)
+                    decimal.TryParse(row.Cells["unit_price"].Value.ToString(), out price);
+
+                // Compute subtotal for this row
+                decimal subTotal = qty * price;
+                row.Cells["subTotal"].Value = subTotal.ToString("0.00");
+
+                row.Cells["vatableSales"].Value = Convert.ToString(SalesInvoiceFunctions.getVATableSales(price, qty));
+                row.Cells["vatAmount"].Value = Convert.ToString(SalesInvoiceFunctions.getVATAmount(price, qty));
+
+                if(discountType != "none")
+                {
+                    RecalculateValues(discountType, dtgvCart.CurrentRow);
+                }
+
+            }
             ComputeGrandTotal();
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -158,7 +191,7 @@ namespace PAKOPointOfSale.Transactions
                 string query = @"
                                 SELECT p.id,product_name,c.name as category,product_brand,quantity,unit_of_measurement,unit_price
                                 FROM Products as p LEFT JOIN Categories c ON p.category_id = c.id
-                                WHERE p.is_active = 1 and p.product_code=@code";
+                                WHERE p.is_active = 1 and p.barcode=@code";
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@code", barcode);
@@ -205,9 +238,6 @@ namespace PAKOPointOfSale.Transactions
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //Transactions.ReceiptPrinter receiptPrinterForm =  new Transactions.ReceiptPrinter();
-            //receiptPrinterForm.ShowDialog();
-
             //bool isInsufficientCash = Convert.ToDecimal(lblTotal.Text) < Convert.ToDecimal(txtCash.Text);
             if (validateTransaction())
             { 
@@ -222,7 +252,7 @@ namespace PAKOPointOfSale.Transactions
 
 
                     // Calculate totals from DataGridView
-                    decimal subTotal = 0;
+                    decimal totalOfSubtotal = 0;
                     decimal totalVatAmount = 0;
                     decimal totalVatableSales = 0;
                     decimal totalVatExempt = 0;
@@ -237,13 +267,14 @@ namespace PAKOPointOfSale.Transactions
                             decimal vatableSales = Convert.ToDecimal(row.Cells["vatableSales"].Value);
                             decimal vatAmount = Convert.ToDecimal(row.Cells["vatAmount"].Value);
                             decimal vatExempt = Convert.ToDecimal(row.Cells["vatExempt"].Value);
+                            decimal subsubTotal = Convert.ToDecimal(row.Cells["subTotal"].Value);
                             decimal discount = 0;
                             //decimal discount = row.Cells["Discount"].Value != null ? Convert.ToDecimal(row.Cells["Discount"].Value) : 0;
                             decimal totalAmount = (quantity * unitPrice) - discount;
                             totalVatableSales += vatableSales;
                             totalVatAmount += vatAmount;
                             totalVatExempt += vatExempt;
-                            subTotal += quantity * unitPrice;
+                            totalOfSubtotal += subsubTotal;
                             //grandTotal += totalAmount;
                         }
                     }
@@ -262,7 +293,7 @@ namespace PAKOPointOfSale.Transactions
                         cmd.Parameters.AddWithValue("@vatAmount", totalVatAmount);
                         cmd.Parameters.AddWithValue("@vatableSales", totalVatableSales);
                         cmd.Parameters.AddWithValue("@vatExempt", totalVatExempt);
-                        cmd.Parameters.AddWithValue("@subTotal", subTotal);
+                        cmd.Parameters.AddWithValue("@subTotal", totalOfSubtotal);
                         cmd.Parameters.AddWithValue("@grandTotal", grandTotal);
                         cmd.Parameters.AddWithValue("@payment", "cash");
                         cmd.Parameters.AddWithValue("@cashReceived", Convert.ToDecimal(txtCash.Text));
@@ -283,12 +314,10 @@ namespace PAKOPointOfSale.Transactions
                             decimal vatableSales = Convert.ToDecimal(row.Cells["vatableSales"].Value);
                             decimal vatAmount = Convert.ToDecimal(row.Cells["vatAmount"].Value);
                             decimal vatExempt = Convert.ToDecimal(row.Cells["vatExempt"].Value);
-                            //decimal discount = row.Cells["Discount"].Value != null ? Convert.ToDecimal(row.Cells["Discount"].Value) : 0;
-                            decimal discount = 0;
-                            //string discountType = row.Cells["DiscountType"].Value?.ToString() ?? null;
-                            string discountType = "none";
-                            decimal totalAmount = (quantity * unitPrice) - discount;
+                            decimal discountAmount = Convert.ToDecimal(row.Cells["discountAmount"].Value);
+                            string discountType = row.Cells["discountType"].Value.ToString();
                             string unit = row.Cells["unit_of_measurement"].Value.ToString();
+                            decimal totalAmount = (quantity * unitPrice) - discountAmount;
 
 
                             // Insert SalesInvoiceItem
@@ -303,8 +332,8 @@ namespace PAKOPointOfSale.Transactions
                                 cmdItem.Parameters.AddWithValue("@prodId", productId);
                                 cmdItem.Parameters.AddWithValue("@qty", quantity);
                                 cmdItem.Parameters.AddWithValue("@unitPrice", unitPrice);
-                                cmdItem.Parameters.AddWithValue("@discount", discount);
-                                cmdItem.Parameters.AddWithValue("@discountType", (object)discountType ?? DBNull.Value);
+                                cmdItem.Parameters.AddWithValue("@discount", discountAmount);
+                                cmdItem.Parameters.AddWithValue("@discountType",discountType);
                                 cmdItem.Parameters.AddWithValue("@total", totalAmount);
                                 cmdItem.Parameters.AddWithValue("@unit", unit);
                                 cmdItem.Parameters.AddWithValue("@vatableSales", vatableSales);
@@ -334,9 +363,28 @@ namespace PAKOPointOfSale.Transactions
 
                     // Commit transaction
                     sqlTran.Commit();
-
-                    MessageBox.Show("Transaction successfully saved with invoice: " + invoiceNumber, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     dtgvCart.Rows.Clear();
+
+                    DialogResult result = MessageBox.Show(
+                        "Transaction successfully saved with invoice: " + invoiceNumber +
+                        "\n\nWould you like to print the receipt?",
+                        "Success",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question
+);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        //Transactions.ReceiptPrinter receiptForm = new Transactions.ReceiptPrinter();
+                        //receiptForm.GenerateReceiptFromDatabase(invoiceNumber);
+                        Transactions.PrintReceipt.GenerateReceiptFromDatabase(invoiceNumber);
+                    }
+                    else
+                    {
+                        // ❌ Optionally do nothing or close the form
+                        MessageBox.Show("You chose not to print the receipt.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    
                     //}
                     //catch (Exception ex)
                     //{
@@ -544,6 +592,54 @@ namespace PAKOPointOfSale.Transactions
                     row.Cells["discountAmount"].Value = discountAmount;
                     row.Cells["subTotal"].Value = originalSubTotal - discountAmount;
                 }
+            }
+        }
+
+        private void RecalculateValues(string selectedDiscountType, DataGridViewRow selectedRow)
+        {
+            if (selectedRow == null) return;
+
+            decimal price = Convert.ToDecimal(selectedRow.Cells["unit_price"].Value);
+            decimal qty = Convert.ToDecimal(selectedRow.Cells["appliedQty"].Value);
+            decimal originalSubTotal = price * qty;
+
+            if (selectedDiscountType == "None")
+            {
+                // Restore original values
+                selectedRow.Cells["DiscountType"].Value = "None";
+                selectedRow.Cells["discountAmount"].Value = 0m;
+                selectedRow.Cells["subTotal"].Value = originalSubTotal;
+                selectedRow.Cells["vatAmount"].Value = 0.12m * (originalSubTotal / 1.12m);
+                selectedRow.Cells["vatExempt"].Value = 0.00m;
+            }
+            else
+            {
+                // Apply selected discount
+                selectedRow.Cells["DiscountType"].Value = selectedDiscountType;
+                decimal discountAmount = 0m;
+
+                if (selectedDiscountType.Contains("Senior Citizen 5%") || selectedDiscountType.Contains("Person With Disability 5%"))
+                {
+                    discountAmount = SalesInvoiceFunctions.getSCDiscount(price, 0.05m, qty);
+                    selectedRow.Cells["vatAmount"].Value = 0.00m;
+                    selectedRow.Cells["vatExempt"].Value = 0.12m * ((price * qty) / 1.12m);
+                }
+                else if (selectedDiscountType.Contains("Senior Citizen 20%") || selectedDiscountType.Contains("Person With Disability 20%") ||
+                         selectedDiscountType.Contains("National Athletes and Coaches 20%"))
+                {
+                    discountAmount = SalesInvoiceFunctions.getSCDiscount(price, 0.20m, qty);
+
+                    // For 20% SC/PWD, exempt from VAT (except athletes)
+                    if (!selectedDiscountType.Contains("National Athletes and Coaches 20%"))
+                    {
+                        selectedRow.Cells["vatAmount"].Value = 0.00m;
+                        selectedRow.Cells["vatExempt"].Value = 0.12m * ((price * qty) / 1.12m);
+                    }
+                }
+
+                // Update row with discount
+                selectedRow.Cells["discountAmount"].Value = discountAmount;
+                selectedRow.Cells["subTotal"].Value = originalSubTotal - discountAmount;
             }
         }
 

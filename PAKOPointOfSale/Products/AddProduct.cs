@@ -127,11 +127,11 @@ namespace PAKOPointOfSale.Products
 
                     string query = @"
                     INSERT INTO Products
-                    (supplier_id, category_id, product_name, product_brand, product_description, product_code, 
+                    (supplier_id, category_id, product_name, product_brand, product_description,barcode, product_code, 
                      sku, quantity, unit_of_measurement, cost_price, unit_price, remarks, status, 
                      date_received, date_expiration,is_active,created_at)
                     VALUES
-                    (@supplier_id, @category_id, @product_name, @product_brand, @product_description, @product_code, 
+                    (@supplier_id, @category_id, @product_name, @product_brand, @product_description,@barcode, @product_code, 
                      @sku, @quantity, @unit_of_measurement, @cost_price, @unit_price, @remarks, @status, 
                      @date_received, @date_expiration,@is_active, @created_at)";
 
@@ -142,6 +142,7 @@ namespace PAKOPointOfSale.Products
                         cmd.Parameters.AddWithValue("@product_name", txtProductName.Text.Trim());
                         cmd.Parameters.AddWithValue("@product_brand", txtProductBrand.Text.Trim());
                         cmd.Parameters.AddWithValue("@product_description", txtDescription.Text.Trim());
+                        cmd.Parameters.AddWithValue("@barcode", txtBarcode.Text.Trim());
                         cmd.Parameters.AddWithValue("@product_code", txtProductCode.Text.Trim());
                         cmd.Parameters.AddWithValue("@sku", txtSKU.Text.Trim());
                         cmd.Parameters.AddWithValue("@quantity", decimal.Parse(num_quantity.Text.Trim()));
