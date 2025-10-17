@@ -111,5 +111,10 @@ namespace PAKOPointOfSale.Supplier_Details
             }
             return false;
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

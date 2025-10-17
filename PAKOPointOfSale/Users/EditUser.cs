@@ -16,7 +16,7 @@ namespace PAKOPointOfSale.Users
     public partial class EditUser : Form
     {
         private int _userId;
-        private string _username="";
+        private string _username = "";
         public EditUser(int userId)
         {
             InitializeComponent();
@@ -236,6 +236,11 @@ namespace PAKOPointOfSale.Users
                 }
             }
             return false;
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

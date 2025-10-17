@@ -169,7 +169,7 @@ namespace PAKOPointOfSale.Products
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private Boolean validateForm()
@@ -389,6 +389,11 @@ namespace PAKOPointOfSale.Products
             {
                 MessageBox.Show("Error updating product: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

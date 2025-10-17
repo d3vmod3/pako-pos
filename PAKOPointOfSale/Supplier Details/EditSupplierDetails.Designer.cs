@@ -54,9 +54,9 @@
             // 
             btnSubmit.BackColor = Color.SeaGreen;
             btnSubmit.FlatStyle = FlatStyle.Popup;
-            btnSubmit.Font = new Font("Segoe Print", 9F);
-            btnSubmit.ForeColor = SystemColors.ControlText;
-            btnSubmit.Location = new Point(646, 283);
+            btnSubmit.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnSubmit.ForeColor = Color.White;
+            btnSubmit.Location = new Point(650, 281);
             btnSubmit.Name = "btnSubmit";
             btnSubmit.Size = new Size(75, 23);
             btnSubmit.TabIndex = 25;
@@ -67,7 +67,7 @@
             // txtPaymentGateway
             // 
             txtPaymentGateway.Font = new Font("Segoe Print", 9F);
-            txtPaymentGateway.Location = new Point(516, 149);
+            txtPaymentGateway.Location = new Point(516, 163);
             txtPaymentGateway.Multiline = true;
             txtPaymentGateway.Name = "txtPaymentGateway";
             txtPaymentGateway.Size = new Size(209, 23);
@@ -76,7 +76,7 @@
             // txtAccountNumber
             // 
             txtAccountNumber.Font = new Font("Segoe Print", 9F);
-            txtAccountNumber.Location = new Point(516, 97);
+            txtAccountNumber.Location = new Point(516, 111);
             txtAccountNumber.Multiline = true;
             txtAccountNumber.Name = "txtAccountNumber";
             txtAccountNumber.Size = new Size(209, 23);
@@ -85,7 +85,7 @@
             // txtContactNumber
             // 
             txtContactNumber.Font = new Font("Segoe Print", 9F);
-            txtContactNumber.Location = new Point(151, 199);
+            txtContactNumber.Location = new Point(151, 213);
             txtContactNumber.Multiline = true;
             txtContactNumber.Name = "txtContactNumber";
             txtContactNumber.Size = new Size(209, 23);
@@ -94,7 +94,7 @@
             // txtAddress
             // 
             txtAddress.Font = new Font("Segoe Print", 9F);
-            txtAddress.Location = new Point(151, 150);
+            txtAddress.Location = new Point(151, 164);
             txtAddress.Multiline = true;
             txtAddress.Name = "txtAddress";
             txtAddress.Size = new Size(209, 23);
@@ -103,7 +103,7 @@
             // txtSupplierName
             // 
             txtSupplierName.Font = new Font("Segoe Print", 9F);
-            txtSupplierName.Location = new Point(151, 98);
+            txtSupplierName.Location = new Point(151, 112);
             txtSupplierName.Multiline = true;
             txtSupplierName.Name = "txtSupplierName";
             txtSupplierName.Size = new Size(209, 23);
@@ -113,7 +113,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Calibri", 11.25F);
-            label6.Location = new Point(393, 154);
+            label6.Location = new Point(393, 168);
             label6.Name = "label6";
             label6.Size = new Size(120, 18);
             label6.TabIndex = 19;
@@ -123,7 +123,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Calibri", 11.25F);
-            label5.Location = new Point(393, 102);
+            label5.Location = new Point(393, 116);
             label5.Name = "label5";
             label5.Size = new Size(112, 18);
             label5.TabIndex = 18;
@@ -133,7 +133,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Calibri", 11.25F);
-            label4.Location = new Point(32, 208);
+            label4.Location = new Point(32, 222);
             label4.Name = "label4";
             label4.Size = new Size(109, 18);
             label4.TabIndex = 17;
@@ -143,7 +143,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Calibri", 11.25F);
-            label3.Location = new Point(32, 153);
+            label3.Location = new Point(32, 167);
             label3.Name = "label3";
             label3.Size = new Size(58, 18);
             label3.TabIndex = 16;
@@ -154,7 +154,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Calibri", 11.25F);
-            label2.Location = new Point(32, 102);
+            label2.Location = new Point(32, 116);
             label2.Name = "label2";
             label2.Size = new Size(100, 18);
             label2.TabIndex = 15;
@@ -163,7 +163,7 @@
             // chkIsActive
             // 
             chkIsActive.AutoSize = true;
-            chkIsActive.Location = new Point(666, 240);
+            chkIsActive.Location = new Point(666, 254);
             chkIsActive.Name = "chkIsActive";
             chkIsActive.Size = new Size(59, 19);
             chkIsActive.TabIndex = 26;
@@ -174,7 +174,7 @@
             // 
             lblCreatedAt.AutoSize = true;
             lblCreatedAt.Font = new Font("Calibri", 11.25F);
-            lblCreatedAt.Location = new Point(393, 203);
+            lblCreatedAt.Location = new Point(393, 217);
             lblCreatedAt.Name = "lblCreatedAt";
             lblCreatedAt.Size = new Size(89, 18);
             lblCreatedAt.TabIndex = 27;
@@ -182,7 +182,7 @@
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Location = new Point(516, 198);
+            dateTimePicker1.Location = new Point(516, 212);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(209, 23);
             dateTimePicker1.TabIndex = 28;

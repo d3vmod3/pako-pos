@@ -236,6 +236,7 @@
             btnClose.TabIndex = 149;
             btnClose.Text = "Close";
             btnClose.UseVisualStyleBackColor = false;
+            btnClose.Click += btnClose_Click;
             // 
             // pictureBox3
             // 

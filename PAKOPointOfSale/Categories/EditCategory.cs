@@ -145,7 +145,7 @@ namespace PAKOPointOfSale.Categories
                 }
             }
 
-            
+
             return true;
         }
 
@@ -169,6 +169,11 @@ namespace PAKOPointOfSale.Categories
                 }
             }
             return false;
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
