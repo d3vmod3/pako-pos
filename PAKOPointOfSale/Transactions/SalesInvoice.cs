@@ -26,7 +26,7 @@ namespace PAKOPointOfSale.Transactions
 
         private void SalesInvoice_Load(object sender, EventArgs e)
         {
-
+            timer1.Start();
         }
 
         private void btnSearchProduct_Click(object sender, EventArgs e)
@@ -240,7 +240,7 @@ namespace PAKOPointOfSale.Transactions
         {
             //bool isInsufficientCash = Convert.ToDecimal(lblTotal.Text) < Convert.ToDecimal(txtCash.Text);
             if (validateTransaction())
-            { 
+            {
                 using (SqlConnection conn = new SqlConnection(Program.ConnString))
                 {
                     conn.Open();
@@ -408,7 +408,7 @@ namespace PAKOPointOfSale.Transactions
 
         private void textBox1_TextChanged_1(object sender, EventArgs e)
         {
-            if(txtCash.Text.Trim() != "")
+            if (txtCash.Text.Trim() != "")
             {
                 lblChange.Text = Convert.ToString(Convert.ToDecimal(txtCash.Text) - Convert.ToDecimal(lblTotal.Text));
             }
@@ -542,7 +542,7 @@ namespace PAKOPointOfSale.Transactions
                 applyDiscountForm.Show();
             }
 
-            
+
         }
         private void ApplyDiscountToSelectedRows(string selectedDiscount)
         {
@@ -673,8 +673,8 @@ namespace PAKOPointOfSale.Transactions
         {
             if (txtCash.Text.Trim() != "")
             {
-                 double cash = Convert.ToDouble(txtCash.Text.Trim());
-                 double total = Convert.ToDouble(lblTotal.Text);
+                double cash = Convert.ToDouble(txtCash.Text.Trim());
+                double total = Convert.ToDouble(lblTotal.Text);
                 if (cash < total)
                 {
                     MessageBox.Show("Insufficient Cash Amount", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -686,9 +686,25 @@ namespace PAKOPointOfSale.Transactions
                 MessageBox.Show("Please choose Cash Amount", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-                
 
-                return true;
+
+            return true;
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblDate.Text = DateTime.Now.ToString("MM/dd/yyyy");
+            lblTime.Text = DateTime.Now.ToString("hh:mm:ss tt");
         }
     }
 }
