@@ -16,6 +16,7 @@ namespace PAKOPointOfSale.Transactions
     {
         private int _id;
         private string _invoiceNumber;
+        private int countAlreadyReturneditems = 0;
         public ViewTransaction(int id)
         {
             _id = id;
@@ -26,13 +27,9 @@ namespace PAKOPointOfSale.Transactions
         {
             LoadTransactionDetails();
             validateData();
-
-
         }
         private void LoadTransactionDetails()
         {
-            //try
-            //{
             string connString = PAKOPointOfSale.Program.ConnString;
 
             using (var conn = new SqlConnection(connString))
@@ -41,10 +38,10 @@ namespace PAKOPointOfSale.Transactions
 
                 // Load transaction header
                 using (var cmdHeader = new SqlCommand(@"
-                    SELECT id, invoice_number, sub_total, grand_total, vat_amount, vatable_sales, 
-                           vat_exempt, payment_method, cash_received, cash_change, status, transaction_type, created_at
-                    FROM Transactions
-                    WHERE id = @id", conn))
+            SELECT id, invoice_number, sub_total, grand_total, vat_amount, vatable_sales, 
+                   vat_exempt, payment_method, cash_received, cash_change, status, transaction_type, created_at
+            FROM Transactions
+            WHERE id = @id", conn))
                 {
                     cmdHeader.Parameters.AddWithValue("@id", _id);
                     using (var reader = cmdHeader.ExecuteReader())
@@ -52,6 +49,7 @@ namespace PAKOPointOfSale.Transactions
                         if (reader.Read())
                         {
                             _invoiceNumber = reader["invoice_number"].ToString();
+                            lblTransactionId.Text = reader["id"].ToString();
                             lblInvoiceNumber.Text = reader["invoice_number"].ToString();
                             lblSubTotal.Text = Convert.ToDecimal(reader["sub_total"]).ToString("N2");
                             lblGrandTotal.Text = Convert.ToDecimal(reader["grand_total"]).ToString("N2");
@@ -67,22 +65,24 @@ namespace PAKOPointOfSale.Transactions
 
                 // Load transaction items
                 using (var cmdItems = new SqlCommand(@"
-                        SELECT si.id,
-                               p.product_code,
-                               p.product_name,
-                               si.quantity,
-                               si.unit_price,
-                               si.total_amount,
-                               si.vat_amount,
-                               si.vatable_sales,
-                               si.vat_exempt,
-                               si.discount,
-                               si.discount_type,
-                               si.unit_of_measurement
-                        FROM SalesInvoiceItems si
-                        INNER JOIN Products p ON si.product_id = p.id
-                        WHERE si.transaction_id = @id
-                        ORDER BY si.id", conn))
+                SELECT si.id,
+                       si.product_id,
+                       p.product_code,
+                       p.product_name,
+                       p.product_brand,
+                       si.quantity,
+                       si.unit_price,
+                       si.total_amount,
+                       si.vat_amount,
+                       si.vatable_sales,
+                       si.vat_exempt,
+                       si.discount,
+                       si.discount_type,
+                       si.unit_of_measurement
+                FROM SalesInvoiceItems si
+                INNER JOIN Products p ON si.product_id = p.id
+                WHERE si.transaction_id = @id
+                ORDER BY si.id", conn))
                 {
                     cmdItems.Parameters.AddWithValue("@id", _id);
 
@@ -95,12 +95,50 @@ namespace PAKOPointOfSale.Transactions
                     dgvItems.DataSource = dtItems;
                 }
 
+                // Disable checkbox for already returned items
+                if (dgvItems.Columns.Contains("select"))
+                {
+                    HashSet<int> returnedProductIds = new HashSet<int>();
+                    using (var cmd = new SqlCommand(@"
+                SELECT si.product_id
+                FROM SalesInvoiceItems si
+                INNER JOIN ReturnTransactions rt ON si.transaction_id = rt.transaction_id
+                WHERE rt.invoice_number = @invoiceNumber", conn))
+                    {
+                        cmd.Parameters.AddWithValue("@invoiceNumber", lblInvoiceNumber.Text);
+                        using (var reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                returnedProductIds.Add(Convert.ToInt32(reader["product_id"]));
+                            }
+                        }
+                    }
+
+                    
+                    foreach (DataGridViewRow row in dgvItems.Rows)
+                    {
+                        if (row.IsNewRow) continue;
+
+                        int productId = Convert.ToInt32(row.Cells["product_id"].Value);
+                        if (returnedProductIds.Contains(productId))
+                        {
+                            countAlreadyReturneditems += 1;
+                            row.Cells["select"].ReadOnly = true;
+                            row.Cells["select"].Style.BackColor = Color.DarkGray;
+                            row.Cells["select"].Value = false;
+                           
+                        }
+                    }
+                    
+                }
+
                 // Load void or return series number
                 string transactionType = lblTransactionType.Text;
 
                 if (transactionType == "Void" || transactionType == "Sales Invoice")
                 {
-                    using (var cmdVoid = new SqlCommand("SELECT void_number,invoice_number,transaction_id FROM VoidTransactions WHERE invoice_number = @invoiceNumber", conn))
+                    using (var cmdVoid = new SqlCommand("SELECT void_number, invoice_number, transaction_id FROM VoidTransactions WHERE invoice_number = @invoiceNumber", conn))
                     {
                         cmdVoid.Parameters.AddWithValue("@invoiceNumber", lblInvoiceNumber.Text);
                         lblAdjustmentNumber.Text = "";
@@ -121,7 +159,6 @@ namespace PAKOPointOfSale.Transactions
                                 btnProceed.Enabled = true;
                             }
                         }
-                            
                     }
                 }
                 else if (transactionType == "Return" || transactionType == "Sales Invoice")
@@ -129,11 +166,12 @@ namespace PAKOPointOfSale.Transactions
                     using (var cmdReturn = new SqlCommand("SELECT * FROM ReturnTransactions WHERE invoice_number = @invoiceNumber", conn))
                     {
                         cmdReturn.Parameters.AddWithValue("@invoiceNumber", lblInvoiceNumber.Text);
+                        lblAdjustmentNumber.Text = "";
                         using (var reader = cmdReturn.ExecuteReader())
                         {
                             if (reader.Read())
                             {
-                                lblAdjustmentSeries.Text = "Return Series No.: " + reader["return_number"].ToString();
+                                lblAdjustmentNumber.Text = "Return Series No.: " + reader["return_number"].ToString();
                                 cmbInvoiceAction.SelectedItem = "Return";
                                 cmbInvoiceAction.Enabled = false;
                                 btnProceed.Enabled = false;
@@ -146,17 +184,11 @@ namespace PAKOPointOfSale.Transactions
                                 btnProceed.Enabled = true;
                             }
                         }
-                            
-                        
                     }
                 }
             }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Error loading transaction: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
         }
+
 
         private void validateData()
         {
@@ -178,13 +210,40 @@ namespace PAKOPointOfSale.Transactions
         {
             if (cmbInvoiceAction.SelectedItem?.ToString() == "Void")
             {
-                Transactions.Void.VoidForm voidSalesInvoiceForm = new Transactions.Void.VoidForm(_id, _invoiceNumber);
-                voidSalesInvoiceForm.ShowDialog();
+                if (countAlreadyReturneditems > 0)
+                {
+                    //lblReturnNote.Visible = true;
+                    MessageBox.Show("Sales invoices with returned items cannot be voided. Select all items and use 'Return' in the Invoice Action.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    
+                }
+                else
+                {
+                    Transactions.Void.VoidForm voidSalesInvoiceForm = new Transactions.Void.VoidForm(_id, _invoiceNumber);
+                    voidSalesInvoiceForm.ShowDialog();
+                }
+                    
             }
             else if (cmbInvoiceAction.SelectedItem?.ToString() == "Return")
             {
-                Transactions.Return.ReturnForm returnItemsForm = new Transactions.Return.ReturnForm(_id, _invoiceNumber);
-                returnItemsForm.ShowDialog();
+                var selectedItems = new List<DataGridViewRow>();
+                foreach (DataGridViewRow row in dgvItems.Rows)
+                {
+                    bool isSelected = row.Cells["select"].Value?.ToString() == "1";
+                    if (isSelected)
+                    {
+                        selectedItems.Add(row);
+                    }
+                }
+                if (selectedItems.Count == 0)
+                {
+                    MessageBox.Show("Please select at least one item to return.", "No items selected", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+                else
+                {
+                    Transactions.Return.ReturnForm returnItemsForm = new Transactions.Return.ReturnForm(_id, _invoiceNumber, selectedItems);
+                    returnItemsForm.ShowDialog();
+                }
             }
             else
             {
@@ -201,6 +260,10 @@ namespace PAKOPointOfSale.Transactions
             if (selectedAction == "Return")
             {
                 dgvItems.Columns["select"].Visible = true;
+                if (countAlreadyReturneditems > 0)
+                {
+                    lblReturnNote.Visible = true;
+                }
             }
             else
             {
@@ -220,6 +283,16 @@ namespace PAKOPointOfSale.Transactions
                 //view return receipt
 
             }
+            if (lblTransactionType.Text == "Sales Invoice")
+            {
+                //view Sales Invoice receipt
+
+            }
+        }
+
+        private void dgvItems_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

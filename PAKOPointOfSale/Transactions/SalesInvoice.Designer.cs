@@ -83,6 +83,7 @@
             unit_of_measurement = new DataGridViewTextBoxColumn();
             appliedQty = new DataGridViewTextBoxColumn();
             unit_price = new DataGridViewTextBoxColumn();
+            category = new DataGridViewTextBoxColumn();
             discountType = new DataGridViewTextBoxColumn();
             discountAmount = new DataGridViewTextBoxColumn();
             subTotal = new DataGridViewTextBoxColumn();
@@ -127,7 +128,7 @@
             dtgvCart.AllowUserToDeleteRows = false;
             dtgvCart.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgvCart.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgvCart.Columns.AddRange(new DataGridViewColumn[] { id, select, product, brand, unit_of_measurement, appliedQty, unit_price, discountType, discountAmount, subTotal, vatableSales, vatAmount, vatExempt, remove });
+            dtgvCart.Columns.AddRange(new DataGridViewColumn[] { id, select, product, brand, unit_of_measurement, appliedQty, unit_price, category, discountType, discountAmount, subTotal, vatableSales, vatAmount, vatExempt, remove });
             dtgvCart.Location = new Point(12, 137);
             dtgvCart.Name = "dtgvCart";
             dtgvCart.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
@@ -676,6 +677,12 @@
             unit_price.Name = "unit_price";
             unit_price.ReadOnly = true;
             // 
+            // category
+            // 
+            category.DataPropertyName = "category";
+            category.HeaderText = "Category";
+            category.Name = "category";
+            // 
             // discountType
             // 
             discountType.DataPropertyName = "discountType";
@@ -824,5 +831,6 @@
         private DataGridViewTextBoxColumn vatAmount;
         private DataGridViewTextBoxColumn vatExempt;
         private DataGridViewButtonColumn remove;
+        private DataGridViewTextBoxColumn category;
     }
 }

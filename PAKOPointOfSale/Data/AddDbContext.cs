@@ -18,9 +18,10 @@ namespace WinFormsApp1.Data
         public DbSet<Category> Categories { get; set; }
         public DbSet<SupplierDetails> SupplierDetails { get; set; }
         public DbSet<Product> Products { get; set; }
-        public DbSet<SuppliedProduct> SuppliedProducts { get; set; }
+        //public DbSet<SuppliedProduct> SuppliedProducts { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
         public DbSet<VoidTransaction> VoidTransactions { get; set; }
+        public DbSet<ReturnTransaction> ReturnTransactions { get; set; }
         public DbSet<SalesInvoiceItem> SalesInvoiceItems { get; set; }
         
 
@@ -44,19 +45,16 @@ namespace WinFormsApp1.Data
                 new Permission { id = 1, user_type_id = 1, module_name = "Users", can_view = true, can_add = true, can_edit = true, can_delete = true },
                 new Permission { id = 2, user_type_id = 1, module_name = "Categories", can_view = true, can_add = true, can_edit = true, can_delete = true },
                 new Permission { id = 3, user_type_id = 1, module_name = "Suppliers", can_view = true, can_add = true, can_edit = true, can_delete = true },
-                new Permission { id = 4, user_type_id = 1, module_name = "SuppliedProducts", can_view = true, can_add = true, can_edit = true, can_delete = true },
 
                 // Cashier: view only Products
                 new Permission { id = 5, user_type_id = 2, module_name = "Users", can_view = false, can_add = false, can_edit = false, can_delete = false },
                 new Permission { id = 6, user_type_id = 2, module_name = "Categories", can_view = true, can_add = false, can_edit = false, can_delete = false },
                 new Permission { id = 7, user_type_id = 2, module_name = "Suppliers", can_view = true, can_add = false, can_edit = false, can_delete = false },
-                new Permission { id = 8, user_type_id = 2, module_name = "SuppliedProducts", can_view = true, can_add = false, can_edit = false, can_delete = false },
 
                 // Manager: view, add, edit Products and Categories
                 new Permission { id = 9, user_type_id = 3, module_name = "Users", can_view = false, can_add = false, can_edit = false, can_delete = false },
                 new Permission { id = 10, user_type_id = 3, module_name = "Categories", can_view = true, can_add = true, can_edit = true, can_delete = false },
-                new Permission { id = 11, user_type_id = 3, module_name = "Suppliers", can_view = true, can_add = true, can_edit = true, can_delete = false },
-                new Permission { id = 12, user_type_id = 3, module_name = "SuppliedProducts", can_view = true, can_add = true, can_edit = true, can_delete = false }
+                new Permission { id = 11, user_type_id = 3, module_name = "Suppliers", can_view = true, can_add = true, can_edit = true, can_delete = false }
             );
 
             // Example: Seeding Users
@@ -128,198 +126,198 @@ namespace WinFormsApp1.Data
                 new SupplierDetails { id = 10, name = "Local Supplies", contact_number = "09170000010", address = "707 Street J" }
             );
 
-            modelBuilder.Entity<SuppliedProduct>().HasData(
-                new SuppliedProduct
-                {
-                    id = 1,
-                    supplier_id = 1,
-                    product_name = "Engine Oil 10W-40",
-                    product_brand = "Motul",
-                    product_description = "High-performance 4T engine oil for motorcycles",
-                    product_code = "EO1040",
-                    sku = "SUP-EO-1040",
-                    quantity = 200,
-                    unit_of_measurement = "liters",
-                    cost_price = 350,
-                    unit_price = 420,
-                    remarks = "Top-selling synthetic oil",
-                    status = "Available",
-                    date_received = DateTime.Parse("2025-09-28"),
-                    date_expiration = DateTime.Parse("2028-09-28"),
-                    created_at = new DateTime(2025, 10, 14, 10, 0, 0)
-                },
-                new SuppliedProduct
-                {
-                    id = 2,
-                    supplier_id = 2,
-                    product_name = "Motorcycle Battery YTX7A-BS",
-                    product_brand = "Motolite",
-                    product_description = "12V maintenance-free motorcycle battery",
-                    product_code = "BTYTX7A",
-                    sku = "SUP-BT-YTX7A",
-                    quantity = 50,
-                    unit_of_measurement = "pcs",
-                    cost_price = 850,
-                    unit_price = 1050,
-                    remarks = "New stock batch",
-                    status = "Available",
-                    date_received = DateTime.Parse("2025-09-27"),
-                    date_expiration = DateTime.Parse("2029-09-27"),
-                    created_at = new DateTime(2025, 10, 14, 10, 0, 0)
-                },
-                new SuppliedProduct
-                {
-                    id = 3,
-                    supplier_id = 3,
-                    product_name = "Spark Plug CR8E",
-                    product_brand = "NGK",
-                    product_description = "Standard spark plug for 125cc-155cc motorcycles",
-                    product_code = "SPCR8E",
-                    sku = "SUP-SP-CR8E",
-                    quantity = 300,
-                    unit_of_measurement = "pcs",
-                    cost_price = 80,
-                    unit_price = 120,
-                    remarks = "Popular replacement part",
-                    status = "Available",
-                    date_received = DateTime.Parse("2025-09-26"),
-                    date_expiration = DateTime.Parse("2030-09-26"),
-                    created_at = new DateTime(2025, 10, 14, 10, 0, 0)
-                },
-                new SuppliedProduct
-                {
-                    id = 4,
-                    supplier_id = 4,
-                    product_name = "Brake Pad Set Front",
-                    product_brand = "Brembo",
-                    product_description = "High-quality front brake pads for underbones",
-                    product_code = "BPFRNT",
-                    sku = "SUP-BP-FRNT",
-                    quantity = 150,
-                    unit_of_measurement = "sets",
-                    cost_price = 250,
-                    unit_price = 320,
-                    remarks = "OEM compatible",
-                    status = "Available",
-                    date_received = DateTime.Parse("2025-09-25"),
-                    date_expiration = DateTime.Parse("2030-09-25"),
-                    created_at = new DateTime(2025, 10, 14, 10, 0, 0)
-                },
-                new SuppliedProduct
-                {
-                    id = 5,
-                    supplier_id = 5,
-                    product_name = "Chain & Sprocket Set 428H",
-                    product_brand = "RK Takasago",
-                    product_description = "Durable drive chain and sprocket combo",
-                    product_code = "CS428H",
-                    sku = "SUP-CS-428H",
-                    quantity = 100,
-                    unit_of_measurement = "sets",
-                    cost_price = 600,
-                    unit_price = 750,
-                    remarks = "Heavy-duty variant",
-                    status = "Available",
-                    date_received = DateTime.Parse("2025-09-24"),
-                    date_expiration = DateTime.Parse("2030-09-24"),
-                    created_at = new DateTime(2025, 10, 14, 10, 0, 0)
-                },
-                new SuppliedProduct
-                {
-                    id = 6,
-                    supplier_id = 6,
-                    product_name = "Tire 90/80-17 Tubeless",
-                    product_brand = "IRC",
-                    product_description = "Tubeless rear tire for sport motorbikes",
-                    product_code = "TR908017",
-                    sku = "SUP-TR-9080",
-                    quantity = 80,
-                    unit_of_measurement = "pcs",
-                    cost_price = 1150,
-                    unit_price = 1350,
-                    remarks = "Fresh batch tires",
-                    status = "Available",
-                    date_received = DateTime.Parse("2025-09-23"),
-                    date_expiration = DateTime.Parse("2030-09-23"),
-                    created_at = new DateTime(2025, 10, 14, 10, 0, 0)
-                },
-                new SuppliedProduct
-                {
-                    id = 7,
-                    supplier_id = 7,
-                    product_name = "Motorcycle Helmet Full Face",
-                    product_brand = "LS2",
-                    product_description = "DOT-certified full-face helmet for riders",
-                    product_code = "HMFF01",
-                    sku = "SUP-HM-FF01",
-                    quantity = 40,
-                    unit_of_measurement = "pcs",
-                    cost_price = 2500,
-                    unit_price = 3200,
-                    remarks = "Safety approved gear",
-                    status = "Available",
-                    date_received = DateTime.Parse("2025-09-22"),
-                    date_expiration = DateTime.Parse("2030-09-22"),
-                    created_at = new DateTime(2025, 10, 14, 10, 0, 0)
-                },
-                new SuppliedProduct
-                {
-                    id = 8,
-                    supplier_id = 8,
-                    product_name = "LED Signal Light Set",
-                    product_brand = "Osram",
-                    product_description = "High-visibility LED signal lights",
-                    product_code = "LDSL01",
-                    sku = "SUP-LD-SL01",
-                    quantity = 100,
-                    unit_of_measurement = "sets",
-                    cost_price = 180,
-                    unit_price = 250,
-                    remarks = "Energy efficient lighting",
-                    status = "Available",
-                    date_received = DateTime.Parse("2025-09-21"),
-                    date_expiration = DateTime.Parse("2030-09-21"),
-                    created_at = new DateTime(2025, 10, 14, 10, 0, 0)
-                },
-                new SuppliedProduct
-                {
-                    id = 9,
-                    supplier_id = 9,
-                    product_name = "Side Mirror Set",
-                    product_brand = "Racing Boy",
-                    product_description = "Aluminum side mirrors, universal fit",
-                    product_code = "SMS01",
-                    sku = "SUP-SM-S01",
-                    quantity = 120,
-                    unit_of_measurement = "sets",
-                    cost_price = 300,
-                    unit_price = 380,
-                    remarks = "Available in multiple colors",
-                    status = "Available",
-                    date_received = DateTime.Parse("2025-09-20"),
-                    date_expiration = DateTime.Parse("2030-09-20"),
-                    created_at = new DateTime(2025, 10, 14, 10, 0, 0)
-                },
-                new SuppliedProduct
-                {
-                    id = 10,
-                    supplier_id = 10,
-                    product_name = "Air Filter Element",
-                    product_brand = "K&N",
-                    product_description = "Reusable high-flow air filter for scooters",
-                    product_code = "AFE001",
-                    sku = "SUP-AF-E001",
-                    quantity = 90,
-                    unit_of_measurement = "pcs",
-                    cost_price = 420,
-                    unit_price = 520,
-                    remarks = "Washable and long-lasting",
-                    status = "Available",
-                    date_received = DateTime.Parse("2025-09-19"),
-                    date_expiration = DateTime.Parse("2030-09-19"),
-                    created_at = new DateTime(2025, 10, 14, 10, 0, 0)
-                }
-            );
+            //modelBuilder.Entity<SuppliedProduct>().HasData(
+            //    new SuppliedProduct
+            //    {
+            //        id = 1,
+            //        supplier_id = 1,
+            //        product_name = "Engine Oil 10W-40",
+            //        product_brand = "Motul",
+            //        product_description = "High-performance 4T engine oil for motorcycles",
+            //        product_code = "EO1040",
+            //        sku = "SUP-EO-1040",
+            //        quantity = 200,
+            //        unit_of_measurement = "liters",
+            //        cost_price = 350,
+            //        unit_price = 420,
+            //        remarks = "Top-selling synthetic oil",
+            //        status = "Available",
+            //        date_received = DateTime.Parse("2025-09-28"),
+            //        date_expiration = DateTime.Parse("2028-09-28"),
+            //        created_at = new DateTime(2025, 10, 14, 10, 0, 0)
+            //    },
+            //    new SuppliedProduct
+            //    {
+            //        id = 2,
+            //        supplier_id = 2,
+            //        product_name = "Motorcycle Battery YTX7A-BS",
+            //        product_brand = "Motolite",
+            //        product_description = "12V maintenance-free motorcycle battery",
+            //        product_code = "BTYTX7A",
+            //        sku = "SUP-BT-YTX7A",
+            //        quantity = 50,
+            //        unit_of_measurement = "pcs",
+            //        cost_price = 850,
+            //        unit_price = 1050,
+            //        remarks = "New stock batch",
+            //        status = "Available",
+            //        date_received = DateTime.Parse("2025-09-27"),
+            //        date_expiration = DateTime.Parse("2029-09-27"),
+            //        created_at = new DateTime(2025, 10, 14, 10, 0, 0)
+            //    },
+            //    new SuppliedProduct
+            //    {
+            //        id = 3,
+            //        supplier_id = 3,
+            //        product_name = "Spark Plug CR8E",
+            //        product_brand = "NGK",
+            //        product_description = "Standard spark plug for 125cc-155cc motorcycles",
+            //        product_code = "SPCR8E",
+            //        sku = "SUP-SP-CR8E",
+            //        quantity = 300,
+            //        unit_of_measurement = "pcs",
+            //        cost_price = 80,
+            //        unit_price = 120,
+            //        remarks = "Popular replacement part",
+            //        status = "Available",
+            //        date_received = DateTime.Parse("2025-09-26"),
+            //        date_expiration = DateTime.Parse("2030-09-26"),
+            //        created_at = new DateTime(2025, 10, 14, 10, 0, 0)
+            //    },
+            //    new SuppliedProduct
+            //    {
+            //        id = 4,
+            //        supplier_id = 4,
+            //        product_name = "Brake Pad Set Front",
+            //        product_brand = "Brembo",
+            //        product_description = "High-quality front brake pads for underbones",
+            //        product_code = "BPFRNT",
+            //        sku = "SUP-BP-FRNT",
+            //        quantity = 150,
+            //        unit_of_measurement = "sets",
+            //        cost_price = 250,
+            //        unit_price = 320,
+            //        remarks = "OEM compatible",
+            //        status = "Available",
+            //        date_received = DateTime.Parse("2025-09-25"),
+            //        date_expiration = DateTime.Parse("2030-09-25"),
+            //        created_at = new DateTime(2025, 10, 14, 10, 0, 0)
+            //    },
+            //    new SuppliedProduct
+            //    {
+            //        id = 5,
+            //        supplier_id = 5,
+            //        product_name = "Chain & Sprocket Set 428H",
+            //        product_brand = "RK Takasago",
+            //        product_description = "Durable drive chain and sprocket combo",
+            //        product_code = "CS428H",
+            //        sku = "SUP-CS-428H",
+            //        quantity = 100,
+            //        unit_of_measurement = "sets",
+            //        cost_price = 600,
+            //        unit_price = 750,
+            //        remarks = "Heavy-duty variant",
+            //        status = "Available",
+            //        date_received = DateTime.Parse("2025-09-24"),
+            //        date_expiration = DateTime.Parse("2030-09-24"),
+            //        created_at = new DateTime(2025, 10, 14, 10, 0, 0)
+            //    },
+            //    new SuppliedProduct
+            //    {
+            //        id = 6,
+            //        supplier_id = 6,
+            //        product_name = "Tire 90/80-17 Tubeless",
+            //        product_brand = "IRC",
+            //        product_description = "Tubeless rear tire for sport motorbikes",
+            //        product_code = "TR908017",
+            //        sku = "SUP-TR-9080",
+            //        quantity = 80,
+            //        unit_of_measurement = "pcs",
+            //        cost_price = 1150,
+            //        unit_price = 1350,
+            //        remarks = "Fresh batch tires",
+            //        status = "Available",
+            //        date_received = DateTime.Parse("2025-09-23"),
+            //        date_expiration = DateTime.Parse("2030-09-23"),
+            //        created_at = new DateTime(2025, 10, 14, 10, 0, 0)
+            //    },
+            //    new SuppliedProduct
+            //    {
+            //        id = 7,
+            //        supplier_id = 7,
+            //        product_name = "Motorcycle Helmet Full Face",
+            //        product_brand = "LS2",
+            //        product_description = "DOT-certified full-face helmet for riders",
+            //        product_code = "HMFF01",
+            //        sku = "SUP-HM-FF01",
+            //        quantity = 40,
+            //        unit_of_measurement = "pcs",
+            //        cost_price = 2500,
+            //        unit_price = 3200,
+            //        remarks = "Safety approved gear",
+            //        status = "Available",
+            //        date_received = DateTime.Parse("2025-09-22"),
+            //        date_expiration = DateTime.Parse("2030-09-22"),
+            //        created_at = new DateTime(2025, 10, 14, 10, 0, 0)
+            //    },
+            //    new SuppliedProduct
+            //    {
+            //        id = 8,
+            //        supplier_id = 8,
+            //        product_name = "LED Signal Light Set",
+            //        product_brand = "Osram",
+            //        product_description = "High-visibility LED signal lights",
+            //        product_code = "LDSL01",
+            //        sku = "SUP-LD-SL01",
+            //        quantity = 100,
+            //        unit_of_measurement = "sets",
+            //        cost_price = 180,
+            //        unit_price = 250,
+            //        remarks = "Energy efficient lighting",
+            //        status = "Available",
+            //        date_received = DateTime.Parse("2025-09-21"),
+            //        date_expiration = DateTime.Parse("2030-09-21"),
+            //        created_at = new DateTime(2025, 10, 14, 10, 0, 0)
+            //    },
+            //    new SuppliedProduct
+            //    {
+            //        id = 9,
+            //        supplier_id = 9,
+            //        product_name = "Side Mirror Set",
+            //        product_brand = "Racing Boy",
+            //        product_description = "Aluminum side mirrors, universal fit",
+            //        product_code = "SMS01",
+            //        sku = "SUP-SM-S01",
+            //        quantity = 120,
+            //        unit_of_measurement = "sets",
+            //        cost_price = 300,
+            //        unit_price = 380,
+            //        remarks = "Available in multiple colors",
+            //        status = "Available",
+            //        date_received = DateTime.Parse("2025-09-20"),
+            //        date_expiration = DateTime.Parse("2030-09-20"),
+            //        created_at = new DateTime(2025, 10, 14, 10, 0, 0)
+            //    },
+            //    new SuppliedProduct
+            //    {
+            //        id = 10,
+            //        supplier_id = 10,
+            //        product_name = "Air Filter Element",
+            //        product_brand = "K&N",
+            //        product_description = "Reusable high-flow air filter for scooters",
+            //        product_code = "AFE001",
+            //        sku = "SUP-AF-E001",
+            //        quantity = 90,
+            //        unit_of_measurement = "pcs",
+            //        cost_price = 420,
+            //        unit_price = 520,
+            //        remarks = "Washable and long-lasting",
+            //        status = "Available",
+            //        date_received = DateTime.Parse("2025-09-19"),
+            //        date_expiration = DateTime.Parse("2030-09-19"),
+            //        created_at = new DateTime(2025, 10, 14, 10, 0, 0)
+            //    }
+            //);
 
 
 

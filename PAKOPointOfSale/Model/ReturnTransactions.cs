@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PAKOPointOfSale.Model
 {
-    public class ReturnTransactions
+    public class ReturnTransaction
     {
         public int id { get; set; }
         public string return_number { get; set; }
