@@ -43,6 +43,9 @@
     <Compile Update="Transactions\EditQuantity.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Transactions\Return\ReturnForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Transactions\SalesInvoice.cs">
       <SubType>Form</SubType>
     </Compile>

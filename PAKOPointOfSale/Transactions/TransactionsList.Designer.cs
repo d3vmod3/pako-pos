@@ -30,9 +30,6 @@
         {
             components = new System.ComponentModel.Container();
             dtgvTransactions = new DataGridView();
-            transactionBindingSource = new BindingSource(components);
-            textBox1 = new TextBox();
-            label1 = new Label();
             id = new DataGridViewTextBoxColumn();
             invoicenumberDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             vatamountDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -46,6 +43,9 @@
             statusDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             salesinvoiceitemsDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             viewInvoice = new DataGridViewButtonColumn();
+            transactionBindingSource = new BindingSource(components);
+            textBox1 = new TextBox();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dtgvTransactions).BeginInit();
             ((System.ComponentModel.ISupportInitialize)transactionBindingSource).BeginInit();
             SuspendLayout();
@@ -55,7 +55,7 @@
             dtgvTransactions.AllowUserToAddRows = false;
             dtgvTransactions.AllowUserToDeleteRows = false;
             dtgvTransactions.AutoGenerateColumns = false;
-            dtgvTransactions.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dtgvTransactions.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dtgvTransactions.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgvTransactions.Columns.AddRange(new DataGridViewColumn[] { id, invoicenumberDataGridViewTextBoxColumn, vatamountDataGridViewTextBoxColumn, vatablesalesDataGridViewTextBoxColumn, vatexemptDataGridViewTextBoxColumn, subtotalDataGridViewTextBoxColumn, grandtotalDataGridViewTextBoxColumn, paymentmethodDataGridViewTextBoxColumn, cashreceivedDataGridViewTextBoxColumn, cashchangeDataGridViewTextBoxColumn, statusDataGridViewTextBoxColumn, salesinvoiceitemsDataGridViewTextBoxColumn, viewInvoice });
             dtgvTransactions.DataSource = transactionBindingSource;
@@ -66,32 +66,13 @@
             dtgvTransactions.TabIndex = 0;
             dtgvTransactions.CellContentClick += dtgvTransactions_CellContentClick;
             // 
-            // transactionBindingSource
-            // 
-            transactionBindingSource.DataSource = typeof(Transaction);
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(151, 6);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(248, 23);
-            textBox1.TabIndex = 1;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(12, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(133, 15);
-            label1.TabIndex = 2;
-            label1.Text = "Search Invoice Number:";
-            // 
             // id
             // 
             id.DataPropertyName = "id";
             id.HeaderText = "id";
             id.Name = "id";
             id.ReadOnly = true;
+            id.Width = 42;
             // 
             // invoicenumberDataGridViewTextBoxColumn
             // 
@@ -99,6 +80,7 @@
             invoicenumberDataGridViewTextBoxColumn.HeaderText = "Invoice Number";
             invoicenumberDataGridViewTextBoxColumn.Name = "invoicenumberDataGridViewTextBoxColumn";
             invoicenumberDataGridViewTextBoxColumn.ReadOnly = true;
+            invoicenumberDataGridViewTextBoxColumn.Width = 117;
             // 
             // vatamountDataGridViewTextBoxColumn
             // 
@@ -130,6 +112,7 @@
             subtotalDataGridViewTextBoxColumn.HeaderText = "Sub Total";
             subtotalDataGridViewTextBoxColumn.Name = "subtotalDataGridViewTextBoxColumn";
             subtotalDataGridViewTextBoxColumn.ReadOnly = true;
+            subtotalDataGridViewTextBoxColumn.Width = 81;
             // 
             // grandtotalDataGridViewTextBoxColumn
             // 
@@ -145,6 +128,7 @@
             paymentmethodDataGridViewTextBoxColumn.HeaderText = "Payment Method";
             paymentmethodDataGridViewTextBoxColumn.Name = "paymentmethodDataGridViewTextBoxColumn";
             paymentmethodDataGridViewTextBoxColumn.ReadOnly = true;
+            paymentmethodDataGridViewTextBoxColumn.Width = 124;
             // 
             // cashreceivedDataGridViewTextBoxColumn
             // 
@@ -152,6 +136,7 @@
             cashreceivedDataGridViewTextBoxColumn.HeaderText = "Cash Received";
             cashreceivedDataGridViewTextBoxColumn.Name = "cashreceivedDataGridViewTextBoxColumn";
             cashreceivedDataGridViewTextBoxColumn.ReadOnly = true;
+            cashreceivedDataGridViewTextBoxColumn.Width = 108;
             // 
             // cashchangeDataGridViewTextBoxColumn
             // 
@@ -159,6 +144,7 @@
             cashchangeDataGridViewTextBoxColumn.HeaderText = "Change";
             cashchangeDataGridViewTextBoxColumn.Name = "cashchangeDataGridViewTextBoxColumn";
             cashchangeDataGridViewTextBoxColumn.ReadOnly = true;
+            cashchangeDataGridViewTextBoxColumn.Width = 73;
             // 
             // statusDataGridViewTextBoxColumn
             // 
@@ -166,6 +152,7 @@
             statusDataGridViewTextBoxColumn.HeaderText = "Status";
             statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
             statusDataGridViewTextBoxColumn.ReadOnly = true;
+            statusDataGridViewTextBoxColumn.Width = 64;
             // 
             // salesinvoiceitemsDataGridViewTextBoxColumn
             // 
@@ -182,6 +169,27 @@
             viewInvoice.ReadOnly = true;
             viewInvoice.Text = "View Transaction";
             viewInvoice.UseColumnTextForButtonValue = true;
+            viewInvoice.Width = 5;
+            // 
+            // transactionBindingSource
+            // 
+            transactionBindingSource.DataSource = typeof(Transaction);
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(151, 6);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(248, 23);
+            textBox1.TabIndex = 1;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(12, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(133, 15);
+            label1.TabIndex = 2;
+            label1.Text = "Search Invoice Number:";
             // 
             // TransactionsList
             // 
