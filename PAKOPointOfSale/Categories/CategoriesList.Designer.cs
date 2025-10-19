@@ -191,11 +191,12 @@ namespace PAKOPointOfSale.Categories
             // 
             label1.AutoSize = true;
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(12, 115);
+            label1.Location = new Point(12, 111);
             label1.Name = "label1";
             label1.Size = new Size(42, 15);
             label1.TabIndex = 8;
             label1.Text = "Search";
+            label1.Click += label1_Click;
             // 
             // pictureBox1
             // 

@@ -29,10 +29,8 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TransactionsList));
             dtgvTransactions = new DataGridView();
-            transactionBindingSource = new BindingSource(components);
-            textBox1 = new TextBox();
-            label1 = new Label();
             id = new DataGridViewTextBoxColumn();
             invoicenumberDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             vatamountDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -46,8 +44,19 @@
             statusDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             salesinvoiceitemsDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             viewInvoice = new DataGridViewButtonColumn();
+            transactionBindingSource = new BindingSource(components);
+            txtSearch = new TextBox();
+            label1 = new Label();
+            pictureBox3 = new PictureBox();
+            pictureBox2 = new PictureBox();
+            pictureBox1 = new PictureBox();
+            btnClose = new Button();
+            label5 = new Label();
             ((System.ComponentModel.ISupportInitialize)dtgvTransactions).BeginInit();
             ((System.ComponentModel.ISupportInitialize)transactionBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // dtgvTransactions
@@ -59,32 +68,12 @@
             dtgvTransactions.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgvTransactions.Columns.AddRange(new DataGridViewColumn[] { id, invoicenumberDataGridViewTextBoxColumn, vatamountDataGridViewTextBoxColumn, vatablesalesDataGridViewTextBoxColumn, vatexemptDataGridViewTextBoxColumn, subtotalDataGridViewTextBoxColumn, grandtotalDataGridViewTextBoxColumn, paymentmethodDataGridViewTextBoxColumn, cashreceivedDataGridViewTextBoxColumn, cashchangeDataGridViewTextBoxColumn, statusDataGridViewTextBoxColumn, salesinvoiceitemsDataGridViewTextBoxColumn, viewInvoice });
             dtgvTransactions.DataSource = transactionBindingSource;
-            dtgvTransactions.Location = new Point(12, 35);
+            dtgvTransactions.Location = new Point(12, 134);
             dtgvTransactions.Name = "dtgvTransactions";
             dtgvTransactions.ReadOnly = true;
-            dtgvTransactions.Size = new Size(1066, 561);
+            dtgvTransactions.Size = new Size(1346, 521);
             dtgvTransactions.TabIndex = 0;
             dtgvTransactions.CellContentClick += dtgvTransactions_CellContentClick;
-            // 
-            // transactionBindingSource
-            // 
-            transactionBindingSource.DataSource = typeof(Transaction);
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(151, 6);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(248, 23);
-            textBox1.TabIndex = 1;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(12, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(133, 15);
-            label1.TabIndex = 2;
-            label1.Text = "Search Invoice Number:";
             // 
             // id
             // 
@@ -183,19 +172,113 @@
             viewInvoice.Text = "View Transaction";
             viewInvoice.UseColumnTextForButtonValue = true;
             // 
+            // transactionBindingSource
+            // 
+            transactionBindingSource.DataSource = typeof(Transaction);
+            // 
+            // txtSearch
+            // 
+            txtSearch.Location = new Point(152, 107);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(365, 23);
+            txtSearch.TabIndex = 1;
+            txtSearch.TextChanged += textBox1_TextChanged;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.Khaki;
+            label1.FlatStyle = FlatStyle.Popup;
+            label1.ForeColor = Color.Black;
+            label1.Location = new Point(13, 110);
+            label1.Name = "label1";
+            label1.Size = new Size(133, 15);
+            label1.TabIndex = 2;
+            label1.Text = "Search Invoice Number:";
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.BackColor = SystemColors.ControlDarkDark;
+            pictureBox3.ErrorImage = null;
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.InitialImage = null;
+            pictureBox3.Location = new Point(-4, 669);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(1377, 83);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 152;
+            pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.BackColor = Color.DimGray;
+            pictureBox2.Location = new Point(2, 0);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(1371, 104);
+            pictureBox2.TabIndex = 153;
+            pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.DimGray;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(2, 0);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(256, 104);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 154;
+            pictureBox1.TabStop = false;
+            // 
+            // btnClose
+            // 
+            btnClose.BackColor = Color.Red;
+            btnClose.FlatStyle = FlatStyle.Popup;
+            btnClose.ForeColor = Color.White;
+            btnClose.Location = new Point(1239, 105);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(75, 28);
+            btnClose.TabIndex = 155;
+            btnClose.Text = "Close";
+            btnClose.UseVisualStyleBackColor = false;
+            btnClose.Click += btnClose_Click;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.BackColor = SystemColors.ControlDarkDark;
+            label5.FlatStyle = FlatStyle.System;
+            label5.Font = new Font("Impact", 48F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.ForeColor = SystemColors.ButtonHighlight;
+            label5.Location = new Point(554, 9);
+            label5.Name = "label5";
+            label5.Size = new Size(416, 80);
+            label5.TabIndex = 156;
+            label5.Text = "TRANSACTIONS";
+            // 
             // TransactionsList
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1090, 608);
+            BackColor = Color.CadetBlue;
+            ClientSize = new Size(1370, 749);
+            Controls.Add(label5);
+            Controls.Add(btnClose);
+            Controls.Add(pictureBox1);
+            Controls.Add(pictureBox2);
+            Controls.Add(pictureBox3);
             Controls.Add(label1);
-            Controls.Add(textBox1);
+            Controls.Add(txtSearch);
             Controls.Add(dtgvTransactions);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "TransactionsList";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Transactions";
             Load += TransactionsList_Load;
             ((System.ComponentModel.ISupportInitialize)dtgvTransactions).EndInit();
             ((System.ComponentModel.ISupportInitialize)transactionBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -203,7 +286,7 @@
         #endregion
 
         private DataGridView dtgvTransactions;
-        private TextBox textBox1;
+        private TextBox txtSearch;
         private Label label1;
         private BindingSource transactionBindingSource;
         private DataGridViewTextBoxColumn id;
@@ -219,5 +302,10 @@
         private DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn salesinvoiceitemsDataGridViewTextBoxColumn;
         private DataGridViewButtonColumn viewInvoice;
+        private PictureBox pictureBox3;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox1;
+        private Button btnClose;
+        private Label label5;
     }
 }

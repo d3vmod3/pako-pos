@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewTransaction));
             btnVoid = new Button();
             dgvItems = new DataGridView();
             idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -72,18 +73,28 @@
             label12 = new Label();
             btnReturn = new Button();
             button1 = new Button();
+            pictureBox3 = new PictureBox();
+            pictureBox2 = new PictureBox();
+            pictureBox1 = new PictureBox();
+            label9 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvItems).BeginInit();
             ((System.ComponentModel.ISupportInitialize)salesInvoiceItemBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // btnVoid
             // 
-            btnVoid.Location = new Point(632, 12);
+            btnVoid.BackColor = Color.ForestGreen;
+            btnVoid.FlatStyle = FlatStyle.Popup;
+            btnVoid.ForeColor = Color.White;
+            btnVoid.Location = new Point(1198, 282);
             btnVoid.Name = "btnVoid";
             btnVoid.Size = new Size(75, 23);
             btnVoid.TabIndex = 0;
             btnVoid.Text = "Void";
-            btnVoid.UseVisualStyleBackColor = true;
+            btnVoid.UseVisualStyleBackColor = false;
             btnVoid.Click += btnVoid_Click;
             // 
             // dgvItems
@@ -92,13 +103,14 @@
             dgvItems.AllowUserToDeleteRows = false;
             dgvItems.AutoGenerateColumns = false;
             dgvItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvItems.BackgroundColor = SystemColors.ScrollBar;
             dgvItems.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvItems.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, productCode, productName, transactionidDataGridViewTextBoxColumn, productidDataGridViewTextBoxColumn, quantityDataGridViewTextBoxColumn, unitpriceDataGridViewTextBoxColumn, vatamountDataGridViewTextBoxColumn, vatablesalesDataGridViewTextBoxColumn, vatexemptDataGridViewTextBoxColumn, discountDataGridViewTextBoxColumn, discounttypeDataGridViewTextBoxColumn, totalamountDataGridViewTextBoxColumn, unitofmeasurementDataGridViewTextBoxColumn, transactionDataGridViewTextBoxColumn, productDataGridViewTextBoxColumn });
             dgvItems.DataSource = salesInvoiceItemBindingSource;
-            dgvItems.Location = new Point(12, 219);
+            dgvItems.Location = new Point(12, 311);
             dgvItems.Name = "dgvItems";
             dgvItems.ReadOnly = true;
-            dgvItems.Size = new Size(776, 290);
+            dgvItems.Size = new Size(1346, 350);
             dgvItems.TabIndex = 1;
             // 
             // idDataGridViewTextBoxColumn
@@ -225,224 +237,340 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 63);
+            label1.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(64, 174);
             label1.Name = "label1";
-            label1.Size = new Size(95, 15);
+            label1.Size = new Size(130, 18);
             label1.TabIndex = 2;
             label1.Text = "Invoice Number:";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(12, 29);
+            label2.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(64, 133);
             label2.Name = "label2";
-            label2.Size = new Size(85, 15);
+            label2.Size = new Size(123, 18);
             label2.TabIndex = 3;
             label2.Text = "Transaction ID:";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(12, 90);
+            label3.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(61, 218);
             label3.Name = "label3";
-            label3.Size = new Size(148, 15);
+            label3.Size = new Size(211, 18);
             label3.TabIndex = 4;
             label3.Text = "Transaction Date and Time";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(12, 123);
+            label4.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
+            label4.ForeColor = Color.White;
+            label4.Location = new Point(64, 267);
             label4.Name = "label4";
-            label4.Size = new Size(54, 15);
+            label4.Size = new Size(75, 18);
             label4.TabIndex = 5;
             label4.Text = "Subtotal:";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(12, 150);
+            label5.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
+            label5.ForeColor = Color.White;
+            label5.Location = new Point(488, 143);
             label5.Name = "label5";
-            label5.Size = new Size(80, 15);
+            label5.Size = new Size(121, 18);
             label5.TabIndex = 6;
             label5.Text = "VATable Sales:";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(12, 177);
+            label6.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
+            label6.ForeColor = Color.White;
+            label6.Location = new Point(491, 206);
             label6.Name = "label6";
-            label6.Size = new Size(77, 15);
+            label6.Size = new Size(105, 18);
             label6.TabIndex = 7;
             label6.Text = "VAT Amount:";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(12, 201);
+            label7.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
+            label7.ForeColor = Color.White;
+            label7.Location = new Point(488, 263);
             label7.Name = "label7";
-            label7.Size = new Size(72, 15);
+            label7.Size = new Size(104, 18);
             label7.TabIndex = 8;
             label7.Text = "VAT Exempt:";
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(289, 29);
+            label8.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
+            label8.ForeColor = Color.White;
+            label8.Location = new Point(815, 144);
             label8.Name = "label8";
-            label8.Size = new Size(71, 15);
+            label8.Size = new Size(102, 18);
             label8.TabIndex = 9;
             label8.Text = "Grand Total:";
             // 
             // lblTransactionId
             // 
             lblTransactionId.AutoSize = true;
-            lblTransactionId.Location = new Point(113, 29);
+            lblTransactionId.BackColor = Color.Silver;
+            lblTransactionId.FlatStyle = FlatStyle.Popup;
+            lblTransactionId.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
+            lblTransactionId.ForeColor = Color.Black;
+            lblTransactionId.Location = new Point(287, 133);
             lblTransactionId.Name = "lblTransactionId";
-            lblTransactionId.Size = new Size(43, 15);
+            lblTransactionId.Size = new Size(62, 18);
             lblTransactionId.TabIndex = 10;
             lblTransactionId.Text = "000000";
             // 
             // lblInvoiceNumber
             // 
             lblInvoiceNumber.AutoSize = true;
-            lblInvoiceNumber.Location = new Point(113, 63);
+            lblInvoiceNumber.BackColor = Color.Silver;
+            lblInvoiceNumber.FlatStyle = FlatStyle.Popup;
+            lblInvoiceNumber.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
+            lblInvoiceNumber.ForeColor = Color.Black;
+            lblInvoiceNumber.Location = new Point(285, 174);
             lblInvoiceNumber.Name = "lblInvoiceNumber";
-            lblInvoiceNumber.Size = new Size(43, 15);
+            lblInvoiceNumber.Size = new Size(62, 18);
             lblInvoiceNumber.TabIndex = 11;
             lblInvoiceNumber.Text = "000000";
             // 
             // lblTransactionDate
             // 
             lblTransactionDate.AutoSize = true;
-            lblTransactionDate.Location = new Point(166, 90);
+            lblTransactionDate.BackColor = Color.Silver;
+            lblTransactionDate.FlatStyle = FlatStyle.Popup;
+            lblTransactionDate.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
+            lblTransactionDate.ForeColor = Color.Black;
+            lblTransactionDate.Location = new Point(287, 218);
             lblTransactionDate.Name = "lblTransactionDate";
-            lblTransactionDate.Size = new Size(67, 15);
+            lblTransactionDate.Size = new Size(86, 18);
             lblTransactionDate.TabIndex = 12;
             lblTransactionDate.Text = "mmddyyyy";
             // 
             // lblSubTotal
             // 
             lblSubTotal.AutoSize = true;
-            lblSubTotal.Location = new Point(106, 123);
+            lblSubTotal.BackColor = Color.Silver;
+            lblSubTotal.FlatStyle = FlatStyle.Popup;
+            lblSubTotal.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
+            lblSubTotal.ForeColor = Color.Black;
+            lblSubTotal.Location = new Point(287, 269);
             lblSubTotal.Name = "lblSubTotal";
-            lblSubTotal.Size = new Size(28, 15);
+            lblSubTotal.Size = new Size(40, 18);
             lblSubTotal.TabIndex = 13;
             lblSubTotal.Text = "0.00";
             // 
             // lblVatableSales
             // 
             lblVatableSales.AutoSize = true;
-            lblVatableSales.Location = new Point(106, 150);
+            lblVatableSales.BackColor = Color.Silver;
+            lblVatableSales.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
+            lblVatableSales.ForeColor = Color.Black;
+            lblVatableSales.Location = new Point(609, 143);
             lblVatableSales.Name = "lblVatableSales";
-            lblVatableSales.Size = new Size(28, 15);
+            lblVatableSales.Size = new Size(40, 18);
             lblVatableSales.TabIndex = 14;
             lblVatableSales.Text = "0.00";
             // 
             // lblVatAmount
             // 
             lblVatAmount.AutoSize = true;
-            lblVatAmount.Location = new Point(106, 177);
+            lblVatAmount.BackColor = Color.Silver;
+            lblVatAmount.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
+            lblVatAmount.ForeColor = Color.Black;
+            lblVatAmount.Location = new Point(609, 206);
             lblVatAmount.Name = "lblVatAmount";
-            lblVatAmount.Size = new Size(28, 15);
+            lblVatAmount.Size = new Size(40, 18);
             lblVatAmount.TabIndex = 15;
             lblVatAmount.Text = "0.00";
             // 
             // lblVatExempt
             // 
             lblVatExempt.AutoSize = true;
-            lblVatExempt.Location = new Point(106, 201);
+            lblVatExempt.BackColor = Color.Silver;
+            lblVatExempt.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
+            lblVatExempt.ForeColor = Color.Black;
+            lblVatExempt.Location = new Point(609, 263);
             lblVatExempt.Name = "lblVatExempt";
-            lblVatExempt.Size = new Size(28, 15);
+            lblVatExempt.Size = new Size(40, 18);
             lblVatExempt.TabIndex = 16;
             lblVatExempt.Text = "0.00";
             // 
             // lblGrandTotal
             // 
             lblGrandTotal.AutoSize = true;
-            lblGrandTotal.Location = new Point(383, 29);
+            lblGrandTotal.BackColor = Color.DarkOrange;
+            lblGrandTotal.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
+            lblGrandTotal.ForeColor = Color.Black;
+            lblGrandTotal.Location = new Point(963, 143);
             lblGrandTotal.Name = "lblGrandTotal";
-            lblGrandTotal.Size = new Size(28, 15);
+            lblGrandTotal.Size = new Size(40, 18);
             lblGrandTotal.TabIndex = 17;
             lblGrandTotal.Text = "0.00";
             // 
             // lblPaymentMethod
             // 
             lblPaymentMethod.AutoSize = true;
-            lblPaymentMethod.Location = new Point(394, 56);
+            lblPaymentMethod.BackColor = Color.DarkOrange;
+            lblPaymentMethod.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
+            lblPaymentMethod.ForeColor = Color.Black;
+            lblPaymentMethod.Location = new Point(959, 183);
             lblPaymentMethod.Name = "lblPaymentMethod";
-            lblPaymentMethod.Size = new Size(31, 15);
+            lblPaymentMethod.Size = new Size(44, 18);
             lblPaymentMethod.TabIndex = 19;
             lblPaymentMethod.Text = "cash";
             // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(289, 56);
+            label10.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
+            label10.ForeColor = Color.White;
+            label10.Location = new Point(815, 183);
             label10.Name = "label10";
-            label10.Size = new Size(102, 15);
+            label10.Size = new Size(139, 18);
             label10.TabIndex = 18;
             label10.Text = "Payment Method:";
             // 
             // lblCashReceived
             // 
             lblCashReceived.AutoSize = true;
-            lblCashReceived.Location = new Point(394, 84);
+            lblCashReceived.BackColor = Color.DarkOrange;
+            lblCashReceived.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
+            lblCashReceived.ForeColor = Color.Black;
+            lblCashReceived.Location = new Point(963, 226);
             lblCashReceived.Name = "lblCashReceived";
-            lblCashReceived.Size = new Size(28, 15);
+            lblCashReceived.Size = new Size(40, 18);
             lblCashReceived.TabIndex = 21;
             lblCashReceived.Text = "0.00";
             // 
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(289, 84);
+            label11.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
+            label11.ForeColor = Color.White;
+            label11.Location = new Point(815, 226);
             label11.Name = "label11";
-            label11.Size = new Size(86, 15);
+            label11.Size = new Size(126, 18);
             label11.TabIndex = 20;
             label11.Text = "Cash Received:";
             // 
             // lblChange
             // 
             lblChange.AutoSize = true;
-            lblChange.Location = new Point(394, 99);
+            lblChange.BackColor = Color.DarkOrange;
+            lblChange.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
+            lblChange.ForeColor = Color.Black;
+            lblChange.Location = new Point(963, 272);
             lblChange.Name = "lblChange";
-            lblChange.Size = new Size(28, 15);
+            lblChange.Size = new Size(40, 18);
             lblChange.TabIndex = 23;
             lblChange.Text = "0.00";
             // 
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(289, 99);
+            label12.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
+            label12.ForeColor = Color.White;
+            label12.Location = new Point(815, 272);
             label12.Name = "label12";
-            label12.Size = new Size(48, 15);
+            label12.Size = new Size(65, 18);
             label12.TabIndex = 22;
             label12.Text = "Change";
             // 
             // btnReturn
             // 
-            btnReturn.Location = new Point(713, 12);
+            btnReturn.BackColor = Color.Red;
+            btnReturn.FlatStyle = FlatStyle.Popup;
+            btnReturn.ForeColor = Color.White;
+            btnReturn.Location = new Point(1283, 282);
             btnReturn.Name = "btnReturn";
             btnReturn.Size = new Size(75, 23);
             btnReturn.TabIndex = 24;
             btnReturn.Text = "Return";
-            btnReturn.UseVisualStyleBackColor = true;
+            btnReturn.UseVisualStyleBackColor = false;
             // 
             // button1
             // 
-            button1.Location = new Point(506, 12);
+            button1.BackColor = Color.Goldenrod;
+            button1.FlatStyle = FlatStyle.Popup;
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(1064, 282);
             button1.Name = "button1";
             button1.Size = new Size(120, 23);
             button1.TabIndex = 25;
             button1.Text = "View Receipt";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.BackColor = SystemColors.ControlDarkDark;
+            pictureBox3.ErrorImage = null;
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.InitialImage = null;
+            pictureBox3.Location = new Point(-4, 667);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(1377, 83);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 153;
+            pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.BackColor = Color.DimGray;
+            pictureBox2.Location = new Point(-4, -1);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(1371, 104);
+            pictureBox2.TabIndex = 154;
+            pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.DimGray;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(-2, -1);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(256, 104);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 155;
+            pictureBox1.TabStop = false;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.BackColor = SystemColors.ControlDarkDark;
+            label9.FlatStyle = FlatStyle.System;
+            label9.Font = new Font("Impact", 48F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label9.ForeColor = SystemColors.ButtonHighlight;
+            label9.Location = new Point(420, 9);
+            label9.Name = "label9";
+            label9.Size = new Size(532, 80);
+            label9.TabIndex = 157;
+            label9.Text = "TRANSACTIONS LIST";
             // 
             // ViewTransaction
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 526);
+            BackColor = Color.DarkCyan;
+            ClientSize = new Size(1370, 749);
+            Controls.Add(label9);
+            Controls.Add(pictureBox1);
+            Controls.Add(pictureBox2);
+            Controls.Add(pictureBox3);
             Controls.Add(button1);
             Controls.Add(btnReturn);
             Controls.Add(lblChange);
@@ -474,6 +602,9 @@
             Load += ViewTransaction_Load;
             ((System.ComponentModel.ISupportInitialize)dgvItems).EndInit();
             ((System.ComponentModel.ISupportInitialize)salesInvoiceItemBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -523,5 +654,9 @@
         private DataGridViewTextBoxColumn productDataGridViewTextBoxColumn;
         private Button btnReturn;
         private Button button1;
+        private PictureBox pictureBox3;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox1;
+        private Label label9;
     }
 }

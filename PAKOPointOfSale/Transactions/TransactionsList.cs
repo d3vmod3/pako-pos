@@ -14,6 +14,7 @@ namespace PAKOPointOfSale.Transactions
 {
     public partial class TransactionsList : Form
     {
+        private DataTable transactionsTable;
         public TransactionsList()
         {
             InitializeComponent();
@@ -54,10 +55,9 @@ namespace PAKOPointOfSale.Transactions
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
                     {
-                        DataTable dt = new DataTable();
-                        adapter.Fill(dt);
-
-                        dtgvTransactions.DataSource = dt;
+                        transactionsTable = new DataTable();
+                        adapter.Fill(transactionsTable);
+                        dtgvTransactions.DataSource = transactionsTable;
                     }
                 }
             }
@@ -79,6 +79,30 @@ namespace PAKOPointOfSale.Transactions
                 Transactions.ViewTransaction viewTransactionForm = new Transactions.ViewTransaction(id);
                 viewTransactionForm.ShowDialog(); // modal so user finishes editing first
                 LoadTransactions();
+            }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (transactionsTable == null) return;
+
+            string filter = txtSearch.Text.Trim().Replace("'", "''"); // escape single quotes
+            if (string.IsNullOrEmpty(filter))
+            {
+                dtgvTransactions.DataSource = transactionsTable;
+            }
+            else
+            {
+                // Filter by multiple columns (product name, code, SKU, brand)
+                string rowFilter = $"invoice_number LIKE '%{filter}%' ";
+                DataView dv = new DataView(transactionsTable);
+                dv.RowFilter = rowFilter;
+                dtgvTransactions.DataSource = dv;
             }
         }
     }
