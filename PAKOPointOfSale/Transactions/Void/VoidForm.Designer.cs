@@ -44,6 +44,7 @@
             btnViewReceipt.TabIndex = 0;
             btnViewReceipt.Text = "View Receipt";
             btnViewReceipt.UseVisualStyleBackColor = true;
+            btnViewReceipt.Click += btnViewReceipt_Click;
             // 
             // label1
             // 

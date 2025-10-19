@@ -47,6 +47,7 @@
             textBox1 = new TextBox();
             label1 = new Label();
             txtSearch = new TextBox();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dtgvTransactions).BeginInit();
             ((System.ComponentModel.ISupportInitialize)transactionBindingSource).BeginInit();
             SuspendLayout();
@@ -203,12 +204,23 @@
             txtSearch.TabIndex = 3;
             txtSearch.TextChanged += txtSearch_TextChanged;
             // 
+            // button1
+            // 
+            button1.Location = new Point(1073, 102);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 4;
+            button1.Text = "Close";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // TransactionsList
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
             ClientSize = new Size(1883, 876);
+            Controls.Add(button1);
             Controls.Add(txtSearch);
             Controls.Add(label1);
             Controls.Add(dtgvTransactions);
@@ -249,5 +261,6 @@
         private Button btnClose;
         private Label label5;
         private TextBox txtSearch;
+        private Button button1;
     }
 }

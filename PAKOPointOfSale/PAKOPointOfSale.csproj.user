@@ -13,9 +13,6 @@
     <Compile Update="Categories\EditCategory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Dashboard.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="MDIParent1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -23,6 +20,15 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Products\EditProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Products\Filters\DateRange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Products\Filters\Status.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Products\Filters\Stocks.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Products\ProductsList.cs">

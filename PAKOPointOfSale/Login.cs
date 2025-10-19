@@ -30,8 +30,8 @@ namespace PAKOPointOfSale
                         SuperAdminForm.Show();
                         break;
                     case 2:
-                        Dashboard Dashboard = new Dashboard();
-                        Dashboard.Show();
+                        //Dashboard Dashboard = new Dashboard();
+                        //Dashboard.Show();
                         break;
                     case 3:
                         Cashier Cashier = new Cashier();

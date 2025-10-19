@@ -68,8 +68,11 @@ namespace PAKOPointOfSale.Transactions
             pictureBox3 = new PictureBox();
             label13 = new Label();
             id = new DataGridViewTextBoxColumn();
-            selectReturn = new DataGridViewCheckBoxColumn();
+            product_code = new DataGridViewTextBoxColumn();
             product_id = new DataGridViewTextBoxColumn();
+            product_name = new DataGridViewTextBoxColumn();
+            product_brand = new DataGridViewTextBoxColumn();
+            selectReturn = new DataGridViewCheckBoxColumn();
             transaction_id = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
             quantity = new DataGridViewTextBoxColumn();
@@ -108,7 +111,7 @@ namespace PAKOPointOfSale.Transactions
             dgvItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvItems.BackgroundColor = SystemColors.ScrollBar;
             dgvItems.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvItems.Columns.AddRange(new DataGridViewColumn[] { id, selectReturn, product_id, transaction_id, dataGridViewTextBoxColumn1, quantity, unit_price, vat_amount, vatable_sales, vat_exempt, discount, discount_type, total_amount, unit_of_measurement, transaction, product });
+            dgvItems.Columns.AddRange(new DataGridViewColumn[] { id, product_code, product_id, product_name, product_brand, selectReturn, transaction_id, dataGridViewTextBoxColumn1, quantity, unit_price, vat_amount, vatable_sales, vat_exempt, discount, discount_type, total_amount, unit_of_measurement, transaction, product });
             dgvItems.DataSource = salesInvoiceItemBindingSource;
             dgvItems.Location = new Point(12, 270);
             dgvItems.Name = "dgvItems";
@@ -430,6 +433,32 @@ namespace PAKOPointOfSale.Transactions
             id.Name = "id";
             id.Visible = false;
             // 
+            // product_code
+            // 
+            product_code.DataPropertyName = "product_code";
+            product_code.HeaderText = "Product Code";
+            product_code.Name = "product_code";
+            product_code.Visible = false;
+            // 
+            // product_id
+            // 
+            product_id.DataPropertyName = "product_id";
+            product_id.HeaderText = "product_id";
+            product_id.Name = "product_id";
+            product_id.Visible = false;
+            // 
+            // product_name
+            // 
+            product_name.DataPropertyName = "product_name";
+            product_name.HeaderText = "Product";
+            product_name.Name = "product_name";
+            // 
+            // product_brand
+            // 
+            product_brand.DataPropertyName = "product_brand";
+            product_brand.HeaderText = "Brand";
+            product_brand.Name = "product_brand";
+            // 
             // selectReturn
             // 
             selectReturn.DataPropertyName = "selectReturn";
@@ -440,13 +469,6 @@ namespace PAKOPointOfSale.Transactions
             selectReturn.SortMode = DataGridViewColumnSortMode.Automatic;
             selectReturn.TrueValue = "1";
             selectReturn.Visible = false;
-            // 
-            // product_id
-            // 
-            product_id.DataPropertyName = "product_id";
-            product_id.HeaderText = "product_id";
-            product_id.Name = "product_id";
-            product_id.Visible = false;
             // 
             // transaction_id
             // 
@@ -615,17 +637,20 @@ namespace PAKOPointOfSale.Transactions
         private Label lblAdjustmentNumber;
         private DataGridViewTextBoxColumn productName;
         private DataGridViewCheckBoxColumn select;
-        private DataGridViewTextBoxColumn product_code;
-        private DataGridViewTextBoxColumn product_name;
-        private DataGridViewTextBoxColumn product_brand;
+        //private DataGridViewTextBoxColumn product_code;
+        //private DataGridViewTextBoxColumn product_name;
+        //private DataGridViewTextBoxColumn product_brand;
         private Label lblReturnNote;
         private Label label13;
         private PictureBox pictureBox3;
         private PictureBox pictureBox2;
         private PictureBox pictureBox1;
         private DataGridViewTextBoxColumn id;
-        private DataGridViewCheckBoxColumn selectReturn;
+        private DataGridViewTextBoxColumn product_code;
         private DataGridViewTextBoxColumn product_id;
+        private DataGridViewTextBoxColumn product_name;
+        private DataGridViewTextBoxColumn product_brand;
+        private DataGridViewCheckBoxColumn selectReturn;
         private DataGridViewTextBoxColumn transaction_id;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn quantity;

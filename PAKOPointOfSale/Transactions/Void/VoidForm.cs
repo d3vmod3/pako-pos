@@ -15,7 +15,7 @@ namespace PAKOPointOfSale.Transactions.Void
     {
         private int _id;
         private string _invoiceNumber;
-        public VoidForm(int id,string invoiceNumber)
+        public VoidForm(int id, string invoiceNumber)
         {
             _id = id;
             _invoiceNumber = invoiceNumber;
@@ -161,6 +161,17 @@ namespace PAKOPointOfSale.Transactions.Void
         private void VoidForm_Load(object sender, EventArgs e)
         {
             lblInvoiceNumber.Text = _invoiceNumber;
+        }
+
+        private void btnViewReceipt_Click(object sender, EventArgs e)
+        {
+            string appPath = Application.StartupPath;
+            string pdfPath = Path.Combine(appPath, $"Receipt_{_invoiceNumber}.pdf");
+            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+            {
+                FileName = pdfPath,
+                UseShellExecute = true
+            });
         }
     }
 }

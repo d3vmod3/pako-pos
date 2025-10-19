@@ -17,6 +17,7 @@ namespace PAKOPointOfSale.Transactions
         private int _id;
         private string _invoiceNumber;
         private int countAlreadyReturneditems = 0;
+        private string adjustment_number = "";
         public ViewTransaction(int id)
         {
             _id = id;
@@ -116,7 +117,7 @@ namespace PAKOPointOfSale.Transactions
                         }
                     }
 
-                    
+
                     foreach (DataGridViewRow row in dgvItems.Rows)
                     {
                         if (row.IsNewRow) continue;
@@ -128,10 +129,10 @@ namespace PAKOPointOfSale.Transactions
                             row.Cells["selectReturn"].ReadOnly = true;
                             row.Cells["selectReturn"].Style.BackColor = Color.DarkGray;
                             row.Cells["selectReturn"].Value = false;
-                           
+
                         }
                     }
-                    
+
                 }
 
                 // Load void or return series number
@@ -139,15 +140,17 @@ namespace PAKOPointOfSale.Transactions
 
                 if (transactionType == "Void" || transactionType == "Sales Invoice")
                 {
-                    using (var cmdVoid = new SqlCommand("SELECT void_number, invoice_number, transaction_id FROM VoidTransactions WHERE invoice_number = @invoiceNumber", conn))
+                    using (var cmdVoid = new SqlCommand("SELECT void_number, invoice_number, transaction_id FROM VoidTransactions WHERE invoice_number = @invoiceNumber and transaction_id=@transactionId", conn))
                     {
                         cmdVoid.Parameters.AddWithValue("@invoiceNumber", lblInvoiceNumber.Text);
+                        cmdVoid.Parameters.AddWithValue("@transactionId", lblTransactionId.Text);
                         lblAdjustmentNumber.Text = "";
                         using (var reader = cmdVoid.ExecuteReader())
                         {
                             if (reader.Read())
                             {
                                 lblAdjustmentNumber.Text = "Void Series No.: " + reader["void_number"].ToString();
+                                adjustment_number = reader["void_number"].ToString();
                                 cmbInvoiceAction.SelectedItem = "Void";
                                 cmbInvoiceAction.Enabled = false;
                                 btnProceed.Enabled = false;
@@ -164,15 +167,17 @@ namespace PAKOPointOfSale.Transactions
                 }
                 else if (transactionType == "Return" || transactionType == "Sales Invoice")
                 {
-                    using (var cmdReturn = new SqlCommand("SELECT * FROM ReturnTransactions WHERE invoice_number = @invoiceNumber", conn))
+                    using (var cmdReturn = new SqlCommand("SELECT * FROM ReturnTransactions WHERE invoice_number = @invoiceNumber and transaction_id = @transactionId" , conn))
                     {
                         cmdReturn.Parameters.AddWithValue("@invoiceNumber", lblInvoiceNumber.Text);
+                        cmdReturn.Parameters.AddWithValue("@transactionId", lblTransactionId.Text);
                         lblAdjustmentNumber.Text = "";
                         using (var reader = cmdReturn.ExecuteReader())
                         {
                             if (reader.Read())
                             {
                                 lblAdjustmentNumber.Text = "Return Series No.: " + reader["return_number"].ToString();
+                                adjustment_number = reader["return_number"].ToString();
                                 cmbInvoiceAction.SelectedItem = "Return";
                                 cmbInvoiceAction.Enabled = false;
                                 btnProceed.Enabled = false;
@@ -215,14 +220,14 @@ namespace PAKOPointOfSale.Transactions
                 {
                     //lblReturnNote.Visible = true;
                     MessageBox.Show("Sales invoices with returned items cannot be voided. Select all items and use 'Return' in the Invoice Action.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    
+
                 }
                 else
                 {
                     Transactions.Void.VoidForm voidSalesInvoiceForm = new Transactions.Void.VoidForm(_id, _invoiceNumber);
                     voidSalesInvoiceForm.ShowDialog();
                 }
-                    
+
             }
             else if (cmbInvoiceAction.SelectedItem?.ToString() == "Return")
             {
@@ -277,21 +282,47 @@ namespace PAKOPointOfSale.Transactions
             if (lblTransactionType.Text == "Void")
             {
                 //view void receipt
+                string appPath = Application.StartupPath;
+                string pdfPath = Path.Combine(appPath, $"Void_{adjustment_number}.pdf");
+                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+                {
+                    FileName = pdfPath,
+                    UseShellExecute = true
+                });
 
             }
             if (lblTransactionType.Text == "Return")
             {
                 //view return receipt
+                string appPath = Application.StartupPath;
+                string pdfPath = Path.Combine(appPath, $"Return_{adjustment_number}.pdf");
+                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+                {
+                    FileName = pdfPath,
+                    UseShellExecute = true
+                });
 
             }
             if (lblTransactionType.Text == "Sales Invoice")
             {
                 //view Sales Invoice receipt
+                string appPath = Application.StartupPath;
+                string pdfPath = Path.Combine(appPath, $"Receipt_{lblInvoiceNumber.Text}.pdf");
+                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+                {
+                    FileName = pdfPath,
+                    UseShellExecute = true
+                });
 
             }
         }
 
         private void dgvItems_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void lblInvoiceNumber_Click(object sender, EventArgs e)
         {
 
         }

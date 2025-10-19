@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinFormsApp1.Model;
 
 namespace PAKOPointOfSale.Products
 {
@@ -47,6 +48,7 @@ namespace PAKOPointOfSale.Products
                     p.id,
                     p.product_name,
                     p.product_brand,
+                    p.barcode,
                     p.product_description,
                     p.product_code,
                     p.sku,
@@ -132,6 +134,217 @@ namespace PAKOPointOfSale.Products
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            string selected = cmbFilterType.SelectedItem.ToString();
+            if (selected == "Stock")
+            {
+                var filterStocksForm = new Products.Filters.Stocks();
+
+                // Show as dialog and wait for user to press Filter
+                if (filterStocksForm.ShowDialog() == DialogResult.OK)
+                {
+                    decimal filterQty = filterStocksForm.SelectedQuantity;
+                    FilterProductsByStock(filterQty);
+                }
+            }
+            else if (selected == "Date and Time")
+            {
+                var dateRangeForm = new Products.Filters.DateRange("Filter by Date Range");
+                if (dateRangeForm.ShowDialog() == DialogResult.OK)
+                {
+                    DateTime dateFrom = dateRangeForm.DateFrom;
+                    DateTime dateTo = dateRangeForm.DateTo;
+
+                    FilterProductsByDateRange(dateFrom, dateTo, "created_at");
+                }
+            }
+            else if (selected == "Date Received")
+            {
+                var dateRangeForm = new Products.Filters.DateRange("Filter by Date Received");
+                if (dateRangeForm.ShowDialog() == DialogResult.OK)
+                {
+                    DateTime dateFrom = dateRangeForm.DateFrom;
+                    DateTime dateTo = dateRangeForm.DateTo;
+
+                    FilterProductsByDateRange(dateFrom, dateTo, "date_received");
+                }
+            }
+            else if (selected == "Expiration Date")
+            {
+                var dateRangeForm = new Products.Filters.DateRange("Filter by Expiration Date");
+                if (dateRangeForm.ShowDialog() == DialogResult.OK)
+                {
+                    DateTime dateFrom = dateRangeForm.DateFrom;
+                    DateTime dateTo = dateRangeForm.DateTo;
+
+                    FilterProductsByDateRange(dateFrom, dateTo, "date_expiration");
+                }
+            }
+            else if (selected == "Status")
+            {
+                var filterStatusForm = new Products.Filters.Status();
+
+                // Show as dialog and wait for user to press Filter
+                if (filterStatusForm.ShowDialog() == DialogResult.OK)
+                {
+                    string status = filterStatusForm.StatusType;
+                    FilterProductsByStatus(status = filterStatusForm.StatusType);
+                }
+            }
+        }
+        private void FilterProductsByStock(decimal maxQuantity)
+        {
+            string connString = PAKOPointOfSale.Program.ConnString;
+            string query = @"
+                SELECT 
+                    p.id,
+                    p.product_name,
+                    p.product_brand,
+                    p.barcode,
+                    p.product_description,
+                    p.product_code,
+                    p.sku,
+                    p.quantity,
+                    p.unit_of_measurement,
+                    p.cost_price,
+                    p.unit_price,
+                    p.remarks,
+                    p.status,
+                    p.date_received,
+                    p.date_expiration,
+                    p.created_at,
+                    p.is_active,
+                    s.name AS supplier_name,
+                    c.name AS category_name
+                FROM Products p
+                LEFT JOIN SupplierDetails s ON p.supplier_id = s.id
+                LEFT JOIN Categories c ON p.category_id = c.id
+                WHERE p.quantity <= @quantity
+                ORDER BY p.quantity ASC;";
+
+            using (var conn = new SqlConnection(connString))
+            using (var cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@quantity", maxQuantity);
+
+                DataTable dt = new DataTable();
+                conn.Open();
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    dt.Load(reader);
+                }
+
+                dataGridView1.DataSource = dt;
+            }
+        }
+        private void FilterProductsByStatus(string status)
+        {
+            string connString = PAKOPointOfSale.Program.ConnString;
+            string query = @"
+                SELECT 
+                    p.id,
+                    p.product_name,
+                    p.product_brand,
+                    p.barcode,
+                    p.product_description,
+                    p.product_code,
+                    p.sku,
+                    p.quantity,
+                    p.unit_of_measurement,
+                    p.cost_price,
+                    p.unit_price,
+                    p.remarks,
+                    p.status,
+                    p.date_received,
+                    p.date_expiration,
+                    p.created_at,
+                    p.is_active,
+                    s.name AS supplier_name,
+                    c.name AS category_name
+                FROM Products p
+                LEFT JOIN SupplierDetails s ON p.supplier_id = s.id
+                LEFT JOIN Categories c ON p.category_id = c.id
+                WHERE p.status = @status
+                ORDER BY p.quantity ASC;";
+
+            using (var conn = new SqlConnection(connString))
+            using (var cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@status", status);
+
+                DataTable dt = new DataTable();
+                conn.Open();
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    dt.Load(reader);
+                }
+
+                dataGridView1.DataSource = dt;
+            }
+        }
+        private void FilterProductsByDateRange(DateTime from, DateTime to, string dateField)
+        {
+            string connString = PAKOPointOfSale.Program.ConnString;
+
+            string query = @"
+                    SELECT 
+                    p.id,
+                    p.product_name,
+                    p.product_brand,
+                    p.barcode,
+                    p.product_description,
+                    p.product_code,
+                    p.sku,
+                    p.quantity,
+                    p.unit_of_measurement,
+                    p.cost_price,
+                    p.unit_price,
+                    p.remarks,
+                    p.status,
+                    p.date_received,
+                    p.date_expiration,
+                    p.created_at,
+                    p.is_active,
+                    s.name AS supplier_name,
+                    c.name AS category_name
+                FROM Products p
+                LEFT JOIN SupplierDetails s ON p.supplier_id = s.id
+                LEFT JOIN Categories c ON p.category_id = c.id
+                WHERE p.date_received BETWEEN @from AND @to
+                ORDER BY " + "p." + dateField + " ASC;";
+
+            using (var conn = new SqlConnection(connString))
+            using (var cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@from", from);
+                cmd.Parameters.AddWithValue("@to", to);
+
+                DataTable dt = new DataTable();
+                conn.Open();
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    dt.Load(reader);
+                }
+
+                dataGridView1.DataSource = dt;
+            }
+        }
+
+        private void btnClearFilter_Click(object sender, EventArgs e)
+        {
+            LoadProducts();
+            cmbFilterType.SelectedIndex = 0;
         }
     }
 }

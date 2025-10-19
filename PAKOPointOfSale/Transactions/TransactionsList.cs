@@ -124,5 +124,10 @@ namespace PAKOPointOfSale.Transactions
                 dtgvTransactions.DataSource = dv;
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

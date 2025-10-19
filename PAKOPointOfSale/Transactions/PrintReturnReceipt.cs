@@ -118,7 +118,7 @@ namespace PAKOPointOfSale.Transactions
             try
             {
                 string appPath = Application.StartupPath;
-                string pdfPath = Path.Combine(appPath, $"Return_{invoiceNumber}.pdf");
+                string pdfPath = Path.Combine(appPath, $"Return_{returnNumber}.pdf");
 
                 var doc = new PdfDocument();
                 var page = doc.AddPage();

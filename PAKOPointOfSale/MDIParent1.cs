@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -97,7 +98,62 @@ namespace PAKOPointOfSale
 
         private void SuperAdminForm_Load(object sender, EventArgs e)
         {
+            DateTime today = DateTime.Today;
 
+            // Calculate the start of the week (Monday)
+            int diff = (7 + (today.DayOfWeek - DayOfWeek.Monday)) % 7;
+            DateTime weekStart = today.AddDays(-diff);
+
+            // End of the week (Sunday)
+            DateTime weekEnd = weekStart.AddDays(6);
+
+            // Set the DateTimePickers
+            dtpFrom.Value = weekStart;
+            dtpTo.Value = weekEnd;
+
+            // Load grid for this week
+            LoadTop5SellingProducts(weekStart, weekEnd);
+            comboBoxSalesFilter.SelectedItem = "Daily"; // default
+            timeReloadData.Start();
+        }
+
+        private void LoadTop5SellingProducts(DateTime fromDate, DateTime toDate)
+        {
+            string connString = Program.ConnString;
+
+            string query = @"
+                SELECT TOP 5
+                    p.product_name AS [product_name],
+                    SUM(sii.quantity) AS [total_quantity_sold],
+                    SUM(sii.total_amount) AS [total_sales]
+                FROM SalesInvoiceItems sii
+                INNER JOIN Products p ON sii.product_id = p.id
+                INNER JOIN [Transactions] t ON sii.transaction_id = t.id
+                WHERE t.transaction_type = 'Sales Invoice'
+                      AND t.status = 'success'
+                      AND t.invoice_number NOT IN (SELECT invoice_number FROM VoidTransactions)
+                      AND t.invoice_number NOT IN (SELECT invoice_number FROM ReturnTransactions)
+                      AND t.created_at BETWEEN @from AND @to
+                GROUP BY p.product_name
+                ORDER BY SUM(sii.quantity) DESC;
+            ";
+
+            using (var conn = new SqlConnection(connString))
+            using (var cmd = new SqlCommand(query, conn))
+            {
+
+                cmd.Parameters.AddWithValue("@from", fromDate);
+                cmd.Parameters.AddWithValue("@to", toDate.AddDays(1).AddTicks(-1));
+
+                DataTable dt = new DataTable();
+                conn.Open();
+
+                using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                {
+                    adapter.Fill(dt);
+                }
+                dtgvTop5SellingProducts.DataSource = dt;
+            }
         }
 
         private void usersToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -140,6 +196,122 @@ namespace PAKOPointOfSale
         {
             Transactions.TransactionsList transactionsListForm = new Transactions.TransactionsList();
             transactionsListForm.Show();
+        }
+
+        private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            DateTime fromDate = dtpFrom.Value.Date;
+            DateTime toDate = dtpTo.Value.Date;
+
+            if (fromDate > toDate)
+            {
+                MessageBox.Show("Start date cannot be later than end date.", "Invalid Date Range", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            LoadTop5SellingProducts(fromDate, toDate);
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DateTime today = DateTime.Today;
+            DateTime fromDate;
+            DateTime toDate = today;
+
+            switch (comboBoxSalesFilter.SelectedItem.ToString())
+            {
+                case "Daily":
+                    fromDate = today;
+                    break;
+                case "Weekly":
+                    int diff = (7 + (today.DayOfWeek - DayOfWeek.Monday)) % 7;
+                    fromDate = today.AddDays(-diff);
+                    toDate = fromDate.AddDays(6);
+                    break;
+                case "Monthly":
+                    fromDate = new DateTime(today.Year, today.Month, 1);
+                    toDate = fromDate.AddMonths(1).AddDays(-1);
+                    break;
+                case "Yearly":
+                    fromDate = new DateTime(today.Year, 1, 1);
+                    toDate = new DateTime(today.Year, 12, 31);
+                    break;
+                default:
+                    fromDate = today;
+                    break;
+            }
+
+
+
+            LoadSales(fromDate, toDate);
+        }
+
+        private void LoadSales(DateTime fromDate, DateTime toDate)
+        {
+            string connString = Program.ConnString;
+
+            string query = @"
+                            SELECT
+                                SUM(sii.unit_price * sii.quantity) AS gross_sales,
+                                SUM(sii.unit_price * sii.quantity) AS grand_total,
+                                SUM(sii.vatable_sales) AS net_sales
+                            FROM [Transactions] t
+                            INNER JOIN SalesInvoiceItems sii ON sii.transaction_id = t.id
+                            WHERE t.transaction_type = 'Sales Invoice'
+                                  AND t.status = 'success'
+                                  AND t.invoice_number NOT IN (SELECT invoice_number FROM VoidTransactions)
+                                  AND t.invoice_number NOT IN (SELECT invoice_number FROM ReturnTransactions)
+                                  AND t.created_at BETWEEN @from AND @to;
+                        ";
+            using (var conn = new SqlConnection(connString))
+            using (var cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@from", fromDate.Date);
+                cmd.Parameters.AddWithValue("@to", toDate.Date.AddDays(1).AddTicks(-1));
+
+                conn.Open();
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        decimal grossSales = reader["gross_sales"] != DBNull.Value ? Convert.ToDecimal(reader["gross_sales"]) : 0;
+                        decimal netSales = reader["net_sales"] != DBNull.Value ? Convert.ToDecimal(reader["net_sales"]) : 0;
+                        decimal grandTotal = reader["grand_total"] != DBNull.Value ? Convert.ToDecimal(reader["grand_total"]) : 0;
+
+                        lblGrossSales.Text = grossSales.ToString("C2");
+                        lblNetSales.Text = netSales.ToString("C2");
+                        lblGrandTotal.Text = grandTotal.ToString("C2");
+                    }
+                }
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            DateTime fromDate = dtpFromSales.Value.Date;
+            DateTime toDate = dtpToSales.Value.Date;
+
+            if (fromDate > toDate)
+            {
+                MessageBox.Show("Start date cannot be later than end date.", "Invalid Date Range", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            LoadSales(fromDate, toDate);
+
+        }
+
+        private void timeReloadData_Tick(object sender, EventArgs e)
+        {
+            LoadSales(Convert.ToDateTime(dtpFromSales.Value.Date), Convert.ToDateTime(dtpToSales.Value.Date));
+            LoadTop5SellingProducts(Convert.ToDateTime(dtpFrom.Value.Date), Convert.ToDateTime(dtpTo.Value.Date));
         }
     }
 }
