@@ -43,6 +43,9 @@
     <Compile Update="Transactions\EditQuantity.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Transactions\Return\ReturnForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Transactions\SalesInvoice.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +79,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Categories\CategoriesList.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Transactions\ViewTransaction.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>

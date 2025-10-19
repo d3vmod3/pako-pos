@@ -34,21 +34,6 @@
             userTypeBindingSource = new BindingSource(components);
             btnSearchProduct = new Button();
             dtgvCart = new DataGridView();
-            id = new DataGridViewTextBoxColumn();
-            select = new DataGridViewCheckBoxColumn();
-            product = new DataGridViewTextBoxColumn();
-            brand = new DataGridViewTextBoxColumn();
-            unit_of_measurement = new DataGridViewTextBoxColumn();
-            appliedQty = new DataGridViewTextBoxColumn();
-            unit_price = new DataGridViewTextBoxColumn();
-            category = new DataGridViewTextBoxColumn();
-            discountType = new DataGridViewTextBoxColumn();
-            discountAmount = new DataGridViewTextBoxColumn();
-            subTotal = new DataGridViewTextBoxColumn();
-            vatableSales = new DataGridViewTextBoxColumn();
-            vatAmount = new DataGridViewTextBoxColumn();
-            vatExempt = new DataGridViewTextBoxColumn();
-            remove = new DataGridViewButtonColumn();
             label1 = new Label();
             btnConfirm = new Button();
             button2 = new Button();
@@ -91,6 +76,21 @@
             lblTime = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
             btnClose = new Button();
+            id = new DataGridViewTextBoxColumn();
+            select = new DataGridViewCheckBoxColumn();
+            product = new DataGridViewTextBoxColumn();
+            brand = new DataGridViewTextBoxColumn();
+            unit_of_measurement = new DataGridViewTextBoxColumn();
+            appliedQty = new DataGridViewTextBoxColumn();
+            unit_price = new DataGridViewTextBoxColumn();
+            category = new DataGridViewTextBoxColumn();
+            discountType = new DataGridViewTextBoxColumn();
+            discountAmount = new DataGridViewTextBoxColumn();
+            subTotal = new DataGridViewTextBoxColumn();
+            vatableSales = new DataGridViewTextBoxColumn();
+            vatAmount = new DataGridViewTextBoxColumn();
+            vatExempt = new DataGridViewTextBoxColumn();
+            remove = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)productBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)userTypeBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dtgvCart).BeginInit();
@@ -139,98 +139,6 @@
             dtgvCart.CellValueChanged += dtgvCart_CellValueChanged;
             dtgvCart.EditingControlShowing += dtgvCart_EditingControlShowing;
             dtgvCart.KeyPress += dtgvCart_KeyPress;
-            // 
-            // id
-            // 
-            id.HeaderText = "ID";
-            id.Name = "id";
-            id.Visible = false;
-            // 
-            // select
-            // 
-            select.FalseValue = "0";
-            select.HeaderText = "Select to Apply Discount";
-            select.Name = "select";
-            select.TrueValue = "1";
-            // 
-            // product
-            // 
-            product.HeaderText = "Product";
-            product.Name = "product";
-            product.ReadOnly = true;
-            // 
-            // brand
-            // 
-            brand.HeaderText = "Brand";
-            brand.Name = "brand";
-            brand.ReadOnly = true;
-            // 
-            // unit_of_measurement
-            // 
-            unit_of_measurement.HeaderText = "Unit";
-            unit_of_measurement.Name = "unit_of_measurement";
-            unit_of_measurement.ReadOnly = true;
-            // 
-            // appliedQty
-            // 
-            appliedQty.HeaderText = "Quantity";
-            appliedQty.Name = "appliedQty";
-            // 
-            // unit_price
-            // 
-            unit_price.HeaderText = "Price";
-            unit_price.Name = "unit_price";
-            unit_price.ReadOnly = true;
-            // 
-            // category
-            // 
-            category.HeaderText = "Category";
-            category.Name = "category";
-            category.ReadOnly = true;
-            // 
-            // discountType
-            // 
-            discountType.DataPropertyName = "discountType";
-            discountType.HeaderText = "Discount Type";
-            discountType.Name = "discountType";
-            discountType.ReadOnly = true;
-            // 
-            // discountAmount
-            // 
-            discountAmount.DataPropertyName = "discountAmount";
-            discountAmount.HeaderText = "Discount Amount";
-            discountAmount.Name = "discountAmount";
-            // 
-            // subTotal
-            // 
-            subTotal.DataPropertyName = "subTotal";
-            subTotal.HeaderText = "Sub Total";
-            subTotal.Name = "subTotal";
-            // 
-            // vatableSales
-            // 
-            vatableSales.DataPropertyName = "vatableSales";
-            vatableSales.HeaderText = "VATable Sales";
-            vatableSales.Name = "vatableSales";
-            // 
-            // vatAmount
-            // 
-            vatAmount.DataPropertyName = "vatAmount";
-            vatAmount.HeaderText = "VAT Amount";
-            vatAmount.Name = "vatAmount";
-            // 
-            // vatExempt
-            // 
-            vatExempt.DataPropertyName = "vatExempt";
-            vatExempt.HeaderText = "VAT Exempt";
-            vatExempt.Name = "vatExempt";
-            // 
-            // remove
-            // 
-            remove.HeaderText = "";
-            remove.Name = "remove";
-            remove.Text = "Remove";
-            remove.UseColumnTextForButtonValue = true;
             // 
             // label1
             // 
@@ -727,6 +635,98 @@
             btnClose.UseVisualStyleBackColor = false;
             btnClose.Click += btnClose_Click;
             // 
+            // id
+            // 
+            id.HeaderText = "ID";
+            id.Name = "id";
+            id.Visible = false;
+            // 
+            // select
+            // 
+            select.FalseValue = "0";
+            select.HeaderText = "Select to Apply Discount";
+            select.Name = "select";
+            select.TrueValue = "1";
+            // 
+            // product
+            // 
+            product.HeaderText = "Product";
+            product.Name = "product";
+            product.ReadOnly = true;
+            // 
+            // brand
+            // 
+            brand.HeaderText = "Brand";
+            brand.Name = "brand";
+            brand.ReadOnly = true;
+            // 
+            // unit_of_measurement
+            // 
+            unit_of_measurement.HeaderText = "Unit";
+            unit_of_measurement.Name = "unit_of_measurement";
+            unit_of_measurement.ReadOnly = true;
+            // 
+            // appliedQty
+            // 
+            appliedQty.HeaderText = "Quantity";
+            appliedQty.Name = "appliedQty";
+            // 
+            // unit_price
+            // 
+            unit_price.HeaderText = "Price";
+            unit_price.Name = "unit_price";
+            unit_price.ReadOnly = true;
+            // 
+            // category
+            // 
+            category.DataPropertyName = "category";
+            category.HeaderText = "Category";
+            category.Name = "category";
+            // 
+            // discountType
+            // 
+            discountType.DataPropertyName = "discountType";
+            discountType.HeaderText = "Discount Type";
+            discountType.Name = "discountType";
+            discountType.ReadOnly = true;
+            // 
+            // discountAmount
+            // 
+            discountAmount.DataPropertyName = "discountAmount";
+            discountAmount.HeaderText = "Discount Amount";
+            discountAmount.Name = "discountAmount";
+            // 
+            // subTotal
+            // 
+            subTotal.DataPropertyName = "subTotal";
+            subTotal.HeaderText = "Sub Total";
+            subTotal.Name = "subTotal";
+            // 
+            // vatableSales
+            // 
+            vatableSales.DataPropertyName = "vatableSales";
+            vatableSales.HeaderText = "VATable Sales";
+            vatableSales.Name = "vatableSales";
+            // 
+            // vatAmount
+            // 
+            vatAmount.DataPropertyName = "vatAmount";
+            vatAmount.HeaderText = "VAT Amount";
+            vatAmount.Name = "vatAmount";
+            // 
+            // vatExempt
+            // 
+            vatExempt.DataPropertyName = "vatExempt";
+            vatExempt.HeaderText = "VAT Exempt";
+            vatExempt.Name = "vatExempt";
+            // 
+            // remove
+            // 
+            remove.HeaderText = "";
+            remove.Name = "remove";
+            remove.Text = "Remove";
+            remove.UseColumnTextForButtonValue = true;
+            // 
             // SalesInvoice
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -806,21 +806,6 @@
         private Button btn00;
         private Button btnApplyDiscount;
         private Panel panel1;
-        private DataGridViewTextBoxColumn id;
-        private DataGridViewCheckBoxColumn select;
-        private DataGridViewTextBoxColumn product;
-        private DataGridViewTextBoxColumn brand;
-        private DataGridViewTextBoxColumn unit_of_measurement;
-        private DataGridViewTextBoxColumn appliedQty;
-        private DataGridViewTextBoxColumn unit_price;
-        private DataGridViewTextBoxColumn category;
-        private DataGridViewTextBoxColumn discountType;
-        private DataGridViewTextBoxColumn discountAmount;
-        private DataGridViewTextBoxColumn subTotal;
-        private DataGridViewTextBoxColumn vatableSales;
-        private DataGridViewTextBoxColumn vatAmount;
-        private DataGridViewTextBoxColumn vatExempt;
-        private DataGridViewButtonColumn remove;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private PictureBox pictureBox2;
         private PictureBox pictureBox1;
@@ -832,5 +817,20 @@
         private Label lblTime;
         private System.Windows.Forms.Timer timer1;
         private Button btnClose;
+        private DataGridViewTextBoxColumn id;
+        private DataGridViewCheckBoxColumn select;
+        private DataGridViewTextBoxColumn product;
+        private DataGridViewTextBoxColumn brand;
+        private DataGridViewTextBoxColumn unit_of_measurement;
+        private DataGridViewTextBoxColumn appliedQty;
+        private DataGridViewTextBoxColumn unit_price;
+        private DataGridViewTextBoxColumn discountType;
+        private DataGridViewTextBoxColumn discountAmount;
+        private DataGridViewTextBoxColumn subTotal;
+        private DataGridViewTextBoxColumn vatableSales;
+        private DataGridViewTextBoxColumn vatAmount;
+        private DataGridViewTextBoxColumn vatExempt;
+        private DataGridViewButtonColumn remove;
+        private DataGridViewTextBoxColumn category;
     }
 }

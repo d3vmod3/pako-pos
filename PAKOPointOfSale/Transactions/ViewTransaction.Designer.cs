@@ -1,4 +1,6 @@
-﻿namespace PAKOPointOfSale.Transactions
+﻿using System.ComponentModel;
+
+namespace PAKOPointOfSale.Transactions
 {
     partial class ViewTransaction
     {
@@ -29,25 +31,27 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewTransaction));
-            btnVoid = new Button();
+            btnProceed = new Button();
             dgvItems = new DataGridView();
-            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            productCode = new DataGridViewTextBoxColumn();
-            productName = new DataGridViewTextBoxColumn();
-            transactionidDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            productidDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            quantityDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            unitpriceDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            vatamountDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            vatablesalesDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            vatexemptDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            discountDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            discounttypeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            totalamountDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            unitofmeasurementDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            transactionDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            productDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            id = new DataGridViewTextBoxColumn();
+            product_id = new DataGridViewTextBoxColumn();
+            select = new DataGridViewCheckBoxColumn();
+            product_code = new DataGridViewTextBoxColumn();
+            product_name = new DataGridViewTextBoxColumn();
+            product_brand = new DataGridViewTextBoxColumn();
+            transaction_id = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            quantity = new DataGridViewTextBoxColumn();
+            unit_price = new DataGridViewTextBoxColumn();
+            vat_amount = new DataGridViewTextBoxColumn();
+            vatable_sales = new DataGridViewTextBoxColumn();
+            vat_exempt = new DataGridViewTextBoxColumn();
+            discount = new DataGridViewTextBoxColumn();
+            discount_type = new DataGridViewTextBoxColumn();
+            total_amount = new DataGridViewTextBoxColumn();
+            unit_of_measurement = new DataGridViewTextBoxColumn();
+            transaction = new DataGridViewTextBoxColumn();
+            product = new DataGridViewTextBoxColumn();
             salesInvoiceItemBindingSource = new BindingSource(components);
             label1 = new Label();
             label2 = new Label();
@@ -71,12 +75,13 @@
             label11 = new Label();
             lblChange = new Label();
             label12 = new Label();
-            btnReturn = new Button();
-            button1 = new Button();
-            pictureBox3 = new PictureBox();
-            pictureBox2 = new PictureBox();
-            pictureBox1 = new PictureBox();
+            btnViewReceipt = new Button();
+            cmbInvoiceAction = new ComboBox();
             label9 = new Label();
+            lblTransactionType = new Label();
+            label14 = new Label();
+            lblAdjustmentNumber = new Label();
+            lblReturnNote = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvItems).BeginInit();
             ((System.ComponentModel.ISupportInitialize)salesInvoiceItemBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -84,18 +89,15 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
-            // btnVoid
+            // btnProceed
             // 
-            btnVoid.BackColor = Color.ForestGreen;
-            btnVoid.FlatStyle = FlatStyle.Popup;
-            btnVoid.ForeColor = Color.White;
-            btnVoid.Location = new Point(1198, 282);
-            btnVoid.Name = "btnVoid";
-            btnVoid.Size = new Size(75, 23);
-            btnVoid.TabIndex = 0;
-            btnVoid.Text = "Void";
-            btnVoid.UseVisualStyleBackColor = false;
-            btnVoid.Click += btnVoid_Click;
+            btnProceed.Location = new Point(713, 515);
+            btnProceed.Name = "btnProceed";
+            btnProceed.Size = new Size(75, 23);
+            btnProceed.TabIndex = 0;
+            btnProceed.Text = "Proceed";
+            btnProceed.UseVisualStyleBackColor = true;
+            btnProceed.Click += btnProceed_Click;
             // 
             // dgvItems
             // 
@@ -105,130 +107,137 @@
             dgvItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvItems.BackgroundColor = SystemColors.ScrollBar;
             dgvItems.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvItems.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, productCode, productName, transactionidDataGridViewTextBoxColumn, productidDataGridViewTextBoxColumn, quantityDataGridViewTextBoxColumn, unitpriceDataGridViewTextBoxColumn, vatamountDataGridViewTextBoxColumn, vatablesalesDataGridViewTextBoxColumn, vatexemptDataGridViewTextBoxColumn, discountDataGridViewTextBoxColumn, discounttypeDataGridViewTextBoxColumn, totalamountDataGridViewTextBoxColumn, unitofmeasurementDataGridViewTextBoxColumn, transactionDataGridViewTextBoxColumn, productDataGridViewTextBoxColumn });
+            dgvItems.Columns.AddRange(new DataGridViewColumn[] { id, product_id, select, product_code, product_name, product_brand, transaction_id, dataGridViewTextBoxColumn1, quantity, unit_price, vat_amount, vatable_sales, vat_exempt, discount, discount_type, total_amount, unit_of_measurement, transaction, product });
             dgvItems.DataSource = salesInvoiceItemBindingSource;
-            dgvItems.Location = new Point(12, 311);
+            dgvItems.Location = new Point(12, 270);
             dgvItems.Name = "dgvItems";
-            dgvItems.ReadOnly = true;
-            dgvItems.Size = new Size(1346, 350);
+            dgvItems.Size = new Size(776, 239);
             dgvItems.TabIndex = 1;
+            dgvItems.CellContentClick += dgvItems_CellContentClick;
             // 
-            // idDataGridViewTextBoxColumn
+            // id
             // 
-            idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            idDataGridViewTextBoxColumn.HeaderText = "id";
-            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            idDataGridViewTextBoxColumn.ReadOnly = true;
-            idDataGridViewTextBoxColumn.Visible = false;
+            id.DataPropertyName = "id";
+            id.HeaderText = "id";
+            id.Name = "id";
+            id.Visible = false;
             // 
-            // productCode
+            // product_id
             // 
-            productCode.DataPropertyName = "id";
-            productCode.HeaderText = "Prodcut Code";
-            productCode.Name = "productCode";
-            productCode.ReadOnly = true;
+            product_id.DataPropertyName = "product_id";
+            product_id.HeaderText = "product_id";
+            product_id.Name = "product_id";
             // 
-            // productName
+            // select
             // 
-            productName.DataPropertyName = "id";
-            productName.HeaderText = "Product";
-            productName.Name = "productName";
-            productName.ReadOnly = true;
+            select.DataPropertyName = "select";
+            select.FalseValue = "0";
+            select.HeaderText = "Select an Item To Return";
+            select.Name = "select";
+            select.Resizable = DataGridViewTriState.True;
+            select.SortMode = DataGridViewColumnSortMode.Automatic;
+            select.TrueValue = "1";
+            select.Visible = false;
             // 
-            // transactionidDataGridViewTextBoxColumn
+            // product_code
             // 
-            transactionidDataGridViewTextBoxColumn.DataPropertyName = "transaction_id";
-            transactionidDataGridViewTextBoxColumn.HeaderText = "transaction_id";
-            transactionidDataGridViewTextBoxColumn.Name = "transactionidDataGridViewTextBoxColumn";
-            transactionidDataGridViewTextBoxColumn.ReadOnly = true;
-            transactionidDataGridViewTextBoxColumn.Visible = false;
+            product_code.DataPropertyName = "product_code";
+            product_code.HeaderText = "Product Code";
+            product_code.Name = "product_code";
             // 
-            // productidDataGridViewTextBoxColumn
+            // product_name
             // 
-            productidDataGridViewTextBoxColumn.DataPropertyName = "product_id";
-            productidDataGridViewTextBoxColumn.HeaderText = "product_id";
-            productidDataGridViewTextBoxColumn.Name = "productidDataGridViewTextBoxColumn";
-            productidDataGridViewTextBoxColumn.ReadOnly = true;
-            productidDataGridViewTextBoxColumn.Visible = false;
+            product_name.DataPropertyName = "product_name";
+            product_name.HeaderText = "Product";
+            product_name.Name = "product_name";
             // 
-            // quantityDataGridViewTextBoxColumn
+            // product_brand
             // 
-            quantityDataGridViewTextBoxColumn.DataPropertyName = "quantity";
-            quantityDataGridViewTextBoxColumn.HeaderText = "Applied Quantity";
-            quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
-            quantityDataGridViewTextBoxColumn.ReadOnly = true;
+            product_brand.DataPropertyName = "product_brand";
+            product_brand.HeaderText = "Brand";
+            product_brand.Name = "product_brand";
             // 
-            // unitpriceDataGridViewTextBoxColumn
+            // transaction_id
             // 
-            unitpriceDataGridViewTextBoxColumn.DataPropertyName = "unit_price";
-            unitpriceDataGridViewTextBoxColumn.HeaderText = "Unit Price";
-            unitpriceDataGridViewTextBoxColumn.Name = "unitpriceDataGridViewTextBoxColumn";
-            unitpriceDataGridViewTextBoxColumn.ReadOnly = true;
+            transaction_id.DataPropertyName = "transaction_id";
+            transaction_id.HeaderText = "transaction_id";
+            transaction_id.Name = "transaction_id";
+            transaction_id.Visible = false;
             // 
-            // vatamountDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn1
             // 
-            vatamountDataGridViewTextBoxColumn.DataPropertyName = "vat_amount";
-            vatamountDataGridViewTextBoxColumn.HeaderText = "VAT Amount";
-            vatamountDataGridViewTextBoxColumn.Name = "vatamountDataGridViewTextBoxColumn";
-            vatamountDataGridViewTextBoxColumn.ReadOnly = true;
+            dataGridViewTextBoxColumn1.DataPropertyName = "product_id";
+            dataGridViewTextBoxColumn1.HeaderText = "product_id";
+            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            dataGridViewTextBoxColumn1.Visible = false;
             // 
-            // vatablesalesDataGridViewTextBoxColumn
+            // quantity
             // 
-            vatablesalesDataGridViewTextBoxColumn.DataPropertyName = "vatable_sales";
-            vatablesalesDataGridViewTextBoxColumn.HeaderText = "VATable Sales";
-            vatablesalesDataGridViewTextBoxColumn.Name = "vatablesalesDataGridViewTextBoxColumn";
-            vatablesalesDataGridViewTextBoxColumn.ReadOnly = true;
+            quantity.DataPropertyName = "quantity";
+            quantity.HeaderText = "Applied Quantity";
+            quantity.Name = "quantity";
             // 
-            // vatexemptDataGridViewTextBoxColumn
+            // unit_price
             // 
-            vatexemptDataGridViewTextBoxColumn.DataPropertyName = "vat_exempt";
-            vatexemptDataGridViewTextBoxColumn.HeaderText = "VAT Exempt";
-            vatexemptDataGridViewTextBoxColumn.Name = "vatexemptDataGridViewTextBoxColumn";
-            vatexemptDataGridViewTextBoxColumn.ReadOnly = true;
+            unit_price.DataPropertyName = "unit_price";
+            unit_price.HeaderText = "Unit Price";
+            unit_price.Name = "unit_price";
             // 
-            // discountDataGridViewTextBoxColumn
+            // vat_amount
             // 
-            discountDataGridViewTextBoxColumn.DataPropertyName = "discount";
-            discountDataGridViewTextBoxColumn.HeaderText = "Discount Amount";
-            discountDataGridViewTextBoxColumn.Name = "discountDataGridViewTextBoxColumn";
-            discountDataGridViewTextBoxColumn.ReadOnly = true;
+            vat_amount.DataPropertyName = "vat_amount";
+            vat_amount.HeaderText = "VAT Amount";
+            vat_amount.Name = "vat_amount";
             // 
-            // discounttypeDataGridViewTextBoxColumn
+            // vatable_sales
             // 
-            discounttypeDataGridViewTextBoxColumn.DataPropertyName = "discount_type";
-            discounttypeDataGridViewTextBoxColumn.HeaderText = "Discount Type";
-            discounttypeDataGridViewTextBoxColumn.Name = "discounttypeDataGridViewTextBoxColumn";
-            discounttypeDataGridViewTextBoxColumn.ReadOnly = true;
+            vatable_sales.DataPropertyName = "vatable_sales";
+            vatable_sales.HeaderText = "VATable Sales";
+            vatable_sales.Name = "vatable_sales";
             // 
-            // totalamountDataGridViewTextBoxColumn
+            // vat_exempt
             // 
-            totalamountDataGridViewTextBoxColumn.DataPropertyName = "total_amount";
-            totalamountDataGridViewTextBoxColumn.HeaderText = "Subtotal";
-            totalamountDataGridViewTextBoxColumn.Name = "totalamountDataGridViewTextBoxColumn";
-            totalamountDataGridViewTextBoxColumn.ReadOnly = true;
+            vat_exempt.DataPropertyName = "vat_exempt";
+            vat_exempt.HeaderText = "VAT Exempt";
+            vat_exempt.Name = "vat_exempt";
             // 
-            // unitofmeasurementDataGridViewTextBoxColumn
+            // discount
             // 
-            unitofmeasurementDataGridViewTextBoxColumn.DataPropertyName = "unit_of_measurement";
-            unitofmeasurementDataGridViewTextBoxColumn.HeaderText = "Unit";
-            unitofmeasurementDataGridViewTextBoxColumn.Name = "unitofmeasurementDataGridViewTextBoxColumn";
-            unitofmeasurementDataGridViewTextBoxColumn.ReadOnly = true;
+            discount.DataPropertyName = "discount";
+            discount.HeaderText = "Discount Amount";
+            discount.Name = "discount";
             // 
-            // transactionDataGridViewTextBoxColumn
+            // discount_type
             // 
-            transactionDataGridViewTextBoxColumn.DataPropertyName = "transaction";
-            transactionDataGridViewTextBoxColumn.HeaderText = "transaction";
-            transactionDataGridViewTextBoxColumn.Name = "transactionDataGridViewTextBoxColumn";
-            transactionDataGridViewTextBoxColumn.ReadOnly = true;
-            transactionDataGridViewTextBoxColumn.Visible = false;
+            discount_type.DataPropertyName = "discount_type";
+            discount_type.HeaderText = "Discount Type";
+            discount_type.Name = "discount_type";
             // 
-            // productDataGridViewTextBoxColumn
+            // total_amount
             // 
-            productDataGridViewTextBoxColumn.DataPropertyName = "product";
-            productDataGridViewTextBoxColumn.HeaderText = "product";
-            productDataGridViewTextBoxColumn.Name = "productDataGridViewTextBoxColumn";
-            productDataGridViewTextBoxColumn.ReadOnly = true;
-            productDataGridViewTextBoxColumn.Visible = false;
+            total_amount.DataPropertyName = "total_amount";
+            total_amount.HeaderText = "Subtotal";
+            total_amount.Name = "total_amount";
+            // 
+            // unit_of_measurement
+            // 
+            unit_of_measurement.DataPropertyName = "unit_of_measurement";
+            unit_of_measurement.HeaderText = "Unit";
+            unit_of_measurement.Name = "unit_of_measurement";
+            // 
+            // transaction
+            // 
+            transaction.DataPropertyName = "transaction";
+            transaction.HeaderText = "transaction";
+            transaction.Name = "transaction";
+            transaction.Visible = false;
+            // 
+            // product
+            // 
+            product.DataPropertyName = "product";
+            product.HeaderText = "product";
+            product.Name = "product";
+            product.Visible = false;
             // 
             // salesInvoiceItemBindingSource
             // 
@@ -237,9 +246,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(64, 174);
+            label1.Location = new Point(12, 107);
             label1.Name = "label1";
             label1.Size = new Size(130, 18);
             label1.TabIndex = 2;
@@ -259,9 +266,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
-            label3.ForeColor = Color.White;
-            label3.Location = new Point(61, 218);
+            label3.Location = new Point(12, 133);
             label3.Name = "label3";
             label3.Size = new Size(211, 18);
             label3.TabIndex = 4;
@@ -270,9 +275,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
-            label4.ForeColor = Color.White;
-            label4.Location = new Point(64, 267);
+            label4.Location = new Point(289, 29);
             label4.Name = "label4";
             label4.Size = new Size(75, 18);
             label4.TabIndex = 5;
@@ -281,9 +284,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
-            label5.ForeColor = Color.White;
-            label5.Location = new Point(488, 143);
+            label5.Location = new Point(289, 56);
             label5.Name = "label5";
             label5.Size = new Size(121, 18);
             label5.TabIndex = 6;
@@ -292,9 +293,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
-            label6.ForeColor = Color.White;
-            label6.Location = new Point(491, 206);
+            label6.Location = new Point(289, 83);
             label6.Name = "label6";
             label6.Size = new Size(105, 18);
             label6.TabIndex = 7;
@@ -303,9 +302,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
-            label7.ForeColor = Color.White;
-            label7.Location = new Point(488, 263);
+            label7.Location = new Point(289, 107);
             label7.Name = "label7";
             label7.Size = new Size(104, 18);
             label7.TabIndex = 8;
@@ -314,9 +311,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
-            label8.ForeColor = Color.White;
-            label8.Location = new Point(815, 144);
+            label8.Location = new Point(289, 133);
             label8.Name = "label8";
             label8.Size = new Size(102, 18);
             label8.TabIndex = 9;
@@ -338,11 +333,7 @@
             // lblInvoiceNumber
             // 
             lblInvoiceNumber.AutoSize = true;
-            lblInvoiceNumber.BackColor = Color.Silver;
-            lblInvoiceNumber.FlatStyle = FlatStyle.Popup;
-            lblInvoiceNumber.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
-            lblInvoiceNumber.ForeColor = Color.Black;
-            lblInvoiceNumber.Location = new Point(285, 174);
+            lblInvoiceNumber.Location = new Point(113, 107);
             lblInvoiceNumber.Name = "lblInvoiceNumber";
             lblInvoiceNumber.Size = new Size(62, 18);
             lblInvoiceNumber.TabIndex = 11;
@@ -351,11 +342,7 @@
             // lblTransactionDate
             // 
             lblTransactionDate.AutoSize = true;
-            lblTransactionDate.BackColor = Color.Silver;
-            lblTransactionDate.FlatStyle = FlatStyle.Popup;
-            lblTransactionDate.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
-            lblTransactionDate.ForeColor = Color.Black;
-            lblTransactionDate.Location = new Point(287, 218);
+            lblTransactionDate.Location = new Point(166, 133);
             lblTransactionDate.Name = "lblTransactionDate";
             lblTransactionDate.Size = new Size(86, 18);
             lblTransactionDate.TabIndex = 12;
@@ -364,11 +351,7 @@
             // lblSubTotal
             // 
             lblSubTotal.AutoSize = true;
-            lblSubTotal.BackColor = Color.Silver;
-            lblSubTotal.FlatStyle = FlatStyle.Popup;
-            lblSubTotal.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
-            lblSubTotal.ForeColor = Color.Black;
-            lblSubTotal.Location = new Point(287, 269);
+            lblSubTotal.Location = new Point(383, 29);
             lblSubTotal.Name = "lblSubTotal";
             lblSubTotal.Size = new Size(40, 18);
             lblSubTotal.TabIndex = 13;
@@ -377,10 +360,7 @@
             // lblVatableSales
             // 
             lblVatableSales.AutoSize = true;
-            lblVatableSales.BackColor = Color.Silver;
-            lblVatableSales.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
-            lblVatableSales.ForeColor = Color.Black;
-            lblVatableSales.Location = new Point(609, 143);
+            lblVatableSales.Location = new Point(383, 56);
             lblVatableSales.Name = "lblVatableSales";
             lblVatableSales.Size = new Size(40, 18);
             lblVatableSales.TabIndex = 14;
@@ -389,10 +369,7 @@
             // lblVatAmount
             // 
             lblVatAmount.AutoSize = true;
-            lblVatAmount.BackColor = Color.Silver;
-            lblVatAmount.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
-            lblVatAmount.ForeColor = Color.Black;
-            lblVatAmount.Location = new Point(609, 206);
+            lblVatAmount.Location = new Point(383, 83);
             lblVatAmount.Name = "lblVatAmount";
             lblVatAmount.Size = new Size(40, 18);
             lblVatAmount.TabIndex = 15;
@@ -401,10 +378,7 @@
             // lblVatExempt
             // 
             lblVatExempt.AutoSize = true;
-            lblVatExempt.BackColor = Color.Silver;
-            lblVatExempt.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
-            lblVatExempt.ForeColor = Color.Black;
-            lblVatExempt.Location = new Point(609, 263);
+            lblVatExempt.Location = new Point(383, 107);
             lblVatExempt.Name = "lblVatExempt";
             lblVatExempt.Size = new Size(40, 18);
             lblVatExempt.TabIndex = 16;
@@ -413,10 +387,7 @@
             // lblGrandTotal
             // 
             lblGrandTotal.AutoSize = true;
-            lblGrandTotal.BackColor = Color.DarkOrange;
-            lblGrandTotal.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
-            lblGrandTotal.ForeColor = Color.Black;
-            lblGrandTotal.Location = new Point(963, 143);
+            lblGrandTotal.Location = new Point(383, 133);
             lblGrandTotal.Name = "lblGrandTotal";
             lblGrandTotal.Size = new Size(40, 18);
             lblGrandTotal.TabIndex = 17;
@@ -425,10 +396,7 @@
             // lblPaymentMethod
             // 
             lblPaymentMethod.AutoSize = true;
-            lblPaymentMethod.BackColor = Color.DarkOrange;
-            lblPaymentMethod.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
-            lblPaymentMethod.ForeColor = Color.Black;
-            lblPaymentMethod.Location = new Point(959, 183);
+            lblPaymentMethod.Location = new Point(394, 160);
             lblPaymentMethod.Name = "lblPaymentMethod";
             lblPaymentMethod.Size = new Size(44, 18);
             lblPaymentMethod.TabIndex = 19;
@@ -437,9 +405,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
-            label10.ForeColor = Color.White;
-            label10.Location = new Point(815, 183);
+            label10.Location = new Point(289, 160);
             label10.Name = "label10";
             label10.Size = new Size(139, 18);
             label10.TabIndex = 18;
@@ -448,10 +414,7 @@
             // lblCashReceived
             // 
             lblCashReceived.AutoSize = true;
-            lblCashReceived.BackColor = Color.DarkOrange;
-            lblCashReceived.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
-            lblCashReceived.ForeColor = Color.Black;
-            lblCashReceived.Location = new Point(963, 226);
+            lblCashReceived.Location = new Point(394, 188);
             lblCashReceived.Name = "lblCashReceived";
             lblCashReceived.Size = new Size(40, 18);
             lblCashReceived.TabIndex = 21;
@@ -460,9 +423,7 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
-            label11.ForeColor = Color.White;
-            label11.Location = new Point(815, 226);
+            label11.Location = new Point(289, 188);
             label11.Name = "label11";
             label11.Size = new Size(126, 18);
             label11.TabIndex = 20;
@@ -471,10 +432,7 @@
             // lblChange
             // 
             lblChange.AutoSize = true;
-            lblChange.BackColor = Color.DarkOrange;
-            lblChange.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
-            lblChange.ForeColor = Color.Black;
-            lblChange.Location = new Point(963, 272);
+            lblChange.Location = new Point(394, 203);
             lblChange.Name = "lblChange";
             lblChange.Size = new Size(40, 18);
             lblChange.TabIndex = 23;
@@ -483,96 +441,90 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
-            label12.ForeColor = Color.White;
-            label12.Location = new Point(815, 272);
+            label12.Location = new Point(289, 203);
             label12.Name = "label12";
             label12.Size = new Size(65, 18);
             label12.TabIndex = 22;
             label12.Text = "Change";
             // 
-            // btnReturn
+            // btnViewReceipt
             // 
-            btnReturn.BackColor = Color.Red;
-            btnReturn.FlatStyle = FlatStyle.Popup;
-            btnReturn.ForeColor = Color.White;
-            btnReturn.Location = new Point(1283, 282);
-            btnReturn.Name = "btnReturn";
-            btnReturn.Size = new Size(75, 23);
-            btnReturn.TabIndex = 24;
-            btnReturn.Text = "Return";
-            btnReturn.UseVisualStyleBackColor = false;
+            btnViewReceipt.Location = new Point(668, 12);
+            btnViewReceipt.Name = "btnViewReceipt";
+            btnViewReceipt.Size = new Size(120, 23);
+            btnViewReceipt.TabIndex = 25;
+            btnViewReceipt.Text = "View Receipt";
+            btnViewReceipt.UseVisualStyleBackColor = true;
+            btnViewReceipt.Click += button1_Click;
             // 
-            // button1
+            // cmbInvoiceAction
             // 
-            button1.BackColor = Color.Goldenrod;
-            button1.FlatStyle = FlatStyle.Popup;
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(1064, 282);
-            button1.Name = "button1";
-            button1.Size = new Size(120, 23);
-            button1.TabIndex = 25;
-            button1.Text = "View Receipt";
-            button1.UseVisualStyleBackColor = false;
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.BackColor = SystemColors.ControlDarkDark;
-            pictureBox3.ErrorImage = null;
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.InitialImage = null;
-            pictureBox3.Location = new Point(-4, 667);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(1377, 83);
-            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox3.TabIndex = 153;
-            pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.BackColor = Color.DimGray;
-            pictureBox2.Location = new Point(-4, -1);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(1371, 104);
-            pictureBox2.TabIndex = 154;
-            pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.BackColor = Color.DimGray;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(-2, -1);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(256, 104);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 155;
-            pictureBox1.TabStop = false;
+            cmbInvoiceAction.FormattingEnabled = true;
+            cmbInvoiceAction.Items.AddRange(new object[] { "", "Void", "Return" });
+            cmbInvoiceAction.Location = new Point(586, 516);
+            cmbInvoiceAction.Name = "cmbInvoiceAction";
+            cmbInvoiceAction.Size = new Size(121, 23);
+            cmbInvoiceAction.TabIndex = 26;
+            cmbInvoiceAction.SelectedIndexChanged += cmbInvoiceAction_SelectedIndexChanged;
             // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.BackColor = SystemColors.ControlDarkDark;
-            label9.FlatStyle = FlatStyle.System;
-            label9.Font = new Font("Impact", 48F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label9.ForeColor = SystemColors.ButtonHighlight;
-            label9.Location = new Point(420, 9);
+            label9.Location = new Point(494, 519);
             label9.Name = "label9";
-            label9.Size = new Size(532, 80);
-            label9.TabIndex = 157;
-            label9.Text = "TRANSACTIONS LIST";
+            label9.Size = new Size(86, 15);
+            label9.TabIndex = 27;
+            label9.Text = "Invoice Action:";
+            // 
+            // lblTransactionType
+            // 
+            lblTransactionType.AutoSize = true;
+            lblTransactionType.Location = new Point(113, 56);
+            lblTransactionType.Name = "lblTransactionType";
+            lblTransactionType.Size = new Size(96, 15);
+            lblTransactionType.TabIndex = 29;
+            lblTransactionType.Text = "Transaction Type";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(12, 56);
+            label14.Name = "label14";
+            label14.Size = new Size(99, 15);
+            label14.TabIndex = 28;
+            label14.Text = "Transaction Type:";
+            // 
+            // lblAdjustmentNumber
+            // 
+            lblAdjustmentNumber.AutoSize = true;
+            lblAdjustmentNumber.Location = new Point(12, 83);
+            lblAdjustmentNumber.Name = "lblAdjustmentNumber";
+            lblAdjustmentNumber.Size = new Size(141, 15);
+            lblAdjustmentNumber.TabIndex = 30;
+            lblAdjustmentNumber.Text = "adjustment series: 000000";
+            // 
+            // lblReturnNote
+            // 
+            lblReturnNote.AutoSize = true;
+            lblReturnNote.Location = new Point(12, 252);
+            lblReturnNote.Name = "lblReturnNote";
+            lblReturnNote.Size = new Size(277, 15);
+            lblReturnNote.TabIndex = 31;
+            lblReturnNote.Text = "Note: Gray items indicate they are already returned.";
+            lblReturnNote.Visible = false;
             // 
             // ViewTransaction
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.DarkCyan;
-            ClientSize = new Size(1370, 749);
+            ClientSize = new Size(800, 550);
+            Controls.Add(lblReturnNote);
+            Controls.Add(lblAdjustmentNumber);
+            Controls.Add(lblTransactionType);
+            Controls.Add(label14);
             Controls.Add(label9);
-            Controls.Add(pictureBox1);
-            Controls.Add(pictureBox2);
-            Controls.Add(pictureBox3);
-            Controls.Add(button1);
-            Controls.Add(btnReturn);
+            Controls.Add(cmbInvoiceAction);
+            Controls.Add(btnViewReceipt);
             Controls.Add(lblChange);
             Controls.Add(label12);
             Controls.Add(lblCashReceived);
@@ -596,7 +548,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(dgvItems);
-            Controls.Add(btnVoid);
+            Controls.Add(btnProceed);
             Name = "ViewTransaction";
             Text = "View Transaction";
             Load += ViewTransaction_Load;
@@ -611,7 +563,7 @@
 
         #endregion
 
-        private Button btnVoid;
+        private Button btnProceed;
         private DataGridView dgvItems;
         private Label label1;
         private Label label2;
@@ -636,27 +588,36 @@
         private Label lblChange;
         private Label label12;
         private BindingSource salesInvoiceItemBindingSource;
-        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn productCode;
-        private DataGridViewTextBoxColumn productName;
-        private DataGridViewTextBoxColumn transactionidDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn productidDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn unitpriceDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn vatamountDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn vatablesalesDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn vatexemptDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn discountDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn discounttypeDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn totalamountDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn unitofmeasurementDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn transactionDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn productDataGridViewTextBoxColumn;
-        private Button btnReturn;
-        private Button button1;
-        private PictureBox pictureBox3;
-        private PictureBox pictureBox2;
-        private PictureBox pictureBox1;
+        private Button btnViewReceipt;
+        private ComboBox cmbInvoiceAction;
         private Label label9;
+        private Label lblTransactionType;
+        private Label label14;
+        private Label lblAdjustmentSeries;
+        private Label lblAdjustmentNumber;
+        private DataGridViewTextBoxColumn productName;
+        private DataGridViewTextBoxColumn id;
+        private DataGridViewTextBoxColumn product_id;
+        private DataGridViewCheckBoxColumn select;
+        private DataGridViewTextBoxColumn product_code;
+        private DataGridViewTextBoxColumn product_name;
+        private DataGridViewTextBoxColumn product_brand;
+        private DataGridViewTextBoxColumn transaction_id;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn quantity;
+        private DataGridViewTextBoxColumn unit_price;
+        private DataGridViewTextBoxColumn vat_amount;
+        private DataGridViewTextBoxColumn vatable_sales;
+        private DataGridViewTextBoxColumn vat_exempt;
+        private DataGridViewTextBoxColumn discount;
+        private DataGridViewTextBoxColumn discount_type;
+        private DataGridViewTextBoxColumn total_amount;
+        private DataGridViewTextBoxColumn unit_of_measurement;
+        private DataGridViewTextBoxColumn transaction;
+        private DataGridViewTextBoxColumn product;
+        private Label lblReturnNote;
+        private ISupportInitialize pictureBox3;
+        private ISupportInitialize pictureBox2;
+        private ISupportInitialize pictureBox1;
     }
 }

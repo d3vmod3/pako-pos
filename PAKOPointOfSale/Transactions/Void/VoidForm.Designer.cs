@@ -30,7 +30,7 @@
         {
             btnViewReceipt = new Button();
             label1 = new Label();
-            btnProceed = new Button();
+            btnConfirm = new Button();
             label2 = new Label();
             label3 = new Label();
             lblInvoiceNumber = new Label();
@@ -55,15 +55,15 @@
             label1.TabIndex = 1;
             label1.Text = "Please review the receipt before voiding this receipt";
             // 
-            // btnProceed
+            // btnConfirm
             // 
-            btnProceed.Location = new Point(564, 153);
-            btnProceed.Name = "btnProceed";
-            btnProceed.Size = new Size(111, 40);
-            btnProceed.TabIndex = 2;
-            btnProceed.Text = "Proceed";
-            btnProceed.UseVisualStyleBackColor = true;
-            btnProceed.Click += btnProceed_Click;
+            btnConfirm.Location = new Point(564, 153);
+            btnConfirm.Name = "btnConfirm";
+            btnConfirm.Size = new Size(111, 40);
+            btnConfirm.TabIndex = 2;
+            btnConfirm.Text = "Confirm Void";
+            btnConfirm.UseVisualStyleBackColor = true;
+            btnConfirm.Click += btnProceed_Click;
             // 
             // label2
             // 
@@ -100,7 +100,7 @@
             Controls.Add(lblInvoiceNumber);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(btnProceed);
+            Controls.Add(btnConfirm);
             Controls.Add(label1);
             Controls.Add(btnViewReceipt);
             Name = "VoidForm";
@@ -114,7 +114,7 @@
 
         private Button btnViewReceipt;
         private Label label1;
-        private Button btnProceed;
+        private Button btnConfirm;
         private Label label2;
         private Label label3;
         private Label lblInvoiceNumber;
