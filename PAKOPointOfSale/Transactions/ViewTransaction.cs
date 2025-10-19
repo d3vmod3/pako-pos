@@ -49,7 +49,8 @@ namespace PAKOPointOfSale.Transactions
                         if (reader.Read())
                         {
                             _invoiceNumber = reader["invoice_number"].ToString();
-                            lblTransactionId.Text = reader["id"].ToString();
+                            int transactionId = Convert.ToInt32(reader["id"]);
+                            lblTransactionId.Text = transactionId.ToString().PadLeft(6, '0');
                             lblInvoiceNumber.Text = reader["invoice_number"].ToString();
                             lblSubTotal.Text = Convert.ToDecimal(reader["sub_total"]).ToString("N2");
                             lblGrandTotal.Text = Convert.ToDecimal(reader["grand_total"]).ToString("N2");
@@ -96,7 +97,7 @@ namespace PAKOPointOfSale.Transactions
                 }
 
                 // Disable checkbox for already returned items
-                if (dgvItems.Columns.Contains("select"))
+                if (dgvItems.Columns.Contains("selectReturn"))
                 {
                     HashSet<int> returnedProductIds = new HashSet<int>();
                     using (var cmd = new SqlCommand(@"
@@ -124,9 +125,9 @@ namespace PAKOPointOfSale.Transactions
                         if (returnedProductIds.Contains(productId))
                         {
                             countAlreadyReturneditems += 1;
-                            row.Cells["select"].ReadOnly = true;
-                            row.Cells["select"].Style.BackColor = Color.DarkGray;
-                            row.Cells["select"].Value = false;
+                            row.Cells["selectReturn"].ReadOnly = true;
+                            row.Cells["selectReturn"].Style.BackColor = Color.DarkGray;
+                            row.Cells["selectReturn"].Value = false;
                            
                         }
                     }
@@ -228,7 +229,7 @@ namespace PAKOPointOfSale.Transactions
                 var selectedItems = new List<DataGridViewRow>();
                 foreach (DataGridViewRow row in dgvItems.Rows)
                 {
-                    bool isSelected = row.Cells["select"].Value?.ToString() == "1";
+                    bool isSelected = row.Cells["selectReturn"].Value?.ToString() == "1";
                     if (isSelected)
                     {
                         selectedItems.Add(row);
@@ -259,7 +260,7 @@ namespace PAKOPointOfSale.Transactions
 
             if (selectedAction == "Return")
             {
-                dgvItems.Columns["select"].Visible = true;
+                dgvItems.Columns["selectReturn"].Visible = true;
                 if (countAlreadyReturneditems > 0)
                 {
                     lblReturnNote.Visible = true;
@@ -267,7 +268,7 @@ namespace PAKOPointOfSale.Transactions
             }
             else
             {
-                dgvItems.Columns["select"].Visible = false;
+                dgvItems.Columns["selectReturn"].Visible = false;
             }
         }
 

@@ -81,8 +81,5 @@
     <EmbeddedResource Update="Categories\CategoriesList.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Update="Transactions\ViewTransaction.resx">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
   </ItemGroup>
 </Project>

@@ -30,28 +30,9 @@ namespace PAKOPointOfSale.Transactions
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            components = new Container();
             btnProceed = new Button();
             dgvItems = new DataGridView();
-            id = new DataGridViewTextBoxColumn();
-            product_id = new DataGridViewTextBoxColumn();
-            select = new DataGridViewCheckBoxColumn();
-            product_code = new DataGridViewTextBoxColumn();
-            product_name = new DataGridViewTextBoxColumn();
-            product_brand = new DataGridViewTextBoxColumn();
-            transaction_id = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
-            quantity = new DataGridViewTextBoxColumn();
-            unit_price = new DataGridViewTextBoxColumn();
-            vat_amount = new DataGridViewTextBoxColumn();
-            vatable_sales = new DataGridViewTextBoxColumn();
-            vat_exempt = new DataGridViewTextBoxColumn();
-            discount = new DataGridViewTextBoxColumn();
-            discount_type = new DataGridViewTextBoxColumn();
-            total_amount = new DataGridViewTextBoxColumn();
-            unit_of_measurement = new DataGridViewTextBoxColumn();
-            transaction = new DataGridViewTextBoxColumn();
-            product = new DataGridViewTextBoxColumn();
             salesInvoiceItemBindingSource = new BindingSource(components);
             label1 = new Label();
             label2 = new Label();
@@ -82,11 +63,31 @@ namespace PAKOPointOfSale.Transactions
             label14 = new Label();
             lblAdjustmentNumber = new Label();
             lblReturnNote = new Label();
-            ((System.ComponentModel.ISupportInitialize)dgvItems).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)salesInvoiceItemBindingSource).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
+            pictureBox3 = new PictureBox();
+            label13 = new Label();
+            id = new DataGridViewTextBoxColumn();
+            selectReturn = new DataGridViewCheckBoxColumn();
+            product_id = new DataGridViewTextBoxColumn();
+            transaction_id = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            quantity = new DataGridViewTextBoxColumn();
+            unit_price = new DataGridViewTextBoxColumn();
+            vat_amount = new DataGridViewTextBoxColumn();
+            vatable_sales = new DataGridViewTextBoxColumn();
+            vat_exempt = new DataGridViewTextBoxColumn();
+            discount = new DataGridViewTextBoxColumn();
+            discount_type = new DataGridViewTextBoxColumn();
+            total_amount = new DataGridViewTextBoxColumn();
+            unit_of_measurement = new DataGridViewTextBoxColumn();
+            transaction = new DataGridViewTextBoxColumn();
+            product = new DataGridViewTextBoxColumn();
+            ((ISupportInitialize)dgvItems).BeginInit();
+            ((ISupportInitialize)salesInvoiceItemBindingSource).BeginInit();
+            ((ISupportInitialize)pictureBox1).BeginInit();
+            ((ISupportInitialize)pictureBox2).BeginInit();
+            ((ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // btnProceed
@@ -107,13 +108,320 @@ namespace PAKOPointOfSale.Transactions
             dgvItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvItems.BackgroundColor = SystemColors.ScrollBar;
             dgvItems.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvItems.Columns.AddRange(new DataGridViewColumn[] { id, product_id, select, product_code, product_name, product_brand, transaction_id, dataGridViewTextBoxColumn1, quantity, unit_price, vat_amount, vatable_sales, vat_exempt, discount, discount_type, total_amount, unit_of_measurement, transaction, product });
+            dgvItems.Columns.AddRange(new DataGridViewColumn[] { id, selectReturn, product_id, transaction_id, dataGridViewTextBoxColumn1, quantity, unit_price, vat_amount, vatable_sales, vat_exempt, discount, discount_type, total_amount, unit_of_measurement, transaction, product });
             dgvItems.DataSource = salesInvoiceItemBindingSource;
             dgvItems.Location = new Point(12, 270);
             dgvItems.Name = "dgvItems";
             dgvItems.Size = new Size(776, 239);
             dgvItems.TabIndex = 1;
             dgvItems.CellContentClick += dgvItems_CellContentClick;
+            // 
+            // salesInvoiceItemBindingSource
+            // 
+            salesInvoiceItemBindingSource.DataSource = typeof(SalesInvoiceItem);
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(12, 107);
+            label1.Name = "label1";
+            label1.Size = new Size(95, 15);
+            label1.TabIndex = 2;
+            label1.Text = "Invoice Number:";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(64, 133);
+            label2.Name = "label2";
+            label2.Size = new Size(123, 18);
+            label2.TabIndex = 3;
+            label2.Text = "Transaction ID:";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(12, 133);
+            label3.Name = "label3";
+            label3.Size = new Size(148, 15);
+            label3.TabIndex = 4;
+            label3.Text = "Transaction Date and Time";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(289, 29);
+            label4.Name = "label4";
+            label4.Size = new Size(54, 15);
+            label4.TabIndex = 5;
+            label4.Text = "Subtotal:";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(289, 56);
+            label5.Name = "label5";
+            label5.Size = new Size(80, 15);
+            label5.TabIndex = 6;
+            label5.Text = "VATable Sales:";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(289, 83);
+            label6.Name = "label6";
+            label6.Size = new Size(77, 15);
+            label6.TabIndex = 7;
+            label6.Text = "VAT Amount:";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(289, 107);
+            label7.Name = "label7";
+            label7.Size = new Size(72, 15);
+            label7.TabIndex = 8;
+            label7.Text = "VAT Exempt:";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(289, 133);
+            label8.Name = "label8";
+            label8.Size = new Size(71, 15);
+            label8.TabIndex = 9;
+            label8.Text = "Grand Total:";
+            // 
+            // lblTransactionId
+            // 
+            lblTransactionId.AutoSize = true;
+            lblTransactionId.BackColor = Color.Silver;
+            lblTransactionId.FlatStyle = FlatStyle.Popup;
+            lblTransactionId.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
+            lblTransactionId.ForeColor = Color.Black;
+            lblTransactionId.Location = new Point(113, 26);
+            lblTransactionId.Name = "lblTransactionId";
+            lblTransactionId.Size = new Size(62, 18);
+            lblTransactionId.TabIndex = 10;
+            lblTransactionId.Text = "000000";
+            // 
+            // lblInvoiceNumber
+            // 
+            lblInvoiceNumber.AutoSize = true;
+            lblInvoiceNumber.Location = new Point(113, 107);
+            lblInvoiceNumber.Name = "lblInvoiceNumber";
+            lblInvoiceNumber.Size = new Size(43, 15);
+            lblInvoiceNumber.TabIndex = 11;
+            lblInvoiceNumber.Text = "000000";
+            // 
+            // lblTransactionDate
+            // 
+            lblTransactionDate.AutoSize = true;
+            lblTransactionDate.Location = new Point(166, 133);
+            lblTransactionDate.Name = "lblTransactionDate";
+            lblTransactionDate.Size = new Size(67, 15);
+            lblTransactionDate.TabIndex = 12;
+            lblTransactionDate.Text = "mmddyyyy";
+            // 
+            // lblSubTotal
+            // 
+            lblSubTotal.AutoSize = true;
+            lblSubTotal.Location = new Point(383, 29);
+            lblSubTotal.Name = "lblSubTotal";
+            lblSubTotal.Size = new Size(28, 15);
+            lblSubTotal.TabIndex = 13;
+            lblSubTotal.Text = "0.00";
+            // 
+            // lblVatableSales
+            // 
+            lblVatableSales.AutoSize = true;
+            lblVatableSales.Location = new Point(383, 56);
+            lblVatableSales.Name = "lblVatableSales";
+            lblVatableSales.Size = new Size(28, 15);
+            lblVatableSales.TabIndex = 14;
+            lblVatableSales.Text = "0.00";
+            // 
+            // lblVatAmount
+            // 
+            lblVatAmount.AutoSize = true;
+            lblVatAmount.Location = new Point(383, 83);
+            lblVatAmount.Name = "lblVatAmount";
+            lblVatAmount.Size = new Size(28, 15);
+            lblVatAmount.TabIndex = 15;
+            lblVatAmount.Text = "0.00";
+            // 
+            // lblVatExempt
+            // 
+            lblVatExempt.AutoSize = true;
+            lblVatExempt.Location = new Point(383, 107);
+            lblVatExempt.Name = "lblVatExempt";
+            lblVatExempt.Size = new Size(28, 15);
+            lblVatExempt.TabIndex = 16;
+            lblVatExempt.Text = "0.00";
+            // 
+            // lblGrandTotal
+            // 
+            lblGrandTotal.AutoSize = true;
+            lblGrandTotal.Location = new Point(383, 133);
+            lblGrandTotal.Name = "lblGrandTotal";
+            lblGrandTotal.Size = new Size(28, 15);
+            lblGrandTotal.TabIndex = 17;
+            lblGrandTotal.Text = "0.00";
+            // 
+            // lblPaymentMethod
+            // 
+            lblPaymentMethod.AutoSize = true;
+            lblPaymentMethod.Location = new Point(394, 160);
+            lblPaymentMethod.Name = "lblPaymentMethod";
+            lblPaymentMethod.Size = new Size(31, 15);
+            lblPaymentMethod.TabIndex = 19;
+            lblPaymentMethod.Text = "cash";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(289, 160);
+            label10.Name = "label10";
+            label10.Size = new Size(102, 15);
+            label10.TabIndex = 18;
+            label10.Text = "Payment Method:";
+            // 
+            // lblCashReceived
+            // 
+            lblCashReceived.AutoSize = true;
+            lblCashReceived.Location = new Point(394, 188);
+            lblCashReceived.Name = "lblCashReceived";
+            lblCashReceived.Size = new Size(28, 15);
+            lblCashReceived.TabIndex = 21;
+            lblCashReceived.Text = "0.00";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(289, 188);
+            label11.Name = "label11";
+            label11.Size = new Size(86, 15);
+            label11.TabIndex = 20;
+            label11.Text = "Cash Received:";
+            // 
+            // lblChange
+            // 
+            lblChange.AutoSize = true;
+            lblChange.Location = new Point(394, 203);
+            lblChange.Name = "lblChange";
+            lblChange.Size = new Size(28, 15);
+            lblChange.TabIndex = 23;
+            lblChange.Text = "0.00";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(289, 203);
+            label12.Name = "label12";
+            label12.Size = new Size(48, 15);
+            label12.TabIndex = 22;
+            label12.Text = "Change";
+            // 
+            // btnViewReceipt
+            // 
+            btnViewReceipt.Location = new Point(668, 12);
+            btnViewReceipt.Name = "btnViewReceipt";
+            btnViewReceipt.Size = new Size(120, 23);
+            btnViewReceipt.TabIndex = 25;
+            btnViewReceipt.Text = "View Receipt";
+            btnViewReceipt.UseVisualStyleBackColor = true;
+            btnViewReceipt.Click += button1_Click;
+            // 
+            // cmbInvoiceAction
+            // 
+            cmbInvoiceAction.FormattingEnabled = true;
+            cmbInvoiceAction.Items.AddRange(new object[] { "", "Void", "Return" });
+            cmbInvoiceAction.Location = new Point(586, 516);
+            cmbInvoiceAction.Name = "cmbInvoiceAction";
+            cmbInvoiceAction.Size = new Size(121, 23);
+            cmbInvoiceAction.TabIndex = 26;
+            cmbInvoiceAction.SelectedIndexChanged += cmbInvoiceAction_SelectedIndexChanged;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(494, 519);
+            label9.Name = "label9";
+            label9.Size = new Size(86, 15);
+            label9.TabIndex = 27;
+            label9.Text = "Invoice Action:";
+            // 
+            // lblTransactionType
+            // 
+            lblTransactionType.AutoSize = true;
+            lblTransactionType.Location = new Point(113, 56);
+            lblTransactionType.Name = "lblTransactionType";
+            lblTransactionType.Size = new Size(96, 15);
+            lblTransactionType.TabIndex = 29;
+            lblTransactionType.Text = "Transaction Type";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(12, 56);
+            label14.Name = "label14";
+            label14.Size = new Size(99, 15);
+            label14.TabIndex = 28;
+            label14.Text = "Transaction Type:";
+            // 
+            // lblAdjustmentNumber
+            // 
+            lblAdjustmentNumber.AutoSize = true;
+            lblAdjustmentNumber.Location = new Point(12, 83);
+            lblAdjustmentNumber.Name = "lblAdjustmentNumber";
+            lblAdjustmentNumber.Size = new Size(141, 15);
+            lblAdjustmentNumber.TabIndex = 30;
+            lblAdjustmentNumber.Text = "adjustment series: 000000";
+            // 
+            // lblReturnNote
+            // 
+            lblReturnNote.AutoSize = true;
+            lblReturnNote.Location = new Point(12, 252);
+            lblReturnNote.Name = "lblReturnNote";
+            lblReturnNote.Size = new Size(277, 15);
+            lblReturnNote.TabIndex = 31;
+            lblReturnNote.Text = "Note: Gray items indicate they are already returned.";
+            lblReturnNote.Visible = false;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Location = new Point(0, 0);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(100, 50);
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Location = new Point(0, 0);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(100, 50);
+            pictureBox2.TabIndex = 0;
+            pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Location = new Point(0, 0);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(100, 50);
+            pictureBox3.TabIndex = 0;
+            pictureBox3.TabStop = false;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(12, 29);
+            label13.Name = "label13";
+            label13.Size = new Size(90, 15);
+            label13.TabIndex = 32;
+            label13.Text = "Transaction No:";
             // 
             // id
             // 
@@ -122,40 +430,23 @@ namespace PAKOPointOfSale.Transactions
             id.Name = "id";
             id.Visible = false;
             // 
+            // selectReturn
+            // 
+            selectReturn.DataPropertyName = "selectReturn";
+            selectReturn.FalseValue = "0";
+            selectReturn.HeaderText = "Select an Item(s) to Return";
+            selectReturn.Name = "selectReturn";
+            selectReturn.Resizable = DataGridViewTriState.True;
+            selectReturn.SortMode = DataGridViewColumnSortMode.Automatic;
+            selectReturn.TrueValue = "1";
+            selectReturn.Visible = false;
+            // 
             // product_id
             // 
             product_id.DataPropertyName = "product_id";
             product_id.HeaderText = "product_id";
             product_id.Name = "product_id";
-            // 
-            // select
-            // 
-            select.DataPropertyName = "select";
-            select.FalseValue = "0";
-            select.HeaderText = "Select an Item To Return";
-            select.Name = "select";
-            select.Resizable = DataGridViewTriState.True;
-            select.SortMode = DataGridViewColumnSortMode.Automatic;
-            select.TrueValue = "1";
-            select.Visible = false;
-            // 
-            // product_code
-            // 
-            product_code.DataPropertyName = "product_code";
-            product_code.HeaderText = "Product Code";
-            product_code.Name = "product_code";
-            // 
-            // product_name
-            // 
-            product_name.DataPropertyName = "product_name";
-            product_name.HeaderText = "Product";
-            product_name.Name = "product_name";
-            // 
-            // product_brand
-            // 
-            product_brand.DataPropertyName = "product_brand";
-            product_brand.HeaderText = "Brand";
-            product_brand.Name = "product_brand";
+            product_id.Visible = false;
             // 
             // transaction_id
             // 
@@ -239,285 +530,12 @@ namespace PAKOPointOfSale.Transactions
             product.Name = "product";
             product.Visible = false;
             // 
-            // salesInvoiceItemBindingSource
-            // 
-            salesInvoiceItemBindingSource.DataSource = typeof(SalesInvoiceItem);
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(12, 107);
-            label1.Name = "label1";
-            label1.Size = new Size(130, 18);
-            label1.TabIndex = 2;
-            label1.Text = "Invoice Number:";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
-            label2.ForeColor = Color.White;
-            label2.Location = new Point(64, 133);
-            label2.Name = "label2";
-            label2.Size = new Size(123, 18);
-            label2.TabIndex = 3;
-            label2.Text = "Transaction ID:";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(12, 133);
-            label3.Name = "label3";
-            label3.Size = new Size(211, 18);
-            label3.TabIndex = 4;
-            label3.Text = "Transaction Date and Time";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(289, 29);
-            label4.Name = "label4";
-            label4.Size = new Size(75, 18);
-            label4.TabIndex = 5;
-            label4.Text = "Subtotal:";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(289, 56);
-            label5.Name = "label5";
-            label5.Size = new Size(121, 18);
-            label5.TabIndex = 6;
-            label5.Text = "VATable Sales:";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(289, 83);
-            label6.Name = "label6";
-            label6.Size = new Size(105, 18);
-            label6.TabIndex = 7;
-            label6.Text = "VAT Amount:";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(289, 107);
-            label7.Name = "label7";
-            label7.Size = new Size(104, 18);
-            label7.TabIndex = 8;
-            label7.Text = "VAT Exempt:";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(289, 133);
-            label8.Name = "label8";
-            label8.Size = new Size(102, 18);
-            label8.TabIndex = 9;
-            label8.Text = "Grand Total:";
-            // 
-            // lblTransactionId
-            // 
-            lblTransactionId.AutoSize = true;
-            lblTransactionId.BackColor = Color.Silver;
-            lblTransactionId.FlatStyle = FlatStyle.Popup;
-            lblTransactionId.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold);
-            lblTransactionId.ForeColor = Color.Black;
-            lblTransactionId.Location = new Point(287, 133);
-            lblTransactionId.Name = "lblTransactionId";
-            lblTransactionId.Size = new Size(62, 18);
-            lblTransactionId.TabIndex = 10;
-            lblTransactionId.Text = "000000";
-            // 
-            // lblInvoiceNumber
-            // 
-            lblInvoiceNumber.AutoSize = true;
-            lblInvoiceNumber.Location = new Point(113, 107);
-            lblInvoiceNumber.Name = "lblInvoiceNumber";
-            lblInvoiceNumber.Size = new Size(62, 18);
-            lblInvoiceNumber.TabIndex = 11;
-            lblInvoiceNumber.Text = "000000";
-            // 
-            // lblTransactionDate
-            // 
-            lblTransactionDate.AutoSize = true;
-            lblTransactionDate.Location = new Point(166, 133);
-            lblTransactionDate.Name = "lblTransactionDate";
-            lblTransactionDate.Size = new Size(86, 18);
-            lblTransactionDate.TabIndex = 12;
-            lblTransactionDate.Text = "mmddyyyy";
-            // 
-            // lblSubTotal
-            // 
-            lblSubTotal.AutoSize = true;
-            lblSubTotal.Location = new Point(383, 29);
-            lblSubTotal.Name = "lblSubTotal";
-            lblSubTotal.Size = new Size(40, 18);
-            lblSubTotal.TabIndex = 13;
-            lblSubTotal.Text = "0.00";
-            // 
-            // lblVatableSales
-            // 
-            lblVatableSales.AutoSize = true;
-            lblVatableSales.Location = new Point(383, 56);
-            lblVatableSales.Name = "lblVatableSales";
-            lblVatableSales.Size = new Size(40, 18);
-            lblVatableSales.TabIndex = 14;
-            lblVatableSales.Text = "0.00";
-            // 
-            // lblVatAmount
-            // 
-            lblVatAmount.AutoSize = true;
-            lblVatAmount.Location = new Point(383, 83);
-            lblVatAmount.Name = "lblVatAmount";
-            lblVatAmount.Size = new Size(40, 18);
-            lblVatAmount.TabIndex = 15;
-            lblVatAmount.Text = "0.00";
-            // 
-            // lblVatExempt
-            // 
-            lblVatExempt.AutoSize = true;
-            lblVatExempt.Location = new Point(383, 107);
-            lblVatExempt.Name = "lblVatExempt";
-            lblVatExempt.Size = new Size(40, 18);
-            lblVatExempt.TabIndex = 16;
-            lblVatExempt.Text = "0.00";
-            // 
-            // lblGrandTotal
-            // 
-            lblGrandTotal.AutoSize = true;
-            lblGrandTotal.Location = new Point(383, 133);
-            lblGrandTotal.Name = "lblGrandTotal";
-            lblGrandTotal.Size = new Size(40, 18);
-            lblGrandTotal.TabIndex = 17;
-            lblGrandTotal.Text = "0.00";
-            // 
-            // lblPaymentMethod
-            // 
-            lblPaymentMethod.AutoSize = true;
-            lblPaymentMethod.Location = new Point(394, 160);
-            lblPaymentMethod.Name = "lblPaymentMethod";
-            lblPaymentMethod.Size = new Size(44, 18);
-            lblPaymentMethod.TabIndex = 19;
-            lblPaymentMethod.Text = "cash";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Location = new Point(289, 160);
-            label10.Name = "label10";
-            label10.Size = new Size(139, 18);
-            label10.TabIndex = 18;
-            label10.Text = "Payment Method:";
-            // 
-            // lblCashReceived
-            // 
-            lblCashReceived.AutoSize = true;
-            lblCashReceived.Location = new Point(394, 188);
-            lblCashReceived.Name = "lblCashReceived";
-            lblCashReceived.Size = new Size(40, 18);
-            lblCashReceived.TabIndex = 21;
-            lblCashReceived.Text = "0.00";
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Location = new Point(289, 188);
-            label11.Name = "label11";
-            label11.Size = new Size(126, 18);
-            label11.TabIndex = 20;
-            label11.Text = "Cash Received:";
-            // 
-            // lblChange
-            // 
-            lblChange.AutoSize = true;
-            lblChange.Location = new Point(394, 203);
-            lblChange.Name = "lblChange";
-            lblChange.Size = new Size(40, 18);
-            lblChange.TabIndex = 23;
-            lblChange.Text = "0.00";
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Location = new Point(289, 203);
-            label12.Name = "label12";
-            label12.Size = new Size(65, 18);
-            label12.TabIndex = 22;
-            label12.Text = "Change";
-            // 
-            // btnViewReceipt
-            // 
-            btnViewReceipt.Location = new Point(668, 12);
-            btnViewReceipt.Name = "btnViewReceipt";
-            btnViewReceipt.Size = new Size(120, 23);
-            btnViewReceipt.TabIndex = 25;
-            btnViewReceipt.Text = "View Receipt";
-            btnViewReceipt.UseVisualStyleBackColor = true;
-            btnViewReceipt.Click += button1_Click;
-            // 
-            // cmbInvoiceAction
-            // 
-            cmbInvoiceAction.FormattingEnabled = true;
-            cmbInvoiceAction.Items.AddRange(new object[] { "", "Void", "Return" });
-            cmbInvoiceAction.Location = new Point(586, 516);
-            cmbInvoiceAction.Name = "cmbInvoiceAction";
-            cmbInvoiceAction.Size = new Size(121, 23);
-            cmbInvoiceAction.TabIndex = 26;
-            cmbInvoiceAction.SelectedIndexChanged += cmbInvoiceAction_SelectedIndexChanged;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new Point(494, 519);
-            label9.Name = "label9";
-            label9.Size = new Size(86, 15);
-            label9.TabIndex = 27;
-            label9.Text = "Invoice Action:";
-            // 
-            // lblTransactionType
-            // 
-            lblTransactionType.AutoSize = true;
-            lblTransactionType.Location = new Point(113, 56);
-            lblTransactionType.Name = "lblTransactionType";
-            lblTransactionType.Size = new Size(96, 15);
-            lblTransactionType.TabIndex = 29;
-            lblTransactionType.Text = "Transaction Type";
-            // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.Location = new Point(12, 56);
-            label14.Name = "label14";
-            label14.Size = new Size(99, 15);
-            label14.TabIndex = 28;
-            label14.Text = "Transaction Type:";
-            // 
-            // lblAdjustmentNumber
-            // 
-            lblAdjustmentNumber.AutoSize = true;
-            lblAdjustmentNumber.Location = new Point(12, 83);
-            lblAdjustmentNumber.Name = "lblAdjustmentNumber";
-            lblAdjustmentNumber.Size = new Size(141, 15);
-            lblAdjustmentNumber.TabIndex = 30;
-            lblAdjustmentNumber.Text = "adjustment series: 000000";
-            // 
-            // lblReturnNote
-            // 
-            lblReturnNote.AutoSize = true;
-            lblReturnNote.Location = new Point(12, 252);
-            lblReturnNote.Name = "lblReturnNote";
-            lblReturnNote.Size = new Size(277, 15);
-            lblReturnNote.TabIndex = 31;
-            lblReturnNote.Text = "Note: Gray items indicate they are already returned.";
-            lblReturnNote.Visible = false;
-            // 
             // ViewTransaction
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 550);
+            Controls.Add(label13);
             Controls.Add(lblReturnNote);
             Controls.Add(lblAdjustmentNumber);
             Controls.Add(lblTransactionType);
@@ -552,11 +570,11 @@ namespace PAKOPointOfSale.Transactions
             Name = "ViewTransaction";
             Text = "View Transaction";
             Load += ViewTransaction_Load;
-            ((System.ComponentModel.ISupportInitialize)dgvItems).EndInit();
-            ((System.ComponentModel.ISupportInitialize)salesInvoiceItemBindingSource).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((ISupportInitialize)dgvItems).EndInit();
+            ((ISupportInitialize)salesInvoiceItemBindingSource).EndInit();
+            ((ISupportInitialize)pictureBox1).EndInit();
+            ((ISupportInitialize)pictureBox2).EndInit();
+            ((ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -596,12 +614,18 @@ namespace PAKOPointOfSale.Transactions
         private Label lblAdjustmentSeries;
         private Label lblAdjustmentNumber;
         private DataGridViewTextBoxColumn productName;
-        private DataGridViewTextBoxColumn id;
-        private DataGridViewTextBoxColumn product_id;
         private DataGridViewCheckBoxColumn select;
         private DataGridViewTextBoxColumn product_code;
         private DataGridViewTextBoxColumn product_name;
         private DataGridViewTextBoxColumn product_brand;
+        private Label lblReturnNote;
+        private Label label13;
+        private PictureBox pictureBox3;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox1;
+        private DataGridViewTextBoxColumn id;
+        private DataGridViewCheckBoxColumn selectReturn;
+        private DataGridViewTextBoxColumn product_id;
         private DataGridViewTextBoxColumn transaction_id;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn quantity;
@@ -615,9 +639,5 @@ namespace PAKOPointOfSale.Transactions
         private DataGridViewTextBoxColumn unit_of_measurement;
         private DataGridViewTextBoxColumn transaction;
         private DataGridViewTextBoxColumn product;
-        private Label lblReturnNote;
-        private ISupportInitialize pictureBox3;
-        private ISupportInitialize pictureBox2;
-        private ISupportInitialize pictureBox1;
     }
 }
