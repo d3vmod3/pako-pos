@@ -46,6 +46,7 @@
             transactionBindingSource = new BindingSource(components);
             textBox1 = new TextBox();
             label1 = new Label();
+            txtSearch = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dtgvTransactions).BeginInit();
             ((System.ComponentModel.ISupportInitialize)transactionBindingSource).BeginInit();
             SuspendLayout();
@@ -62,7 +63,7 @@
             dtgvTransactions.Location = new Point(12, 134);
             dtgvTransactions.Name = "dtgvTransactions";
             dtgvTransactions.ReadOnly = true;
-            dtgvTransactions.Size = new Size(1346, 521);
+            dtgvTransactions.Size = new Size(1920, 1080);
             dtgvTransactions.TabIndex = 0;
             dtgvTransactions.CellContentClick += dtgvTransactions_CellContentClick;
             // 
@@ -194,12 +195,21 @@
             label1.TabIndex = 2;
             label1.Text = "Search Invoice Number:";
             // 
+            // txtSearch
+            // 
+            txtSearch.Location = new Point(152, 107);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(345, 23);
+            txtSearch.TabIndex = 3;
+            txtSearch.TextChanged += txtSearch_TextChanged;
+            // 
             // TransactionsList
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
-            ClientSize = new Size(1370, 749);
+            ClientSize = new Size(1883, 876);
+            Controls.Add(txtSearch);
             Controls.Add(label1);
             Controls.Add(dtgvTransactions);
             FormBorderStyle = FormBorderStyle.None;
@@ -216,7 +226,7 @@
         #endregion
 
         private DataGridView dtgvTransactions;
-        private TextBox txtSearch;
+        //private TextBox txtSearch;
         private Label label1;
         private BindingSource transactionBindingSource;
         private TextBox textBox1;
@@ -238,5 +248,6 @@
         private PictureBox pictureBox1;
         private Button btnClose;
         private Label label5;
+        private TextBox txtSearch;
     }
 }

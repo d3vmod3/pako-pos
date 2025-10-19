@@ -105,5 +105,24 @@ namespace PAKOPointOfSale.Transactions
                 dtgvTransactions.DataSource = dv;
             }
         }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (transactionsTable == null) return;
+
+            string filter = txtSearch.Text.Trim().Replace("'", "''"); // escape single quotes
+            if (string.IsNullOrEmpty(filter))
+            {
+                dtgvTransactions.DataSource = transactionsTable;
+            }
+            else
+            {
+                // Filter by multiple columns (product name, code, SKU, brand)
+                string rowFilter = $"invoice_number LIKE '%{filter}%' ";
+                DataView dv = new DataView(transactionsTable);
+                dv.RowFilter = rowFilter;
+                dtgvTransactions.DataSource = dv;
+            }
+        }
     }
 }
