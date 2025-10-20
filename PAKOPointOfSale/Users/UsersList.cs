@@ -24,6 +24,23 @@ namespace PAKOPointOfSale.Users
         private void UsersList_Load(object sender, EventArgs e)
         {
             loadUsers();
+            loadPermissions();
+
+        }
+        private void loadPermissions()
+        {
+            if (!LoggedInUser.HasPermission("Users", "add"))
+            {
+                btnAdd.Visible = false;
+            }
+            if (!LoggedInUser.HasPermission("Users", "edit"))
+            {
+                if (dataGridView1.Columns.Contains("edit"))
+                {
+                    dataGridView1.Columns["edit"].Visible = false;
+                }
+            }
+
         }
         private void loadUsers()
         {

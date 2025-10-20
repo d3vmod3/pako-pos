@@ -30,7 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SuppliersList));
-            btnPrint = new Button();
+            btnExport = new Button();
             btnAdd = new Button();
             txtSearch = new TextBox();
             lblSearch = new Label();
@@ -52,6 +52,14 @@
             label2 = new Label();
             btnClose = new Button();
             pictureBox3 = new PictureBox();
+            dtpFrom = new DateTimePicker();
+            label3 = new Label();
+            label4 = new Label();
+            dtpTo = new DateTimePicker();
+            btnFilter = new Button();
+            btnClearFilter = new Button();
+            cmbStatus = new ComboBox();
+            label5 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)supplierDetailsBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -59,17 +67,18 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
-            // btnPrint
+            // btnExport
             // 
-            btnPrint.BackColor = Color.Gold;
-            btnPrint.FlatStyle = FlatStyle.Popup;
-            btnPrint.ForeColor = Color.Black;
-            btnPrint.Location = new Point(1150, 100);
-            btnPrint.Name = "btnPrint";
-            btnPrint.Size = new Size(79, 24);
-            btnPrint.TabIndex = 9;
-            btnPrint.Text = "Print";
-            btnPrint.UseVisualStyleBackColor = false;
+            btnExport.BackColor = Color.Gold;
+            btnExport.FlatStyle = FlatStyle.Popup;
+            btnExport.ForeColor = Color.Black;
+            btnExport.Location = new Point(1150, 100);
+            btnExport.Name = "btnExport";
+            btnExport.Size = new Size(79, 24);
+            btnExport.TabIndex = 9;
+            btnExport.Text = "Print";
+            btnExport.UseVisualStyleBackColor = false;
+            btnExport.Click += btnExport_Click;
             // 
             // btnAdd
             // 
@@ -86,9 +95,9 @@
             // 
             // txtSearch
             // 
-            txtSearch.Location = new Point(77, 101);
+            txtSearch.Location = new Point(67, 100);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(433, 23);
+            txtSearch.Size = new Size(305, 23);
             txtSearch.TabIndex = 7;
             txtSearch.TextChanged += txtSearch_TextChanged;
             // 
@@ -103,14 +112,18 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { id, nameDataGridViewTextBoxColumn, addressDataGridViewTextBoxColumn, contactnumberDataGridViewTextBoxColumn, accountnumberDataGridViewTextBoxColumn, gatewayDataGridViewTextBoxColumn, is_active, createdatDataGridViewTextBoxColumn, productsDataGridViewTextBoxColumn, edit });
             dataGridView1.DataSource = supplierDetailsBindingSource;
-            dataGridView1.Location = new Point(12, 131);
+            dataGridView1.Location = new Point(12, 176);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(1343, 532);
+            dataGridView1.ReadOnly = true;
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.Size = new Size(1343, 487);
             dataGridView1.TabIndex = 5;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -119,6 +132,7 @@
             id.DataPropertyName = "id";
             id.HeaderText = "id";
             id.Name = "id";
+            id.ReadOnly = true;
             id.Visible = false;
             // 
             // nameDataGridViewTextBoxColumn
@@ -126,36 +140,42 @@
             nameDataGridViewTextBoxColumn.DataPropertyName = "name";
             nameDataGridViewTextBoxColumn.HeaderText = "Name";
             nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            nameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // addressDataGridViewTextBoxColumn
             // 
             addressDataGridViewTextBoxColumn.DataPropertyName = "address";
             addressDataGridViewTextBoxColumn.HeaderText = "Address";
             addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
+            addressDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // contactnumberDataGridViewTextBoxColumn
             // 
             contactnumberDataGridViewTextBoxColumn.DataPropertyName = "contact_number";
             contactnumberDataGridViewTextBoxColumn.HeaderText = "Contact Number";
             contactnumberDataGridViewTextBoxColumn.Name = "contactnumberDataGridViewTextBoxColumn";
+            contactnumberDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // accountnumberDataGridViewTextBoxColumn
             // 
             accountnumberDataGridViewTextBoxColumn.DataPropertyName = "account_number";
             accountnumberDataGridViewTextBoxColumn.HeaderText = "Account Number";
             accountnumberDataGridViewTextBoxColumn.Name = "accountnumberDataGridViewTextBoxColumn";
+            accountnumberDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // gatewayDataGridViewTextBoxColumn
             // 
             gatewayDataGridViewTextBoxColumn.DataPropertyName = "gateway";
             gatewayDataGridViewTextBoxColumn.HeaderText = "Gateway";
             gatewayDataGridViewTextBoxColumn.Name = "gatewayDataGridViewTextBoxColumn";
+            gatewayDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // is_active
             // 
             is_active.DataPropertyName = "is_active";
             is_active.HeaderText = "Active";
             is_active.Name = "is_active";
+            is_active.ReadOnly = true;
             is_active.Resizable = DataGridViewTriState.True;
             is_active.SortMode = DataGridViewColumnSortMode.NotSortable;
             // 
@@ -164,12 +184,14 @@
             createdatDataGridViewTextBoxColumn.DataPropertyName = "created_at";
             createdatDataGridViewTextBoxColumn.HeaderText = "Date Created";
             createdatDataGridViewTextBoxColumn.Name = "createdatDataGridViewTextBoxColumn";
+            createdatDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // productsDataGridViewTextBoxColumn
             // 
             productsDataGridViewTextBoxColumn.DataPropertyName = "products";
             productsDataGridViewTextBoxColumn.HeaderText = "products";
             productsDataGridViewTextBoxColumn.Name = "productsDataGridViewTextBoxColumn";
+            productsDataGridViewTextBoxColumn.ReadOnly = true;
             productsDataGridViewTextBoxColumn.Visible = false;
             // 
             // edit
@@ -177,6 +199,7 @@
             edit.DataPropertyName = "id";
             edit.HeaderText = "";
             edit.Name = "edit";
+            edit.ReadOnly = true;
             edit.Text = "Edit";
             edit.UseColumnTextForButtonValue = true;
             // 
@@ -221,7 +244,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(26, 104);
+            label2.Location = new Point(16, 103);
             label2.Name = "label2";
             label2.Size = new Size(45, 15);
             label2.TabIndex = 148;
@@ -255,18 +278,96 @@
             pictureBox3.TabStop = false;
             pictureBox3.Click += pictureBox3_Click;
             // 
+            // dtpFrom
+            // 
+            dtpFrom.Location = new Point(449, 101);
+            dtpFrom.Name = "dtpFrom";
+            dtpFrom.Size = new Size(200, 23);
+            dtpFrom.TabIndex = 151;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(378, 105);
+            label3.Name = "label3";
+            label3.Size = new Size(65, 15);
+            label3.TabIndex = 152;
+            label3.Text = "Date From:";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(393, 135);
+            label4.Name = "label4";
+            label4.Size = new Size(50, 15);
+            label4.TabIndex = 154;
+            label4.Text = "Date To:";
+            // 
+            // dtpTo
+            // 
+            dtpTo.Location = new Point(449, 130);
+            dtpTo.Name = "dtpTo";
+            dtpTo.Size = new Size(200, 23);
+            dtpTo.TabIndex = 153;
+            // 
+            // btnFilter
+            // 
+            btnFilter.Location = new Point(867, 103);
+            btnFilter.Name = "btnFilter";
+            btnFilter.Size = new Size(75, 23);
+            btnFilter.TabIndex = 159;
+            btnFilter.Text = "Filter";
+            btnFilter.UseVisualStyleBackColor = true;
+            btnFilter.Click += btnFilter_Click;
+            // 
+            // btnClearFilter
+            // 
+            btnClearFilter.Location = new Point(948, 103);
+            btnClearFilter.Name = "btnClearFilter";
+            btnClearFilter.Size = new Size(75, 23);
+            btnClearFilter.TabIndex = 158;
+            btnClearFilter.Text = "Clear Filter";
+            btnClearFilter.UseVisualStyleBackColor = true;
+            btnClearFilter.Click += btnClearFilter_Click;
+            // 
+            // cmbStatus
+            // 
+            cmbStatus.FormattingEnabled = true;
+            cmbStatus.Items.AddRange(new object[] { "All", "Active", "Inactive" });
+            cmbStatus.Location = new Point(740, 100);
+            cmbStatus.Name = "cmbStatus";
+            cmbStatus.Size = new Size(121, 23);
+            cmbStatus.TabIndex = 160;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(666, 105);
+            label5.Name = "label5";
+            label5.Size = new Size(71, 15);
+            label5.TabIndex = 161;
+            label5.Text = "Filter Status:";
+            // 
             // SuppliersList
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
             ClientSize = new Size(1367, 788);
+            Controls.Add(label5);
+            Controls.Add(cmbStatus);
+            Controls.Add(btnFilter);
+            Controls.Add(btnClearFilter);
+            Controls.Add(label4);
+            Controls.Add(dtpTo);
+            Controls.Add(label3);
+            Controls.Add(dtpFrom);
             Controls.Add(pictureBox3);
             Controls.Add(btnClose);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
-            Controls.Add(btnPrint);
+            Controls.Add(btnExport);
             Controls.Add(btnAdd);
             Controls.Add(txtSearch);
             Controls.Add(lblSearch);
@@ -289,7 +390,7 @@
 
         #endregion
 
-        private Button btnPrint;
+        private Button btnExport;
         private Button btnAdd;
         private TextBox txtSearch;
         private Label lblSearch;
@@ -311,5 +412,13 @@
         private Label label2;
         private Button btnClose;
         private PictureBox pictureBox3;
+        private DateTimePicker dtpFrom;
+        private Label label3;
+        private Label label4;
+        private DateTimePicker dtpTo;
+        private Button btnFilter;
+        private Button btnClearFilter;
+        private ComboBox cmbStatus;
+        private Label label5;
     }
 }

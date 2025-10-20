@@ -23,6 +23,15 @@ namespace PAKOPointOfSale.UAC
         private void UAC_Load(object sender, EventArgs e)
         {
             LoadUserRoles();
+            loadPermissions();
+
+        }
+        private void loadPermissions()
+        {
+            if (!LoggedInUser.HasPermission("User Access Control", "edit"))
+            {
+                btnUpdate.Visible = false;
+            }
 
         }
         private void LoadUserRoles()

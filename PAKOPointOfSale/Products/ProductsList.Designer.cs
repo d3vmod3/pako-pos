@@ -36,6 +36,8 @@
             barcode = new DataGridViewTextBoxColumn();
             product_name = new DataGridViewLinkColumn();
             productbrandDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            category_name = new DataGridViewTextBoxColumn();
+            supplier_name = new DataGridViewTextBoxColumn();
             productdescriptionDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             productcodeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             skuDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -78,11 +80,13 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridView1.BackgroundColor = SystemColors.ActiveBorder;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { id, barcode, product_name, productbrandDataGridViewTextBoxColumn, productdescriptionDataGridViewTextBoxColumn, productcodeDataGridViewTextBoxColumn, skuDataGridViewTextBoxColumn, quantityDataGridViewTextBoxColumn, unitofmeasurementDataGridViewTextBoxColumn, costpriceDataGridViewTextBoxColumn, unitpriceDataGridViewTextBoxColumn, remarksDataGridViewTextBoxColumn, statusDataGridViewTextBoxColumn, datereceivedDataGridViewTextBoxColumn, dateexpirationDataGridViewTextBoxColumn, is_active, createdatDataGridViewTextBoxColumn, edit });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { id, barcode, product_name, productbrandDataGridViewTextBoxColumn, category_name, supplier_name, productdescriptionDataGridViewTextBoxColumn, productcodeDataGridViewTextBoxColumn, skuDataGridViewTextBoxColumn, quantityDataGridViewTextBoxColumn, unitofmeasurementDataGridViewTextBoxColumn, costpriceDataGridViewTextBoxColumn, unitpriceDataGridViewTextBoxColumn, remarksDataGridViewTextBoxColumn, statusDataGridViewTextBoxColumn, datereceivedDataGridViewTextBoxColumn, dateexpirationDataGridViewTextBoxColumn, is_active, createdatDataGridViewTextBoxColumn, edit });
             dataGridView1.DataSource = productBindingSource;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = SystemColors.Window;
@@ -95,6 +99,8 @@
             dataGridView1.GridColor = Color.Black;
             dataGridView1.Location = new Point(12, 2);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
+            dataGridView1.RowHeadersVisible = false;
             dataGridView1.Size = new Size(1344, 516);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
@@ -104,6 +110,7 @@
             id.DataPropertyName = "id";
             id.HeaderText = "id";
             id.Name = "id";
+            id.ReadOnly = true;
             id.Resizable = DataGridViewTriState.True;
             id.Visible = false;
             id.Width = 42;
@@ -113,6 +120,7 @@
             barcode.DataPropertyName = "barcode";
             barcode.HeaderText = "Barcode";
             barcode.Name = "barcode";
+            barcode.ReadOnly = true;
             barcode.Width = 75;
             // 
             // product_name
@@ -120,6 +128,7 @@
             product_name.DataPropertyName = "product_name";
             product_name.HeaderText = "Product Name";
             product_name.Name = "product_name";
+            product_name.ReadOnly = true;
             product_name.Resizable = DataGridViewTriState.True;
             product_name.SortMode = DataGridViewColumnSortMode.Automatic;
             product_name.VisitedLinkColor = Color.Black;
@@ -130,13 +139,31 @@
             productbrandDataGridViewTextBoxColumn.DataPropertyName = "product_brand";
             productbrandDataGridViewTextBoxColumn.HeaderText = "Brand";
             productbrandDataGridViewTextBoxColumn.Name = "productbrandDataGridViewTextBoxColumn";
+            productbrandDataGridViewTextBoxColumn.ReadOnly = true;
             productbrandDataGridViewTextBoxColumn.Width = 63;
+            // 
+            // category_name
+            // 
+            category_name.DataPropertyName = "category_name";
+            category_name.HeaderText = "Category";
+            category_name.Name = "category_name";
+            category_name.ReadOnly = true;
+            category_name.Width = 80;
+            // 
+            // supplier_name
+            // 
+            supplier_name.DataPropertyName = "supplier_name";
+            supplier_name.HeaderText = "Supplier";
+            supplier_name.Name = "supplier_name";
+            supplier_name.ReadOnly = true;
+            supplier_name.Width = 75;
             // 
             // productdescriptionDataGridViewTextBoxColumn
             // 
             productdescriptionDataGridViewTextBoxColumn.DataPropertyName = "product_description";
             productdescriptionDataGridViewTextBoxColumn.HeaderText = "Description";
             productdescriptionDataGridViewTextBoxColumn.Name = "productdescriptionDataGridViewTextBoxColumn";
+            productdescriptionDataGridViewTextBoxColumn.ReadOnly = true;
             productdescriptionDataGridViewTextBoxColumn.Width = 92;
             // 
             // productcodeDataGridViewTextBoxColumn
@@ -144,6 +171,7 @@
             productcodeDataGridViewTextBoxColumn.DataPropertyName = "product_code";
             productcodeDataGridViewTextBoxColumn.HeaderText = "Code";
             productcodeDataGridViewTextBoxColumn.Name = "productcodeDataGridViewTextBoxColumn";
+            productcodeDataGridViewTextBoxColumn.ReadOnly = true;
             productcodeDataGridViewTextBoxColumn.Width = 60;
             // 
             // skuDataGridViewTextBoxColumn
@@ -151,6 +179,7 @@
             skuDataGridViewTextBoxColumn.DataPropertyName = "sku";
             skuDataGridViewTextBoxColumn.HeaderText = "SKU";
             skuDataGridViewTextBoxColumn.Name = "skuDataGridViewTextBoxColumn";
+            skuDataGridViewTextBoxColumn.ReadOnly = true;
             skuDataGridViewTextBoxColumn.Width = 53;
             // 
             // quantityDataGridViewTextBoxColumn
@@ -158,6 +187,7 @@
             quantityDataGridViewTextBoxColumn.DataPropertyName = "quantity";
             quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
             quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
+            quantityDataGridViewTextBoxColumn.ReadOnly = true;
             quantityDataGridViewTextBoxColumn.Width = 78;
             // 
             // unitofmeasurementDataGridViewTextBoxColumn
@@ -165,6 +195,7 @@
             unitofmeasurementDataGridViewTextBoxColumn.DataPropertyName = "unit_of_measurement";
             unitofmeasurementDataGridViewTextBoxColumn.HeaderText = "Unit";
             unitofmeasurementDataGridViewTextBoxColumn.Name = "unitofmeasurementDataGridViewTextBoxColumn";
+            unitofmeasurementDataGridViewTextBoxColumn.ReadOnly = true;
             unitofmeasurementDataGridViewTextBoxColumn.Width = 54;
             // 
             // costpriceDataGridViewTextBoxColumn
@@ -172,6 +203,7 @@
             costpriceDataGridViewTextBoxColumn.DataPropertyName = "cost_price";
             costpriceDataGridViewTextBoxColumn.HeaderText = "Cost Price";
             costpriceDataGridViewTextBoxColumn.Name = "costpriceDataGridViewTextBoxColumn";
+            costpriceDataGridViewTextBoxColumn.ReadOnly = true;
             costpriceDataGridViewTextBoxColumn.Width = 85;
             // 
             // unitpriceDataGridViewTextBoxColumn
@@ -179,6 +211,7 @@
             unitpriceDataGridViewTextBoxColumn.DataPropertyName = "unit_price";
             unitpriceDataGridViewTextBoxColumn.HeaderText = "Unit Price";
             unitpriceDataGridViewTextBoxColumn.Name = "unitpriceDataGridViewTextBoxColumn";
+            unitpriceDataGridViewTextBoxColumn.ReadOnly = true;
             unitpriceDataGridViewTextBoxColumn.Width = 83;
             // 
             // remarksDataGridViewTextBoxColumn
@@ -186,6 +219,7 @@
             remarksDataGridViewTextBoxColumn.DataPropertyName = "remarks";
             remarksDataGridViewTextBoxColumn.HeaderText = "Remarks";
             remarksDataGridViewTextBoxColumn.Name = "remarksDataGridViewTextBoxColumn";
+            remarksDataGridViewTextBoxColumn.ReadOnly = true;
             remarksDataGridViewTextBoxColumn.Width = 77;
             // 
             // statusDataGridViewTextBoxColumn
@@ -193,6 +227,7 @@
             statusDataGridViewTextBoxColumn.DataPropertyName = "status";
             statusDataGridViewTextBoxColumn.HeaderText = "Status";
             statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            statusDataGridViewTextBoxColumn.ReadOnly = true;
             statusDataGridViewTextBoxColumn.Width = 64;
             // 
             // datereceivedDataGridViewTextBoxColumn
@@ -200,6 +235,7 @@
             datereceivedDataGridViewTextBoxColumn.DataPropertyName = "date_received";
             datereceivedDataGridViewTextBoxColumn.HeaderText = "Date Received";
             datereceivedDataGridViewTextBoxColumn.Name = "datereceivedDataGridViewTextBoxColumn";
+            datereceivedDataGridViewTextBoxColumn.ReadOnly = true;
             datereceivedDataGridViewTextBoxColumn.Width = 106;
             // 
             // dateexpirationDataGridViewTextBoxColumn
@@ -207,6 +243,7 @@
             dateexpirationDataGridViewTextBoxColumn.DataPropertyName = "date_expiration";
             dateexpirationDataGridViewTextBoxColumn.HeaderText = "Expiration Date";
             dateexpirationDataGridViewTextBoxColumn.Name = "dateexpirationDataGridViewTextBoxColumn";
+            dateexpirationDataGridViewTextBoxColumn.ReadOnly = true;
             dateexpirationDataGridViewTextBoxColumn.Width = 111;
             // 
             // is_active
@@ -214,6 +251,7 @@
             is_active.DataPropertyName = "is_active";
             is_active.HeaderText = "Active";
             is_active.Name = "is_active";
+            is_active.ReadOnly = true;
             is_active.Resizable = DataGridViewTriState.True;
             is_active.SortMode = DataGridViewColumnSortMode.NotSortable;
             is_active.Width = 46;
@@ -223,14 +261,16 @@
             createdatDataGridViewTextBoxColumn.DataPropertyName = "created_at";
             createdatDataGridViewTextBoxColumn.HeaderText = "Date Created";
             createdatDataGridViewTextBoxColumn.Name = "createdatDataGridViewTextBoxColumn";
+            createdatDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // edit
             // 
             edit.HeaderText = "";
             edit.Name = "edit";
+            edit.ReadOnly = true;
             edit.Text = "Edit Product";
             edit.UseColumnTextForButtonValue = true;
-            edit.Width = 21;
+            edit.Width = 5;
             // 
             // productBindingSource
             // 
@@ -484,12 +524,20 @@
         private PictureBox pictureBox2;
         private Label label2;
         private PictureBox pictureBox3;
+        private DataGridViewTextBoxColumn supplierDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
+        private Label label3;
+        private ComboBox cmbFilterType;
+        private Button btnFilter;
+        private Button btnClearFilter;
+        private Button btnPrint;
+        private System.Drawing.Printing.PrintDocument printDocument1;
         private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn barcode;
         private DataGridViewLinkColumn product_name;
-        private DataGridViewTextBoxColumn supplierDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn productbrandDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn category_name;
+        private DataGridViewTextBoxColumn supplier_name;
         private DataGridViewTextBoxColumn productdescriptionDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn productcodeDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn skuDataGridViewTextBoxColumn;
@@ -504,11 +552,5 @@
         private DataGridViewTextBoxColumn is_active;
         private DataGridViewTextBoxColumn createdatDataGridViewTextBoxColumn;
         private DataGridViewButtonColumn edit;
-        private Label label3;
-        private ComboBox cmbFilterType;
-        private Button btnFilter;
-        private Button btnClearFilter;
-        private Button btnPrint;
-        private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }

@@ -37,7 +37,6 @@
             setupToolStripMenuItem = new ToolStripMenuItem();
             categoriesToolStripMenuItem = new ToolStripMenuItem();
             usersToolStripMenuItem = new ToolStripMenuItem();
-            supplierProductsToolStripMenuItem = new ToolStripMenuItem();
             suppliersToolStripMenuItem = new ToolStripMenuItem();
             transactionsToolStripMenuItem = new ToolStripMenuItem();
             usersToolStripMenuItem1 = new ToolStripMenuItem();
@@ -104,10 +103,11 @@
             menuStrip.Size = new Size(1374, 24);
             menuStrip.TabIndex = 0;
             menuStrip.Text = "MenuStrip";
+            menuStrip.ItemClicked += menuStrip_ItemClicked;
             // 
             // setupToolStripMenuItem
             // 
-            setupToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { categoriesToolStripMenuItem, usersToolStripMenuItem, supplierProductsToolStripMenuItem, suppliersToolStripMenuItem, transactionsToolStripMenuItem, usersToolStripMenuItem1, userAccessControlToolStripMenuItem });
+            setupToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { categoriesToolStripMenuItem, usersToolStripMenuItem, suppliersToolStripMenuItem, transactionsToolStripMenuItem, usersToolStripMenuItem1, userAccessControlToolStripMenuItem });
             setupToolStripMenuItem.Name = "setupToolStripMenuItem";
             setupToolStripMenuItem.Size = new Size(49, 20);
             setupToolStripMenuItem.Text = "Setup";
@@ -125,12 +125,6 @@
             usersToolStripMenuItem.Size = new Size(179, 22);
             usersToolStripMenuItem.Text = "Products";
             usersToolStripMenuItem.Click += usersToolStripMenuItem_Click;
-            // 
-            // supplierProductsToolStripMenuItem
-            // 
-            supplierProductsToolStripMenuItem.Name = "supplierProductsToolStripMenuItem";
-            supplierProductsToolStripMenuItem.Size = new Size(179, 22);
-            supplierProductsToolStripMenuItem.Text = "Supplier Products";
             // 
             // suppliersToolStripMenuItem
             // 
@@ -595,11 +589,11 @@
             button2.FlatStyle = FlatStyle.Popup;
             button2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button2.ForeColor = Color.White;
-            button2.Location = new Point(1327, 2);
+            button2.Location = new Point(1280, 2);
             button2.Name = "button2";
-            button2.Size = new Size(38, 23);
+            button2.Size = new Size(85, 23);
             button2.TabIndex = 162;
-            button2.Text = "x";
+            button2.Text = "Logout";
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click_1;
             // 
@@ -671,7 +665,6 @@
         private ToolStripMenuItem setupToolStripMenuItem;
         private ToolStripMenuItem categoriesToolStripMenuItem;
         private ToolStripMenuItem usersToolStripMenuItem;
-        private ToolStripMenuItem supplierProductsToolStripMenuItem;
         private ToolStripMenuItem suppliersToolStripMenuItem;
         private ToolStripMenuItem transactionsToolStripMenuItem;
         private ToolStripMenuItem usersToolStripMenuItem1;

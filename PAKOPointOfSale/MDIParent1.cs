@@ -160,42 +160,77 @@ namespace PAKOPointOfSale
 
         private void usersToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            if (!LoggedInUser.HasPermission("Users", "view"))
+            {
+                MessageBox.Show("You do not have permission to view User Accounts.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             Users.UsersList usersListForm = new Users.UsersList();
             usersListForm.Show();
         }
 
         private void categoriesToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!LoggedInUser.HasPermission("Categories", "view"))
+            {
+                MessageBox.Show("You do not have permission to view Categories.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             Categories.CategoriesList categoriesList = new Categories.CategoriesList();
             categoriesList.Show();
         }
 
         private void userAccessControlToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!LoggedInUser.HasPermission("User Access Control", "view"))
+            {
+                MessageBox.Show("You do not have permission to view User Access Control.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             UAC.UAC userAccessControlForm = new UAC.UAC();
             userAccessControlForm.Show();
         }
 
         private void suppliersToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!LoggedInUser.HasPermission("Suppliers", "view"))
+            {
+                MessageBox.Show("You do not have permission to view Suppliers.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             Supplier_Details.SuppliersList suppliersList = new Supplier_Details.SuppliersList();
             suppliersList.Show();
         }
 
         private void usersToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!LoggedInUser.HasPermission("Products", "view"))
+            {
+                MessageBox.Show("You do not have permission to view Products.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             Products.ProductsList productsForm = new Products.ProductsList();
             productsForm.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (!LoggedInUser.HasPermission("Sales Invoice", "view"))
+            {
+                MessageBox.Show("You do not have permission to create a Sales Invoice.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             Transactions.SalesInvoice salesInvoiceForm = new Transactions.SalesInvoice();
             salesInvoiceForm.Show();
         }
 
         private void transactionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!LoggedInUser.HasPermission("Transactions", "view"))
+            {
+                MessageBox.Show("You do not have permission to view Transactions", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             Transactions.TransactionsList transactionsListForm = new Transactions.TransactionsList();
             transactionsListForm.Show();
         }
@@ -329,7 +364,12 @@ namespace PAKOPointOfSale
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            this.Close();
+            LoggedInUser.Logout(this);
+        }
+
+        private void menuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }

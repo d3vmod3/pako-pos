@@ -43,7 +43,7 @@
             cmbRole = new ComboBox();
             userTypeBindingSource = new BindingSource(components);
             label1 = new Label();
-            button1 = new Button();
+            btnUpdate = new Button();
             pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
             lbluserslist = new Label();
@@ -89,7 +89,7 @@
             // module_name
             // 
             module_name.DataPropertyName = "module_name";
-            module_name.HeaderText = "module_name";
+            module_name.HeaderText = "Module";
             module_name.Name = "module_name";
             // 
             // can_view
@@ -154,18 +154,18 @@
             label1.TabIndex = 2;
             label1.Text = "Select Role";
             // 
-            // button1
+            // btnUpdate
             // 
-            button1.BackColor = Color.DodgerBlue;
-            button1.FlatStyle = FlatStyle.Popup;
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(1172, 99);
-            button1.Name = "button1";
-            button1.Size = new Size(104, 23);
-            button1.TabIndex = 3;
-            button1.Text = "Update Changes";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            btnUpdate.BackColor = Color.DodgerBlue;
+            btnUpdate.FlatStyle = FlatStyle.Popup;
+            btnUpdate.ForeColor = Color.White;
+            btnUpdate.Location = new Point(1172, 99);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(104, 23);
+            btnUpdate.TabIndex = 3;
+            btnUpdate.Text = "Update Changes";
+            btnUpdate.UseVisualStyleBackColor = false;
+            btnUpdate.Click += button1_Click;
             // 
             // pictureBox2
             // 
@@ -236,7 +236,7 @@
             Controls.Add(lbluserslist);
             Controls.Add(pictureBox1);
             Controls.Add(pictureBox2);
-            Controls.Add(button1);
+            Controls.Add(btnUpdate);
             Controls.Add(label1);
             Controls.Add(cmbRole);
             Controls.Add(dataGridView1);
@@ -264,8 +264,13 @@
         private ComboBox cmbRole;
         private Label label1;
         private BindingSource userTypeBindingSource;
-        private Button button1;
+        private Button btnUpdate;
         private BindingSource permissionBindingSource;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox1;
+        private Label lbluserslist;
+        private Button btnClose;
+        private PictureBox pictureBox3;
         private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn usertypeidDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn module_name;
@@ -274,10 +279,5 @@
         private DataGridViewCheckBoxColumn can_edit;
         private DataGridViewCheckBoxColumn can_delete;
         private DataGridViewTextBoxColumn userTypeDataGridViewTextBoxColumn;
-        private PictureBox pictureBox2;
-        private PictureBox pictureBox1;
-        private Label lbluserslist;
-        private Button btnClose;
-        private PictureBox pictureBox3;
     }
 }

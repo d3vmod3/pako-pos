@@ -24,9 +24,9 @@ namespace PAKOPointOfSale.Transactions.Void
 
         private void btnProceed_Click(object sender, EventArgs e)
         {
-
-            if (!adminConfirmedVoid())
-                return;
+            var confirmForm = new ActionConfirmation("Please confirm admin credentials to proceed.", true, "void");
+            if (confirmForm.ShowDialog() == DialogResult.OK)
+            {
 
             if (MessageBox.Show("Are you sure you want to void this transaction?", "Confirm Void", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes)
                 return;
@@ -151,12 +151,7 @@ namespace PAKOPointOfSale.Transactions.Void
             {
                 MessageBox.Show("Database error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private bool adminConfirmedVoid()
-        {
-            //input pin of the admin first before proceeding
-            return true;
+            }
         }
 
         private void VoidForm_Load(object sender, EventArgs e)

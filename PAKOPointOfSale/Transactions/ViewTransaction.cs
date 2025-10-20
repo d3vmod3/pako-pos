@@ -142,10 +142,9 @@ namespace PAKOPointOfSale.Transactions
 
                 if (transactionType == "Void" || transactionType == "Sales Invoice")
                 {
-                    using (var cmdVoid = new SqlCommand("SELECT void_number, invoice_number, transaction_id FROM VoidTransactions WHERE invoice_number = @invoiceNumber and transaction_id=@transactionId", conn))
+                    using (var cmdVoid = new SqlCommand("SELECT void_number, invoice_number, transaction_id FROM VoidTransactions WHERE invoice_number = @invoiceNumber", conn))
                     {
                         cmdVoid.Parameters.AddWithValue("@invoiceNumber", lblInvoiceNumber.Text);
-                        cmdVoid.Parameters.AddWithValue("@transactionId", lblTransactionId.Text);
                         lblAdjustmentNumber.Text = "";
                         using (var reader = cmdVoid.ExecuteReader())
                         {
@@ -173,23 +172,48 @@ namespace PAKOPointOfSale.Transactions
                 }
                 else if (transactionType == "Return" || transactionType == "Sales Invoice")
                 {
-                    using (var cmdReturn = new SqlCommand("SELECT * FROM ReturnTransactions WHERE invoice_number = @invoiceNumber and transaction_id = @transactionId", conn))
+                    using (var cmdReturn = new SqlCommand("SELECT * FROM ReturnTransactions WHERE invoice_number = @invoiceNumber", conn))
                     {
                         cmdReturn.Parameters.AddWithValue("@invoiceNumber", lblInvoiceNumber.Text);
-                        cmdReturn.Parameters.AddWithValue("@transactionId", lblTransactionId.Text);
                         lblAdjustmentNumber.Text = "";
+
                         using (var reader = cmdReturn.ExecuteReader())
                         {
                             if (reader.Read())
                             {
-                                lblVoidOrReturn.Visible = true;
-                                lblAdjustmentNumber.Visible = true;
-                                lblVoidOrReturn.Text = "Return No.: ";
-                                lblAdjustmentNumber.Text = reader["return_number"].ToString();
-                                adjustment_number = reader["return_number"].ToString();
-                                cmbInvoiceAction.SelectedItem = "Return";
-                                cmbInvoiceAction.Enabled = false;
-                                btnProceed.Enabled = false;
+                                // ✅ check if all rows are gray before running this block
+                                bool allGray = true;
+                                foreach (DataGridViewRow row in dgvItems.Rows)
+                                {
+                                    if (row.IsNewRow) continue;
+
+                                    var cellColor = row.Cells["selectReturn"].Style.BackColor;
+                                    if (cellColor != Color.DarkGray)
+                                    {
+                                        allGray = false;
+                                        break;
+                                    }
+                                }
+
+                                if (allGray)
+                                {
+                                    lblVoidOrReturn.Visible = true;
+                                    lblAdjustmentNumber.Visible = true;
+                                    lblVoidOrReturn.Text = "Return No.: ";
+                                    lblAdjustmentNumber.Text = reader["return_number"].ToString();
+                                    adjustment_number = reader["return_number"].ToString();
+                                    cmbInvoiceAction.SelectedItem = "Return";
+                                    //cmbInvoiceAction.Enabled = false;
+                                    btnProceed.Enabled = false;
+                                }
+                                else
+                                {
+                                    lblVoidOrReturn.Visible = false;
+                                    lblAdjustmentNumber.Visible = false;
+                                    cmbInvoiceAction.SelectedItem = "";
+                                    cmbInvoiceAction.Enabled = true;
+                                    btnProceed.Enabled = true;
+                                }
                             }
                             else
                             {
@@ -224,6 +248,7 @@ namespace PAKOPointOfSale.Transactions
         }
         private void btnProceed_Click(object sender, EventArgs e)
         {
+            
             if (cmbInvoiceAction.SelectedItem?.ToString() == "Void")
             {
                 if (countAlreadyReturneditems > 0)
@@ -266,9 +291,10 @@ namespace PAKOPointOfSale.Transactions
                 MessageBox.Show("Please choose an action", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 cmbInvoiceAction.Focus();
             }
-
+            
         }
 
+        
         private void cmbInvoiceAction_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selectedAction = cmbInvoiceAction.SelectedItem?.ToString();
@@ -286,6 +312,9 @@ namespace PAKOPointOfSale.Transactions
                 dgvItems.Columns["selectReturn"].Visible = false;
             }
         }
+
+        
+
 
         private void button1_Click(object sender, EventArgs e)
         {

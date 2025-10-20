@@ -44,21 +44,34 @@ namespace WinFormsApp1.Data
                 new UserType { id = 3, name = "Cashier" }
             );
             modelBuilder.Entity<Permission>().HasData(
-            // Admin full access to all modules
-                new Permission { id = 1, user_type_id = 1, module_name = "Users", can_view = true, can_add = true, can_edit = true, can_delete = true },
-                new Permission { id = 2, user_type_id = 1, module_name = "Categories", can_view = true, can_add = true, can_edit = true, can_delete = true },
+                // --- Super Admin (user_type_id = 1) ---
+                new Permission { id = 1, user_type_id = 1, module_name = "Categories", can_view = true, can_add = true, can_edit = true, can_delete = true },
+                new Permission { id = 2, user_type_id = 1, module_name = "Products", can_view = true, can_add = true, can_edit = true, can_delete = true },
                 new Permission { id = 3, user_type_id = 1, module_name = "Suppliers", can_view = true, can_add = true, can_edit = true, can_delete = true },
+                new Permission { id = 4, user_type_id = 1, module_name = "Sales Invoice", can_view = false, can_add = false, can_edit = false }, // SetActive is N/A, so can_delete omitted
+                new Permission { id = 5, user_type_id = 1, module_name = "Transactions", can_view = true, can_add = true, can_edit = true, can_delete = true },
+                new Permission { id = 6, user_type_id = 1, module_name = "User Access Control", can_view = true, can_edit = true }, // Add & SetActive are N/A, skipped
+                new Permission { id = 7, user_type_id = 1, module_name = "Users", can_view = true, can_add = true, can_edit = true, can_delete = true },
 
-                // Cashier: view only Products
-                new Permission { id = 5, user_type_id = 2, module_name = "Users", can_view = false, can_add = false, can_edit = false, can_delete = false },
-                new Permission { id = 6, user_type_id = 2, module_name = "Categories", can_view = true, can_add = false, can_edit = false, can_delete = false },
-                new Permission { id = 7, user_type_id = 2, module_name = "Suppliers", can_view = true, can_add = false, can_edit = false, can_delete = false },
+                // --- Admin (user_type_id = 2) ---
+                new Permission { id = 8, user_type_id = 2, module_name = "Categories", can_view = true, can_add = true, can_edit = true, can_delete = true },
+                new Permission { id = 9, user_type_id = 2, module_name = "Products", can_view = true, can_add = true, can_edit = true, can_delete = true },
+                new Permission { id = 10, user_type_id = 2, module_name = "Suppliers", can_view = true, can_add = true, can_edit = true, can_delete = true },
+                new Permission { id = 11, user_type_id = 2, module_name = "Sales Invoice", can_view = true, can_add = true }, // Edit N/A, SetActive N/A
+                new Permission { id = 12, user_type_id = 2, module_name = "Transactions", can_view = true, can_add = true, can_edit = true, can_delete = true },
+                new Permission { id = 13, user_type_id = 2, module_name = "User Access Control", can_view = true, can_edit = true }, // Add & SetActive N/A
+                new Permission { id = 14, user_type_id = 2, module_name = "Users", can_view = true, can_add = true, can_edit = true, can_delete = true },
 
-                // Manager: view, add, edit Products and Categories
-                new Permission { id = 9, user_type_id = 3, module_name = "Users", can_view = false, can_add = false, can_edit = false, can_delete = false },
-                new Permission { id = 10, user_type_id = 3, module_name = "Categories", can_view = true, can_add = true, can_edit = true, can_delete = false },
-                new Permission { id = 11, user_type_id = 3, module_name = "Suppliers", can_view = true, can_add = true, can_edit = true, can_delete = false }
+                // --- Cashier (user_type_id = 3) ---
+                new Permission { id = 15, user_type_id = 3, module_name = "Categories", can_view = false, can_add = false, can_edit = false, can_delete = false },
+                new Permission { id = 16, user_type_id = 3, module_name = "Products", can_view = false, can_add = false, can_edit = false, can_delete = false },
+                new Permission { id = 17, user_type_id = 3, module_name = "Suppliers", can_view = false, can_add = false, can_edit = false, can_delete = false },
+                new Permission { id = 18, user_type_id = 3, module_name = "Sales Invoice", can_view = true, can_add = true, can_edit = true }, // SetActive N/A
+                new Permission { id = 19, user_type_id = 3, module_name = "Transactions", can_view = false, can_add = false, can_edit = false, can_delete = false },
+                new Permission { id = 20, user_type_id = 3, module_name = "User Access Control", can_view = false }, // Add & Edit & SetActive N/A
+                new Permission { id = 21, user_type_id = 3, module_name = "Users", can_view = false, can_add = false, can_edit = false, can_delete = false }
             );
+
 
             // Example: Seeding Users
             modelBuilder.Entity<User>().HasData(
@@ -117,16 +130,16 @@ namespace WinFormsApp1.Data
             );
 
             modelBuilder.Entity<SupplierDetails>().HasData(
-                new SupplierDetails { id = 1, name = "ABC Traders", contact_number = "09170000001", address = "123 Street A" },
-                new SupplierDetails { id = 2, name = "XYZ Supplies", contact_number = "09170000002", address = "456 Street B" },
-                new SupplierDetails { id = 3, name = "MegaCorp", contact_number = "09170000003", address = "789 Street C" },
-                new SupplierDetails { id = 4, name = "Foodies Inc", contact_number = "09170000004", address = "101 Street D" },
-                new SupplierDetails { id = 5, name = "SnackKing", contact_number = "09170000005", address = "202 Street E" },
-                new SupplierDetails { id = 6, name = "ElectroMart", contact_number = "09170000006", address = "303 Street F" },
-                new SupplierDetails { id = 7, name = "Cool Drinks Co", contact_number = "09170000007", address = "404 Street G" },
-                new SupplierDetails { id = 8, name = "Fresh Foods", contact_number = "09170000008", address = "505 Street H" },
-                new SupplierDetails { id = 9, name = "Global Traders", contact_number = "09170000009", address = "606 Street I" },
-                new SupplierDetails { id = 10, name = "Local Supplies", contact_number = "09170000010", address = "707 Street J" }
+                new SupplierDetails { id = 1, name = "ABC Traders", contact_number = "09170000001", address = "123 Street A", account_number = "ACC1001", gateway = "GATE1", created_at = new DateTime(2025, 1, 14) },
+                new SupplierDetails { id = 2, name = "XYZ Supplies", contact_number = "09170000002", address = "456 Street B", account_number = "ACC1002", gateway = "GATE2", created_at = new DateTime(2025, 3, 7) },
+                new SupplierDetails { id = 3, name = "MegaCorp", contact_number = "09170000003", address = "789 Street C", account_number = "ACC1003", gateway = "GATE3", created_at = new DateTime(2025, 5, 21) },
+                new SupplierDetails { id = 4, name = "Foodies Inc", contact_number = "09170000004", address = "101 Street D", account_number = "ACC1004", gateway = "GATE4", created_at = new DateTime(2025, 2, 28) },
+                new SupplierDetails { id = 5, name = "SnackKing", contact_number = "09170000005", address = "202 Street E", account_number = "ACC1005", gateway = "GATE5", created_at = new DateTime(2025, 6, 15) },
+                new SupplierDetails { id = 6, name = "ElectroMart", contact_number = "09170000006", address = "303 Street F", account_number = "ACC1006", gateway = "GATE6", created_at = new DateTime(2025, 8, 3) },
+                new SupplierDetails { id = 7, name = "Cool Drinks Co", contact_number = "09170000007", address = "404 Street G", account_number = "ACC1007", gateway = "GATE7", created_at = new DateTime(2025, 9, 19) },
+                new SupplierDetails { id = 8, name = "Fresh Foods", contact_number = "09170000008", address = "505 Street H", account_number = "ACC1008", gateway = "GATE8", created_at = new DateTime(2025, 7, 11) },
+                new SupplierDetails { id = 9, name = "Global Traders", contact_number = "09170000009", address = "606 Street I", account_number = "ACC1009", gateway = "GATE9", created_at = new DateTime(2025, 4, 26) },
+                new SupplierDetails { id = 10, name = "Local Supplies", contact_number = "09170000010", address = "707 Street J", account_number = "ACC1010", gateway = "GATE10", created_at = new DateTime(2025, 12, 8) }
             );
 
             //modelBuilder.Entity<SuppliedProduct>().HasData(

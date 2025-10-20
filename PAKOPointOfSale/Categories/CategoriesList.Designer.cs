@@ -30,11 +30,11 @@ namespace PAKOPointOfSale.Categories
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle16 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle17 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle18 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle19 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle20 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CategoriesList));
             dataGridView1 = new DataGridView();
             id = new DataGridViewTextBoxColumn();
@@ -45,7 +45,7 @@ namespace PAKOPointOfSale.Categories
             editCategory = new DataGridViewButtonColumn();
             categoryBindingSource = new BindingSource(components);
             btnAdd = new Button();
-            btnPrint = new Button();
+            btnExport = new Button();
             txtSearch = new TextBox();
             label1 = new Label();
             pictureBox1 = new PictureBox();
@@ -53,6 +53,9 @@ namespace PAKOPointOfSale.Categories
             lblcategorieslist = new Label();
             btnClose = new Button();
             pictureBox3 = new PictureBox();
+            chkIsActive = new CheckBox();
+            btnClearFilter = new Button();
+            btnFilter = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)categoryBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -64,44 +67,44 @@ namespace PAKOPointOfSale.Categories
             // 
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.ForeColor = Color.Black;
-            dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle16.ForeColor = Color.Black;
+            dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BackgroundColor = SystemColors.ActiveBorder;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.CadetBlue;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = Color.Transparent;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle17.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = Color.CadetBlue;
+            dataGridViewCellStyle17.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle17.ForeColor = Color.Black;
+            dataGridViewCellStyle17.SelectionBackColor = Color.Transparent;
+            dataGridViewCellStyle17.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { id, dataGridViewTextBoxColumn3, descriptionDataGridViewTextBoxColumn, isactiveDataGridViewCheckBoxColumn, productsDataGridViewTextBoxColumn, editCategory });
             dataGridView1.DataSource = categoryBindingSource;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Window;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = SystemColors.ControlDark;
-            dataGridViewCellStyle3.SelectionBackColor = Color.Black;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle18.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = SystemColors.Window;
+            dataGridViewCellStyle18.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle18.ForeColor = SystemColors.ControlDark;
+            dataGridViewCellStyle18.SelectionBackColor = Color.Black;
+            dataGridViewCellStyle18.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle18;
             dataGridView1.GridColor = Color.Black;
             dataGridView1.Location = new Point(12, 134);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = SystemColors.Window;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle4.ForeColor = Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = Color.Transparent;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridViewCellStyle5.ForeColor = Color.Black;
-            dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle19.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = SystemColors.Window;
+            dataGridViewCellStyle19.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle19.ForeColor = Color.Black;
+            dataGridViewCellStyle19.SelectionBackColor = Color.Transparent;
+            dataGridViewCellStyle19.SelectionForeColor = SystemColors.Highlight;
+            dataGridViewCellStyle19.WrapMode = DataGridViewTriState.True;
+            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle20.ForeColor = Color.Black;
+            dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle20;
             dataGridView1.Size = new Size(1334, 544);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick_1;
@@ -173,17 +176,18 @@ namespace PAKOPointOfSale.Categories
             btnAdd.UseVisualStyleBackColor = false;
             btnAdd.Click += btnAdd_Click;
             // 
-            // btnPrint
+            // btnExport
             // 
-            btnPrint.BackColor = Color.Gold;
-            btnPrint.FlatStyle = FlatStyle.Popup;
-            btnPrint.ForeColor = Color.Black;
-            btnPrint.Location = new Point(1186, 108);
-            btnPrint.Name = "btnPrint";
-            btnPrint.Size = new Size(75, 22);
-            btnPrint.TabIndex = 3;
-            btnPrint.Text = "Print";
-            btnPrint.UseVisualStyleBackColor = false;
+            btnExport.BackColor = Color.Gold;
+            btnExport.FlatStyle = FlatStyle.Popup;
+            btnExport.ForeColor = Color.Black;
+            btnExport.Location = new Point(1186, 108);
+            btnExport.Name = "btnExport";
+            btnExport.Size = new Size(75, 22);
+            btnExport.TabIndex = 3;
+            btnExport.Text = "Export";
+            btnExport.UseVisualStyleBackColor = false;
+            btnExport.Click += btnExport_Click;
             // 
             // txtSearch
             // 
@@ -266,6 +270,37 @@ namespace PAKOPointOfSale.Categories
             pictureBox3.TabIndex = 152;
             pictureBox3.TabStop = false;
             // 
+            // chkIsActive
+            // 
+            chkIsActive.AutoSize = true;
+            chkIsActive.ForeColor = Color.White;
+            chkIsActive.Location = new Point(534, 108);
+            chkIsActive.Name = "chkIsActive";
+            chkIsActive.Size = new Size(59, 19);
+            chkIsActive.TabIndex = 154;
+            chkIsActive.Text = "Active";
+            chkIsActive.UseVisualStyleBackColor = true;
+            // 
+            // btnClearFilter
+            // 
+            btnClearFilter.Location = new Point(670, 106);
+            btnClearFilter.Name = "btnClearFilter";
+            btnClearFilter.Size = new Size(75, 23);
+            btnClearFilter.TabIndex = 155;
+            btnClearFilter.Text = "Clear Filter";
+            btnClearFilter.UseVisualStyleBackColor = true;
+            btnClearFilter.Click += btnClearFilter_Click;
+            // 
+            // btnFilter
+            // 
+            btnFilter.Location = new Point(589, 106);
+            btnFilter.Name = "btnFilter";
+            btnFilter.Size = new Size(75, 23);
+            btnFilter.TabIndex = 156;
+            btnFilter.Text = "Filter";
+            btnFilter.UseVisualStyleBackColor = true;
+            btnFilter.Click += btnFilter_Click;
+            // 
             // CategoriesList
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -273,6 +308,9 @@ namespace PAKOPointOfSale.Categories
             AutoSize = true;
             BackColor = Color.CadetBlue;
             ClientSize = new Size(1358, 788);
+            Controls.Add(btnFilter);
+            Controls.Add(btnClearFilter);
+            Controls.Add(chkIsActive);
             Controls.Add(pictureBox3);
             Controls.Add(btnClose);
             Controls.Add(lblcategorieslist);
@@ -280,7 +318,7 @@ namespace PAKOPointOfSale.Categories
             Controls.Add(pictureBox1);
             Controls.Add(label1);
             Controls.Add(txtSearch);
-            Controls.Add(btnPrint);
+            Controls.Add(btnExport);
             Controls.Add(btnAdd);
             Controls.Add(dataGridView1);
             ForeColor = SystemColors.ControlDark;
@@ -307,7 +345,7 @@ namespace PAKOPointOfSale.Categories
 
         private DataGridView dataGridView1;
         private Button btnAdd;
-        private Button btnPrint;
+        private Button btnExport;
         private TextBox txtSearch;
         private Label label1;
         private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
@@ -327,5 +365,9 @@ namespace PAKOPointOfSale.Categories
         private DataGridViewTextBoxColumn productsDataGridViewTextBoxColumn;
         private DataGridViewButtonColumn editCategory;
         private PictureBox pictureBox3;
+        private CheckBox chkIsActive;
+        private Button btnClearFilter;
+        private Button btnFilter;
+        private Label dtpFrom;
     }
 }

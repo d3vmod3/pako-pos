@@ -36,6 +36,22 @@ namespace PAKOPointOfSale.Products
         private void ProductsList_Load(object sender, EventArgs e)
         {
             LoadProducts();
+            loadPermissions();
+        }
+        private void loadPermissions()
+        {
+            if (!LoggedInUser.HasPermission("Products", "add"))
+            {
+                btnAdd.Visible = false;
+            }
+            if (!LoggedInUser.HasPermission("Products", "edit"))
+            {
+                if (dataGridView1.Columns.Contains("edit"))
+                {
+                    dataGridView1.Columns["edit"].Visible = false;
+                }
+            }
+
         }
         private void LoadProducts()
         {

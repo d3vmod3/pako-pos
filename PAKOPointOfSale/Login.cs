@@ -12,76 +12,68 @@ namespace PAKOPointOfSale
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string username = txtUsername.Text; // Make sure your TextBox is named txtUsername
-            string password = txtPassword.Text; // Make sure your TextBox is named txtPassword
+            string username = txtUsername.Text.Trim();
+            string password = txtPassword.Text.Trim();
 
-            if (LoginUser(username, password))
+            
+            int userTypeId = LoginUser(username, password);
+
+            if (userTypeId > 0)
             {
+                LoggedInUser.CurrentUser = username;
+                LoggedInUser.CurrentUserTypeId = userTypeId;
+
                 MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Open main form and hide login
                 this.Hide();
-                //MainForm mainForm = new MainForm(); // Replace with your main form
-                //mainForm.Show();
-                switch (user_type_id)
+                MDIParent1 mainMenuForm = new MDIParent1();
+                if (userTypeId == 3)
                 {
-                    case 1:
-                        MDIParent1 SuperAdminForm = new MDIParent1();
-                        SuperAdminForm.Show();
-                        break;
-                    case 2:
-                        //Dashboard Dashboard = new Dashboard();
-                        //Dashboard.Show();
-                        break;
-                    case 3:
-                        Cashier Cashier = new Cashier();
-                        Cashier.Show();
-                        break;
+                    Transactions.SalesInvoice salesInvoiceForm = new Transactions.SalesInvoice();
+                    salesInvoiceForm.ShowDialog();
                 }
-
+                mainMenuForm.Show();
             }
             else
             {
                 MessageBox.Show("Invalid username or password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-        private bool LoginUser(string username, string password)
+        private int LoginUser(string username, string password)
         {
             try
             {
                 using (SqlConnection conn = new SqlConnection(Program.ConnString))
                 {
                     conn.Open();
-
-                    string query = "SELECT user_type_id FROM Users WHERE username = @username AND password = @password";
+                    string query = @"
+                SELECT id, user_type_id
+                FROM Users
+                WHERE username = @username AND password = @password AND is_active = 1";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@username", username);
-                        cmd.Parameters.AddWithValue("@password", password); // Use hashed passwords in production!
+                        cmd.Parameters.AddWithValue("@password", password); // (later you can hash this)
 
-
-                        object result = cmd.ExecuteScalar();
-
-                        if (result != null)
+                        using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            user_type_id = Convert.ToInt32(result);
-                            return true;
+                            if (reader.Read())
+                            {
+                                return reader.GetInt32(reader.GetOrdinal("user_type_id"));
+                            }
                         }
-                        else
-                        {
-                            return false; // Login failed
-                        }
-
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Database error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+                MessageBox.Show("Login failed: " + ex.Message);
             }
+
+            return 0; // Invalid login
         }
+        
 
         private void label1_Click(object sender, EventArgs e)
         {

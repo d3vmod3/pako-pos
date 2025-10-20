@@ -11,9 +11,9 @@ namespace WinFormsApp1.Model
     {
         public int id { get; set; }
         [ForeignKey("supplier")]
-        public int supplier_id { get; set; }
+        public int? supplier_id { get; set; }
         [ForeignKey("category")]
-        public int category_id { get; set; }
+        public int? category_id { get; set; }
         public string product_name { get; set; }
         public string? product_brand { get; set; }
         public string? product_description { get; set; }

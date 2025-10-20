@@ -31,6 +31,24 @@ namespace PAKOPointOfSale.Categories
         private void CategoryList_Load(object sender, EventArgs e)
         {
             loadCategories();
+            loadPermissions();
+
+
+        }
+        private void loadPermissions()
+        {
+            if (!LoggedInUser.HasPermission("Categories", "add"))
+            {
+               btnAdd.Visible = false;
+            }
+            if (!LoggedInUser.HasPermission("Categories", "edit"))
+            {
+                if (dataGridView1.Columns.Contains("editCategory"))
+                {
+                    dataGridView1.Columns["editCategory"].Visible = false;
+                }
+            }
+
         }
         private void loadCategories()
         {
@@ -131,6 +149,101 @@ namespace PAKOPointOfSale.Categories
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            if (categoriesTable == null) return; // Safety check
+
+            // Example: toggle between showing Active and Inactive rows
+            if (btnFilter.Tag == null || btnFilter.Tag.ToString() == "Inactive")
+            {
+                categoriesTable.DefaultView.RowFilter = "is_active = True";
+                btnFilter.Text = "Show Inactive";
+                btnFilter.Tag = "Active";
+            }
+            else
+            {
+                categoriesTable.DefaultView.RowFilter = "is_active = False";
+                btnFilter.Text = "Show Active";
+                btnFilter.Tag = "Inactive";
+            }
+
+            // Update DataGridView
+            dataGridView1.DataSource = categoriesTable.DefaultView;
+        }
+
+        private void btnClearFilter_Click(object sender, EventArgs e)
+        {
+            chkIsActive.Checked = false;
+            loadCategories();
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.Rows.Count == 0)
+            {
+                MessageBox.Show("No data to export.");
+                return;
+            }
+
+            try
+            {
+                // Ask where to save the CSV
+                using (SaveFileDialog sfd = new SaveFileDialog()
+                {
+                    Filter = "CSV files (*.csv)|*.csv",
+                    FileName = "Categories.csv"
+                })
+                {
+                    if (sfd.ShowDialog() == DialogResult.OK)
+                    {
+                        StringBuilder csvContent = new StringBuilder();
+
+                        // Include only visible columns
+                        var visibleColumns = dataGridView1.Columns
+                            .Cast<DataGridViewColumn>()
+                            .Where(c => c.Visible && !string.Equals(c.HeaderText, "", StringComparison.OrdinalIgnoreCase))
+                            .ToList();
+
+                        // Write header row
+                        csvContent.AppendLine(string.Join(",", visibleColumns.Select(c => "\"" + c.HeaderText + "\"")));
+
+                        // Write data rows
+                        foreach (DataGridViewRow row in dataGridView1.Rows)
+                        {
+                            if (row.IsNewRow) continue; // skip the new row placeholder
+
+                            var values = visibleColumns.Select(c =>
+                            {
+                                var cellValue = row.Cells[c.Index].Value?.ToString() ?? "";
+                                // Escape double quotes for CSV
+                                return "\"" + cellValue.Replace("\"", "\"\"") + "\"";
+                            });
+
+                            csvContent.AppendLine(string.Join(",", values));
+                        }
+
+                        // Save the CSV file
+                        File.WriteAllText(sfd.FileName, csvContent.ToString(), Encoding.UTF8);
+
+                        // Ask to open it
+                        var result = MessageBox.Show("Export successful! Do you want to open the file?", "Export Complete", MessageBoxButtons.YesNo);
+                        if (result == DialogResult.Yes)
+                        {
+                            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo()
+                            {
+                                FileName = sfd.FileName,
+                                UseShellExecute = true
+                            });
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error exporting CSV: " + ex.Message);
+            }
         }
     }
 }
