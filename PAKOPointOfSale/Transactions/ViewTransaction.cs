@@ -149,7 +149,10 @@ namespace PAKOPointOfSale.Transactions
                         {
                             if (reader.Read())
                             {
-                                lblAdjustmentNumber.Text = "Void Series No.: " + reader["void_number"].ToString();
+                                lblVoidOrReturn.Visible = true;
+                                lblAdjustmentNumber.Visible = true;
+                                lblVoidOrReturn.Text = "Void No.: ";
+                                lblAdjustmentNumber.Text = reader["void_number"].ToString();
                                 adjustment_number = reader["void_number"].ToString();
                                 cmbInvoiceAction.SelectedItem = "Void";
                                 cmbInvoiceAction.Enabled = false;
@@ -157,6 +160,7 @@ namespace PAKOPointOfSale.Transactions
                             }
                             else
                             {
+                                lblVoidOrReturn.Visible = false;
                                 lblAdjustmentNumber.Visible = false;
                                 cmbInvoiceAction.SelectedItem = "";
                                 cmbInvoiceAction.Enabled = true;
@@ -176,7 +180,10 @@ namespace PAKOPointOfSale.Transactions
                         {
                             if (reader.Read())
                             {
-                                lblAdjustmentNumber.Text = "Return Series No.: " + reader["return_number"].ToString();
+                                lblVoidOrReturn.Visible = true;
+                                lblAdjustmentNumber.Visible = true;
+                                lblVoidOrReturn.Text = "Return No.: ";
+                                lblAdjustmentNumber.Text = reader["return_number"].ToString();
                                 adjustment_number = reader["return_number"].ToString();
                                 cmbInvoiceAction.SelectedItem = "Return";
                                 cmbInvoiceAction.Enabled = false;
@@ -184,6 +191,7 @@ namespace PAKOPointOfSale.Transactions
                             }
                             else
                             {
+                                lblVoidOrReturn.Visible = false;
                                 lblAdjustmentNumber.Visible = false;
                                 cmbInvoiceAction.SelectedItem = "";
                                 cmbInvoiceAction.Enabled = true;

@@ -86,12 +86,12 @@ namespace PAKOPointOfSale.Transactions
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
             pictureBox3 = new PictureBox();
-            label13 = new Label();
             pictureBox4 = new PictureBox();
             pictureBox5 = new PictureBox();
             pictureBox6 = new PictureBox();
             lblsearchproduct = new Label();
             button1 = new Button();
+            lblVoidOrReturn = new Label();
             ((ISupportInitialize)dgvItems).BeginInit();
             ((ISupportInitialize)salesInvoiceItemBindingSource).BeginInit();
             ((ISupportInitialize)pictureBox1).BeginInit();
@@ -566,11 +566,12 @@ namespace PAKOPointOfSale.Transactions
             lblAdjustmentNumber.AutoSize = true;
             lblAdjustmentNumber.Font = new Font("Microsoft Sans Serif", 12F);
             lblAdjustmentNumber.ForeColor = Color.White;
-            lblAdjustmentNumber.Location = new Point(39, 248);
+            lblAdjustmentNumber.Location = new Point(340, 247);
             lblAdjustmentNumber.Name = "lblAdjustmentNumber";
-            lblAdjustmentNumber.Size = new Size(198, 20);
+            lblAdjustmentNumber.Size = new Size(63, 20);
             lblAdjustmentNumber.TabIndex = 30;
-            lblAdjustmentNumber.Text = "Adjustment series: 000000";
+            lblAdjustmentNumber.Text = "000000";
+            lblAdjustmentNumber.Visible = false;
             lblAdjustmentNumber.Click += lblAdjustmentNumber_Click;
             // 
             // lblReturnNote
@@ -606,17 +607,6 @@ namespace PAKOPointOfSale.Transactions
             pictureBox3.Size = new Size(100, 50);
             pictureBox3.TabIndex = 0;
             pictureBox3.TabStop = false;
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Font = new Font("Microsoft Sans Serif", 12F);
-            label13.ForeColor = Color.White;
-            label13.Location = new Point(40, 168);
-            label13.Name = "label13";
-            label13.Size = new Size(120, 20);
-            label13.TabIndex = 32;
-            label13.Text = "Transaction No:";
             // 
             // pictureBox4
             // 
@@ -676,6 +666,18 @@ namespace PAKOPointOfSale.Transactions
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click_1;
             // 
+            // lblVoidOrReturn
+            // 
+            lblVoidOrReturn.AutoSize = true;
+            lblVoidOrReturn.Font = new Font("Microsoft Sans Serif", 12F);
+            lblVoidOrReturn.ForeColor = Color.White;
+            lblVoidOrReturn.Location = new Point(39, 247);
+            lblVoidOrReturn.Name = "lblVoidOrReturn";
+            lblVoidOrReturn.Size = new Size(112, 20);
+            lblVoidOrReturn.TabIndex = 32;
+            lblVoidOrReturn.Text = "Void or Return";
+            lblVoidOrReturn.Visible = false;
+            // 
             // ViewTransaction
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -687,7 +689,7 @@ namespace PAKOPointOfSale.Transactions
             Controls.Add(pictureBox6);
             Controls.Add(pictureBox5);
             Controls.Add(pictureBox4);
-            Controls.Add(label13);
+            Controls.Add(lblVoidOrReturn);
             Controls.Add(lblReturnNote);
             Controls.Add(lblAdjustmentNumber);
             Controls.Add(lblTransactionType);
@@ -775,7 +777,6 @@ namespace PAKOPointOfSale.Transactions
         //private DataGridViewTextBoxColumn product_name;
         //private DataGridViewTextBoxColumn product_brand;
         private Label lblReturnNote;
-        private Label label13;
         private PictureBox pictureBox3;
         private PictureBox pictureBox2;
         private PictureBox pictureBox1;
@@ -803,5 +804,6 @@ namespace PAKOPointOfSale.Transactions
         private PictureBox pictureBox6;
         private Label lblsearchproduct;
         private Button button1;
+        private Label lblVoidOrReturn;
     }
 }
