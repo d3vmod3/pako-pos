@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,9 @@ namespace PAKOPointOfSale.Products
     public partial class ProductsList : Form
     {
         private DataTable productsTable;
+        private PrintDocument printDocument = new PrintDocument();
+        private int currentRow = 0;
+        private List<DataGridViewColumn> printableColumns;
         public ProductsList()
         {
             InitializeComponent();
@@ -424,6 +428,131 @@ namespace PAKOPointOfSale.Products
                     }
                 }
             }
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            printableColumns = dataGridView1.Columns
+        .Cast<DataGridViewColumn>()
+        .Where(c => c.Visible && !string.Equals(c.HeaderText, "", StringComparison.OrdinalIgnoreCase))
+        .ToList();
+
+            // Reset row index
+            currentRow = 0;
+
+            // Setup the PrintDocument
+            printDocument = new PrintDocument();
+            printDocument.DefaultPageSettings.Landscape = true;
+            printDocument.PrintPage += printDocument1_PrintPage;
+
+            // Show Print Preview
+            using (PrintPreviewDialog preview = new PrintPreviewDialog())
+            {
+                preview.Document = printDocument;
+                preview.WindowState = FormWindowState.Maximized;
+                preview.ShowDialog();
+            }
+        }
+
+        private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            int leftMargin = e.MarginBounds.Left;
+            int topMargin = e.MarginBounds.Top;
+            int y = topMargin;
+
+            Font titleFont = new Font("Arial", 14, FontStyle.Bold);
+            Font headerFont = new Font("Arial", 10, FontStyle.Bold);
+            Font cellFont = new Font("Arial", 9);
+            Brush brush = Brushes.Black;
+
+            // Draw title
+            string title = "Product Inventory Report";
+            e.Graphics.DrawString(title, titleFont, brush, leftMargin, y - 40);
+
+            // Draw date/time
+            string date = DateTime.Now.ToString("MMMM dd, yyyy hh:mm tt");
+            e.Graphics.DrawString(date, new Font("Arial", 9, FontStyle.Italic), brush, leftMargin, y - 20);
+
+            // Get visible columns excluding "Edit"
+            var visibleColumns = dataGridView1.Columns
+                .Cast<DataGridViewColumn>()
+                .Where(c => c.Visible && !string.Equals(c.HeaderText, "", StringComparison.OrdinalIgnoreCase))
+                .ToList();
+
+            // Calculate total width and scaling
+            int totalWidth = visibleColumns.Sum(c => c.Width);
+            int printableWidth = e.MarginBounds.Width;
+            float scale = totalWidth > printableWidth ? (float)printableWidth / totalWidth : 1.0f;
+
+            // Center table horizontally
+            int totalScaledWidth = (int)(totalWidth * scale);
+            int leftStart = leftMargin + (e.MarginBounds.Width - totalScaledWidth) / 2;
+
+            // Header row
+            int x = leftStart;
+            int headerHeight = 30;
+            foreach (var col in visibleColumns)
+            {
+                int colWidth = (int)(col.Width * scale);
+                e.Graphics.FillRectangle(Brushes.LightGray, new Rectangle(x, y, colWidth, headerHeight));
+                e.Graphics.DrawRectangle(Pens.Black, x, y, colWidth, headerHeight);
+                e.Graphics.DrawString(col.HeaderText, headerFont, brush,
+                    new RectangleF(x + 4, y + 6, colWidth - 8, headerHeight),
+                    new StringFormat { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Center });
+                x += colWidth;
+            }
+
+            y += headerHeight;
+
+            // Rows
+            while (currentRow < dataGridView1.Rows.Count)
+            {
+                DataGridViewRow row = dataGridView1.Rows[currentRow];
+                if (row.IsNewRow)
+                {
+                    currentRow++;
+                    continue;
+                }
+
+                // Compute row height based on the tallest wrapped cell
+                int rowHeight = 25;
+                foreach (var col in visibleColumns)
+                {
+                    int colWidth = (int)(col.Width * scale);
+                    string text = row.Cells[col.Index].Value?.ToString() ?? "";
+                    SizeF textSize = e.Graphics.MeasureString(text, cellFont, colWidth - 8);
+                    rowHeight = Math.Max(rowHeight, (int)textSize.Height + 10);
+                }
+
+                // Check page overflow
+                if (y + rowHeight > e.MarginBounds.Bottom)
+                {
+                    e.HasMorePages = true;
+                    return;
+                }
+
+                // Draw cells
+                x = leftStart;
+                foreach (var col in visibleColumns)
+                {
+                    int colWidth = (int)(col.Width * scale);
+                    string text = row.Cells[col.Index].Value?.ToString() ?? "";
+
+                    Rectangle rect = new Rectangle(x, y, colWidth, rowHeight);
+                    e.Graphics.DrawRectangle(Pens.Black, rect);
+
+                    e.Graphics.DrawString(text, cellFont, brush,
+                        new RectangleF(rect.X + 4, rect.Y + 4, rect.Width - 8, rect.Height - 8),
+                        new StringFormat { Alignment = StringAlignment.Near, LineAlignment = StringAlignment.Near });
+
+                    x += colWidth;
+                }
+
+                y += rowHeight;
+                currentRow++;
+            }
+
+            e.HasMorePages = false;
         }
     }
 }
