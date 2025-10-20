@@ -45,7 +45,8 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 29);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(12, 35);
             label1.Name = "label1";
             label1.Size = new Size(65, 15);
             label1.TabIndex = 1;
@@ -54,6 +55,7 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.ForeColor = Color.White;
             label2.Location = new Point(24, 74);
             label2.Name = "label2";
             label2.Size = new Size(50, 15);
@@ -69,25 +71,32 @@
             // 
             // btnFilter
             // 
-            btnFilter.Location = new Point(205, 97);
+            btnFilter.BackColor = Color.Khaki;
+            btnFilter.FlatStyle = FlatStyle.Popup;
+            btnFilter.Location = new Point(205, 100);
             btnFilter.Name = "btnFilter";
             btnFilter.Size = new Size(75, 23);
             btnFilter.TabIndex = 4;
             btnFilter.Text = "Filter";
-            btnFilter.UseVisualStyleBackColor = true;
+            btnFilter.UseVisualStyleBackColor = false;
             btnFilter.Click += btnFilter_Click;
             // 
             // DateRange
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.CadetBlue;
             ClientSize = new Size(293, 140);
             Controls.Add(btnFilter);
             Controls.Add(label2);
             Controls.Add(dtTo);
             Controls.Add(label1);
             Controls.Add(dtFrom);
+            FormBorderStyle = FormBorderStyle.None;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "DateRange";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Filter by";
             Load += DateRange_Load;
             ResumeLayout(false);

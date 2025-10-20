@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TransactionsList));
             dtgvTransactions = new DataGridView();
             id = new DataGridViewTextBoxColumn();
             invoicenumberDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -48,8 +49,15 @@
             label1 = new Label();
             txtSearch = new TextBox();
             button1 = new Button();
+            pictureBox2 = new PictureBox();
+            pictureBox1 = new PictureBox();
+            lblsearchproduct = new Label();
+            pictureBox3 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dtgvTransactions).BeginInit();
             ((System.ComponentModel.ISupportInitialize)transactionBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // dtgvTransactions
@@ -61,10 +69,10 @@
             dtgvTransactions.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgvTransactions.Columns.AddRange(new DataGridViewColumn[] { id, invoicenumberDataGridViewTextBoxColumn, vatamountDataGridViewTextBoxColumn, vatablesalesDataGridViewTextBoxColumn, vatexemptDataGridViewTextBoxColumn, subtotalDataGridViewTextBoxColumn, grandtotalDataGridViewTextBoxColumn, paymentmethodDataGridViewTextBoxColumn, cashreceivedDataGridViewTextBoxColumn, cashchangeDataGridViewTextBoxColumn, statusDataGridViewTextBoxColumn, salesinvoiceitemsDataGridViewTextBoxColumn, viewInvoice });
             dtgvTransactions.DataSource = transactionBindingSource;
-            dtgvTransactions.Location = new Point(12, 134);
+            dtgvTransactions.Location = new Point(13, 144);
             dtgvTransactions.Name = "dtgvTransactions";
             dtgvTransactions.ReadOnly = true;
-            dtgvTransactions.Size = new Size(1920, 1080);
+            dtgvTransactions.Size = new Size(1329, 548);
             dtgvTransactions.TabIndex = 0;
             dtgvTransactions.CellContentClick += dtgvTransactions_CellContentClick;
             // 
@@ -190,7 +198,7 @@
             label1.BackColor = Color.Khaki;
             label1.FlatStyle = FlatStyle.Popup;
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(13, 110);
+            label1.Location = new Point(13, 118);
             label1.Name = "label1";
             label1.Size = new Size(133, 15);
             label1.TabIndex = 2;
@@ -198,7 +206,7 @@
             // 
             // txtSearch
             // 
-            txtSearch.Location = new Point(152, 107);
+            txtSearch.Location = new Point(152, 115);
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(345, 23);
             txtSearch.TabIndex = 3;
@@ -206,20 +214,72 @@
             // 
             // button1
             // 
-            button1.Location = new Point(1073, 102);
+            button1.BackColor = Color.Red;
+            button1.FlatStyle = FlatStyle.Popup;
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(1267, 110);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 4;
             button1.Text = "Close";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.BackColor = Color.DimGray;
+            pictureBox2.Location = new Point(0, 1);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(1370, 103);
+            pictureBox2.TabIndex = 113;
+            pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.DimGray;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(0, 1);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(277, 103);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 114;
+            pictureBox1.TabStop = false;
+            // 
+            // lblsearchproduct
+            // 
+            lblsearchproduct.AutoSize = true;
+            lblsearchproduct.BackColor = Color.DimGray;
+            lblsearchproduct.Font = new Font("Impact", 42F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblsearchproduct.ForeColor = Color.White;
+            lblsearchproduct.Location = new Point(558, 14);
+            lblsearchproduct.Name = "lblsearchproduct";
+            lblsearchproduct.Size = new Size(463, 68);
+            lblsearchproduct.TabIndex = 115;
+            lblsearchproduct.Text = "TRANSACTIONS LIST";
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.BackColor = SystemColors.ControlDarkDark;
+            pictureBox3.ErrorImage = null;
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.InitialImage = null;
+            pictureBox3.Location = new Point(-21, 698);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(1402, 91);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 151;
+            pictureBox3.TabStop = false;
             // 
             // TransactionsList
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
-            ClientSize = new Size(1883, 876);
+            ClientSize = new Size(1363, 788);
+            Controls.Add(pictureBox3);
+            Controls.Add(lblsearchproduct);
+            Controls.Add(pictureBox1);
+            Controls.Add(pictureBox2);
             Controls.Add(button1);
             Controls.Add(txtSearch);
             Controls.Add(label1);
@@ -231,6 +291,9 @@
             Load += TransactionsList_Load;
             ((System.ComponentModel.ISupportInitialize)dtgvTransactions).EndInit();
             ((System.ComponentModel.ISupportInitialize)transactionBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -262,5 +325,6 @@
         private Label label5;
         private TextBox txtSearch;
         private Button button1;
+        private Label lblsearchproduct;
     }
 }

@@ -29,12 +29,10 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReturnForm));
             lblInvoiceNumber = new Label();
             label3 = new Label();
             dgvReturnItems = new DataGridView();
-            salesInvoiceItemBindingSource = new BindingSource(components);
-            button1 = new Button();
-            label1 = new Label();
             id = new DataGridViewTextBoxColumn();
             product_id = new DataGridViewTextBoxColumn();
             product_code = new DataGridViewTextBoxColumn();
@@ -51,25 +49,38 @@
             vat_exempt = new DataGridViewTextBoxColumn();
             transaction_id = new DataGridViewTextBoxColumn();
             remove = new DataGridViewButtonColumn();
+            salesInvoiceItemBindingSource = new BindingSource(components);
+            button1 = new Button();
+            label1 = new Label();
+            pictureBox5 = new PictureBox();
+            pictureBox3 = new PictureBox();
+            pictureBox1 = new PictureBox();
+            label2 = new Label();
+            btnClose = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvReturnItems).BeginInit();
             ((System.ComponentModel.ISupportInitialize)salesInvoiceItemBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // lblInvoiceNumber
             // 
             lblInvoiceNumber.AutoSize = true;
-            lblInvoiceNumber.Location = new Point(113, 9);
+            lblInvoiceNumber.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
+            lblInvoiceNumber.Location = new Point(753, 112);
             lblInvoiceNumber.Name = "lblInvoiceNumber";
-            lblInvoiceNumber.Size = new Size(43, 15);
+            lblInvoiceNumber.Size = new Size(69, 20);
             lblInvoiceNumber.TabIndex = 7;
             lblInvoiceNumber.Text = "000000";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(12, 9);
+            label3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
+            label3.Location = new Point(598, 111);
             label3.Name = "label3";
-            label3.Size = new Size(95, 15);
+            label3.Size = new Size(138, 20);
             label3.TabIndex = 6;
             label3.Text = "Invoice Number:";
             // 
@@ -80,34 +91,11 @@
             dgvReturnItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvReturnItems.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvReturnItems.Columns.AddRange(new DataGridViewColumn[] { id, product_id, product_code, product_name, product_brand, quantity, unit_of_measurement, unit_price, discount_type, discount, total_amount, vatable_sales, vat_amount, vat_exempt, transaction_id, remove });
-            dgvReturnItems.Location = new Point(12, 79);
+            dgvReturnItems.Location = new Point(12, 140);
             dgvReturnItems.Name = "dgvReturnItems";
-            dgvReturnItems.Size = new Size(776, 290);
+            dgvReturnItems.Size = new Size(1346, 503);
             dgvReturnItems.TabIndex = 8;
             dgvReturnItems.CellContentClick += dgvReturnItems_CellContentClick;
-            // 
-            // salesInvoiceItemBindingSource
-            // 
-            salesInvoiceItemBindingSource.DataSource = typeof(SalesInvoiceItem);
-            // 
-            // button1
-            // 
-            button1.Location = new Point(668, 399);
-            button1.Name = "button1";
-            button1.Size = new Size(111, 39);
-            button1.TabIndex = 9;
-            button1.Text = "Confirm Return";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click_1;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(12, 43);
-            label1.Name = "label1";
-            label1.Size = new Size(304, 15);
-            label1.TabIndex = 10;
-            label1.Text = "Adjust the applied quantity for each item to be returned.";
             // 
             // id
             // 
@@ -208,21 +196,121 @@
             remove.Text = "Remove Item";
             remove.UseColumnTextForButtonValue = true;
             // 
+            // salesInvoiceItemBindingSource
+            // 
+            salesInvoiceItemBindingSource.DataSource = typeof(SalesInvoiceItem);
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.ForestGreen;
+            button1.FlatStyle = FlatStyle.Popup;
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(1152, 111);
+            button1.Name = "button1";
+            button1.Size = new Size(100, 23);
+            button1.TabIndex = 9;
+            button1.Text = "Confirm Return";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click_1;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft Sans Serif", 9.75F);
+            label1.Location = new Point(12, 118);
+            label1.Name = "label1";
+            label1.Size = new Size(330, 16);
+            label1.TabIndex = 10;
+            label1.Text = "Adjust the applied quantity for each item to be returned.";
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.BackColor = Color.DimGray;
+            pictureBox5.Location = new Point(-1, 0);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(1370, 103);
+            pictureBox5.TabIndex = 154;
+            pictureBox5.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.BackColor = SystemColors.ControlDarkDark;
+            pictureBox3.ErrorImage = null;
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.InitialImage = null;
+            pictureBox3.Location = new Point(-9, 649);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(1402, 101);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 155;
+            pictureBox3.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.DimGray;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(-1, 0);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(251, 103);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 156;
+            pictureBox1.TabStop = false;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = SystemColors.ControlDarkDark;
+            label2.FlatStyle = FlatStyle.System;
+            label2.Font = new Font("Impact", 42F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.ForeColor = SystemColors.ButtonHighlight;
+            label2.Location = new Point(529, 20);
+            label2.Name = "label2";
+            label2.Size = new Size(444, 68);
+            label2.TabIndex = 157;
+            label2.Text = "RETURN ITEMS LIST";
+            // 
+            // btnClose
+            // 
+            btnClose.BackColor = Color.Red;
+            btnClose.FlatStyle = FlatStyle.Popup;
+            btnClose.ForeColor = Color.White;
+            btnClose.Location = new Point(1274, 111);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(79, 24);
+            btnClose.TabIndex = 158;
+            btnClose.Text = "Close";
+            btnClose.UseVisualStyleBackColor = false;
+            btnClose.Click += btnClose_Click;
+            // 
             // ReturnForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackColor = Color.CadetBlue;
+            ClientSize = new Size(1370, 749);
+            Controls.Add(btnClose);
+            Controls.Add(label2);
+            Controls.Add(pictureBox1);
+            Controls.Add(pictureBox3);
+            Controls.Add(pictureBox5);
             Controls.Add(label1);
             Controls.Add(button1);
             Controls.Add(dgvReturnItems);
             Controls.Add(lblInvoiceNumber);
             Controls.Add(label3);
+            ForeColor = Color.White;
+            FormBorderStyle = FormBorderStyle.None;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "ReturnForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ReturnForm";
             Load += ReturnForm_Load;
             ((System.ComponentModel.ISupportInitialize)dgvReturnItems).EndInit();
             ((System.ComponentModel.ISupportInitialize)salesInvoiceItemBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -253,5 +341,10 @@
         private DataGridViewTextBoxColumn vat_exempt;
         private DataGridViewTextBoxColumn transaction_id;
         private DataGridViewButtonColumn remove;
+        private PictureBox pictureBox5;
+        private PictureBox pictureBox3;
+        private PictureBox pictureBox1;
+        private Label label2;
+        private Button btnClose;
     }
 }

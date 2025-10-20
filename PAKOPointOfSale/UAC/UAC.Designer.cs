@@ -66,9 +66,9 @@
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, usertypeidDataGridViewTextBoxColumn, module_name, can_view, can_add, can_edit, can_delete, userTypeDataGridViewTextBoxColumn });
             dataGridView1.DataSource = permissionBindingSource;
             dataGridView1.GridColor = SystemColors.InactiveCaptionText;
-            dataGridView1.Location = new Point(15, 100);
+            dataGridView1.Location = new Point(15, 124);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(899, 341);
+            dataGridView1.Size = new Size(1314, 561);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -132,9 +132,9 @@
             cmbRole.DataSource = userTypeBindingSource;
             cmbRole.DisplayMember = "name";
             cmbRole.FormattingEnabled = true;
-            cmbRole.Location = new Point(85, 73);
+            cmbRole.Location = new Point(84, 99);
             cmbRole.Name = "cmbRole";
-            cmbRole.Size = new Size(142, 23);
+            cmbRole.Size = new Size(229, 23);
             cmbRole.TabIndex = 1;
             cmbRole.ValueMember = "id";
             cmbRole.SelectedIndexChanged += cmbRole_SelectedIndexChanged;
@@ -147,7 +147,8 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(15, 76);
+            label1.BackColor = Color.Khaki;
+            label1.Location = new Point(14, 102);
             label1.Name = "label1";
             label1.Size = new Size(64, 15);
             label1.TabIndex = 2;
@@ -158,7 +159,7 @@
             button1.BackColor = Color.DodgerBlue;
             button1.FlatStyle = FlatStyle.Popup;
             button1.ForeColor = Color.White;
-            button1.Location = new Point(722, 71);
+            button1.Location = new Point(1140, 98);
             button1.Name = "button1";
             button1.Size = new Size(104, 23);
             button1.TabIndex = 3;
@@ -171,7 +172,7 @@
             pictureBox2.BackColor = SystemColors.ControlDarkDark;
             pictureBox2.Location = new Point(-1, 0);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(935, 66);
+            pictureBox2.Size = new Size(1342, 91);
             pictureBox2.TabIndex = 12;
             pictureBox2.TabStop = false;
             // 
@@ -181,7 +182,7 @@
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(1, -2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(131, 67);
+            pictureBox1.Size = new Size(247, 93);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 18;
             pictureBox1.TabStop = false;
@@ -190,11 +191,11 @@
             // 
             lbluserslist.AutoSize = true;
             lbluserslist.BackColor = Color.DimGray;
-            lbluserslist.Font = new Font("Impact", 27.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbluserslist.Font = new Font("Impact", 48F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbluserslist.ForeColor = Color.White;
-            lbluserslist.Location = new Point(325, 9);
+            lbluserslist.Location = new Point(445, 7);
             lbluserslist.Name = "lbluserslist";
-            lbluserslist.Size = new Size(370, 45);
+            lbluserslist.Size = new Size(641, 80);
             lbluserslist.TabIndex = 19;
             lbluserslist.Text = "USERS ACCESS CONTROL";
             // 
@@ -202,7 +203,7 @@
             // 
             btnClose.BackColor = Color.Red;
             btnClose.FlatStyle = FlatStyle.Popup;
-            btnClose.Location = new Point(832, 71);
+            btnClose.Location = new Point(1250, 97);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(79, 24);
             btnClose.TabIndex = 150;
@@ -216,9 +217,9 @@
             pictureBox3.ErrorImage = null;
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
             pictureBox3.InitialImage = null;
-            pictureBox3.Location = new Point(-1, 447);
+            pictureBox3.Location = new Point(-10, 695);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(935, 55);
+            pictureBox3.Size = new Size(1351, 93);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 151;
             pictureBox3.TabStop = false;
@@ -228,7 +229,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
-            ClientSize = new Size(929, 501);
+            ClientSize = new Size(1341, 788);
             Controls.Add(pictureBox3);
             Controls.Add(btnClose);
             Controls.Add(lbluserslist);

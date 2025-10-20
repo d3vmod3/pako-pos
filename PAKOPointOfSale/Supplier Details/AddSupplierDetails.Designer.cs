@@ -179,8 +179,9 @@
             // 
             btnSubmit.BackColor = Color.SeaGreen;
             btnSubmit.FlatStyle = FlatStyle.Popup;
+            btnSubmit.Font = new Font("Calibri", 9F);
             btnSubmit.ForeColor = Color.White;
-            btnSubmit.Location = new Point(263, 311);
+            btnSubmit.Location = new Point(178, 311);
             btnSubmit.Name = "btnSubmit";
             btnSubmit.Size = new Size(80, 24);
             btnSubmit.TabIndex = 35;
@@ -191,7 +192,9 @@
             // 
             btnClose.BackColor = Color.Red;
             btnClose.FlatStyle = FlatStyle.Popup;
-            btnClose.Location = new Point(156, 311);
+            btnClose.Font = new Font("Calibri", 9F);
+            btnClose.ForeColor = Color.White;
+            btnClose.Location = new Point(264, 311);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(79, 24);
             btnClose.TabIndex = 150;

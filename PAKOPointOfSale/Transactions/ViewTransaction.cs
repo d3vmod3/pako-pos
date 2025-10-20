@@ -167,7 +167,7 @@ namespace PAKOPointOfSale.Transactions
                 }
                 else if (transactionType == "Return" || transactionType == "Sales Invoice")
                 {
-                    using (var cmdReturn = new SqlCommand("SELECT * FROM ReturnTransactions WHERE invoice_number = @invoiceNumber and transaction_id = @transactionId" , conn))
+                    using (var cmdReturn = new SqlCommand("SELECT * FROM ReturnTransactions WHERE invoice_number = @invoiceNumber and transaction_id = @transactionId", conn))
                     {
                         cmdReturn.Parameters.AddWithValue("@invoiceNumber", lblInvoiceNumber.Text);
                         cmdReturn.Parameters.AddWithValue("@transactionId", lblTransactionId.Text);
@@ -325,6 +325,16 @@ namespace PAKOPointOfSale.Transactions
         private void lblInvoiceNumber_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void lblAdjustmentNumber_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

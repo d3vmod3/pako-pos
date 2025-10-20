@@ -365,7 +365,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(395, 115);
+            label3.Location = new Point(493, 113);
             label3.Name = "label3";
             label3.Size = new Size(52, 15);
             label3.TabIndex = 147;
@@ -375,30 +375,34 @@
             // 
             cmbFilterType.FormattingEnabled = true;
             cmbFilterType.Items.AddRange(new object[] { "", "Date and Time", "Date Received", "Expiration Date", "Status", "Stock" });
-            cmbFilterType.Location = new Point(453, 110);
+            cmbFilterType.Location = new Point(551, 109);
             cmbFilterType.Name = "cmbFilterType";
-            cmbFilterType.Size = new Size(121, 23);
+            cmbFilterType.Size = new Size(216, 23);
             cmbFilterType.TabIndex = 148;
             cmbFilterType.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // btnFilter
             // 
-            btnFilter.Location = new Point(580, 110);
+            btnFilter.BackColor = Color.FromArgb(255, 255, 192);
+            btnFilter.FlatStyle = FlatStyle.Popup;
+            btnFilter.Location = new Point(773, 109);
             btnFilter.Name = "btnFilter";
             btnFilter.Size = new Size(75, 23);
             btnFilter.TabIndex = 149;
             btnFilter.Text = "Filter";
-            btnFilter.UseVisualStyleBackColor = true;
+            btnFilter.UseVisualStyleBackColor = false;
             btnFilter.Click += btnFilter_Click;
             // 
             // btnClearFilter
             // 
-            btnClearFilter.Location = new Point(661, 111);
+            btnClearFilter.BackColor = Color.FromArgb(255, 128, 128);
+            btnClearFilter.FlatStyle = FlatStyle.Popup;
+            btnClearFilter.Location = new Point(854, 109);
             btnClearFilter.Name = "btnClearFilter";
             btnClearFilter.Size = new Size(75, 23);
             btnClearFilter.TabIndex = 150;
             btnClearFilter.Text = "Clear Filter";
-            btnClearFilter.UseVisualStyleBackColor = true;
+            btnClearFilter.UseVisualStyleBackColor = false;
             btnClearFilter.Click += btnClearFilter_Click;
             // 
             // ProductsList

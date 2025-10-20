@@ -34,17 +34,12 @@
             txtSearch = new TextBox();
             productBindingSource = new BindingSource(components);
             dataGridView1 = new DataGridView();
-            pictureBox2 = new PictureBox();
-            pictureBox1 = new PictureBox();
-            lblsearchproduct = new Label();
             product_name = new DataGridViewTextBoxColumn();
             addToCart = new DataGridViewButtonColumn();
             id = new DataGridViewTextBoxColumn();
             productdescriptionDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             productcodeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             skuDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            categoryDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            supplierDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             quantityDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             unitofmeasurementDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             costpriceDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -53,10 +48,16 @@
             statusDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             datereceivedDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             dateexpirationDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            pictureBox2 = new PictureBox();
+            pictureBox1 = new PictureBox();
+            lblsearchproduct = new Label();
+            pictureBox3 = new PictureBox();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)productBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -89,46 +90,14 @@
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { product_name, addToCart, id, productdescriptionDataGridViewTextBoxColumn, productcodeDataGridViewTextBoxColumn, skuDataGridViewTextBoxColumn, categoryDataGridViewTextBoxColumn, supplierDataGridViewTextBoxColumn, quantityDataGridViewTextBoxColumn, unitofmeasurementDataGridViewTextBoxColumn, costpriceDataGridViewTextBoxColumn, unitpriceDataGridViewTextBoxColumn, remarksDataGridViewTextBoxColumn, statusDataGridViewTextBoxColumn, datereceivedDataGridViewTextBoxColumn, dateexpirationDataGridViewTextBoxColumn });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { product_name, addToCart, id, productdescriptionDataGridViewTextBoxColumn, productcodeDataGridViewTextBoxColumn, skuDataGridViewTextBoxColumn, quantityDataGridViewTextBoxColumn, unitofmeasurementDataGridViewTextBoxColumn, costpriceDataGridViewTextBoxColumn, unitpriceDataGridViewTextBoxColumn, remarksDataGridViewTextBoxColumn, statusDataGridViewTextBoxColumn, datereceivedDataGridViewTextBoxColumn, dateexpirationDataGridViewTextBoxColumn });
             dataGridView1.DataSource = productBindingSource;
             dataGridView1.Location = new Point(12, 124);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
-            dataGridView1.Size = new Size(2105, 598);
+            dataGridView1.Size = new Size(1346, 437);
             dataGridView1.TabIndex = 3;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.BackColor = Color.DimGray;
-            pictureBox2.Location = new Point(-1, -1);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(1371, 90);
-            pictureBox2.TabIndex = 112;
-            pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.BackColor = Color.DimGray;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(1, 1);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(221, 88);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 113;
-            pictureBox1.TabStop = false;
-            // 
-            // lblsearchproduct
-            // 
-            lblsearchproduct.AutoSize = true;
-            lblsearchproduct.BackColor = Color.DimGray;
-            lblsearchproduct.Font = new Font("Impact", 39.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblsearchproduct.ForeColor = Color.White;
-            lblsearchproduct.Location = new Point(464, 12);
-            lblsearchproduct.Name = "lblsearchproduct";
-            lblsearchproduct.Size = new Size(396, 65);
-            lblsearchproduct.TabIndex = 114;
-            lblsearchproduct.Text = "SEARCH PRODUCT";
             // 
             // product_name
             // 
@@ -174,20 +143,6 @@
             skuDataGridViewTextBoxColumn.HeaderText = "SKU";
             skuDataGridViewTextBoxColumn.Name = "skuDataGridViewTextBoxColumn";
             skuDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // categoryDataGridViewTextBoxColumn
-            // 
-            categoryDataGridViewTextBoxColumn.DataPropertyName = "category_name";
-            categoryDataGridViewTextBoxColumn.HeaderText = "Category";
-            categoryDataGridViewTextBoxColumn.Name = "categoryDataGridViewTextBoxColumn";
-            categoryDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // supplierDataGridViewTextBoxColumn
-            // 
-            supplierDataGridViewTextBoxColumn.DataPropertyName = "supplier_name";
-            supplierDataGridViewTextBoxColumn.HeaderText = "Supplier";
-            supplierDataGridViewTextBoxColumn.Name = "supplierDataGridViewTextBoxColumn";
-            supplierDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // quantityDataGridViewTextBoxColumn
             // 
@@ -246,18 +201,79 @@
             dateexpirationDataGridViewTextBoxColumn.Name = "dateexpirationDataGridViewTextBoxColumn";
             dateexpirationDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // pictureBox2
+            // 
+            pictureBox2.BackColor = Color.DimGray;
+            pictureBox2.Location = new Point(-1, -1);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(1371, 90);
+            pictureBox2.TabIndex = 112;
+            pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.DimGray;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(1, 1);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(221, 88);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 113;
+            pictureBox1.TabStop = false;
+            // 
+            // lblsearchproduct
+            // 
+            lblsearchproduct.AutoSize = true;
+            lblsearchproduct.BackColor = Color.DimGray;
+            lblsearchproduct.Font = new Font("Impact", 39.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblsearchproduct.ForeColor = Color.White;
+            lblsearchproduct.Location = new Point(464, 12);
+            lblsearchproduct.Name = "lblsearchproduct";
+            lblsearchproduct.Size = new Size(396, 65);
+            lblsearchproduct.TabIndex = 114;
+            lblsearchproduct.Text = "SEARCH PRODUCT";
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.BackColor = SystemColors.ControlDarkDark;
+            pictureBox3.ErrorImage = null;
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.InitialImage = null;
+            pictureBox3.Location = new Point(-14, 567);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(1402, 91);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 151;
+            pictureBox3.TabStop = false;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.Red;
+            button1.FlatStyle = FlatStyle.Popup;
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(1283, 96);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 152;
+            button1.Text = "Close";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
             // SearchProduct
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
             ClientSize = new Size(1370, 654);
+            Controls.Add(button1);
+            Controls.Add(pictureBox3);
             Controls.Add(lblsearchproduct);
             Controls.Add(pictureBox1);
             Controls.Add(pictureBox2);
             Controls.Add(dataGridView1);
             Controls.Add(label1);
             Controls.Add(txtSearch);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "SearchProduct";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "SearchProduct";
@@ -267,6 +283,7 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -297,5 +314,7 @@
         private DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn datereceivedDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn dateexpirationDataGridViewTextBoxColumn;
+        private PictureBox pictureBox3;
+        private Button button1;
     }
 }

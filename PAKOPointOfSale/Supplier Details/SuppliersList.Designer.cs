@@ -63,7 +63,8 @@
             // 
             btnPrint.BackColor = Color.Gold;
             btnPrint.FlatStyle = FlatStyle.Popup;
-            btnPrint.Location = new Point(1150, 101);
+            btnPrint.ForeColor = Color.Black;
+            btnPrint.Location = new Point(1150, 100);
             btnPrint.Name = "btnPrint";
             btnPrint.Size = new Size(79, 24);
             btnPrint.TabIndex = 9;
@@ -74,6 +75,7 @@
             // 
             btnAdd.BackColor = Color.Green;
             btnAdd.FlatStyle = FlatStyle.Popup;
+            btnAdd.ForeColor = Color.White;
             btnAdd.Location = new Point(1065, 101);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(79, 24);
@@ -197,7 +199,7 @@
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(12, 0);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(238, 95);
+            pictureBox1.Size = new Size(251, 95);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 146;
             pictureBox1.TabStop = false;
@@ -230,7 +232,8 @@
             // 
             btnClose.BackColor = Color.Red;
             btnClose.FlatStyle = FlatStyle.Popup;
-            btnClose.Location = new Point(1259, 101);
+            btnClose.ForeColor = Color.White;
+            btnClose.Location = new Point(1276, 101);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(79, 24);
             btnClose.TabIndex = 149;

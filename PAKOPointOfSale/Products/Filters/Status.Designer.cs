@@ -35,6 +35,8 @@
             // 
             // cmbStatus
             // 
+            cmbStatus.BackColor = SystemColors.ActiveBorder;
+            cmbStatus.FlatStyle = FlatStyle.Popup;
             cmbStatus.FormattingEnabled = true;
             cmbStatus.Items.AddRange(new object[] { "", "Good", "Deffective" });
             cmbStatus.Location = new Point(110, 24);
@@ -45,7 +47,8 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 27);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(15, 27);
             label1.Name = "label1";
             label1.Size = new Size(85, 15);
             label1.TabIndex = 1;
@@ -53,23 +56,30 @@
             // 
             // btnFilter
             // 
+            btnFilter.BackColor = Color.Khaki;
+            btnFilter.FlatStyle = FlatStyle.Popup;
             btnFilter.Location = new Point(223, 53);
             btnFilter.Name = "btnFilter";
             btnFilter.Size = new Size(75, 23);
             btnFilter.TabIndex = 2;
             btnFilter.Text = "Filter";
-            btnFilter.UseVisualStyleBackColor = true;
+            btnFilter.UseVisualStyleBackColor = false;
             btnFilter.Click += btnFilter_Click;
             // 
             // Status
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.CadetBlue;
             ClientSize = new Size(316, 93);
             Controls.Add(btnFilter);
             Controls.Add(label1);
             Controls.Add(cmbStatus);
+            FormBorderStyle = FormBorderStyle.None;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "Status";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Status";
             Load += Status_Load;
             ResumeLayout(false);

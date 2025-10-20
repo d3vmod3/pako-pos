@@ -45,16 +45,20 @@
             // 
             // btnFilter
             // 
+            btnFilter.BackColor = Color.Khaki;
+            btnFilter.FlatStyle = FlatStyle.Popup;
+            btnFilter.ForeColor = Color.Black;
             btnFilter.Location = new Point(296, 73);
             btnFilter.Name = "btnFilter";
             btnFilter.Size = new Size(75, 23);
             btnFilter.TabIndex = 2;
             btnFilter.Text = "Filter";
-            btnFilter.UseVisualStyleBackColor = true;
+            btnFilter.UseVisualStyleBackColor = false;
             btnFilter.Click += btnFilter_Click;
             // 
             // num_quantity
             // 
+            num_quantity.BackColor = SystemColors.ActiveBorder;
             num_quantity.DecimalPlaces = 2;
             num_quantity.Location = new Point(12, 44);
             num_quantity.Name = "num_quantity";
@@ -65,11 +69,17 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.CadetBlue;
             ClientSize = new Size(391, 118);
             Controls.Add(num_quantity);
             Controls.Add(btnFilter);
             Controls.Add(label1);
+            ForeColor = Color.White;
+            FormBorderStyle = FormBorderStyle.None;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "Stocks";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Filter Stocks";
             Load += Stocks_Load;
             ((System.ComponentModel.ISupportInitialize)num_quantity).EndInit();

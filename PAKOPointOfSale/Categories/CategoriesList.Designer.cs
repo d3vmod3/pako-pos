@@ -171,7 +171,7 @@ namespace PAKOPointOfSale.Categories
             // 
             btnPrint.BackColor = Color.Gold;
             btnPrint.FlatStyle = FlatStyle.Popup;
-            btnPrint.ForeColor = Color.White;
+            btnPrint.ForeColor = Color.Black;
             btnPrint.Location = new Point(1186, 108);
             btnPrint.Name = "btnPrint";
             btnPrint.Size = new Size(75, 22);
@@ -190,7 +190,7 @@ namespace PAKOPointOfSale.Categories
             // label1
             // 
             label1.AutoSize = true;
-            label1.ForeColor = Color.Black;
+            label1.ForeColor = Color.White;
             label1.Location = new Point(12, 111);
             label1.Name = "label1";
             label1.Size = new Size(42, 15);
