@@ -16,6 +16,7 @@ namespace PAKOPointOfSale.Products
     {
         private int _productId;
         private string _productName;
+        private string _barcode;
         private string _productCode;
         private string _productSku;
         public EditProduct(int product_id)
@@ -76,6 +77,7 @@ namespace PAKOPointOfSale.Products
 
                                 _productName = reader["product_name"].ToString();
                                 _productCode = reader["product_code"].ToString();
+                                _barcode = reader["barcode"].ToString();
                                 _productSku = reader["sku"].ToString();
                             }
                             else
@@ -174,6 +176,21 @@ namespace PAKOPointOfSale.Products
 
         private Boolean validateForm()
         {
+            if (string.IsNullOrWhiteSpace(txtBarcode.Text))
+            {
+                MessageBox.Show("Please enter the Barciode", "Validation Error",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtBarcode.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtProductName.Text))
+            {
+                MessageBox.Show("Please enter the Product Name.", "Validation Error",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtProductName.Focus();
+                return false;
+            }
             if (_productSku != txtSKU.Text)
             {
                 if (IsSkuExists(txtSKU.Text))
@@ -195,24 +212,29 @@ namespace PAKOPointOfSale.Products
                 }
             }
 
-            if (_productName != txtProductName.Text)
+            if (_barcode != txtBarcode.Text)
             {
-                if (IsProductNameExists(txtProductName.Text))
+                if (IsProductBardcodeExists(txtBarcode.Text))
                 {
-                    MessageBox.Show("Product Name already exists. Please use a different one.",
-                                    "Duplicate Product Name", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtProductName.Focus();
+                    MessageBox.Show("Barcode already exists. Please use a different one.",
+                                    "Duplicate Barcode", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtBarcode.Focus();
                     return false;
                 }
             }
 
-            if (string.IsNullOrWhiteSpace(txtProductName.Text))
+            if (_barcode != txtBarcode.Text)
             {
-                MessageBox.Show("Please enter the Product Name.", "Validation Error",
-                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtProductName.Focus();
-                return false;
+                if (IsProductBardcodeExists(txtBarcode.Text))
+                {
+                    MessageBox.Show("Barcode already exists. Please use a different one.",
+                                    "Duplicate Barcode", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtBarcode.Focus();
+                    return false;
+                }
             }
+
+            
 
             if (dtpDateReceived.Value.Date > DateTime.Now.Date)
             {
@@ -299,16 +321,16 @@ namespace PAKOPointOfSale.Products
             }
         }
 
-        private bool IsProductNameExists(string productName)
+        private bool IsProductBardcodeExists(string barcode)
         {
             string connString = PAKOPointOfSale.Program.ConnString;
             using (SqlConnection conn = new SqlConnection(connString))
             {
                 conn.Open();
-                string query = "SELECT COUNT(*) FROM Products WHERE product_name = @product_name";
+                string query = "SELECT COUNT(*) FROM Products WHERE barcode = @barcode";
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@product_name", productName);
+                    cmd.Parameters.AddWithValue("@barcode", barcode);
                     return (int)cmd.ExecuteScalar() > 0;
                 }
             }

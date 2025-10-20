@@ -57,7 +57,7 @@
             btnProceed.Name = "btnProceed";
             btnProceed.Size = new Size(75, 23);
             btnProceed.TabIndex = 2;
-            btnProceed.Text = "Park";
+            btnProceed.Text = "Pending";
             btnProceed.UseVisualStyleBackColor = true;
             btnProceed.Click += btnProceed_Click;
             // 

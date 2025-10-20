@@ -70,7 +70,7 @@ namespace PAKOPointOfSale.Transactions
                 }
             }
         }
-        public void AddProductToCart(int id, string product, string brand, string unit, decimal price, string category, decimal quantity, decimal subTotal, bool? isParked = false, string? discountYpe = "none")
+        public void AddProductToCart(int id, string product, string brand, string unit, decimal price, string category, decimal quantity, decimal subTotal, bool? isPending = false, string? discountYpe = "none")
         {
             // Create a new row in your DataGridView (e.g., dgvCart)
             string VATableSales = Convert.ToString(SalesInvoiceFunctions.getVATableSales(price, quantity));
@@ -96,7 +96,7 @@ namespace PAKOPointOfSale.Transactions
                 );
 
             ComputeGrandTotal();
-            if (isParked == true && discountYpe != "none")
+            if (isPending == true && discountYpe != "none")
             {
                 DataGridViewRow newRow = dtgvCart.Rows[rowIndex];
                 RecalculateAmounts(rowIndex, discountYpe);
@@ -382,12 +382,12 @@ namespace PAKOPointOfSale.Transactions
                 }
 
                 //if park number has valui, update the transaction where id is
-                //update the status as finalized
+                //update the status as settled
                 if (TransactionID > 0 && !string.IsNullOrEmpty(ParkNumber))
                 {
                     string updateParkedTransaction = @"
                         UPDATE Transactions
-                        SET status = 'finalized'
+                        SET status = 'settled'
                         WHERE id = @transactionId
                           AND park_number = @parkNumber";
 
@@ -877,7 +877,7 @@ namespace PAKOPointOfSale.Transactions
         {
             if (ParkNumber != "")
             {
-                MessageBox.Show("This cart cannot be parked multiple times.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("This cart cannot be pending multiple times.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             var remarksForm = new Transactions.Parked_Transactions.Remarks();
@@ -943,7 +943,7 @@ namespace PAKOPointOfSale.Transactions
                         cmd.Parameters.AddWithValue("@payment", "cash");
                         cmd.Parameters.AddWithValue("@cashReceived", "0.00");
                         cmd.Parameters.AddWithValue("@cashChange", Convert.ToDecimal(lblChange.Text));
-                        cmd.Parameters.AddWithValue("@status", "parked");
+                        cmd.Parameters.AddWithValue("@status", "pending");
                         cmd.Parameters.AddWithValue("@remarks", remarks);
                         cmd.Parameters.AddWithValue("@created_at", DateTime.Now);
 
@@ -986,7 +986,7 @@ namespace PAKOPointOfSale.Transactions
                                 cmdItem.Parameters.AddWithValue("@vatableSales", vatableSales);
                                 cmdItem.Parameters.AddWithValue("@vatAmount", vatAmount);
                                 cmdItem.Parameters.AddWithValue("@vatExempt", vatExempt);
-                                cmdItem.Parameters.AddWithValue("@transactioType", "parked");
+                                cmdItem.Parameters.AddWithValue("@transactioType", "pending");
                                 cmdItem.ExecuteNonQuery();
                             }
                         }
@@ -1077,7 +1077,7 @@ namespace PAKOPointOfSale.Transactions
                             // category is unknown here — set it to empty or modify query to include it
 
                             // Call your existing function to add each product
-                            AddProductToCart(id, product, brand, unit, price, category, quantity, subTotal, isParked: true, discount_type);
+                            AddProductToCart(id, product, brand, unit, price, category, quantity, subTotal, isPending: true, discount_type);
                         }
                     }
                 }

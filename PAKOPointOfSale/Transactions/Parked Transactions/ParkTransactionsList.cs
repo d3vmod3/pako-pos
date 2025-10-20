@@ -53,7 +53,9 @@ namespace PAKOPointOfSale.Transactions.Parked_Transactions
                         FROM Transactions
                         WHERE invoice_number is NULL
                         AND park_number IS NOT NULL
-                        AND status='parked'
+                        AND status='pending'
+                        OR status='settled'
+                        OR status='cancelled'
                         ORDER BY created_at DESC;";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
@@ -83,13 +85,64 @@ namespace PAKOPointOfSale.Transactions.Parked_Transactions
             int transactionId = Convert.ToInt32(dtgvParkedTransactions.Rows[e.RowIndex].Cells["id"].Value);
             string park_number = dtgvParkedTransactions.Rows[e.RowIndex].Cells["park_number"].Value.ToString();
 
-            if (e.ColumnIndex == dtgvParkedTransactions.Columns["finalized"].Index)
+            if (e.ColumnIndex == dtgvParkedTransactions.Columns["settle"].Index)
             {
+                var status = dtgvParkedTransactions.Rows[e.RowIndex].Cells["status"].Value?.ToString();
+                if (!string.Equals(status, "pending", StringComparison.OrdinalIgnoreCase))
+                {
+                    MessageBox.Show("Only pending transactions can be settled.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
                 TransactionId = transactionId;
                 ParkNumber = park_number;
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
+            if (e.ColumnIndex == dtgvParkedTransactions.Columns["cancel"].Index)
+            {
+                var status = dtgvParkedTransactions.Rows[e.RowIndex].Cells["status"].Value?.ToString();
+                if (!string.Equals(status, "pending", StringComparison.OrdinalIgnoreCase))
+                {
+                    MessageBox.Show("Only pending transactions can be cancelled.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                DialogResult result = MessageBox.Show(
+                    "Are you sure you want to cancel this pending transaction?",
+                    "Confirm Cancel",
+                    MessageBoxButtons.OKCancel,
+                    MessageBoxIcon.Warning
+                );
+
+                if (result == DialogResult.OK)
+                {
+                    TransactionId = transactionId;
+                    ParkNumber = park_number;
+
+                    string connString = Program.ConnString;
+
+                    using (SqlConnection conn = new SqlConnection(connString))
+                    {
+                        conn.Open();
+
+                        string updateParkedTransaction = @"
+                            UPDATE Transactions
+                            SET status = 'cancelled'
+                            WHERE id = @transactionId
+                              AND park_number = @parkNumber";
+
+                        using (SqlCommand cmdUpdate = new SqlCommand(updateParkedTransaction, conn))
+                        {
+                            cmdUpdate.Parameters.AddWithValue("@transactionId", TransactionId);
+                            cmdUpdate.Parameters.AddWithValue("@parkNumber", ParkNumber);
+                            cmdUpdate.ExecuteNonQuery();
+                        }
+                    }
+
+                    MessageBox.Show("Pending transaction has been cancelled.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+            }
+            LoadParkedTransactions();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -113,6 +166,11 @@ namespace PAKOPointOfSale.Transactions.Parked_Transactions
                 dv.RowFilter = rowFilter;
                 dtgvParkedTransactions.DataSource = dv;
             }
+        }
+
+        private void dtgvParkedTransactions_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+          
         }
     }
 }

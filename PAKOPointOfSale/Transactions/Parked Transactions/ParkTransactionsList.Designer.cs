@@ -30,6 +30,9 @@
         {
             components = new System.ComponentModel.Container();
             dtgvParkedTransactions = new DataGridView();
+            transactionBindingSource = new BindingSource(components);
+            txtSearch = new TextBox();
+            label1 = new Label();
             id = new DataGridViewTextBoxColumn();
             park_number = new DataGridViewTextBoxColumn();
             vat_amount = new DataGridViewTextBoxColumn();
@@ -40,15 +43,13 @@
             paymentmethodDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             cashreceivedDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             cashchangeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            statusDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            status = new DataGridViewTextBoxColumn();
             remarksDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             transactiontypeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             createdatDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            finalized = new DataGridViewButtonColumn();
+            settle = new DataGridViewButtonColumn();
             salesinvoiceitemsDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            transactionBindingSource = new BindingSource(components);
-            txtSearch = new TextBox();
-            label1 = new Label();
+            cancel = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)dtgvParkedTransactions).BeginInit();
             ((System.ComponentModel.ISupportInitialize)transactionBindingSource).BeginInit();
             SuspendLayout();
@@ -60,15 +61,37 @@
             dtgvParkedTransactions.AutoGenerateColumns = false;
             dtgvParkedTransactions.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dtgvParkedTransactions.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgvParkedTransactions.Columns.AddRange(new DataGridViewColumn[] { id, park_number, vat_amount, vatable_sales, vat_exempt, sub_total, grandtotalDataGridViewTextBoxColumn, paymentmethodDataGridViewTextBoxColumn, cashreceivedDataGridViewTextBoxColumn, cashchangeDataGridViewTextBoxColumn, statusDataGridViewTextBoxColumn, remarksDataGridViewTextBoxColumn, transactiontypeDataGridViewTextBoxColumn, createdatDataGridViewTextBoxColumn, finalized, salesinvoiceitemsDataGridViewTextBoxColumn });
+            dtgvParkedTransactions.Columns.AddRange(new DataGridViewColumn[] { id, park_number, vat_amount, vatable_sales, vat_exempt, sub_total, grandtotalDataGridViewTextBoxColumn, paymentmethodDataGridViewTextBoxColumn, cashreceivedDataGridViewTextBoxColumn, cashchangeDataGridViewTextBoxColumn, status, remarksDataGridViewTextBoxColumn, transactiontypeDataGridViewTextBoxColumn, createdatDataGridViewTextBoxColumn, settle, salesinvoiceitemsDataGridViewTextBoxColumn, cancel });
             dtgvParkedTransactions.DataSource = transactionBindingSource;
             dtgvParkedTransactions.Location = new Point(12, 48);
             dtgvParkedTransactions.Name = "dtgvParkedTransactions";
             dtgvParkedTransactions.ReadOnly = true;
             dtgvParkedTransactions.RowHeadersVisible = false;
-            dtgvParkedTransactions.Size = new Size(671, 294);
+            dtgvParkedTransactions.Size = new Size(747, 294);
             dtgvParkedTransactions.TabIndex = 0;
             dtgvParkedTransactions.CellContentClick += dtgvParkedTransactions_CellContentClick;
+            dtgvParkedTransactions.CellFormatting += dtgvParkedTransactions_CellFormatting;
+            // 
+            // transactionBindingSource
+            // 
+            transactionBindingSource.DataSource = typeof(Transaction);
+            // 
+            // txtSearch
+            // 
+            txtSearch.Location = new Point(136, 19);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(547, 23);
+            txtSearch.TabIndex = 1;
+            txtSearch.TextChanged += textBox1_TextChanged;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(12, 22);
+            label1.Name = "label1";
+            label1.Size = new Size(118, 15);
+            label1.TabIndex = 2;
+            label1.Text = "Search Park Number:";
             // 
             // id
             // 
@@ -84,7 +107,7 @@
             park_number.HeaderText = "Park Number";
             park_number.Name = "park_number";
             park_number.ReadOnly = true;
-            park_number.Width = 94;
+            park_number.Width = 102;
             // 
             // vat_amount
             // 
@@ -118,7 +141,7 @@
             sub_total.HeaderText = "Sub Total";
             sub_total.Name = "sub_total";
             sub_total.ReadOnly = true;
-            sub_total.Width = 75;
+            sub_total.Width = 81;
             // 
             // grandtotalDataGridViewTextBoxColumn
             // 
@@ -154,13 +177,13 @@
             cashchangeDataGridViewTextBoxColumn.ReadOnly = true;
             cashchangeDataGridViewTextBoxColumn.Visible = false;
             // 
-            // statusDataGridViewTextBoxColumn
+            // status
             // 
-            statusDataGridViewTextBoxColumn.DataPropertyName = "status";
-            statusDataGridViewTextBoxColumn.HeaderText = "Status";
-            statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
-            statusDataGridViewTextBoxColumn.ReadOnly = true;
-            statusDataGridViewTextBoxColumn.Width = 64;
+            status.DataPropertyName = "status";
+            status.HeaderText = "Status";
+            status.Name = "status";
+            status.ReadOnly = true;
+            status.Width = 64;
             // 
             // remarksDataGridViewTextBoxColumn
             // 
@@ -186,15 +209,15 @@
             createdatDataGridViewTextBoxColumn.ReadOnly = true;
             createdatDataGridViewTextBoxColumn.Width = 88;
             // 
-            // finalized
+            // settle
             // 
-            finalized.DataPropertyName = "finalized";
-            finalized.HeaderText = "Action";
-            finalized.Name = "finalized";
-            finalized.ReadOnly = true;
-            finalized.Text = "Finalized";
-            finalized.UseColumnTextForButtonValue = true;
-            finalized.Width = 48;
+            settle.DataPropertyName = "settle";
+            settle.HeaderText = "";
+            settle.Name = "settle";
+            settle.ReadOnly = true;
+            settle.Text = "Settle";
+            settle.UseColumnTextForButtonValue = true;
+            settle.Width = 5;
             // 
             // salesinvoiceitemsDataGridViewTextBoxColumn
             // 
@@ -205,32 +228,23 @@
             salesinvoiceitemsDataGridViewTextBoxColumn.Visible = false;
             salesinvoiceitemsDataGridViewTextBoxColumn.Width = 134;
             // 
-            // transactionBindingSource
+            // cancel
             // 
-            transactionBindingSource.DataSource = typeof(Transaction);
-            // 
-            // txtSearch
-            // 
-            txtSearch.Location = new Point(136, 19);
-            txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(547, 23);
-            txtSearch.TabIndex = 1;
-            txtSearch.TextChanged += textBox1_TextChanged;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(12, 22);
-            label1.Name = "label1";
-            label1.Size = new Size(118, 15);
-            label1.TabIndex = 2;
-            label1.Text = "Search Park Number:";
+            cancel.DataPropertyName = "cancel";
+            cancel.HeaderText = "";
+            cancel.Name = "cancel";
+            cancel.ReadOnly = true;
+            cancel.Resizable = DataGridViewTriState.True;
+            cancel.SortMode = DataGridViewColumnSortMode.Automatic;
+            cancel.Text = "Cancel";
+            cancel.UseColumnTextForButtonValue = true;
+            cancel.Width = 19;
             // 
             // ParkTransactionsList
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(695, 354);
+            ClientSize = new Size(769, 354);
             Controls.Add(label1);
             Controls.Add(txtSearch);
             Controls.Add(dtgvParkedTransactions);
@@ -259,11 +273,12 @@
         private DataGridViewTextBoxColumn paymentmethodDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn cashreceivedDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn cashchangeDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn status;
         private DataGridViewTextBoxColumn remarksDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn transactiontypeDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn createdatDataGridViewTextBoxColumn;
-        private DataGridViewButtonColumn finalized;
+        private DataGridViewButtonColumn settle;
         private DataGridViewTextBoxColumn salesinvoiceitemsDataGridViewTextBoxColumn;
+        private DataGridViewButtonColumn cancel;
     }
 }

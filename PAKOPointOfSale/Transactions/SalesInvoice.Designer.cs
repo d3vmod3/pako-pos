@@ -269,7 +269,7 @@
             btnPark.Name = "btnPark";
             btnPark.Size = new Size(75, 25);
             btnPark.TabIndex = 7;
-            btnPark.Text = "Park";
+            btnPark.Text = "Pending";
             btnPark.UseVisualStyleBackColor = false;
             btnPark.Click += button2_Click;
             // 
