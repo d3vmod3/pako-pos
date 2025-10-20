@@ -31,11 +31,17 @@ namespace PAKOPointOfSale.Transactions.Discounts
 
             // Fire the event and send the discount to the main form
             DiscountSelected?.Invoke(selectedDiscount);
+            this.Close();
         }
 
         private void DiscountTypes_Load(object sender, EventArgs e)
         {
             cmbDiscountTypes.SelectedIndex = 0;
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

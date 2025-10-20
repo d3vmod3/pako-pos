@@ -35,7 +35,7 @@ namespace PAKOPointOfSale.Products.Filters
 
         private void DateRange_Load(object sender, EventArgs e)
         {
-            
+            dtTo.MaxDate = DateTime.Today;
         }
     }
 }

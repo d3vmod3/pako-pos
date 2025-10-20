@@ -145,6 +145,7 @@ namespace PAKOPointOfSale.Transactions.Void
                         }
                     }
                 }
+                this.Close();
             }
             catch (Exception ex)
             {

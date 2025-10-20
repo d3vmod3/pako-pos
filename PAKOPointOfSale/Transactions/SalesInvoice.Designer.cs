@@ -34,12 +34,27 @@
             userTypeBindingSource = new BindingSource(components);
             btnSearchProduct = new Button();
             dtgvCart = new DataGridView();
+            id = new DataGridViewTextBoxColumn();
+            select = new DataGridViewCheckBoxColumn();
+            product = new DataGridViewTextBoxColumn();
+            brand = new DataGridViewTextBoxColumn();
+            unit_of_measurement = new DataGridViewTextBoxColumn();
+            appliedQty = new DataGridViewTextBoxColumn();
+            unit_price = new DataGridViewTextBoxColumn();
+            category = new DataGridViewTextBoxColumn();
+            discountType = new DataGridViewTextBoxColumn();
+            discountAmount = new DataGridViewTextBoxColumn();
+            subTotal = new DataGridViewTextBoxColumn();
+            vatableSales = new DataGridViewTextBoxColumn();
+            vatAmount = new DataGridViewTextBoxColumn();
+            vatExempt = new DataGridViewTextBoxColumn();
+            remove = new DataGridViewButtonColumn();
             label1 = new Label();
             btnConfirm = new Button();
-            button2 = new Button();
+            btnPark = new Button();
             groupBox1 = new GroupBox();
             lblChange = new Label();
-            label6 = new Label();
+            lblDiscountAmount = new Label();
             lblTotal = new Label();
             label3 = new Label();
             label2 = new Label();
@@ -65,6 +80,7 @@
             btn00 = new Button();
             btnApplyDiscount = new Button();
             panel1 = new Panel();
+            btnClearCart = new Button();
             printDocument1 = new System.Drawing.Printing.PrintDocument();
             pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
@@ -76,21 +92,9 @@
             lblTime = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
             btnClose = new Button();
-            id = new DataGridViewTextBoxColumn();
-            select = new DataGridViewCheckBoxColumn();
-            product = new DataGridViewTextBoxColumn();
-            brand = new DataGridViewTextBoxColumn();
-            unit_of_measurement = new DataGridViewTextBoxColumn();
-            appliedQty = new DataGridViewTextBoxColumn();
-            unit_price = new DataGridViewTextBoxColumn();
-            category = new DataGridViewTextBoxColumn();
-            discountType = new DataGridViewTextBoxColumn();
-            discountAmount = new DataGridViewTextBoxColumn();
-            subTotal = new DataGridViewTextBoxColumn();
-            vatableSales = new DataGridViewTextBoxColumn();
-            vatAmount = new DataGridViewTextBoxColumn();
-            vatExempt = new DataGridViewTextBoxColumn();
-            remove = new DataGridViewButtonColumn();
+            lblParkLabel = new Label();
+            lblParkNumber = new Label();
+            btnParkedTransactions = new Button();
             ((System.ComponentModel.ISupportInitialize)productBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)userTypeBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dtgvCart).BeginInit();
@@ -140,6 +144,98 @@
             dtgvCart.EditingControlShowing += dtgvCart_EditingControlShowing;
             dtgvCart.KeyPress += dtgvCart_KeyPress;
             // 
+            // id
+            // 
+            id.HeaderText = "ID";
+            id.Name = "id";
+            id.Visible = false;
+            // 
+            // select
+            // 
+            select.FalseValue = "0";
+            select.HeaderText = "Select to Apply Discount";
+            select.Name = "select";
+            select.TrueValue = "1";
+            // 
+            // product
+            // 
+            product.HeaderText = "Product";
+            product.Name = "product";
+            product.ReadOnly = true;
+            // 
+            // brand
+            // 
+            brand.HeaderText = "Brand";
+            brand.Name = "brand";
+            brand.ReadOnly = true;
+            // 
+            // unit_of_measurement
+            // 
+            unit_of_measurement.HeaderText = "Unit";
+            unit_of_measurement.Name = "unit_of_measurement";
+            unit_of_measurement.ReadOnly = true;
+            // 
+            // appliedQty
+            // 
+            appliedQty.HeaderText = "Quantity";
+            appliedQty.Name = "appliedQty";
+            // 
+            // unit_price
+            // 
+            unit_price.HeaderText = "Price";
+            unit_price.Name = "unit_price";
+            unit_price.ReadOnly = true;
+            // 
+            // category
+            // 
+            category.DataPropertyName = "category";
+            category.HeaderText = "Category";
+            category.Name = "category";
+            // 
+            // discountType
+            // 
+            discountType.DataPropertyName = "discountType";
+            discountType.HeaderText = "Discount Type";
+            discountType.Name = "discountType";
+            discountType.ReadOnly = true;
+            // 
+            // discountAmount
+            // 
+            discountAmount.DataPropertyName = "discountAmount";
+            discountAmount.HeaderText = "Discount Amount";
+            discountAmount.Name = "discountAmount";
+            // 
+            // subTotal
+            // 
+            subTotal.DataPropertyName = "subTotal";
+            subTotal.HeaderText = "Sub Total";
+            subTotal.Name = "subTotal";
+            // 
+            // vatableSales
+            // 
+            vatableSales.DataPropertyName = "vatableSales";
+            vatableSales.HeaderText = "VATable Sales";
+            vatableSales.Name = "vatableSales";
+            // 
+            // vatAmount
+            // 
+            vatAmount.DataPropertyName = "vatAmount";
+            vatAmount.HeaderText = "VAT Amount";
+            vatAmount.Name = "vatAmount";
+            // 
+            // vatExempt
+            // 
+            vatExempt.DataPropertyName = "vatExempt";
+            vatExempt.HeaderText = "VAT Exempt";
+            vatExempt.Name = "vatExempt";
+            // 
+            // remove
+            // 
+            remove.HeaderText = "";
+            remove.Name = "remove";
+            remove.Text = "Remove";
+            remove.UseColumnTextForButtonValue = true;
+            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -156,7 +252,7 @@
             btnConfirm.BackColor = Color.ForestGreen;
             btnConfirm.FlatStyle = FlatStyle.Popup;
             btnConfirm.ForeColor = Color.White;
-            btnConfirm.Location = new Point(213, 564);
+            btnConfirm.Location = new Point(209, 561);
             btnConfirm.Name = "btnConfirm";
             btnConfirm.Size = new Size(75, 25);
             btnConfirm.TabIndex = 6;
@@ -164,22 +260,23 @@
             btnConfirm.UseVisualStyleBackColor = false;
             btnConfirm.Click += button1_Click;
             // 
-            // button2
+            // btnPark
             // 
-            button2.BackColor = SystemColors.Highlight;
-            button2.FlatStyle = FlatStyle.Popup;
-            button2.ForeColor = Color.White;
-            button2.Location = new Point(111, 564);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 25);
-            button2.TabIndex = 7;
-            button2.Text = "Park";
-            button2.UseVisualStyleBackColor = false;
+            btnPark.BackColor = SystemColors.Highlight;
+            btnPark.FlatStyle = FlatStyle.Popup;
+            btnPark.ForeColor = Color.White;
+            btnPark.Location = new Point(119, 561);
+            btnPark.Name = "btnPark";
+            btnPark.Size = new Size(75, 25);
+            btnPark.TabIndex = 7;
+            btnPark.Text = "Park";
+            btnPark.UseVisualStyleBackColor = false;
+            btnPark.Click += button2_Click;
             // 
             // groupBox1
             // 
             groupBox1.Controls.Add(lblChange);
-            groupBox1.Controls.Add(label6);
+            groupBox1.Controls.Add(lblDiscountAmount);
             groupBox1.Controls.Add(lblTotal);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
@@ -200,15 +297,15 @@
             lblChange.TabIndex = 12;
             lblChange.Text = "0.00";
             // 
-            // label6
+            // lblDiscountAmount
             // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Impact", 17.25F);
-            label6.Location = new Point(128, 57);
-            label6.Name = "label6";
-            label6.Size = new Size(52, 28);
-            label6.TabIndex = 10;
-            label6.Text = "0.00";
+            lblDiscountAmount.AutoSize = true;
+            lblDiscountAmount.Font = new Font("Impact", 17.25F);
+            lblDiscountAmount.Location = new Point(128, 57);
+            lblDiscountAmount.Name = "lblDiscountAmount";
+            lblDiscountAmount.Size = new Size(52, 28);
+            lblDiscountAmount.TabIndex = 10;
+            lblDiscountAmount.Text = "0.00";
             // 
             // lblTotal
             // 
@@ -487,7 +584,7 @@
             btnApplyDiscount.BackColor = Color.ForestGreen;
             btnApplyDiscount.FlatStyle = FlatStyle.Popup;
             btnApplyDiscount.ForeColor = Color.White;
-            btnApplyDiscount.Location = new Point(782, 110);
+            btnApplyDiscount.Location = new Point(720, 110);
             btnApplyDiscount.Name = "btnApplyDiscount";
             btnApplyDiscount.Size = new Size(111, 22);
             btnApplyDiscount.TabIndex = 45;
@@ -505,7 +602,7 @@
             panel1.Controls.Add(btnKey1);
             panel1.Controls.Add(groupBox1);
             panel1.Controls.Add(btnDot);
-            panel1.Controls.Add(button2);
+            panel1.Controls.Add(btnPark);
             panel1.Controls.Add(btnKey3);
             panel1.Controls.Add(btnConfirm);
             panel1.Controls.Add(btnKey4);
@@ -521,6 +618,19 @@
             panel1.Size = new Size(386, 594);
             panel1.TabIndex = 46;
             // 
+            // btnClearCart
+            // 
+            btnClearCart.BackColor = Color.Coral;
+            btnClearCart.FlatStyle = FlatStyle.Popup;
+            btnClearCart.ForeColor = Color.White;
+            btnClearCart.Location = new Point(639, 110);
+            btnClearCart.Name = "btnClearCart";
+            btnClearCart.Size = new Size(75, 22);
+            btnClearCart.TabIndex = 45;
+            btnClearCart.Text = "Clear Cart";
+            btnClearCart.UseVisualStyleBackColor = false;
+            btnClearCart.Click += button1_Click_3;
+            // 
             // pictureBox2
             // 
             pictureBox2.BackColor = Color.DimGray;
@@ -529,6 +639,7 @@
             pictureBox2.Size = new Size(1371, 104);
             pictureBox2.TabIndex = 144;
             pictureBox2.TabStop = false;
+            pictureBox2.Click += pictureBox2_Click;
             // 
             // pictureBox1
             // 
@@ -635,97 +746,38 @@
             btnClose.UseVisualStyleBackColor = false;
             btnClose.Click += btnClose_Click;
             // 
-            // id
+            // lblParkLabel
             // 
-            id.HeaderText = "ID";
-            id.Name = "id";
-            id.Visible = false;
+            lblParkLabel.AutoSize = true;
+            lblParkLabel.Location = new Point(439, 114);
+            lblParkLabel.Name = "lblParkLabel";
+            lblParkLabel.Size = new Size(80, 15);
+            lblParkLabel.TabIndex = 157;
+            lblParkLabel.Text = "Park Number:";
+            lblParkLabel.Visible = false;
             // 
-            // select
+            // lblParkNumber
             // 
-            select.FalseValue = "0";
-            select.HeaderText = "Select to Apply Discount";
-            select.Name = "select";
-            select.TrueValue = "1";
+            lblParkNumber.AutoSize = true;
+            lblParkNumber.Location = new Point(525, 114);
+            lblParkNumber.Name = "lblParkNumber";
+            lblParkNumber.Size = new Size(43, 15);
+            lblParkNumber.TabIndex = 158;
+            lblParkNumber.Text = "000000";
+            lblParkNumber.Visible = false;
             // 
-            // product
+            // btnParkedTransactions
             // 
-            product.HeaderText = "Product";
-            product.Name = "product";
-            product.ReadOnly = true;
-            // 
-            // brand
-            // 
-            brand.HeaderText = "Brand";
-            brand.Name = "brand";
-            brand.ReadOnly = true;
-            // 
-            // unit_of_measurement
-            // 
-            unit_of_measurement.HeaderText = "Unit";
-            unit_of_measurement.Name = "unit_of_measurement";
-            unit_of_measurement.ReadOnly = true;
-            // 
-            // appliedQty
-            // 
-            appliedQty.HeaderText = "Quantity";
-            appliedQty.Name = "appliedQty";
-            // 
-            // unit_price
-            // 
-            unit_price.HeaderText = "Price";
-            unit_price.Name = "unit_price";
-            unit_price.ReadOnly = true;
-            // 
-            // category
-            // 
-            category.DataPropertyName = "category";
-            category.HeaderText = "Category";
-            category.Name = "category";
-            // 
-            // discountType
-            // 
-            discountType.DataPropertyName = "discountType";
-            discountType.HeaderText = "Discount Type";
-            discountType.Name = "discountType";
-            discountType.ReadOnly = true;
-            // 
-            // discountAmount
-            // 
-            discountAmount.DataPropertyName = "discountAmount";
-            discountAmount.HeaderText = "Discount Amount";
-            discountAmount.Name = "discountAmount";
-            // 
-            // subTotal
-            // 
-            subTotal.DataPropertyName = "subTotal";
-            subTotal.HeaderText = "Sub Total";
-            subTotal.Name = "subTotal";
-            // 
-            // vatableSales
-            // 
-            vatableSales.DataPropertyName = "vatableSales";
-            vatableSales.HeaderText = "VATable Sales";
-            vatableSales.Name = "vatableSales";
-            // 
-            // vatAmount
-            // 
-            vatAmount.DataPropertyName = "vatAmount";
-            vatAmount.HeaderText = "VAT Amount";
-            vatAmount.Name = "vatAmount";
-            // 
-            // vatExempt
-            // 
-            vatExempt.DataPropertyName = "vatExempt";
-            vatExempt.HeaderText = "VAT Exempt";
-            vatExempt.Name = "vatExempt";
-            // 
-            // remove
-            // 
-            remove.HeaderText = "";
-            remove.Name = "remove";
-            remove.Text = "Remove";
-            remove.UseColumnTextForButtonValue = true;
+            btnParkedTransactions.BackColor = Color.IndianRed;
+            btnParkedTransactions.FlatStyle = FlatStyle.Popup;
+            btnParkedTransactions.ForeColor = Color.White;
+            btnParkedTransactions.Location = new Point(837, 110);
+            btnParkedTransactions.Name = "btnParkedTransactions";
+            btnParkedTransactions.Size = new Size(126, 22);
+            btnParkedTransactions.TabIndex = 159;
+            btnParkedTransactions.Text = "Parked Transactions";
+            btnParkedTransactions.UseVisualStyleBackColor = false;
+            btnParkedTransactions.Click += btnParkedTransactions_Click;
             // 
             // SalesInvoice
             // 
@@ -733,6 +785,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
             ClientSize = new Size(1367, 777);
+            Controls.Add(btnClearCart);
+            Controls.Add(btnParkedTransactions);
+            Controls.Add(lblParkNumber);
+            Controls.Add(lblParkLabel);
             Controls.Add(btnClose);
             Controls.Add(lblTime);
             Controls.Add(lblDate);
@@ -777,12 +833,12 @@
         private DataGridView dtgvCart;
         private Label label1;
         private Button btnConfirm;
-        private Button button2;
+        private Button btnPark;
         private GroupBox groupBox1;
         private Label label4;
         private Label label3;
         private Label label2;
-        private Label label6;
+        private Label lblDiscountAmount;
         private Label lblTotal;
         private Label lblChange;
         private TextBox txtScannedBarcode;
@@ -832,5 +888,9 @@
         private DataGridViewTextBoxColumn vatExempt;
         private DataGridViewButtonColumn remove;
         private DataGridViewTextBoxColumn category;
+        private Label lblParkLabel;
+        private Label lblParkNumber;
+        private Button btnParkedTransactions;
+        private Button btnClearCart;
     }
 }

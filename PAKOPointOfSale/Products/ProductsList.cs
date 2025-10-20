@@ -143,6 +143,12 @@ namespace PAKOPointOfSale.Products
 
         private void btnFilter_Click(object sender, EventArgs e)
         {
+            if(cmbFilterType.SelectedIndex <= 0)
+            {
+                MessageBox.Show("Please choose filter type", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cmbFilterType.Focus();
+                return;
+            }
             string selected = cmbFilterType.SelectedItem.ToString();
             if (selected == "Stock")
             {

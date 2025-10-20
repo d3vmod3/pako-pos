@@ -78,7 +78,7 @@ namespace PAKOPointOfSale.Transactions
                 decimal price = decimal.Parse(lblUnitPrice.Text);
                 
                 string category = lblCategory.Text;
-                int quantity = int.Parse(num_AppliedQty.Text);
+                decimal quantity = Convert.ToDecimal(num_AppliedQty.Text);
                 decimal subTotal = decimal.Parse(lblUnitPrice.Text) * quantity;
                 // Add to cart
                 _salesInvoice.AddProductToCart(product_id, product, brand, unit, price, category, quantity, subTotal);
