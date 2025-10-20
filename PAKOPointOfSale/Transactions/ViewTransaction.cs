@@ -55,7 +55,9 @@ namespace PAKOPointOfSale.Transactions
                             lblInvoiceNumber.Text = reader["invoice_number"].ToString();
                             lblSubTotal.Text = Convert.ToDecimal(reader["sub_total"]).ToString("N2");
                             lblGrandTotal.Text = Convert.ToDecimal(reader["grand_total"]).ToString("N2");
+                            lblVatableSales.Text = Convert.ToDecimal(reader["vat_amount"]).ToString("N2");
                             lblVatAmount.Text = Convert.ToDecimal(reader["vat_amount"]).ToString("N2");
+                            lblVatExempt.Text = Convert.ToDecimal(reader["vat_exempt"]).ToString("N2");
                             lblPaymentMethod.Text = reader["payment_method"].ToString();
                             lblCashReceived.Text = Convert.ToDecimal(reader["cash_received"]).ToString("N2");
                             lblTransactionType.Text = reader["transaction_type"].ToString();

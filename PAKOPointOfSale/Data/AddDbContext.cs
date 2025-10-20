@@ -23,6 +23,9 @@ namespace WinFormsApp1.Data
         public DbSet<VoidTransaction> VoidTransactions { get; set; }
         public DbSet<ReturnTransaction> ReturnTransactions { get; set; }
         public DbSet<SalesInvoiceItem> SalesInvoiceItems { get; set; }
+        public DbSet<ParkedTransaction> ParkedTransactions { get; set; }
+        public DbSet<ParkedSalesInvoiceItem> ParkedSalesInvoiceItems { get; set; }
+        
         
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)

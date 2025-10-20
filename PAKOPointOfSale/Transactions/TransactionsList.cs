@@ -50,6 +50,7 @@ namespace PAKOPointOfSale.Transactions
                             status,
                             created_at
                         FROM Transactions
+                        WHERE invoice_number IS NOT NULL
                         ORDER BY created_at DESC;";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))

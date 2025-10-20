@@ -1,4 +1,5 @@
-﻿namespace PAKOPointOfSale.Transactions
+﻿
+namespace PAKOPointOfSale.Transactions
 {
     partial class SalesInvoice
     {
@@ -51,10 +52,10 @@
             remove = new DataGridViewButtonColumn();
             label1 = new Label();
             btnConfirm = new Button();
-            button2 = new Button();
+            btnPark = new Button();
             groupBox1 = new GroupBox();
             lblChange = new Label();
-            label6 = new Label();
+            lblDiscountAmount = new Label();
             lblTotal = new Label();
             label3 = new Label();
             label2 = new Label();
@@ -80,6 +81,7 @@
             btn00 = new Button();
             btnApplyDiscount = new Button();
             panel1 = new Panel();
+            btnClearCart = new Button();
             printDocument1 = new System.Drawing.Printing.PrintDocument();
             pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
@@ -91,6 +93,9 @@
             lblTime = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
             btnClose = new Button();
+            lblParkLabel = new Label();
+            lblParkNumber = new Label();
+            btnParkedTransactions = new Button();
             ((System.ComponentModel.ISupportInitialize)productBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)userTypeBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dtgvCart).BeginInit();
@@ -248,7 +253,7 @@
             btnConfirm.BackColor = Color.ForestGreen;
             btnConfirm.FlatStyle = FlatStyle.Popup;
             btnConfirm.ForeColor = Color.White;
-            btnConfirm.Location = new Point(213, 564);
+            btnConfirm.Location = new Point(209, 561);
             btnConfirm.Name = "btnConfirm";
             btnConfirm.Size = new Size(75, 25);
             btnConfirm.TabIndex = 6;
@@ -256,22 +261,23 @@
             btnConfirm.UseVisualStyleBackColor = false;
             btnConfirm.Click += button1_Click;
             // 
-            // button2
+            // btnPark
             // 
-            button2.BackColor = SystemColors.Highlight;
-            button2.FlatStyle = FlatStyle.Popup;
-            button2.ForeColor = Color.White;
-            button2.Location = new Point(111, 564);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 25);
-            button2.TabIndex = 7;
-            button2.Text = "Park";
-            button2.UseVisualStyleBackColor = false;
+            btnPark.BackColor = SystemColors.Highlight;
+            btnPark.FlatStyle = FlatStyle.Popup;
+            btnPark.ForeColor = Color.White;
+            btnPark.Location = new Point(119, 561);
+            btnPark.Name = "btnPark";
+            btnPark.Size = new Size(75, 25);
+            btnPark.TabIndex = 7;
+            btnPark.Text = "Pending";
+            btnPark.UseVisualStyleBackColor = false;
+            btnPark.Click += button2_Click_Park;
             // 
             // groupBox1
             // 
             groupBox1.Controls.Add(lblChange);
-            groupBox1.Controls.Add(label6);
+            groupBox1.Controls.Add(lblDiscountAmount);
             groupBox1.Controls.Add(lblTotal);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
@@ -292,15 +298,15 @@
             lblChange.TabIndex = 12;
             lblChange.Text = "0.00";
             // 
-            // label6
+            // lblDiscountAmount
             // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Impact", 17.25F);
-            label6.Location = new Point(128, 57);
-            label6.Name = "label6";
-            label6.Size = new Size(52, 28);
-            label6.TabIndex = 10;
-            label6.Text = "0.00";
+            lblDiscountAmount.AutoSize = true;
+            lblDiscountAmount.Font = new Font("Impact", 17.25F);
+            lblDiscountAmount.Location = new Point(128, 57);
+            lblDiscountAmount.Name = "lblDiscountAmount";
+            lblDiscountAmount.Size = new Size(52, 28);
+            lblDiscountAmount.TabIndex = 10;
+            lblDiscountAmount.Text = "0.00";
             // 
             // lblTotal
             // 
@@ -579,7 +585,7 @@
             btnApplyDiscount.BackColor = Color.ForestGreen;
             btnApplyDiscount.FlatStyle = FlatStyle.Popup;
             btnApplyDiscount.ForeColor = Color.White;
-            btnApplyDiscount.Location = new Point(782, 110);
+            btnApplyDiscount.Location = new Point(720, 110);
             btnApplyDiscount.Name = "btnApplyDiscount";
             btnApplyDiscount.Size = new Size(111, 22);
             btnApplyDiscount.TabIndex = 45;
@@ -597,7 +603,7 @@
             panel1.Controls.Add(btnKey1);
             panel1.Controls.Add(groupBox1);
             panel1.Controls.Add(btnDot);
-            panel1.Controls.Add(button2);
+            panel1.Controls.Add(btnPark);
             panel1.Controls.Add(btnKey3);
             panel1.Controls.Add(btnConfirm);
             panel1.Controls.Add(btnKey4);
@@ -613,6 +619,19 @@
             panel1.Size = new Size(386, 594);
             panel1.TabIndex = 46;
             // 
+            // btnClearCart
+            // 
+            btnClearCart.BackColor = Color.Coral;
+            btnClearCart.FlatStyle = FlatStyle.Popup;
+            btnClearCart.ForeColor = Color.White;
+            btnClearCart.Location = new Point(639, 110);
+            btnClearCart.Name = "btnClearCart";
+            btnClearCart.Size = new Size(75, 22);
+            btnClearCart.TabIndex = 45;
+            btnClearCart.Text = "Clear Cart";
+            btnClearCart.UseVisualStyleBackColor = false;
+            btnClearCart.Click += button1_Click_clear;
+            // 
             // pictureBox2
             // 
             pictureBox2.BackColor = Color.DimGray;
@@ -621,6 +640,7 @@
             pictureBox2.Size = new Size(1371, 104);
             pictureBox2.TabIndex = 144;
             pictureBox2.TabStop = false;
+            pictureBox2.Click += pictureBox2_Click_click;
             // 
             // pictureBox1
             // 
@@ -695,7 +715,7 @@
             lblDate.Size = new Size(26, 29);
             lblDate.TabIndex = 155;
             lblDate.Text = "0";
-            lblDate.Click += lblDate_Click;
+            
             // 
             // lblTime
             // 
@@ -729,12 +749,49 @@
             btnClose.UseVisualStyleBackColor = false;
             btnClose.Click += btnClose_Click;
             // 
+            // lblParkLabel
+            // 
+            lblParkLabel.AutoSize = true;
+            lblParkLabel.Location = new Point(439, 114);
+            lblParkLabel.Name = "lblParkLabel";
+            lblParkLabel.Size = new Size(80, 15);
+            lblParkLabel.TabIndex = 157;
+            lblParkLabel.Text = "Park Number:";
+            lblParkLabel.Visible = false;
+            // 
+            // lblParkNumber
+            // 
+            lblParkNumber.AutoSize = true;
+            lblParkNumber.Location = new Point(525, 114);
+            lblParkNumber.Name = "lblParkNumber";
+            lblParkNumber.Size = new Size(43, 15);
+            lblParkNumber.TabIndex = 158;
+            lblParkNumber.Text = "000000";
+            lblParkNumber.Visible = false;
+            // 
+            // btnParkedTransactions
+            // 
+            btnParkedTransactions.BackColor = Color.IndianRed;
+            btnParkedTransactions.FlatStyle = FlatStyle.Popup;
+            btnParkedTransactions.ForeColor = Color.White;
+            btnParkedTransactions.Location = new Point(837, 110);
+            btnParkedTransactions.Name = "btnParkedTransactions";
+            btnParkedTransactions.Size = new Size(126, 22);
+            btnParkedTransactions.TabIndex = 159;
+            btnParkedTransactions.Text = "Parked Transactions";
+            btnParkedTransactions.UseVisualStyleBackColor = false;
+            btnParkedTransactions.Click += btnParkedTransactions_Click;
+            // 
             // SalesInvoice
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
             ClientSize = new Size(1367, 777);
+            Controls.Add(btnClearCart);
+            Controls.Add(btnParkedTransactions);
+            Controls.Add(lblParkNumber);
+            Controls.Add(lblParkLabel);
             Controls.Add(btnClose);
             Controls.Add(lblTime);
             Controls.Add(lblDate);
@@ -772,6 +829,21 @@
             PerformLayout();
         }
 
+        private void button1_Click_3(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
         private BindingSource productBindingSource;
         private BindingSource userTypeBindingSource;
@@ -779,12 +851,12 @@
         private DataGridView dtgvCart;
         private Label label1;
         private Button btnConfirm;
-        private Button button2;
+        private Button btnPark;
         private GroupBox groupBox1;
         private Label label4;
         private Label label3;
         private Label label2;
-        private Label label6;
+        private Label lblDiscountAmount;
         private Label lblTotal;
         private Label lblChange;
         private TextBox txtScannedBarcode;
@@ -834,5 +906,9 @@
         private DataGridViewTextBoxColumn vatExempt;
         private DataGridViewButtonColumn remove;
         private DataGridViewTextBoxColumn category;
+        private Label lblParkLabel;
+        private Label lblParkNumber;
+        private Button btnParkedTransactions;
+        private Button btnClearCart;
     }
 }

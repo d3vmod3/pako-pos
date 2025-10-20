@@ -32,6 +32,7 @@
             btnOk = new Button();
             lblNote = new Label();
             pictureBox2 = new PictureBox();
+            btnCancel = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
@@ -51,7 +52,7 @@
             btnOk.BackColor = Color.CornflowerBlue;
             btnOk.FlatStyle = FlatStyle.Popup;
             btnOk.ForeColor = Color.White;
-            btnOk.Location = new Point(137, 116);
+            btnOk.Location = new Point(90, 116);
             btnOk.Name = "btnOk";
             btnOk.Size = new Size(74, 23);
             btnOk.TabIndex = 1;
@@ -79,12 +80,26 @@
             pictureBox2.TabIndex = 13;
             pictureBox2.TabStop = false;
             // 
+            // btnCancel
+            // 
+            btnCancel.BackColor = Color.Red;
+            btnCancel.FlatStyle = FlatStyle.Popup;
+            btnCancel.ForeColor = Color.White;
+            btnCancel.Location = new Point(170, 116);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(74, 23);
+            btnCancel.TabIndex = 14;
+            btnCancel.Text = "Cancel";
+            btnCancel.UseVisualStyleBackColor = false;
+            btnCancel.Click += btnCancel_Click;
+            // 
             // DiscountTypes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(341, 151);
+            Controls.Add(btnCancel);
             Controls.Add(pictureBox2);
             Controls.Add(lblNote);
             Controls.Add(btnOk);
@@ -107,5 +122,6 @@
         private Button btnOk;
         private Label lblNote;
         private PictureBox pictureBox2;
+        private Button btnCancel;
     }
 }

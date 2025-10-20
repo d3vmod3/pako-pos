@@ -205,8 +205,6 @@ namespace PAKOPointOfSale.Transactions.Return
                     );
                     Transactions.PrintReturnReceipt.GenerateReturnReceiptFromTransactionId(newTransactionId);
                     this.Close();
-
-
                 }
             }
 

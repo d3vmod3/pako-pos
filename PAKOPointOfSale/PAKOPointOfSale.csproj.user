@@ -49,6 +49,12 @@
     <Compile Update="Transactions\EditQuantity.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Transactions\Parked Transactions\ParkTransactionsList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Transactions\Parked Transactions\Remarks.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Transactions\Return\ReturnForm.cs">
       <SubType>Form</SubType>
     </Compile>
