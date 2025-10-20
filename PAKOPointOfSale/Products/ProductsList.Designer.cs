@@ -93,7 +93,7 @@
             dataGridView1.GridColor = Color.Black;
             dataGridView1.Location = new Point(12, 2);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(1344, 549);
+            dataGridView1.Size = new Size(1344, 516);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -295,9 +295,9 @@
             pictureBox3.ErrorImage = null;
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
             pictureBox3.InitialImage = null;
-            pictureBox3.Location = new Point(0, 557);
+            pictureBox3.Location = new Point(0, 530);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(1386, 79);
+            pictureBox3.Size = new Size(1386, 97);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 14;
             pictureBox3.TabStop = false;
@@ -321,7 +321,7 @@
             pictureBox1.InitialImage = null;
             pictureBox1.Location = new Point(-53, -3);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(1439, 107);
+            pictureBox1.Size = new Size(1439, 106);
             pictureBox1.TabIndex = 10;
             pictureBox1.TabStop = false;
             // 
@@ -354,11 +354,11 @@
             // 
             label2.AutoSize = true;
             label2.BackColor = Color.DimGray;
-            label2.Font = new Font("Impact", 45F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Impact", 47.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(576, 17);
+            label2.Location = new Point(576, 13);
             label2.Name = "label2";
-            label2.Size = new Size(395, 75);
+            label2.Size = new Size(413, 76);
             label2.TabIndex = 146;
             label2.Text = "PRODUCTS LIST";
             // 
@@ -383,7 +383,7 @@
             // 
             // btnFilter
             // 
-            btnFilter.BackColor = Color.FromArgb(255, 255, 192);
+            btnFilter.BackColor = Color.FromArgb(255, 255, 128);
             btnFilter.FlatStyle = FlatStyle.Popup;
             btnFilter.Location = new Point(773, 109);
             btnFilter.Name = "btnFilter";

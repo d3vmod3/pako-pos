@@ -12,13 +12,13 @@ using System.Windows.Forms;
 
 namespace PAKOPointOfSale.Transactions
 {
-    public partial class ViewTransaction : Form
+    public partial class lbViewTransaction : Form
     {
         private int _id;
         private string _invoiceNumber;
         private int countAlreadyReturneditems = 0;
         private string adjustment_number = "";
-        public ViewTransaction(int id)
+        public lbViewTransaction(int id)
         {
             _id = id;
             InitializeComponent();

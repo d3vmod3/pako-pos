@@ -98,6 +98,8 @@ namespace PAKOPointOfSale
 
         private void SuperAdminForm_Load(object sender, EventArgs e)
         {
+            timer1.Start();
+
             DateTime today = DateTime.Today;
 
             // Calculate the start of the week (Monday)
@@ -312,6 +314,22 @@ namespace PAKOPointOfSale
         {
             LoadSales(Convert.ToDateTime(dtpFromSales.Value.Date), Convert.ToDateTime(dtpToSales.Value.Date));
             LoadTop5SellingProducts(Convert.ToDateTime(dtpFrom.Value.Date), Convert.ToDateTime(dtpTo.Value.Date));
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblDate.Text = DateTime.Now.ToString("MM/dd/yyyy");
+            lblTime.Text = DateTime.Now.ToString("hh:mm:ss tt");
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

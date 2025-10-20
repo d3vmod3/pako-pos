@@ -31,6 +31,16 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UsersList));
             dataGridView1 = new DataGridView();
+            userBindingSource = new BindingSource(components);
+            txtSearch = new TextBox();
+            label1 = new Label();
+            btnAdd = new Button();
+            pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
+            lbluserslist = new Label();
+            button1 = new Button();
+            button2 = new Button();
+            pictureBox3 = new PictureBox();
             id = new DataGridViewTextBoxColumn();
             usertypeidDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             usernameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -45,16 +55,6 @@
             createdatDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             is_active = new DataGridViewTextBoxColumn();
             edit = new DataGridViewButtonColumn();
-            userBindingSource = new BindingSource(components);
-            txtSearch = new TextBox();
-            label1 = new Label();
-            btnAdd = new Button();
-            pictureBox1 = new PictureBox();
-            pictureBox2 = new PictureBox();
-            lbluserslist = new Label();
-            button1 = new Button();
-            button2 = new Button();
-            pictureBox3 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)userBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -74,115 +74,9 @@
             dataGridView1.Location = new Point(12, 121);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
-            dataGridView1.Size = new Size(1362, 546);
+            dataGridView1.Size = new Size(1339, 555);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
-            // 
-            // id
-            // 
-            id.DataPropertyName = "id";
-            id.HeaderText = "id";
-            id.Name = "id";
-            id.ReadOnly = true;
-            id.Visible = false;
-            // 
-            // usertypeidDataGridViewTextBoxColumn
-            // 
-            usertypeidDataGridViewTextBoxColumn.DataPropertyName = "user_type_id";
-            usertypeidDataGridViewTextBoxColumn.HeaderText = "user_type_id";
-            usertypeidDataGridViewTextBoxColumn.Name = "usertypeidDataGridViewTextBoxColumn";
-            usertypeidDataGridViewTextBoxColumn.ReadOnly = true;
-            usertypeidDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // usernameDataGridViewTextBoxColumn
-            // 
-            usernameDataGridViewTextBoxColumn.DataPropertyName = "username";
-            usernameDataGridViewTextBoxColumn.HeaderText = "Username";
-            usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
-            usernameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // passwordDataGridViewTextBoxColumn
-            // 
-            passwordDataGridViewTextBoxColumn.DataPropertyName = "password";
-            passwordDataGridViewTextBoxColumn.HeaderText = "password";
-            passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
-            passwordDataGridViewTextBoxColumn.ReadOnly = true;
-            passwordDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // firstnameDataGridViewTextBoxColumn
-            // 
-            firstnameDataGridViewTextBoxColumn.DataPropertyName = "first_name";
-            firstnameDataGridViewTextBoxColumn.HeaderText = "First Name";
-            firstnameDataGridViewTextBoxColumn.Name = "firstnameDataGridViewTextBoxColumn";
-            firstnameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // middlenameDataGridViewTextBoxColumn
-            // 
-            middlenameDataGridViewTextBoxColumn.DataPropertyName = "middle_name";
-            middlenameDataGridViewTextBoxColumn.HeaderText = "Middle Name";
-            middlenameDataGridViewTextBoxColumn.Name = "middlenameDataGridViewTextBoxColumn";
-            middlenameDataGridViewTextBoxColumn.ReadOnly = true;
-            middlenameDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // lastnameDataGridViewTextBoxColumn
-            // 
-            lastnameDataGridViewTextBoxColumn.DataPropertyName = "last_name";
-            lastnameDataGridViewTextBoxColumn.HeaderText = "Last Name";
-            lastnameDataGridViewTextBoxColumn.Name = "lastnameDataGridViewTextBoxColumn";
-            lastnameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // birthdayDataGridViewTextBoxColumn
-            // 
-            birthdayDataGridViewTextBoxColumn.DataPropertyName = "birthday";
-            birthdayDataGridViewTextBoxColumn.HeaderText = "Birthdate";
-            birthdayDataGridViewTextBoxColumn.Name = "birthdayDataGridViewTextBoxColumn";
-            birthdayDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // genderDataGridViewTextBoxColumn
-            // 
-            genderDataGridViewTextBoxColumn.DataPropertyName = "gender";
-            genderDataGridViewTextBoxColumn.HeaderText = "Gender";
-            genderDataGridViewTextBoxColumn.Name = "genderDataGridViewTextBoxColumn";
-            genderDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // suffixDataGridViewTextBoxColumn
-            // 
-            suffixDataGridViewTextBoxColumn.DataPropertyName = "suffix";
-            suffixDataGridViewTextBoxColumn.HeaderText = "Suffix";
-            suffixDataGridViewTextBoxColumn.Name = "suffixDataGridViewTextBoxColumn";
-            suffixDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // userType
-            // 
-            userType.DataPropertyName = "user_type";
-            userType.HeaderText = "Role";
-            userType.Name = "userType";
-            userType.ReadOnly = true;
-            // 
-            // createdatDataGridViewTextBoxColumn
-            // 
-            createdatDataGridViewTextBoxColumn.DataPropertyName = "created_at";
-            createdatDataGridViewTextBoxColumn.HeaderText = "Date Created";
-            createdatDataGridViewTextBoxColumn.Name = "createdatDataGridViewTextBoxColumn";
-            createdatDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // is_active
-            // 
-            is_active.DataPropertyName = "is_active";
-            is_active.HeaderText = "Active";
-            is_active.Name = "is_active";
-            is_active.ReadOnly = true;
-            is_active.Resizable = DataGridViewTriState.True;
-            is_active.SortMode = DataGridViewColumnSortMode.NotSortable;
-            // 
-            // edit
-            // 
-            edit.DataPropertyName = "id";
-            edit.HeaderText = "";
-            edit.Name = "edit";
-            edit.ReadOnly = true;
-            edit.Text = "Edit";
-            edit.UseColumnTextForButtonValue = true;
             // 
             // userBindingSource
             // 
@@ -244,11 +138,11 @@
             // 
             lbluserslist.AutoSize = true;
             lbluserslist.BackColor = Color.DimGray;
-            lbluserslist.Font = new Font("Impact", 39.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbluserslist.Font = new Font("Impact", 45F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbluserslist.ForeColor = Color.White;
-            lbluserslist.Location = new Point(563, 9);
+            lbluserslist.Location = new Point(630, 1);
             lbluserslist.Name = "lbluserslist";
-            lbluserslist.Size = new Size(257, 65);
+            lbluserslist.Size = new Size(294, 75);
             lbluserslist.TabIndex = 6;
             lbluserslist.Text = "USERS LIST";
             // 
@@ -271,12 +165,13 @@
             button2.FlatStyle = FlatStyle.Popup;
             button2.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             button2.ForeColor = Color.White;
-            button2.Location = new Point(1299, 93);
+            button2.Location = new Point(1276, 93);
             button2.Name = "button2";
             button2.Size = new Size(75, 23);
             button2.TabIndex = 8;
-            button2.Text = "Delete";
+            button2.Text = "Close";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // pictureBox3
             // 
@@ -284,19 +179,130 @@
             pictureBox3.ErrorImage = null;
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
             pictureBox3.InitialImage = null;
-            pictureBox3.Location = new Point(0, 677);
+            pictureBox3.Location = new Point(-16, 683);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(1386, 77);
+            pictureBox3.Size = new Size(1414, 96);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 15;
             pictureBox3.TabStop = false;
+            // 
+            // id
+            // 
+            id.DataPropertyName = "id";
+            id.HeaderText = "id";
+            id.Name = "id";
+            id.ReadOnly = true;
+            id.Visible = false;
+            // 
+            // usertypeidDataGridViewTextBoxColumn
+            // 
+            usertypeidDataGridViewTextBoxColumn.DataPropertyName = "user_type_id";
+            usertypeidDataGridViewTextBoxColumn.HeaderText = "user_type_id";
+            usertypeidDataGridViewTextBoxColumn.Name = "usertypeidDataGridViewTextBoxColumn";
+            usertypeidDataGridViewTextBoxColumn.ReadOnly = true;
+            usertypeidDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // usernameDataGridViewTextBoxColumn
+            // 
+            usernameDataGridViewTextBoxColumn.DataPropertyName = "username";
+            usernameDataGridViewTextBoxColumn.HeaderText = "Username";
+            usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
+            usernameDataGridViewTextBoxColumn.ReadOnly = true;
+            usernameDataGridViewTextBoxColumn.Width = 120;
+            // 
+            // passwordDataGridViewTextBoxColumn
+            // 
+            passwordDataGridViewTextBoxColumn.DataPropertyName = "password";
+            passwordDataGridViewTextBoxColumn.HeaderText = "password";
+            passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
+            passwordDataGridViewTextBoxColumn.ReadOnly = true;
+            passwordDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // firstnameDataGridViewTextBoxColumn
+            // 
+            firstnameDataGridViewTextBoxColumn.DataPropertyName = "first_name";
+            firstnameDataGridViewTextBoxColumn.HeaderText = "First Name";
+            firstnameDataGridViewTextBoxColumn.Name = "firstnameDataGridViewTextBoxColumn";
+            firstnameDataGridViewTextBoxColumn.ReadOnly = true;
+            firstnameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // middlenameDataGridViewTextBoxColumn
+            // 
+            middlenameDataGridViewTextBoxColumn.DataPropertyName = "middle_name";
+            middlenameDataGridViewTextBoxColumn.HeaderText = "Middle Name";
+            middlenameDataGridViewTextBoxColumn.Name = "middlenameDataGridViewTextBoxColumn";
+            middlenameDataGridViewTextBoxColumn.ReadOnly = true;
+            middlenameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // lastnameDataGridViewTextBoxColumn
+            // 
+            lastnameDataGridViewTextBoxColumn.DataPropertyName = "last_name";
+            lastnameDataGridViewTextBoxColumn.HeaderText = "Last Name";
+            lastnameDataGridViewTextBoxColumn.Name = "lastnameDataGridViewTextBoxColumn";
+            lastnameDataGridViewTextBoxColumn.ReadOnly = true;
+            lastnameDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // birthdayDataGridViewTextBoxColumn
+            // 
+            birthdayDataGridViewTextBoxColumn.DataPropertyName = "birthday";
+            birthdayDataGridViewTextBoxColumn.HeaderText = "Birthdate";
+            birthdayDataGridViewTextBoxColumn.Name = "birthdayDataGridViewTextBoxColumn";
+            birthdayDataGridViewTextBoxColumn.ReadOnly = true;
+            birthdayDataGridViewTextBoxColumn.Width = 120;
+            // 
+            // genderDataGridViewTextBoxColumn
+            // 
+            genderDataGridViewTextBoxColumn.DataPropertyName = "gender";
+            genderDataGridViewTextBoxColumn.HeaderText = "Gender";
+            genderDataGridViewTextBoxColumn.Name = "genderDataGridViewTextBoxColumn";
+            genderDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // suffixDataGridViewTextBoxColumn
+            // 
+            suffixDataGridViewTextBoxColumn.DataPropertyName = "suffix";
+            suffixDataGridViewTextBoxColumn.HeaderText = "Suffix";
+            suffixDataGridViewTextBoxColumn.Name = "suffixDataGridViewTextBoxColumn";
+            suffixDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // userType
+            // 
+            userType.DataPropertyName = "user_type";
+            userType.HeaderText = "Role";
+            userType.Name = "userType";
+            userType.ReadOnly = true;
+            userType.Width = 120;
+            // 
+            // createdatDataGridViewTextBoxColumn
+            // 
+            createdatDataGridViewTextBoxColumn.DataPropertyName = "created_at";
+            createdatDataGridViewTextBoxColumn.HeaderText = "Date Created";
+            createdatDataGridViewTextBoxColumn.Name = "createdatDataGridViewTextBoxColumn";
+            createdatDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // is_active
+            // 
+            is_active.DataPropertyName = "is_active";
+            is_active.HeaderText = "Active";
+            is_active.Name = "is_active";
+            is_active.ReadOnly = true;
+            is_active.Resizable = DataGridViewTriState.True;
+            is_active.SortMode = DataGridViewColumnSortMode.NotSortable;
+            // 
+            // edit
+            // 
+            edit.DataPropertyName = "id";
+            edit.HeaderText = "";
+            edit.Name = "edit";
+            edit.ReadOnly = true;
+            edit.Text = "Edit";
+            edit.UseColumnTextForButtonValue = true;
             // 
             // UsersList
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
-            ClientSize = new Size(1386, 754);
+            ClientSize = new Size(1386, 788);
             Controls.Add(pictureBox3);
             Controls.Add(button2);
             Controls.Add(button1);

@@ -227,7 +227,7 @@
             lblsearchproduct.BackColor = Color.DimGray;
             lblsearchproduct.Font = new Font("Impact", 39.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblsearchproduct.ForeColor = Color.White;
-            lblsearchproduct.Location = new Point(464, 12);
+            lblsearchproduct.Location = new Point(570, 9);
             lblsearchproduct.Name = "lblsearchproduct";
             lblsearchproduct.Size = new Size(396, 65);
             lblsearchproduct.TabIndex = 114;

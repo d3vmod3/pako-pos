@@ -72,7 +72,7 @@
             dtgvTransactions.Location = new Point(13, 144);
             dtgvTransactions.Name = "dtgvTransactions";
             dtgvTransactions.ReadOnly = true;
-            dtgvTransactions.Size = new Size(1329, 548);
+            dtgvTransactions.Size = new Size(1329, 531);
             dtgvTransactions.TabIndex = 0;
             dtgvTransactions.CellContentClick += dtgvTransactions_CellContentClick;
             // 
@@ -99,6 +99,7 @@
             vatamountDataGridViewTextBoxColumn.Name = "vatamountDataGridViewTextBoxColumn";
             vatamountDataGridViewTextBoxColumn.ReadOnly = true;
             vatamountDataGridViewTextBoxColumn.Visible = false;
+            vatamountDataGridViewTextBoxColumn.Width = 95;
             // 
             // vatablesalesDataGridViewTextBoxColumn
             // 
@@ -115,6 +116,7 @@
             vatexemptDataGridViewTextBoxColumn.Name = "vatexemptDataGridViewTextBoxColumn";
             vatexemptDataGridViewTextBoxColumn.ReadOnly = true;
             vatexemptDataGridViewTextBoxColumn.Visible = false;
+            vatexemptDataGridViewTextBoxColumn.Width = 92;
             // 
             // subtotalDataGridViewTextBoxColumn
             // 
@@ -131,6 +133,7 @@
             grandtotalDataGridViewTextBoxColumn.Name = "grandtotalDataGridViewTextBoxColumn";
             grandtotalDataGridViewTextBoxColumn.ReadOnly = true;
             grandtotalDataGridViewTextBoxColumn.Visible = false;
+            grandtotalDataGridViewTextBoxColumn.Width = 86;
             // 
             // paymentmethodDataGridViewTextBoxColumn
             // 
@@ -171,6 +174,7 @@
             salesinvoiceitemsDataGridViewTextBoxColumn.Name = "salesinvoiceitemsDataGridViewTextBoxColumn";
             salesinvoiceitemsDataGridViewTextBoxColumn.ReadOnly = true;
             salesinvoiceitemsDataGridViewTextBoxColumn.Visible = false;
+            salesinvoiceitemsDataGridViewTextBoxColumn.Width = 134;
             // 
             // viewInvoice
             // 
@@ -249,11 +253,11 @@
             // 
             lblsearchproduct.AutoSize = true;
             lblsearchproduct.BackColor = Color.DimGray;
-            lblsearchproduct.Font = new Font("Impact", 42F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblsearchproduct.Font = new Font("Impact", 47.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblsearchproduct.ForeColor = Color.White;
             lblsearchproduct.Location = new Point(558, 14);
             lblsearchproduct.Name = "lblsearchproduct";
-            lblsearchproduct.Size = new Size(463, 68);
+            lblsearchproduct.Size = new Size(524, 76);
             lblsearchproduct.TabIndex = 115;
             lblsearchproduct.Text = "TRANSACTIONS LIST";
             // 
@@ -263,7 +267,7 @@
             pictureBox3.ErrorImage = null;
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
             pictureBox3.InitialImage = null;
-            pictureBox3.Location = new Point(-21, 698);
+            pictureBox3.Location = new Point(-21, 683);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(1402, 91);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -275,7 +279,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
-            ClientSize = new Size(1363, 788);
+            ClientSize = new Size(1368, 769);
             Controls.Add(pictureBox3);
             Controls.Add(lblsearchproduct);
             Controls.Add(pictureBox1);
@@ -305,6 +309,14 @@
         private Label label1;
         private BindingSource transactionBindingSource;
         private TextBox textBox1;
+        private PictureBox pictureBox3;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox1;
+        private Button btnClose;
+        private Label label5;
+        private TextBox txtSearch;
+        private Button button1;
+        private Label lblsearchproduct;
         private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn invoicenumberDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn vatamountDataGridViewTextBoxColumn;
@@ -318,13 +330,5 @@
         private DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn salesinvoiceitemsDataGridViewTextBoxColumn;
         private DataGridViewButtonColumn viewInvoice;
-        private PictureBox pictureBox3;
-        private PictureBox pictureBox2;
-        private PictureBox pictureBox1;
-        private Button btnClose;
-        private Label label5;
-        private TextBox txtSearch;
-        private Button button1;
-        private Label lblsearchproduct;
     }
 }

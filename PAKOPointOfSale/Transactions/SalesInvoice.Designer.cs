@@ -34,6 +34,21 @@
             userTypeBindingSource = new BindingSource(components);
             btnSearchProduct = new Button();
             dtgvCart = new DataGridView();
+            id = new DataGridViewTextBoxColumn();
+            select = new DataGridViewCheckBoxColumn();
+            product = new DataGridViewTextBoxColumn();
+            brand = new DataGridViewTextBoxColumn();
+            unit_of_measurement = new DataGridViewTextBoxColumn();
+            appliedQty = new DataGridViewTextBoxColumn();
+            unit_price = new DataGridViewTextBoxColumn();
+            category = new DataGridViewTextBoxColumn();
+            discountType = new DataGridViewTextBoxColumn();
+            discountAmount = new DataGridViewTextBoxColumn();
+            subTotal = new DataGridViewTextBoxColumn();
+            vatableSales = new DataGridViewTextBoxColumn();
+            vatAmount = new DataGridViewTextBoxColumn();
+            vatExempt = new DataGridViewTextBoxColumn();
+            remove = new DataGridViewButtonColumn();
             label1 = new Label();
             btnConfirm = new Button();
             button2 = new Button();
@@ -76,21 +91,6 @@
             lblTime = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
             btnClose = new Button();
-            id = new DataGridViewTextBoxColumn();
-            select = new DataGridViewCheckBoxColumn();
-            product = new DataGridViewTextBoxColumn();
-            brand = new DataGridViewTextBoxColumn();
-            unit_of_measurement = new DataGridViewTextBoxColumn();
-            appliedQty = new DataGridViewTextBoxColumn();
-            unit_price = new DataGridViewTextBoxColumn();
-            category = new DataGridViewTextBoxColumn();
-            discountType = new DataGridViewTextBoxColumn();
-            discountAmount = new DataGridViewTextBoxColumn();
-            subTotal = new DataGridViewTextBoxColumn();
-            vatableSales = new DataGridViewTextBoxColumn();
-            vatAmount = new DataGridViewTextBoxColumn();
-            vatExempt = new DataGridViewTextBoxColumn();
-            remove = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)productBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)userTypeBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dtgvCart).BeginInit();
@@ -139,6 +139,98 @@
             dtgvCart.CellValueChanged += dtgvCart_CellValueChanged;
             dtgvCart.EditingControlShowing += dtgvCart_EditingControlShowing;
             dtgvCart.KeyPress += dtgvCart_KeyPress;
+            // 
+            // id
+            // 
+            id.HeaderText = "ID";
+            id.Name = "id";
+            id.Visible = false;
+            // 
+            // select
+            // 
+            select.FalseValue = "0";
+            select.HeaderText = "Select to Apply Discount";
+            select.Name = "select";
+            select.TrueValue = "1";
+            // 
+            // product
+            // 
+            product.HeaderText = "Product";
+            product.Name = "product";
+            product.ReadOnly = true;
+            // 
+            // brand
+            // 
+            brand.HeaderText = "Brand";
+            brand.Name = "brand";
+            brand.ReadOnly = true;
+            // 
+            // unit_of_measurement
+            // 
+            unit_of_measurement.HeaderText = "Unit";
+            unit_of_measurement.Name = "unit_of_measurement";
+            unit_of_measurement.ReadOnly = true;
+            // 
+            // appliedQty
+            // 
+            appliedQty.HeaderText = "Quantity";
+            appliedQty.Name = "appliedQty";
+            // 
+            // unit_price
+            // 
+            unit_price.HeaderText = "Price";
+            unit_price.Name = "unit_price";
+            unit_price.ReadOnly = true;
+            // 
+            // category
+            // 
+            category.DataPropertyName = "category";
+            category.HeaderText = "Category";
+            category.Name = "category";
+            // 
+            // discountType
+            // 
+            discountType.DataPropertyName = "discountType";
+            discountType.HeaderText = "Discount Type";
+            discountType.Name = "discountType";
+            discountType.ReadOnly = true;
+            // 
+            // discountAmount
+            // 
+            discountAmount.DataPropertyName = "discountAmount";
+            discountAmount.HeaderText = "Discount Amount";
+            discountAmount.Name = "discountAmount";
+            // 
+            // subTotal
+            // 
+            subTotal.DataPropertyName = "subTotal";
+            subTotal.HeaderText = "Sub Total";
+            subTotal.Name = "subTotal";
+            // 
+            // vatableSales
+            // 
+            vatableSales.DataPropertyName = "vatableSales";
+            vatableSales.HeaderText = "VATable Sales";
+            vatableSales.Name = "vatableSales";
+            // 
+            // vatAmount
+            // 
+            vatAmount.DataPropertyName = "vatAmount";
+            vatAmount.HeaderText = "VAT Amount";
+            vatAmount.Name = "vatAmount";
+            // 
+            // vatExempt
+            // 
+            vatExempt.DataPropertyName = "vatExempt";
+            vatExempt.HeaderText = "VAT Exempt";
+            vatExempt.Name = "vatExempt";
+            // 
+            // remove
+            // 
+            remove.HeaderText = "";
+            remove.Name = "remove";
+            remove.Text = "Remove";
+            remove.UseColumnTextForButtonValue = true;
             // 
             // label1
             // 
@@ -524,7 +616,7 @@
             // pictureBox2
             // 
             pictureBox2.BackColor = Color.DimGray;
-            pictureBox2.Location = new Point(-4, -2);
+            pictureBox2.Location = new Point(109, -2);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(1371, 104);
             pictureBox2.TabIndex = 144;
@@ -603,6 +695,7 @@
             lblDate.Size = new Size(26, 29);
             lblDate.TabIndex = 155;
             lblDate.Text = "0";
+            lblDate.Click += lblDate_Click;
             // 
             // lblTime
             // 
@@ -626,106 +719,15 @@
             // 
             btnClose.BackColor = Color.Red;
             btnClose.FlatStyle = FlatStyle.Popup;
+            btnClose.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnClose.ForeColor = Color.White;
-            btnClose.Location = new Point(1291, -1);
+            btnClose.Location = new Point(1329, -1);
             btnClose.Name = "btnClose";
-            btnClose.Size = new Size(75, 25);
+            btnClose.Size = new Size(37, 25);
             btnClose.TabIndex = 45;
-            btnClose.Text = "Close";
+            btnClose.Text = "x";
             btnClose.UseVisualStyleBackColor = false;
             btnClose.Click += btnClose_Click;
-            // 
-            // id
-            // 
-            id.HeaderText = "ID";
-            id.Name = "id";
-            id.Visible = false;
-            // 
-            // select
-            // 
-            select.FalseValue = "0";
-            select.HeaderText = "Select to Apply Discount";
-            select.Name = "select";
-            select.TrueValue = "1";
-            // 
-            // product
-            // 
-            product.HeaderText = "Product";
-            product.Name = "product";
-            product.ReadOnly = true;
-            // 
-            // brand
-            // 
-            brand.HeaderText = "Brand";
-            brand.Name = "brand";
-            brand.ReadOnly = true;
-            // 
-            // unit_of_measurement
-            // 
-            unit_of_measurement.HeaderText = "Unit";
-            unit_of_measurement.Name = "unit_of_measurement";
-            unit_of_measurement.ReadOnly = true;
-            // 
-            // appliedQty
-            // 
-            appliedQty.HeaderText = "Quantity";
-            appliedQty.Name = "appliedQty";
-            // 
-            // unit_price
-            // 
-            unit_price.HeaderText = "Price";
-            unit_price.Name = "unit_price";
-            unit_price.ReadOnly = true;
-            // 
-            // category
-            // 
-            category.DataPropertyName = "category";
-            category.HeaderText = "Category";
-            category.Name = "category";
-            // 
-            // discountType
-            // 
-            discountType.DataPropertyName = "discountType";
-            discountType.HeaderText = "Discount Type";
-            discountType.Name = "discountType";
-            discountType.ReadOnly = true;
-            // 
-            // discountAmount
-            // 
-            discountAmount.DataPropertyName = "discountAmount";
-            discountAmount.HeaderText = "Discount Amount";
-            discountAmount.Name = "discountAmount";
-            // 
-            // subTotal
-            // 
-            subTotal.DataPropertyName = "subTotal";
-            subTotal.HeaderText = "Sub Total";
-            subTotal.Name = "subTotal";
-            // 
-            // vatableSales
-            // 
-            vatableSales.DataPropertyName = "vatableSales";
-            vatableSales.HeaderText = "VATable Sales";
-            vatableSales.Name = "vatableSales";
-            // 
-            // vatAmount
-            // 
-            vatAmount.DataPropertyName = "vatAmount";
-            vatAmount.HeaderText = "VAT Amount";
-            vatAmount.Name = "vatAmount";
-            // 
-            // vatExempt
-            // 
-            vatExempt.DataPropertyName = "vatExempt";
-            vatExempt.HeaderText = "VAT Exempt";
-            vatExempt.Name = "vatExempt";
-            // 
-            // remove
-            // 
-            remove.HeaderText = "";
-            remove.Name = "remove";
-            remove.Text = "Remove";
-            remove.UseColumnTextForButtonValue = true;
             // 
             // SalesInvoice
             // 

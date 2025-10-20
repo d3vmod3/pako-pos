@@ -113,5 +113,10 @@ namespace PAKOPointOfSale.Users
                 dataGridView1.DataSource = dv;
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

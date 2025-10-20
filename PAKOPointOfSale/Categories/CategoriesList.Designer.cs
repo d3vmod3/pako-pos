@@ -102,7 +102,7 @@ namespace PAKOPointOfSale.Categories
             dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dataGridViewCellStyle5.ForeColor = Color.Black;
             dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle5;
-            dataGridView1.Size = new Size(1334, 527);
+            dataGridView1.Size = new Size(1334, 544);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick_1;
             // 
@@ -196,7 +196,8 @@ namespace PAKOPointOfSale.Categories
             // label1
             // 
             label1.AutoSize = true;
-            label1.ForeColor = Color.White;
+            label1.BackColor = Color.Khaki;
+            label1.ForeColor = Color.Black;
             label1.Location = new Point(12, 111);
             label1.Name = "label1";
             label1.Size = new Size(42, 15);
@@ -231,11 +232,11 @@ namespace PAKOPointOfSale.Categories
             // 
             lblcategorieslist.AutoSize = true;
             lblcategorieslist.BackColor = SystemColors.ControlDarkDark;
-            lblcategorieslist.Font = new Font("Impact", 45F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblcategorieslist.Font = new Font("Impact", 47.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblcategorieslist.ForeColor = Color.White;
             lblcategorieslist.Location = new Point(568, 9);
             lblcategorieslist.Name = "lblcategorieslist";
-            lblcategorieslist.Size = new Size(441, 75);
+            lblcategorieslist.Size = new Size(458, 76);
             lblcategorieslist.TabIndex = 11;
             lblcategorieslist.Text = "CATEGORIES LIST";
             // 
@@ -258,9 +259,9 @@ namespace PAKOPointOfSale.Categories
             pictureBox3.ErrorImage = null;
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
             pictureBox3.InitialImage = null;
-            pictureBox3.Location = new Point(-3, 667);
+            pictureBox3.Location = new Point(-3, 684);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(1377, 87);
+            pictureBox3.Size = new Size(1377, 92);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 152;
             pictureBox3.TabStop = false;
@@ -271,7 +272,7 @@ namespace PAKOPointOfSale.Categories
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             BackColor = Color.CadetBlue;
-            ClientSize = new Size(1358, 752);
+            ClientSize = new Size(1358, 788);
             Controls.Add(pictureBox3);
             Controls.Add(btnClose);
             Controls.Add(lblcategorieslist);

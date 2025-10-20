@@ -81,9 +81,9 @@
             label8.ForeColor = Color.Black;
             label8.Location = new Point(412, 248);
             label8.Name = "label8";
-            label8.Size = new Size(75, 18);
+            label8.Size = new Size(79, 18);
             label8.TabIndex = 32;
-            label8.Text = "User Role";
+            label8.Text = "User Role:";
             // 
             // cmbRole
             // 
@@ -111,9 +111,9 @@
             label7.ForeColor = Color.Black;
             label7.Location = new Point(412, 208);
             label7.Name = "label7";
-            label7.Size = new Size(57, 18);
+            label7.Size = new Size(61, 18);
             label7.TabIndex = 30;
-            label7.Text = "Gender";
+            label7.Text = "Gender:";
             // 
             // label6
             // 
@@ -122,9 +122,9 @@
             label6.ForeColor = Color.Black;
             label6.Location = new Point(412, 165);
             label6.Name = "label6";
-            label6.Size = new Size(66, 18);
+            label6.Size = new Size(70, 18);
             label6.TabIndex = 29;
-            label6.Text = "Birthdate";
+            label6.Text = "Birthdate:";
             // 
             // label5
             // 
@@ -133,20 +133,20 @@
             label5.ForeColor = Color.Black;
             label5.Location = new Point(412, 115);
             label5.Name = "label5";
-            label5.Size = new Size(44, 18);
+            label5.Size = new Size(48, 18);
             label5.TabIndex = 28;
-            label5.Text = "Suffix";
+            label5.Text = "Suffix:";
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft Sans Serif", 11.25F);
             label4.ForeColor = Color.Black;
-            label4.Location = new Point(36, 287);
+            label4.Location = new Point(39, 293);
             label4.Name = "label4";
-            label4.Size = new Size(80, 18);
+            label4.Size = new Size(84, 18);
             label4.TabIndex = 27;
-            label4.Text = "Last Name";
+            label4.Text = "Last Name:";
             // 
             // label3
             // 
@@ -155,9 +155,9 @@
             label3.ForeColor = Color.Black;
             label3.Location = new Point(39, 233);
             label3.Name = "label3";
-            label3.Size = new Size(95, 18);
+            label3.Size = new Size(99, 18);
             label3.TabIndex = 26;
-            label3.Text = "Middle Name";
+            label3.Text = "Middle Name:";
             // 
             // label2
             // 
@@ -166,9 +166,9 @@
             label2.ForeColor = Color.Black;
             label2.Location = new Point(39, 170);
             label2.Name = "label2";
-            label2.Size = new Size(81, 18);
+            label2.Size = new Size(85, 18);
             label2.TabIndex = 25;
-            label2.Text = "First Name";
+            label2.Text = "First Name:";
             // 
             // label1
             // 
@@ -177,9 +177,9 @@
             label1.ForeColor = Color.Black;
             label1.Location = new Point(39, 109);
             label1.Name = "label1";
-            label1.Size = new Size(77, 18);
+            label1.Size = new Size(81, 18);
             label1.TabIndex = 24;
-            label1.Text = "Username";
+            label1.Text = "Username:";
             // 
             // cmbGender
             // 
@@ -258,16 +258,16 @@
             lblCreatedAt.AutoSize = true;
             lblCreatedAt.Font = new Font("Microsoft Sans Serif", 11.25F);
             lblCreatedAt.ForeColor = Color.Black;
-            lblCreatedAt.Location = new Point(412, 287);
+            lblCreatedAt.Location = new Point(411, 287);
             lblCreatedAt.Name = "lblCreatedAt";
-            lblCreatedAt.Size = new Size(95, 18);
+            lblCreatedAt.Size = new Size(99, 18);
             lblCreatedAt.TabIndex = 35;
-            lblCreatedAt.Text = "Date Created";
+            lblCreatedAt.Text = "Date Created:";
             // 
             // dateTimePicker1
             // 
             dateTimePicker1.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dateTimePicker1.Location = new Point(514, 283);
+            dateTimePicker1.Location = new Point(513, 287);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(225, 22);
             dateTimePicker1.TabIndex = 36;
@@ -296,11 +296,11 @@
             // 
             lbledituser.AutoSize = true;
             lbledituser.BackColor = Color.DimGray;
-            lbledituser.Font = new Font("Impact", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbledituser.Font = new Font("Impact", 27.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbledituser.ForeColor = Color.White;
-            lbledituser.Location = new Point(371, 24);
+            lbledituser.Location = new Point(358, 19);
             lbledituser.Name = "lbledituser";
-            lbledituser.Size = new Size(143, 39);
+            lbledituser.Size = new Size(164, 45);
             lbledituser.TabIndex = 39;
             lbledituser.Text = "EDIT USER";
             // 

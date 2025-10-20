@@ -76,7 +76,7 @@ namespace PAKOPointOfSale.Transactions
 
             if (e.ColumnIndex == dtgvTransactions.Columns["viewInvoice"].Index)
             {
-                Transactions.ViewTransaction viewTransactionForm = new Transactions.ViewTransaction(id);
+                Transactions.lbViewTransaction viewTransactionForm = new Transactions.lbViewTransaction(id);
                 viewTransactionForm.ShowDialog(); // modal so user finishes editing first
                 LoadTransactions();
             }

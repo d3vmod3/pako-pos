@@ -68,7 +68,7 @@
             dataGridView1.GridColor = SystemColors.InactiveCaptionText;
             dataGridView1.Location = new Point(15, 124);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(1314, 561);
+            dataGridView1.Size = new Size(1342, 553);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -134,7 +134,7 @@
             cmbRole.FormattingEnabled = true;
             cmbRole.Location = new Point(84, 99);
             cmbRole.Name = "cmbRole";
-            cmbRole.Size = new Size(229, 23);
+            cmbRole.Size = new Size(376, 23);
             cmbRole.TabIndex = 1;
             cmbRole.ValueMember = "id";
             cmbRole.SelectedIndexChanged += cmbRole_SelectedIndexChanged;
@@ -159,7 +159,7 @@
             button1.BackColor = Color.DodgerBlue;
             button1.FlatStyle = FlatStyle.Popup;
             button1.ForeColor = Color.White;
-            button1.Location = new Point(1140, 98);
+            button1.Location = new Point(1172, 99);
             button1.Name = "button1";
             button1.Size = new Size(104, 23);
             button1.TabIndex = 3;
@@ -172,7 +172,7 @@
             pictureBox2.BackColor = SystemColors.ControlDarkDark;
             pictureBox2.Location = new Point(-1, 0);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(1342, 91);
+            pictureBox2.Size = new Size(1393, 91);
             pictureBox2.TabIndex = 12;
             pictureBox2.TabStop = false;
             // 
@@ -203,7 +203,8 @@
             // 
             btnClose.BackColor = Color.Red;
             btnClose.FlatStyle = FlatStyle.Popup;
-            btnClose.Location = new Point(1250, 97);
+            btnClose.ForeColor = Color.White;
+            btnClose.Location = new Point(1278, 98);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(79, 24);
             btnClose.TabIndex = 150;
@@ -217,9 +218,9 @@
             pictureBox3.ErrorImage = null;
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
             pictureBox3.InitialImage = null;
-            pictureBox3.Location = new Point(-10, 695);
+            pictureBox3.Location = new Point(-10, 684);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(1351, 93);
+            pictureBox3.Size = new Size(1402, 93);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 151;
             pictureBox3.TabStop = false;
@@ -229,7 +230,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
-            ClientSize = new Size(1341, 788);
+            ClientSize = new Size(1386, 788);
             Controls.Add(pictureBox3);
             Controls.Add(btnClose);
             Controls.Add(lbluserslist);

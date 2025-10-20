@@ -110,7 +110,7 @@
             dataGridView1.DataSource = supplierDetailsBindingSource;
             dataGridView1.Location = new Point(12, 131);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(1343, 520);
+            dataGridView1.Size = new Size(1343, 532);
             dataGridView1.TabIndex = 5;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -209,11 +209,11 @@
             label1.AutoSize = true;
             label1.BackColor = SystemColors.ControlDarkDark;
             label1.FlatStyle = FlatStyle.System;
-            label1.Font = new Font("Impact", 38.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Impact", 47.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ButtonHighlight;
-            label1.Location = new Point(607, 18);
+            label1.Location = new Point(634, 9);
             label1.Name = "label1";
-            label1.Size = new Size(334, 63);
+            label1.Size = new Size(413, 76);
             label1.TabIndex = 147;
             label1.Text = "SUPPLIERS LIST";
             // 
@@ -247,9 +247,9 @@
             pictureBox3.ErrorImage = null;
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
             pictureBox3.InitialImage = null;
-            pictureBox3.Location = new Point(-33, 657);
+            pictureBox3.Location = new Point(-1, 669);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(1402, 91);
+            pictureBox3.Size = new Size(1402, 97);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 150;
             pictureBox3.TabStop = false;
@@ -260,7 +260,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
-            ClientSize = new Size(1367, 749);
+            ClientSize = new Size(1367, 788);
             Controls.Add(pictureBox3);
             Controls.Add(btnClose);
             Controls.Add(label2);

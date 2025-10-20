@@ -711,5 +711,10 @@ namespace PAKOPointOfSale.Transactions
         {
             this.Close();
         }
+
+        private void lblDate_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

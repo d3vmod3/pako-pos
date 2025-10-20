@@ -67,7 +67,7 @@
             // 
             // btnOk
             // 
-            btnOk.BackColor = Color.CornflowerBlue;
+            btnOk.BackColor = Color.Orange;
             btnOk.FlatStyle = FlatStyle.Popup;
             btnOk.ForeColor = Color.Black;
             btnOk.Location = new Point(246, 356);
