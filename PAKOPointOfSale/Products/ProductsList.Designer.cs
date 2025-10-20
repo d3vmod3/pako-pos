@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductsList));
             dataGridView1 = new DataGridView();
             id = new DataGridViewTextBoxColumn();
@@ -54,7 +54,7 @@
             lblSearch = new Label();
             txtSearch = new TextBox();
             btnAdd = new Button();
-            btnPrint = new Button();
+            btnExport = new Button();
             panel1 = new Panel();
             pictureBox3 = new PictureBox();
             label1 = new Label();
@@ -82,14 +82,14 @@
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { id, barcode, product_name, productbrandDataGridViewTextBoxColumn, productdescriptionDataGridViewTextBoxColumn, productcodeDataGridViewTextBoxColumn, skuDataGridViewTextBoxColumn, quantityDataGridViewTextBoxColumn, unitofmeasurementDataGridViewTextBoxColumn, costpriceDataGridViewTextBoxColumn, unitpriceDataGridViewTextBoxColumn, remarksDataGridViewTextBoxColumn, statusDataGridViewTextBoxColumn, datereceivedDataGridViewTextBoxColumn, dateexpirationDataGridViewTextBoxColumn, is_active, createdatDataGridViewTextBoxColumn, edit });
             dataGridView1.DataSource = productBindingSource;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Window;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = Color.Black;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = Color.Black;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridView1.GridColor = Color.Black;
             dataGridView1.Location = new Point(12, 2);
             dataGridView1.Name = "dataGridView1";
@@ -267,18 +267,19 @@
             btnAdd.UseVisualStyleBackColor = false;
             btnAdd.Click += btnAdd_Click;
             // 
-            // btnPrint
+            // btnExport
             // 
-            btnPrint.BackColor = Color.Goldenrod;
-            btnPrint.FlatStyle = FlatStyle.Flat;
-            btnPrint.Font = new Font("Microsoft Sans Serif", 9.75F);
-            btnPrint.ForeColor = Color.White;
-            btnPrint.Location = new Point(1150, 117);
-            btnPrint.Name = "btnPrint";
-            btnPrint.Size = new Size(75, 23);
-            btnPrint.TabIndex = 5;
-            btnPrint.Text = "Print";
-            btnPrint.UseVisualStyleBackColor = false;
+            btnExport.BackColor = Color.Goldenrod;
+            btnExport.FlatStyle = FlatStyle.Flat;
+            btnExport.Font = new Font("Microsoft Sans Serif", 9.75F);
+            btnExport.ForeColor = Color.White;
+            btnExport.Location = new Point(1150, 118);
+            btnExport.Name = "btnExport";
+            btnExport.Size = new Size(75, 23);
+            btnExport.TabIndex = 5;
+            btnExport.Text = "Export";
+            btnExport.UseVisualStyleBackColor = false;
+            btnExport.Click += btnExport_Click;
             // 
             // panel1
             // 
@@ -423,7 +424,7 @@
             Controls.Add(label1);
             Controls.Add(btnClose);
             Controls.Add(pictureBox1);
-            Controls.Add(btnPrint);
+            Controls.Add(btnExport);
             Controls.Add(btnAdd);
             Controls.Add(txtSearch);
             Controls.Add(lblSearch);
@@ -451,7 +452,7 @@
         private Label lblSearch;
         private TextBox txtSearch;
         private Button btnAdd;
-        private Button btnPrint;
+        private Button btnExport;
         private BindingSource productBindingSource;
         private DataGridViewTextBoxColumn supplieridDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn categoryidDataGridViewTextBoxColumn;

@@ -143,7 +143,7 @@ namespace PAKOPointOfSale.Products
 
         private void btnFilter_Click(object sender, EventArgs e)
         {
-            if(cmbFilterType.SelectedIndex <= 0)
+            if (cmbFilterType.SelectedIndex <= 0)
             {
                 MessageBox.Show("Please choose filter type", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 cmbFilterType.Focus();
@@ -351,6 +351,79 @@ namespace PAKOPointOfSale.Products
         {
             LoadProducts();
             cmbFilterType.SelectedIndex = 0;
+        }
+
+        private string QuoteCsv(string input)
+        {
+            if (decimal.TryParse(input, out _) && input.Length >= 10)
+                return $"=\"{input}\""; // Force Excel to treat it as string
+
+            if (input.Contains(",") || input.Contains("\"") || input.Contains("\n"))
+                return $"\"{input.Replace("\"", "\"\"")}\"";
+
+            return input;
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog sfd = new SaveFileDialog())
+            {
+                sfd.Filter = "CSV files (*.csv)|*.csv";
+                sfd.FileName = "ExportedData.csv";
+                sfd.Title = "Save as CSV";
+
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        using (StreamWriter sw = new StreamWriter(sfd.FileName, false, Encoding.UTF8))
+                        {
+                            var visibleColumns = dataGridView1.Columns
+                                .Cast<DataGridViewColumn>()
+                                .Where(c => c.Visible && !string.Equals(c.HeaderText, "", StringComparison.OrdinalIgnoreCase))
+                                .ToList();
+
+                            // Write header
+                            sw.WriteLine(string.Join(",", visibleColumns.Select(c => QuoteCsv(c.HeaderText))));
+
+                            // Write rows
+                            foreach (DataGridViewRow row in dataGridView1.Rows)
+                            {
+                                if (!row.IsNewRow)
+                                {
+                                    var cells = visibleColumns.Select(c =>
+                                    {
+                                        var value = row.Cells[c.Index].Value?.ToString() ?? "";
+
+                                        // Prevent barcode scientific notation
+                                        if (c.HeaderText.ToLower().Contains("barcode"))
+                                        {
+                                            value = "=\"" + value + "\""; // Keeps exact digits
+                                        }
+
+                                        return QuoteCsv(value);
+                                    });
+
+                                    sw.WriteLine(string.Join(",", cells));
+                                }
+                            }
+                        }
+
+                        MessageBox.Show("Data successfully exported to CSV!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        // 🔹 Automatically open the file
+                        System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo()
+                        {
+                            FileName = sfd.FileName,
+                            UseShellExecute = true
+                        });
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error exporting data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
     }
 }
