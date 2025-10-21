@@ -1,4 +1,5 @@
-﻿namespace PAKOPointOfSale
+﻿
+namespace PAKOPointOfSale
 {
     partial class MDIParent1
     {
@@ -29,9 +30,9 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MDIParent1));
             menuStrip = new MenuStrip();
             statusStrip = new StatusStrip();
@@ -49,7 +50,6 @@
             btnFilter = new Button();
             comboBoxSalesFilter = new ComboBox();
             label3 = new Label();
-            label5 = new Label();
             dtpFromSales = new DateTimePicker();
             label6 = new Label();
             label7 = new Label();
@@ -87,6 +87,7 @@
             label17 = new Label();
             label18 = new Label();
             label19 = new Label();
+            pictureBox4 = new PictureBox();
             statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgvTop5SellingProducts).BeginInit();
             groupBox1.SuspendLayout();
@@ -94,6 +95,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             SuspendLayout();
             // 
             // menuStrip
@@ -127,30 +129,30 @@
             // 
             dtgvTop5SellingProducts.AllowUserToAddRows = false;
             dtgvTop5SellingProducts.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.ForeColor = Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = Color.White;
-            dtgvTop5SellingProducts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = Color.White;
+            dtgvTop5SellingProducts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             dtgvTop5SellingProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgvTop5SellingProducts.BackgroundColor = SystemColors.ControlLight;
             dtgvTop5SellingProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgvTop5SellingProducts.Columns.AddRange(new DataGridViewColumn[] { product_name, total_quantity_sold, total_sales });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dtgvTop5SellingProducts.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = SystemColors.Window;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            dtgvTop5SellingProducts.DefaultCellStyle = dataGridViewCellStyle5;
             dtgvTop5SellingProducts.Location = new Point(13, 17);
             dtgvTop5SellingProducts.Name = "dtgvTop5SellingProducts";
             dtgvTop5SellingProducts.ReadOnly = true;
             dtgvTop5SellingProducts.RowHeadersVisible = false;
-            dataGridViewCellStyle3.ForeColor = Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dtgvTop5SellingProducts.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            dtgvTop5SellingProducts.Size = new Size(639, 271);
+            dataGridViewCellStyle6.ForeColor = Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dtgvTop5SellingProducts.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dtgvTop5SellingProducts.Size = new Size(639, 300);
             dtgvTop5SellingProducts.TabIndex = 11;
             // 
             // product_name
@@ -177,17 +179,17 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.BackColor = Color.DarkGoldenrod;
-            label2.ForeColor = Color.White;
-            label2.Location = new Point(351, 328);
+            label2.BackColor = Color.Transparent;
+            label2.ForeColor = Color.Black;
+            label2.Location = new Point(243, 301);
             label2.Name = "label2";
-            label2.Size = new Size(47, 15);
+            label2.Size = new Size(50, 15);
             label2.TabIndex = 9;
-            label2.Text = "Date To";
+            label2.Text = "Date To:";
             // 
             // dtpTo
             // 
-            dtpTo.Location = new Point(415, 320);
+            dtpTo.Location = new Point(243, 319);
             dtpTo.Name = "dtpTo";
             dtpTo.Size = new Size(200, 23);
             dtpTo.TabIndex = 8;
@@ -195,18 +197,18 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.BackColor = Color.DarkGoldenrod;
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(69, 328);
+            label1.BackColor = Color.Transparent;
+            label1.ForeColor = Color.Black;
+            label1.Location = new Point(18, 303);
             label1.Name = "label1";
-            label1.Size = new Size(62, 15);
+            label1.Size = new Size(65, 15);
             label1.TabIndex = 7;
-            label1.Text = "Date From";
+            label1.Text = "Date From:";
             // 
             // dtpFrom
             // 
             dtpFrom.CalendarMonthBackground = Color.White;
-            dtpFrom.Location = new Point(137, 320);
+            dtpFrom.Location = new Point(12, 321);
             dtpFrom.Name = "dtpFrom";
             dtpFrom.Size = new Size(208, 23);
             dtpFrom.TabIndex = 6;
@@ -218,7 +220,7 @@
             groupBox1.ForeColor = Color.White;
             groupBox1.Location = new Point(12, 348);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(658, 294);
+            groupBox1.Size = new Size(658, 323);
             groupBox1.TabIndex = 13;
             groupBox1.TabStop = false;
             groupBox1.Text = "Top 5 Selling Products";
@@ -228,7 +230,7 @@
             btnFilter.BackColor = Color.Khaki;
             btnFilter.FlatStyle = FlatStyle.Popup;
             btnFilter.ForeColor = Color.Black;
-            btnFilter.Location = new Point(595, 648);
+            btnFilter.Location = new Point(467, 319);
             btnFilter.Name = "btnFilter";
             btnFilter.Size = new Size(75, 23);
             btnFilter.TabIndex = 15;
@@ -240,9 +242,9 @@
             // 
             comboBoxSalesFilter.FormattingEnabled = true;
             comboBoxSalesFilter.Items.AddRange(new object[] { "Daily", "Weekly", "Monthly", "Yearly" });
-            comboBoxSalesFilter.Location = new Point(1206, 320);
+            comboBoxSalesFilter.Location = new Point(1095, 320);
             comboBoxSalesFilter.Name = "comboBoxSalesFilter";
-            comboBoxSalesFilter.Size = new Size(148, 23);
+            comboBoxSalesFilter.Size = new Size(160, 23);
             comboBoxSalesFilter.TabIndex = 18;
             comboBoxSalesFilter.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
@@ -250,59 +252,49 @@
             // 
             label3.AutoSize = true;
             label3.BackColor = Color.Transparent;
-            label3.Location = new Point(1087, 328);
+            label3.Location = new Point(1095, 302);
             label3.Name = "label3";
             label3.Size = new Size(113, 15);
             label3.TabIndex = 19;
             label3.Text = "Choose Quick Filter:";
             // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.BackColor = Color.Transparent;
-            label5.Location = new Point(676, 326);
-            label5.Name = "label5";
-            label5.Size = new Size(113, 15);
-            label5.TabIndex = 21;
-            label5.Text = "Choose Date Range:";
-            // 
             // dtpFromSales
             // 
             dtpFromSales.CalendarMonthBackground = Color.White;
             dtpFromSales.CalendarTrailingForeColor = SystemColors.AppWorkspace;
-            dtpFromSales.Location = new Point(836, 320);
+            dtpFromSales.Location = new Point(676, 320);
             dtpFromSales.Name = "dtpFromSales";
-            dtpFromSales.Size = new Size(109, 23);
+            dtpFromSales.Size = new Size(186, 23);
             dtpFromSales.TabIndex = 22;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.BackColor = Color.DarkGoldenrod;
-            label6.ForeColor = Color.White;
-            label6.Location = new Point(795, 326);
+            label6.BackColor = Color.Transparent;
+            label6.ForeColor = Color.Black;
+            label6.Location = new Point(680, 302);
             label6.Name = "label6";
-            label6.Size = new Size(35, 15);
+            label6.Size = new Size(38, 15);
             label6.TabIndex = 23;
-            label6.Text = "From";
+            label6.Text = "From:";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.BackColor = Color.DarkGoldenrod;
-            label7.ForeColor = Color.White;
-            label7.Location = new Point(951, 328);
+            label7.BackColor = Color.Transparent;
+            label7.ForeColor = Color.Black;
+            label7.Location = new Point(886, 302);
             label7.Name = "label7";
-            label7.Size = new Size(20, 15);
+            label7.Size = new Size(23, 15);
             label7.TabIndex = 25;
-            label7.Text = "To";
+            label7.Text = "To:";
             // 
             // dtpToSales
             // 
             dtpToSales.CalendarTitleBackColor = SystemColors.MenuHighlight;
-            dtpToSales.Location = new Point(977, 320);
+            dtpToSales.Location = new Point(884, 320);
             dtpToSales.Name = "dtpToSales";
-            dtpToSales.Size = new Size(103, 23);
+            dtpToSales.Size = new Size(188, 23);
             dtpToSales.TabIndex = 24;
             // 
             // btnFilterDateSales
@@ -310,7 +302,7 @@
             btnFilterDateSales.BackColor = Color.Goldenrod;
             btnFilterDateSales.FlatStyle = FlatStyle.Popup;
             btnFilterDateSales.ForeColor = Color.Black;
-            btnFilterDateSales.Location = new Point(1280, 649);
+            btnFilterDateSales.Location = new Point(1279, 319);
             btnFilterDateSales.Name = "btnFilterDateSales";
             btnFilterDateSales.Size = new Size(76, 23);
             btnFilterDateSales.TabIndex = 27;
@@ -330,7 +322,7 @@
             groupBox2.ForeColor = Color.White;
             groupBox2.Location = new Point(676, 348);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(680, 295);
+            groupBox2.Size = new Size(680, 323);
             groupBox2.TabIndex = 17;
             groupBox2.TabStop = false;
             groupBox2.Text = "Sales";
@@ -341,7 +333,7 @@
             lblGrandTotal.AutoSize = true;
             lblGrandTotal.Font = new Font("Impact", 36F);
             lblGrandTotal.ForeColor = Color.Black;
-            lblGrandTotal.Location = new Point(411, 210);
+            lblGrandTotal.Location = new Point(461, 226);
             lblGrandTotal.Name = "lblGrandTotal";
             lblGrandTotal.Size = new Size(112, 60);
             lblGrandTotal.TabIndex = 5;
@@ -352,7 +344,7 @@
             lblGrossSales.AutoSize = true;
             lblGrossSales.Font = new Font("Impact", 36F);
             lblGrossSales.ForeColor = Color.Black;
-            lblGrossSales.Location = new Point(411, 117);
+            lblGrossSales.Location = new Point(461, 133);
             lblGrossSales.Name = "lblGrossSales";
             lblGrossSales.Size = new Size(112, 60);
             lblGrossSales.TabIndex = 4;
@@ -363,7 +355,7 @@
             lblNetSales.AutoSize = true;
             lblNetSales.Font = new Font("Impact", 36F);
             lblNetSales.ForeColor = Color.Black;
-            lblNetSales.Location = new Point(411, 30);
+            lblNetSales.Location = new Point(461, 46);
             lblNetSales.Name = "lblNetSales";
             lblNetSales.Size = new Size(112, 60);
             lblNetSales.TabIndex = 3;
@@ -374,7 +366,7 @@
             label9.AutoSize = true;
             label9.Font = new Font("Impact", 36F);
             label9.ForeColor = Color.Black;
-            label9.Location = new Point(50, 210);
+            label9.Location = new Point(100, 226);
             label9.Name = "label9";
             label9.Size = new Size(259, 60);
             label9.TabIndex = 2;
@@ -385,7 +377,7 @@
             label8.AutoSize = true;
             label8.Font = new Font("Impact", 36F);
             label8.ForeColor = Color.Black;
-            label8.Location = new Point(50, 117);
+            label8.Location = new Point(100, 133);
             label8.Name = "label8";
             label8.Size = new Size(267, 60);
             label8.TabIndex = 1;
@@ -396,7 +388,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Impact", 36F);
             label4.ForeColor = Color.Black;
-            label4.Location = new Point(50, 30);
+            label4.Location = new Point(100, 46);
             label4.Name = "label4";
             label4.Size = new Size(219, 60);
             label4.TabIndex = 0;
@@ -425,20 +417,21 @@
             pictureBox2.BackColor = Color.DimGray;
             pictureBox2.Location = new Point(-3, 25);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(1377, 104);
+            pictureBox2.Size = new Size(2488, 104);
             pictureBox2.TabIndex = 153;
             pictureBox2.TabStop = false;
+            pictureBox2.Click += pictureBox2_Click;
             // 
             // pictureBox1
             // 
             pictureBox1.BackColor = Color.DimGray;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(0, 25);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(256, 104);
+            pictureBox1.Size = new Size(1367, 104);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 154;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // label10
             // 
@@ -673,12 +666,24 @@
             label19.TabIndex = 171;
             label19.Text = "POS";
             // 
+            // pictureBox4
+            // 
+            pictureBox4.BackColor = SystemColors.ControlDarkDark;
+            pictureBox4.Image = Properties.Resources.PakoLogo;
+            pictureBox4.Location = new Point(0, 27);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(276, 100);
+            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox4.TabIndex = 177;
+            pictureBox4.TabStop = false;
+            // 
             // MDIParent1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
             ClientSize = new Size(1367, 788);
+            Controls.Add(pictureBox4);
             Controls.Add(label19);
             Controls.Add(label18);
             Controls.Add(label17);
@@ -707,7 +712,6 @@
             Controls.Add(dtpToSales);
             Controls.Add(label6);
             Controls.Add(dtpFromSales);
-            Controls.Add(label5);
             Controls.Add(label3);
             Controls.Add(comboBoxSalesFilter);
             Controls.Add(groupBox2);
@@ -739,8 +743,14 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ResumeLayout(false);
             PerformLayout();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
         #endregion
 
@@ -761,7 +771,6 @@
         private Button btnFilter;
         private ComboBox comboBoxSalesFilter;
         private Label label3;
-        private Label label5;
         private DateTimePicker dtpFromSales;
         private Label label6;
         private Label label7;
@@ -799,6 +808,7 @@
         private Label label17;
         private Label label18;
         private Label label19;
+        private PictureBox pictureBox4;
     }
 }
 
