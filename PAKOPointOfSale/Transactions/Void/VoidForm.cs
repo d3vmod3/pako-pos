@@ -27,6 +27,13 @@ namespace PAKOPointOfSale.Transactions.Void
             var confirmForm = new ActionConfirmation("Please confirm admin credentials to proceed.", true, "void");
             if (confirmForm.ShowDialog() == DialogResult.OK)
             {
+                string reason = "";
+                Transactions.Void.VoidReason reasonForm = new Transactions.Void.VoidReason();
+                reasonForm.Reason += (string reasonValue) =>
+                {
+                    reason = reasonValue;
+                };
+                reasonForm.ShowDialog();
 
                 if (MessageBox.Show("Are you sure you want to void this transaction?", "Confirm Void", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes)
                     return;
@@ -94,18 +101,20 @@ namespace PAKOPointOfSale.Transactions.Void
                                     cmd.Parameters.AddWithValue("@cash_received", cashReceived);
                                     cmd.Parameters.AddWithValue("@cash_change", cashChange);
                                     cmd.Parameters.AddWithValue("@created_at", DateTime.Now);
+                                    
 
                                     int voidTransactionId = Convert.ToInt32(cmd.ExecuteScalar());
 
                                     // ✅ 2.5) Add record to VoidTransactions table
                                     string voidNumber = SalesInvoiceFunctions.GenerateNextVoidNumber();
                                     using (var cmdVoid = new SqlCommand(@"
-                                    INSERT INTO VoidTransactions (void_number, invoice_number, transaction_id)
-                                    VALUES (@void_number, @invoice_number, @transaction_id);", conn, tran))
+                                    INSERT INTO VoidTransactions (void_number, invoice_number, transaction_id,reason)
+                                    VALUES (@void_number, @invoice_number, @transaction_id,@reason);", conn, tran))
                                     {
                                         cmdVoid.Parameters.AddWithValue("@void_number", voidNumber);
                                         cmdVoid.Parameters.AddWithValue("@invoice_number", voidInvoiceNumber);
                                         cmdVoid.Parameters.AddWithValue("@transaction_id", voidTransactionId); // original transaction being voided
+                                        cmdVoid.Parameters.AddWithValue("@reason", reason);
                                         cmdVoid.ExecuteNonQuery();
                                     }
 
@@ -145,6 +154,7 @@ namespace PAKOPointOfSale.Transactions.Void
                             }
                         }
                     }
+                    this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
                 catch (Exception ex)

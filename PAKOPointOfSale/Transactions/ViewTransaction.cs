@@ -126,6 +126,7 @@ namespace PAKOPointOfSale.Transactions
 
                 if (transactionType == "Void" || transactionType == "Sales Invoice")
                 {
+                    btnViewReason.Visible = true;
                     using (var cmdVoid = new SqlCommand("SELECT void_number, invoice_number, transaction_id FROM VoidTransactions WHERE invoice_number = @invoiceNumber", conn))
                     {
                         cmdVoid.Parameters.AddWithValue("@invoiceNumber", lblInvoiceNumber.Text);
@@ -158,6 +159,7 @@ namespace PAKOPointOfSale.Transactions
                 }
                 else if (transactionType == "Return" || transactionType == "Sales Invoice")
                 {
+                    btnViewReason.Visible = true;
                     using (var cmdReturn = new SqlCommand("SELECT TOP 1 * FROM ReturnTransactions WHERE invoice_number = @invoiceNumber and transaction_id=@transactionId  ORDER BY id DESC", conn))
                     {
                         cmdReturn.Parameters.AddWithValue("@invoiceNumber", lblInvoiceNumber.Text);
@@ -205,6 +207,9 @@ namespace PAKOPointOfSale.Transactions
                                     //cmbInvoiceAction.Enabled = false;
                                     btnProceed.Enabled = false;
                                     dgvItems.ReadOnly = true;
+
+
+
                                 }
                             }
                             else
@@ -240,7 +245,7 @@ namespace PAKOPointOfSale.Transactions
         }
         private void btnProceed_Click(object sender, EventArgs e)
         {
-            
+
             if (cmbInvoiceAction.SelectedItem?.ToString() == "Void")
             {
                 if (countAlreadyReturneditems > 0)
@@ -252,7 +257,10 @@ namespace PAKOPointOfSale.Transactions
                 else
                 {
                     Transactions.Void.VoidForm voidSalesInvoiceForm = new Transactions.Void.VoidForm(_id, _invoiceNumber);
-                    voidSalesInvoiceForm.ShowDialog();
+                    if (voidSalesInvoiceForm.ShowDialog() == DialogResult.OK)
+                    {
+                        this.Close();
+                    }
                 }
 
             }
@@ -275,7 +283,11 @@ namespace PAKOPointOfSale.Transactions
                 else
                 {
                     Transactions.Return.ReturnForm returnItemsForm = new Transactions.Return.ReturnForm(_id, _invoiceNumber, selectedItems);
-                    returnItemsForm.ShowDialog();
+
+                    if(returnItemsForm.ShowDialog() == DialogResult.OK)
+                    {
+                        this.Close();
+                    }
                 }
             }
             else
@@ -283,10 +295,10 @@ namespace PAKOPointOfSale.Transactions
                 MessageBox.Show("Please choose an action", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 cmbInvoiceAction.Focus();
             }
-            
+
         }
 
-        
+
         private void cmbInvoiceAction_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selectedAction = cmbInvoiceAction.SelectedItem?.ToString();
@@ -316,31 +328,6 @@ namespace PAKOPointOfSale.Transactions
                     p.product_code,
                     p.product_name,
                     p.product_brand,
-                    ISNULL(SUM(ri.quantity), 0) AS returned_quantity,
-                    (si.quantity - ISNULL(SUM(ri.quantity), 0)) AS quantity,
-                    si.unit_price,
-                    si.total_amount,
-                    si.vat_amount,
-                    si.vatable_sales,
-                    si.vat_exempt,
-                    si.discount,
-                    si.discount_type,
-                    si.unit_of_measurement
-                FROM SalesInvoiceItems si
-                INNER JOIN Products p 
-                    ON si.product_id = p.id
-                LEFT JOIN ReturnTransactions rt 
-                    ON rt.invoice_number = @invoiceNumber
-                LEFT JOIN ReturnItems ri 
-                    ON ri.return_transaction_id = rt.id
-                    AND ri.product_id = si.product_id
-                WHERE si.transaction_id = @transactionId
-                GROUP BY 
-                    si.id,
-                    si.product_id,
-                    p.product_code,
-                    p.product_name,
-                    p.product_brand,
                     si.quantity,
                     si.unit_price,
                     si.total_amount,
@@ -350,6 +337,9 @@ namespace PAKOPointOfSale.Transactions
                     si.discount,
                     si.discount_type,
                     si.unit_of_measurement
+                FROM SalesInvoiceItems si
+                INNER JOIN Products p ON si.product_id = p.id
+                WHERE si.transaction_id = @transactionId
                 ORDER BY si.id;";
             }
             else if (transaction_type == "Return")
@@ -373,18 +363,43 @@ namespace PAKOPointOfSale.Transactions
                     rt.invoice_number,
                     rt.transaction_id AS original_transaction_id
                 FROM ReturnItems ri
-                INNER JOIN Products p 
-                    ON ri.product_id = p.id
-                INNER JOIN ReturnTransactions rt 
-                    ON ri.return_transaction_id = rt.id
+                INNER JOIN Products p ON ri.product_id = p.id
+                INNER JOIN ReturnTransactions rt ON ri.return_transaction_id = rt.id
                 WHERE rt.transaction_id = @transactionId
                 ORDER BY ri.id;";
             }
-            else
+            else if (transaction_type == "Void")
             {
-                return ""; // fallback
+                return @"
+                SELECT 
+                    vt.id,
+                    vt.invoice_number,
+                    vt.void_number,
+                    vt.reason,
+                    si.id AS item_id,
+                    si.product_id,
+                    p.product_code,
+                    p.product_name,
+                    p.product_brand,
+                    si.quantity,
+                    si.unit_price,
+                    si.total_amount,
+                    si.vat_amount,
+                    si.vatable_sales,
+                    si.vat_exempt,
+                    si.discount,
+                    si.discount_type,
+                    si.unit_of_measurement
+                FROM VoidTransactions vt
+                INNER JOIN SalesInvoiceItems si ON vt.transaction_id = si.transaction_id
+                INNER JOIN Products p ON si.product_id = p.id
+                WHERE vt.transaction_id = @transactionId
+                ORDER BY vt.id;";
             }
+
+            throw new InvalidOperationException($"Unknown transaction type: {transaction_type}");
         }
+
 
 
 
@@ -448,6 +463,13 @@ namespace PAKOPointOfSale.Transactions
         private void button1_Click_1(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnViewReason_Click(object sender, EventArgs e)
+        {
+            Transactions.ViewAdjustmentReason viewReasonForm = new Transactions.ViewAdjustmentReason(Convert.ToInt32(lblTransactionId.Text),lblInvoiceNumber.Text,lblTransactionType.Text);
+            viewReasonForm.ShowDialog();
+            
         }
     }
 }

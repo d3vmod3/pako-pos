@@ -12,6 +12,7 @@ namespace PAKOPointOfSale.Model
         public int id { get; set; }
         public string return_number { get; set; }
         public string invoice_number { get; set; }
+        public string? reason { get; set; }
 
         [ForeignKey("transaction")]
         public int transaction_id { get; set; }

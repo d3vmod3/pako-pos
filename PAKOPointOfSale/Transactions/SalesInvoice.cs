@@ -570,7 +570,14 @@ namespace PAKOPointOfSale.Transactions
         {
             if (txtCash.Text.Trim() != "")
             {
-                lblChange.Text = Convert.ToString(Convert.ToDecimal(txtCash.Text) - Convert.ToDecimal(lblTotal.Text));
+                decimal cash = 0;
+                decimal total = 0;
+
+                // Remove whitespace and try parse
+                decimal.TryParse(txtCash.Text.Trim(), out cash);
+                decimal.TryParse(lblTotal.Text.Trim(), out total);
+
+                lblChange.Text = (cash - total).ToString("0.00");
             }
             else
             {
