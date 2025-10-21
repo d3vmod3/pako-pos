@@ -50,7 +50,6 @@
             txtUsername = new TextBox();
             chkIsActive = new CheckBox();
             lblCreatedAt = new Label();
-            dateTimePicker1 = new DateTimePicker();
             pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
             lbledituser = new Label();
@@ -265,14 +264,6 @@
             lblCreatedAt.TabIndex = 35;
             lblCreatedAt.Text = "Date Created:";
             // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dateTimePicker1.Location = new Point(513, 287);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(225, 22);
-            dateTimePicker1.TabIndex = 36;
-            // 
             // pictureBox2
             // 
             pictureBox2.BackColor = Color.DimGray;
@@ -343,7 +334,6 @@
             Controls.Add(lbledituser);
             Controls.Add(pictureBox1);
             Controls.Add(pictureBox2);
-            Controls.Add(dateTimePicker1);
             Controls.Add(lblCreatedAt);
             Controls.Add(chkIsActive);
             Controls.Add(btnSubmit);
@@ -397,7 +387,6 @@
         private BindingSource userTypeBindingSource;
         private CheckBox chkIsActive;
         private Label lblCreatedAt;
-        private DateTimePicker dateTimePicker1;
         private PictureBox pictureBox2;
         private PictureBox pictureBox1;
         private Label lbledituser;

@@ -31,16 +31,6 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UsersList));
             dataGridView1 = new DataGridView();
-            userBindingSource = new BindingSource(components);
-            txtSearch = new TextBox();
-            label1 = new Label();
-            btnAdd = new Button();
-            pictureBox1 = new PictureBox();
-            pictureBox2 = new PictureBox();
-            lbluserslist = new Label();
-            button1 = new Button();
-            button2 = new Button();
-            pictureBox3 = new PictureBox();
             id = new DataGridViewTextBoxColumn();
             usertypeidDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             usernameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -55,6 +45,16 @@
             createdatDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             is_active = new DataGridViewTextBoxColumn();
             edit = new DataGridViewButtonColumn();
+            userBindingSource = new BindingSource(components);
+            txtSearch = new TextBox();
+            label1 = new Label();
+            btnAdd = new Button();
+            pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
+            lbluserslist = new Label();
+            button1 = new Button();
+            button2 = new Button();
+            pictureBox3 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)userBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -74,117 +74,10 @@
             dataGridView1.Location = new Point(12, 121);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
+            dataGridView1.RowHeadersVisible = false;
             dataGridView1.Size = new Size(1339, 555);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
-            // 
-            // userBindingSource
-            // 
-            userBindingSource.DataSource = typeof(User);
-            // 
-            // txtSearch
-            // 
-            txtSearch.Location = new Point(61, 93);
-            txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(391, 23);
-            txtSearch.TabIndex = 1;
-            txtSearch.TextChanged += txtSearch_TextChanged;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(12, 100);
-            label1.Name = "label1";
-            label1.Size = new Size(45, 15);
-            label1.TabIndex = 2;
-            label1.Text = "Search:";
-            // 
-            // btnAdd
-            // 
-            btnAdd.BackColor = Color.SeaGreen;
-            btnAdd.FlatStyle = FlatStyle.Popup;
-            btnAdd.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnAdd.ForeColor = Color.White;
-            btnAdd.Location = new Point(1082, 92);
-            btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(75, 23);
-            btnAdd.TabIndex = 3;
-            btnAdd.Text = "Add User";
-            btnAdd.UseVisualStyleBackColor = false;
-            btnAdd.Click += btnAdd_Click;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.BackColor = Color.DimGray;
-            pictureBox1.Location = new Point(28, 1);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(1358, 86);
-            pictureBox1.TabIndex = 4;
-            pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.BackColor = Color.DimGray;
-            pictureBox2.BackgroundImage = Properties.Resources.PakoLogo;
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(-2, -1);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(260, 86);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 5;
-            pictureBox2.TabStop = false;
-            // 
-            // lbluserslist
-            // 
-            lbluserslist.AutoSize = true;
-            lbluserslist.BackColor = Color.DimGray;
-            lbluserslist.Font = new Font("Impact", 45F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbluserslist.ForeColor = Color.White;
-            lbluserslist.Location = new Point(630, 1);
-            lbluserslist.Name = "lbluserslist";
-            lbluserslist.Size = new Size(294, 75);
-            lbluserslist.TabIndex = 6;
-            lbluserslist.Text = "USERS LIST";
-            // 
-            // button1
-            // 
-            button1.BackColor = Color.Gold;
-            button1.FlatStyle = FlatStyle.Popup;
-            button1.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(1163, 92);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 7;
-            button1.Text = "Print";
-            button1.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            button2.BackColor = Color.Red;
-            button2.FlatStyle = FlatStyle.Popup;
-            button2.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button2.ForeColor = Color.White;
-            button2.Location = new Point(1276, 93);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 8;
-            button2.Text = "Close";
-            button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click;
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.BackColor = SystemColors.ControlDarkDark;
-            pictureBox3.ErrorImage = null;
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.InitialImage = null;
-            pictureBox3.Location = new Point(-16, 683);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(1414, 96);
-            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox3.TabIndex = 15;
-            pictureBox3.TabStop = false;
             // 
             // id
             // 
@@ -296,6 +189,114 @@
             edit.ReadOnly = true;
             edit.Text = "Edit";
             edit.UseColumnTextForButtonValue = true;
+            // 
+            // userBindingSource
+            // 
+            userBindingSource.DataSource = typeof(User);
+            // 
+            // txtSearch
+            // 
+            txtSearch.Location = new Point(61, 93);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(391, 23);
+            txtSearch.TabIndex = 1;
+            txtSearch.TextChanged += txtSearch_TextChanged;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(12, 100);
+            label1.Name = "label1";
+            label1.Size = new Size(45, 15);
+            label1.TabIndex = 2;
+            label1.Text = "Search:";
+            // 
+            // btnAdd
+            // 
+            btnAdd.BackColor = Color.SeaGreen;
+            btnAdd.FlatStyle = FlatStyle.Popup;
+            btnAdd.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnAdd.ForeColor = Color.White;
+            btnAdd.Location = new Point(1082, 92);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(75, 23);
+            btnAdd.TabIndex = 3;
+            btnAdd.Text = "Add User";
+            btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnAdd_Click;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.DimGray;
+            pictureBox1.Location = new Point(28, 1);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(1358, 86);
+            pictureBox1.TabIndex = 4;
+            pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.BackColor = Color.DimGray;
+            pictureBox2.BackgroundImage = Properties.Resources.PakoLogo;
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(-2, -1);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(260, 86);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 5;
+            pictureBox2.TabStop = false;
+            // 
+            // lbluserslist
+            // 
+            lbluserslist.AutoSize = true;
+            lbluserslist.BackColor = Color.DimGray;
+            lbluserslist.Font = new Font("Impact", 45F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbluserslist.ForeColor = Color.White;
+            lbluserslist.Location = new Point(630, 1);
+            lbluserslist.Name = "lbluserslist";
+            lbluserslist.Size = new Size(294, 75);
+            lbluserslist.TabIndex = 6;
+            lbluserslist.Text = "USERS LIST";
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.Gold;
+            button1.FlatStyle = FlatStyle.Popup;
+            button1.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(1163, 92);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 7;
+            button1.Text = "Print";
+            button1.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.Red;
+            button2.FlatStyle = FlatStyle.Popup;
+            button2.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button2.ForeColor = Color.White;
+            button2.Location = new Point(1276, 93);
+            button2.Name = "button2";
+            button2.Size = new Size(75, 23);
+            button2.TabIndex = 8;
+            button2.Text = "Close";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.BackColor = SystemColors.ControlDarkDark;
+            pictureBox3.ErrorImage = null;
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.InitialImage = null;
+            pictureBox3.Location = new Point(-16, 683);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(1414, 96);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 15;
+            pictureBox3.TabStop = false;
             // 
             // UsersList
             // 

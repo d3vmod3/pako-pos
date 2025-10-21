@@ -136,6 +136,7 @@ namespace PAKOPointOfSale.Transactions
             dtgvCart.Columns.AddRange(new DataGridViewColumn[] { id, select, product, brand, unit_of_measurement, appliedQty, unit_price, category, discountType, discountAmount, subTotal, vatableSales, vatAmount, vatExempt, remove });
             dtgvCart.Location = new Point(12, 137);
             dtgvCart.Name = "dtgvCart";
+            dtgvCart.RowHeadersVisible = false;
             dtgvCart.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             dtgvCart.Size = new Size(951, 549);
             dtgvCart.TabIndex = 4;
@@ -192,6 +193,7 @@ namespace PAKOPointOfSale.Transactions
             category.DataPropertyName = "category";
             category.HeaderText = "Category";
             category.Name = "category";
+            category.ReadOnly = true;
             // 
             // discountType
             // 
@@ -205,30 +207,35 @@ namespace PAKOPointOfSale.Transactions
             discountAmount.DataPropertyName = "discountAmount";
             discountAmount.HeaderText = "Discount Amount";
             discountAmount.Name = "discountAmount";
+            discountAmount.ReadOnly = true;
             // 
             // subTotal
             // 
             subTotal.DataPropertyName = "subTotal";
             subTotal.HeaderText = "Sub Total";
             subTotal.Name = "subTotal";
+            subTotal.ReadOnly = true;
             // 
             // vatableSales
             // 
             vatableSales.DataPropertyName = "vatableSales";
             vatableSales.HeaderText = "VATable Sales";
             vatableSales.Name = "vatableSales";
+            vatableSales.ReadOnly = true;
             // 
             // vatAmount
             // 
             vatAmount.DataPropertyName = "vatAmount";
             vatAmount.HeaderText = "VAT Amount";
             vatAmount.Name = "vatAmount";
+            vatAmount.ReadOnly = true;
             // 
             // vatExempt
             // 
             vatExempt.DataPropertyName = "vatExempt";
             vatExempt.HeaderText = "VAT Exempt";
             vatExempt.Name = "vatExempt";
+            vatExempt.ReadOnly = true;
             // 
             // remove
             // 
@@ -891,6 +898,10 @@ namespace PAKOPointOfSale.Transactions
         private Label lblTime;
         private System.Windows.Forms.Timer timer1;
         private Button btnClose;
+        private Label lblParkLabel;
+        private Label lblParkNumber;
+        private Button btnParkedTransactions;
+        private Button btnClearCart;
         private DataGridViewTextBoxColumn id;
         private DataGridViewCheckBoxColumn select;
         private DataGridViewTextBoxColumn product;
@@ -898,6 +909,7 @@ namespace PAKOPointOfSale.Transactions
         private DataGridViewTextBoxColumn unit_of_measurement;
         private DataGridViewTextBoxColumn appliedQty;
         private DataGridViewTextBoxColumn unit_price;
+        private DataGridViewTextBoxColumn category;
         private DataGridViewTextBoxColumn discountType;
         private DataGridViewTextBoxColumn discountAmount;
         private DataGridViewTextBoxColumn subTotal;
@@ -905,10 +917,5 @@ namespace PAKOPointOfSale.Transactions
         private DataGridViewTextBoxColumn vatAmount;
         private DataGridViewTextBoxColumn vatExempt;
         private DataGridViewButtonColumn remove;
-        private DataGridViewTextBoxColumn category;
-        private Label lblParkLabel;
-        private Label lblParkNumber;
-        private Button btnParkedTransactions;
-        private Button btnClearCart;
     }
 }
