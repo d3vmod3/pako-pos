@@ -33,6 +33,7 @@
             transactionBindingSource = new BindingSource(components);
             txtSearch = new TextBox();
             label1 = new Label();
+            btnClose = new Button();
             id = new DataGridViewTextBoxColumn();
             park_number = new DataGridViewTextBoxColumn();
             vat_amount = new DataGridViewTextBoxColumn();
@@ -50,7 +51,6 @@
             settle = new DataGridViewButtonColumn();
             salesinvoiceitemsDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             cancel = new DataGridViewButtonColumn();
-            btnClose = new Button();
             ((System.ComponentModel.ISupportInitialize)dtgvParkedTransactions).BeginInit();
             ((System.ComponentModel.ISupportInitialize)transactionBindingSource).BeginInit();
             SuspendLayout();
@@ -93,6 +93,19 @@
             label1.Size = new Size(118, 15);
             label1.TabIndex = 2;
             label1.Text = "Search Park Number:";
+            // 
+            // btnClose
+            // 
+            btnClose.BackColor = Color.Red;
+            btnClose.FlatStyle = FlatStyle.Popup;
+            btnClose.ForeColor = Color.White;
+            btnClose.Location = new Point(675, 19);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(84, 24);
+            btnClose.TabIndex = 21;
+            btnClose.Text = "Close";
+            btnClose.UseVisualStyleBackColor = false;
+            btnClose.Click += btnClose_Click;
             // 
             // id
             // 
@@ -246,19 +259,6 @@
             cancel.UseColumnTextForButtonValue = true;
             cancel.Width = 50;
             // 
-            // btnClose
-            // 
-            btnClose.BackColor = Color.Red;
-            btnClose.FlatStyle = FlatStyle.Popup;
-            btnClose.ForeColor = Color.White;
-            btnClose.Location = new Point(675, 19);
-            btnClose.Name = "btnClose";
-            btnClose.Size = new Size(84, 24);
-            btnClose.TabIndex = 21;
-            btnClose.Text = "Close";
-            btnClose.UseVisualStyleBackColor = false;
-            btnClose.Click += btnClose_Click;
-            // 
             // ParkTransactionsList
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -286,6 +286,7 @@
         private BindingSource transactionBindingSource;
         private TextBox txtSearch;
         private Label label1;
+        private Button btnClose;
         private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn park_number;
         private DataGridViewTextBoxColumn vat_amount;
@@ -303,6 +304,5 @@
         private DataGridViewButtonColumn settle;
         private DataGridViewTextBoxColumn salesinvoiceitemsDataGridViewTextBoxColumn;
         private DataGridViewButtonColumn cancel;
-        private Button btnClose;
     }
 }
