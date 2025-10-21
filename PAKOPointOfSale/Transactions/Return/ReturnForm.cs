@@ -312,7 +312,7 @@ namespace PAKOPointOfSale.Transactions.Return
             if (selectedRow == null) return;
 
             decimal price = Convert.ToDecimal(selectedRow.Cells["unit_price"].Value);
-            decimal qty = Convert.ToDouble(selectedRow.Cells["quantity"].Value);
+            decimal qty = Convert.ToDecimal(selectedRow.Cells["quantity"].Value);
             decimal originalSubTotal = price * qty;
 
             if (selectedDiscountType == "None")
