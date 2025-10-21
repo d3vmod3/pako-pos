@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MDIParent1));
             menuStrip = new MenuStrip();
             statusStrip = new StatusStrip();
@@ -87,6 +87,7 @@
             label17 = new Label();
             label18 = new Label();
             label19 = new Label();
+            btnClearFilters = new Button();
             statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgvTop5SellingProducts).BeginInit();
             groupBox1.SuspendLayout();
@@ -127,29 +128,29 @@
             // 
             dtgvTop5SellingProducts.AllowUserToAddRows = false;
             dtgvTop5SellingProducts.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.ForeColor = Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = Color.White;
-            dtgvTop5SellingProducts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = Color.White;
+            dtgvTop5SellingProducts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             dtgvTop5SellingProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgvTop5SellingProducts.BackgroundColor = SystemColors.ControlLight;
             dtgvTop5SellingProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgvTop5SellingProducts.Columns.AddRange(new DataGridViewColumn[] { product_name, total_quantity_sold, total_sales });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dtgvTop5SellingProducts.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = SystemColors.Window;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            dtgvTop5SellingProducts.DefaultCellStyle = dataGridViewCellStyle5;
             dtgvTop5SellingProducts.Location = new Point(13, 17);
             dtgvTop5SellingProducts.Name = "dtgvTop5SellingProducts";
             dtgvTop5SellingProducts.ReadOnly = true;
             dtgvTop5SellingProducts.RowHeadersVisible = false;
-            dataGridViewCellStyle3.ForeColor = Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dtgvTop5SellingProducts.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.ForeColor = Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dtgvTop5SellingProducts.RowsDefaultCellStyle = dataGridViewCellStyle6;
             dtgvTop5SellingProducts.Size = new Size(639, 271);
             dtgvTop5SellingProducts.TabIndex = 11;
             // 
@@ -673,12 +674,26 @@
             label19.TabIndex = 171;
             label19.Text = "POS";
             // 
+            // btnClearFilters
+            // 
+            btnClearFilters.BackColor = Color.FloralWhite;
+            btnClearFilters.FlatStyle = FlatStyle.Popup;
+            btnClearFilters.ForeColor = Color.Black;
+            btnClearFilters.Location = new Point(1248, 291);
+            btnClearFilters.Name = "btnClearFilters";
+            btnClearFilters.Size = new Size(106, 23);
+            btnClearFilters.TabIndex = 177;
+            btnClearFilters.Text = "Clear Filters";
+            btnClearFilters.UseVisualStyleBackColor = false;
+            btnClearFilters.Click += btnClearFilters_Click;
+            // 
             // MDIParent1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
             ClientSize = new Size(1367, 788);
+            Controls.Add(btnClearFilters);
             Controls.Add(label19);
             Controls.Add(label18);
             Controls.Add(label17);
@@ -799,6 +814,7 @@
         private Label label17;
         private Label label18;
         private Label label19;
+        private Button btnClearFilters;
     }
 }
 

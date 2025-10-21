@@ -99,7 +99,13 @@ namespace PAKOPointOfSale
         private void SuperAdminForm_Load(object sender, EventArgs e)
         {
             timer1.Start();
+            defaultFilter();
 
+
+        }
+
+        private void defaultFilter()
+        {
             DateTime today = DateTime.Today;
 
             // Calculate the start of the week (Monday)
@@ -221,6 +227,7 @@ namespace PAKOPointOfSale
 
         private void btnFilter_Click(object sender, EventArgs e)
         {
+            timer1.Stop();
             DateTime fromDate = dtpFrom.Value.Date;
             DateTime toDate = dtpTo.Value.Date;
 
@@ -322,7 +329,7 @@ namespace PAKOPointOfSale
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            timer1.Stop();
             DateTime fromDate = dtpFromSales.Value.Date;
             DateTime toDate = dtpToSales.Value.Date;
 
@@ -432,6 +439,12 @@ namespace PAKOPointOfSale
             }
             UAC.UAC userAccessControlForm = new UAC.UAC();
             userAccessControlForm.Show();
+        }
+
+        private void btnClearFilters_Click(object sender, EventArgs e)
+        {
+            timer1.Start();
+            defaultFilter();
         }
     }
 }
