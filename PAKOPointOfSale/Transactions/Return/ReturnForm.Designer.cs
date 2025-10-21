@@ -102,6 +102,7 @@
             dgvReturnItems.DefaultCellStyle = dataGridViewCellStyle1;
             dgvReturnItems.Location = new Point(12, 140);
             dgvReturnItems.Name = "dgvReturnItems";
+            dgvReturnItems.RowHeadersVisible = false;
             dgvReturnItems.Size = new Size(1346, 503);
             dgvReturnItems.TabIndex = 8;
             dgvReturnItems.CellContentClick += dgvReturnItems_CellContentClick;
@@ -234,7 +235,6 @@
             quantity.DataPropertyName = "quantity";
             quantity.HeaderText = "Quantity";
             quantity.Name = "quantity";
-            quantity.ReadOnly = true;
             // 
             // unit_of_measurement
             // 

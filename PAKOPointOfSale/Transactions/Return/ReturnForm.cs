@@ -253,7 +253,6 @@ namespace PAKOPointOfSale.Transactions.Return
                     );
                     return;
                 }
-                MessageBox.Show(row.Cells["quantity"].Value.ToString());
                 //if(currentQuantityApplied < Convert.ToDecimal(row.Cells["quantity"].Value))
                 //{6
 
