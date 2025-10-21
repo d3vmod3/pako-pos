@@ -361,6 +361,7 @@ namespace PAKOPointOfSale.Transactions
             if (validateTransaction())
             {
                 newSalesInvoice();
+                clearCart();
             }
 
         }
@@ -1115,10 +1116,11 @@ namespace PAKOPointOfSale.Transactions
             var parkedTransactions = new Transactions.Parked_Transactions.ParkTransactionsList();
             if (parkedTransactions.ShowDialog() == DialogResult.OK)
             {
+                clearCart();
                 TransactionID = parkedTransactions.TransactionId;
                 ParkNumber = parkedTransactions.ParkNumber;
 
-                MessageBox.Show(Convert.ToString(TransactionID + " " + ParkNumber));
+
                 lblParkLabel.Visible = true;
                 lblParkNumber.Visible = true;
                 lblParkNumber.Text = ParkNumber;
