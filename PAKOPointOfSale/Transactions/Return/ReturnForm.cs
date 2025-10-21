@@ -16,6 +16,7 @@ namespace PAKOPointOfSale.Transactions.Return
         private int _id;
         private string _invoiceNumber;
         private List<DataGridViewRow> _selectedItems;
+        private decimal currentQuantity = 0;
         public ReturnForm(int id, string invoiceNumber, List<DataGridViewRow> selectedItems)
         {
             InitializeComponent();
@@ -53,11 +54,25 @@ namespace PAKOPointOfSale.Transactions.Return
 
         private void dgvReturnItems_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex >= 0)
+            {
+                // Get the selected row
+                DataGridViewRow row = dgvReturnItems.Rows[e.RowIndex];
 
+                // Get the value from the "quantity" column
+                currentQuantity = Convert.ToDecimal(row.Cells["quantity"].Value);
+
+                // Optional: convert to int if it's numeric
+
+                // Example: show it in a message box or use it in your logic
+
+            }
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+
+
             var confirmForm = new ActionConfirmation("Please confirm admin credentials to proceed.", true, "return");
             if (confirmForm.ShowDialog() != DialogResult.OK)
                 return;
@@ -227,6 +242,21 @@ namespace PAKOPointOfSale.Transactions.Return
             // Only recalculate subtotal when quantity or unit price changes
             if (columnName == "quantity" || columnName == "unit_price")
             {
+                decimal currentQuantityApplied = Convert.ToDecimal(row.Cells["quantity"].Value);
+                if (currentQuantity < currentQuantityApplied)
+                {
+                    MessageBox.Show(
+                        "Return quantity must not be greater than what was purchased.",
+                        "Invalid Return Quantity",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
+                    return;
+                }
+                //if(currentQuantityApplied < Convert.ToDecimal(row.Cells["quantity"].Value))
+                //{6
+
+                //}
                 decimal qty = 0, price = 0;
 
                 string discountType = row.Cells["discount_type"].Value.ToString();
@@ -252,6 +282,30 @@ namespace PAKOPointOfSale.Transactions.Return
             }
             //ComputeGrandTotal();
         }
+
+        private void QuantityColumn_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Allow only digits and control keys (like backspace)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        private void dgvReturnItems_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            if (dgvReturnItems.CurrentCell.ColumnIndex == dgvReturnItems.Columns["quantity"].Index)
+            {
+                // Unsubscribe previous handlers to avoid duplicates
+                e.Control.KeyPress -= QuantityColumn_KeyPress;
+                e.Control.KeyPress += QuantityColumn_KeyPress;
+            }
+            else
+            {
+                // Remove handler for all other columns
+                e.Control.KeyPress -= QuantityColumn_KeyPress;
+            }
+        }
+
         private void RecalculateValues(string selectedDiscountType, DataGridViewRow selectedRow)
         {
             if (selectedRow == null) return;
@@ -299,5 +353,7 @@ namespace PAKOPointOfSale.Transactions.Return
                 selectedRow.Cells["total_amount"].Value = originalSubTotal - discountAmount;
             }
         }
+
+        
     }
 }

@@ -343,8 +343,8 @@ namespace PAKOPointOfSale.Products
 
             string connString = PAKOPointOfSale.Program.ConnString;
 
-            try
-            {
+            //try
+            //{
                 using (SqlConnection conn = new SqlConnection(connString))
                 {
                     conn.Open();
@@ -376,7 +376,7 @@ namespace PAKOPointOfSale.Products
                         // Parameters
                         cmd.Parameters.AddWithValue("@id", _productId);
                         cmd.Parameters.AddWithValue("@supplier_id", cmbSupplier.SelectedValue != null ? cmbSupplier.SelectedValue : DBNull.Value);
-                        cmd.Parameters.AddWithValue("@category_id", cmbCategory.SelectedValue != null ? cmbSupplier.SelectedValue : DBNull.Value);
+                        cmd.Parameters.AddWithValue("@category_id", cmbCategory.SelectedValue != null ? cmbCategory.SelectedValue : DBNull.Value);
                         cmd.Parameters.AddWithValue("@product_name", txtProductName.Text.Trim());
                         cmd.Parameters.AddWithValue("@product_brand", string.IsNullOrWhiteSpace(txtProductBrand.Text) ? DBNull.Value : txtProductBrand.Text.Trim());
                         cmd.Parameters.AddWithValue("@product_description", string.IsNullOrWhiteSpace(txtDescription.Text) ? DBNull.Value : txtDescription.Text.Trim());
@@ -406,11 +406,11 @@ namespace PAKOPointOfSale.Products
                         }
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error updating product: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Error updating product: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
         }
 
         private void btnClose_Click(object sender, EventArgs e)

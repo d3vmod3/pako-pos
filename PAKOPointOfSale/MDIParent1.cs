@@ -98,8 +98,14 @@ namespace PAKOPointOfSale
 
         private void SuperAdminForm_Load(object sender, EventArgs e)
         {
-            timer1.Start();
+            timeReloadData.Start();
+            defaultFilter();
 
+
+        }
+
+        private void defaultFilter()
+        {
             DateTime today = DateTime.Today;
 
             // Calculate the start of the week (Monday)
@@ -115,7 +121,7 @@ namespace PAKOPointOfSale
 
             // Load grid for this week
             LoadTop5SellingProducts(weekStart, weekEnd);
-            comboBoxSalesFilter.SelectedItem = "Daily"; // default
+            comboBoxSalesFilter.SelectedItem = "Today"; // default
             timeReloadData.Start();
         }
 
@@ -151,6 +157,7 @@ namespace PAKOPointOfSale
                     AND t.status = 'success'
                     AND t.created_at BETWEEN @from AND @to
                     AND t.invoice_number NOT IN (SELECT invoice_number FROM VoidTransactions)
+                    AND t.created_at BETWEEN @from AND @to
                 GROUP BY p.product_name,sii.product_id
                 ORDER BY [total_quantity_sold] DESC;
             ";
@@ -221,6 +228,7 @@ namespace PAKOPointOfSale
 
         private void btnFilter_Click(object sender, EventArgs e)
         {
+            timeReloadData.Stop();
             DateTime fromDate = dtpFrom.Value.Date;
             DateTime toDate = dtpTo.Value.Date;
 
@@ -235,25 +243,26 @@ namespace PAKOPointOfSale
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            timeReloadData.Stop();
             DateTime today = DateTime.Today;
             DateTime fromDate;
             DateTime toDate = today;
 
             switch (comboBoxSalesFilter.SelectedItem.ToString())
             {
-                case "Daily":
+                case "Today":
                     fromDate = today;
                     break;
-                case "Weekly":
+                case "This Week":
                     int diff = (7 + (today.DayOfWeek - DayOfWeek.Monday)) % 7;
                     fromDate = today.AddDays(-diff);
                     toDate = fromDate.AddDays(6);
                     break;
-                case "Monthly":
+                case "This Month":
                     fromDate = new DateTime(today.Year, today.Month, 1);
                     toDate = fromDate.AddMonths(1).AddDays(-1);
                     break;
-                case "Yearly":
+                case "This Year":
                     fromDate = new DateTime(today.Year, 1, 1);
                     toDate = new DateTime(today.Year, 12, 31);
                     break;
@@ -294,6 +303,7 @@ namespace PAKOPointOfSale
                             WHERE t.transaction_type = 'Sales Invoice'
                                   AND t.status = 'success'
                                   AND t.invoice_number NOT IN (SELECT invoice_number FROM VoidTransactions)
+                                  AND t.created_at BETWEEN @from AND @to
                             GROUP BY t.invoice_number
                             ORDER BY t.invoice_number;";
             using (var conn = new SqlConnection(connString))
@@ -316,13 +326,19 @@ namespace PAKOPointOfSale
                         lblNetSales.Text = netSales.ToString("C2");
                         lblGrandTotal.Text = grandTotal.ToString("C2");
                     }
+                    else
+                    {
+                        lblGrossSales.Text = "0.00";
+                        lblNetSales.Text = "0.00";
+                        lblGrandTotal.Text = "0.00";
+                    }
                 }
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            timeReloadData.Stop();
             DateTime fromDate = dtpFromSales.Value.Date;
             DateTime toDate = dtpToSales.Value.Date;
 
@@ -439,7 +455,13 @@ namespace PAKOPointOfSale
 
         }
 
-        private void label5_Click(object sender, EventArgs e)
+        private void btnClearFilters_Click(object sender, EventArgs e)
+        {
+            timeReloadData.Start();
+            defaultFilter();
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
         {
 
         }

@@ -71,7 +71,6 @@ namespace PAKOPointOfSale
             lblDate = new Label();
             label11 = new Label();
             label12 = new Label();
-            timer1 = new System.Windows.Forms.Timer(components);
             button2 = new Button();
             btnPos = new Button();
             btnCategories = new Button();
@@ -88,6 +87,7 @@ namespace PAKOPointOfSale
             label18 = new Label();
             label19 = new Label();
             pictureBox4 = new PictureBox();
+            btnClearFilters = new Button();
             statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgvTop5SellingProducts).BeginInit();
             groupBox1.SuspendLayout();
@@ -243,6 +243,8 @@ namespace PAKOPointOfSale
             comboBoxSalesFilter.FormattingEnabled = true;
             comboBoxSalesFilter.Items.AddRange(new object[] { "Daily", "Weekly", "Monthly", "Yearly" });
             comboBoxSalesFilter.Location = new Point(1095, 320);
+            comboBoxSalesFilter.Items.AddRange(new object[] { "Today", "This Week", "This Month", "This Year" });
+            comboBoxSalesFilter.Location = new Point(1206, 320);
             comboBoxSalesFilter.Name = "comboBoxSalesFilter";
             comboBoxSalesFilter.Size = new Size(160, 23);
             comboBoxSalesFilter.TabIndex = 18;
@@ -306,7 +308,7 @@ namespace PAKOPointOfSale
             btnFilterDateSales.Name = "btnFilterDateSales";
             btnFilterDateSales.Size = new Size(76, 23);
             btnFilterDateSales.TabIndex = 27;
-            btnFilterDateSales.Text = "Filter Date";
+            btnFilterDateSales.Text = "Filter";
             btnFilterDateSales.UseVisualStyleBackColor = false;
             btnFilterDateSales.Click += button2_Click;
             // 
@@ -494,10 +496,6 @@ namespace PAKOPointOfSale
             label12.TabIndex = 157;
             label12.Text = "Date:";
             // 
-            // timer1
-            // 
-            timer1.Tick += timer1_Tick;
-            // 
             // button2
             // 
             button2.BackColor = Color.Red;
@@ -676,6 +674,18 @@ namespace PAKOPointOfSale
             pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox4.TabIndex = 177;
             pictureBox4.TabStop = false;
+            // btnClearFilters
+            // 
+            btnClearFilters.BackColor = Color.FloralWhite;
+            btnClearFilters.FlatStyle = FlatStyle.Popup;
+            btnClearFilters.ForeColor = Color.Black;
+            btnClearFilters.Location = new Point(1248, 291);
+            btnClearFilters.Name = "btnClearFilters";
+            btnClearFilters.Size = new Size(106, 23);
+            btnClearFilters.TabIndex = 177;
+            btnClearFilters.Text = "Clear Filters";
+            btnClearFilters.UseVisualStyleBackColor = false;
+            btnClearFilters.Click += btnClearFilters_Click;
             // 
             // MDIParent1
             // 
@@ -684,6 +694,7 @@ namespace PAKOPointOfSale
             BackColor = Color.CadetBlue;
             ClientSize = new Size(1367, 788);
             Controls.Add(pictureBox4);
+            Controls.Add(btnClearFilters);
             Controls.Add(label19);
             Controls.Add(label18);
             Controls.Add(label17);
@@ -792,7 +803,6 @@ namespace PAKOPointOfSale
         private Label lblDate;
         private Label label11;
         private Label label12;
-        private System.Windows.Forms.Timer timer1;
         private Button button2;
         private Button btnPos;
         private Button btnCategories;
@@ -809,6 +819,7 @@ namespace PAKOPointOfSale
         private Label label18;
         private Label label19;
         private PictureBox pictureBox4;
+        private Button btnClearFilters;
     }
 }
 

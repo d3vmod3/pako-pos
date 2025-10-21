@@ -361,6 +361,7 @@ namespace PAKOPointOfSale.Transactions
             if (validateTransaction())
             {
                 newSalesInvoice();
+                clearCart();
             }
 
         }
@@ -838,17 +839,32 @@ namespace PAKOPointOfSale.Transactions
             {
                 if (row.IsNewRow) continue;
 
-                string discountType = row.Cells["discountType"].Value?.ToString() ?? "none";
+                string discountType = row.Cells["discountType"].Value?.ToString() ?? "None";
 
-                if (discountType == "none") continue; // skip rows with no discount
+                if (discountType.Equals("None", StringComparison.OrdinalIgnoreCase))
+                    continue; // skip rows with no discount
+
+                // Normalize to discount group
+                string normalizedType = discountType switch
+                {
+                    string s when s.StartsWith("Senior Citizen", StringComparison.OrdinalIgnoreCase) => "Senior Citizen",
+                    string s when s.StartsWith("Person With Disability", StringComparison.OrdinalIgnoreCase) => "Person With Disability",
+                    string s when s.StartsWith("National Athletes and Coaches", StringComparison.OrdinalIgnoreCase) => "National Athletes and Coaches",
+                    _ => discountType
+                };
 
                 if (firstDiscountType == null)
                 {
-                    firstDiscountType = discountType; // first valid discount type
+                    firstDiscountType = normalizedType; // store first discount group
                 }
-                else if (firstDiscountType != discountType)
+                else if (firstDiscountType != normalizedType)
                 {
-                    MessageBox.Show("All discounted items must have the same discount type.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(
+                        "All discounted items must belong to the same discount type.",
+                        "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                    );
                     return false;
                 }
             }
@@ -901,149 +917,150 @@ namespace PAKOPointOfSale.Transactions
 
         private void button2_Click_Park(object sender, EventArgs e)
         {
-            if (ParkNumber != "")
+            if (validateTransaction())
             {
-                MessageBox.Show("This cart cannot be pending multiple times.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            var remarksForm = new Transactions.Parked_Transactions.Remarks();
-            if (remarksForm.ShowDialog() == DialogResult.OK)
-            {
-                string remarks = remarksForm.RemarksValue;
-                using (SqlConnection conn = new SqlConnection(Program.ConnString))
+                if (ParkNumber != "")
                 {
-                    conn.Open();
-                    SqlTransaction sqlTran = conn.BeginTransaction(); // begin transaction for safety
-
-                    //try
-                    //{
-                    // Generate invoice number
-
-
-                    // Calculate totals from DataGridView
-                    decimal totalOfSubtotal = 0;
-                    decimal totalVatAmount = 0;
-                    decimal totalVatableSales = 0;
-                    decimal totalVatExempt = 0;
-                    decimal grandTotal = Convert.ToDecimal(lblTotal.Text);
-
-                    foreach (DataGridViewRow row in dtgvCart.Rows)
+                    MessageBox.Show("This cart cannot be pending multiple times.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                var remarksForm = new Transactions.Parked_Transactions.Remarks();
+                if (remarksForm.ShowDialog() == DialogResult.OK)
+                {
+                    string remarks = remarksForm.RemarksValue;
+                    using (SqlConnection conn = new SqlConnection(Program.ConnString))
                     {
-                        if (row.Cells["appliedQty"].Value != null && row.Cells["unit_price"].Value != null)
+                        conn.Open();
+                        SqlTransaction sqlTran = conn.BeginTransaction(); // begin transaction for safety
+
+                        //try
+                        //{
+                        // Generate invoice number
+
+
+                        // Calculate totals from DataGridView
+                        decimal totalOfSubtotal = 0;
+                        decimal totalVatAmount = 0;
+                        decimal totalVatableSales = 0;
+                        decimal totalVatExempt = 0;
+                        decimal grandTotal = Convert.ToDecimal(lblTotal.Text);
+
+                        foreach (DataGridViewRow row in dtgvCart.Rows)
                         {
-                            decimal quantity = Convert.ToDecimal(row.Cells["appliedQty"].Value);
-                            decimal unitPrice = Convert.ToDecimal(row.Cells["appliedQty"].Value);
-                            decimal vatableSales = Convert.ToDecimal(row.Cells["vatableSales"].Value);
-                            decimal vatAmount = Convert.ToDecimal(row.Cells["vatAmount"].Value);
-                            decimal vatExempt = Convert.ToDecimal(row.Cells["vatExempt"].Value);
-                            decimal subsubTotal = Convert.ToDecimal(row.Cells["subTotal"].Value);
-                            decimal discount = 0;
-                            //decimal discount = row.Cells["Discount"].Value != null ? Convert.ToDecimal(row.Cells["Discount"].Value) : 0;
-                            decimal totalAmount = (quantity * unitPrice) - discount;
-                            totalVatableSales += vatableSales;
-                            totalVatAmount += vatAmount;
-                            totalVatExempt += vatExempt;
-                            totalOfSubtotal += subsubTotal;
-                            //grandTotal += totalAmount;
-                        }
-                    }
-
-                    // Insert into Transactions table
-
-                    string insertTransaction = @"
-                INSERT INTO Transactions (park_number,transaction_type ,vat_amount, vatable_sales, vat_exempt, sub_total, grand_total, payment_method, status,cash_received,cash_change,remarks,created_at)
-                VALUES (@park,@transactionType, @vatAmount, @vatableSales, @vatExempt, @subTotal, @grandTotal, @payment, @status,@cashReceived,@cashChange,@remarks,@created_at);
-                SELECT SCOPE_IDENTITY();"; // get the inserted transaction id
-                    string parkNumber = SalesInvoiceFunctions.GenerateNextParkNumber();
-                    ;
-                    int transactionId;
-                    using (SqlCommand cmd = new SqlCommand(insertTransaction, conn, sqlTran))
-                    {
-                        cmd.Parameters.AddWithValue("@park", parkNumber);
-                        cmd.Parameters.AddWithValue("@transactionType", "Park");
-                        cmd.Parameters.AddWithValue("@vatAmount", totalVatAmount);
-                        cmd.Parameters.AddWithValue("@vatableSales", totalVatableSales);
-                        cmd.Parameters.AddWithValue("@vatExempt", totalVatExempt);
-                        cmd.Parameters.AddWithValue("@subTotal", totalOfSubtotal);
-                        cmd.Parameters.AddWithValue("@grandTotal", grandTotal);
-                        cmd.Parameters.AddWithValue("@payment", "cash");
-                        cmd.Parameters.AddWithValue("@cashReceived", "0.00");
-                        cmd.Parameters.AddWithValue("@cashChange", Convert.ToDecimal(lblChange.Text));
-                        cmd.Parameters.AddWithValue("@status", "pending");
-                        cmd.Parameters.AddWithValue("@remarks", remarks);
-                        cmd.Parameters.AddWithValue("@created_at", DateTime.Now);
-
-                        transactionId = Convert.ToInt32(cmd.ExecuteScalar());
-                    }
-
-                    // Insert each cart item into SalesInvoiceItems
-                    foreach (DataGridViewRow row in dtgvCart.Rows)
-                    {
-                        if (row.Cells["appliedQty"].Value != null && row.Cells["unit_price"].Value != null)
-                        {
-                            int productId = Convert.ToInt32(row.Cells["id"].Value);
-                            decimal quantity = Convert.ToDecimal(row.Cells["appliedQty"].Value);
-                            decimal unitPrice = Convert.ToDecimal(row.Cells["unit_price"].Value);
-                            decimal vatableSales = Convert.ToDecimal(row.Cells["vatableSales"].Value);
-                            decimal vatAmount = Convert.ToDecimal(row.Cells["vatAmount"].Value);
-                            decimal vatExempt = Convert.ToDecimal(row.Cells["vatExempt"].Value);
-                            decimal discountAmount = Convert.ToDecimal(row.Cells["discountAmount"].Value);
-                            string discountType = row.Cells["discountType"].Value.ToString();
-                            string unit = row.Cells["unit_of_measurement"].Value.ToString();
-                            decimal totalAmount = (quantity * unitPrice) - discountAmount;
-
-
-                            // Insert Parked Sales Invoice Items
-                            string insertItem = @"
-                            INSERT INTO ParkedSalesInvoiceItems 
-                            (transaction_id, product_id, quantity, unit_price, discount, discount_type, total_amount, unit_of_measurement,vatable_sales,vat_amount,vat_exempt,transaction_type)
-                            VALUES (@transId, @prodId, @qty, @unitPrice, @discount, @discountType, @total, @unit,@vatableSales,@vatAmount,@vatExempt,@transactioType)";
-
-                            using (SqlCommand cmdItem = new SqlCommand(insertItem, conn, sqlTran))
+                            if (row.Cells["appliedQty"].Value != null && row.Cells["unit_price"].Value != null)
                             {
-                                cmdItem.Parameters.AddWithValue("@transId", transactionId);
-                                cmdItem.Parameters.AddWithValue("@prodId", productId);
-                                cmdItem.Parameters.AddWithValue("@qty", quantity);
-                                cmdItem.Parameters.AddWithValue("@unitPrice", unitPrice);
-                                cmdItem.Parameters.AddWithValue("@discount", discountAmount);
-                                cmdItem.Parameters.AddWithValue("@discountType", discountType);
-                                cmdItem.Parameters.AddWithValue("@total", totalAmount);
-                                cmdItem.Parameters.AddWithValue("@unit", unit);
-                                cmdItem.Parameters.AddWithValue("@vatableSales", vatableSales);
-                                cmdItem.Parameters.AddWithValue("@vatAmount", vatAmount);
-                                cmdItem.Parameters.AddWithValue("@vatExempt", vatExempt);
-                                cmdItem.Parameters.AddWithValue("@transactioType", "pending");
-                                cmdItem.ExecuteNonQuery();
+                                decimal quantity = Convert.ToDecimal(row.Cells["appliedQty"].Value);
+                                decimal unitPrice = Convert.ToDecimal(row.Cells["appliedQty"].Value);
+                                decimal vatableSales = Convert.ToDecimal(row.Cells["vatableSales"].Value);
+                                decimal vatAmount = Convert.ToDecimal(row.Cells["vatAmount"].Value);
+                                decimal vatExempt = Convert.ToDecimal(row.Cells["vatExempt"].Value);
+                                decimal subsubTotal = Convert.ToDecimal(row.Cells["subTotal"].Value);
+                                decimal discount = 0;
+                                //decimal discount = row.Cells["Discount"].Value != null ? Convert.ToDecimal(row.Cells["Discount"].Value) : 0;
+                                decimal totalAmount = (quantity * unitPrice) - discount;
+                                totalVatableSales += vatableSales;
+                                totalVatAmount += vatAmount;
+                                totalVatExempt += vatExempt;
+                                totalOfSubtotal += subsubTotal;
+                                //grandTotal += totalAmount;
                             }
                         }
+
+                        // Insert into Transactions table
+
+                        string insertTransaction = @"
+                    INSERT INTO Transactions (park_number,transaction_type ,vat_amount, vatable_sales, vat_exempt, sub_total, grand_total, payment_method, status,cash_received,cash_change,remarks,created_at)
+                    VALUES (@park,@transactionType, @vatAmount, @vatableSales, @vatExempt, @subTotal, @grandTotal, @payment, @status,@cashReceived,@cashChange,@remarks,@created_at);
+                    SELECT SCOPE_IDENTITY();"; // get the inserted transaction id
+                        string parkNumber = SalesInvoiceFunctions.GenerateNextParkNumber();
+                        ;
+                        int transactionId;
+                        using (SqlCommand cmd = new SqlCommand(insertTransaction, conn, sqlTran))
+                        {
+                            cmd.Parameters.AddWithValue("@park", parkNumber);
+                            cmd.Parameters.AddWithValue("@transactionType", "Park");
+                            cmd.Parameters.AddWithValue("@vatAmount", totalVatAmount);
+                            cmd.Parameters.AddWithValue("@vatableSales", totalVatableSales);
+                            cmd.Parameters.AddWithValue("@vatExempt", totalVatExempt);
+                            cmd.Parameters.AddWithValue("@subTotal", totalOfSubtotal);
+                            cmd.Parameters.AddWithValue("@grandTotal", grandTotal);
+                            cmd.Parameters.AddWithValue("@payment", "cash");
+                            cmd.Parameters.AddWithValue("@cashReceived", "0.00");
+                            cmd.Parameters.AddWithValue("@cashChange", Convert.ToDecimal(lblChange.Text));
+                            cmd.Parameters.AddWithValue("@status", "pending");
+                            cmd.Parameters.AddWithValue("@remarks", remarks);
+                            cmd.Parameters.AddWithValue("@created_at", DateTime.Now);
+
+                            transactionId = Convert.ToInt32(cmd.ExecuteScalar());
+                        }
+
+                        // Insert each cart item into SalesInvoiceItems
+                        foreach (DataGridViewRow row in dtgvCart.Rows)
+                        {
+                            if (row.Cells["appliedQty"].Value != null && row.Cells["unit_price"].Value != null)
+                            {
+                                int productId = Convert.ToInt32(row.Cells["id"].Value);
+                                decimal quantity = Convert.ToDecimal(row.Cells["appliedQty"].Value);
+                                decimal unitPrice = Convert.ToDecimal(row.Cells["unit_price"].Value);
+                                decimal vatableSales = Convert.ToDecimal(row.Cells["vatableSales"].Value);
+                                decimal vatAmount = Convert.ToDecimal(row.Cells["vatAmount"].Value);
+                                decimal vatExempt = Convert.ToDecimal(row.Cells["vatExempt"].Value);
+                                decimal discountAmount = Convert.ToDecimal(row.Cells["discountAmount"].Value);
+                                string discountType = row.Cells["discountType"].Value.ToString();
+                                string unit = row.Cells["unit_of_measurement"].Value.ToString();
+                                decimal totalAmount = (quantity * unitPrice) - discountAmount;
+
+
+                                // Insert Parked Sales Invoice Items
+                                string insertItem = @"
+                                INSERT INTO ParkedSalesInvoiceItems 
+                                (transaction_id, product_id, quantity, unit_price, discount, discount_type, total_amount, unit_of_measurement,vatable_sales,vat_amount,vat_exempt,transaction_type)
+                                VALUES (@transId, @prodId, @qty, @unitPrice, @discount, @discountType, @total, @unit,@vatableSales,@vatAmount,@vatExempt,@transactioType)";
+
+                                using (SqlCommand cmdItem = new SqlCommand(insertItem, conn, sqlTran))
+                                {
+                                    cmdItem.Parameters.AddWithValue("@transId", transactionId);
+                                    cmdItem.Parameters.AddWithValue("@prodId", productId);
+                                    cmdItem.Parameters.AddWithValue("@qty", quantity);
+                                    cmdItem.Parameters.AddWithValue("@unitPrice", unitPrice);
+                                    cmdItem.Parameters.AddWithValue("@discount", discountAmount);
+                                    cmdItem.Parameters.AddWithValue("@discountType", discountType);
+                                    cmdItem.Parameters.AddWithValue("@total", totalAmount);
+                                    cmdItem.Parameters.AddWithValue("@unit", unit);
+                                    cmdItem.Parameters.AddWithValue("@vatableSales", vatableSales);
+                                    cmdItem.Parameters.AddWithValue("@vatAmount", vatAmount);
+                                    cmdItem.Parameters.AddWithValue("@vatExempt", vatExempt);
+                                    cmdItem.Parameters.AddWithValue("@transactioType", "pending");
+                                    cmdItem.ExecuteNonQuery();
+                                }
+                            }
+                        }
+
+                        // 2️⃣ Create return header in ParkedTransactions table
+                        string insertReturnTransactionQuery = @"
+                        INSERT INTO ParkedTransactions (park_number, transaction_id)
+                        VALUES (@park_number, @transaction_id);
+                        SELECT SCOPE_IDENTITY();";
+
+                        int returnTransactionId;
+                        using (SqlCommand cmd = new SqlCommand(insertReturnTransactionQuery, conn, sqlTran))
+                        {
+                            cmd.Parameters.AddWithValue("@park_number", parkNumber);
+                            cmd.Parameters.AddWithValue("@transaction_id", transactionId);
+                            returnTransactionId = Convert.ToInt32(cmd.ExecuteScalar());
+                        }
+
+                        // Commit transaction
+                        sqlTran.Commit();
+                        clearCart();
+                        MessageBox.Show(
+                            "Transaction successfully saved with Park Number: " + parkNumber,
+                            "Info",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+
                     }
-
-                    // 2️⃣ Create return header in ParkedTransactions table
-                    string insertReturnTransactionQuery = @"
-                    INSERT INTO ParkedTransactions (park_number, transaction_id)
-                    VALUES (@park_number, @transaction_id);
-                    SELECT SCOPE_IDENTITY();";
-
-                    int returnTransactionId;
-                    using (SqlCommand cmd = new SqlCommand(insertReturnTransactionQuery, conn, sqlTran))
-                    {
-                        cmd.Parameters.AddWithValue("@park_number", parkNumber);
-                        cmd.Parameters.AddWithValue("@transaction_id", transactionId);
-                        returnTransactionId = Convert.ToInt32(cmd.ExecuteScalar());
-                    }
-
-                    // Commit transaction
-                    sqlTran.Commit();
-                    clearCart();
-                    MessageBox.Show(
-                        "Transaction successfully saved with Park Number: " + parkNumber,
-                        "Info",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
-
                 }
-
-
             }
         }
         private void checkQuantity(int product_id, decimal appliedQty)
@@ -1115,10 +1132,11 @@ namespace PAKOPointOfSale.Transactions
             var parkedTransactions = new Transactions.Parked_Transactions.ParkTransactionsList();
             if (parkedTransactions.ShowDialog() == DialogResult.OK)
             {
+                clearCart();
                 TransactionID = parkedTransactions.TransactionId;
                 ParkNumber = parkedTransactions.ParkNumber;
 
-                MessageBox.Show(Convert.ToString(TransactionID + " " + ParkNumber));
+
                 lblParkLabel.Visible = true;
                 lblParkNumber.Visible = true;
                 lblParkNumber.Text = ParkNumber;

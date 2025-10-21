@@ -10,7 +10,7 @@ namespace PAKOPointOfSale.Transactions
 {
     public class PrintReturnReceipt
     {
-        public static void GenerateReturnReceiptFromTransactionId(int transactionId)
+        public static void GenerateReturnReceiptFromTransactionId(int newTransactionId)
         {
             try
             {
@@ -18,6 +18,7 @@ namespace PAKOPointOfSale.Transactions
 
                 // Header fields
                 string returnNumber = "";
+                int return_transaction_id = 0;
                 decimal vatAmount = 0m, vatableSales = 0m, vatExempt = 0m, subTotal = 0m, grandTotal = 0m;
                 string invoiceNumber = "";
 
@@ -29,21 +30,22 @@ namespace PAKOPointOfSale.Transactions
 
                     // 1️⃣ Get return number from ReturnTransactions
                     using (var cmd = new SqlCommand(@"
-                        SELECT TOP 1 return_number, invoice_number
+                        SELECT TOP 1 id, return_number, invoice_number
                         FROM ReturnTransactions
                         WHERE transaction_id = @transactionId", conn))
                     {
-                        cmd.Parameters.AddWithValue("@transactionId", transactionId);
+                        cmd.Parameters.AddWithValue("@transactionId", newTransactionId);
                         using (var r = cmd.ExecuteReader())
                         {
                             if (r.Read())
                             {
                                 returnNumber = r["return_number"].ToString();
                                 invoiceNumber = r["invoice_number"].ToString();
+                                return_transaction_id = Convert.ToInt32(r["id"]);
                             }
                             else
                             {
-                                MessageBox.Show($"No return transaction found for Transaction ID: {transactionId}",
+                                MessageBox.Show($"No return transaction found for Transaction ID: {newTransactionId}",
                                     "No Data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                 return;
                             }
@@ -56,7 +58,7 @@ namespace PAKOPointOfSale.Transactions
                         FROM Transactions
                         WHERE id = @transactionId AND transaction_type = 'Return'", conn))
                     {
-                        cmd.Parameters.AddWithValue("@transactionId", transactionId);
+                        cmd.Parameters.AddWithValue("@transactionId", newTransactionId);
                         using (var r = cmd.ExecuteReader())
                         {
                             if (r.Read())
@@ -70,16 +72,17 @@ namespace PAKOPointOfSale.Transactions
                         }
                     }
 
-                    // 3️⃣ Read items from SalesInvoiceItems
+
+                    // 3️⃣ Read items from ReturnItems
                     using (var cmd = new SqlCommand(@"
-                        SELECT p.product_name, p.product_code, si.quantity, si.unit_price, si.total_amount,
-                               si.discount, si.discount_type, si.unit_of_measurement
-                        FROM SalesInvoiceItems si
-                        INNER JOIN Products p ON si.product_id = p.id
-                        WHERE si.transaction_id = @transactionId AND si.transaction_type = 'Return'
-                        ORDER BY si.id", conn))
+                       SELECT p.product_name, p.product_code, ri.quantity, ri.unit_price, ri.total_amount,
+                                ri.discount, ri.discount_type, ri.unit_of_measurement
+                        FROM ReturnItems ri
+                        INNER JOIN Products p ON ri.product_id = p.id
+                        WHERE ri.return_transaction_id = @returnTransactionId AND ri.transaction_type = 'Return'
+                        ORDER BY ri.id", conn))
                     {
-                        cmd.Parameters.AddWithValue("@transactionId", transactionId);
+                        cmd.Parameters.AddWithValue("@returnTransactionId", return_transaction_id);
                         using (var r = cmd.ExecuteReader())
                         {
                             while (r.Read())

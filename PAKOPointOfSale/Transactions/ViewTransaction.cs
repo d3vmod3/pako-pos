@@ -89,8 +89,8 @@ namespace PAKOPointOfSale.Transactions
                     HashSet<int> returnedProductIds = new HashSet<int>();
                     using (var cmd = new SqlCommand(@"
                 SELECT si.product_id
-                FROM SalesInvoiceItems si
-                INNER JOIN ReturnTransactions rt ON si.transaction_id = rt.transaction_id
+                FROM ReturnItems si
+                INNER JOIN ReturnTransactions rt ON si.return_transaction_id = rt.id
                 WHERE rt.invoice_number = @invoiceNumber", conn))
                     {
                         cmd.Parameters.AddWithValue("@invoiceNumber", lblInvoiceNumber.Text);
