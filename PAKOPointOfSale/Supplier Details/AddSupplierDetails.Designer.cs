@@ -44,6 +44,7 @@
             pictureBox2 = new PictureBox();
             btnSubmit = new Button();
             btnClose = new Button();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
@@ -119,11 +120,13 @@
             // txtContactNumber
             // 
             txtContactNumber.Font = new Font("Calibri", 8.25F);
-            txtContactNumber.Location = new Point(124, 175);
+            txtContactNumber.Location = new Point(159, 175);
             txtContactNumber.Multiline = true;
             txtContactNumber.Name = "txtContactNumber";
-            txtContactNumber.Size = new Size(219, 20);
+            txtContactNumber.Size = new Size(184, 20);
             txtContactNumber.TabIndex = 10;
+            txtContactNumber.TextChanged += txtContactNumber_TextChanged;
+            txtContactNumber.KeyPress += txtContactNumber_KeyPress;
             // 
             // txtAccountNumber
             // 
@@ -187,6 +190,7 @@
             btnSubmit.TabIndex = 35;
             btnSubmit.Text = "Submit";
             btnSubmit.UseVisualStyleBackColor = false;
+            btnSubmit.Click += button1_Click;
             // 
             // btnClose
             // 
@@ -202,12 +206,22 @@
             btnClose.UseVisualStyleBackColor = false;
             btnClose.Click += btnClose_Click;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(129, 178);
+            label1.Name = "label1";
+            label1.Size = new Size(24, 13);
+            label1.TabIndex = 151;
+            label1.Text = "+63";
+            // 
             // AddSupplierDetails
             // 
             AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonShadow;
             ClientSize = new Size(372, 360);
+            Controls.Add(label1);
             Controls.Add(btnClose);
             Controls.Add(btnSubmit);
             Controls.Add(lblAddUser);
@@ -253,5 +267,6 @@
         private PictureBox pictureBox2;
         private Button btnSubmit;
         private Button btnClose;
+        private Label label1;
     }
 }

@@ -37,6 +37,9 @@
     <Compile Update="Products\ProductsList.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="ResetPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Supplier Details\AddSupplierDetails.cs">
       <SubType>Form</SubType>
     </Compile>

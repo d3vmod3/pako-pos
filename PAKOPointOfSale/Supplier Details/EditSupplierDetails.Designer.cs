@@ -42,10 +42,11 @@
             label2 = new Label();
             chkIsActive = new CheckBox();
             lblCreatedAt = new Label();
-            dateTimePicker1 = new DateTimePicker();
             lblAddUser = new Label();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
+            dateTimePicker1 = new DateTimePicker();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
@@ -85,11 +86,12 @@
             // txtContactNumber
             // 
             txtContactNumber.Font = new Font("Segoe Print", 9F);
-            txtContactNumber.Location = new Point(151, 213);
+            txtContactNumber.Location = new Point(184, 213);
             txtContactNumber.Multiline = true;
             txtContactNumber.Name = "txtContactNumber";
-            txtContactNumber.Size = new Size(209, 23);
+            txtContactNumber.Size = new Size(176, 23);
             txtContactNumber.TabIndex = 22;
+            txtContactNumber.KeyPress += txtContactNumber_KeyPress;
             // 
             // txtAddress
             // 
@@ -180,13 +182,6 @@
             lblCreatedAt.TabIndex = 27;
             lblCreatedAt.Text = "Date Created";
             // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.Location = new Point(516, 212);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(209, 23);
-            dateTimePicker1.TabIndex = 28;
-            // 
             // lblAddUser
             // 
             lblAddUser.AutoSize = true;
@@ -219,12 +214,29 @@
             pictureBox2.TabIndex = 31;
             pictureBox2.TabStop = false;
             // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Location = new Point(516, 212);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(209, 23);
+            dateTimePicker1.TabIndex = 28;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(151, 217);
+            label1.Name = "label1";
+            label1.Size = new Size(27, 15);
+            label1.TabIndex = 152;
+            label1.Text = "+63";
+            // 
             // EditSupplierDetails
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonShadow;
             ClientSize = new Size(768, 336);
+            Controls.Add(label1);
             Controls.Add(lblAddUser);
             Controls.Add(pictureBox1);
             Controls.Add(pictureBox2);
@@ -268,9 +280,10 @@
         private Label label2;
         private CheckBox chkIsActive;
         private Label lblCreatedAt;
-        private DateTimePicker dateTimePicker1;
         private Label lblAddUser;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
+        private DateTimePicker dateTimePicker1;
+        private Label label1;
     }
 }

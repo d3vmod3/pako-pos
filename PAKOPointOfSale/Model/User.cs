@@ -16,5 +16,6 @@ public class User
     public string? suffix { get; set; }
     public DateTime created_at { get; set; }
     public Boolean is_active { get; set; }
+    public Boolean is_reset { get; set; }
     public UserType userType { get; set; }
 }

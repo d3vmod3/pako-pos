@@ -242,5 +242,46 @@ namespace PAKOPointOfSale.Users
         {
             this.Close();
         }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            var confirmForm = new ActionConfirmation("Please confirm admin credentials to proceed.", true, "reset password");
+            if (confirmForm.ShowDialog() == DialogResult.OK)
+            {
+                string connString = PAKOPointOfSale.Program.ConnString;
+
+                using (SqlConnection conn = new SqlConnection(connString))
+                {
+                    conn.Open();
+
+                    string sql = @"
+                        UPDATE Users
+                        SET 
+                            password= @password,
+                            is_reset = @isReset
+                        WHERE id = @id
+                    ";
+
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    {
+                       
+                        cmd.Parameters.AddWithValue("@id", _userId);
+                        cmd.Parameters.AddWithValue("@isReset", _userId);
+                        cmd.Parameters.AddWithValue("@password", "password123");
+
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Password was successfully reset!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("User not found.");
+                        }
+                    }
+                }
+            }
+        }
     }
 }

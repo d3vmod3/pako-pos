@@ -180,19 +180,16 @@ namespace PAKOPointOfSale.Transactions
         private void dtgvCart_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
 
-            //if (e.RowIndex < 0) return;
-
+            if (e.RowIndex < 0) return;
 
             DataGridViewRow row = dtgvCart.Rows[e.RowIndex];
             string columnName = dtgvCart.Columns[e.ColumnIndex].Name;
-
 
             // Only recalculate subtotal when quantity or unit price changes
             if (columnName == "appliedQty" || columnName == "unit_price")
             {
                 decimal qty = 0, price = 0;
-
-                string discountType = row.Cells["discountType"].Value.ToString();
+                string discountType = row.Cells["discountType"].Value?.ToString() ?? "none";
 
                 if (row.Cells["appliedQty"].Value != null)
                     decimal.TryParse(row.Cells["appliedQty"].Value.ToString(), out qty);
@@ -200,19 +197,46 @@ namespace PAKOPointOfSale.Transactions
                 if (row.Cells["unit_price"].Value != null)
                     decimal.TryParse(row.Cells["unit_price"].Value.ToString(), out price);
 
-                // Compute subtotal for this row
+                // --- CHECK STOCK FROM DATABASE ---
+                int productId = Convert.ToInt32(row.Cells["id"].Value);
+                decimal currentStock = 0;
+
+                using (var conn = new SqlConnection(Program.ConnString))
+                using (var cmd = new SqlCommand("SELECT quantity FROM Products WHERE id = @productId", conn))
+                {
+                    cmd.Parameters.AddWithValue("@productId", productId);
+                    conn.Open();
+                    var result = cmd.ExecuteScalar();
+                    if (result != null)
+                        currentStock = Convert.ToDecimal(result);
+                }
+
+                if (qty > currentStock)
+                {
+                    MessageBox.Show(
+                        $"Quantity cannot exceed available stock ({currentStock}).",
+                        "Stock Limit",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
+
+                    // Reset quantity to max available
+                    row.Cells["appliedQty"].Value = currentStock;
+                    qty = currentStock;
+                }
+
+                // Recalculate subtotal, VAT, etc.
                 decimal subTotal = qty * price;
                 row.Cells["subTotal"].Value = subTotal.ToString("0.00");
-
-                row.Cells["vatableSales"].Value = Convert.ToString(SalesInvoiceFunctions.getVATableSales(price, qty));
-                row.Cells["vatAmount"].Value = Convert.ToString(SalesInvoiceFunctions.getVATAmount(price, qty));
+                row.Cells["vatableSales"].Value = SalesInvoiceFunctions.getVATableSales(price, qty).ToString("0.00");
+                row.Cells["vatAmount"].Value = SalesInvoiceFunctions.getVATAmount(price, qty).ToString("0.00");
 
                 if (discountType != "none")
                 {
-                    RecalculateValues(discountType, dtgvCart.CurrentRow);
+                    RecalculateValues(discountType, row);
                 }
-
             }
+
             ComputeGrandTotal();
         }
 
@@ -1117,6 +1141,7 @@ namespace PAKOPointOfSale.Transactions
             TransactionID = 0;
             ParkNumber = "";
             dtgvCart.Rows.Clear();
+            lblTotal.Text = "0.00";
         }
     }
 }

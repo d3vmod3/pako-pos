@@ -1,10 +1,12 @@
 using Microsoft.Data.SqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace PAKOPointOfSale
 {
     public partial class Login : Form
     {
         public int user_type_id;
+        public int user_id;
         public Login()
         {
             InitializeComponent();
@@ -27,12 +29,27 @@ namespace PAKOPointOfSale
 
                 this.Hide();
                 MDIParent1 mainMenuForm = new MDIParent1();
-                if (userTypeId == 3)
+                if(is_reset(user_id)==false)
                 {
-                    Transactions.SalesInvoice salesInvoiceForm = new Transactions.SalesInvoice();
-                    salesInvoiceForm.ShowDialog();
+                    if (userTypeId == 3)
+                    {
+                        Transactions.SalesInvoice salesInvoiceForm = new Transactions.SalesInvoice();
+                        salesInvoiceForm.ShowDialog();
+                    }
+                    else
+                    {
+                        mainMenuForm.Show();
+                    }
+                    return;
                 }
-                mainMenuForm.Show();
+                else
+                {
+                    ResetPassword resetPasswordForm = new ResetPassword(user_id);
+                    resetPasswordForm.ShowDialog();
+                }
+
+
+                   
             }
             else
             {
@@ -60,7 +77,10 @@ namespace PAKOPointOfSale
                         {
                             if (reader.Read())
                             {
-                                return reader.GetInt32(reader.GetOrdinal("user_type_id"));
+                                user_type_id = reader.GetInt32(reader.GetOrdinal("user_type_id"));
+                                user_id = reader.GetInt32(reader.GetOrdinal("id"));
+                                return user_type_id;
+                               
                             }
                         }
                     }
@@ -120,6 +140,31 @@ namespace PAKOPointOfSale
         private void txtPassword_TextChanged(object sender, EventArgs e)
         {
 
+        }
+        private bool is_reset(int userID)
+        {
+            using (SqlConnection conn = new SqlConnection(Program.ConnString))
+            {
+                conn.Open();
+                string query = @"
+                SELECT id, is_reset
+                FROM Users
+                WHERE is_reset = @isReset";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@isReset", true);
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            return reader.GetBoolean(reader.GetOrdinal("is_reset"));
+                        }
+                    }
+                }
+            }
+            return false;
         }
     }
 }

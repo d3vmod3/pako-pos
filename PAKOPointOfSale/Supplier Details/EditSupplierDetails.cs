@@ -176,5 +176,27 @@ namespace PAKOPointOfSale.Supplier_Details
         {
 
         }
+
+        private void txtContactNumber_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar))
+            {
+                return;
+            }
+
+            // Allow digits only
+            if (!char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+                return;
+            }
+
+            // Limit max length to 10
+            TextBox textBox = sender as TextBox;
+            if (textBox.Text.Length >= 10)
+            {
+                e.Handled = true; // prevent typing more than 10 digits
+            }
+        }
     }
 }

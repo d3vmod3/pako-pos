@@ -76,17 +76,36 @@ namespace PAKOPointOfSale.Transactions
                 string brand = lblProductBrand.Text;
                 string unit = lblUOM.Text;
                 decimal price = decimal.Parse(lblUnitPrice.Text);
-                
                 string category = lblCategory.Text;
-                decimal quantity = Convert.ToDecimal(num_AppliedQty.Text);
-                decimal subTotal = decimal.Parse(lblUnitPrice.Text) * quantity;
+
+                // Get the applied quantity from numeric up-down
+                decimal appliedQty = num_AppliedQty.Value;
+
+                // Get current stock quantity from your product model
+                decimal currentStock = Convert.ToDecimal(lblCurrentQtyValue.Text); // assuming you have Product object loaded as _currentProduct
+
+                if (appliedQty > currentStock)
+                {
+                    MessageBox.Show($"Cannot add {appliedQty} units to cart. Only {currentStock} units available in stock.",
+                                    "Insufficient Stock",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
+                    return;
+                }
+
+                decimal subTotal = price * appliedQty;
+
                 // Add to cart
-                _salesInvoice.AddProductToCart(product_id, product, brand, unit, price, category, quantity, subTotal);
+                _salesInvoice.AddProductToCart(product_id, product, brand, unit, price, category, appliedQty, subTotal);
+
                 this.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error adding product to cart: " + ex.Message);
+                MessageBox.Show("Error adding product to cart: " + ex.Message,
+                                "Error",    
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
             }
         }
 

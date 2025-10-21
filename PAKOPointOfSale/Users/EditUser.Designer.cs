@@ -55,6 +55,7 @@
             pictureBox1 = new PictureBox();
             lbledituser = new Label();
             btnClose = new Button();
+            btnReset = new Button();
             ((System.ComponentModel.ISupportInitialize)userTypeBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -318,12 +319,23 @@
             btnClose.UseVisualStyleBackColor = false;
             btnClose.Click += btnClose_Click;
             // 
+            // btnReset
+            // 
+            btnReset.Location = new Point(39, 363);
+            btnReset.Name = "btnReset";
+            btnReset.Size = new Size(100, 23);
+            btnReset.TabIndex = 41;
+            btnReset.Text = "Reset Password";
+            btnReset.UseVisualStyleBackColor = true;
+            btnReset.Click += btnReset_Click;
+            // 
             // EditUser
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveBorder;
             ClientSize = new Size(815, 398);
+            Controls.Add(btnReset);
             Controls.Add(btnClose);
             Controls.Add(lbledituser);
             Controls.Add(pictureBox1);
@@ -387,5 +399,6 @@
         private PictureBox pictureBox1;
         private Label lbledituser;
         private Button btnClose;
+        private Button btnReset;
     }
 }
