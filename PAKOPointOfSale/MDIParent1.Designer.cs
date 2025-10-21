@@ -29,21 +29,11 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MDIParent1));
             menuStrip = new MenuStrip();
-            setupToolStripMenuItem = new ToolStripMenuItem();
-            categoriesToolStripMenuItem = new ToolStripMenuItem();
-            usersToolStripMenuItem = new ToolStripMenuItem();
-            suppliersToolStripMenuItem = new ToolStripMenuItem();
-            transactionsToolStripMenuItem = new ToolStripMenuItem();
-            usersToolStripMenuItem1 = new ToolStripMenuItem();
-            userAccessControlToolStripMenuItem = new ToolStripMenuItem();
-            logoutToolStripMenuItem = new ToolStripMenuItem();
-            resetAllToolStripMenuItem = new ToolStripMenuItem();
-            logoutToolStripMenuItem1 = new ToolStripMenuItem();
             statusStrip = new StatusStrip();
             toolStripStatusLabel = new ToolStripStatusLabel();
             toolTip = new ToolTip(components);
@@ -83,13 +73,13 @@
             label12 = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
             button2 = new Button();
-            button1 = new Button();
-            button3 = new Button();
-            button4 = new Button();
-            button5 = new Button();
-            button6 = new Button();
-            button7 = new Button();
-            button8 = new Button();
+            btnPos = new Button();
+            btnCategories = new Button();
+            btnProducts = new Button();
+            btnSuppliers = new Button();
+            btnTransactions = new Button();
+            btnUsers = new Button();
+            btnUac = new Button();
             label13 = new Label();
             label14 = new Label();
             label15 = new Label();
@@ -97,7 +87,6 @@
             label17 = new Label();
             label18 = new Label();
             label19 = new Label();
-            menuStrip.SuspendLayout();
             statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgvTop5SellingProducts).BeginInit();
             groupBox1.SuspendLayout();
@@ -109,7 +98,6 @@
             // 
             // menuStrip
             // 
-            menuStrip.Items.AddRange(new ToolStripItem[] { setupToolStripMenuItem, logoutToolStripMenuItem });
             menuStrip.Location = new Point(0, 0);
             menuStrip.Name = "menuStrip";
             menuStrip.Padding = new Padding(7, 2, 0, 2);
@@ -117,74 +105,6 @@
             menuStrip.TabIndex = 0;
             menuStrip.Text = "MenuStrip";
             menuStrip.ItemClicked += menuStrip_ItemClicked;
-            // 
-            // setupToolStripMenuItem
-            // 
-            setupToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { categoriesToolStripMenuItem, usersToolStripMenuItem, suppliersToolStripMenuItem, transactionsToolStripMenuItem, usersToolStripMenuItem1, userAccessControlToolStripMenuItem });
-            setupToolStripMenuItem.Name = "setupToolStripMenuItem";
-            setupToolStripMenuItem.Size = new Size(49, 20);
-            setupToolStripMenuItem.Text = "Setup";
-            // 
-            // categoriesToolStripMenuItem
-            // 
-            categoriesToolStripMenuItem.Name = "categoriesToolStripMenuItem";
-            categoriesToolStripMenuItem.Size = new Size(180, 22);
-            categoriesToolStripMenuItem.Text = "Categories";
-            categoriesToolStripMenuItem.Click += categoriesToolStripMenuItem_Click;
-            // 
-            // usersToolStripMenuItem
-            // 
-            usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-            usersToolStripMenuItem.Size = new Size(180, 22);
-            usersToolStripMenuItem.Text = "Products";
-            usersToolStripMenuItem.Click += usersToolStripMenuItem_Click;
-            // 
-            // suppliersToolStripMenuItem
-            // 
-            suppliersToolStripMenuItem.Name = "suppliersToolStripMenuItem";
-            suppliersToolStripMenuItem.Size = new Size(180, 22);
-            suppliersToolStripMenuItem.Text = "Suppliers";
-            suppliersToolStripMenuItem.Click += suppliersToolStripMenuItem_Click;
-            // 
-            // transactionsToolStripMenuItem
-            // 
-            transactionsToolStripMenuItem.Name = "transactionsToolStripMenuItem";
-            transactionsToolStripMenuItem.Size = new Size(180, 22);
-            transactionsToolStripMenuItem.Text = "Transactions";
-            transactionsToolStripMenuItem.Click += transactionsToolStripMenuItem_Click;
-            // 
-            // usersToolStripMenuItem1
-            // 
-            usersToolStripMenuItem1.Name = "usersToolStripMenuItem1";
-            usersToolStripMenuItem1.Size = new Size(180, 22);
-            usersToolStripMenuItem1.Text = "Users";
-            usersToolStripMenuItem1.Click += usersToolStripMenuItem1_Click;
-            // 
-            // userAccessControlToolStripMenuItem
-            // 
-            userAccessControlToolStripMenuItem.Name = "userAccessControlToolStripMenuItem";
-            userAccessControlToolStripMenuItem.Size = new Size(180, 22);
-            userAccessControlToolStripMenuItem.Text = "User Access Control";
-            userAccessControlToolStripMenuItem.Click += userAccessControlToolStripMenuItem_Click;
-            // 
-            // logoutToolStripMenuItem
-            // 
-            logoutToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { resetAllToolStripMenuItem, logoutToolStripMenuItem1 });
-            logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            logoutToolStripMenuItem.Size = new Size(61, 20);
-            logoutToolStripMenuItem.Text = "Settings";
-            // 
-            // resetAllToolStripMenuItem
-            // 
-            resetAllToolStripMenuItem.Name = "resetAllToolStripMenuItem";
-            resetAllToolStripMenuItem.Size = new Size(119, 22);
-            resetAllToolStripMenuItem.Text = "Reset All";
-            // 
-            // logoutToolStripMenuItem1
-            // 
-            logoutToolStripMenuItem1.Name = "logoutToolStripMenuItem1";
-            logoutToolStripMenuItem1.Size = new Size(119, 22);
-            logoutToolStripMenuItem1.Text = "Logout";
             // 
             // statusStrip
             // 
@@ -207,29 +127,29 @@
             // 
             dtgvTop5SellingProducts.AllowUserToAddRows = false;
             dtgvTop5SellingProducts.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle10.ForeColor = Color.Black;
-            dataGridViewCellStyle10.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = Color.White;
-            dtgvTop5SellingProducts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = Color.White;
+            dtgvTop5SellingProducts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dtgvTop5SellingProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgvTop5SellingProducts.BackgroundColor = SystemColors.ControlLight;
             dtgvTop5SellingProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgvTop5SellingProducts.Columns.AddRange(new DataGridViewColumn[] { product_name, total_quantity_sold, total_sales });
-            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = SystemColors.Window;
-            dataGridViewCellStyle11.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle11.ForeColor = Color.White;
-            dataGridViewCellStyle11.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.False;
-            dtgvTop5SellingProducts.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dtgvTop5SellingProducts.DefaultCellStyle = dataGridViewCellStyle2;
             dtgvTop5SellingProducts.Location = new Point(13, 17);
             dtgvTop5SellingProducts.Name = "dtgvTop5SellingProducts";
             dtgvTop5SellingProducts.ReadOnly = true;
             dtgvTop5SellingProducts.RowHeadersVisible = false;
-            dataGridViewCellStyle12.ForeColor = Color.Black;
-            dataGridViewCellStyle12.SelectionBackColor = SystemColors.Highlight;
-            dtgvTop5SellingProducts.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle3.ForeColor = Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dtgvTop5SellingProducts.RowsDefaultCellStyle = dataGridViewCellStyle3;
             dtgvTop5SellingProducts.Size = new Size(639, 271);
             dtgvTop5SellingProducts.TabIndex = 11;
             // 
@@ -599,76 +519,82 @@
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click_1;
             // 
-            // button1
+            // btnPos
             // 
-            button1.BackgroundImage = Properties.Resources.pos_terminal;
-            button1.BackgroundImageLayout = ImageLayout.Stretch;
-            button1.Location = new Point(1171, 155);
-            button1.Name = "button1";
-            button1.Size = new Size(148, 101);
-            button1.TabIndex = 4;
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnPos.BackgroundImage = Properties.Resources.pos_terminal;
+            btnPos.BackgroundImageLayout = ImageLayout.Stretch;
+            btnPos.Location = new Point(1171, 155);
+            btnPos.Name = "btnPos";
+            btnPos.Size = new Size(148, 101);
+            btnPos.TabIndex = 4;
+            btnPos.UseVisualStyleBackColor = true;
+            btnPos.Click += button1_Click;
             // 
-            // button3
+            // btnCategories
             // 
-            button3.BackgroundImage = (Image)resources.GetObject("button3.BackgroundImage");
-            button3.BackgroundImageLayout = ImageLayout.Stretch;
-            button3.Location = new Point(46, 155);
-            button3.Name = "button3";
-            button3.Size = new Size(139, 103);
-            button3.TabIndex = 164;
-            button3.UseVisualStyleBackColor = true;
+            btnCategories.BackgroundImage = (Image)resources.GetObject("btnCategories.BackgroundImage");
+            btnCategories.BackgroundImageLayout = ImageLayout.Stretch;
+            btnCategories.Location = new Point(46, 155);
+            btnCategories.Name = "btnCategories";
+            btnCategories.Size = new Size(139, 103);
+            btnCategories.TabIndex = 164;
+            btnCategories.UseVisualStyleBackColor = true;
+            btnCategories.Click += btnCategories_Click;
             // 
-            // button4
+            // btnProducts
             // 
-            button4.BackgroundImage = (Image)resources.GetObject("button4.BackgroundImage");
-            button4.BackgroundImageLayout = ImageLayout.Stretch;
-            button4.Location = new Point(232, 155);
-            button4.Name = "button4";
-            button4.Size = new Size(135, 103);
-            button4.TabIndex = 165;
-            button4.UseVisualStyleBackColor = true;
+            btnProducts.BackgroundImage = (Image)resources.GetObject("btnProducts.BackgroundImage");
+            btnProducts.BackgroundImageLayout = ImageLayout.Stretch;
+            btnProducts.Location = new Point(232, 155);
+            btnProducts.Name = "btnProducts";
+            btnProducts.Size = new Size(135, 103);
+            btnProducts.TabIndex = 165;
+            btnProducts.UseVisualStyleBackColor = true;
+            btnProducts.Click += btnProducts_Click;
             // 
-            // button5
+            // btnSuppliers
             // 
-            button5.BackgroundImage = (Image)resources.GetObject("button5.BackgroundImage");
-            button5.BackgroundImageLayout = ImageLayout.Stretch;
-            button5.Location = new Point(417, 155);
-            button5.Name = "button5";
-            button5.Size = new Size(137, 103);
-            button5.TabIndex = 166;
-            button5.UseVisualStyleBackColor = true;
+            btnSuppliers.BackgroundImage = (Image)resources.GetObject("btnSuppliers.BackgroundImage");
+            btnSuppliers.BackgroundImageLayout = ImageLayout.Stretch;
+            btnSuppliers.Location = new Point(417, 155);
+            btnSuppliers.Name = "btnSuppliers";
+            btnSuppliers.Size = new Size(137, 103);
+            btnSuppliers.TabIndex = 166;
+            btnSuppliers.UseVisualStyleBackColor = true;
+            btnSuppliers.Click += btnSuppliers_Click;
             // 
-            // button6
+            // btnTransactions
             // 
-            button6.BackgroundImage = (Image)resources.GetObject("button6.BackgroundImage");
-            button6.BackgroundImageLayout = ImageLayout.Stretch;
-            button6.Location = new Point(608, 157);
-            button6.Name = "button6";
-            button6.Size = new Size(144, 101);
-            button6.TabIndex = 167;
-            button6.UseVisualStyleBackColor = true;
+            btnTransactions.BackgroundImage = (Image)resources.GetObject("btnTransactions.BackgroundImage");
+            btnTransactions.BackgroundImageLayout = ImageLayout.Stretch;
+            btnTransactions.Location = new Point(608, 157);
+            btnTransactions.Name = "btnTransactions";
+            btnTransactions.Size = new Size(144, 101);
+            btnTransactions.TabIndex = 167;
+            btnTransactions.UseVisualStyleBackColor = true;
+            btnTransactions.Click += btnTransactions_Click;
             // 
-            // button7
+            // btnUsers
             // 
-            button7.BackgroundImage = (Image)resources.GetObject("button7.BackgroundImage");
-            button7.BackgroundImageLayout = ImageLayout.Stretch;
-            button7.Location = new Point(797, 155);
-            button7.Name = "button7";
-            button7.Size = new Size(135, 101);
-            button7.TabIndex = 168;
-            button7.UseVisualStyleBackColor = true;
+            btnUsers.BackgroundImage = (Image)resources.GetObject("btnUsers.BackgroundImage");
+            btnUsers.BackgroundImageLayout = ImageLayout.Stretch;
+            btnUsers.Location = new Point(797, 155);
+            btnUsers.Name = "btnUsers";
+            btnUsers.Size = new Size(135, 101);
+            btnUsers.TabIndex = 168;
+            btnUsers.UseVisualStyleBackColor = true;
+            btnUsers.Click += btnUsers_Click;
             // 
-            // button8
+            // btnUac
             // 
-            button8.BackgroundImage = (Image)resources.GetObject("button8.BackgroundImage");
-            button8.BackgroundImageLayout = ImageLayout.Stretch;
-            button8.Location = new Point(977, 155);
-            button8.Name = "button8";
-            button8.Size = new Size(150, 101);
-            button8.TabIndex = 169;
-            button8.UseVisualStyleBackColor = true;
+            btnUac.BackgroundImage = (Image)resources.GetObject("btnUac.BackgroundImage");
+            btnUac.BackgroundImageLayout = ImageLayout.Stretch;
+            btnUac.Location = new Point(977, 155);
+            btnUac.Name = "btnUac";
+            btnUac.Size = new Size(150, 101);
+            btnUac.TabIndex = 169;
+            btnUac.UseVisualStyleBackColor = true;
+            btnUac.Click += btnUac_Click;
             // 
             // label13
             // 
@@ -760,12 +686,12 @@
             Controls.Add(label16);
             Controls.Add(label14);
             Controls.Add(label13);
-            Controls.Add(button8);
-            Controls.Add(button7);
-            Controls.Add(button6);
-            Controls.Add(button5);
-            Controls.Add(button4);
-            Controls.Add(button3);
+            Controls.Add(btnUac);
+            Controls.Add(btnUsers);
+            Controls.Add(btnTransactions);
+            Controls.Add(btnSuppliers);
+            Controls.Add(btnProducts);
+            Controls.Add(btnCategories);
             Controls.Add(button2);
             Controls.Add(lblTime);
             Controls.Add(lblDate);
@@ -790,7 +716,7 @@
             Controls.Add(dtpTo);
             Controls.Add(label1);
             Controls.Add(dtpFrom);
-            Controls.Add(button1);
+            Controls.Add(btnPos);
             Controls.Add(statusStrip);
             Controls.Add(menuStrip);
             FormBorderStyle = FormBorderStyle.None;
@@ -804,8 +730,6 @@
             TransparencyKey = Color.White;
             WindowState = FormWindowState.Maximized;
             Load += SuperAdminForm_Load;
-            menuStrip.ResumeLayout(false);
-            menuStrip.PerformLayout();
             statusStrip.ResumeLayout(false);
             statusStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dtgvTop5SellingProducts).EndInit();
@@ -825,16 +749,6 @@
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
         private System.Windows.Forms.ToolTip toolTip;
-        private ToolStripMenuItem setupToolStripMenuItem;
-        private ToolStripMenuItem categoriesToolStripMenuItem;
-        private ToolStripMenuItem usersToolStripMenuItem;
-        private ToolStripMenuItem suppliersToolStripMenuItem;
-        private ToolStripMenuItem transactionsToolStripMenuItem;
-        private ToolStripMenuItem usersToolStripMenuItem1;
-        private ToolStripMenuItem userAccessControlToolStripMenuItem;
-        private ToolStripMenuItem logoutToolStripMenuItem;
-        private ToolStripMenuItem resetAllToolStripMenuItem;
-        private ToolStripMenuItem logoutToolStripMenuItem1;
         private DataGridView dtgvTop5SellingProducts;
         private DataGridViewTextBoxColumn product_name;
         private DataGridViewTextBoxColumn total_quantity_sold;
@@ -871,13 +785,13 @@
         private Label label12;
         private System.Windows.Forms.Timer timer1;
         private Button button2;
-        private Button button1;
-        private Button button3;
-        private Button button4;
-        private Button button5;
-        private Button button6;
-        private Button button7;
-        private Button button8;
+        private Button btnPos;
+        private Button btnCategories;
+        private Button btnProducts;
+        private Button btnSuppliers;
+        private Button btnTransactions;
+        private Button btnUsers;
+        private Button btnUac;
         private Label label13;
         private Label label14;
         private Label label15;

@@ -37,7 +37,6 @@
             label1 = new Label();
             pictureBox1 = new PictureBox();
             checkBox1 = new CheckBox();
-            linkLabel1 = new LinkLabel();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -129,27 +128,13 @@
             checkBox1.AutoSize = true;
             checkBox1.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             checkBox1.ForeColor = Color.White;
-            checkBox1.Location = new Point(65, 364);
+            checkBox1.Location = new Point(196, 366);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(118, 21);
             checkBox1.TabIndex = 8;
             checkBox1.Text = "Show Password";
             checkBox1.UseVisualStyleBackColor = true;
             checkBox1.CheckedChanged += checkBox1_CheckedChanged;
-            // 
-            // linkLabel1
-            // 
-            linkLabel1.AutoSize = true;
-            linkLabel1.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            linkLabel1.ForeColor = Color.White;
-            linkLabel1.LinkColor = Color.White;
-            linkLabel1.Location = new Point(202, 365);
-            linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(113, 17);
-            linkLabel1.TabIndex = 9;
-            linkLabel1.TabStop = true;
-            linkLabel1.Text = "Forgot Password?";
-            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
             // 
             // Login
             // 
@@ -158,7 +143,6 @@
             BackColor = Color.DarkSlateGray;
             ClientSize = new Size(356, 462);
             ControlBox = false;
-            Controls.Add(linkLabel1);
             Controls.Add(checkBox1);
             Controls.Add(label1);
             Controls.Add(pictureBox3);
@@ -190,6 +174,5 @@
         private Label label1;
         private PictureBox pictureBox1;
         private CheckBox checkBox1;
-        private LinkLabel linkLabel1;
     }
 }

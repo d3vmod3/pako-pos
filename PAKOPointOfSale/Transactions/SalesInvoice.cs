@@ -895,6 +895,8 @@ namespace PAKOPointOfSale.Transactions
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+            MDIParent1 dashboardForm = new MDIParent1();
+            dashboardForm.Show();
         }
 
         private void button2_Click_Park(object sender, EventArgs e)
