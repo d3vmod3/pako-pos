@@ -124,20 +124,35 @@ namespace PAKOPointOfSale
             string connString = Program.ConnString;
 
             string query = @"
-                SELECT TOP 5
+               SELECT TOP 5
                     p.product_name AS [product_name],
-                    SUM(sii.quantity) AS [total_quantity_sold],
-                    SUM(sii.total_amount) AS [total_sales]
+                    SUM(sii.quantity) - ISNULL((
+                        SELECT SUM(ri.quantity)
+                        FROM ReturnItems ri
+                        INNER JOIN ReturnTransactions rt
+                            ON ri.return_transaction_id = rt.id
+                        WHERE ri.product_id = sii.product_id
+                    ), 0) AS [total_quantity_sold],
+                    SUM(sii.total_amount) - ISNULL((
+                        SELECT SUM(ri.total_amount)
+                        FROM ReturnItems ri
+                        INNER JOIN ReturnTransactions rt
+                            ON ri.return_transaction_id = rt.id
+                        WHERE ri.product_id = sii.product_id
+                    ), 0) AS [total_sales]
                 FROM SalesInvoiceItems sii
-                INNER JOIN Products p ON sii.product_id = p.id
-                INNER JOIN [Transactions] t ON sii.transaction_id = t.id
-                WHERE t.transaction_type = 'Sales Invoice'
-                      AND t.status = 'success'
-                      AND t.invoice_number NOT IN (SELECT invoice_number FROM VoidTransactions)
-                      AND t.invoice_number NOT IN (SELECT invoice_number FROM ReturnTransactions)
-                      AND t.created_at BETWEEN @from AND @to
-                GROUP BY p.product_name
-                ORDER BY SUM(sii.quantity) DESC;
+                INNER JOIN Products p
+                    ON sii.product_id = p.id
+                INNER JOIN Transactions t
+                    ON sii.transaction_id = t.id
+                WHERE 
+                    t.transaction_type = 'Sales Invoice'
+                    AND t.status = 'success'
+                    AND t.status = 'success'
+                    AND t.created_at BETWEEN @from AND @to
+                    AND t.invoice_number NOT IN (SELECT invoice_number FROM VoidTransactions)
+                GROUP BY p.product_name,sii.product_id
+                ORDER BY [total_quantity_sold] DESC;
             ";
 
             using (var conn = new SqlConnection(connString))
@@ -294,17 +309,29 @@ namespace PAKOPointOfSale
 
             string query = @"
                             SELECT
+                                t.invoice_number,
+                                -- Gross sales: sum of sold items, excluding voided transactions
                                 SUM(sii.unit_price * sii.quantity) AS gross_sales,
-                                SUM(sii.unit_price * sii.quantity) AS grand_total,
-                                SUM(sii.vatable_sales) AS net_sales
-                            FROM [Transactions] t
+
+                                -- Net sales: total amount minus returns
+                                SUM(sii.total_amount) - ISNULL(SUM(rt_total.total_return_amount), 0) AS net_sales,
+
+                                -- Grand total: gross sales minus returned amounts
+                                SUM(sii.unit_price * sii.quantity) - ISNULL(SUM(rt_total.total_return_amount), 0) AS grand_total
+                            FROM Transactions t
                             INNER JOIN SalesInvoiceItems sii ON sii.transaction_id = t.id
+                            -- Derived table for total returns per invoice
+                            LEFT JOIN (
+                                SELECT rt.invoice_number, SUM(ri.total_amount) AS total_return_amount
+                                FROM ReturnTransactions rt
+                                INNER JOIN ReturnItems ri ON ri.return_transaction_id = rt.id
+                                GROUP BY rt.invoice_number
+                            ) rt_total ON rt_total.invoice_number = t.invoice_number
                             WHERE t.transaction_type = 'Sales Invoice'
                                   AND t.status = 'success'
                                   AND t.invoice_number NOT IN (SELECT invoice_number FROM VoidTransactions)
-                                  AND t.invoice_number NOT IN (SELECT invoice_number FROM ReturnTransactions)
-                                  AND t.created_at BETWEEN @from AND @to;
-                        ";
+                            GROUP BY t.invoice_number
+                            ORDER BY t.invoice_number;";
             using (var conn = new SqlConnection(connString))
             using (var cmd = new SqlCommand(query, conn))
             {

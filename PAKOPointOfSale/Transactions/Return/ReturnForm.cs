@@ -59,16 +59,19 @@ namespace PAKOPointOfSale.Transactions.Return
         private void button1_Click_1(object sender, EventArgs e)
         {
             var confirmForm = new ActionConfirmation("Please confirm admin credentials to proceed.", true, "return");
-            if (confirmForm.ShowDialog() == DialogResult.OK)
+            if (confirmForm.ShowDialog() != DialogResult.OK)
+                return;
+
+            string connString = PAKOPointOfSale.Program.ConnString;
+            string returnNumber = SalesInvoiceFunctions.GenerateNextReturnNumber();
+
+            using (SqlConnection conn = new SqlConnection(connString))
             {
-                string connString = PAKOPointOfSale.Program.ConnString;
-                string returnNumber = SalesInvoiceFunctions.GenerateNextReturnNumber();
+                conn.Open();
 
-                using (SqlConnection conn = new SqlConnection(connString))
+                using (SqlTransaction sqlTrans = conn.BeginTransaction())
                 {
-                    conn.Open();
-
-                    using (SqlTransaction sqlTrans = conn.BeginTransaction())
+                    try
                     {
                         decimal totalVatAmount = 0;
                         decimal totalVatableSales = 0;
@@ -88,16 +91,15 @@ namespace PAKOPointOfSale.Transactions.Return
 
                         totalGrandTotal = totalSubTotal;
 
-
                         // 1️⃣ Create new transaction record (for return)
                         string insertTransactionQuery = @"
-                        INSERT INTO Transactions 
-                        (invoice_number, vat_amount, vatable_sales, vat_exempt, sub_total, grand_total,
-                            payment_method, cash_received, cash_change, status, transaction_type, created_at)
-                        VALUES 
-                        (@invoice_number, @vat_amount, @vatable_sales, @vat_exempt, @sub_total, @grand_total,
-                            @payment_method, @cash_received, @cash_change, @status, @transaction_type, GETDATE());
-                        SELECT SCOPE_IDENTITY();";
+                    INSERT INTO Transactions 
+                    (invoice_number, vat_amount, vatable_sales, vat_exempt, sub_total, grand_total,
+                     payment_method, cash_received, cash_change, status, transaction_type, created_at)
+                    VALUES 
+                    (@invoice_number, @vat_amount, @vatable_sales, @vat_exempt, @sub_total, @grand_total,
+                     @payment_method, @cash_received, @cash_change, @status, @transaction_type, GETDATE());
+                    SELECT SCOPE_IDENTITY();";
 
                         int newTransactionId;
                         using (SqlCommand cmd = new SqlCommand(insertTransactionQuery, conn, sqlTrans))
@@ -108,7 +110,6 @@ namespace PAKOPointOfSale.Transactions.Return
                             cmd.Parameters.AddWithValue("@vat_exempt", totalVatExempt);
                             cmd.Parameters.AddWithValue("@sub_total", totalSubTotal);
                             cmd.Parameters.AddWithValue("@grand_total", totalGrandTotal);
-
                             cmd.Parameters.AddWithValue("@payment_method", "cash");
                             cmd.Parameters.AddWithValue("@cash_received", 0);
                             cmd.Parameters.AddWithValue("@cash_change", 0);
@@ -120,9 +121,9 @@ namespace PAKOPointOfSale.Transactions.Return
 
                         // 2️⃣ Create return header in ReturnTransactions table
                         string insertReturnTransactionQuery = @"
-                        INSERT INTO ReturnTransactions (return_number, invoice_number, transaction_id)
-                        VALUES (@return_number, @invoice_number, @transaction_id);
-                        SELECT SCOPE_IDENTITY();";
+                    INSERT INTO ReturnTransactions (return_number, invoice_number, transaction_id)
+                    VALUES (@return_number, @invoice_number, @transaction_id);
+                    SELECT SCOPE_IDENTITY();";
 
                         int returnTransactionId;
                         using (SqlCommand cmd = new SqlCommand(insertReturnTransactionQuery, conn, sqlTrans))
@@ -132,8 +133,6 @@ namespace PAKOPointOfSale.Transactions.Return
                             cmd.Parameters.AddWithValue("@transaction_id", newTransactionId);
                             returnTransactionId = Convert.ToInt32(cmd.ExecuteScalar());
                         }
-
-                        decimal totalReturnAmount = 0;
 
                         // 3️⃣ Loop through each returned item
                         foreach (DataGridViewRow row in dgvReturnItems.Rows)
@@ -150,19 +149,18 @@ namespace PAKOPointOfSale.Transactions.Return
                             decimal discount = Convert.ToDecimal(row.Cells["discount"].Value ?? 0);
                             string discountType = row.Cells["discount_type"].Value?.ToString() ?? "none";
                             string unitOfMeasurement = row.Cells["unit_of_measurement"].Value?.ToString() ?? "";
-                            totalReturnAmount += totalAmount;
 
-                            // 🧾 Insert returned item into SalesInvoiceItems table
-                            string insertSalesItemQuery = @"
-                            INSERT INTO SalesInvoiceItems 
-                            (transaction_id, product_id, quantity, unit_price, vat_amount, vatable_sales, vat_exempt, 
-                                discount, discount_type, total_amount, unit_of_measurement, transaction_type)
+                            // 🧾 Insert returned item into ReturnItems table
+                            string insertReturnItemQuery = @"
+                            INSERT INTO ReturnItems 
+                            (return_transaction_id, product_id, quantity, unit_price, vat_amount, vatable_sales, vat_exempt, 
+                             discount, discount_type, total_amount, unit_of_measurement, transaction_type)
                             VALUES 
-                            (@transaction_id, @product_id, @quantity, @unit_price, @vat_amount, @vatable_sales, @vat_exempt,
-                                @discount, @discount_type, @total_amount, @unit_of_measurement, @transaction_type)";
-                            using (SqlCommand cmd = new SqlCommand(insertSalesItemQuery, conn, sqlTrans))
+                            (@return_transaction_id, @product_id, @quantity, @unit_price, @vat_amount, @vatable_sales, @vat_exempt,
+                             @discount, @discount_type, @total_amount, @unit_of_measurement, @transaction_type)";
+                            using (SqlCommand cmd = new SqlCommand(insertReturnItemQuery, conn, sqlTrans))
                             {
-                                cmd.Parameters.AddWithValue("@transaction_id", newTransactionId);
+                                cmd.Parameters.AddWithValue("@return_transaction_id", returnTransactionId);
                                 cmd.Parameters.AddWithValue("@product_id", productId);
                                 cmd.Parameters.AddWithValue("@quantity", returnQty);
                                 cmd.Parameters.AddWithValue("@unit_price", unitPrice);
@@ -187,17 +185,7 @@ namespace PAKOPointOfSale.Transactions.Return
                             }
                         }
 
-
-                        //// 7️⃣ Update total return amount in Transactions table
-                        //string updateTotalQuery = "UPDATE Transactions SET grand_total = @total WHERE id = @id";
-                        //using (SqlCommand cmd = new SqlCommand(updateTotalQuery, conn, sqlTrans))
-                        //{
-                        //    cmd.Parameters.AddWithValue("@total", totalReturnAmount);
-                        //    cmd.Parameters.AddWithValue("@id", newTransactionId);
-                        //    cmd.ExecuteNonQuery();
-                        //}
-
-                        // ✅ Commit all
+                        // ✅ Commit all operations
                         sqlTrans.Commit();
 
                         MessageBox.Show(
@@ -206,17 +194,110 @@ namespace PAKOPointOfSale.Transactions.Return
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Information
                         );
+
                         Transactions.PrintReturnReceipt.GenerateReturnReceiptFromTransactionId(newTransactionId);
                         this.Close();
                     }
+                    catch (Exception ex)
+                    {
+                        sqlTrans.Rollback();
+                        MessageBox.Show($"An error occurred while processing the return:\n{ex.Message}",
+                            "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
-
         }
+
 
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void dgvReturnItems_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+
+            //if (e.RowIndex < 0) return;
+
+
+            DataGridViewRow row = dgvReturnItems.Rows[e.RowIndex];
+            string columnName = dgvReturnItems.Columns[e.ColumnIndex].Name;
+
+
+            // Only recalculate subtotal when quantity or unit price changes
+            if (columnName == "quantity" || columnName == "unit_price")
+            {
+                decimal qty = 0, price = 0;
+
+                string discountType = row.Cells["discount_type"].Value.ToString();
+
+                if (row.Cells["quantity"].Value != null)
+                    decimal.TryParse(row.Cells["quantity"].Value.ToString(), out qty);
+
+                if (row.Cells["unit_price"].Value != null)
+                    decimal.TryParse(row.Cells["unit_price"].Value.ToString(), out price);
+
+                // Compute subtotal for this row
+                decimal subTotal = qty * price;
+                row.Cells["total_amount"].Value = subTotal.ToString("0.00");
+
+                row.Cells["vatable_sales"].Value = Convert.ToString(SalesInvoiceFunctions.getVATableSales(price, qty));
+                row.Cells["vat_amount"].Value = Convert.ToString(SalesInvoiceFunctions.getVATAmount(price, qty));
+
+                if (discountType != "none")
+                {
+                    RecalculateValues(discountType, dgvReturnItems.CurrentRow);
+                }
+
+            }
+            //ComputeGrandTotal();
+        }
+        private void RecalculateValues(string selectedDiscountType, DataGridViewRow selectedRow)
+        {
+            if (selectedRow == null) return;
+
+            decimal price = Convert.ToDecimal(selectedRow.Cells["unit_price"].Value);
+            decimal qty = Convert.ToDecimal(selectedRow.Cells["quantity"].Value);
+            decimal originalSubTotal = price * qty;
+
+            if (selectedDiscountType == "None")
+            {
+                // Restore original values
+                selectedRow.Cells["discount_type"].Value = "None";
+                selectedRow.Cells["discount"].Value = 0m;
+                selectedRow.Cells["total_amount"].Value = originalSubTotal;
+                selectedRow.Cells["vat_amount"].Value = 0.12m * (originalSubTotal / 1.12m);
+                selectedRow.Cells["vat_exempt"].Value = 0.00m;
+            }
+            else
+            {
+                // Apply selected discount
+                selectedRow.Cells["discount_type"].Value = selectedDiscountType;
+                decimal discountAmount = 0m;
+
+                if (selectedDiscountType.Contains("Senior Citizen 5%") || selectedDiscountType.Contains("Person With Disability 5%"))
+                {
+                    discountAmount = SalesInvoiceFunctions.getSCDiscount(price, 0.05m, qty);
+                    selectedRow.Cells["vat_amount"].Value = 0.00m;
+                    selectedRow.Cells["vat_exempt"].Value = 0.12m * ((price * qty) / 1.12m);
+                }
+                else if (selectedDiscountType.Contains("Senior Citizen 20%") || selectedDiscountType.Contains("Person With Disability 20%") ||
+                         selectedDiscountType.Contains("National Athletes and Coaches 20%"))
+                {
+                    discountAmount = SalesInvoiceFunctions.getSCDiscount(price, 0.20m, qty);
+
+                    // For 20% SC/PWD, exempt from VAT (except athletes)
+                    if (!selectedDiscountType.Contains("National Athletes and Coaches 20%"))
+                    {
+                        selectedRow.Cells["vat_amount"].Value = 0.00m;
+                        selectedRow.Cells["vat_exempt"].Value = 0.12m * ((price * qty) / 1.12m);
+                    }
+                }
+
+                // Update row with discount
+                selectedRow.Cells["discount"].Value = discountAmount;
+                selectedRow.Cells["total_amount"].Value = originalSubTotal - discountAmount;
+            }
         }
     }
 }

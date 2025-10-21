@@ -66,29 +66,13 @@ namespace PAKOPointOfSale.Transactions
                         }
                     }
                 }
-
+                string query = queryString(lblTransactionType.Text);
                 // Load transaction items
-                using (var cmdItems = new SqlCommand(@"
-                SELECT si.id,
-                       si.product_id,
-                       p.product_code,
-                       p.product_name,
-                       p.product_brand,
-                       si.quantity,
-                       si.unit_price,
-                       si.total_amount,
-                       si.vat_amount,
-                       si.vatable_sales,
-                       si.vat_exempt,
-                       si.discount,
-                       si.discount_type,
-                       si.unit_of_measurement
-                FROM SalesInvoiceItems si
-                INNER JOIN Products p ON si.product_id = p.id
-                WHERE si.transaction_id = @id
-                ORDER BY si.id", conn))
+                using (var cmdItems = new SqlCommand(query, conn))
                 {
-                    cmdItems.Parameters.AddWithValue("@id", _id);
+                    cmdItems.Parameters.AddWithValue("@invoiceNumber", _invoiceNumber);
+                    cmdItems.Parameters.AddWithValue("@transactionId", _id);
+
 
                     DataTable dtItems = new DataTable();
                     using (var adapter = new SqlDataAdapter(cmdItems))
@@ -158,6 +142,7 @@ namespace PAKOPointOfSale.Transactions
                                 cmbInvoiceAction.SelectedItem = "Void";
                                 cmbInvoiceAction.Enabled = false;
                                 btnProceed.Enabled = false;
+                                dgvItems.ReadOnly = true;
                             }
                             else
                             {
@@ -166,15 +151,17 @@ namespace PAKOPointOfSale.Transactions
                                 cmbInvoiceAction.SelectedItem = "";
                                 cmbInvoiceAction.Enabled = true;
                                 btnProceed.Enabled = true;
+                                dgvItems.ReadOnly = false;
                             }
                         }
                     }
                 }
                 else if (transactionType == "Return" || transactionType == "Sales Invoice")
                 {
-                    using (var cmdReturn = new SqlCommand("SELECT * FROM ReturnTransactions WHERE invoice_number = @invoiceNumber", conn))
+                    using (var cmdReturn = new SqlCommand("SELECT TOP 1 * FROM ReturnTransactions WHERE invoice_number = @invoiceNumber and transaction_id=@transactionId  ORDER BY id DESC", conn))
                     {
                         cmdReturn.Parameters.AddWithValue("@invoiceNumber", lblInvoiceNumber.Text);
+                        cmdReturn.Parameters.AddWithValue("@transactionId", lblTransactionId.Text);
                         lblAdjustmentNumber.Text = "";
 
                         using (var reader = cmdReturn.ExecuteReader())
@@ -205,14 +192,19 @@ namespace PAKOPointOfSale.Transactions
                                     cmbInvoiceAction.SelectedItem = "Return";
                                     //cmbInvoiceAction.Enabled = false;
                                     btnProceed.Enabled = false;
+                                    dgvItems.ReadOnly = true;
                                 }
                                 else
                                 {
-                                    lblVoidOrReturn.Visible = false;
-                                    lblAdjustmentNumber.Visible = false;
-                                    cmbInvoiceAction.SelectedItem = "";
-                                    cmbInvoiceAction.Enabled = true;
-                                    btnProceed.Enabled = true;
+                                    lblVoidOrReturn.Visible = true;
+                                    lblAdjustmentNumber.Visible = true;
+                                    lblVoidOrReturn.Text = "Return No.: ";
+                                    lblAdjustmentNumber.Text = reader["return_number"].ToString();
+                                    adjustment_number = reader["return_number"].ToString();
+                                    cmbInvoiceAction.SelectedItem = "Return";
+                                    //cmbInvoiceAction.Enabled = false;
+                                    btnProceed.Enabled = false;
+                                    dgvItems.ReadOnly = true;
                                 }
                             }
                             else
@@ -313,7 +305,89 @@ namespace PAKOPointOfSale.Transactions
             }
         }
 
-        
+        private string queryString(string transaction_type)
+        {
+            if (transaction_type == "Sales Invoice")
+            {
+                return @"
+                SELECT 
+                    si.id,
+                    si.product_id,
+                    p.product_code,
+                    p.product_name,
+                    p.product_brand,
+                    ISNULL(SUM(ri.quantity), 0) AS returned_quantity,
+                    (si.quantity - ISNULL(SUM(ri.quantity), 0)) AS quantity,
+                    si.unit_price,
+                    si.total_amount,
+                    si.vat_amount,
+                    si.vatable_sales,
+                    si.vat_exempt,
+                    si.discount,
+                    si.discount_type,
+                    si.unit_of_measurement
+                FROM SalesInvoiceItems si
+                INNER JOIN Products p 
+                    ON si.product_id = p.id
+                LEFT JOIN ReturnTransactions rt 
+                    ON rt.invoice_number = @invoiceNumber
+                LEFT JOIN ReturnItems ri 
+                    ON ri.return_transaction_id = rt.id
+                    AND ri.product_id = si.product_id
+                WHERE si.transaction_id = @transactionId
+                GROUP BY 
+                    si.id,
+                    si.product_id,
+                    p.product_code,
+                    p.product_name,
+                    p.product_brand,
+                    si.quantity,
+                    si.unit_price,
+                    si.total_amount,
+                    si.vat_amount,
+                    si.vatable_sales,
+                    si.vat_exempt,
+                    si.discount,
+                    si.discount_type,
+                    si.unit_of_measurement
+                ORDER BY si.id;";
+            }
+            else if (transaction_type == "Return")
+            {
+                return @"
+                SELECT 
+                    ri.id,
+                    ri.product_id,
+                    p.product_code,
+                    p.product_name,
+                    p.product_brand,
+                    ri.quantity,
+                    ri.unit_price,
+                    ri.total_amount,
+                    ri.vat_amount,
+                    ri.vatable_sales,
+                    ri.vat_exempt,
+                    ri.discount,
+                    ri.discount_type,
+                    ri.unit_of_measurement,
+                    rt.invoice_number,
+                    rt.transaction_id AS original_transaction_id
+                FROM ReturnItems ri
+                INNER JOIN Products p 
+                    ON ri.product_id = p.id
+                INNER JOIN ReturnTransactions rt 
+                    ON ri.return_transaction_id = rt.id
+                WHERE rt.transaction_id = @transactionId
+                ORDER BY ri.id;";
+            }
+            else
+            {
+                return ""; // fallback
+            }
+        }
+
+
+
 
 
         private void button1_Click(object sender, EventArgs e)

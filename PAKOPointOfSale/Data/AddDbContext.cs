@@ -22,6 +22,7 @@ namespace WinFormsApp1.Data
         public DbSet<Transaction> Transactions { get; set; }
         public DbSet<VoidTransaction> VoidTransactions { get; set; }
         public DbSet<ReturnTransaction> ReturnTransactions { get; set; }
+        public DbSet<ReturnItem> ReturnItems { get; set; }
         public DbSet<SalesInvoiceItem> SalesInvoiceItems { get; set; }
         public DbSet<ParkedTransaction> ParkedTransactions { get; set; }
         public DbSet<ParkedSalesInvoiceItem> ParkedSalesInvoiceItems { get; set; }
@@ -67,7 +68,7 @@ namespace WinFormsApp1.Data
                 new Permission { id = 16, user_type_id = 3, module_name = "Products", can_view = false, can_add = false, can_edit = false, can_delete = false },
                 new Permission { id = 17, user_type_id = 3, module_name = "Suppliers", can_view = false, can_add = false, can_edit = false, can_delete = false },
                 new Permission { id = 18, user_type_id = 3, module_name = "Sales Invoice", can_view = true, can_add = true, can_edit = true }, // SetActive N/A
-                new Permission { id = 19, user_type_id = 3, module_name = "Transactions", can_view = false, can_add = false, can_edit = false, can_delete = false },
+                new Permission { id = 19, user_type_id = 3, module_name = "Transactions", can_view = true, can_add = false, can_edit = true, can_delete = false },
                 new Permission { id = 20, user_type_id = 3, module_name = "User Access Control", can_view = false }, // Add & Edit & SetActive N/A
                 new Permission { id = 21, user_type_id = 3, module_name = "Users", can_view = false, can_add = false, can_edit = false, can_delete = false }
             );

@@ -96,6 +96,7 @@
             dgvReturnItems.Size = new Size(1346, 503);
             dgvReturnItems.TabIndex = 8;
             dgvReturnItems.CellContentClick += dgvReturnItems_CellContentClick;
+            dgvReturnItems.CellEndEdit += dgvReturnItems_CellEndEdit;
             // 
             // id
             // 
@@ -131,7 +132,7 @@
             // quantity
             // 
             quantity.DataPropertyName = "quantity";
-            quantity.HeaderText = "Applied Quantity";
+            quantity.HeaderText = "Quantity";
             quantity.Name = "quantity";
             // 
             // unit_of_measurement
@@ -325,6 +326,11 @@
         private DataGridViewTextBoxColumn productDataGridViewTextBoxColumn;
         private Label label1;
         private DataGridViewTextBoxColumn trasaction_id;
+        private PictureBox pictureBox5;
+        private PictureBox pictureBox3;
+        private PictureBox pictureBox1;
+        private Label label2;
+        private Button btnClose;
         private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn product_id;
         private DataGridViewTextBoxColumn product_code;
@@ -341,10 +347,5 @@
         private DataGridViewTextBoxColumn vat_exempt;
         private DataGridViewTextBoxColumn transaction_id;
         private DataGridViewButtonColumn remove;
-        private PictureBox pictureBox5;
-        private PictureBox pictureBox3;
-        private PictureBox pictureBox1;
-        private Label label2;
-        private Button btnClose;
     }
 }

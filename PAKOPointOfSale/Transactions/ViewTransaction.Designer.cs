@@ -34,25 +34,6 @@ namespace PAKOPointOfSale.Transactions
             ComponentResourceManager resources = new ComponentResourceManager(typeof(lbViewTransaction));
             btnProceed = new Button();
             dgvItems = new DataGridView();
-            id = new DataGridViewTextBoxColumn();
-            product_code = new DataGridViewTextBoxColumn();
-            product_id = new DataGridViewTextBoxColumn();
-            product_name = new DataGridViewTextBoxColumn();
-            product_brand = new DataGridViewTextBoxColumn();
-            selectReturn = new DataGridViewCheckBoxColumn();
-            transaction_id = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
-            quantity = new DataGridViewTextBoxColumn();
-            unit_price = new DataGridViewTextBoxColumn();
-            vat_amount = new DataGridViewTextBoxColumn();
-            vatable_sales = new DataGridViewTextBoxColumn();
-            vat_exempt = new DataGridViewTextBoxColumn();
-            discount = new DataGridViewTextBoxColumn();
-            discount_type = new DataGridViewTextBoxColumn();
-            total_amount = new DataGridViewTextBoxColumn();
-            unit_of_measurement = new DataGridViewTextBoxColumn();
-            transaction = new DataGridViewTextBoxColumn();
-            product = new DataGridViewTextBoxColumn();
             salesInvoiceItemBindingSource = new BindingSource(components);
             label1 = new Label();
             label2 = new Label();
@@ -92,6 +73,25 @@ namespace PAKOPointOfSale.Transactions
             lblsearchproduct = new Label();
             button1 = new Button();
             lblVoidOrReturn = new Label();
+            id = new DataGridViewTextBoxColumn();
+            product_code = new DataGridViewTextBoxColumn();
+            product_id = new DataGridViewTextBoxColumn();
+            product_name = new DataGridViewTextBoxColumn();
+            product_brand = new DataGridViewTextBoxColumn();
+            selectReturn = new DataGridViewCheckBoxColumn();
+            transaction_id = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            quantity = new DataGridViewTextBoxColumn();
+            unit_price = new DataGridViewTextBoxColumn();
+            vat_amount = new DataGridViewTextBoxColumn();
+            vatable_sales = new DataGridViewTextBoxColumn();
+            vat_exempt = new DataGridViewTextBoxColumn();
+            discount = new DataGridViewTextBoxColumn();
+            discount_type = new DataGridViewTextBoxColumn();
+            total_amount = new DataGridViewTextBoxColumn();
+            unit_of_measurement = new DataGridViewTextBoxColumn();
+            transaction = new DataGridViewTextBoxColumn();
+            product = new DataGridViewTextBoxColumn();
             ((ISupportInitialize)dgvItems).BeginInit();
             ((ISupportInitialize)salesInvoiceItemBindingSource).BeginInit();
             ((ISupportInitialize)pictureBox1).BeginInit();
@@ -130,132 +130,6 @@ namespace PAKOPointOfSale.Transactions
             dgvItems.Size = new Size(897, 535);
             dgvItems.TabIndex = 1;
             dgvItems.CellContentClick += dgvItems_CellContentClick;
-            // 
-            // id
-            // 
-            id.DataPropertyName = "id";
-            id.HeaderText = "id";
-            id.Name = "id";
-            id.Visible = false;
-            // 
-            // product_code
-            // 
-            product_code.DataPropertyName = "product_code";
-            product_code.HeaderText = "Product Code";
-            product_code.Name = "product_code";
-            product_code.Visible = false;
-            // 
-            // product_id
-            // 
-            product_id.DataPropertyName = "product_id";
-            product_id.HeaderText = "product_id";
-            product_id.Name = "product_id";
-            product_id.Visible = false;
-            // 
-            // product_name
-            // 
-            product_name.DataPropertyName = "product_name";
-            product_name.HeaderText = "Product";
-            product_name.Name = "product_name";
-            // 
-            // product_brand
-            // 
-            product_brand.DataPropertyName = "product_brand";
-            product_brand.HeaderText = "Brand";
-            product_brand.Name = "product_brand";
-            // 
-            // selectReturn
-            // 
-            selectReturn.DataPropertyName = "selectReturn";
-            selectReturn.FalseValue = "0";
-            selectReturn.HeaderText = "Select an Item(s) to Return";
-            selectReturn.Name = "selectReturn";
-            selectReturn.Resizable = DataGridViewTriState.True;
-            selectReturn.SortMode = DataGridViewColumnSortMode.Automatic;
-            selectReturn.TrueValue = "1";
-            selectReturn.Visible = false;
-            // 
-            // transaction_id
-            // 
-            transaction_id.DataPropertyName = "transaction_id";
-            transaction_id.HeaderText = "transaction_id";
-            transaction_id.Name = "transaction_id";
-            transaction_id.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            dataGridViewTextBoxColumn1.DataPropertyName = "product_id";
-            dataGridViewTextBoxColumn1.HeaderText = "product_id";
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            dataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // quantity
-            // 
-            quantity.DataPropertyName = "quantity";
-            quantity.HeaderText = "Applied Quantity";
-            quantity.Name = "quantity";
-            // 
-            // unit_price
-            // 
-            unit_price.DataPropertyName = "unit_price";
-            unit_price.HeaderText = "Unit Price";
-            unit_price.Name = "unit_price";
-            // 
-            // vat_amount
-            // 
-            vat_amount.DataPropertyName = "vat_amount";
-            vat_amount.HeaderText = "VAT Amount";
-            vat_amount.Name = "vat_amount";
-            // 
-            // vatable_sales
-            // 
-            vatable_sales.DataPropertyName = "vatable_sales";
-            vatable_sales.HeaderText = "VATable Sales";
-            vatable_sales.Name = "vatable_sales";
-            // 
-            // vat_exempt
-            // 
-            vat_exempt.DataPropertyName = "vat_exempt";
-            vat_exempt.HeaderText = "VAT Exempt";
-            vat_exempt.Name = "vat_exempt";
-            // 
-            // discount
-            // 
-            discount.DataPropertyName = "discount";
-            discount.HeaderText = "Discount Amount";
-            discount.Name = "discount";
-            // 
-            // discount_type
-            // 
-            discount_type.DataPropertyName = "discount_type";
-            discount_type.HeaderText = "Discount Type";
-            discount_type.Name = "discount_type";
-            // 
-            // total_amount
-            // 
-            total_amount.DataPropertyName = "total_amount";
-            total_amount.HeaderText = "Subtotal";
-            total_amount.Name = "total_amount";
-            // 
-            // unit_of_measurement
-            // 
-            unit_of_measurement.DataPropertyName = "unit_of_measurement";
-            unit_of_measurement.HeaderText = "Unit";
-            unit_of_measurement.Name = "unit_of_measurement";
-            // 
-            // transaction
-            // 
-            transaction.DataPropertyName = "transaction";
-            transaction.HeaderText = "transaction";
-            transaction.Name = "transaction";
-            transaction.Visible = false;
-            // 
-            // product
-            // 
-            product.DataPropertyName = "product";
-            product.HeaderText = "product";
-            product.Name = "product";
-            product.Visible = false;
             // 
             // salesInvoiceItemBindingSource
             // 
@@ -692,6 +566,132 @@ namespace PAKOPointOfSale.Transactions
             lblVoidOrReturn.Text = "Void or Return:";
             lblVoidOrReturn.Visible = false;
             // 
+            // id
+            // 
+            id.DataPropertyName = "id";
+            id.HeaderText = "id";
+            id.Name = "id";
+            id.Visible = false;
+            // 
+            // product_code
+            // 
+            product_code.DataPropertyName = "product_code";
+            product_code.HeaderText = "Product Code";
+            product_code.Name = "product_code";
+            product_code.Visible = false;
+            // 
+            // product_id
+            // 
+            product_id.DataPropertyName = "product_id";
+            product_id.HeaderText = "product_id";
+            product_id.Name = "product_id";
+            product_id.Visible = false;
+            // 
+            // product_name
+            // 
+            product_name.DataPropertyName = "product_name";
+            product_name.HeaderText = "Product";
+            product_name.Name = "product_name";
+            // 
+            // product_brand
+            // 
+            product_brand.DataPropertyName = "product_brand";
+            product_brand.HeaderText = "Brand";
+            product_brand.Name = "product_brand";
+            // 
+            // selectReturn
+            // 
+            selectReturn.DataPropertyName = "selectReturn";
+            selectReturn.FalseValue = "0";
+            selectReturn.HeaderText = "Select an Item(s) to Return";
+            selectReturn.Name = "selectReturn";
+            selectReturn.Resizable = DataGridViewTriState.True;
+            selectReturn.SortMode = DataGridViewColumnSortMode.Automatic;
+            selectReturn.TrueValue = "1";
+            selectReturn.Visible = false;
+            // 
+            // transaction_id
+            // 
+            transaction_id.DataPropertyName = "transaction_id";
+            transaction_id.HeaderText = "transaction_id";
+            transaction_id.Name = "transaction_id";
+            transaction_id.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            dataGridViewTextBoxColumn1.DataPropertyName = "product_id";
+            dataGridViewTextBoxColumn1.HeaderText = "product_id";
+            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            dataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // quantity
+            // 
+            quantity.DataPropertyName = "quantity";
+            quantity.HeaderText = "Quantity";
+            quantity.Name = "quantity";
+            // 
+            // unit_price
+            // 
+            unit_price.DataPropertyName = "unit_price";
+            unit_price.HeaderText = "Unit Price";
+            unit_price.Name = "unit_price";
+            // 
+            // vat_amount
+            // 
+            vat_amount.DataPropertyName = "vat_amount";
+            vat_amount.HeaderText = "VAT Amount";
+            vat_amount.Name = "vat_amount";
+            // 
+            // vatable_sales
+            // 
+            vatable_sales.DataPropertyName = "vatable_sales";
+            vatable_sales.HeaderText = "VATable Sales";
+            vatable_sales.Name = "vatable_sales";
+            // 
+            // vat_exempt
+            // 
+            vat_exempt.DataPropertyName = "vat_exempt";
+            vat_exempt.HeaderText = "VAT Exempt";
+            vat_exempt.Name = "vat_exempt";
+            // 
+            // discount
+            // 
+            discount.DataPropertyName = "discount";
+            discount.HeaderText = "Discount Amount";
+            discount.Name = "discount";
+            // 
+            // discount_type
+            // 
+            discount_type.DataPropertyName = "discount_type";
+            discount_type.HeaderText = "Discount Type";
+            discount_type.Name = "discount_type";
+            // 
+            // total_amount
+            // 
+            total_amount.DataPropertyName = "total_amount";
+            total_amount.HeaderText = "Subtotal";
+            total_amount.Name = "total_amount";
+            // 
+            // unit_of_measurement
+            // 
+            unit_of_measurement.DataPropertyName = "unit_of_measurement";
+            unit_of_measurement.HeaderText = "Unit";
+            unit_of_measurement.Name = "unit_of_measurement";
+            // 
+            // transaction
+            // 
+            transaction.DataPropertyName = "transaction";
+            transaction.HeaderText = "transaction";
+            transaction.Name = "transaction";
+            transaction.Visible = false;
+            // 
+            // product
+            // 
+            product.DataPropertyName = "product";
+            product.HeaderText = "product";
+            product.Name = "product";
+            product.Visible = false;
+            // 
             // lbViewTransaction
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -794,6 +794,12 @@ namespace PAKOPointOfSale.Transactions
         private PictureBox pictureBox3;
         private PictureBox pictureBox2;
         private PictureBox pictureBox1;
+        private PictureBox pictureBox4;
+        private PictureBox pictureBox5;
+        private PictureBox pictureBox6;
+        private Label lblsearchproduct;
+        private Button button1;
+        private Label lblVoidOrReturn;
         private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn product_code;
         private DataGridViewTextBoxColumn product_id;
@@ -813,11 +819,5 @@ namespace PAKOPointOfSale.Transactions
         private DataGridViewTextBoxColumn unit_of_measurement;
         private DataGridViewTextBoxColumn transaction;
         private DataGridViewTextBoxColumn product;
-        private PictureBox pictureBox4;
-        private PictureBox pictureBox5;
-        private PictureBox pictureBox6;
-        private Label lblsearchproduct;
-        private Button button1;
-        private Label lblVoidOrReturn;
     }
 }
