@@ -68,7 +68,6 @@
             cmbFilterType = new ComboBox();
             btnFilter = new Button();
             btnClearFilter = new Button();
-            btnPrint = new Button();
             printDocument1 = new System.Drawing.Printing.PrintDocument();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)productBindingSource).BeginInit();
@@ -113,7 +112,7 @@
             id.ReadOnly = true;
             id.Resizable = DataGridViewTriState.True;
             id.Visible = false;
-            id.Width = 42;
+            id.Width = 23;
             // 
             // barcode
             // 
@@ -265,12 +264,14 @@
             // 
             // edit
             // 
+            edit.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             edit.HeaderText = "";
+            edit.MinimumWidth = 70;
             edit.Name = "edit";
             edit.ReadOnly = true;
             edit.Text = "Edit Product";
             edit.UseColumnTextForButtonValue = true;
-            edit.Width = 5;
+            edit.Width = 70;
             // 
             // productBindingSource
             // 
@@ -301,7 +302,7 @@
             btnAdd.FlatStyle = FlatStyle.Popup;
             btnAdd.Font = new Font("Microsoft Sans Serif", 9.75F);
             btnAdd.ForeColor = Color.White;
-            btnAdd.Location = new Point(1069, 118);
+            btnAdd.Location = new Point(1119, 108);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(75, 23);
             btnAdd.TabIndex = 3;
@@ -315,7 +316,7 @@
             btnExport.FlatStyle = FlatStyle.Flat;
             btnExport.Font = new Font("Microsoft Sans Serif", 9.75F);
             btnExport.ForeColor = Color.White;
-            btnExport.Location = new Point(1150, 118);
+            btnExport.Location = new Point(1200, 108);
             btnExport.Name = "btnExport";
             btnExport.Size = new Size(75, 23);
             btnExport.TabIndex = 5;
@@ -374,7 +375,7 @@
             btnClose.FlatStyle = FlatStyle.Popup;
             btnClose.Font = new Font("Microsoft Sans Serif", 9.75F);
             btnClose.ForeColor = Color.White;
-            btnClose.Location = new Point(1281, 118);
+            btnClose.Location = new Point(1281, 109);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(75, 23);
             btnClose.TabIndex = 11;
@@ -448,20 +449,6 @@
             btnClearFilter.UseVisualStyleBackColor = false;
             btnClearFilter.Click += btnClearFilter_Click;
             // 
-            // btnPrint
-            // 
-            btnPrint.BackColor = Color.SkyBlue;
-            btnPrint.FlatStyle = FlatStyle.Flat;
-            btnPrint.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnPrint.ForeColor = Color.Black;
-            btnPrint.Location = new Point(1281, 13);
-            btnPrint.Name = "btnPrint";
-            btnPrint.Size = new Size(75, 23);
-            btnPrint.TabIndex = 151;
-            btnPrint.Text = "Print";
-            btnPrint.UseVisualStyleBackColor = false;
-            btnPrint.Click += btnPrint_Click;
-            // 
             // printDocument1
             // 
             printDocument1.PrintPage += printDocument1_PrintPage;
@@ -475,7 +462,6 @@
             BackColor = Color.CadetBlue;
             ClientSize = new Size(1368, 788);
             ControlBox = false;
-            Controls.Add(btnPrint);
             Controls.Add(btnClearFilter);
             Controls.Add(btnFilter);
             Controls.Add(cmbFilterType);

@@ -253,7 +253,7 @@ namespace PAKOPointOfSale.Transactions
             btnConfirm.BackColor = Color.ForestGreen;
             btnConfirm.FlatStyle = FlatStyle.Popup;
             btnConfirm.ForeColor = Color.White;
-            btnConfirm.Location = new Point(209, 561);
+            btnConfirm.Location = new Point(209, 558);
             btnConfirm.Name = "btnConfirm";
             btnConfirm.Size = new Size(75, 25);
             btnConfirm.TabIndex = 6;
@@ -266,7 +266,7 @@ namespace PAKOPointOfSale.Transactions
             btnPark.BackColor = SystemColors.Highlight;
             btnPark.FlatStyle = FlatStyle.Popup;
             btnPark.ForeColor = Color.White;
-            btnPark.Location = new Point(119, 561);
+            btnPark.Location = new Point(119, 558);
             btnPark.Name = "btnPark";
             btnPark.Size = new Size(75, 25);
             btnPark.TabIndex = 7;
@@ -284,7 +284,7 @@ namespace PAKOPointOfSale.Transactions
             groupBox1.Controls.Add(label1);
             groupBox1.Location = new Point(21, 431);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(357, 129);
+            groupBox1.Size = new Size(357, 124);
             groupBox1.TabIndex = 8;
             groupBox1.TabStop = false;
             // 
@@ -616,7 +616,7 @@ namespace PAKOPointOfSale.Transactions
             panel1.Controls.Add(btnKey5);
             panel1.Location = new Point(969, 100);
             panel1.Name = "panel1";
-            panel1.Size = new Size(386, 594);
+            panel1.Size = new Size(386, 586);
             panel1.TabIndex = 46;
             // 
             // btnClearCart
@@ -635,7 +635,7 @@ namespace PAKOPointOfSale.Transactions
             // pictureBox2
             // 
             pictureBox2.BackColor = Color.DimGray;
-            pictureBox2.Location = new Point(109, -2);
+            pictureBox2.Location = new Point(0, -1);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(1371, 104);
             pictureBox2.TabIndex = 144;
@@ -715,7 +715,6 @@ namespace PAKOPointOfSale.Transactions
             lblDate.Size = new Size(26, 29);
             lblDate.TabIndex = 155;
             lblDate.Text = "0";
-            
             // 
             // lblTime
             // 
@@ -738,21 +737,22 @@ namespace PAKOPointOfSale.Transactions
             // btnClose
             // 
             btnClose.BackColor = Color.Red;
+            btnClose.BackgroundImage = (Image)resources.GetObject("btnClose.BackgroundImage");
+            btnClose.BackgroundImageLayout = ImageLayout.Stretch;
             btnClose.FlatStyle = FlatStyle.Popup;
             btnClose.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnClose.ForeColor = Color.White;
-            btnClose.Location = new Point(1329, -1);
+            btnClose.Location = new Point(1330, 0);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(37, 25);
             btnClose.TabIndex = 45;
-            btnClose.Text = "x";
             btnClose.UseVisualStyleBackColor = false;
             btnClose.Click += btnClose_Click;
             // 
             // lblParkLabel
             // 
             lblParkLabel.AutoSize = true;
-            lblParkLabel.Location = new Point(439, 114);
+            lblParkLabel.Location = new Point(470, 114);
             lblParkLabel.Name = "lblParkLabel";
             lblParkLabel.Size = new Size(80, 15);
             lblParkLabel.TabIndex = 157;
@@ -762,7 +762,7 @@ namespace PAKOPointOfSale.Transactions
             // lblParkNumber
             // 
             lblParkNumber.AutoSize = true;
-            lblParkNumber.Location = new Point(525, 114);
+            lblParkNumber.Location = new Point(556, 114);
             lblParkNumber.Name = "lblParkNumber";
             lblParkNumber.Size = new Size(43, 15);
             lblParkNumber.TabIndex = 158;

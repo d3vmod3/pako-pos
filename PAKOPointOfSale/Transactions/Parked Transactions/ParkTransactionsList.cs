@@ -170,7 +170,12 @@ namespace PAKOPointOfSale.Transactions.Parked_Transactions
 
         private void dtgvParkedTransactions_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-          
+
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

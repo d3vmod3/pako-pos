@@ -89,15 +89,20 @@ namespace PAKOPointOfSale
                 MessageBox.Show("Error updating user: " + ex.Message);
             }
         }
-        
+
         private bool passwordIsConfirmed()
         {
-            if(txtConfirmPassword.Text != txtPassword.Text)
+            if (txtConfirmPassword.Text != txtPassword.Text)
             {
                 MessageBox.Show("Password Confirmation mismatch", "Confirm Password", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             return true;
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

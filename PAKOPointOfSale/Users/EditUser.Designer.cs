@@ -321,12 +321,15 @@
             // 
             // btnReset
             // 
-            btnReset.Location = new Point(39, 363);
+            btnReset.BackColor = Color.OrangeRed;
+            btnReset.FlatStyle = FlatStyle.Popup;
+            btnReset.ForeColor = Color.White;
+            btnReset.Location = new Point(471, 354);
             btnReset.Name = "btnReset";
             btnReset.Size = new Size(100, 23);
             btnReset.TabIndex = 41;
             btnReset.Text = "Reset Password";
-            btnReset.UseVisualStyleBackColor = true;
+            btnReset.UseVisualStyleBackColor = false;
             btnReset.Click += btnReset_Click;
             // 
             // EditUser

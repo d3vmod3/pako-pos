@@ -35,6 +35,7 @@
             label3 = new Label();
             lblInvoiceNumber = new Label();
             pictureBox2 = new PictureBox();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
@@ -43,7 +44,7 @@
             btnViewReceipt.BackColor = Color.ForestGreen;
             btnViewReceipt.FlatStyle = FlatStyle.Popup;
             btnViewReceipt.ForeColor = Color.White;
-            btnViewReceipt.Location = new Point(243, 155);
+            btnViewReceipt.Location = new Point(176, 156);
             btnViewReceipt.Name = "btnViewReceipt";
             btnViewReceipt.Size = new Size(88, 32);
             btnViewReceipt.TabIndex = 0;
@@ -68,7 +69,7 @@
             btnConfirm.BackColor = Color.Red;
             btnConfirm.FlatStyle = FlatStyle.Popup;
             btnConfirm.ForeColor = Color.White;
-            btnConfirm.Location = new Point(361, 156);
+            btnConfirm.Location = new Point(309, 156);
             btnConfirm.Name = "btnConfirm";
             btnConfirm.Size = new Size(88, 31);
             btnConfirm.TabIndex = 2;
@@ -121,12 +122,26 @@
             pictureBox2.TabIndex = 12;
             pictureBox2.TabStop = false;
             // 
+            // button1
+            // 
+            button1.BackColor = Color.Red;
+            button1.FlatStyle = FlatStyle.Popup;
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(440, 156);
+            button1.Name = "button1";
+            button1.Size = new Size(88, 31);
+            button1.TabIndex = 13;
+            button1.Text = "Cancel";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
             // VoidForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(671, 211);
+            Controls.Add(button1);
             Controls.Add(pictureBox2);
             Controls.Add(lblInvoiceNumber);
             Controls.Add(label3);
@@ -155,5 +170,6 @@
         private Label label3;
         private Label lblInvoiceNumber;
         private PictureBox pictureBox2;
+        private Button button1;
     }
 }

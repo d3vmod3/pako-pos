@@ -4,9 +4,6 @@
     <Compile Update="ActionConfirmation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Cashier.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Categories\AddCategory.cs">
       <SubType>Form</SubType>
     </Compile>

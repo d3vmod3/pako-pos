@@ -50,6 +50,7 @@
             settle = new DataGridViewButtonColumn();
             salesinvoiceitemsDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             cancel = new DataGridViewButtonColumn();
+            btnClose = new Button();
             ((System.ComponentModel.ISupportInitialize)dtgvParkedTransactions).BeginInit();
             ((System.ComponentModel.ISupportInitialize)transactionBindingSource).BeginInit();
             SuspendLayout();
@@ -80,7 +81,7 @@
             // 
             txtSearch.Location = new Point(136, 19);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(547, 23);
+            txtSearch.Size = new Size(259, 23);
             txtSearch.TabIndex = 1;
             txtSearch.TextChanged += textBox1_TextChanged;
             // 
@@ -137,11 +138,13 @@
             // 
             // sub_total
             // 
+            sub_total.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             sub_total.DataPropertyName = "sub_total";
             sub_total.HeaderText = "Sub Total";
+            sub_total.MinimumWidth = 90;
             sub_total.Name = "sub_total";
             sub_total.ReadOnly = true;
-            sub_total.Width = 81;
+            sub_total.Width = 90;
             // 
             // grandtotalDataGridViewTextBoxColumn
             // 
@@ -211,13 +214,15 @@
             // 
             // settle
             // 
+            settle.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             settle.DataPropertyName = "settle";
             settle.HeaderText = "";
+            settle.MinimumWidth = 50;
             settle.Name = "settle";
             settle.ReadOnly = true;
             settle.Text = "Settle";
             settle.UseColumnTextForButtonValue = true;
-            settle.Width = 5;
+            settle.Width = 50;
             // 
             // salesinvoiceitemsDataGridViewTextBoxColumn
             // 
@@ -232,23 +237,41 @@
             // 
             cancel.DataPropertyName = "cancel";
             cancel.HeaderText = "";
+            cancel.MinimumWidth = 50;
             cancel.Name = "cancel";
             cancel.ReadOnly = true;
             cancel.Resizable = DataGridViewTriState.True;
             cancel.SortMode = DataGridViewColumnSortMode.Automatic;
             cancel.Text = "Cancel";
             cancel.UseColumnTextForButtonValue = true;
-            cancel.Width = 19;
+            cancel.Width = 50;
+            // 
+            // btnClose
+            // 
+            btnClose.BackColor = Color.Red;
+            btnClose.FlatStyle = FlatStyle.Popup;
+            btnClose.ForeColor = Color.White;
+            btnClose.Location = new Point(675, 19);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(84, 24);
+            btnClose.TabIndex = 21;
+            btnClose.Text = "Close";
+            btnClose.UseVisualStyleBackColor = false;
+            btnClose.Click += btnClose_Click;
             // 
             // ParkTransactionsList
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.CadetBlue;
             ClientSize = new Size(769, 354);
+            Controls.Add(btnClose);
             Controls.Add(label1);
             Controls.Add(txtSearch);
             Controls.Add(dtgvParkedTransactions);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "ParkTransactionsList";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ParkTransactionsList";
             Load += ParkTransactionsList_Load_1;
             ((System.ComponentModel.ISupportInitialize)dtgvParkedTransactions).EndInit();
@@ -280,5 +303,6 @@
         private DataGridViewButtonColumn settle;
         private DataGridViewTextBoxColumn salesinvoiceitemsDataGridViewTextBoxColumn;
         private DataGridViewButtonColumn cancel;
+        private Button btnClose;
     }
 }

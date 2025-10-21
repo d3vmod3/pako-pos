@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MDIParent1));
             menuStrip = new MenuStrip();
             setupToolStripMenuItem = new ToolStripMenuItem();
@@ -47,7 +47,6 @@
             statusStrip = new StatusStrip();
             toolStripStatusLabel = new ToolStripStatusLabel();
             toolTip = new ToolTip(components);
-            button1 = new Button();
             dtgvTop5SellingProducts = new DataGridView();
             product_name = new DataGridViewTextBoxColumn();
             total_quantity_sold = new DataGridViewTextBoxColumn();
@@ -84,6 +83,20 @@
             label12 = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
             button2 = new Button();
+            button1 = new Button();
+            button3 = new Button();
+            button4 = new Button();
+            button5 = new Button();
+            button6 = new Button();
+            button7 = new Button();
+            button8 = new Button();
+            label13 = new Label();
+            label14 = new Label();
+            label15 = new Label();
+            label16 = new Label();
+            label17 = new Label();
+            label18 = new Label();
+            label19 = new Label();
             menuStrip.SuspendLayout();
             statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgvTop5SellingProducts).BeginInit();
@@ -100,7 +113,7 @@
             menuStrip.Location = new Point(0, 0);
             menuStrip.Name = "menuStrip";
             menuStrip.Padding = new Padding(7, 2, 0, 2);
-            menuStrip.Size = new Size(1374, 24);
+            menuStrip.Size = new Size(1367, 24);
             menuStrip.TabIndex = 0;
             menuStrip.Text = "MenuStrip";
             menuStrip.ItemClicked += menuStrip_ItemClicked;
@@ -115,42 +128,42 @@
             // categoriesToolStripMenuItem
             // 
             categoriesToolStripMenuItem.Name = "categoriesToolStripMenuItem";
-            categoriesToolStripMenuItem.Size = new Size(179, 22);
+            categoriesToolStripMenuItem.Size = new Size(180, 22);
             categoriesToolStripMenuItem.Text = "Categories";
             categoriesToolStripMenuItem.Click += categoriesToolStripMenuItem_Click;
             // 
             // usersToolStripMenuItem
             // 
             usersToolStripMenuItem.Name = "usersToolStripMenuItem";
-            usersToolStripMenuItem.Size = new Size(179, 22);
+            usersToolStripMenuItem.Size = new Size(180, 22);
             usersToolStripMenuItem.Text = "Products";
             usersToolStripMenuItem.Click += usersToolStripMenuItem_Click;
             // 
             // suppliersToolStripMenuItem
             // 
             suppliersToolStripMenuItem.Name = "suppliersToolStripMenuItem";
-            suppliersToolStripMenuItem.Size = new Size(179, 22);
+            suppliersToolStripMenuItem.Size = new Size(180, 22);
             suppliersToolStripMenuItem.Text = "Suppliers";
             suppliersToolStripMenuItem.Click += suppliersToolStripMenuItem_Click;
             // 
             // transactionsToolStripMenuItem
             // 
             transactionsToolStripMenuItem.Name = "transactionsToolStripMenuItem";
-            transactionsToolStripMenuItem.Size = new Size(179, 22);
+            transactionsToolStripMenuItem.Size = new Size(180, 22);
             transactionsToolStripMenuItem.Text = "Transactions";
             transactionsToolStripMenuItem.Click += transactionsToolStripMenuItem_Click;
             // 
             // usersToolStripMenuItem1
             // 
             usersToolStripMenuItem1.Name = "usersToolStripMenuItem1";
-            usersToolStripMenuItem1.Size = new Size(179, 22);
+            usersToolStripMenuItem1.Size = new Size(180, 22);
             usersToolStripMenuItem1.Text = "Users";
             usersToolStripMenuItem1.Click += usersToolStripMenuItem1_Click;
             // 
             // userAccessControlToolStripMenuItem
             // 
             userAccessControlToolStripMenuItem.Name = "userAccessControlToolStripMenuItem";
-            userAccessControlToolStripMenuItem.Size = new Size(179, 22);
+            userAccessControlToolStripMenuItem.Size = new Size(180, 22);
             userAccessControlToolStripMenuItem.Text = "User Access Control";
             userAccessControlToolStripMenuItem.Click += userAccessControlToolStripMenuItem_Click;
             // 
@@ -179,7 +192,7 @@
             statusStrip.Location = new Point(0, 766);
             statusStrip.Name = "statusStrip";
             statusStrip.Padding = new Padding(1, 0, 16, 0);
-            statusStrip.Size = new Size(1374, 22);
+            statusStrip.Size = new Size(1367, 22);
             statusStrip.TabIndex = 2;
             statusStrip.Text = "StatusStrip";
             // 
@@ -190,44 +203,33 @@
             toolStripStatusLabel.Size = new Size(39, 17);
             toolStripStatusLabel.Text = "Status";
             // 
-            // button1
-            // 
-            button1.BackgroundImage = Properties.Resources.pos_terminal;
-            button1.BackgroundImageLayout = ImageLayout.Stretch;
-            button1.Location = new Point(1187, 135);
-            button1.Name = "button1";
-            button1.Size = new Size(169, 131);
-            button1.TabIndex = 4;
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
-            // 
             // dtgvTop5SellingProducts
             // 
             dtgvTop5SellingProducts.AllowUserToAddRows = false;
             dtgvTop5SellingProducts.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.ForeColor = Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = Color.White;
-            dtgvTop5SellingProducts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.ForeColor = Color.Black;
+            dataGridViewCellStyle10.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = Color.White;
+            dtgvTop5SellingProducts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             dtgvTop5SellingProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgvTop5SellingProducts.BackgroundColor = SystemColors.ControlLight;
             dtgvTop5SellingProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgvTop5SellingProducts.Columns.AddRange(new DataGridViewColumn[] { product_name, total_quantity_sold, total_sales });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dtgvTop5SellingProducts.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = SystemColors.Window;
+            dataGridViewCellStyle11.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle11.ForeColor = Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.False;
+            dtgvTop5SellingProducts.DefaultCellStyle = dataGridViewCellStyle11;
             dtgvTop5SellingProducts.Location = new Point(13, 17);
             dtgvTop5SellingProducts.Name = "dtgvTop5SellingProducts";
             dtgvTop5SellingProducts.ReadOnly = true;
             dtgvTop5SellingProducts.RowHeadersVisible = false;
-            dataGridViewCellStyle3.ForeColor = Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dtgvTop5SellingProducts.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle12.ForeColor = Color.Black;
+            dataGridViewCellStyle12.SelectionBackColor = SystemColors.Highlight;
+            dtgvTop5SellingProducts.RowsDefaultCellStyle = dataGridViewCellStyle12;
             dtgvTop5SellingProducts.Size = new Size(639, 271);
             dtgvTop5SellingProducts.TabIndex = 11;
             // 
@@ -257,7 +259,7 @@
             label2.AutoSize = true;
             label2.BackColor = Color.DarkGoldenrod;
             label2.ForeColor = Color.White;
-            label2.Location = new Point(341, 311);
+            label2.Location = new Point(351, 328);
             label2.Name = "label2";
             label2.Size = new Size(47, 15);
             label2.TabIndex = 9;
@@ -265,7 +267,7 @@
             // 
             // dtpTo
             // 
-            dtpTo.Location = new Point(394, 305);
+            dtpTo.Location = new Point(415, 320);
             dtpTo.Name = "dtpTo";
             dtpTo.Size = new Size(200, 23);
             dtpTo.TabIndex = 8;
@@ -275,7 +277,7 @@
             label1.AutoSize = true;
             label1.BackColor = Color.DarkGoldenrod;
             label1.ForeColor = Color.White;
-            label1.Location = new Point(59, 309);
+            label1.Location = new Point(69, 328);
             label1.Name = "label1";
             label1.Size = new Size(62, 15);
             label1.TabIndex = 7;
@@ -284,7 +286,7 @@
             // dtpFrom
             // 
             dtpFrom.CalendarMonthBackground = Color.White;
-            dtpFrom.Location = new Point(127, 303);
+            dtpFrom.Location = new Point(137, 320);
             dtpFrom.Name = "dtpFrom";
             dtpFrom.Size = new Size(208, 23);
             dtpFrom.TabIndex = 6;
@@ -294,9 +296,9 @@
             groupBox1.BackColor = Color.CadetBlue;
             groupBox1.Controls.Add(dtgvTop5SellingProducts);
             groupBox1.ForeColor = Color.White;
-            groupBox1.Location = new Point(12, 331);
+            groupBox1.Location = new Point(12, 348);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(658, 311);
+            groupBox1.Size = new Size(658, 294);
             groupBox1.TabIndex = 13;
             groupBox1.TabStop = false;
             groupBox1.Text = "Top 5 Selling Products";
@@ -318,9 +320,9 @@
             // 
             comboBoxSalesFilter.FormattingEnabled = true;
             comboBoxSalesFilter.Items.AddRange(new object[] { "Daily", "Weekly", "Monthly", "Yearly" });
-            comboBoxSalesFilter.Location = new Point(795, 274);
+            comboBoxSalesFilter.Location = new Point(1206, 320);
             comboBoxSalesFilter.Name = "comboBoxSalesFilter";
-            comboBoxSalesFilter.Size = new Size(561, 23);
+            comboBoxSalesFilter.Size = new Size(148, 23);
             comboBoxSalesFilter.TabIndex = 18;
             comboBoxSalesFilter.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
@@ -328,7 +330,7 @@
             // 
             label3.AutoSize = true;
             label3.BackColor = Color.Transparent;
-            label3.Location = new Point(676, 281);
+            label3.Location = new Point(1087, 328);
             label3.Name = "label3";
             label3.Size = new Size(113, 15);
             label3.TabIndex = 19;
@@ -338,7 +340,7 @@
             // 
             label5.AutoSize = true;
             label5.BackColor = Color.Transparent;
-            label5.Location = new Point(676, 309);
+            label5.Location = new Point(676, 326);
             label5.Name = "label5";
             label5.Size = new Size(113, 15);
             label5.TabIndex = 21;
@@ -348,9 +350,9 @@
             // 
             dtpFromSales.CalendarMonthBackground = Color.White;
             dtpFromSales.CalendarTrailingForeColor = SystemColors.AppWorkspace;
-            dtpFromSales.Location = new Point(836, 303);
+            dtpFromSales.Location = new Point(836, 320);
             dtpFromSales.Name = "dtpFromSales";
-            dtpFromSales.Size = new Size(263, 23);
+            dtpFromSales.Size = new Size(109, 23);
             dtpFromSales.TabIndex = 22;
             // 
             // label6
@@ -358,7 +360,7 @@
             label6.AutoSize = true;
             label6.BackColor = Color.DarkGoldenrod;
             label6.ForeColor = Color.White;
-            label6.Location = new Point(795, 309);
+            label6.Location = new Point(795, 326);
             label6.Name = "label6";
             label6.Size = new Size(35, 15);
             label6.TabIndex = 23;
@@ -369,7 +371,7 @@
             label7.AutoSize = true;
             label7.BackColor = Color.DarkGoldenrod;
             label7.ForeColor = Color.White;
-            label7.Location = new Point(1105, 311);
+            label7.Location = new Point(951, 328);
             label7.Name = "label7";
             label7.Size = new Size(20, 15);
             label7.TabIndex = 25;
@@ -378,14 +380,14 @@
             // dtpToSales
             // 
             dtpToSales.CalendarTitleBackColor = SystemColors.MenuHighlight;
-            dtpToSales.Location = new Point(1131, 303);
+            dtpToSales.Location = new Point(977, 320);
             dtpToSales.Name = "dtpToSales";
-            dtpToSales.Size = new Size(225, 23);
+            dtpToSales.Size = new Size(103, 23);
             dtpToSales.TabIndex = 24;
             // 
             // btnFilterDateSales
             // 
-            btnFilterDateSales.BackColor = Color.Khaki;
+            btnFilterDateSales.BackColor = Color.Goldenrod;
             btnFilterDateSales.FlatStyle = FlatStyle.Popup;
             btnFilterDateSales.ForeColor = Color.Black;
             btnFilterDateSales.Location = new Point(1280, 649);
@@ -406,9 +408,9 @@
             groupBox2.Controls.Add(label8);
             groupBox2.Controls.Add(label4);
             groupBox2.ForeColor = Color.White;
-            groupBox2.Location = new Point(676, 331);
+            groupBox2.Location = new Point(676, 348);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(680, 312);
+            groupBox2.Size = new Size(680, 295);
             groupBox2.TabIndex = 17;
             groupBox2.TabStop = false;
             groupBox2.Text = "Sales";
@@ -589,20 +591,181 @@
             button2.FlatStyle = FlatStyle.Popup;
             button2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button2.ForeColor = Color.White;
-            button2.Location = new Point(1280, 2);
+            button2.Location = new Point(1289, 0);
             button2.Name = "button2";
-            button2.Size = new Size(85, 23);
+            button2.Size = new Size(85, 24);
             button2.TabIndex = 162;
             button2.Text = "Logout";
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click_1;
+            // 
+            // button1
+            // 
+            button1.BackgroundImage = Properties.Resources.pos_terminal;
+            button1.BackgroundImageLayout = ImageLayout.Stretch;
+            button1.Location = new Point(1171, 155);
+            button1.Name = "button1";
+            button1.Size = new Size(148, 101);
+            button1.TabIndex = 4;
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // button3
+            // 
+            button3.BackgroundImage = (Image)resources.GetObject("button3.BackgroundImage");
+            button3.BackgroundImageLayout = ImageLayout.Stretch;
+            button3.Location = new Point(46, 155);
+            button3.Name = "button3";
+            button3.Size = new Size(139, 103);
+            button3.TabIndex = 164;
+            button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            button4.BackgroundImage = (Image)resources.GetObject("button4.BackgroundImage");
+            button4.BackgroundImageLayout = ImageLayout.Stretch;
+            button4.Location = new Point(232, 155);
+            button4.Name = "button4";
+            button4.Size = new Size(135, 103);
+            button4.TabIndex = 165;
+            button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            button5.BackgroundImage = (Image)resources.GetObject("button5.BackgroundImage");
+            button5.BackgroundImageLayout = ImageLayout.Stretch;
+            button5.Location = new Point(417, 155);
+            button5.Name = "button5";
+            button5.Size = new Size(137, 103);
+            button5.TabIndex = 166;
+            button5.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            button6.BackgroundImage = (Image)resources.GetObject("button6.BackgroundImage");
+            button6.BackgroundImageLayout = ImageLayout.Stretch;
+            button6.Location = new Point(608, 157);
+            button6.Name = "button6";
+            button6.Size = new Size(144, 101);
+            button6.TabIndex = 167;
+            button6.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            button7.BackgroundImage = (Image)resources.GetObject("button7.BackgroundImage");
+            button7.BackgroundImageLayout = ImageLayout.Stretch;
+            button7.Location = new Point(797, 155);
+            button7.Name = "button7";
+            button7.Size = new Size(135, 101);
+            button7.TabIndex = 168;
+            button7.UseVisualStyleBackColor = true;
+            // 
+            // button8
+            // 
+            button8.BackgroundImage = (Image)resources.GetObject("button8.BackgroundImage");
+            button8.BackgroundImageLayout = ImageLayout.Stretch;
+            button8.Location = new Point(977, 155);
+            button8.Name = "button8";
+            button8.Size = new Size(150, 101);
+            button8.TabIndex = 169;
+            button8.UseVisualStyleBackColor = true;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.BackColor = SystemColors.ActiveBorder;
+            label13.Font = new Font("Impact", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label13.Location = new Point(52, 261);
+            label13.Name = "label13";
+            label13.Size = new Size(126, 29);
+            label13.TabIndex = 170;
+            label13.Text = "CATEGORIES";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.BackColor = SystemColors.ActiveBorder;
+            label14.Font = new Font("Impact", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label14.Location = new Point(243, 261);
+            label14.Name = "label14";
+            label14.Size = new Size(113, 29);
+            label14.TabIndex = 171;
+            label14.Text = "PRODUCTS";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.BackColor = SystemColors.ActiveBorder;
+            label15.Font = new Font("Impact", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label15.Location = new Point(429, 261);
+            label15.Name = "label15";
+            label15.Size = new Size(113, 29);
+            label15.TabIndex = 172;
+            label15.Text = "SUPPLIERS";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.BackColor = SystemColors.ActiveBorder;
+            label16.Font = new Font("Impact", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label16.Location = new Point(601, 261);
+            label16.Name = "label16";
+            label16.Size = new Size(155, 29);
+            label16.TabIndex = 173;
+            label16.Text = "TRANSACTIONS";
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.BackColor = SystemColors.ActiveBorder;
+            label17.Font = new Font("Impact", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label17.Location = new Point(830, 259);
+            label17.Name = "label17";
+            label17.Size = new Size(73, 29);
+            label17.TabIndex = 174;
+            label17.Text = "USERS";
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.BackColor = SystemColors.ActiveBorder;
+            label18.Font = new Font("Impact", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label18.Location = new Point(1029, 258);
+            label18.Name = "label18";
+            label18.Size = new Size(51, 29);
+            label18.TabIndex = 175;
+            label18.Text = "UAC";
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.BackColor = SystemColors.ActiveBorder;
+            label19.Font = new Font("Impact", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label19.Location = new Point(1220, 259);
+            label19.Name = "label19";
+            label19.Size = new Size(50, 29);
+            label19.TabIndex = 171;
+            label19.Text = "POS";
             // 
             // MDIParent1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
-            ClientSize = new Size(1374, 788);
+            ClientSize = new Size(1367, 788);
+            Controls.Add(label19);
+            Controls.Add(label18);
+            Controls.Add(label17);
+            Controls.Add(label15);
+            Controls.Add(label16);
+            Controls.Add(label14);
+            Controls.Add(label13);
+            Controls.Add(button8);
+            Controls.Add(button7);
+            Controls.Add(button6);
+            Controls.Add(button5);
+            Controls.Add(button4);
+            Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(lblTime);
             Controls.Add(lblDate);
@@ -672,7 +835,6 @@
         private ToolStripMenuItem logoutToolStripMenuItem;
         private ToolStripMenuItem resetAllToolStripMenuItem;
         private ToolStripMenuItem logoutToolStripMenuItem1;
-        private Button button1;
         private DataGridView dtgvTop5SellingProducts;
         private DataGridViewTextBoxColumn product_name;
         private DataGridViewTextBoxColumn total_quantity_sold;
@@ -709,6 +871,20 @@
         private Label label12;
         private System.Windows.Forms.Timer timer1;
         private Button button2;
+        private Button button1;
+        private Button button3;
+        private Button button4;
+        private Button button5;
+        private Button button6;
+        private Button button7;
+        private Button button8;
+        private Label label13;
+        private Label label14;
+        private Label label15;
+        private Label label16;
+        private Label label17;
+        private Label label18;
+        private Label label19;
     }
 }
 

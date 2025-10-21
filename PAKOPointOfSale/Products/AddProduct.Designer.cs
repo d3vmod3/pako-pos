@@ -80,7 +80,7 @@
             cmbStatus.FlatStyle = FlatStyle.Popup;
             cmbStatus.Font = new Font("Microsoft Sans Serif", 9.75F);
             cmbStatus.FormattingEnabled = true;
-            cmbStatus.Items.AddRange(new object[] { "Good", "Deffective", "Damaged" });
+            cmbStatus.Items.AddRange(new object[] { "Good", "Deffective" });
             cmbStatus.Location = new Point(902, 522);
             cmbStatus.Name = "cmbStatus";
             cmbStatus.Size = new Size(353, 24);
@@ -183,10 +183,10 @@
             // 
             btnSubmit.BackColor = Color.SeaGreen;
             btnSubmit.FlatStyle = FlatStyle.Popup;
-            btnSubmit.Font = new Font("Microsoft Sans Serif", 11.25F);
-            btnSubmit.Location = new Point(1038, 686);
+            btnSubmit.Font = new Font("Microsoft Sans Serif", 9.75F);
+            btnSubmit.Location = new Point(1034, 695);
             btnSubmit.Name = "btnSubmit";
-            btnSubmit.Size = new Size(106, 34);
+            btnSubmit.Size = new Size(106, 27);
             btnSubmit.TabIndex = 99;
             btnSubmit.Text = "Submit";
             btnSubmit.UseVisualStyleBackColor = false;
@@ -431,10 +431,11 @@
             // 
             btnClose.BackColor = Color.Red;
             btnClose.FlatStyle = FlatStyle.Popup;
-            btnClose.Font = new Font("Microsoft Sans Serif", 11.25F);
-            btnClose.Location = new Point(1150, 686);
+            btnClose.Font = new Font("Microsoft Sans Serif", 9.75F);
+            btnClose.ForeColor = Color.White;
+            btnClose.Location = new Point(1146, 695);
             btnClose.Name = "btnClose";
-            btnClose.Size = new Size(106, 34);
+            btnClose.Size = new Size(106, 27);
             btnClose.TabIndex = 114;
             btnClose.Text = "Close";
             btnClose.UseVisualStyleBackColor = false;

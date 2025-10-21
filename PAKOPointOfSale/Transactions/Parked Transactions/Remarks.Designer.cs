@@ -36,10 +36,10 @@
             // 
             // txtRemarks
             // 
-            txtRemarks.Location = new Point(12, 40);
+            txtRemarks.Location = new Point(12, 55);
             txtRemarks.Multiline = true;
             txtRemarks.Name = "txtRemarks";
-            txtRemarks.Size = new Size(400, 112);
+            txtRemarks.Size = new Size(400, 97);
             txtRemarks.TabIndex = 0;
             // 
             // label1
@@ -53,34 +53,43 @@
             // 
             // btnProceed
             // 
+            btnProceed.BackColor = Color.OrangeRed;
+            btnProceed.FlatStyle = FlatStyle.Popup;
+            btnProceed.ForeColor = Color.White;
             btnProceed.Location = new Point(141, 162);
             btnProceed.Name = "btnProceed";
             btnProceed.Size = new Size(75, 23);
             btnProceed.TabIndex = 2;
             btnProceed.Text = "Pending";
-            btnProceed.UseVisualStyleBackColor = true;
+            btnProceed.UseVisualStyleBackColor = false;
             btnProceed.Click += btnProceed_Click;
             // 
             // btnCancel
             // 
+            btnCancel.BackColor = Color.Red;
+            btnCancel.FlatStyle = FlatStyle.Popup;
+            btnCancel.ForeColor = Color.White;
             btnCancel.Location = new Point(222, 162);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(75, 23);
             btnCancel.TabIndex = 3;
             btnCancel.Text = "Cancel";
-            btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.UseVisualStyleBackColor = false;
             btnCancel.Click += btnCancel_Click;
             // 
             // Remarks
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.CadetBlue;
             ClientSize = new Size(422, 197);
             Controls.Add(btnCancel);
             Controls.Add(btnProceed);
             Controls.Add(label1);
             Controls.Add(txtRemarks);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "Remarks";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Remarks";
             ResumeLayout(false);
             PerformLayout();
