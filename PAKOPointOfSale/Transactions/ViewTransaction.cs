@@ -154,6 +154,7 @@ namespace PAKOPointOfSale.Transactions
                                 cmbInvoiceAction.Enabled = true;
                                 btnProceed.Enabled = true;
                                 dgvItems.ReadOnly = false;
+                                btnViewReason.Visible = false;
                             }
                         }
                     }
@@ -201,6 +202,7 @@ namespace PAKOPointOfSale.Transactions
                                 else
                                 {
                                     lblVoidOrReturn.Visible = true;
+                                    btnViewReason.Visible = true;
                                     lblAdjustmentNumber.Visible = true;
                                     lblVoidOrReturn.Text = "Return No.: ";
                                     lblAdjustmentNumber.Text = reader["return_number"].ToString();
@@ -221,6 +223,7 @@ namespace PAKOPointOfSale.Transactions
                                 cmbInvoiceAction.SelectedItem = "";
                                 cmbInvoiceAction.Enabled = true;
                                 btnProceed.Enabled = true;
+                                btnViewReason.Visible = false;
                             }
                         }
                     }
