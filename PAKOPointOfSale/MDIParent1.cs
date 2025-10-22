@@ -471,5 +471,10 @@ namespace PAKOPointOfSale
             lblDate.Text = DateTime.Now.ToString("MM/dd/yyyy");
             lblTime.Text = DateTime.Now.ToString("hh:mm:ss tt");
         }
+
+        private void lblNetSales_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

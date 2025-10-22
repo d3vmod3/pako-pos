@@ -96,6 +96,7 @@ namespace PAKOPointOfSale.Transactions
             lblParkLabel = new Label();
             lblParkNumber = new Label();
             btnParkedTransactions = new Button();
+            btnScan = new Button();
             ((System.ComponentModel.ISupportInitialize)productBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)userTypeBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dtgvCart).BeginInit();
@@ -358,9 +359,9 @@ namespace PAKOPointOfSale.Transactions
             // 
             // txtScannedBarcode
             // 
-            txtScannedBarcode.Location = new Point(132, 109);
+            txtScannedBarcode.Location = new Point(12, 195);
             txtScannedBarcode.Name = "txtScannedBarcode";
-            txtScannedBarcode.Size = new Size(287, 23);
+            txtScannedBarcode.Size = new Size(149, 23);
             txtScannedBarcode.TabIndex = 9;
             txtScannedBarcode.TextChanged += textBox1_TextChanged;
             // 
@@ -789,12 +790,26 @@ namespace PAKOPointOfSale.Transactions
             btnParkedTransactions.UseVisualStyleBackColor = false;
             btnParkedTransactions.Click += btnParkedTransactions_Click;
             // 
+            // btnScan
+            // 
+            btnScan.BackColor = Color.IndianRed;
+            btnScan.FlatStyle = FlatStyle.Popup;
+            btnScan.ForeColor = Color.White;
+            btnScan.Location = new Point(129, 109);
+            btnScan.Name = "btnScan";
+            btnScan.Size = new Size(126, 22);
+            btnScan.TabIndex = 160;
+            btnScan.Text = "Scan Barcode";
+            btnScan.UseVisualStyleBackColor = false;
+            btnScan.Click += btnScan_Click;
+            // 
             // SalesInvoice
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
             ClientSize = new Size(1367, 777);
+            Controls.Add(btnScan);
             Controls.Add(btnClearCart);
             Controls.Add(btnParkedTransactions);
             Controls.Add(lblParkNumber);
@@ -810,9 +825,9 @@ namespace PAKOPointOfSale.Transactions
             Controls.Add(pictureBox2);
             Controls.Add(panel1);
             Controls.Add(btnApplyDiscount);
-            Controls.Add(txtScannedBarcode);
             Controls.Add(dtgvCart);
             Controls.Add(btnSearchProduct);
+            Controls.Add(txtScannedBarcode);
             FormBorderStyle = FormBorderStyle.None;
             MaximizeBox = false;
             MinimizeBox = false;
@@ -917,5 +932,6 @@ namespace PAKOPointOfSale.Transactions
         private DataGridViewTextBoxColumn vatAmount;
         private DataGridViewTextBoxColumn vatExempt;
         private DataGridViewButtonColumn remove;
+        private Button btnScan;
     }
 }

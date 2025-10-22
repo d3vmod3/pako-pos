@@ -115,10 +115,10 @@ namespace PAKOPointOfSale.Transactions
                 if (row.Cells["subTotal"].Value != null)
                 {
                     decimal subTotal = Convert.ToDecimal(row.Cells["subTotal"].Value);
-                    
+
                     //int qty = Convert.ToInt32(row.Cells["appliedQty"].Value);
                     total += subTotal;
-                    
+
                 }
                 if (row.Cells["discountAmount"].Value != null)
                 {
@@ -126,12 +126,12 @@ namespace PAKOPointOfSale.Transactions
 
                     //int qty = Convert.ToInt32(row.Cells["appliedQty"].Value);
                     discount_total += subTotal;
-                    
+
                 }
             }
 
             lblTotal.Text = total.ToString("#,##0.00"); // or just total.ToString("N2")
-            lblDiscountAmount.Text = discount_total.ToString("-"+"#,##0.00"); // or just total.ToString("N2")
+            lblDiscountAmount.Text = discount_total.ToString("-" + "#,##0.00"); // or just total.ToString("N2")
         }
 
         private void num_CashAmount_ValueChanged(object sender, EventArgs e)
@@ -147,6 +147,7 @@ namespace PAKOPointOfSale.Transactions
         private void dtgvCart_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             ComputeGrandTotal();
+            txtScannedBarcode.Focus();
         }
 
         private void dtgvCart_KeyPress(object sender, KeyPressEventArgs e)
@@ -755,7 +756,7 @@ namespace PAKOPointOfSale.Transactions
                         row.Cells["vatAmount"].Value = 0.00m;
                         row.Cells["vatExempt"].Value = 0.12m * ((price * qty) / 1.12m);
                     }
-                    else if (selectedDiscountType.Contains("Senior Citizen 20%")) 
+                    else if (selectedDiscountType.Contains("Senior Citizen 20%"))
                     {
                         discountAmount = SalesInvoiceFunctions.getPWDDiscount(price, 0.20m, qty);
                         row.Cells["vatAmount"].Value = 0.00m;
@@ -786,7 +787,7 @@ namespace PAKOPointOfSale.Transactions
                     }
                     else if (selectedDiscountType.Contains("Regular Discount"))
                     {
-                        if(regularDiscountAmount != 0.00m)
+                        if (regularDiscountAmount != 0.00m)
                         {
                             discountAmount = (decimal)(regularDiscountAmount);
                             decimal vatAmount = 0.12m * (discountAmount / 1.12m);
@@ -794,9 +795,9 @@ namespace PAKOPointOfSale.Transactions
                             row.Cells["vatExempt"].Value = 0.00m;
                             row.Cells["vatableSales"].Value = (originalSubTotal - discountAmount) / 1.12m;
                         }
-                        
+
                     }
-                        row.Cells["discountAmount"].Value = discountAmount;
+                    row.Cells["discountAmount"].Value = discountAmount;
                     row.Cells["subTotal"].Value = originalSubTotal - discountAmount;
                 }
             }
@@ -1228,6 +1229,12 @@ namespace PAKOPointOfSale.Transactions
             ParkNumber = "";
             dtgvCart.Rows.Clear();
             lblTotal.Text = "0.00";
+        }
+
+        private void btnScan_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Barcode scanning mode activated. Ready to scan items.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            txtScannedBarcode.Focus();
         }
     }
 }
