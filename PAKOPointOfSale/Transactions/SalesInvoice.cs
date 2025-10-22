@@ -1,5 +1,6 @@
 ﻿using Microsoft.Data.SqlClient;
 using PAKOPointOfSale.Model;
+using ScottPlot;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -716,7 +717,7 @@ namespace PAKOPointOfSale.Transactions
 
 
         }
-        private void ApplyDiscountToSelectedRows(string selectedDiscount)
+        private void ApplyDiscountToSelectedRows(string selectedDiscountType, decimal? regularDiscountAmount)
         {
             foreach (DataGridViewRow row in dtgvCart.Rows)
             {
@@ -731,40 +732,71 @@ namespace PAKOPointOfSale.Transactions
                 decimal qty = Convert.ToDecimal(row.Cells["appliedQty"].Value);
                 decimal originalSubTotal = price * qty;
 
-                if (selectedDiscount == "None")
+                if (selectedDiscountType == "None")
                 {
                     // Restore original values
                     row.Cells["DiscountType"].Value = "None";
                     row.Cells["discountAmount"].Value = 0m;
                     row.Cells["subTotal"].Value = originalSubTotal;
                     row.Cells["vatAmount"].Value = 0.12m * (originalSubTotal / 1.12m);
+                    row.Cells["vatableSales"].Value = originalSubTotal / 1.12m;
                     row.Cells["vatExempt"].Value = 0.00m;
                 }
                 else
                 {
                     // Apply selected discount
-                    row.Cells["DiscountType"].Value = selectedDiscount;
+                    row.Cells["DiscountType"].Value = selectedDiscountType;
                     decimal discountAmount = 0m;
+                    //decimal regularDiscountAmount = 0m;
 
-                    if (selectedDiscount.Contains("Senior Citizen 5%") || selectedDiscount.Contains("Person With Disability 5%"))
+                    if (selectedDiscountType.Contains("Senior Citizen 5%"))
                     {
                         discountAmount = SalesInvoiceFunctions.getSCDiscount(price, 0.05m, qty);
                         row.Cells["vatAmount"].Value = 0.00m;
                         row.Cells["vatExempt"].Value = 0.12m * ((price * qty) / 1.12m);
                     }
-                    else if (selectedDiscount.Contains("Senior Citizen 20%") || selectedDiscount.Contains("Person With Disability 20%") ||
-                             selectedDiscount.Contains("National Athletes and Coaches 20%"))
+                    else if (selectedDiscountType.Contains("Senior Citizen 20%")) 
                     {
-                        discountAmount = SalesInvoiceFunctions.getSCDiscount(price, 0.20m, qty);
-                        if (!selectedDiscount.Contains("National Athletes and Coaches 20%"))
-                        {
-                            row.Cells["vatAmount"].Value = 0.00m;
-                            row.Cells["vatExempt"].Value = 0.12m * ((price * qty) / 1.12m);
-                        }
+                        discountAmount = SalesInvoiceFunctions.getPWDDiscount(price, 0.20m, qty);
+                        row.Cells["vatAmount"].Value = 0.00m;
+                        row.Cells["vatExempt"].Value = 0.12m * ((price * qty) / 1.12m);
                     }
+                    else if (selectedDiscountType.Contains("Person With Disability 5%"))
 
-                    // Update row with discount
-                    row.Cells["discountAmount"].Value = discountAmount;
+                    {
+                        discountAmount = SalesInvoiceFunctions.getPWDDiscount(price, 0.05m, qty);
+                        row.Cells["vatAmount"].Value = 0.00m;
+                        row.Cells["vatExempt"].Value = 0.12m * ((price * qty) / 1.12m);
+
+                    }
+                    else if (selectedDiscountType.Contains("Person With Disability 20%"))
+                    {
+                        discountAmount = SalesInvoiceFunctions.getPWDDiscount(price, 0.20m, qty);
+                        row.Cells["vatAmount"].Value = 0.00m;
+                        row.Cells["vatExempt"].Value = 0.12m * ((price * qty) / 1.12m);
+                    }
+                    else if (selectedDiscountType.Contains("National Athletes and Coaches 20%"))
+                    {
+                        discountAmount = SalesInvoiceFunctions.getNAACDiscount(price, 0.20m, qty);
+                        decimal discountedPrice = originalSubTotal - discountAmount;
+                        decimal vatAmount = 0.12m * (discountedPrice * (qty) / 1.12m);
+                        row.Cells["vatAmount"].Value = vatAmount;
+                        row.Cells["vatExempt"].Value = 0.00m;
+                        row.Cells["vatableSales"].Value = (originalSubTotal - discountAmount) / 1.12m;
+                    }
+                    else if (selectedDiscountType.Contains("Regular Discount"))
+                    {
+                        if(regularDiscountAmount != 0.00m)
+                        {
+                            discountAmount = (decimal)(regularDiscountAmount);
+                            decimal vatAmount = 0.12m * (discountAmount * (qty) / 1.12m);
+                            row.Cells["vatAmount"].Value = vatAmount;
+                            row.Cells["vatExempt"].Value = 0.00m;
+                            row.Cells["vatableSales"].Value = (originalSubTotal - discountAmount) / 1.12m;
+                        }
+                        
+                    }
+                        row.Cells["discountAmount"].Value = discountAmount;
                     row.Cells["subTotal"].Value = originalSubTotal - discountAmount;
                 }
             }
@@ -793,23 +825,50 @@ namespace PAKOPointOfSale.Transactions
                 selectedRow.Cells["DiscountType"].Value = selectedDiscountType;
                 decimal discountAmount = 0m;
 
-                if (selectedDiscountType.Contains("Senior Citizen 5%") || selectedDiscountType.Contains("Person With Disability 5%"))
+                if (selectedDiscountType.Contains("Senior Citizen 5%"))
                 {
                     discountAmount = SalesInvoiceFunctions.getSCDiscount(price, 0.05m, qty);
                     selectedRow.Cells["vatAmount"].Value = 0.00m;
                     selectedRow.Cells["vatExempt"].Value = 0.12m * ((price * qty) / 1.12m);
                 }
-                else if (selectedDiscountType.Contains("Senior Citizen 20%") || selectedDiscountType.Contains("Person With Disability 20%") ||
-                         selectedDiscountType.Contains("National Athletes and Coaches 20%"))
+                else if (selectedDiscountType.Contains("Senior Citizen 20%"))
                 {
-                    discountAmount = SalesInvoiceFunctions.getSCDiscount(price, 0.20m, qty);
+                    discountAmount = SalesInvoiceFunctions.getPWDDiscount(price, 0.20m, qty);
+                    selectedRow.Cells["vatAmount"].Value = 0.00m;
+                    selectedRow.Cells["vatExempt"].Value = 0.12m * ((price * qty) / 1.12m);
+                }
+                else if (selectedDiscountType.Contains("Person With Disability 5%"))
 
-                    // For 20% SC/PWD, exempt from VAT (except athletes)
-                    if (!selectedDiscountType.Contains("National Athletes and Coaches 20%"))
-                    {
-                        selectedRow.Cells["vatAmount"].Value = 0.00m;
-                        selectedRow.Cells["vatExempt"].Value = 0.12m * ((price * qty) / 1.12m);
-                    }
+                {
+                    discountAmount = SalesInvoiceFunctions.getPWDDiscount(price, 0.05m, qty);
+                    selectedRow.Cells["vatAmount"].Value = 0.00m;
+                    selectedRow.Cells["vatExempt"].Value = 0.12m * ((price * qty) / 1.12m);
+
+                }
+                else if (selectedDiscountType.Contains("Person With Disability 20%"))
+                {
+                    discountAmount = SalesInvoiceFunctions.getPWDDiscount(price, 0.20m, qty);
+                    selectedRow.Cells["vatAmount"].Value = 0.00m;
+                    selectedRow.Cells["vatExempt"].Value = 0.12m * ((price * qty) / 1.12m);
+                }
+                else if (selectedDiscountType.Contains("National Athletes and Coaches 20%"))
+                {
+                    discountAmount = SalesInvoiceFunctions.getNAACDiscount(price, 0.20m, qty);
+                    discountAmount = SalesInvoiceFunctions.getNAACDiscount(price, 0.20m, qty);
+                    decimal discountedPrice = originalSubTotal - discountAmount;
+                    decimal vatAmount = 0.12m * (discountedPrice * (qty) / 1.12m);
+                    selectedRow.Cells["vatAmount"].Value = vatAmount;
+                    selectedRow.Cells["vatExempt"].Value = 0.00m;
+                    selectedRow.Cells["vatableSales"].Value = (originalSubTotal - discountAmount) / 1.12m;
+                }
+                else if (selectedDiscountType.Contains("Regular Discount"))
+                {
+                    discountAmount = Convert.ToDecimal(selectedRow.Cells["discountAmount"].Value);
+                    decimal discountedPrice = originalSubTotal - discountAmount;
+                    decimal vatAmount = 0.12m * (discountedPrice * (qty) / 1.12m);
+                    selectedRow.Cells["vatAmount"].Value = vatAmount;
+                    selectedRow.Cells["vatExempt"].Value = 0.00m;
+                    selectedRow.Cells["vatableSales"].Value = (originalSubTotal - discountAmount) / 1.12m;
                 }
 
                 // Update row with discount
