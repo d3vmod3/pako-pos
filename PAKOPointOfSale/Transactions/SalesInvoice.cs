@@ -907,7 +907,8 @@ namespace PAKOPointOfSale.Transactions
 
                 string discountType = row.Cells["discountType"].Value?.ToString() ?? "None";
 
-                if (discountType.Equals("None", StringComparison.OrdinalIgnoreCase))
+                if (discountType.Equals("None", StringComparison.OrdinalIgnoreCase) ||
+                    discountType.Equals("Regular Discount", StringComparison.OrdinalIgnoreCase))
                     continue; // skip rows with no discount
 
                 // Normalize to discount group
