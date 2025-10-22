@@ -24,7 +24,6 @@ namespace PAKOPointOfSale.Model
         public decimal total_amount { get; set; }
         public string? unit_of_measurement { get; set; }
         public string transaction_type { get; set; } = "Return";
-        public DateTime created_at { get; set; } = DateTime.Now;
 
         public ReturnTransaction return_transaction { get; set; }
         public Product product { get; set; }
