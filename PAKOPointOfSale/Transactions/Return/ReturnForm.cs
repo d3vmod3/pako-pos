@@ -71,11 +71,23 @@ namespace PAKOPointOfSale.Transactions.Return
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-
+            
 
             var confirmForm = new ActionConfirmation("Please confirm admin credentials to proceed.", true, "return");
             if (confirmForm.ShowDialog() != DialogResult.OK)
                 return;
+
+
+            string reason = "";
+            Transactions.Return.ReturnReason reasonForm = new Transactions.Return.ReturnReason();
+            
+            
+            reasonForm.Reason += (string reasonValue) =>
+            {
+                reason = reasonValue;
+            };
+
+            reasonForm.ShowDialog();
 
             string connString = PAKOPointOfSale.Program.ConnString;
             string returnNumber = SalesInvoiceFunctions.GenerateNextReturnNumber();
@@ -136,8 +148,8 @@ namespace PAKOPointOfSale.Transactions.Return
 
                         // 2️⃣ Create return header in ReturnTransactions table
                         string insertReturnTransactionQuery = @"
-                    INSERT INTO ReturnTransactions (return_number, invoice_number, transaction_id)
-                    VALUES (@return_number, @invoice_number, @transaction_id);
+                    INSERT INTO ReturnTransactions (return_number, invoice_number, transaction_id,reason)
+                    VALUES (@return_number, @invoice_number, @transaction_id,@reason);
                     SELECT SCOPE_IDENTITY();";
 
                         int returnTransactionId;
@@ -146,6 +158,7 @@ namespace PAKOPointOfSale.Transactions.Return
                             cmd.Parameters.AddWithValue("@return_number", returnNumber);
                             cmd.Parameters.AddWithValue("@invoice_number", _invoiceNumber);
                             cmd.Parameters.AddWithValue("@transaction_id", newTransactionId);
+                            cmd.Parameters.AddWithValue("@reason", reason);
                             returnTransactionId = Convert.ToInt32(cmd.ExecuteScalar());
                         }
 
@@ -211,6 +224,7 @@ namespace PAKOPointOfSale.Transactions.Return
                         );
 
                         Transactions.PrintReturnReceipt.GenerateReturnReceiptFromTransactionId(newTransactionId);
+                        this.DialogResult = DialogResult.OK;
                         this.Close();
                     }
                     catch (Exception ex)

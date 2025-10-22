@@ -12,6 +12,7 @@ public class VoidTransaction
     public int id { get; set; }
     public string void_number { get; set; }
     public string invoice_number { get; set; }
+    public string reason { get; set; }
 
     [ForeignKey("transaction")]
     public int transaction_id { get; set; }

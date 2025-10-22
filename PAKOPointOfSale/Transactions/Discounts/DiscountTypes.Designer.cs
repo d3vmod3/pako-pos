@@ -33,7 +33,12 @@
             lblNote = new Label();
             pictureBox2 = new PictureBox();
             btnCancel = new Button();
+            panel1 = new Panel();
+            num_customDiscount = new NumericUpDown();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)num_customDiscount).BeginInit();
             SuspendLayout();
             // 
             // cmbDiscountTypes
@@ -41,18 +46,19 @@
             cmbDiscountTypes.BackColor = SystemColors.ActiveBorder;
             cmbDiscountTypes.FlatStyle = FlatStyle.Popup;
             cmbDiscountTypes.FormattingEnabled = true;
-            cmbDiscountTypes.Items.AddRange(new object[] { "None", "Senior Citizen 5%", "Senior Citizen 20%", "Person With Disability 5%", "Person With Disability 20%", "National Athletes and Coaches 20%" });
+            cmbDiscountTypes.Items.AddRange(new object[] { "None", "Senior Citizen 5%", "Senior Citizen 20%", "Person With Disability 5%", "Person With Disability 20%", "National Athletes and Coaches 20%", "Regular Discount" });
             cmbDiscountTypes.Location = new Point(12, 51);
             cmbDiscountTypes.Name = "cmbDiscountTypes";
             cmbDiscountTypes.Size = new Size(317, 23);
             cmbDiscountTypes.TabIndex = 0;
+            cmbDiscountTypes.SelectedIndexChanged += cmbDiscountTypes_SelectedIndexChanged;
             // 
             // btnOk
             // 
             btnOk.BackColor = Color.CornflowerBlue;
             btnOk.FlatStyle = FlatStyle.Popup;
             btnOk.ForeColor = Color.White;
-            btnOk.Location = new Point(90, 116);
+            btnOk.Location = new Point(75, 41);
             btnOk.Name = "btnOk";
             btnOk.Size = new Size(74, 23);
             btnOk.TabIndex = 1;
@@ -65,7 +71,7 @@
             lblNote.AutoSize = true;
             lblNote.BackColor = Color.White;
             lblNote.ForeColor = Color.Black;
-            lblNote.Location = new Point(44, 87);
+            lblNote.Location = new Point(29, 12);
             lblNote.Name = "lblNote";
             lblNote.Size = new Size(260, 15);
             lblNote.TabIndex = 2;
@@ -85,7 +91,7 @@
             btnCancel.BackColor = Color.Red;
             btnCancel.FlatStyle = FlatStyle.Popup;
             btnCancel.ForeColor = Color.White;
-            btnCancel.Location = new Point(170, 116);
+            btnCancel.Location = new Point(155, 41);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(74, 23);
             btnCancel.TabIndex = 14;
@@ -93,16 +99,44 @@
             btnCancel.UseVisualStyleBackColor = false;
             btnCancel.Click += btnCancel_Click;
             // 
+            // panel1
+            // 
+            panel1.Controls.Add(lblNote);
+            panel1.Controls.Add(btnCancel);
+            panel1.Controls.Add(btnOk);
+            panel1.Location = new Point(12, 78);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(317, 76);
+            panel1.TabIndex = 15;
+            // 
+            // num_customDiscount
+            // 
+            num_customDiscount.DecimalPlaces = 2;
+            num_customDiscount.Location = new Point(117, 78);
+            num_customDiscount.Maximum = new decimal(new int[] { 999999, 0, 0, 0 });
+            num_customDiscount.Name = "num_customDiscount";
+            num_customDiscount.Size = new Size(212, 23);
+            num_customDiscount.TabIndex = 16;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(12, 80);
+            label1.Name = "label1";
+            label1.Size = new Size(102, 15);
+            label1.TabIndex = 17;
+            label1.Text = "Custom Discount:";
+            // 
             // DiscountTypes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(341, 151);
-            Controls.Add(btnCancel);
+            ClientSize = new Size(341, 166);
+            Controls.Add(panel1);
+            Controls.Add(label1);
+            Controls.Add(num_customDiscount);
             Controls.Add(pictureBox2);
-            Controls.Add(lblNote);
-            Controls.Add(btnOk);
             Controls.Add(cmbDiscountTypes);
             FormBorderStyle = FormBorderStyle.None;
             MaximizeBox = false;
@@ -112,6 +146,9 @@
             Text = "Apply Discount";
             Load += DiscountTypes_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)num_customDiscount).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -123,5 +160,8 @@
         private Label lblNote;
         private PictureBox pictureBox2;
         private Button btnCancel;
+        private Panel panel1;
+        private NumericUpDown num_customDiscount;
+        private Label label1;
     }
 }
