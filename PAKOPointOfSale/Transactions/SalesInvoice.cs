@@ -779,7 +779,7 @@ namespace PAKOPointOfSale.Transactions
                     {
                         discountAmount = SalesInvoiceFunctions.getNAACDiscount(price, 0.20m, qty);
                         decimal discountedPrice = originalSubTotal - discountAmount;
-                        decimal vatAmount = 0.12m * (discountedPrice * (qty) / 1.12m);
+                        decimal vatAmount = 0.12m * (discountedPrice / 1.12m);
                         row.Cells["vatAmount"].Value = vatAmount;
                         row.Cells["vatExempt"].Value = 0.00m;
                         row.Cells["vatableSales"].Value = (originalSubTotal - discountAmount) / 1.12m;
@@ -789,7 +789,7 @@ namespace PAKOPointOfSale.Transactions
                         if(regularDiscountAmount != 0.00m)
                         {
                             discountAmount = (decimal)(regularDiscountAmount);
-                            decimal vatAmount = 0.12m * (discountAmount * (qty) / 1.12m);
+                            decimal vatAmount = 0.12m * (discountAmount / 1.12m);
                             row.Cells["vatAmount"].Value = vatAmount;
                             row.Cells["vatExempt"].Value = 0.00m;
                             row.Cells["vatableSales"].Value = (originalSubTotal - discountAmount) / 1.12m;
@@ -854,9 +854,8 @@ namespace PAKOPointOfSale.Transactions
                 else if (selectedDiscountType.Contains("National Athletes and Coaches 20%"))
                 {
                     discountAmount = SalesInvoiceFunctions.getNAACDiscount(price, 0.20m, qty);
-                    discountAmount = SalesInvoiceFunctions.getNAACDiscount(price, 0.20m, qty);
                     decimal discountedPrice = originalSubTotal - discountAmount;
-                    decimal vatAmount = 0.12m * (discountedPrice * (qty) / 1.12m);
+                    decimal vatAmount = 0.12m * (discountedPrice / 1.12m);
                     selectedRow.Cells["vatAmount"].Value = vatAmount;
                     selectedRow.Cells["vatExempt"].Value = 0.00m;
                     selectedRow.Cells["vatableSales"].Value = (originalSubTotal - discountAmount) / 1.12m;
@@ -865,7 +864,7 @@ namespace PAKOPointOfSale.Transactions
                 {
                     discountAmount = Convert.ToDecimal(selectedRow.Cells["discountAmount"].Value);
                     decimal discountedPrice = originalSubTotal - discountAmount;
-                    decimal vatAmount = 0.12m * (discountedPrice * (qty) / 1.12m);
+                    decimal vatAmount = 0.12m * (discountedPrice / 1.12m);
                     selectedRow.Cells["vatAmount"].Value = vatAmount;
                     selectedRow.Cells["vatExempt"].Value = 0.00m;
                     selectedRow.Cells["vatableSales"].Value = (originalSubTotal - discountAmount) / 1.12m;

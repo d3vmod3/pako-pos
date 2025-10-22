@@ -113,6 +113,7 @@
             // 
             num_customDiscount.DecimalPlaces = 2;
             num_customDiscount.Location = new Point(117, 78);
+            num_customDiscount.Maximum = new decimal(new int[] { 999999, 0, 0, 0 });
             num_customDiscount.Name = "num_customDiscount";
             num_customDiscount.Size = new Size(212, 23);
             num_customDiscount.TabIndex = 16;
