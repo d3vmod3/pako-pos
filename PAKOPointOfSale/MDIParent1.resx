@@ -941,7 +941,7 @@
   <data name="btnUac.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAG96SURBVHhe7Z0H
+        vwAADr8BOAVTJAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAG96SURBVHhe7Z0H
         tBTFtob3CeScc5AMguQMoggikpGcs+SgIlFBAUVUkoqiYkJUgoEkKKjXjDkrKigSBAEBFQUO4H6rxnN8
         WLvhVIcJ3fN/a33rvofQM1XdXf+eDlVEAHhPZiIqR0SXEVE/IppCRHcR0TIiep6I/kdEnxPRTiLaR0RH
         Uv2LiDjV4+f8ufp7yq+J6E0ieiF1W3cQ0Q1ENJCIriKiSqmfDQAAAIAwkZQa8u2JaBIRPUZE7xPRgXNC
@@ -3211,4 +3211,7 @@
         AAAAAElFTkSuQmCC
 </value>
   </data>
+  <metadata name="timerDateandTime.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>465, 17</value>
+  </metadata>
 </root>

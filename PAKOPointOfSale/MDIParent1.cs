@@ -465,5 +465,11 @@ namespace PAKOPointOfSale
         {
 
         }
+
+        private void timer1_Tick_1(object sender, EventArgs e)
+        {
+            lblDate.Text = DateTime.Now.ToString("MM/dd/yyyy");
+            lblTime.Text = DateTime.Now.ToString("hh:mm:ss tt");
+        }
     }
 }
