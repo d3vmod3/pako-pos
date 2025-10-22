@@ -100,7 +100,7 @@
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = Color.Black;
+            dataGridViewCellStyle2.ForeColor = Color.White;
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
@@ -238,7 +238,7 @@
             button1.BackColor = Color.ForestGreen;
             button1.FlatStyle = FlatStyle.Popup;
             button1.ForeColor = Color.White;
-            button1.Location = new Point(1152, 111);
+            button1.Location = new Point(1168, 111);
             button1.Name = "button1";
             button1.Size = new Size(100, 23);
             button1.TabIndex = 9;
@@ -294,11 +294,11 @@
             label2.AutoSize = true;
             label2.BackColor = SystemColors.ControlDarkDark;
             label2.FlatStyle = FlatStyle.System;
-            label2.Font = new Font("Impact", 42F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Impact", 47.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.ButtonHighlight;
-            label2.Location = new Point(529, 20);
+            label2.Location = new Point(547, 11);
             label2.Name = "label2";
-            label2.Size = new Size(444, 68);
+            label2.Size = new Size(499, 76);
             label2.TabIndex = 157;
             label2.Text = "RETURN ITEMS LIST";
             // 

@@ -96,7 +96,7 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
-            dataGridView1.Size = new Size(1346, 437);
+            dataGridView1.Size = new Size(1346, 540);
             dataGridView1.TabIndex = 3;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -240,9 +240,9 @@
             pictureBox3.ErrorImage = null;
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
             pictureBox3.InitialImage = null;
-            pictureBox3.Location = new Point(-14, 567);
+            pictureBox3.Location = new Point(-1, 670);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(1402, 91);
+            pictureBox3.Size = new Size(1402, 102);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 151;
             pictureBox3.TabStop = false;
@@ -265,7 +265,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
-            ClientSize = new Size(1370, 654);
+            ClientSize = new Size(1370, 770);
             Controls.Add(button1);
             Controls.Add(pictureBox3);
             Controls.Add(lblsearchproduct);

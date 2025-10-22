@@ -38,27 +38,32 @@
             txtReason.Multiline = true;
             txtReason.Name = "txtReason";
             txtReason.ReadOnly = true;
-            txtReason.Size = new Size(513, 204);
+            txtReason.Size = new Size(513, 176);
             txtReason.TabIndex = 0;
             txtReason.TextChanged += txtReason_TextChanged;
             // 
             // btnBack
             // 
-            btnBack.Location = new Point(450, 222);
+            btnBack.BackColor = Color.SeaGreen;
+            btnBack.FlatStyle = FlatStyle.Popup;
+            btnBack.ForeColor = Color.White;
+            btnBack.Location = new Point(450, 195);
             btnBack.Name = "btnBack";
             btnBack.Size = new Size(75, 23);
             btnBack.TabIndex = 1;
             btnBack.Text = "Back";
-            btnBack.UseVisualStyleBackColor = true;
+            btnBack.UseVisualStyleBackColor = false;
             btnBack.Click += btnBack_Click;
             // 
             // ViewAdjustmentReason
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(537, 253);
+            BackColor = Color.CadetBlue;
+            ClientSize = new Size(537, 230);
             Controls.Add(btnBack);
             Controls.Add(txtReason);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "ViewAdjustmentReason";
             Text = "View Reason";
             Load += ViewAdjustmentReason_Load;

@@ -35,39 +35,45 @@
             // 
             // btnSubmit
             // 
+            btnSubmit.BackColor = Color.SeaGreen;
+            btnSubmit.FlatStyle = FlatStyle.Popup;
+            btnSubmit.ForeColor = Color.White;
             btnSubmit.Location = new Point(345, 205);
             btnSubmit.Name = "btnSubmit";
             btnSubmit.Size = new Size(75, 23);
             btnSubmit.TabIndex = 5;
             btnSubmit.Text = "Submit";
-            btnSubmit.UseVisualStyleBackColor = true;
+            btnSubmit.UseVisualStyleBackColor = false;
             btnSubmit.Click += btnSubmit_Click;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 9);
+            label1.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(12, 18);
             label1.Name = "label1";
-            label1.Size = new Size(265, 15);
+            label1.Size = new Size(293, 17);
             label1.TabIndex = 4;
             label1.Text = "Please indicate the reason why you want to void?";
             // 
             // txtReason
             // 
-            txtReason.Location = new Point(12, 27);
+            txtReason.Location = new Point(12, 46);
             txtReason.Multiline = true;
             txtReason.Name = "txtReason";
-            txtReason.Size = new Size(408, 172);
+            txtReason.Size = new Size(408, 146);
             txtReason.TabIndex = 3;
             // 
             // VoidReason
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.CadetBlue;
             ClientSize = new Size(431, 238);
             Controls.Add(btnSubmit);
             Controls.Add(label1);
             Controls.Add(txtReason);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "VoidReason";
             Text = "Void Reason";
             Load += VoidReason_Load;

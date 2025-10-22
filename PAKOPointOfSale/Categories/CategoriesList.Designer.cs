@@ -194,14 +194,14 @@ namespace PAKOPointOfSale.Categories
             // 
             txtSearch.Location = new Point(60, 106);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(468, 23);
+            txtSearch.Size = new Size(351, 23);
             txtSearch.TabIndex = 7;
             txtSearch.TextChanged += txtSearch_TextChanged;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.BackColor = Color.Khaki;
+            label1.BackColor = Color.Transparent;
             label1.ForeColor = Color.Black;
             label1.Location = new Point(12, 111);
             label1.Name = "label1";
@@ -237,11 +237,11 @@ namespace PAKOPointOfSale.Categories
             // 
             lblcategorieslist.AutoSize = true;
             lblcategorieslist.BackColor = SystemColors.ControlDarkDark;
-            lblcategorieslist.Font = new Font("Impact", 47.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblcategorieslist.Font = new Font("Impact", 50.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblcategorieslist.ForeColor = Color.White;
             lblcategorieslist.Location = new Point(568, 9);
             lblcategorieslist.Name = "lblcategorieslist";
-            lblcategorieslist.Size = new Size(458, 76);
+            lblcategorieslist.Size = new Size(490, 82);
             lblcategorieslist.TabIndex = 11;
             lblcategorieslist.Text = "CATEGORIES LIST";
             // 

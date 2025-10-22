@@ -72,7 +72,7 @@
             btnExport.BackColor = Color.Gold;
             btnExport.FlatStyle = FlatStyle.Popup;
             btnExport.ForeColor = Color.Black;
-            btnExport.Location = new Point(1150, 100);
+            btnExport.Location = new Point(1191, 119);
             btnExport.Name = "btnExport";
             btnExport.Size = new Size(79, 24);
             btnExport.TabIndex = 9;
@@ -85,7 +85,7 @@
             btnAdd.BackColor = Color.Green;
             btnAdd.FlatStyle = FlatStyle.Popup;
             btnAdd.ForeColor = Color.White;
-            btnAdd.Location = new Point(1065, 101);
+            btnAdd.Location = new Point(1106, 120);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(79, 24);
             btnAdd.TabIndex = 8;
@@ -95,9 +95,9 @@
             // 
             // txtSearch
             // 
-            txtSearch.Location = new Point(67, 100);
+            txtSearch.Location = new Point(12, 121);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(305, 23);
+            txtSearch.Size = new Size(265, 23);
             txtSearch.TabIndex = 7;
             txtSearch.TextChanged += txtSearch_TextChanged;
             // 
@@ -119,11 +119,11 @@
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { id, nameDataGridViewTextBoxColumn, addressDataGridViewTextBoxColumn, contactnumberDataGridViewTextBoxColumn, accountnumberDataGridViewTextBoxColumn, gatewayDataGridViewTextBoxColumn, is_active, createdatDataGridViewTextBoxColumn, productsDataGridViewTextBoxColumn, edit });
             dataGridView1.DataSource = supplierDetailsBindingSource;
-            dataGridView1.Location = new Point(12, 176);
+            dataGridView1.Location = new Point(12, 152);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
-            dataGridView1.Size = new Size(1343, 487);
+            dataGridView1.Size = new Size(1343, 511);
             dataGridView1.TabIndex = 5;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -232,11 +232,11 @@
             label1.AutoSize = true;
             label1.BackColor = SystemColors.ControlDarkDark;
             label1.FlatStyle = FlatStyle.System;
-            label1.Font = new Font("Impact", 47.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Impact", 50.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ButtonHighlight;
-            label1.Location = new Point(634, 9);
+            label1.Location = new Point(583, 9);
             label1.Name = "label1";
-            label1.Size = new Size(413, 76);
+            label1.Size = new Size(440, 82);
             label1.TabIndex = 147;
             label1.Text = "SUPPLIERS LIST";
             // 
@@ -244,7 +244,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(16, 103);
+            label2.Location = new Point(15, 102);
             label2.Name = "label2";
             label2.Size = new Size(45, 15);
             label2.TabIndex = 148;
@@ -256,7 +256,7 @@
             btnClose.BackColor = Color.Red;
             btnClose.FlatStyle = FlatStyle.Popup;
             btnClose.ForeColor = Color.White;
-            btnClose.Location = new Point(1276, 101);
+            btnClose.Location = new Point(1276, 119);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(79, 24);
             btnClose.TabIndex = 149;
@@ -280,15 +280,15 @@
             // 
             // dtpFrom
             // 
-            dtpFrom.Location = new Point(449, 101);
+            dtpFrom.Location = new Point(317, 121);
             dtpFrom.Name = "dtpFrom";
-            dtpFrom.Size = new Size(200, 23);
+            dtpFrom.Size = new Size(185, 23);
             dtpFrom.TabIndex = 151;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(378, 105);
+            label3.Location = new Point(317, 103);
             label3.Name = "label3";
             label3.Size = new Size(65, 15);
             label3.TabIndex = 152;
@@ -297,7 +297,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(393, 135);
+            label4.Location = new Point(532, 103);
             label4.Name = "label4";
             label4.Size = new Size(50, 15);
             label4.TabIndex = 154;
@@ -305,44 +305,48 @@
             // 
             // dtpTo
             // 
-            dtpTo.Location = new Point(449, 130);
+            dtpTo.Location = new Point(532, 121);
             dtpTo.Name = "dtpTo";
-            dtpTo.Size = new Size(200, 23);
+            dtpTo.Size = new Size(187, 23);
             dtpTo.TabIndex = 153;
             // 
             // btnFilter
             // 
-            btnFilter.Location = new Point(867, 103);
+            btnFilter.BackColor = Color.Khaki;
+            btnFilter.FlatStyle = FlatStyle.Popup;
+            btnFilter.Location = new Point(907, 121);
             btnFilter.Name = "btnFilter";
             btnFilter.Size = new Size(75, 23);
             btnFilter.TabIndex = 159;
             btnFilter.Text = "Filter";
-            btnFilter.UseVisualStyleBackColor = true;
+            btnFilter.UseVisualStyleBackColor = false;
             btnFilter.Click += btnFilter_Click;
             // 
             // btnClearFilter
             // 
-            btnClearFilter.Location = new Point(948, 103);
+            btnClearFilter.BackColor = Color.FromArgb(255, 128, 128);
+            btnClearFilter.FlatStyle = FlatStyle.Popup;
+            btnClearFilter.Location = new Point(988, 120);
             btnClearFilter.Name = "btnClearFilter";
             btnClearFilter.Size = new Size(75, 23);
             btnClearFilter.TabIndex = 158;
             btnClearFilter.Text = "Clear Filter";
-            btnClearFilter.UseVisualStyleBackColor = true;
+            btnClearFilter.UseVisualStyleBackColor = false;
             btnClearFilter.Click += btnClearFilter_Click;
             // 
             // cmbStatus
             // 
             cmbStatus.FormattingEnabled = true;
             cmbStatus.Items.AddRange(new object[] { "All", "Active", "Inactive" });
-            cmbStatus.Location = new Point(740, 100);
+            cmbStatus.Location = new Point(750, 121);
             cmbStatus.Name = "cmbStatus";
-            cmbStatus.Size = new Size(121, 23);
+            cmbStatus.Size = new Size(151, 23);
             cmbStatus.TabIndex = 160;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(666, 105);
+            label5.Location = new Point(750, 105);
             label5.Name = "label5";
             label5.Size = new Size(71, 15);
             label5.TabIndex = 161;
@@ -353,7 +357,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
-            ClientSize = new Size(1367, 788);
+            ClientSize = new Size(1367, 770);
             Controls.Add(label5);
             Controls.Add(cmbStatus);
             Controls.Add(btnFilter);

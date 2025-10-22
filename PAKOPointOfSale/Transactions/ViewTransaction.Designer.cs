@@ -290,7 +290,7 @@ namespace PAKOPointOfSale.Transactions
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(40, 262);
+            label1.Location = new Point(40, 250);
             label1.Name = "label1";
             label1.Size = new Size(138, 20);
             label1.TabIndex = 2;
@@ -301,7 +301,7 @@ namespace PAKOPointOfSale.Transactions
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             label2.ForeColor = Color.Black;
-            label2.Location = new Point(40, 133);
+            label2.Location = new Point(55, 117);
             label2.Name = "label2";
             label2.Size = new Size(132, 20);
             label2.TabIndex = 3;
@@ -312,7 +312,7 @@ namespace PAKOPointOfSale.Transactions
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             label3.ForeColor = Color.Black;
-            label3.Location = new Point(34, 303);
+            label3.Location = new Point(34, 291);
             label3.Name = "label3";
             label3.Size = new Size(230, 20);
             label3.TabIndex = 4;
@@ -323,7 +323,7 @@ namespace PAKOPointOfSale.Transactions
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             label4.ForeColor = Color.Black;
-            label4.Location = new Point(40, 343);
+            label4.Location = new Point(40, 331);
             label4.Name = "label4";
             label4.Size = new Size(82, 20);
             label4.TabIndex = 5;
@@ -334,7 +334,7 @@ namespace PAKOPointOfSale.Transactions
             label5.AutoSize = true;
             label5.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             label5.ForeColor = Color.Black;
-            label5.Location = new Point(40, 384);
+            label5.Location = new Point(40, 372);
             label5.Name = "label5";
             label5.Size = new Size(132, 20);
             label5.TabIndex = 6;
@@ -345,7 +345,7 @@ namespace PAKOPointOfSale.Transactions
             label6.AutoSize = true;
             label6.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             label6.ForeColor = Color.Black;
-            label6.Location = new Point(40, 424);
+            label6.Location = new Point(40, 412);
             label6.Name = "label6";
             label6.Size = new Size(115, 20);
             label6.TabIndex = 7;
@@ -356,7 +356,7 @@ namespace PAKOPointOfSale.Transactions
             label7.AutoSize = true;
             label7.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             label7.ForeColor = Color.Black;
-            label7.Location = new Point(39, 465);
+            label7.Location = new Point(39, 453);
             label7.Name = "label7";
             label7.Size = new Size(113, 20);
             label7.TabIndex = 8;
@@ -367,7 +367,7 @@ namespace PAKOPointOfSale.Transactions
             label8.AutoSize = true;
             label8.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             label8.ForeColor = Color.Black;
-            label8.Location = new Point(40, 506);
+            label8.Location = new Point(40, 494);
             label8.Name = "label8";
             label8.Size = new Size(109, 20);
             label8.TabIndex = 9;
@@ -380,7 +380,7 @@ namespace PAKOPointOfSale.Transactions
             lblTransactionId.FlatStyle = FlatStyle.Popup;
             lblTransactionId.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             lblTransactionId.ForeColor = Color.Black;
-            lblTransactionId.Location = new Point(270, 133);
+            lblTransactionId.Location = new Point(207, 117);
             lblTransactionId.Name = "lblTransactionId";
             lblTransactionId.Size = new Size(69, 20);
             lblTransactionId.TabIndex = 10;
@@ -392,7 +392,7 @@ namespace PAKOPointOfSale.Transactions
             lblInvoiceNumber.BackColor = Color.Transparent;
             lblInvoiceNumber.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             lblInvoiceNumber.ForeColor = Color.Black;
-            lblInvoiceNumber.Location = new Point(268, 262);
+            lblInvoiceNumber.Location = new Point(268, 250);
             lblInvoiceNumber.Name = "lblInvoiceNumber";
             lblInvoiceNumber.Size = new Size(69, 20);
             lblInvoiceNumber.TabIndex = 11;
@@ -404,7 +404,7 @@ namespace PAKOPointOfSale.Transactions
             lblTransactionDate.BackColor = Color.Transparent;
             lblTransactionDate.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             lblTransactionDate.ForeColor = Color.Black;
-            lblTransactionDate.Location = new Point(270, 303);
+            lblTransactionDate.Location = new Point(270, 291);
             lblTransactionDate.Name = "lblTransactionDate";
             lblTransactionDate.Size = new Size(89, 20);
             lblTransactionDate.TabIndex = 12;
@@ -416,7 +416,7 @@ namespace PAKOPointOfSale.Transactions
             lblSubTotal.BackColor = Color.Transparent;
             lblSubTotal.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             lblSubTotal.ForeColor = Color.Black;
-            lblSubTotal.Location = new Point(270, 343);
+            lblSubTotal.Location = new Point(270, 331);
             lblSubTotal.Name = "lblSubTotal";
             lblSubTotal.Size = new Size(44, 20);
             lblSubTotal.TabIndex = 13;
@@ -428,7 +428,7 @@ namespace PAKOPointOfSale.Transactions
             lblVatableSales.BackColor = Color.Transparent;
             lblVatableSales.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             lblVatableSales.ForeColor = Color.Black;
-            lblVatableSales.Location = new Point(270, 384);
+            lblVatableSales.Location = new Point(270, 372);
             lblVatableSales.Name = "lblVatableSales";
             lblVatableSales.Size = new Size(44, 20);
             lblVatableSales.TabIndex = 14;
@@ -440,7 +440,7 @@ namespace PAKOPointOfSale.Transactions
             lblVatAmount.BackColor = Color.Transparent;
             lblVatAmount.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             lblVatAmount.ForeColor = Color.Black;
-            lblVatAmount.Location = new Point(270, 424);
+            lblVatAmount.Location = new Point(270, 412);
             lblVatAmount.Name = "lblVatAmount";
             lblVatAmount.Size = new Size(44, 20);
             lblVatAmount.TabIndex = 15;
@@ -452,7 +452,7 @@ namespace PAKOPointOfSale.Transactions
             lblVatExempt.BackColor = Color.Transparent;
             lblVatExempt.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             lblVatExempt.ForeColor = Color.Black;
-            lblVatExempt.Location = new Point(270, 465);
+            lblVatExempt.Location = new Point(270, 453);
             lblVatExempt.Name = "lblVatExempt";
             lblVatExempt.Size = new Size(44, 20);
             lblVatExempt.TabIndex = 16;
@@ -464,7 +464,7 @@ namespace PAKOPointOfSale.Transactions
             lblGrandTotal.BackColor = Color.Transparent;
             lblGrandTotal.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             lblGrandTotal.ForeColor = Color.Black;
-            lblGrandTotal.Location = new Point(270, 506);
+            lblGrandTotal.Location = new Point(270, 494);
             lblGrandTotal.Name = "lblGrandTotal";
             lblGrandTotal.Size = new Size(44, 20);
             lblGrandTotal.TabIndex = 17;
@@ -476,7 +476,7 @@ namespace PAKOPointOfSale.Transactions
             lblPaymentMethod.BackColor = Color.Transparent;
             lblPaymentMethod.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             lblPaymentMethod.ForeColor = Color.Black;
-            lblPaymentMethod.Location = new Point(270, 548);
+            lblPaymentMethod.Location = new Point(270, 536);
             lblPaymentMethod.Name = "lblPaymentMethod";
             lblPaymentMethod.Size = new Size(47, 20);
             lblPaymentMethod.TabIndex = 19;
@@ -487,7 +487,7 @@ namespace PAKOPointOfSale.Transactions
             label10.AutoSize = true;
             label10.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             label10.ForeColor = Color.Black;
-            label10.Location = new Point(40, 548);
+            label10.Location = new Point(40, 536);
             label10.Name = "label10";
             label10.Size = new Size(148, 20);
             label10.TabIndex = 18;
@@ -499,7 +499,7 @@ namespace PAKOPointOfSale.Transactions
             lblCashReceived.BackColor = Color.Transparent;
             lblCashReceived.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             lblCashReceived.ForeColor = Color.Black;
-            lblCashReceived.Location = new Point(270, 597);
+            lblCashReceived.Location = new Point(270, 585);
             lblCashReceived.Name = "lblCashReceived";
             lblCashReceived.Size = new Size(44, 20);
             lblCashReceived.TabIndex = 21;
@@ -510,7 +510,7 @@ namespace PAKOPointOfSale.Transactions
             label11.AutoSize = true;
             label11.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             label11.ForeColor = Color.Black;
-            label11.Location = new Point(40, 597);
+            label11.Location = new Point(40, 585);
             label11.Name = "label11";
             label11.Size = new Size(134, 20);
             label11.TabIndex = 20;
@@ -522,7 +522,7 @@ namespace PAKOPointOfSale.Transactions
             lblChange.BackColor = Color.Transparent;
             lblChange.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             lblChange.ForeColor = Color.Black;
-            lblChange.Location = new Point(270, 640);
+            lblChange.Location = new Point(270, 628);
             lblChange.Name = "lblChange";
             lblChange.Size = new Size(44, 20);
             lblChange.TabIndex = 23;
@@ -533,7 +533,7 @@ namespace PAKOPointOfSale.Transactions
             label12.AutoSize = true;
             label12.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             label12.ForeColor = Color.Black;
-            label12.Location = new Point(40, 640);
+            label12.Location = new Point(40, 628);
             label12.Name = "label12";
             label12.Size = new Size(76, 20);
             label12.TabIndex = 22;
@@ -580,7 +580,7 @@ namespace PAKOPointOfSale.Transactions
             lblTransactionType.BackColor = Color.Transparent;
             lblTransactionType.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             lblTransactionType.ForeColor = Color.Black;
-            lblTransactionType.Location = new Point(268, 175);
+            lblTransactionType.Location = new Point(207, 153);
             lblTransactionType.Name = "lblTransactionType";
             lblTransactionType.Size = new Size(146, 20);
             lblTransactionType.TabIndex = 29;
@@ -591,7 +591,7 @@ namespace PAKOPointOfSale.Transactions
             label14.AutoSize = true;
             label14.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             label14.ForeColor = Color.Black;
-            label14.Location = new Point(36, 175);
+            label14.Location = new Point(34, 153);
             label14.Name = "label14";
             label14.Size = new Size(151, 20);
             label14.TabIndex = 28;
@@ -603,7 +603,7 @@ namespace PAKOPointOfSale.Transactions
             lblAdjustmentNumber.BackColor = Color.Transparent;
             lblAdjustmentNumber.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblAdjustmentNumber.ForeColor = Color.Black;
-            lblAdjustmentNumber.Location = new Point(270, 216);
+            lblAdjustmentNumber.Location = new Point(270, 204);
             lblAdjustmentNumber.Name = "lblAdjustmentNumber";
             lblAdjustmentNumber.Size = new Size(69, 20);
             lblAdjustmentNumber.TabIndex = 30;
@@ -683,11 +683,11 @@ namespace PAKOPointOfSale.Transactions
             // 
             lblsearchproduct.AutoSize = true;
             lblsearchproduct.BackColor = Color.DimGray;
-            lblsearchproduct.Font = new Font("Impact", 45F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblsearchproduct.Font = new Font("Impact", 50.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblsearchproduct.ForeColor = Color.White;
-            lblsearchproduct.Location = new Point(593, 11);
+            lblsearchproduct.Location = new Point(587, 11);
             lblsearchproduct.Name = "lblsearchproduct";
-            lblsearchproduct.Size = new Size(400, 75);
+            lblsearchproduct.Size = new Size(448, 82);
             lblsearchproduct.TabIndex = 155;
             lblsearchproduct.Text = "TRANSACTIONS \r\n";
             // 
@@ -709,7 +709,7 @@ namespace PAKOPointOfSale.Transactions
             lblVoidOrReturn.AutoSize = true;
             lblVoidOrReturn.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
             lblVoidOrReturn.ForeColor = Color.Black;
-            lblVoidOrReturn.Location = new Point(37, 221);
+            lblVoidOrReturn.Location = new Point(37, 209);
             lblVoidOrReturn.Name = "lblVoidOrReturn";
             lblVoidOrReturn.Size = new Size(131, 20);
             lblVoidOrReturn.TabIndex = 32;
@@ -718,12 +718,15 @@ namespace PAKOPointOfSale.Transactions
             // 
             // btnViewReason
             // 
-            btnViewReason.Location = new Point(317, 668);
+            btnViewReason.BackColor = Color.Goldenrod;
+            btnViewReason.FlatStyle = FlatStyle.Popup;
+            btnViewReason.ForeColor = Color.Black;
+            btnViewReason.Location = new Point(174, 668);
             btnViewReason.Name = "btnViewReason";
-            btnViewReason.Size = new Size(97, 23);
+            btnViewReason.Size = new Size(90, 23);
             btnViewReason.TabIndex = 157;
             btnViewReason.Text = "View Reason";
-            btnViewReason.UseVisualStyleBackColor = true;
+            btnViewReason.UseVisualStyleBackColor = false;
             btnViewReason.Visible = false;
             btnViewReason.Click += btnViewReason_Click;
             // 
