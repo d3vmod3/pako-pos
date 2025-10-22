@@ -126,7 +126,7 @@ namespace PAKOPointOfSale.Transactions
 
                 if (transactionType == "Void" || transactionType == "Sales Invoice")
                 {
-                    btnViewReason.Visible = true;
+                    
                     using (var cmdVoid = new SqlCommand("SELECT void_number, invoice_number, transaction_id FROM VoidTransactions WHERE invoice_number = @invoiceNumber", conn))
                     {
                         cmdVoid.Parameters.AddWithValue("@invoiceNumber", lblInvoiceNumber.Text);
@@ -144,6 +144,7 @@ namespace PAKOPointOfSale.Transactions
                                 cmbInvoiceAction.Enabled = false;
                                 btnProceed.Enabled = false;
                                 dgvItems.ReadOnly = true;
+                                btnViewReason.Visible = true;
                             }
                             else
                             {
@@ -159,7 +160,7 @@ namespace PAKOPointOfSale.Transactions
                 }
                 else if (transactionType == "Return" || transactionType == "Sales Invoice")
                 {
-                    btnViewReason.Visible = true;
+                    
                     using (var cmdReturn = new SqlCommand("SELECT TOP 1 * FROM ReturnTransactions WHERE invoice_number = @invoiceNumber and transaction_id=@transactionId  ORDER BY id DESC", conn))
                     {
                         cmdReturn.Parameters.AddWithValue("@invoiceNumber", lblInvoiceNumber.Text);
@@ -190,6 +191,7 @@ namespace PAKOPointOfSale.Transactions
                                     lblAdjustmentNumber.Visible = true;
                                     lblVoidOrReturn.Text = "Return No.: ";
                                     lblAdjustmentNumber.Text = reader["return_number"].ToString();
+                                    btnViewReason.Visible = true;
                                     adjustment_number = reader["return_number"].ToString();
                                     cmbInvoiceAction.SelectedItem = "Return";
                                     //cmbInvoiceAction.Enabled = false;
