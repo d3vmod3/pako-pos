@@ -299,62 +299,7 @@ namespace PAKOPointOfSale.Transactions
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            string barcode = txtScannedBarcode.Text.Trim();
-
-            if (string.IsNullOrEmpty(barcode))
-                return;
-
-
-            using (SqlConnection conn = new SqlConnection(Program.ConnString))
-            {
-                conn.Open();
-
-                // Query product by barcode
-                string query = @"
-                                SELECT p.id,product_name,c.name as category,product_brand,quantity,unit_of_measurement,unit_price
-                                FROM Products as p LEFT JOIN Categories c ON p.category_id = c.id
-                                WHERE p.is_active = 1 and p.barcode=@code";
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@code", barcode);
-
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            int product_id = Convert.ToInt32(reader["id"]);
-                            string product = reader["product_name"].ToString();
-                            string brand = reader["product_brand"].ToString();
-                            string unit = reader["unit_of_measurement"].ToString();
-                            decimal price = Convert.ToDecimal(reader["unit_price"]);
-                            string category = reader["category"].ToString();
-                            decimal quantity = 1.00m; // default to 1 when scanned
-                            decimal subTotal = price * quantity;
-                            // Validation: Do not add if quantity is 0
-                            if (quantity <= 0)
-                            {
-                                MessageBox.Show("Cannot add product with quantity 0.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                txtScannedBarcode.Clear();
-                                txtScannedBarcode.Focus();
-                                return;
-                            }
-
-                            // Add product to cart
-                            AddProductToCart(product_id, product, brand, unit, price, category, quantity, subTotal);
-
-                            // Clear the textbox for next scan
-                            txtScannedBarcode.Clear();
-                            txtScannedBarcode.Focus();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Product not found for barcode: " + barcode, "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            txtScannedBarcode.Clear();
-                            txtScannedBarcode.Focus();
-                        }
-                    }
-                }
-            }
+            
 
         }
 
@@ -984,7 +929,7 @@ namespace PAKOPointOfSale.Transactions
 
         private void button2_Click_Park(object sender, EventArgs e)
         {
-            if (validateTransaction())
+            if (dtgvCart.Rows.Count !=0)
             {
                 if (ParkNumber != "")
                 {
@@ -1129,6 +1074,10 @@ namespace PAKOPointOfSale.Transactions
                     }
                 }
             }
+            else
+            {
+                MessageBox.Show("Cart is empty!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void checkQuantity(int product_id, decimal appliedQty)
         {
@@ -1235,6 +1184,75 @@ namespace PAKOPointOfSale.Transactions
         {
             MessageBox.Show("Barcode scanning mode activated. Ready to scan items.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             txtScannedBarcode.Focus();
+        }
+
+        private void txtScannedBarcode_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void txtScannedBarcode_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                string barcode = txtScannedBarcode.Text.Trim();
+
+                if (string.IsNullOrEmpty(barcode))
+                    return;
+
+
+                using (SqlConnection conn = new SqlConnection(Program.ConnString))
+                {
+                    conn.Open();
+
+                    // Query product by barcode
+                    string query = @"
+                                SELECT p.id,product_name,c.name as category,product_brand,quantity,unit_of_measurement,unit_price
+                                FROM Products as p LEFT JOIN Categories c ON p.category_id = c.id
+                                WHERE p.is_active = 1 and p.barcode=@code";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@code", barcode);
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                int product_id = Convert.ToInt32(reader["id"]);
+                                string product = reader["product_name"].ToString();
+                                string brand = reader["product_brand"].ToString();
+                                string unit = reader["unit_of_measurement"].ToString();
+                                decimal price = Convert.ToDecimal(reader["unit_price"]);
+                                string category = reader["category"].ToString();
+                                decimal quantity = 1.00m; // default to 1 when scanned
+                                decimal subTotal = price * quantity;
+                                // Validation: Do not add if quantity is 0
+                                if (quantity <= 0)
+                                {
+                                    MessageBox.Show("Cannot add product with quantity 0.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    txtScannedBarcode.Clear();
+                                    txtScannedBarcode.Focus();
+                                    return;
+                                }
+
+                                // Add product to cart
+                                AddProductToCart(product_id, product, brand, unit, price, category, quantity, subTotal);
+
+                                // Clear the textbox for next scan
+                                txtScannedBarcode.Clear();
+                                txtScannedBarcode.Focus();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Product not found for barcode: " + barcode, "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                txtScannedBarcode.Clear();
+                                txtScannedBarcode.Focus();
+                            }
+                        }
+                    }
+                }
+            }
+            
         }
     }
 }
