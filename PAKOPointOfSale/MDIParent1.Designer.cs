@@ -33,7 +33,6 @@ namespace PAKOPointOfSale
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MDIParent1));
             menuStrip = new MenuStrip();
             statusStrip = new StatusStrip();
             toolStripStatusLabel = new ToolStripStatusLabel();
@@ -511,7 +510,7 @@ namespace PAKOPointOfSale
             // 
             // btnCategories
             // 
-            btnCategories.BackgroundImage = (Image)resources.GetObject("btnCategories.BackgroundImage");
+            btnCategories.BackgroundImage = Properties.Resources.category_icon_png_17;
             btnCategories.BackgroundImageLayout = ImageLayout.Stretch;
             btnCategories.Location = new Point(46, 155);
             btnCategories.Name = "btnCategories";
@@ -566,7 +565,7 @@ namespace PAKOPointOfSale
             // 
             // btnUac
             // 
-            btnUac.BackgroundImage = (Image)resources.GetObject("btnUac.BackgroundImage");
+            btnUac.BackgroundImage = Properties.Resources.UAC;
             btnUac.BackgroundImageLayout = ImageLayout.Stretch;
             btnUac.Location = new Point(977, 155);
             btnUac.Name = "btnUac";
@@ -680,7 +679,6 @@ namespace PAKOPointOfSale
             // 
             pictureBox3.BackColor = SystemColors.ControlDarkDark;
             pictureBox3.ErrorImage = null;
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
             pictureBox3.InitialImage = null;
             pictureBox3.Location = new Point(0, 677);
             pictureBox3.Name = "pictureBox3";

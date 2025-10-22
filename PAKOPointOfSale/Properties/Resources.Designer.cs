@@ -63,6 +63,16 @@ namespace PAKOPointOfSale.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap category_icon_png_17 {
+            get {
+                object obj = ResourceManager.GetObject("category-icon-png-17", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap okay {
             get {
                 object obj = ResourceManager.GetObject("okay", resourceCulture);
@@ -116,6 +126,16 @@ namespace PAKOPointOfSale.Properties {
         internal static System.Drawing.Bitmap transactions {
             get {
                 object obj = ResourceManager.GetObject("transactions", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UAC {
+            get {
+                object obj = ResourceManager.GetObject("UAC", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
