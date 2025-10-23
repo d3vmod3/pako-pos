@@ -54,25 +54,36 @@ namespace PAKOPointOfSale.Transactions.Return
 
         private void dgvReturnItems_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            if (dgvReturnItems.Columns[e.ColumnIndex].Name == "remove") // Replace "Remove" with your button column name
             {
-                // Get the selected row
-                DataGridViewRow row = dgvReturnItems.Rows[e.RowIndex];
+                // Optional: Confirm before removing
+                DialogResult result = MessageBox.Show(
+                    "Are you sure you want to remove this item?",
+                    "Confirm Remove",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                );
 
-                // Get the value from the "quantity" column
-                currentQuantity = Convert.ToDecimal(row.Cells["quantity"].Value);
-
-                // Optional: convert to int if it's numeric
-
-                // Example: show it in a message box or use it in your logic
-
+                if (result == DialogResult.Yes)
+                {
+                    dgvReturnItems.Rows.RemoveAt(e.RowIndex);
+                }
             }
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            
 
+            if (dgvReturnItems.Rows.Count == 0)
+            {
+                MessageBox.Show(
+                        "No items to be returned.",
+                        "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                    );
+                return;
+            }
             var confirmForm = new ActionConfirmation("Please confirm admin credentials to proceed.", true, "return");
             if (confirmForm.ShowDialog() != DialogResult.OK)
                 return;
@@ -80,8 +91,8 @@ namespace PAKOPointOfSale.Transactions.Return
 
             string reason = "";
             Transactions.Return.ReturnReason reasonForm = new Transactions.Return.ReturnReason();
-            
-            
+
+
             reasonForm.Reason += (string reasonValue) =>
             {
                 reason = reasonValue;
@@ -265,6 +276,7 @@ namespace PAKOPointOfSale.Transactions.Return
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Warning
                     );
+                    row.Cells["quantity"].Value = Convert.ToString(currentQuantity);
                     return;
                 }
                 //if(currentQuantityApplied < Convert.ToDecimal(row.Cells["quantity"].Value))
@@ -368,6 +380,21 @@ namespace PAKOPointOfSale.Transactions.Return
             }
         }
 
-        
+        private void dgvReturnItems_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                // Get the selected row
+                DataGridViewRow row = dgvReturnItems.Rows[e.RowIndex];
+
+                // Get the value from the "quantity" column
+                currentQuantity = Convert.ToDecimal(row.Cells["quantity"].Value);
+
+                // Optional: convert to int if it's numeric
+
+                // Example: show it in a message box or use it in your logic
+
+            }
+        }
     }
 }

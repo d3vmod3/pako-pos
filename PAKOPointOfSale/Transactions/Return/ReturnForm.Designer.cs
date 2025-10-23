@@ -113,6 +113,7 @@
             dgvReturnItems.RowsDefaultCellStyle = dataGridViewCellStyle3;
             dgvReturnItems.Size = new Size(1346, 503);
             dgvReturnItems.TabIndex = 8;
+            dgvReturnItems.CellClick += dgvReturnItems_CellClick;
             dgvReturnItems.CellContentClick += dgvReturnItems_CellContentClick;
             dgvReturnItems.CellEndEdit += dgvReturnItems_CellEndEdit;
             dgvReturnItems.EditingControlShowing += dgvReturnItems_EditingControlShowing;

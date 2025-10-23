@@ -70,6 +70,12 @@ namespace PAKOPointOfSale.Transactions
                     ComputeGrandTotal();
                 }
             }
+
+            if(dtgvCart.Rows.Count == 0)
+            {
+                clearCart();
+
+            }
         }
         public void AddProductToCart(int id, string product, string brand, string unit, decimal price, string category, decimal quantity, decimal subTotal, bool? isPending = false, string? discountYpe = "none")
         {
