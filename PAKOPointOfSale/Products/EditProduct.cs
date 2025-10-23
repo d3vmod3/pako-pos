@@ -380,7 +380,7 @@ namespace PAKOPointOfSale.Products
                         cmd.Parameters.AddWithValue("@product_name", txtProductName.Text.Trim());
                         cmd.Parameters.AddWithValue("@product_brand", string.IsNullOrWhiteSpace(txtProductBrand.Text) ? DBNull.Value : txtProductBrand.Text.Trim());
                         cmd.Parameters.AddWithValue("@product_description", string.IsNullOrWhiteSpace(txtDescription.Text) ? DBNull.Value : txtDescription.Text.Trim());
-                        cmd.Parameters.AddWithValue("@barcode", string.IsNullOrWhiteSpace(txtBarcode.Text) ? DBNull.Value : txtDescription.Text.Trim());
+                        cmd.Parameters.AddWithValue("@barcode", string.IsNullOrWhiteSpace(txtBarcode.Text) ? DBNull.Value : txtBarcode.Text);
                         cmd.Parameters.AddWithValue("@product_code", string.IsNullOrWhiteSpace(txtProductCode.Text) ? DBNull.Value : txtProductCode.Text.Trim());
                         cmd.Parameters.AddWithValue("@sku", string.IsNullOrWhiteSpace(txtSKU.Text) ? DBNull.Value : txtSKU.Text.Trim());
                         cmd.Parameters.AddWithValue("@quantity", decimal.Parse(num_quantity.Text.Trim()));
