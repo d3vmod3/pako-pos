@@ -75,6 +75,7 @@
             Controls.Add(txtReason);
             FormBorderStyle = FormBorderStyle.None;
             Name = "VoidReason";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Void Reason";
             Load += VoidReason_Load;
             ResumeLayout(false);

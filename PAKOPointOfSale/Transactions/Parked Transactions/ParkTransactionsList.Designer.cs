@@ -79,7 +79,7 @@
             // 
             // txtSearch
             // 
-            txtSearch.Location = new Point(136, 19);
+            txtSearch.Location = new Point(157, 19);
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(259, 23);
             txtSearch.TabIndex = 1;
@@ -90,9 +90,9 @@
             label1.AutoSize = true;
             label1.Location = new Point(12, 22);
             label1.Name = "label1";
-            label1.Size = new Size(118, 15);
+            label1.Size = new Size(139, 15);
             label1.TabIndex = 2;
-            label1.Text = "Search Park Number:";
+            label1.Text = "Search Pending Number:";
             // 
             // btnClose
             // 
@@ -118,10 +118,10 @@
             // park_number
             // 
             park_number.DataPropertyName = "park_number";
-            park_number.HeaderText = "Park Number";
+            park_number.HeaderText = "Pending Number";
             park_number.Name = "park_number";
             park_number.ReadOnly = true;
-            park_number.Width = 102;
+            park_number.Width = 113;
             // 
             // vat_amount
             // 

@@ -47,6 +47,7 @@
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
             label6 = new Label();
+            btnClose = new Button();
             ((System.ComponentModel.ISupportInitialize)num_AppliedQty).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -70,7 +71,7 @@
             btnOk.BackColor = Color.Orange;
             btnOk.FlatStyle = FlatStyle.Popup;
             btnOk.ForeColor = Color.Black;
-            btnOk.Location = new Point(246, 356);
+            btnOk.Location = new Point(152, 366);
             btnOk.Name = "btnOk";
             btnOk.Size = new Size(75, 23);
             btnOk.TabIndex = 1;
@@ -122,10 +123,13 @@
             num_AppliedQty.Font = new Font("Microsoft Sans Serif", 11.25F);
             num_AppliedQty.ForeColor = Color.White;
             num_AppliedQty.Location = new Point(178, 241);
+            num_AppliedQty.Maximum = new decimal(new int[] { 999999, 0, 0, 0 });
+            num_AppliedQty.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             num_AppliedQty.Name = "num_AppliedQty";
             num_AppliedQty.Size = new Size(143, 24);
             num_AppliedQty.TabIndex = 5;
             num_AppliedQty.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            num_AppliedQty.ValueChanged += num_AppliedQty_ValueChanged;
             // 
             // lblCurrentQty
             // 
@@ -270,12 +274,26 @@
             label6.TabIndex = 114;
             label6.Text = "EDIT QUANTITY";
             // 
+            // btnClose
+            // 
+            btnClose.BackColor = Color.Red;
+            btnClose.FlatStyle = FlatStyle.Popup;
+            btnClose.ForeColor = Color.White;
+            btnClose.Location = new Point(237, 366);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(84, 24);
+            btnClose.TabIndex = 115;
+            btnClose.Text = "Cancel";
+            btnClose.UseVisualStyleBackColor = false;
+            btnClose.Click += btnClose_Click;
+            // 
             // EditQuantity
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveBorder;
             ClientSize = new Size(344, 402);
+            Controls.Add(btnClose);
             Controls.Add(label6);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
@@ -327,5 +345,6 @@
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
         private Label label6;
+        private Button btnClose;
     }
 }

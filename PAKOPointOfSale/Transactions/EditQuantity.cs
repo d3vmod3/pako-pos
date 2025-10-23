@@ -103,11 +103,20 @@ namespace PAKOPointOfSale.Transactions
             catch (Exception ex)
             {
                 MessageBox.Show("Error adding product to cart: " + ex.Message,
-                                "Error",    
+                                "Error",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
             }
         }
 
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void num_AppliedQty_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

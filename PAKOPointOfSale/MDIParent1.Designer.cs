@@ -243,7 +243,7 @@ namespace PAKOPointOfSale
             // 
             comboBoxSalesFilter.FormattingEnabled = true;
             comboBoxSalesFilter.Items.AddRange(new object[] { "Today", "This Week", "This Month", "This Year" });
-            comboBoxSalesFilter.Location = new Point(1027, 337);
+            comboBoxSalesFilter.Location = new Point(959, 337);
             comboBoxSalesFilter.Name = "comboBoxSalesFilter";
             comboBoxSalesFilter.Size = new Size(203, 23);
             comboBoxSalesFilter.TabIndex = 18;

@@ -75,6 +75,7 @@
             Controls.Add(txtReason);
             FormBorderStyle = FormBorderStyle.None;
             Name = "ReturnReason";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Return Reason";
             Load += ReturnReason_Load;
             ResumeLayout(false);

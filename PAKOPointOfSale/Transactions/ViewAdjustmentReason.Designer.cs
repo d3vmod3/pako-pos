@@ -65,6 +65,7 @@
             Controls.Add(txtReason);
             FormBorderStyle = FormBorderStyle.None;
             Name = "ViewAdjustmentReason";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "View Reason";
             Load += ViewAdjustmentReason_Load;
             ResumeLayout(false);

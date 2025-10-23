@@ -595,7 +595,7 @@ namespace PAKOPointOfSale.Transactions
             btnApplyDiscount.BackColor = Color.ForestGreen;
             btnApplyDiscount.FlatStyle = FlatStyle.Popup;
             btnApplyDiscount.ForeColor = Color.White;
-            btnApplyDiscount.Location = new Point(720, 110);
+            btnApplyDiscount.Location = new Point(708, 110);
             btnApplyDiscount.Name = "btnApplyDiscount";
             btnApplyDiscount.Size = new Size(111, 22);
             btnApplyDiscount.TabIndex = 45;
@@ -634,7 +634,7 @@ namespace PAKOPointOfSale.Transactions
             btnClearCart.BackColor = Color.Coral;
             btnClearCart.FlatStyle = FlatStyle.Popup;
             btnClearCart.ForeColor = Color.White;
-            btnClearCart.Location = new Point(639, 110);
+            btnClearCart.Location = new Point(628, 110);
             btnClearCart.Name = "btnClearCart";
             btnClearCart.Size = new Size(75, 22);
             btnClearCart.TabIndex = 45;
@@ -762,11 +762,11 @@ namespace PAKOPointOfSale.Transactions
             // lblParkLabel
             // 
             lblParkLabel.AutoSize = true;
-            lblParkLabel.Location = new Point(470, 114);
+            lblParkLabel.Location = new Point(450, 114);
             lblParkLabel.Name = "lblParkLabel";
-            lblParkLabel.Size = new Size(80, 15);
+            lblParkLabel.Size = new Size(101, 15);
             lblParkLabel.TabIndex = 157;
-            lblParkLabel.Text = "Park Number:";
+            lblParkLabel.Text = "Pending Number:";
             lblParkLabel.Visible = false;
             // 
             // lblParkNumber
@@ -784,11 +784,11 @@ namespace PAKOPointOfSale.Transactions
             btnParkedTransactions.BackColor = Color.IndianRed;
             btnParkedTransactions.FlatStyle = FlatStyle.Popup;
             btnParkedTransactions.ForeColor = Color.White;
-            btnParkedTransactions.Location = new Point(837, 110);
+            btnParkedTransactions.Location = new Point(823, 110);
             btnParkedTransactions.Name = "btnParkedTransactions";
-            btnParkedTransactions.Size = new Size(126, 22);
+            btnParkedTransactions.Size = new Size(140, 22);
             btnParkedTransactions.TabIndex = 159;
-            btnParkedTransactions.Text = "Parked Transactions";
+            btnParkedTransactions.Text = "Pending Transactions";
             btnParkedTransactions.UseVisualStyleBackColor = false;
             btnParkedTransactions.Click += btnParkedTransactions_Click;
             // 
