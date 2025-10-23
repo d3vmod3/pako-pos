@@ -91,6 +91,7 @@
             num_quantity.DecimalPlaces = 2;
             num_quantity.Font = new Font("Microsoft Sans Serif", 9.75F);
             num_quantity.Location = new Point(906, 151);
+            num_quantity.Maximum = new decimal(new int[] { 999999, 0, 0, 0 });
             num_quantity.Name = "num_quantity";
             num_quantity.Size = new Size(350, 22);
             num_quantity.TabIndex = 108;
@@ -109,6 +110,7 @@
             num_unitPrice.DecimalPlaces = 2;
             num_unitPrice.Font = new Font("Microsoft Sans Serif", 9.75F);
             num_unitPrice.Location = new Point(905, 308);
+            num_unitPrice.Maximum = new decimal(new int[] { 999999, 0, 0, 0 });
             num_unitPrice.Name = "num_unitPrice";
             num_unitPrice.Size = new Size(350, 22);
             num_unitPrice.TabIndex = 106;
@@ -118,6 +120,7 @@
             num_costPrice.DecimalPlaces = 2;
             num_costPrice.Font = new Font("Microsoft Sans Serif", 9.75F);
             num_costPrice.Location = new Point(905, 257);
+            num_costPrice.Maximum = new decimal(new int[] { 999999, 0, 0, 0 });
             num_costPrice.Name = "num_costPrice";
             num_costPrice.Size = new Size(350, 22);
             num_costPrice.TabIndex = 105;
