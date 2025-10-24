@@ -31,6 +31,14 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UAC));
             dataGridView1 = new DataGridView();
+            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            usertypeidDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            module_name = new DataGridViewTextBoxColumn();
+            can_view = new DataGridViewCheckBoxColumn();
+            can_add = new DataGridViewCheckBoxColumn();
+            can_edit = new DataGridViewCheckBoxColumn();
+            can_delete = new DataGridViewCheckBoxColumn();
+            userTypeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             permissionBindingSource = new BindingSource(components);
             cmbRole = new ComboBox();
             userTypeBindingSource = new BindingSource(components);
@@ -41,14 +49,6 @@
             lbluserslist = new Label();
             btnClose = new Button();
             pictureBox3 = new PictureBox();
-            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            usertypeidDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            module_name = new DataGridViewTextBoxColumn();
-            can_view = new DataGridViewCheckBoxColumn();
-            can_add = new DataGridViewCheckBoxColumn();
-            can_edit = new DataGridViewCheckBoxColumn();
-            can_delete = new DataGridViewCheckBoxColumn();
-            userTypeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)permissionBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)userTypeBindingSource).BeginInit();
@@ -68,9 +68,77 @@
             dataGridView1.GridColor = SystemColors.InactiveCaptionText;
             dataGridView1.Location = new Point(15, 124);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersVisible = false;
             dataGridView1.Size = new Size(1342, 553);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            idDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            idDataGridViewTextBoxColumn.HeaderText = "id";
+            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            idDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // usertypeidDataGridViewTextBoxColumn
+            // 
+            usertypeidDataGridViewTextBoxColumn.DataPropertyName = "user_type_id";
+            usertypeidDataGridViewTextBoxColumn.HeaderText = "user_type_id";
+            usertypeidDataGridViewTextBoxColumn.MinimumWidth = 300;
+            usertypeidDataGridViewTextBoxColumn.Name = "usertypeidDataGridViewTextBoxColumn";
+            usertypeidDataGridViewTextBoxColumn.Visible = false;
+            usertypeidDataGridViewTextBoxColumn.Width = 300;
+            // 
+            // module_name
+            // 
+            module_name.DataPropertyName = "module_name";
+            module_name.HeaderText = "Module";
+            module_name.MinimumWidth = 300;
+            module_name.Name = "module_name";
+            module_name.ReadOnly = true;
+            module_name.Width = 300;
+            // 
+            // can_view
+            // 
+            can_view.DataPropertyName = "can_view";
+            can_view.HeaderText = "View";
+            can_view.MinimumWidth = 250;
+            can_view.Name = "can_view";
+            can_view.Width = 250;
+            // 
+            // can_add
+            // 
+            can_add.DataPropertyName = "can_add";
+            can_add.HeaderText = "Add";
+            can_add.MinimumWidth = 250;
+            can_add.Name = "can_add";
+            can_add.Width = 250;
+            // 
+            // can_edit
+            // 
+            can_edit.DataPropertyName = "can_edit";
+            can_edit.HeaderText = "Edit";
+            can_edit.MinimumWidth = 250;
+            can_edit.Name = "can_edit";
+            can_edit.Width = 250;
+            // 
+            // can_delete
+            // 
+            can_delete.DataPropertyName = "can_delete";
+            can_delete.HeaderText = "Delete";
+            can_delete.MinimumWidth = 300;
+            can_delete.Name = "can_delete";
+            can_delete.Width = 300;
+            // 
+            // userTypeDataGridViewTextBoxColumn
+            // 
+            userTypeDataGridViewTextBoxColumn.DataPropertyName = "userType";
+            userTypeDataGridViewTextBoxColumn.HeaderText = "userType";
+            userTypeDataGridViewTextBoxColumn.MinimumWidth = 300;
+            userTypeDataGridViewTextBoxColumn.Name = "userTypeDataGridViewTextBoxColumn";
+            userTypeDataGridViewTextBoxColumn.Visible = false;
+            userTypeDataGridViewTextBoxColumn.Width = 300;
             // 
             // permissionBindingSource
             // 
@@ -173,73 +241,6 @@
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 151;
             pictureBox3.TabStop = false;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            idDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            idDataGridViewTextBoxColumn.HeaderText = "id";
-            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            idDataGridViewTextBoxColumn.Visible = false;
-            idDataGridViewTextBoxColumn.Width = 42;
-            // 
-            // usertypeidDataGridViewTextBoxColumn
-            // 
-            usertypeidDataGridViewTextBoxColumn.DataPropertyName = "user_type_id";
-            usertypeidDataGridViewTextBoxColumn.HeaderText = "user_type_id";
-            usertypeidDataGridViewTextBoxColumn.MinimumWidth = 300;
-            usertypeidDataGridViewTextBoxColumn.Name = "usertypeidDataGridViewTextBoxColumn";
-            usertypeidDataGridViewTextBoxColumn.Visible = false;
-            usertypeidDataGridViewTextBoxColumn.Width = 300;
-            // 
-            // module_name
-            // 
-            module_name.DataPropertyName = "module_name";
-            module_name.HeaderText = "Module";
-            module_name.MinimumWidth = 300;
-            module_name.Name = "module_name";
-            module_name.Width = 300;
-            // 
-            // can_view
-            // 
-            can_view.DataPropertyName = "can_view";
-            can_view.HeaderText = "View";
-            can_view.MinimumWidth = 250;
-            can_view.Name = "can_view";
-            can_view.Width = 250;
-            // 
-            // can_add
-            // 
-            can_add.DataPropertyName = "can_add";
-            can_add.HeaderText = "Add";
-            can_add.MinimumWidth = 250;
-            can_add.Name = "can_add";
-            can_add.Width = 250;
-            // 
-            // can_edit
-            // 
-            can_edit.DataPropertyName = "can_edit";
-            can_edit.HeaderText = "Edit";
-            can_edit.MinimumWidth = 250;
-            can_edit.Name = "can_edit";
-            can_edit.Width = 250;
-            // 
-            // can_delete
-            // 
-            can_delete.DataPropertyName = "can_delete";
-            can_delete.HeaderText = "Delete";
-            can_delete.MinimumWidth = 300;
-            can_delete.Name = "can_delete";
-            can_delete.Width = 300;
-            // 
-            // userTypeDataGridViewTextBoxColumn
-            // 
-            userTypeDataGridViewTextBoxColumn.DataPropertyName = "userType";
-            userTypeDataGridViewTextBoxColumn.HeaderText = "userType";
-            userTypeDataGridViewTextBoxColumn.MinimumWidth = 300;
-            userTypeDataGridViewTextBoxColumn.Name = "userTypeDataGridViewTextBoxColumn";
-            userTypeDataGridViewTextBoxColumn.Visible = false;
-            userTypeDataGridViewTextBoxColumn.Width = 300;
             // 
             // UAC
             // 

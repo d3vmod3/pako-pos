@@ -61,11 +61,51 @@ namespace PAKOPointOfSale
         {
             CurrentUser = "";
             CurrentUserTypeId = 0;
-
+            backupDatabase();
             currentForm.Hide();
             var loginForm = new Login(); // Replace with your login form
             loginForm.Show();
+
             currentForm.Close();
+
+        }
+
+        private static void backupDatabase()
+        {
+            try { 
+                string appPath = Application.StartupPath;
+                string backupFolder = Path.Combine(appPath, "Backups");
+                string dbName = "db_pos";
+                string timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
+                string backupFile = Path.Combine(backupFolder, $"{dbName}_{timestamp}.bak");
+
+                // Make sure the folder exists
+                if (!Directory.Exists(backupFolder))
+                    Directory.CreateDirectory(backupFolder);
+
+                string connectionString = Program.ConnString;
+                string backupQuery = $@"
+                    BACKUP DATABASE [{dbName}]
+                    TO DISK = N'{backupFile}'
+                    WITH COMPRESSION;
+                ";
+
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    using (SqlCommand cmd = new SqlCommand(backupQuery, conn))
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                MessageBox.Show($"Database backup completed:\n{backupFile}",
+                    "Backup Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Backup failed: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

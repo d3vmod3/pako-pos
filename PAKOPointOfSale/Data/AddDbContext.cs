@@ -43,7 +43,7 @@ namespace WinFormsApp1.Data
                 new UserType { id = 1, name = "Super Admin" },
                 new UserType { id = 2, name = "Admin" },
                 new UserType { id = 3, name = "Cashier" }
-            );
+            ); 
             modelBuilder.Entity<Permission>().HasData(
                 // --- Super Admin (user_type_id = 1) ---
                 new Permission { id = 1, user_type_id = 1, module_name = "Categories", can_view = true, can_add = true, can_edit = true, can_delete = true },

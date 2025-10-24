@@ -40,7 +40,7 @@ namespace PAKOPointOfSale
                 return;
             }
 
-            if (!ConfirmAdminLogin(username, password))
+            if (ConfirmAdminLogin(username, password)==false)
             {
                 MessageBox.Show("Invalid admin credentials.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -63,7 +63,7 @@ namespace PAKOPointOfSale
                         FROM Users 
                         WHERE username = @username 
                           AND password = @password 
-                          AND user_type_id = 2 or user_type_id = 1"; // 2 = admin or superadmin
+                          AND (user_type_id = 2 or user_type_id = 1)"; // 2 = admin or superadmin
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
@@ -71,7 +71,14 @@ namespace PAKOPointOfSale
                         cmd.Parameters.AddWithValue("@password", password);
 
                         int count = (int)cmd.ExecuteScalar();
-                        return count > 0;
+                        if(count > 0)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
                     }
                 }
             }
