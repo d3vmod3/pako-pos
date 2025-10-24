@@ -220,10 +220,10 @@
             // createdatDataGridViewTextBoxColumn
             // 
             createdatDataGridViewTextBoxColumn.DataPropertyName = "created_at";
-            createdatDataGridViewTextBoxColumn.HeaderText = "Date Parked";
+            createdatDataGridViewTextBoxColumn.HeaderText = "Date Pending";
             createdatDataGridViewTextBoxColumn.Name = "createdatDataGridViewTextBoxColumn";
             createdatDataGridViewTextBoxColumn.ReadOnly = true;
-            createdatDataGridViewTextBoxColumn.Width = 88;
+            createdatDataGridViewTextBoxColumn.Width = 95;
             // 
             // settle
             // 

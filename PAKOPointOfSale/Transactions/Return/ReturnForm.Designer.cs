@@ -71,6 +71,7 @@
             // 
             lblInvoiceNumber.AutoSize = true;
             lblInvoiceNumber.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
+            lblInvoiceNumber.ForeColor = Color.Black;
             lblInvoiceNumber.Location = new Point(753, 112);
             lblInvoiceNumber.Name = "lblInvoiceNumber";
             lblInvoiceNumber.Size = new Size(69, 20);
@@ -81,6 +82,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
+            label3.ForeColor = Color.Black;
             label3.Location = new Point(598, 111);
             label3.Name = "label3";
             label3.Size = new Size(138, 20);
@@ -111,7 +113,7 @@
             dataGridViewCellStyle3.ForeColor = Color.Black;
             dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
             dgvReturnItems.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            dgvReturnItems.Size = new Size(1346, 503);
+            dgvReturnItems.Size = new Size(1346, 532);
             dgvReturnItems.TabIndex = 8;
             dgvReturnItems.CellClick += dgvReturnItems_CellClick;
             dgvReturnItems.CellContentClick += dgvReturnItems_CellContentClick;
@@ -251,6 +253,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 9.75F);
+            label1.ForeColor = Color.Black;
             label1.Location = new Point(12, 118);
             label1.Name = "label1";
             label1.Size = new Size(330, 16);
@@ -272,9 +275,9 @@
             pictureBox3.ErrorImage = null;
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
             pictureBox3.InitialImage = null;
-            pictureBox3.Location = new Point(-9, 649);
+            pictureBox3.Location = new Point(-16, 686);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(1402, 101);
+            pictureBox3.Size = new Size(1415, 101);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 155;
             pictureBox3.TabStop = false;
@@ -295,11 +298,11 @@
             label2.AutoSize = true;
             label2.BackColor = SystemColors.ControlDarkDark;
             label2.FlatStyle = FlatStyle.System;
-            label2.Font = new Font("Impact", 47.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Impact", 50.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.ButtonHighlight;
-            label2.Location = new Point(547, 11);
+            label2.Location = new Point(555, 9);
             label2.Name = "label2";
-            label2.Size = new Size(499, 76);
+            label2.Size = new Size(533, 82);
             label2.TabIndex = 157;
             label2.Text = "RETURN ITEMS LIST";
             // 
@@ -321,7 +324,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
-            ClientSize = new Size(1370, 749);
+            ClientSize = new Size(1370, 788);
             Controls.Add(btnClose);
             Controls.Add(label2);
             Controls.Add(pictureBox1);

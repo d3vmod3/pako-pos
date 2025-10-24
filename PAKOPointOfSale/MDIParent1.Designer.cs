@@ -30,9 +30,9 @@ namespace PAKOPointOfSale
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MDIParent1));
             menuStrip = new MenuStrip();
             statusStrip = new StatusStrip();
@@ -130,29 +130,29 @@ namespace PAKOPointOfSale
             // 
             dtgvTop5SellingProducts.AllowUserToAddRows = false;
             dtgvTop5SellingProducts.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.ForeColor = Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = Color.White;
-            dtgvTop5SellingProducts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.ForeColor = Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = Color.White;
+            dtgvTop5SellingProducts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             dtgvTop5SellingProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgvTop5SellingProducts.BackgroundColor = SystemColors.ControlLight;
             dtgvTop5SellingProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgvTop5SellingProducts.Columns.AddRange(new DataGridViewColumn[] { product_name, total_quantity_sold, total_sales });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dtgvTop5SellingProducts.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = SystemColors.Window;
+            dataGridViewCellStyle8.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle8.ForeColor = Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
+            dtgvTop5SellingProducts.DefaultCellStyle = dataGridViewCellStyle8;
             dtgvTop5SellingProducts.Location = new Point(15, 16);
             dtgvTop5SellingProducts.Name = "dtgvTop5SellingProducts";
             dtgvTop5SellingProducts.ReadOnly = true;
             dtgvTop5SellingProducts.RowHeadersVisible = false;
-            dataGridViewCellStyle3.ForeColor = Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dtgvTop5SellingProducts.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.ForeColor = Color.Black;
+            dataGridViewCellStyle9.SelectionBackColor = SystemColors.Highlight;
+            dtgvTop5SellingProducts.RowsDefaultCellStyle = dataGridViewCellStyle9;
             dtgvTop5SellingProducts.Size = new Size(513, 283);
             dtgvTop5SellingProducts.TabIndex = 11;
             // 
@@ -182,7 +182,7 @@ namespace PAKOPointOfSale
             label2.AutoSize = true;
             label2.BackColor = Color.Transparent;
             label2.ForeColor = Color.Black;
-            label2.Location = new Point(243, 318);
+            label2.Location = new Point(254, 318);
             label2.Name = "label2";
             label2.Size = new Size(50, 15);
             label2.TabIndex = 9;
@@ -190,9 +190,9 @@ namespace PAKOPointOfSale
             // 
             // dtpTo
             // 
-            dtpTo.Location = new Point(232, 337);
+            dtpTo.Location = new Point(243, 336);
             dtpTo.Name = "dtpTo";
-            dtpTo.Size = new Size(200, 23);
+            dtpTo.Size = new Size(232, 23);
             dtpTo.TabIndex = 8;
             // 
             // label1
@@ -211,7 +211,7 @@ namespace PAKOPointOfSale
             dtpFrom.CalendarMonthBackground = Color.White;
             dtpFrom.Location = new Point(12, 336);
             dtpFrom.Name = "dtpFrom";
-            dtpFrom.Size = new Size(208, 23);
+            dtpFrom.Size = new Size(225, 23);
             dtpFrom.TabIndex = 6;
             // 
             // groupBox1
@@ -228,10 +228,10 @@ namespace PAKOPointOfSale
             // 
             // btnFilter
             // 
-            btnFilter.BackColor = Color.Khaki;
+            btnFilter.BackColor = Color.Goldenrod;
             btnFilter.FlatStyle = FlatStyle.Popup;
             btnFilter.ForeColor = Color.Black;
-            btnFilter.Location = new Point(443, 338);
+            btnFilter.Location = new Point(481, 336);
             btnFilter.Name = "btnFilter";
             btnFilter.Size = new Size(75, 23);
             btnFilter.TabIndex = 15;
@@ -334,7 +334,7 @@ namespace PAKOPointOfSale
             // lblGrandTotal
             // 
             lblGrandTotal.AutoSize = true;
-            lblGrandTotal.Font = new Font("Impact", 36F);
+            lblGrandTotal.Font = new Font("Impact", 36F, FontStyle.Italic);
             lblGrandTotal.ForeColor = Color.Black;
             lblGrandTotal.Location = new Point(430, 217);
             lblGrandTotal.Name = "lblGrandTotal";
@@ -345,7 +345,7 @@ namespace PAKOPointOfSale
             // lblGrossSales
             // 
             lblGrossSales.AutoSize = true;
-            lblGrossSales.Font = new Font("Impact", 36F);
+            lblGrossSales.Font = new Font("Impact", 36F, FontStyle.Italic);
             lblGrossSales.ForeColor = Color.Black;
             lblGrossSales.Location = new Point(430, 124);
             lblGrossSales.Name = "lblGrossSales";
@@ -356,7 +356,7 @@ namespace PAKOPointOfSale
             // lblNetSales
             // 
             lblNetSales.AutoSize = true;
-            lblNetSales.Font = new Font("Impact", 36F);
+            lblNetSales.Font = new Font("Impact", 36F, FontStyle.Italic);
             lblNetSales.ForeColor = Color.Black;
             lblNetSales.Location = new Point(430, 37);
             lblNetSales.Name = "lblNetSales";
@@ -428,11 +428,11 @@ namespace PAKOPointOfSale
             label10.AutoSize = true;
             label10.BackColor = SystemColors.ControlDarkDark;
             label10.FlatStyle = FlatStyle.System;
-            label10.Font = new Font("Impact", 48F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label10.Font = new Font("Impact", 54.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label10.ForeColor = SystemColors.ButtonHighlight;
             label10.Location = new Point(520, 34);
             label10.Name = "label10";
-            label10.Size = new Size(350, 80);
+            label10.Size = new Size(391, 91);
             label10.TabIndex = 155;
             label10.Text = "DASHBOARD";
             // 
@@ -502,9 +502,9 @@ namespace PAKOPointOfSale
             // 
             btnPos.BackgroundImage = Properties.Resources.pos_terminal;
             btnPos.BackgroundImageLayout = ImageLayout.Stretch;
-            btnPos.Location = new Point(1171, 155);
+            btnPos.Location = new Point(1169, 180);
             btnPos.Name = "btnPos";
-            btnPos.Size = new Size(148, 101);
+            btnPos.Size = new Size(174, 121);
             btnPos.TabIndex = 4;
             btnPos.UseVisualStyleBackColor = true;
             btnPos.Click += button1_Click;
@@ -513,9 +513,9 @@ namespace PAKOPointOfSale
             // 
             btnCategories.BackgroundImage = Properties.Resources.category_icon_png_17;
             btnCategories.BackgroundImageLayout = ImageLayout.Stretch;
-            btnCategories.Location = new Point(46, 155);
+            btnCategories.Location = new Point(25, 180);
             btnCategories.Name = "btnCategories";
-            btnCategories.Size = new Size(139, 103);
+            btnCategories.Size = new Size(174, 124);
             btnCategories.TabIndex = 164;
             btnCategories.UseVisualStyleBackColor = true;
             btnCategories.Click += btnCategories_Click;
@@ -524,9 +524,9 @@ namespace PAKOPointOfSale
             // 
             btnProducts.BackgroundImage = Properties.Resources.products;
             btnProducts.BackgroundImageLayout = ImageLayout.Stretch;
-            btnProducts.Location = new Point(232, 155);
+            btnProducts.Location = new Point(210, 180);
             btnProducts.Name = "btnProducts";
-            btnProducts.Size = new Size(135, 103);
+            btnProducts.Size = new Size(179, 123);
             btnProducts.TabIndex = 165;
             btnProducts.UseVisualStyleBackColor = true;
             btnProducts.Click += btnProducts_Click;
@@ -535,9 +535,9 @@ namespace PAKOPointOfSale
             // 
             btnSuppliers.BackgroundImage = Properties.Resources.suppliers;
             btnSuppliers.BackgroundImageLayout = ImageLayout.Stretch;
-            btnSuppliers.Location = new Point(417, 155);
+            btnSuppliers.Location = new Point(402, 179);
             btnSuppliers.Name = "btnSuppliers";
-            btnSuppliers.Size = new Size(137, 103);
+            btnSuppliers.Size = new Size(181, 123);
             btnSuppliers.TabIndex = 166;
             btnSuppliers.UseVisualStyleBackColor = true;
             btnSuppliers.Click += btnSuppliers_Click;
@@ -546,9 +546,9 @@ namespace PAKOPointOfSale
             // 
             btnTransactions.BackgroundImage = Properties.Resources.transactions;
             btnTransactions.BackgroundImageLayout = ImageLayout.Stretch;
-            btnTransactions.Location = new Point(608, 157);
+            btnTransactions.Location = new Point(596, 180);
             btnTransactions.Name = "btnTransactions";
-            btnTransactions.Size = new Size(144, 101);
+            btnTransactions.Size = new Size(176, 123);
             btnTransactions.TabIndex = 167;
             btnTransactions.UseVisualStyleBackColor = true;
             btnTransactions.Click += btnTransactions_Click;
@@ -557,9 +557,9 @@ namespace PAKOPointOfSale
             // 
             btnUsers.BackgroundImage = Properties.Resources.users;
             btnUsers.BackgroundImageLayout = ImageLayout.Stretch;
-            btnUsers.Location = new Point(797, 155);
+            btnUsers.Location = new Point(785, 180);
             btnUsers.Name = "btnUsers";
-            btnUsers.Size = new Size(135, 101);
+            btnUsers.Size = new Size(174, 121);
             btnUsers.TabIndex = 168;
             btnUsers.UseVisualStyleBackColor = true;
             btnUsers.Click += btnUsers_Click;
@@ -568,9 +568,9 @@ namespace PAKOPointOfSale
             // 
             btnUac.BackgroundImage = Properties.Resources.UAC;
             btnUac.BackgroundImageLayout = ImageLayout.Stretch;
-            btnUac.Location = new Point(977, 155);
+            btnUac.Location = new Point(972, 180);
             btnUac.Name = "btnUac";
-            btnUac.Size = new Size(150, 101);
+            btnUac.Size = new Size(185, 121);
             btnUac.TabIndex = 169;
             btnUac.UseVisualStyleBackColor = true;
             btnUac.Click += btnUac_Click;
@@ -579,10 +579,11 @@ namespace PAKOPointOfSale
             // 
             label13.AutoSize = true;
             label13.BackColor = Color.Transparent;
-            label13.Font = new Font("Impact", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label13.Location = new Point(52, 262);
+            label13.Font = new Font("Impact", 21.75F);
+            label13.ForeColor = Color.Black;
+            label13.Location = new Point(38, 140);
             label13.Name = "label13";
-            label13.Size = new Size(126, 29);
+            label13.Size = new Size(151, 36);
             label13.TabIndex = 170;
             label13.Text = "CATEGORIES";
             // 
@@ -590,10 +591,11 @@ namespace PAKOPointOfSale
             // 
             label14.AutoSize = true;
             label14.BackColor = Color.Transparent;
-            label14.Font = new Font("Impact", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label14.Location = new Point(243, 262);
+            label14.Font = new Font("Impact", 21.75F);
+            label14.ForeColor = Color.Black;
+            label14.Location = new Point(234, 140);
             label14.Name = "label14";
-            label14.Size = new Size(113, 29);
+            label14.Size = new Size(138, 36);
             label14.TabIndex = 171;
             label14.Text = "PRODUCTS";
             // 
@@ -601,10 +603,11 @@ namespace PAKOPointOfSale
             // 
             label15.AutoSize = true;
             label15.BackColor = Color.Transparent;
-            label15.Font = new Font("Impact", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label15.Location = new Point(429, 262);
+            label15.Font = new Font("Impact", 21.75F);
+            label15.ForeColor = Color.Black;
+            label15.Location = new Point(429, 139);
             label15.Name = "label15";
-            label15.Size = new Size(113, 29);
+            label15.Size = new Size(138, 36);
             label15.TabIndex = 172;
             label15.Text = "SUPPLIERS";
             // 
@@ -612,10 +615,11 @@ namespace PAKOPointOfSale
             // 
             label16.AutoSize = true;
             label16.BackColor = Color.Transparent;
-            label16.Font = new Font("Impact", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label16.Location = new Point(601, 262);
+            label16.Font = new Font("Impact", 21.75F);
+            label16.ForeColor = Color.Black;
+            label16.Location = new Point(591, 140);
             label16.Name = "label16";
-            label16.Size = new Size(155, 29);
+            label16.Size = new Size(187, 36);
             label16.TabIndex = 173;
             label16.Text = "TRANSACTIONS";
             // 
@@ -623,10 +627,11 @@ namespace PAKOPointOfSale
             // 
             label17.AutoSize = true;
             label17.BackColor = Color.Transparent;
-            label17.Font = new Font("Impact", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label17.Location = new Point(830, 260);
+            label17.Font = new Font("Impact", 21.75F);
+            label17.ForeColor = Color.Black;
+            label17.Location = new Point(822, 140);
             label17.Name = "label17";
-            label17.Size = new Size(73, 29);
+            label17.Size = new Size(89, 36);
             label17.TabIndex = 174;
             label17.Text = "USERS";
             // 
@@ -634,10 +639,11 @@ namespace PAKOPointOfSale
             // 
             label18.AutoSize = true;
             label18.BackColor = Color.Transparent;
-            label18.Font = new Font("Impact", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label18.Location = new Point(1029, 259);
+            label18.Font = new Font("Impact", 21.75F);
+            label18.ForeColor = Color.Black;
+            label18.Location = new Point(1037, 140);
             label18.Name = "label18";
-            label18.Size = new Size(51, 29);
+            label18.Size = new Size(61, 36);
             label18.TabIndex = 175;
             label18.Text = "UAC";
             // 
@@ -645,10 +651,11 @@ namespace PAKOPointOfSale
             // 
             label19.AutoSize = true;
             label19.BackColor = Color.Transparent;
-            label19.Font = new Font("Impact", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label19.Location = new Point(1220, 260);
+            label19.Font = new Font("Impact", 21.75F);
+            label19.ForeColor = Color.Black;
+            label19.Location = new Point(1219, 140);
             label19.Name = "label19";
-            label19.Size = new Size(50, 29);
+            label19.Size = new Size(61, 36);
             label19.TabIndex = 171;
             label19.Text = "POS";
             // 

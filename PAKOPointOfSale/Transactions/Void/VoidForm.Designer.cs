@@ -55,7 +55,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.BackColor = Color.White;
+            label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Black;
             label1.Location = new Point(57, 110);
@@ -80,7 +80,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.BackColor = Color.White;
+            label2.BackColor = Color.Transparent;
             label2.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.Black;
             label2.Location = new Point(189, 37);
@@ -92,7 +92,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.BackColor = Color.White;
+            label3.BackColor = Color.Transparent;
             label3.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold);
             label3.ForeColor = Color.Black;
             label3.Location = new Point(243, 76);
@@ -104,7 +104,7 @@
             // lblInvoiceNumber
             // 
             lblInvoiceNumber.AutoSize = true;
-            lblInvoiceNumber.BackColor = Color.White;
+            lblInvoiceNumber.BackColor = Color.Transparent;
             lblInvoiceNumber.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold);
             lblInvoiceNumber.ForeColor = Color.Black;
             lblInvoiceNumber.Location = new Point(372, 76);
@@ -139,7 +139,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
+            BackColor = Color.CadetBlue;
             ClientSize = new Size(671, 211);
             Controls.Add(button1);
             Controls.Add(pictureBox2);

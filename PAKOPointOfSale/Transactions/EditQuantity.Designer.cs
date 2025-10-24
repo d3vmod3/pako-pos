@@ -119,9 +119,9 @@
             // 
             // num_AppliedQty
             // 
-            num_AppliedQty.BackColor = Color.Gray;
+            num_AppliedQty.BackColor = Color.White;
             num_AppliedQty.Font = new Font("Microsoft Sans Serif", 11.25F);
-            num_AppliedQty.ForeColor = Color.White;
+            num_AppliedQty.ForeColor = Color.Black;
             num_AppliedQty.Location = new Point(178, 241);
             num_AppliedQty.Maximum = new decimal(new int[] { 999999, 0, 0, 0 });
             num_AppliedQty.Minimum = new decimal(new int[] { 1, 0, 0, 0 });

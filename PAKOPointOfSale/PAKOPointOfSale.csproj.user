@@ -52,10 +52,10 @@
     <Compile Update="Transactions\EditQuantity.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Transactions\Parked Transactions\ParkTransactionsList.cs">
+    <Compile Update="Transactions\Pending Transactions\Pending TransactionsList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Transactions\Parked Transactions\Remarks.cs">
+    <Compile Update="Transactions\Pending Transactions\Remarks.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Transactions\Return\ReturnForm.cs">

@@ -67,7 +67,7 @@
             // 
             // txtPaymentGateway
             // 
-            txtPaymentGateway.Font = new Font("Segoe Print", 9F);
+            txtPaymentGateway.Font = new Font("Segoe UI", 9F);
             txtPaymentGateway.Location = new Point(516, 163);
             txtPaymentGateway.Multiline = true;
             txtPaymentGateway.Name = "txtPaymentGateway";
@@ -76,7 +76,7 @@
             // 
             // txtAccountNumber
             // 
-            txtAccountNumber.Font = new Font("Segoe Print", 9F);
+            txtAccountNumber.Font = new Font("Segoe UI", 9F);
             txtAccountNumber.Location = new Point(516, 111);
             txtAccountNumber.Multiline = true;
             txtAccountNumber.Name = "txtAccountNumber";
@@ -85,7 +85,7 @@
             // 
             // txtContactNumber
             // 
-            txtContactNumber.Font = new Font("Segoe Print", 9F);
+            txtContactNumber.Font = new Font("Segoe UI", 9F);
             txtContactNumber.Location = new Point(184, 213);
             txtContactNumber.Multiline = true;
             txtContactNumber.Name = "txtContactNumber";
@@ -95,7 +95,7 @@
             // 
             // txtAddress
             // 
-            txtAddress.Font = new Font("Segoe Print", 9F);
+            txtAddress.Font = new Font("Segoe UI", 9F);
             txtAddress.Location = new Point(151, 164);
             txtAddress.Multiline = true;
             txtAddress.Name = "txtAddress";
@@ -104,7 +104,7 @@
             // 
             // txtSupplierName
             // 
-            txtSupplierName.Font = new Font("Segoe Print", 9F);
+            txtSupplierName.Font = new Font("Segoe UI", 9F);
             txtSupplierName.Location = new Point(151, 112);
             txtSupplierName.Multiline = true;
             txtSupplierName.Name = "txtSupplierName";
