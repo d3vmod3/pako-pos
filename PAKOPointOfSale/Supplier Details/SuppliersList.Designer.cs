@@ -76,7 +76,7 @@
             btnExport.Name = "btnExport";
             btnExport.Size = new Size(79, 24);
             btnExport.TabIndex = 9;
-            btnExport.Text = "Print";
+            btnExport.Text = "Export";
             btnExport.UseVisualStyleBackColor = false;
             btnExport.Click += btnExport_Click;
             // 

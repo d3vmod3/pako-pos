@@ -50,7 +50,7 @@ namespace WinFormsApp1.Data
                 new Permission { id = 2, user_type_id = 1, module_name = "Products", can_view = true, can_add = true, can_edit = true, can_delete = true },
                 new Permission { id = 3, user_type_id = 1, module_name = "Suppliers", can_view = true, can_add = true, can_edit = true, can_delete = true },
                 new Permission { id = 4, user_type_id = 1, module_name = "Sales Invoice", can_view = false, can_add = false, can_edit = false }, // SetActive is N/A, so can_delete omitted
-                new Permission { id = 5, user_type_id = 1, module_name = "Transactions", can_view = true, can_add = true, can_edit = true, can_delete = true },
+                new Permission { id = 5, user_type_id = 1, module_name = "Transactions", can_view = true },
                 new Permission { id = 6, user_type_id = 1, module_name = "User Access Control", can_view = true, can_edit = true }, // Add & SetActive are N/A, skipped
                 new Permission { id = 7, user_type_id = 1, module_name = "Users", can_view = true, can_add = true, can_edit = true, can_delete = true },
 
@@ -59,7 +59,7 @@ namespace WinFormsApp1.Data
                 new Permission { id = 9, user_type_id = 2, module_name = "Products", can_view = true, can_add = true, can_edit = true, can_delete = true },
                 new Permission { id = 10, user_type_id = 2, module_name = "Suppliers", can_view = true, can_add = true, can_edit = true, can_delete = true },
                 new Permission { id = 11, user_type_id = 2, module_name = "Sales Invoice", can_view = true, can_add = true }, // Edit N/A, SetActive N/A
-                new Permission { id = 12, user_type_id = 2, module_name = "Transactions", can_view = true, can_add = true, can_edit = true, can_delete = true },
+                new Permission { id = 12, user_type_id = 2, module_name = "Transactions", can_view = true },
                 new Permission { id = 13, user_type_id = 2, module_name = "User Access Control", can_view = true, can_edit = true }, // Add & SetActive N/A
                 new Permission { id = 14, user_type_id = 2, module_name = "Users", can_view = true, can_add = true, can_edit = true, can_delete = true },
 

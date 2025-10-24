@@ -32,34 +32,45 @@ namespace PAKOPointOfSale.UAC
             // Loop through all rows and disable specific checkboxes
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                if (row.Cells["module_name"].Value == null)
+                if (row.Cells["module_name2"].Value == null)
                     continue;
 
-                string module = row.Cells["module_name"].Value.ToString();
+                string module = row.Cells["module_name2"].Value.ToString();
 
                 // 🔹 For "Sales Invoice" — disable can_edit and can_delete
                 if (module.Equals("Sales Invoice", StringComparison.OrdinalIgnoreCase))
                 {
-                    row.Cells["can_edit"].ReadOnly = true;
-                    row.Cells["can_delete"].ReadOnly = true;
-                    row.Cells["can_edit"].Style.BackColor = Color.LightGray;
-                    row.Cells["can_delete"].Style.BackColor = Color.LightGray;
+                    row.Cells["can_edit2"].ReadOnly = true;
+                    row.Cells["can_delete2"].ReadOnly = true;
+                    row.Cells["can_edit2"].Style.BackColor = Color.LightGray;
+                    row.Cells["can_delete2"].Style.BackColor = Color.LightGray;
                 }
+
+                 else if (module.Equals("Transactions", StringComparison.OrdinalIgnoreCase))
+                {
+                    row.Cells["can_edit2"].ReadOnly = true;
+                    row.Cells["can_delete2"].ReadOnly = true;
+                    row.Cells["can_edit2"].Style.BackColor = Color.LightGray;
+                    row.Cells["can_delete2"].Style.BackColor = Color.LightGray;
+                    row.Cells["can_add2"].ReadOnly = true;
+                    row.Cells["can_add2"].Style.BackColor = Color.LightGray;
+                }
+
 
                 // 🔹 For "User Access Control" — disable can_add and can_delete
                 else if (module.Equals("User Access Control", StringComparison.OrdinalIgnoreCase))
                 {
-                    row.Cells["can_add"].ReadOnly = true;
-                    row.Cells["can_delete"].ReadOnly = true;
-                    row.Cells["can_add"].Style.BackColor = Color.LightGray;
-                    row.Cells["can_delete"].Style.BackColor = Color.LightGray;
+                    row.Cells["can_add2"].ReadOnly = true;
+                    row.Cells["can_delete2"].ReadOnly = true;
+                    row.Cells["can_add2"].Style.BackColor = Color.LightGray;
+                    row.Cells["can_delete2"].Style.BackColor = Color.LightGray;
                 }
             }
 
             // Optional: make module_name column read-only
             if (dataGridView1.Columns.Contains("module_name"))
             {
-                dataGridView1.Columns["module_name"].ReadOnly = true;
+                dataGridView1.Columns["module_name2"].ReadOnly = true;
             }
 
 
@@ -130,7 +141,7 @@ namespace PAKOPointOfSale.UAC
 
                             // Optional formatting
                             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                            //dataGridView1.Columns["Module"].ReadOnly = true;
+                            //dataGridView1.Columns["Module2"].ReadOnly = true;
                         }
                     }
                 }
@@ -183,11 +194,11 @@ namespace PAKOPointOfSale.UAC
 
 
                         // ✅ Correct column names based on your SELECT query
-                        string moduleName = row.Cells["module_name"].Value?.ToString();
-                        bool canView = Convert.ToBoolean(row.Cells["can_view"].Value ?? false);
-                        bool canAdd = Convert.ToBoolean(row.Cells["can_add"].Value ?? false);
-                        bool canEdit = Convert.ToBoolean(row.Cells["can_edit"].Value ?? false);
-                        bool canDelete = Convert.ToBoolean(row.Cells["can_delete"].Value ?? false);
+                        string moduleName = row.Cells["module_name2"].Value?.ToString();
+                        bool canView = Convert.ToBoolean(row.Cells["can_view2"].Value ?? false);
+                        bool canAdd = Convert.ToBoolean(row.Cells["can_add2"].Value ?? false);
+                        bool canEdit = Convert.ToBoolean(row.Cells["can_edit2"].Value ?? false);
+                        bool canDelete = Convert.ToBoolean(row.Cells["can_delete2"].Value ?? false);
 
                         string updateQuery = @"
                             UPDATE Permissions
