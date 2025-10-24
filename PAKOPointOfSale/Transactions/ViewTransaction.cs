@@ -87,39 +87,59 @@ namespace PAKOPointOfSale.Transactions
                 if (dgvItems.Columns.Contains("selectReturn"))
                 {
                     HashSet<int> returnedProductIds = new HashSet<int>();
+                    Dictionary<int, int> returnedQuantities = new Dictionary<int, int>(); // store product_id + returned quantity
+
                     using (var cmd = new SqlCommand(@"
-                SELECT si.product_id
-                FROM ReturnItems si
-                INNER JOIN ReturnTransactions rt ON si.return_transaction_id = rt.id
-                WHERE rt.invoice_number = @invoiceNumber", conn))
+                        SELECT si.product_id, si.quantity
+                        FROM ReturnItems si
+                        INNER JOIN ReturnTransactions rt ON si.return_transaction_id = rt.id
+                        WHERE rt.invoice_number = @invoiceNumber", conn))
                     {
                         cmd.Parameters.AddWithValue("@invoiceNumber", lblInvoiceNumber.Text);
+
                         using (var reader = cmd.ExecuteReader())
                         {
                             while (reader.Read())
                             {
-                                returnedProductIds.Add(Convert.ToInt32(reader["product_id"]));
+                                int productId = Convert.ToInt32(reader["product_id"]);
+                                int quantityReturned = Convert.ToInt32(reader["quantity"]);
+
+                                // Add to dictionary (in case multiple returns exist for same product)
+                                if (returnedQuantities.ContainsKey(productId))
+                                    returnedQuantities[productId] += quantityReturned;
+                                else
+                                    returnedQuantities[productId] = quantityReturned;
+
+                                returnedProductIds.Add(productId);
                             }
                         }
                     }
-
 
                     foreach (DataGridViewRow row in dgvItems.Rows)
                     {
                         if (row.IsNewRow) continue;
 
                         int productId = Convert.ToInt32(row.Cells["product_id"].Value);
-                        if (returnedProductIds.Contains(productId))
-                        {
-                            countAlreadyReturneditems += 1;
-                            row.Cells["selectReturn"].ReadOnly = true;
-                            row.Cells["selectReturn"].Style.BackColor = Color.DarkGray;
-                            row.Cells["selectReturn"].Value = false;
+                        int originalQty = Convert.ToInt32(row.Cells["quantity"].Value);
 
+                        if (returnedQuantities.TryGetValue(productId, out int returnedQty))
+                        {
+                            int remainingQty = Math.Max(originalQty - returnedQty, 0);
+                            row.Cells["remainingQty"].Value = remainingQty; // ✅ update DataGridView
+                            row.Cells["quantity"].Value = originalQty; // ✅ update DataGridView
+
+                            // mark as returned if no quantity remains
+                            if (remainingQty == 0)
+                            {
+                                countAlreadyReturneditems += 1;
+                                row.Cells["selectReturn"].ReadOnly = true;
+                                row.Cells["selectReturn"].Style.BackColor = Color.DarkGray;
+                                row.Cells["selectReturn"].Value = false;
+                            }
                         }
                     }
-
                 }
+
 
                 // Load void or return series number
                 string transactionType = lblTransactionType.Text;
@@ -311,14 +331,21 @@ namespace PAKOPointOfSale.Transactions
             if (selectedAction == "Return")
             {
                 dgvItems.Columns["selectReturn"].Visible = true;
+                dgvItems.Columns["remainingQty"].Visible = true;
                 if (countAlreadyReturneditems > 0)
                 {
                     lblReturnNote.Visible = true;
+                }
+                if(lblVoidOrReturn.Text == "Return No.: ")
+                {
+                    dgvItems.Columns["remainingQty"].Visible = false;
+                    dgvItems.Columns["quantity"].HeaderText = "Returned Quantity";
                 }
             }
             else
             {
                 dgvItems.Columns["selectReturn"].Visible = false;
+                dgvItems.Columns["remainingQty"].Visible = false;
             }
         }
 

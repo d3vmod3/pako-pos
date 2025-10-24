@@ -16,7 +16,6 @@ namespace PAKOPointOfSale.Transactions.Return
         private int _id;
         private string _invoiceNumber;
         private List<DataGridViewRow> _selectedItems;
-        private decimal currentQuantity = 0;
         public ReturnForm(int id, string invoiceNumber, List<DataGridViewRow> selectedItems)
         {
             InitializeComponent();
@@ -38,7 +37,9 @@ namespace PAKOPointOfSale.Transactions.Return
                     dgvReturnItems.Rows[rowIndex].Cells["product_code"].Value = row.Cells["product_code"].Value;
                     dgvReturnItems.Rows[rowIndex].Cells["product_name"].Value = row.Cells["product_name"].Value;
                     dgvReturnItems.Rows[rowIndex].Cells["product_brand"].Value = row.Cells["product_brand"].Value;
-                    dgvReturnItems.Rows[rowIndex].Cells["quantity"].Value = row.Cells["quantity"].Value; dgvReturnItems.Rows[rowIndex].Cells["unit_price"].Value = row.Cells["unit_price"].Value;
+                    dgvReturnItems.Rows[rowIndex].Cells["quantity"].Value = "1";
+                    dgvReturnItems.Rows[rowIndex].Cells["remainingQty"].Value = row.Cells["remainingQty"].Value;
+                    dgvReturnItems.Rows[rowIndex].Cells["unit_price"].Value = row.Cells["unit_price"].Value;
                     dgvReturnItems.Rows[rowIndex].Cells["total_amount"].Value = row.Cells["total_amount"].Value;
                     dgvReturnItems.Rows[rowIndex].Cells["vat_amount"].Value = row.Cells["vat_amount"].Value;
                     dgvReturnItems.Rows[rowIndex].Cells["vatable_sales"].Value = row.Cells["vatable_sales"].Value;
@@ -268,21 +269,31 @@ namespace PAKOPointOfSale.Transactions.Return
             if (columnName == "quantity" || columnName == "unit_price")
             {
                 decimal currentQuantityApplied = Convert.ToDecimal(row.Cells["quantity"].Value);
-                if (currentQuantity < currentQuantityApplied)
+                decimal remainingQty = Convert.ToDecimal(row.Cells["remainingQty"].Value);
+                if(currentQuantityApplied == 0)
                 {
                     MessageBox.Show(
-                        "Return quantity must not be greater than what was purchased.",
+                        "Return quantity cannot be less than 1.",
                         "Invalid Return Quantity",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Warning
                     );
-                    row.Cells["quantity"].Value = Convert.ToString(currentQuantity);
+                    row.Cells["quantity"].Value = "1";
                     return;
                 }
-                //if(currentQuantityApplied < Convert.ToDecimal(row.Cells["quantity"].Value))
-                //{6
+                if (currentQuantityApplied > remainingQty)
+                {
+                    MessageBox.Show(
+                        "Return quantity must not be greater than remaining quantity.",
+                        "Invalid Return Quantity",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
+                    row.Cells["quantity"].Value = row.Cells["remainingQty"].Value;
+                    return;
+                }
 
-                //}
+
                 decimal qty = 0, price = 0;
 
                 string discountType = row.Cells["discount_type"].Value.ToString();
@@ -382,19 +393,7 @@ namespace PAKOPointOfSale.Transactions.Return
 
         private void dgvReturnItems_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
-                // Get the selected row
-                DataGridViewRow row = dgvReturnItems.Rows[e.RowIndex];
-
-                // Get the value from the "quantity" column
-                currentQuantity = Convert.ToDecimal(row.Cells["quantity"].Value);
-
-                // Optional: convert to int if it's numeric
-
-                // Example: show it in a message box or use it in your logic
-
-            }
+           
         }
     }
 }
