@@ -102,6 +102,7 @@ namespace PAKOPointOfSale
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            LoggedInUser.Logout(this);
             this.Close();
         }
     }
