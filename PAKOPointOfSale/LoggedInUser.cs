@@ -99,7 +99,8 @@ namespace PAKOPointOfSale
                     }
                 }
 
-                
+                MessageBox.Show($"Database backup completed:\n{backupFile}",
+                    "Backup Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
