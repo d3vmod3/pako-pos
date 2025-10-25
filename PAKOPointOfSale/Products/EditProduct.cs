@@ -176,13 +176,13 @@ namespace PAKOPointOfSale.Products
 
         private Boolean validateForm()
         {
-            if (string.IsNullOrWhiteSpace(txtBarcode.Text))
-            {
-                MessageBox.Show("Please enter the Barciode", "Validation Error",
-                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtBarcode.Focus();
-                return false;
-            }
+            //if (string.IsNullOrWhiteSpace(txtBarcode.Text))
+            //{
+            //    MessageBox.Show("Please enter the Barciode", "Validation Error",
+            //                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    txtBarcode.Focus();
+            //    return false;
+            //}
 
             if (string.IsNullOrWhiteSpace(txtProductName.Text))
             {
@@ -212,27 +212,16 @@ namespace PAKOPointOfSale.Products
                 }
             }
 
-            if (_barcode != txtBarcode.Text)
-            {
-                if (IsProductBardcodeExists(txtBarcode.Text))
-                {
-                    MessageBox.Show("Barcode already exists. Please use a different one.",
-                                    "Duplicate Barcode", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtBarcode.Focus();
-                    return false;
-                }
-            }
-
-            if (_barcode != txtBarcode.Text)
-            {
-                if (IsProductBardcodeExists(txtBarcode.Text))
-                {
-                    MessageBox.Show("Barcode already exists. Please use a different one.",
-                                    "Duplicate Barcode", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtBarcode.Focus();
-                    return false;
-                }
-            }
+            //if (_barcode != txtBarcode.Text)
+            //{
+            //    if (IsProductBardcodeExists(txtBarcode.Text))
+            //    {
+            //        MessageBox.Show("Barcode already exists. Please use a different one.",
+            //                        "Duplicate Barcode", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //        txtBarcode.Focus();
+            //        return false;
+            //    }
+            //}
 
             
 
@@ -321,20 +310,20 @@ namespace PAKOPointOfSale.Products
             }
         }
 
-        private bool IsProductBardcodeExists(string barcode)
-        {
-            string connString = PAKOPointOfSale.Program.ConnString;
-            using (SqlConnection conn = new SqlConnection(connString))
-            {
-                conn.Open();
-                string query = "SELECT COUNT(*) FROM Products WHERE barcode = @barcode";
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@barcode", barcode);
-                    return (int)cmd.ExecuteScalar() > 0;
-                }
-            }
-        }
+        //private bool IsProductBardcodeExists(string barcode)
+        //{
+        //    string connString = PAKOPointOfSale.Program.ConnString;
+        //    using (SqlConnection conn = new SqlConnection(connString))
+        //    {
+        //        conn.Open();
+        //        string query = "SELECT COUNT(*) FROM Products WHERE barcode = @barcode";
+        //        using (SqlCommand cmd = new SqlCommand(query, conn))
+        //        {
+        //            cmd.Parameters.AddWithValue("@barcode", barcode);
+        //            return (int)cmd.ExecuteScalar() > 0;
+        //        }
+        //    }
+        //}
 
         private void btnSubmit_Click_1(object sender, EventArgs e)
         {

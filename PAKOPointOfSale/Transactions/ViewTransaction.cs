@@ -101,6 +101,7 @@ namespace PAKOPointOfSale.Transactions
                         {
                             while (reader.Read())
                             {
+                                countAlreadyReturneditems++;
                                 int productId = Convert.ToInt32(reader["product_id"]);
                                 int quantityReturned = Convert.ToInt32(reader["quantity"]);
 
@@ -132,7 +133,7 @@ namespace PAKOPointOfSale.Transactions
                             // mark as returned if no quantity remains
                             if (remainingQty == 0)
                             {
-                                countAlreadyReturneditems += 1;
+                                
                                 row.Cells["selectReturn"].ReadOnly = true;
                                 row.Cells["selectReturn"].Style.BackColor = Color.DarkGray;
                                 row.Cells["selectReturn"].Value = false;

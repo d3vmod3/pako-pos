@@ -187,13 +187,13 @@ namespace PAKOPointOfSale.Products
                 return false;
             }
 
-            if (string.IsNullOrWhiteSpace(txtBarcode.Text))
-            {
-                MessageBox.Show("Please enter the Barciode", "Validation Error",
-                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtBarcode.Focus();
-                return false;
-            }
+            //if (string.IsNullOrWhiteSpace(txtBarcode.Text))
+            //{
+            //    MessageBox.Show("Please enter the Barcode", "Validation Error",
+            //                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    txtBarcode.Focus();
+            //    return false;
+            //}
 
             if (IsSkuExists(txtSKU.Text))
             {
@@ -211,13 +211,13 @@ namespace PAKOPointOfSale.Products
                 return false;
             }
 
-            if (IsProductBardcodeExists(txtBarcode.Text))
-            {
-                MessageBox.Show("Barcode Name already exists. Please use a different one.",
-                                "Duplicate Barcode Name", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtProductName.Focus();
-                return false;
-            }
+            //if (IsProductBardcodeExists(txtBarcode.Text))
+            //{
+            //    MessageBox.Show("Barcode Name already exists. Please use a different one.",
+            //                    "Duplicate Barcode Name", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    txtProductName.Focus();
+            //    return false;
+            //}
 
             
 
@@ -308,20 +308,20 @@ namespace PAKOPointOfSale.Products
             }
         }
 
-        private bool IsProductBardcodeExists(string barcode)
-        {
-            string connString = PAKOPointOfSale.Program.ConnString;
-            using (SqlConnection conn = new SqlConnection(connString))
-            {
-                conn.Open();
-                string query = "SELECT COUNT(*) FROM Products WHERE barcode = @barcode";
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@barcode", barcode);
-                    return (int)cmd.ExecuteScalar() > 0;
-                }
-            }
-        }
+        //private bool IsProductBardcodeExists(string barcode)
+        //{
+        //    string connString = PAKOPointOfSale.Program.ConnString;
+        //    using (SqlConnection conn = new SqlConnection(connString))
+        //    {
+        //        conn.Open();
+        //        string query = "SELECT COUNT(*) FROM Products WHERE barcode = @barcode";
+        //        using (SqlCommand cmd = new SqlCommand(query, conn))
+        //        {
+        //            cmd.Parameters.AddWithValue("@barcode", barcode);
+        //            return (int)cmd.ExecuteScalar() > 0;
+        //        }
+        //    }
+        //}
 
         private void lblSupplierID_Click(object sender, EventArgs e)
         {

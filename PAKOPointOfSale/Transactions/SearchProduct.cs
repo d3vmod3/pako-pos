@@ -1,5 +1,6 @@
 ﻿using Microsoft.Data.SqlClient;
 using PAKOPointOfSale.Categories;
+using PdfSharp.Drawing.BarCodes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,9 +17,11 @@ namespace PAKOPointOfSale.Transactions
     {
         private DataTable productsTable;
         private SalesInvoice _salesInvoice;
-        public SearchProduct(SalesInvoice salesInvoice)
+        private string _barcode="";
+        public SearchProduct(SalesInvoice salesInvoice ,string? barcode="")
         {
             InitializeComponent();
+            _barcode = string.IsNullOrEmpty(barcode) ? "" : barcode;
             _salesInvoice = salesInvoice;
         }
 
@@ -96,7 +99,69 @@ namespace PAKOPointOfSale.Transactions
 
         private void SearchProduct_Load(object sender, EventArgs e)
         {
-            loadProducts();
+            if(_barcode !="")
+            {
+                loadProductsWithDuplicateBarcodes();
+            }
+            else
+            {
+                loadProducts();
+            }
+                
+        }
+
+        private void loadProductsWithDuplicateBarcodes()
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(Program.ConnString)) // <-- make sure Program.ConnString exists
+                {
+                    conn.Open();
+
+                    string query = @"
+                        SELECT 
+                            p.id,
+                            p.product_name,
+                            p.product_brand,
+                            p.product_description,
+                            p.product_code,
+                            p.sku,
+                            p.quantity,
+                            p.unit_of_measurement,
+                            p.cost_price,
+                            p.unit_price,
+                            p.remarks,
+                            p.status,
+                            p.date_received,
+                            p.date_expiration,
+                            p.created_at,
+                            p.is_active,
+                            s.name AS supplier_name,
+                            c.name AS category_name
+                        FROM Products p
+                        LEFT JOIN SupplierDetails s ON p.supplier_id = s.id
+                        LEFT JOIN Categories c ON p.category_id = c.id
+                        WHERE p.is_active = 1 AND barcode=@barcode
+                        ORDER BY p.created_at DESC;";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@barcode", _barcode);
+
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                        {
+                            productsTable = new DataTable();
+                            adapter.Fill(productsTable);
+
+                            dataGridView1.DataSource = productsTable;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading products: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -110,8 +175,14 @@ namespace PAKOPointOfSale.Transactions
             {
                 Transactions.EditQuantity setQuantityForm = new Transactions.EditQuantity(productId, _salesInvoice);
                 setQuantityForm.ShowDialog(); // modal so user finishes editing first
-                loadProducts();
-
+                if (_barcode != "")
+                {
+                    loadProductsWithDuplicateBarcodes();
+                }
+                else
+                {
+                    loadProducts();
+                }
             }
         }
 

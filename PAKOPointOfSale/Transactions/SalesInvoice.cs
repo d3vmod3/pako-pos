@@ -1206,16 +1206,38 @@ namespace PAKOPointOfSale.Transactions
                 if (string.IsNullOrEmpty(barcode))
                     return;
 
-
                 using (SqlConnection conn = new SqlConnection(Program.ConnString))
                 {
                     conn.Open();
 
-                    // Query product by barcode
+                    // 1️⃣ Check how many products share this barcode
+                    string countQuery = "SELECT COUNT(*) FROM Products WHERE barcode = @code";
+                    int count = 0;
+                    using (SqlCommand countCmd = new SqlCommand(countQuery, conn))
+                    {
+                        countCmd.Parameters.AddWithValue("@code", barcode);
+                        count = Convert.ToInt32(countCmd.ExecuteScalar());
+                    }
+
+                    // 2️⃣ If there are duplicates
+                    if (count > 1)
+                    {
+                        Transactions.SearchProduct searchProductForm = new Transactions.SearchProduct(this, barcode);
+                        searchProductForm.Show();
+
+                        txtScannedBarcode.Clear();
+                        txtScannedBarcode.Focus();
+                        return;
+                    }
+
+                    // 3️⃣ Otherwise, proceed normally
                     string query = @"
-                                SELECT p.id,product_name,c.name as category,product_brand,quantity,unit_of_measurement,unit_price
-                                FROM Products as p LEFT JOIN Categories c ON p.category_id = c.id
-                                WHERE p.is_active = 1 and p.barcode=@code";
+                        SELECT p.id, product_name, c.name AS category, product_brand,
+                               quantity, unit_of_measurement, unit_price
+                        FROM Products AS p
+                        LEFT JOIN Categories c ON p.category_id = c.id
+                        WHERE p.is_active = 1 AND p.barcode = @code";
+
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@code", barcode);
@@ -1230,9 +1252,9 @@ namespace PAKOPointOfSale.Transactions
                                 string unit = reader["unit_of_measurement"].ToString();
                                 decimal price = Convert.ToDecimal(reader["unit_price"]);
                                 string category = reader["category"].ToString();
-                                decimal quantity = 1.00m; // default to 1 when scanned
+                                decimal quantity = 1.00m; // default when scanned
                                 decimal subTotal = price * quantity;
-                                // Validation: Do not add if quantity is 0
+
                                 if (quantity <= 0)
                                 {
                                     MessageBox.Show("Cannot add product with quantity 0.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -1243,22 +1265,20 @@ namespace PAKOPointOfSale.Transactions
 
                                 // Add product to cart
                                 AddProductToCart(product_id, product, brand, unit, price, category, quantity, subTotal);
-
-                                // Clear the textbox for next scan
-                                txtScannedBarcode.Clear();
-                                txtScannedBarcode.Focus();
                             }
                             else
                             {
                                 MessageBox.Show("Product not found for barcode: " + barcode, "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                txtScannedBarcode.Clear();
-                                txtScannedBarcode.Focus();
                             }
                         }
                     }
                 }
+
+                // Always clear for next scan
+                txtScannedBarcode.Clear();
+                txtScannedBarcode.Focus();
             }
-            
         }
+
     }
 }
