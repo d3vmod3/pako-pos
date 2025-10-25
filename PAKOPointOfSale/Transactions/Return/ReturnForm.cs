@@ -37,7 +37,7 @@ namespace PAKOPointOfSale.Transactions.Return
                     dgvReturnItems.Rows[rowIndex].Cells["product_code"].Value = row.Cells["product_code"].Value;
                     dgvReturnItems.Rows[rowIndex].Cells["product_name"].Value = row.Cells["product_name"].Value;
                     dgvReturnItems.Rows[rowIndex].Cells["product_brand"].Value = row.Cells["product_brand"].Value;
-                    dgvReturnItems.Rows[rowIndex].Cells["quantity"].Value = "1";
+                    dgvReturnItems.Rows[rowIndex].Cells["quantity"].Value = row.Cells["remainingQty"].Value;
                     dgvReturnItems.Rows[rowIndex].Cells["remainingQty"].Value = row.Cells["remainingQty"].Value;
                     dgvReturnItems.Rows[rowIndex].Cells["unit_price"].Value = row.Cells["unit_price"].Value;
                     dgvReturnItems.Rows[rowIndex].Cells["total_amount"].Value = row.Cells["total_amount"].Value;
@@ -47,6 +47,42 @@ namespace PAKOPointOfSale.Transactions.Return
                     dgvReturnItems.Rows[rowIndex].Cells["discount_type"].Value = row.Cells["discount_type"].Value;
                     dgvReturnItems.Rows[rowIndex].Cells["unit_of_measurement"].Value = row.Cells["unit_of_measurement"].Value;
                     dgvReturnItems.Rows[rowIndex].Cells["transaction_id"].Value = row.Cells["transaction_id"].Value;
+                }
+            }
+            if (dgvReturnItems.Rows.Count == 0)
+                return;
+
+            foreach (DataGridViewRow row in dgvReturnItems.Rows)
+            {
+                if (row.IsNewRow) continue;
+
+                // Get quantity and price
+                decimal qty = 0, price = 0, remainingQty = 0;
+                string discountType = Convert.ToString(row.Cells["discount_type"].Value) ?? "none";
+
+                decimal.TryParse(Convert.ToString(row.Cells["remainingQty"].Value), out remainingQty);
+                decimal.TryParse(Convert.ToString(row.Cells["unit_price"].Value), out price);
+
+                // Set quantity equal to remainingQty (or 1 if remainingQty = 0)
+                if (remainingQty <= 0)
+                {
+                    remainingQty = 1;
+                }
+
+                row.Cells["quantity"].Value = remainingQty;
+
+                // Compute subtotal
+                decimal subTotal = remainingQty * price;
+                row.Cells["total_amount"].Value = subTotal.ToString("0.00");
+
+                // Compute VAT details
+                row.Cells["vatable_sales"].Value = Convert.ToString(SalesInvoiceFunctions.getVATableSales(price, remainingQty));
+                row.Cells["vat_amount"].Value = Convert.ToString(SalesInvoiceFunctions.getVATAmount(price, remainingQty));
+
+                // Apply discount if applicable
+                if (!string.Equals(discountType, "none", StringComparison.OrdinalIgnoreCase))
+                {
+                    RecalculateValues(discountType, row);
                 }
             }
 

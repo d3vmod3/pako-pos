@@ -13,8 +13,8 @@ namespace PAKOPointOfSale.Transactions
     {
         public static void GenerateReceiptFromDatabase(string invoiceNumber)
         {
-            try
-            {
+            //try
+            //{
                 string connString = PAKOPointOfSale.Program.ConnString;
 
                 // Header fields
@@ -96,11 +96,11 @@ namespace PAKOPointOfSale.Transactions
                 SaveAsPdf(invoiceNumber, items, vatAmount, vatableSales, vatExempt, subTotal, grandTotal,
                     paymentMethod, cashReceived, cashChange);
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error generating receipt: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+            //catch (Exception ex)
+            //{
+                //MessageBox.Show("Error generating receipt: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
+        
 
         private static void SaveAsPdf(
             string invoiceNumber,

@@ -656,7 +656,7 @@ namespace PAKOPointOfSale.Transactions
             // 
             // remainingQty
             // 
-            remainingQty.HeaderText = "Remaining Quantity";
+            remainingQty.HeaderText = "Remaining Quantity to Return";
             remainingQty.Name = "remainingQty";
             remainingQty.ReadOnly = true;
             // 

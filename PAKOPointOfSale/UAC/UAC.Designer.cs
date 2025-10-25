@@ -47,8 +47,6 @@
             userTypeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             permissionBindingSource2 = new BindingSource(components);
             dataGridView1 = new DataGridView();
-            permissionBindingSource = new BindingSource(components);
-            permissionBindingSource3 = new BindingSource(components);
             idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             usertypeidDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             module_name2 = new DataGridViewTextBoxColumn();
@@ -57,6 +55,8 @@
             can_edit2 = new DataGridViewCheckBoxColumn();
             can_delete2 = new DataGridViewCheckBoxColumn();
             userTypeDataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            permissionBindingSource = new BindingSource(components);
+            permissionBindingSource3 = new BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)userTypeBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -236,16 +236,9 @@
             dataGridView1.Location = new Point(12, 128);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
+            dataGridView1.RowHeadersVisible = false;
             dataGridView1.Size = new Size(1352, 539);
             dataGridView1.TabIndex = 152;
-            // 
-            // permissionBindingSource
-            // 
-            permissionBindingSource.DataSource = typeof(Model.Permission);
-            // 
-            // permissionBindingSource3
-            // 
-            permissionBindingSource3.DataSource = typeof(Model.Permission);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -306,6 +299,14 @@
             userTypeDataGridViewTextBoxColumn1.Name = "userTypeDataGridViewTextBoxColumn1";
             userTypeDataGridViewTextBoxColumn1.ReadOnly = true;
             userTypeDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // permissionBindingSource
+            // 
+            permissionBindingSource.DataSource = typeof(Model.Permission);
+            // 
+            // permissionBindingSource3
+            // 
+            permissionBindingSource3.DataSource = typeof(Model.Permission);
             // 
             // UAC
             // 

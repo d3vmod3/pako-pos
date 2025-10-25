@@ -124,6 +124,7 @@ namespace PAKOPointOfSale.Transactions
 
                         if (returnedQuantities.TryGetValue(productId, out int returnedQty))
                         {
+                            
                             int remainingQty = Math.Max(originalQty - returnedQty, 0);
                             row.Cells["remainingQty"].Value = remainingQty; // ✅ update DataGridView
                             row.Cells["quantity"].Value = originalQty; // ✅ update DataGridView
@@ -136,6 +137,10 @@ namespace PAKOPointOfSale.Transactions
                                 row.Cells["selectReturn"].Style.BackColor = Color.DarkGray;
                                 row.Cells["selectReturn"].Value = false;
                             }
+                        }
+                        else
+                        {
+                            row.Cells["remainingQty"].Value = row.Cells["quantity"].Value;
                         }
                     }
                 }
