@@ -40,19 +40,10 @@ namespace WinFormsApp1.Data
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<UserType>().HasData(
-                new UserType { id = 1, name = "Super Admin" },
                 new UserType { id = 2, name = "Admin" },
                 new UserType { id = 3, name = "Cashier" }
             ); 
             modelBuilder.Entity<Permission>().HasData(
-                // --- Super Admin (user_type_id = 1) ---
-                new Permission { id = 1, user_type_id = 1, module_name = "Categories", can_view = true, can_add = true, can_edit = true, can_delete = true },
-                new Permission { id = 2, user_type_id = 1, module_name = "Products", can_view = true, can_add = true, can_edit = true, can_delete = true },
-                new Permission { id = 3, user_type_id = 1, module_name = "Suppliers", can_view = true, can_add = true, can_edit = true, can_delete = true },
-                new Permission { id = 4, user_type_id = 1, module_name = "Sales Invoice", can_view = false, can_add = false, can_edit = false }, // SetActive is N/A, so can_delete omitted
-                new Permission { id = 5, user_type_id = 1, module_name = "Transactions", can_view = true },
-                new Permission { id = 6, user_type_id = 1, module_name = "User Access Control", can_view = true, can_edit = true }, // Add & SetActive are N/A, skipped
-                new Permission { id = 7, user_type_id = 1, module_name = "Users", can_view = true, can_add = true, can_edit = true, can_delete = true },
 
                 // --- Admin (user_type_id = 2) ---
                 new Permission { id = 8, user_type_id = 2, module_name = "Categories", can_view = true, can_add = true, can_edit = true, can_delete = true },
@@ -76,19 +67,6 @@ namespace WinFormsApp1.Data
 
             // Example: Seeding Users
             modelBuilder.Entity<User>().HasData(
-                new User
-                {
-                    id = 1,
-                    user_type_id = 1,
-                    username = "superadmin",
-                    password = "password123", // ideally hashed
-                    first_name = "Kate",
-                    last_name = "Taeza",
-                    birthday = new DateTime(1990, 1, 1),
-                    gender = "Female",
-                    created_at = new DateTime(2025, 10, 14, 10, 0, 0),
-                    is_active = true,
-                },
                 new User
                 {
                     id = 2,
