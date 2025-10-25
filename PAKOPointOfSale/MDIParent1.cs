@@ -18,6 +18,7 @@ namespace PAKOPointOfSale
         public MDIParent1()
         {
             InitializeComponent();
+            lblFullName.Text = "Hi, " + LoggedInUser.FullName;
         }
 
         private void ShowNewForm(object sender, EventArgs e)
@@ -478,6 +479,83 @@ namespace PAKOPointOfSale
         private void lblNetSales_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnExportTop5Selling_Click(object sender, EventArgs e)
+        {
+            if (dtgvTop5SellingProducts.Rows.Count == 0)
+            {
+                MessageBox.Show("No data to export.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            using (SaveFileDialog sfd = new SaveFileDialog())
+            {
+                sfd.Filter = "CSV files (*.csv)|*.csv";
+                sfd.FileName = "Top5SellingProducts.csv";
+
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        string csvFilePath = sfd.FileName;
+                        using (StreamWriter sw = new StreamWriter(sfd.FileName, false, Encoding.UTF8))
+                        {
+                            // Write headers
+                            for (int i = 0; i < dtgvTop5SellingProducts.Columns.Count; i++)
+                            {
+                                sw.Write(dtgvTop5SellingProducts.Columns[i].HeaderText);
+                                if (i < dtgvTop5SellingProducts.Columns.Count - 1)
+                                    sw.Write(",");
+                            }
+                            sw.WriteLine();
+
+                            // Write rows
+                            foreach (DataGridViewRow row in dtgvTop5SellingProducts.Rows)
+                            {
+                                if (!row.IsNewRow)
+                                {
+                                    for (int i = 0; i < dtgvTop5SellingProducts.Columns.Count; i++)
+                                    {
+                                        string value = row.Cells[i].Value?.ToString() ?? "";
+                                        // Escape quotes
+                                        value = value.Replace("\"", "\"\"");
+                                        if (value.Contains(","))
+                                            value = $"\"{value}\"";
+                                        sw.Write(value);
+
+                                        if (i < dtgvTop5SellingProducts.Columns.Count - 1)
+                                            sw.Write(",");
+                                    }
+                                    sw.WriteLine();
+                                }
+                            }
+                        }
+
+                        DialogResult openFile = MessageBox.Show("Do you want to open the exported file?", "Open File", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                        if (openFile == DialogResult.Yes)
+                        {
+                            try
+                            {
+                                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+                                {
+                                    FileName = csvFilePath, // or your CSV/Excel file path
+                                    UseShellExecute = true
+                                });
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Failed to open file: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Export failed: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
         }
     }
 }

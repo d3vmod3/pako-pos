@@ -30,11 +30,25 @@ namespace PAKOPointOfSale.Transactions
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SalesInvoice));
             productBindingSource = new BindingSource(components);
             userTypeBindingSource = new BindingSource(components);
             btnSearchProduct = new Button();
             dtgvCart = new DataGridView();
+            id = new DataGridViewTextBoxColumn();
+            product = new DataGridViewTextBoxColumn();
+            brand = new DataGridViewTextBoxColumn();
+            unit_of_measurement = new DataGridViewTextBoxColumn();
+            appliedQty = new DataGridViewTextBoxColumn();
+            unit_price = new DataGridViewTextBoxColumn();
+            category = new DataGridViewTextBoxColumn();
+            discountType = new DataGridViewTextBoxColumn();
+            discountAmount = new DataGridViewTextBoxColumn();
+            subTotal = new DataGridViewTextBoxColumn();
+            vatableSales = new DataGridViewTextBoxColumn();
+            vatAmount = new DataGridViewTextBoxColumn();
+            vatExempt = new DataGridViewTextBoxColumn();
             label1 = new Label();
             btnConfirm = new Button();
             btnPark = new Button();
@@ -82,21 +96,7 @@ namespace PAKOPointOfSale.Transactions
             lblParkNumber = new Label();
             btnParkedTransactions = new Button();
             btnScan = new Button();
-            id = new DataGridViewTextBoxColumn();
-            select = new DataGridViewCheckBoxColumn();
-            product = new DataGridViewTextBoxColumn();
-            brand = new DataGridViewTextBoxColumn();
-            unit_of_measurement = new DataGridViewTextBoxColumn();
-            appliedQty = new DataGridViewTextBoxColumn();
-            unit_price = new DataGridViewTextBoxColumn();
-            category = new DataGridViewTextBoxColumn();
-            discountType = new DataGridViewTextBoxColumn();
-            discountAmount = new DataGridViewTextBoxColumn();
-            subTotal = new DataGridViewTextBoxColumn();
-            vatableSales = new DataGridViewTextBoxColumn();
-            vatAmount = new DataGridViewTextBoxColumn();
-            vatExempt = new DataGridViewTextBoxColumn();
-            remove = new DataGridViewButtonColumn();
+            btnRemove = new Button();
             ((System.ComponentModel.ISupportInitialize)productBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)userTypeBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dtgvCart).BeginInit();
@@ -134,18 +134,110 @@ namespace PAKOPointOfSale.Transactions
             dtgvCart.AllowUserToDeleteRows = false;
             dtgvCart.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgvCart.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgvCart.Columns.AddRange(new DataGridViewColumn[] { id, select, product, brand, unit_of_measurement, appliedQty, unit_price, category, discountType, discountAmount, subTotal, vatableSales, vatAmount, vatExempt, remove });
+            dtgvCart.Columns.AddRange(new DataGridViewColumn[] { id, product, brand, unit_of_measurement, appliedQty, unit_price, category, discountType, discountAmount, subTotal, vatableSales, vatAmount, vatExempt });
             dtgvCart.Location = new Point(12, 137);
             dtgvCart.Name = "dtgvCart";
             dtgvCart.RowHeadersVisible = false;
             dtgvCart.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
-            dtgvCart.Size = new Size(951, 549);
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dtgvCart.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dtgvCart.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dtgvCart.Size = new Size(951, 518);
             dtgvCart.TabIndex = 4;
+            dtgvCart.CellClick += dtgvCart_CellClick;
             dtgvCart.CellContentClick += dtgvCart_CellContentClick;
             dtgvCart.CellEndEdit += dtgvCart_CellEndEdit;
             dtgvCart.CellValueChanged += dtgvCart_CellValueChanged;
             dtgvCart.EditingControlShowing += dtgvCart_EditingControlShowing;
             dtgvCart.KeyPress += dtgvCart_KeyPress;
+            // 
+            // id
+            // 
+            id.HeaderText = "ID";
+            id.Name = "id";
+            id.Visible = false;
+            // 
+            // product
+            // 
+            product.HeaderText = "Product";
+            product.Name = "product";
+            product.ReadOnly = true;
+            // 
+            // brand
+            // 
+            brand.HeaderText = "Brand";
+            brand.Name = "brand";
+            brand.ReadOnly = true;
+            // 
+            // unit_of_measurement
+            // 
+            unit_of_measurement.HeaderText = "Unit";
+            unit_of_measurement.Name = "unit_of_measurement";
+            unit_of_measurement.ReadOnly = true;
+            // 
+            // appliedQty
+            // 
+            appliedQty.HeaderText = "Quantity";
+            appliedQty.Name = "appliedQty";
+            // 
+            // unit_price
+            // 
+            unit_price.HeaderText = "Price";
+            unit_price.Name = "unit_price";
+            unit_price.ReadOnly = true;
+            // 
+            // category
+            // 
+            category.DataPropertyName = "category";
+            category.HeaderText = "Category";
+            category.Name = "category";
+            category.ReadOnly = true;
+            // 
+            // discountType
+            // 
+            discountType.DataPropertyName = "discountType";
+            discountType.HeaderText = "Discount Type";
+            discountType.Name = "discountType";
+            discountType.ReadOnly = true;
+            // 
+            // discountAmount
+            // 
+            discountAmount.DataPropertyName = "discountAmount";
+            discountAmount.HeaderText = "Discount Amount";
+            discountAmount.Name = "discountAmount";
+            discountAmount.ReadOnly = true;
+            discountAmount.Visible = false;
+            // 
+            // subTotal
+            // 
+            subTotal.DataPropertyName = "subTotal";
+            subTotal.HeaderText = "Sub Total";
+            subTotal.Name = "subTotal";
+            subTotal.ReadOnly = true;
+            // 
+            // vatableSales
+            // 
+            vatableSales.DataPropertyName = "vatableSales";
+            vatableSales.HeaderText = "VATable Sales";
+            vatableSales.Name = "vatableSales";
+            vatableSales.ReadOnly = true;
+            vatableSales.Visible = false;
+            // 
+            // vatAmount
+            // 
+            vatAmount.DataPropertyName = "vatAmount";
+            vatAmount.HeaderText = "VAT Amount";
+            vatAmount.Name = "vatAmount";
+            vatAmount.ReadOnly = true;
+            vatAmount.Visible = false;
+            // 
+            // vatExempt
+            // 
+            vatExempt.DataPropertyName = "vatExempt";
+            vatExempt.HeaderText = "VAT Exempt";
+            vatExempt.Name = "vatExempt";
+            vatExempt.ReadOnly = true;
+            vatExempt.Visible = false;
             // 
             // label1
             // 
@@ -707,107 +799,18 @@ namespace PAKOPointOfSale.Transactions
             btnScan.UseVisualStyleBackColor = false;
             btnScan.Click += btnScan_Click;
             // 
-            // id
+            // btnRemove
             // 
-            id.HeaderText = "ID";
-            id.Name = "id";
-            id.Visible = false;
-            // 
-            // select
-            // 
-            select.FalseValue = "0";
-            select.HeaderText = "Select to Apply Discount";
-            select.Name = "select";
-            select.TrueValue = "1";
-            // 
-            // product
-            // 
-            product.HeaderText = "Product";
-            product.Name = "product";
-            product.ReadOnly = true;
-            // 
-            // brand
-            // 
-            brand.HeaderText = "Brand";
-            brand.Name = "brand";
-            brand.ReadOnly = true;
-            // 
-            // unit_of_measurement
-            // 
-            unit_of_measurement.HeaderText = "Unit";
-            unit_of_measurement.Name = "unit_of_measurement";
-            unit_of_measurement.ReadOnly = true;
-            // 
-            // appliedQty
-            // 
-            appliedQty.HeaderText = "Quantity";
-            appliedQty.Name = "appliedQty";
-            // 
-            // unit_price
-            // 
-            unit_price.HeaderText = "Price";
-            unit_price.Name = "unit_price";
-            unit_price.ReadOnly = true;
-            // 
-            // category
-            // 
-            category.DataPropertyName = "category";
-            category.HeaderText = "Category";
-            category.Name = "category";
-            category.ReadOnly = true;
-            // 
-            // discountType
-            // 
-            discountType.DataPropertyName = "discountType";
-            discountType.HeaderText = "Discount Type";
-            discountType.Name = "discountType";
-            discountType.ReadOnly = true;
-            // 
-            // discountAmount
-            // 
-            discountAmount.DataPropertyName = "discountAmount";
-            discountAmount.HeaderText = "Discount Amount";
-            discountAmount.Name = "discountAmount";
-            discountAmount.ReadOnly = true;
-            discountAmount.Visible = false;
-            // 
-            // subTotal
-            // 
-            subTotal.DataPropertyName = "subTotal";
-            subTotal.HeaderText = "Sub Total";
-            subTotal.Name = "subTotal";
-            subTotal.ReadOnly = true;
-            // 
-            // vatableSales
-            // 
-            vatableSales.DataPropertyName = "vatableSales";
-            vatableSales.HeaderText = "VATable Sales";
-            vatableSales.Name = "vatableSales";
-            vatableSales.ReadOnly = true;
-            vatableSales.Visible = false;
-            // 
-            // vatAmount
-            // 
-            vatAmount.DataPropertyName = "vatAmount";
-            vatAmount.HeaderText = "VAT Amount";
-            vatAmount.Name = "vatAmount";
-            vatAmount.ReadOnly = true;
-            vatAmount.Visible = false;
-            // 
-            // vatExempt
-            // 
-            vatExempt.DataPropertyName = "vatExempt";
-            vatExempt.HeaderText = "VAT Exempt";
-            vatExempt.Name = "vatExempt";
-            vatExempt.ReadOnly = true;
-            vatExempt.Visible = false;
-            // 
-            // remove
-            // 
-            remove.HeaderText = "";
-            remove.Name = "remove";
-            remove.Text = "Remove";
-            remove.UseColumnTextForButtonValue = true;
+            btnRemove.BackColor = Color.Coral;
+            btnRemove.FlatStyle = FlatStyle.Popup;
+            btnRemove.ForeColor = Color.White;
+            btnRemove.Location = new Point(810, 662);
+            btnRemove.Name = "btnRemove";
+            btnRemove.Size = new Size(153, 25);
+            btnRemove.TabIndex = 161;
+            btnRemove.Text = "Remove Selected Items";
+            btnRemove.UseVisualStyleBackColor = false;
+            btnRemove.Click += btnRemove_Click;
             // 
             // SalesInvoice
             // 
@@ -815,6 +818,7 @@ namespace PAKOPointOfSale.Transactions
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
             ClientSize = new Size(1367, 777);
+            Controls.Add(btnRemove);
             Controls.Add(btnScan);
             Controls.Add(btnClearCart);
             Controls.Add(btnParkedTransactions);
@@ -924,8 +928,8 @@ namespace PAKOPointOfSale.Transactions
         private Button btnParkedTransactions;
         private Button btnClearCart;
         private Button btnScan;
+        private Button btnRemove;
         private DataGridViewTextBoxColumn id;
-        private DataGridViewCheckBoxColumn select;
         private DataGridViewTextBoxColumn product;
         private DataGridViewTextBoxColumn brand;
         private DataGridViewTextBoxColumn unit_of_measurement;
@@ -938,6 +942,5 @@ namespace PAKOPointOfSale.Transactions
         private DataGridViewTextBoxColumn vatableSales;
         private DataGridViewTextBoxColumn vatAmount;
         private DataGridViewTextBoxColumn vatExempt;
-        private DataGridViewButtonColumn remove;
     }
 }

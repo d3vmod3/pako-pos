@@ -32,8 +32,15 @@ namespace PAKOPointOfSale.Categories
         {
             loadCategories();
             loadPermissions();
+            DataGridViewButtonColumn c = (DataGridViewButtonColumn)dataGridView1.Columns["editCategory"];
+            c.FlatStyle = FlatStyle.Flat;
+            c.DefaultCellStyle.ForeColor = Color.White;
+            c.DefaultCellStyle.BackColor = Color.LightBlue;
 
-
+            DataGridViewButtonColumn d = (DataGridViewButtonColumn)dataGridView1.Columns["deleteCategory"];
+            d.FlatStyle = FlatStyle.Flat;
+            d.DefaultCellStyle.ForeColor = Color.White;
+            d.DefaultCellStyle.BackColor = Color.Coral;
         }
         private void loadPermissions()
         {
@@ -82,12 +89,47 @@ namespace PAKOPointOfSale.Categories
 
             // Get the ID of the selected user
             int categoryId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["id"].Value);
+            string categoryName = dataGridView1.Rows[e.RowIndex].Cells["name"].Value.ToString();
 
             if (e.ColumnIndex == dataGridView1.Columns["editCategory"].Index)
             {
                 EditCategory editCategoryForm = new EditCategory(categoryId);
                 editCategoryForm.ShowDialog(); // modal so user finishes editing first
                 loadCategories();
+
+            }
+            if (e.ColumnIndex == dataGridView1.Columns["deleteCategory"].Index)
+            {
+                var result = MessageBox.Show($"Are you sure you want to delete {categoryName}?", "Warning!",MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if(result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        string connString = PAKOPointOfSale.Program.ConnString;
+                        using (SqlConnection conn = new SqlConnection(connString))
+                        {
+                            conn.Open();
+
+                            string query = @"
+                                    DELETE 
+                                    FROM Categories
+                                    WHERE 
+                                        id LIKE @id
+                                    ";
+
+                            using (SqlCommand cmd = new SqlCommand(query, conn))
+                            {
+                                cmd.Parameters.AddWithValue("id", categoryId);
+
+                                cmd.ExecuteNonQuery();
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error searching users: " + ex.Message);
+                    }
+                }
 
             }
         }
@@ -149,34 +191,6 @@ namespace PAKOPointOfSale.Categories
         private void label1_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void btnFilter_Click(object sender, EventArgs e)
-        {
-            if (categoriesTable == null) return; // Safety check
-
-            // Example: toggle between showing Active and Inactive rows
-            if (btnFilter.Tag == null || btnFilter.Tag.ToString() == "Inactive")
-            {
-                categoriesTable.DefaultView.RowFilter = "is_active = True";
-                btnFilter.Text = "Show Inactive";
-                btnFilter.Tag = "Active";
-            }
-            else
-            {
-                categoriesTable.DefaultView.RowFilter = "is_active = False";
-                btnFilter.Text = "Show Active";
-                btnFilter.Tag = "Inactive";
-            }
-
-            // Update DataGridView
-            dataGridView1.DataSource = categoriesTable.DefaultView;
-        }
-
-        private void btnClearFilter_Click(object sender, EventArgs e)
-        {
-            chkIsActive.Checked = false;
-            loadCategories();
         }
 
         private void btnExport_Click(object sender, EventArgs e)

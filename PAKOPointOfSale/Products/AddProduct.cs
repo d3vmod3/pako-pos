@@ -232,9 +232,9 @@ namespace PAKOPointOfSale.Products
             }
 
             // --- Date Expiration ---
-            if (dtpDateExpiration.Value.Date <= DateTime.Now.Date)
+            if (dtpDateExpiration.Value.Date <= DateTime.Now.Date.AddYears(1))
             {
-                MessageBox.Show("Date Expiration must be a future date (after today).", "Invalid Date",
+                MessageBox.Show("Date Expiration must be more than 1 year from today.", "Invalid Date",
                                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 dtpDateExpiration.Focus();
                 return false;

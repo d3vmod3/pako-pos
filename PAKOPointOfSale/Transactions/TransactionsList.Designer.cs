@@ -58,14 +58,13 @@
             lblsearchproduct = new Label();
             pictureBox3 = new PictureBox();
             grpFilter = new GroupBox();
-            btnFilter = new Button();
-            btnClearFilter = new Button();
-            label5 = new Label();
-            cmbTransactionType = new ComboBox();
             label4 = new Label();
             dtpTo = new DateTimePicker();
             label3 = new Label();
             dtpFrom = new DateTimePicker();
+            btnClearFilter = new Button();
+            label5 = new Label();
+            cmbTransactionType = new ComboBox();
             btnExport = new Button();
             ((System.ComponentModel.ISupportInitialize)dtgvTransactions).BeginInit();
             ((System.ComponentModel.ISupportInitialize)transactionBindingSource).BeginInit();
@@ -324,18 +323,38 @@
             grpFilter.TabStop = false;
             grpFilter.Text = "Filter";
             // 
-            // btnFilter
+            // label4
             // 
-            btnFilter.BackColor = Color.Khaki;
-            btnFilter.FlatStyle = FlatStyle.Popup;
-            btnFilter.ForeColor = Color.Black;
-            btnFilter.Location = new Point(888, 172);
-            btnFilter.Name = "btnFilter";
-            btnFilter.Size = new Size(75, 23);
-            btnFilter.TabIndex = 165;
-            btnFilter.Text = "Filter";
-            btnFilter.UseVisualStyleBackColor = false;
-            btnFilter.Click += btnFilter_Click;
+            label4.AutoSize = true;
+            label4.Location = new Point(334, 21);
+            label4.Name = "label4";
+            label4.Size = new Size(50, 15);
+            label4.TabIndex = 158;
+            label4.Text = "Date To:";
+            // 
+            // dtpTo
+            // 
+            dtpTo.Location = new Point(390, 16);
+            dtpTo.Name = "dtpTo";
+            dtpTo.Size = new Size(231, 23);
+            dtpTo.TabIndex = 157;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.ForeColor = Color.Black;
+            label3.Location = new Point(6, 19);
+            label3.Name = "label3";
+            label3.Size = new Size(65, 15);
+            label3.TabIndex = 156;
+            label3.Text = "Date From:";
+            // 
+            // dtpFrom
+            // 
+            dtpFrom.Location = new Point(77, 15);
+            dtpFrom.Name = "dtpFrom";
+            dtpFrom.Size = new Size(251, 23);
+            dtpFrom.TabIndex = 155;
             // 
             // btnClearFilter
             // 
@@ -371,39 +390,6 @@
             cmbTransactionType.TabIndex = 162;
             cmbTransactionType.SelectedIndexChanged += cmbStatus_SelectedIndexChanged;
             // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(334, 21);
-            label4.Name = "label4";
-            label4.Size = new Size(50, 15);
-            label4.TabIndex = 158;
-            label4.Text = "Date To:";
-            // 
-            // dtpTo
-            // 
-            dtpTo.Location = new Point(390, 16);
-            dtpTo.Name = "dtpTo";
-            dtpTo.Size = new Size(231, 23);
-            dtpTo.TabIndex = 157;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.ForeColor = Color.Black;
-            label3.Location = new Point(6, 19);
-            label3.Name = "label3";
-            label3.Size = new Size(65, 15);
-            label3.TabIndex = 156;
-            label3.Text = "Date From:";
-            // 
-            // dtpFrom
-            // 
-            dtpFrom.Location = new Point(77, 15);
-            dtpFrom.Name = "dtpFrom";
-            dtpFrom.Size = new Size(251, 23);
-            dtpFrom.TabIndex = 155;
-            // 
             // btnExport
             // 
             btnExport.BackColor = Color.Gold;
@@ -423,7 +409,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
             ClientSize = new Size(1368, 769);
-            Controls.Add(btnFilter);
             Controls.Add(btnExport);
             Controls.Add(grpFilter);
             Controls.Add(pictureBox3);
@@ -474,7 +459,6 @@
         private Label label3;
         private DateTimePicker dtpFrom;
         private ComboBox cmbTransactionType;
-        private Button btnFilter;
         private Button btnClearFilter;
         private Button btnExport;
         private DataGridViewTextBoxColumn id;

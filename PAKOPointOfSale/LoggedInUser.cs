@@ -8,7 +8,9 @@ namespace PAKOPointOfSale
     {
         public static string CurrentUser { get; set; } = "";
         public static int CurrentUserTypeId { get; set; }
-
+        public static string FirstName { get; set; } = "";
+        public static string LastName { get; set; } = "";
+        public static string FullName => $"{FirstName} {LastName}".Trim();
         public static bool HasPermission(string moduleName, string action)
         {
             try

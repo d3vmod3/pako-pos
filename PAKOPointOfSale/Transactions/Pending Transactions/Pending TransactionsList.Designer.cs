@@ -30,10 +30,6 @@
         {
             components = new System.ComponentModel.Container();
             dtgvParkedTransactions = new DataGridView();
-            transactionBindingSource = new BindingSource(components);
-            txtSearch = new TextBox();
-            label1 = new Label();
-            btnClose = new Button();
             id = new DataGridViewTextBoxColumn();
             park_number = new DataGridViewTextBoxColumn();
             vat_amount = new DataGridViewTextBoxColumn();
@@ -51,6 +47,10 @@
             settle = new DataGridViewButtonColumn();
             salesinvoiceitemsDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             cancel = new DataGridViewButtonColumn();
+            transactionBindingSource = new BindingSource(components);
+            txtSearch = new TextBox();
+            label1 = new Label();
+            btnClose = new Button();
             ((System.ComponentModel.ISupportInitialize)dtgvParkedTransactions).BeginInit();
             ((System.ComponentModel.ISupportInitialize)transactionBindingSource).BeginInit();
             SuspendLayout();
@@ -72,40 +72,6 @@
             dtgvParkedTransactions.TabIndex = 0;
             dtgvParkedTransactions.CellContentClick += dtgvParkedTransactions_CellContentClick;
             dtgvParkedTransactions.CellFormatting += dtgvParkedTransactions_CellFormatting;
-            // 
-            // transactionBindingSource
-            // 
-            transactionBindingSource.DataSource = typeof(Transaction);
-            // 
-            // txtSearch
-            // 
-            txtSearch.Location = new Point(157, 19);
-            txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(259, 23);
-            txtSearch.TabIndex = 1;
-            txtSearch.TextChanged += textBox1_TextChanged;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(12, 22);
-            label1.Name = "label1";
-            label1.Size = new Size(139, 15);
-            label1.TabIndex = 2;
-            label1.Text = "Search Pending Number:";
-            // 
-            // btnClose
-            // 
-            btnClose.BackColor = Color.Red;
-            btnClose.FlatStyle = FlatStyle.Popup;
-            btnClose.ForeColor = Color.White;
-            btnClose.Location = new Point(675, 19);
-            btnClose.Name = "btnClose";
-            btnClose.Size = new Size(84, 24);
-            btnClose.TabIndex = 21;
-            btnClose.Text = "Close";
-            btnClose.UseVisualStyleBackColor = false;
-            btnClose.Click += btnClose_Click;
             // 
             // id
             // 
@@ -258,6 +224,40 @@
             cancel.Text = "Cancel";
             cancel.UseColumnTextForButtonValue = true;
             cancel.Width = 50;
+            // 
+            // transactionBindingSource
+            // 
+            transactionBindingSource.DataSource = typeof(Transaction);
+            // 
+            // txtSearch
+            // 
+            txtSearch.Location = new Point(157, 19);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(259, 23);
+            txtSearch.TabIndex = 1;
+            txtSearch.TextChanged += textBox1_TextChanged;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(12, 22);
+            label1.Name = "label1";
+            label1.Size = new Size(139, 15);
+            label1.TabIndex = 2;
+            label1.Text = "Search Pending Number:";
+            // 
+            // btnClose
+            // 
+            btnClose.BackColor = Color.Red;
+            btnClose.FlatStyle = FlatStyle.Popup;
+            btnClose.ForeColor = Color.White;
+            btnClose.Location = new Point(675, 19);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(84, 24);
+            btnClose.TabIndex = 21;
+            btnClose.Text = "Close";
+            btnClose.UseVisualStyleBackColor = false;
+            btnClose.Click += btnClose_Click;
             // 
             // ParkTransactionsList
             // 

@@ -7,6 +7,8 @@ namespace PAKOPointOfSale
     {
         public int user_type_id;
         public int user_id;
+        public string firstName;
+        public string lastName;
         public Login()
         {
             InitializeComponent();
@@ -24,8 +26,10 @@ namespace PAKOPointOfSale
             {
                 LoggedInUser.CurrentUser = username;
                 LoggedInUser.CurrentUserTypeId = userTypeId;
-
-                MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoggedInUser.FirstName = firstName;
+                LoggedInUser.LastName = lastName;
+                LoggedInUser.CurrentUserTypeId = userTypeId;
+                
 
                 this.Hide();
                 MDIParent1 mainMenuForm = new MDIParent1();
@@ -64,9 +68,9 @@ namespace PAKOPointOfSale
                 {
                     conn.Open();
                     string query = @"
-                SELECT id, user_type_id
-                FROM Users
-                WHERE username = @username AND password = @password AND is_active = 1";
+                        SELECT id, user_type_id,first_name,last_name
+                        FROM Users
+                        WHERE username = @username AND password = @password AND is_active = 1";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
@@ -78,6 +82,9 @@ namespace PAKOPointOfSale
                             if (reader.Read())
                             {
                                 user_type_id = reader.GetInt32(reader.GetOrdinal("user_type_id"));
+                                user_id = reader.GetInt32(reader.GetOrdinal("id"));
+                                firstName = reader.GetString(reader.GetOrdinal("first_name"));
+                                lastName = reader.GetString(reader.GetOrdinal("last_name"));
                                 user_id = reader.GetInt32(reader.GetOrdinal("id"));
                                 return user_type_id;
                                

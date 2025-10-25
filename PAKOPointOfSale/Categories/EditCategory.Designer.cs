@@ -170,6 +170,7 @@
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "EditCategory";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Edit Category";
             Load += EditCategory_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

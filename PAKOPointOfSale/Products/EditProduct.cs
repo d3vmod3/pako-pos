@@ -69,8 +69,8 @@ namespace PAKOPointOfSale.Products
                                 dtpDateExpiration.Value = Convert.ToDateTime(reader["date_expiration"]);
 
                                 // Set ComboBoxes by Value
-                                cmbSupplier.SelectedValue = reader["supplier_id"];
-                                cmbCategory.SelectedValue = reader["category_id"];
+                                cmbSupplier.SelectedValue = reader["supplier_id"] is DBNull ? null : reader["supplier_id"];
+                                cmbCategory.SelectedValue = reader["category_id"] is DBNull ? null : reader["category_id"];
                                 cmbUnitofMeasurements.Text = reader["unit_of_measurement"].ToString();
                                 cmbStatus.Text = reader["status"].ToString();
                                 chkIsActive.Checked = Convert.ToBoolean(reader["is_active"]);
@@ -234,10 +234,10 @@ namespace PAKOPointOfSale.Products
             }
 
             // --- Date Expiration ---
-            if (dtpDateExpiration.Value.Date <= DateTime.Now.Date)
+            if (dtpDateExpiration.Value.Date <= DateTime.Now.Date.AddYears(1))
             {
-                MessageBox.Show("Date Expiration must be a future date (after today).", "Invalid Date",
-                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Date Expiration must be more than 1 year from today.", "Invalid Date",
+                               MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 dtpDateExpiration.Focus();
                 return false;
             }

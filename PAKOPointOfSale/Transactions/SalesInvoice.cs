@@ -71,7 +71,7 @@ namespace PAKOPointOfSale.Transactions
                 }
             }
 
-            if(dtgvCart.Rows.Count == 0)
+            if (dtgvCart.Rows.Count == 0)
             {
                 clearCart();
 
@@ -87,7 +87,6 @@ namespace PAKOPointOfSale.Transactions
 
             int rowIndex = dtgvCart.Rows.Add(
                     id,
-                    0,
                     product,
                     brand,
                     unit,
@@ -305,7 +304,7 @@ namespace PAKOPointOfSale.Transactions
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            
+
 
         }
 
@@ -359,7 +358,7 @@ namespace PAKOPointOfSale.Transactions
                     }
                 }
 
-                //if park number has valui, update the transaction where id is
+                //if pending number has valui, update the transaction where id is
                 //update the status as settled
                 if (TransactionID > 0 && !string.IsNullOrEmpty(ParkNumber))
                 {
@@ -642,11 +641,10 @@ namespace PAKOPointOfSale.Transactions
                 if (!row.IsNewRow)
                 {
                     // Check if the "select" cell is checked
-                    int value = Convert.ToInt32(row.Cells["select"].Value);
-                    if (value != 0)
+                    if (!row.IsNewRow)
                     {
                         hasSelectedItems = true;
-                        break; // No need to continue, we found at least one
+                        break;
                     }
                 }
             }
@@ -674,7 +672,7 @@ namespace PAKOPointOfSale.Transactions
             foreach (DataGridViewRow row in dtgvCart.Rows)
             {
                 // Check if the row is selected
-                bool isSelected = row.Cells["select"].Value?.ToString() == "1";
+                bool isSelected = row.Selected;
 
                 if (!isSelected)
                     continue;
@@ -935,7 +933,7 @@ namespace PAKOPointOfSale.Transactions
 
         private void button2_Click_Park(object sender, EventArgs e)
         {
-            if (dtgvCart.Rows.Count !=0)
+            if (dtgvCart.Rows.Count != 0)
             {
                 if (ParkNumber != "")
                 {
@@ -1072,7 +1070,7 @@ namespace PAKOPointOfSale.Transactions
                         sqlTran.Commit();
                         clearCart();
                         MessageBox.Show(
-                            "Transaction successfully saved with Park Number: " + parkNumber,
+                            "Transaction successfully saved with Pending Number: " + parkNumber,
                             "Info",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
@@ -1280,5 +1278,38 @@ namespace PAKOPointOfSale.Transactions
             }
         }
 
+        private void dtgvCart_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            if(dtgvCart.Rows.Count > 0)
+            {
+                DialogResult result = MessageBox.Show(
+                        "Are you sure you want to remove the selected item(s)?",
+                        "Confirm Remove",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question
+                    );
+                if (result == DialogResult.Yes)
+                {
+                    for (int i = dtgvCart.Rows.Count - 1; i >= 0; i--)
+                    {
+                        DataGridViewRow row = dtgvCart.Rows[i];
+                        if (row.Selected && !row.IsNewRow)
+                        {
+                            dtgvCart.Rows.RemoveAt(i);
+                        }
+                    }
+                }
+                ComputeGrandTotal();
+            }
+            else
+            {
+                MessageBox.Show("Please select at least one item from the cart.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
 }

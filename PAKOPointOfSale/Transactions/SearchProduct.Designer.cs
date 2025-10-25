@@ -278,7 +278,6 @@
             Name = "SearchProduct";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "SearchProduct";
-            WindowState = FormWindowState.Maximized;
             Load += SearchProduct_Load;
             ((System.ComponentModel.ISupportInitialize)productBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();

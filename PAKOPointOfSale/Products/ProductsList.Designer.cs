@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductsList));
             dataGridView1 = new DataGridView();
             id = new DataGridViewTextBoxColumn();
@@ -87,14 +87,14 @@
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { id, barcode, product_name, productbrandDataGridViewTextBoxColumn, category_name, supplier_name, productdescriptionDataGridViewTextBoxColumn, productcodeDataGridViewTextBoxColumn, skuDataGridViewTextBoxColumn, quantityDataGridViewTextBoxColumn, unitofmeasurementDataGridViewTextBoxColumn, costpriceDataGridViewTextBoxColumn, unitpriceDataGridViewTextBoxColumn, remarksDataGridViewTextBoxColumn, statusDataGridViewTextBoxColumn, datereceivedDataGridViewTextBoxColumn, dateexpirationDataGridViewTextBoxColumn, is_active, createdatDataGridViewTextBoxColumn, edit });
             dataGridView1.DataSource = productBindingSource;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = Color.Black;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = Color.Black;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.GridColor = Color.Black;
             dataGridView1.Location = new Point(12, 2);
             dataGridView1.Name = "dataGridView1";
@@ -219,6 +219,7 @@
             remarksDataGridViewTextBoxColumn.HeaderText = "Remarks";
             remarksDataGridViewTextBoxColumn.Name = "remarksDataGridViewTextBoxColumn";
             remarksDataGridViewTextBoxColumn.ReadOnly = true;
+            remarksDataGridViewTextBoxColumn.Visible = false;
             remarksDataGridViewTextBoxColumn.Width = 77;
             // 
             // statusDataGridViewTextBoxColumn
@@ -227,6 +228,7 @@
             statusDataGridViewTextBoxColumn.HeaderText = "Status";
             statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
             statusDataGridViewTextBoxColumn.ReadOnly = true;
+            statusDataGridViewTextBoxColumn.Visible = false;
             statusDataGridViewTextBoxColumn.Width = 64;
             // 
             // datereceivedDataGridViewTextBoxColumn
@@ -253,6 +255,7 @@
             is_active.ReadOnly = true;
             is_active.Resizable = DataGridViewTriState.True;
             is_active.SortMode = DataGridViewColumnSortMode.NotSortable;
+            is_active.Visible = false;
             is_active.Width = 46;
             // 
             // createdatDataGridViewTextBoxColumn
@@ -315,7 +318,7 @@
             btnExport.BackColor = Color.Goldenrod;
             btnExport.FlatStyle = FlatStyle.Flat;
             btnExport.Font = new Font("Microsoft Sans Serif", 9.75F);
-            btnExport.ForeColor = Color.White;
+            btnExport.ForeColor = Color.Black;
             btnExport.Location = new Point(1200, 108);
             btnExport.Name = "btnExport";
             btnExport.Size = new Size(75, 23);

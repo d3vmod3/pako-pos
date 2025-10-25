@@ -54,8 +54,6 @@ namespace PAKOPointOfSale.Transactions.Parked_Transactions
                         WHERE invoice_number is NULL
                         AND park_number IS NOT NULL
                         AND status='pending'
-                        OR status='settled'
-                        OR status='cancelled'
                         ORDER BY created_at DESC;";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))

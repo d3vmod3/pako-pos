@@ -140,6 +140,11 @@ namespace PAKOPointOfSale.Transactions
 
         private void btnFilter_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void cmbStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
             if (transactionsTable == null)
                 return;
 
@@ -177,11 +182,6 @@ namespace PAKOPointOfSale.Transactions
                     dtgvTransactions.Columns["void_number"].Visible = false;
                 }
             }
-        }
-
-        private void cmbStatus_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void btnClearFilter_Click(object sender, EventArgs e)
