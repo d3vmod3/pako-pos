@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -326,9 +327,9 @@ namespace PAKOPointOfSale
                         decimal netSales = reader["net_sales"] != DBNull.Value ? Convert.ToDecimal(reader["net_sales"]) : 0;
                         decimal grandTotal = reader["grand_total"] != DBNull.Value ? Convert.ToDecimal(reader["grand_total"]) : 0;
 
-                        lblGrossSales.Text = grossSales.ToString("C2");
-                        lblNetSales.Text = netSales.ToString("C2");
-                        lblGrandTotal.Text = grandTotal.ToString("C2");
+                        lblGrossSales.Text = grossSales.ToString("C2", new CultureInfo("en-PH"));
+                        lblNetSales.Text = netSales.ToString("C2", new CultureInfo("en-PH"));
+                        lblGrandTotal.Text = grandTotal.ToString("C2", new CultureInfo("en-PH"));
                     }
                     else
                     {

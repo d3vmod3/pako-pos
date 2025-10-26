@@ -99,6 +99,10 @@ namespace PAKOPointOfSale.Products
                     // Optional: auto-size columns
                     dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 }
+                DataGridViewButtonColumn c = (DataGridViewButtonColumn)dataGridView1.Columns["edit"];
+                c.FlatStyle = FlatStyle.Flat;
+                c.DefaultCellStyle.ForeColor = Color.White;
+                c.DefaultCellStyle.BackColor = Color.LightBlue;
             }
             catch (Exception ex)
             {

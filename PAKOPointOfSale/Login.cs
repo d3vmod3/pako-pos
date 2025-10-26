@@ -16,10 +16,15 @@ namespace PAKOPointOfSale
 
         private void button1_Click(object sender, EventArgs e)
         {
+            login();
+        }
+
+        private void login()
+        {
             string username = txtUsername.Text.Trim();
             string password = txtPassword.Text.Trim();
 
-            
+
             int userTypeId = LoginUser(username, password);
 
             if (userTypeId > 0)
@@ -29,11 +34,11 @@ namespace PAKOPointOfSale
                 LoggedInUser.FirstName = firstName;
                 LoggedInUser.LastName = lastName;
                 LoggedInUser.CurrentUserTypeId = userTypeId;
-                
+
 
                 this.Hide();
                 MDIParent1 mainMenuForm = new MDIParent1();
-                if(is_reset(user_id)==false)
+                if (is_reset(user_id) == false)
                 {
                     if (userTypeId == 3)
                     {
@@ -53,7 +58,7 @@ namespace PAKOPointOfSale
                 }
 
 
-                   
+
             }
             else
             {
@@ -87,7 +92,7 @@ namespace PAKOPointOfSale
                                 lastName = reader.GetString(reader.GetOrdinal("last_name"));
                                 user_id = reader.GetInt32(reader.GetOrdinal("id"));
                                 return user_type_id;
-                               
+
                             }
                         }
                     }
@@ -100,7 +105,7 @@ namespace PAKOPointOfSale
 
             return 0; // Invalid login
         }
-        
+
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -172,6 +177,23 @@ namespace PAKOPointOfSale
                 }
             }
             return false;
+        }
+
+        private void txtUsername_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                login(); // Simulate clicking the login button
+            }
+            
+        }
+
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                login(); // Simulate clicking the login button
+            }
         }
     }
 }

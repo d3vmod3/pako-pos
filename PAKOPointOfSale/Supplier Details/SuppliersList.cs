@@ -63,6 +63,10 @@ namespace PAKOPointOfSale.Supplier_Details
                     }
                 }
                 cmbStatus.SelectedIndex = 0;
+                DataGridViewButtonColumn c = (DataGridViewButtonColumn)dataGridView1.Columns["edit"];
+                c.FlatStyle = FlatStyle.Flat;
+                c.DefaultCellStyle.ForeColor = Color.White;
+                c.DefaultCellStyle.BackColor = Color.LightBlue;
             }
             catch (Exception ex)
             {
@@ -75,6 +79,10 @@ namespace PAKOPointOfSale.Supplier_Details
             Supplier_Details.AddSupplierDetails addSupplierForm = new Supplier_Details.AddSupplierDetails();
             addSupplierForm.ShowDialog();
             loadSuppliers();
+            DataGridViewButtonColumn c = (DataGridViewButtonColumn)dataGridView1.Columns["edit"];
+            c.FlatStyle = FlatStyle.Flat;
+            c.DefaultCellStyle.ForeColor = Color.White;
+            c.DefaultCellStyle.BackColor = Color.LightBlue;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

@@ -64,6 +64,15 @@ namespace PAKOPointOfSale.Transactions.Parked_Transactions
                         dtgvParkedTransactions.DataSource = parkedTransactionsTable;
                     }
                 }
+                DataGridViewButtonColumn c = (DataGridViewButtonColumn)dtgvParkedTransactions.Columns["settle"];
+                c.FlatStyle = FlatStyle.Flat;
+                c.DefaultCellStyle.ForeColor = Color.White;
+                c.DefaultCellStyle.BackColor = Color.LightBlue;
+
+                DataGridViewButtonColumn d = (DataGridViewButtonColumn)dtgvParkedTransactions.Columns["cancel"];
+                d.FlatStyle = FlatStyle.Flat;
+                d.DefaultCellStyle.ForeColor = Color.White;
+                d.DefaultCellStyle.BackColor = Color.Coral;
             }
             catch (Exception ex)
             {

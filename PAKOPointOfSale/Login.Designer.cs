@@ -67,6 +67,7 @@
             txtPassword.Size = new Size(250, 35);
             txtPassword.TabIndex = 1;
             txtPassword.TextChanged += txtPassword_TextChanged;
+            txtPassword.KeyDown += txtPassword_KeyDown;
             // 
             // txtUsername
             // 
@@ -77,6 +78,7 @@
             txtUsername.Size = new Size(250, 35);
             txtUsername.TabIndex = 1;
             txtUsername.TextChanged += txtUsername_TextChanged;
+            txtUsername.KeyDown += txtUsername_KeyDown;
             // 
             // pictureBox2
             // 

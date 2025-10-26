@@ -64,11 +64,11 @@ namespace PAKOPointOfSale
             CurrentUser = "";
             CurrentUserTypeId = 0;
             backupDatabase();
-            currentForm.Hide();
+            currentForm.Close();
             var loginForm = new Login(); // Replace with your login form
             loginForm.Show();
 
-            currentForm.Close();
+            
 
         }
 

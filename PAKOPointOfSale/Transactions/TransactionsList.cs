@@ -68,6 +68,10 @@ namespace PAKOPointOfSale.Transactions
                     }
                 }
                 cmbTransactionType.SelectedIndex = 0;
+                DataGridViewButtonColumn c = (DataGridViewButtonColumn)dtgvTransactions.Columns["viewInvoice"];
+                c.FlatStyle = FlatStyle.Flat;
+                c.DefaultCellStyle.ForeColor = Color.White;
+                c.DefaultCellStyle.BackColor = Color.LightBlue;
             }
             catch (Exception ex)
             {

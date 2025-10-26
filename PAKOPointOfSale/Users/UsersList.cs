@@ -76,6 +76,10 @@ namespace PAKOPointOfSale.Users
                         dataGridView1.DataSource = usersTable; // Bind DataTable to DataGridView
                     }
                 }
+                DataGridViewButtonColumn c = (DataGridViewButtonColumn)dataGridView1.Columns["edit"];
+                c.FlatStyle = FlatStyle.Flat;
+                c.DefaultCellStyle.ForeColor = Color.White;
+                c.DefaultCellStyle.BackColor = Color.LightBlue;
             }
             catch (Exception ex)
             {

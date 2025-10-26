@@ -70,7 +70,12 @@ namespace PAKOPointOfSale.Transactions
 
                     // Optional: auto-size columns
                     dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    
                 }
+                DataGridViewButtonColumn c = (DataGridViewButtonColumn)dataGridView1.Columns["addToCart"];
+                c.FlatStyle = FlatStyle.Flat;
+                c.DefaultCellStyle.ForeColor = Color.White;
+                c.DefaultCellStyle.BackColor = Color.LightBlue;
             }
             catch (Exception ex)
             {
@@ -157,6 +162,10 @@ namespace PAKOPointOfSale.Transactions
                         }
                     }
                 }
+                DataGridViewButtonColumn c = (DataGridViewButtonColumn)dataGridView1.Columns["addToCart"];
+                c.FlatStyle = FlatStyle.Flat;
+                c.DefaultCellStyle.ForeColor = Color.White;
+                c.DefaultCellStyle.BackColor = Color.LightBlue;
             }
             catch (Exception ex)
             {

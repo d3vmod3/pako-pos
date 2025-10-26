@@ -85,6 +85,10 @@ namespace PAKOPointOfSale.Transactions.Return
                     RecalculateValues(discountType, row);
                 }
             }
+            DataGridViewButtonColumn c = (DataGridViewButtonColumn)dgvReturnItems.Columns["remove"];
+            c.FlatStyle = FlatStyle.Flat;
+            c.DefaultCellStyle.ForeColor = Color.White;
+            c.DefaultCellStyle.BackColor = Color.LightBlue;
 
 
         }

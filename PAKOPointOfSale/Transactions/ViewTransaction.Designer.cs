@@ -110,7 +110,7 @@ namespace PAKOPointOfSale.Transactions
             btnProceed.BackColor = Color.ForestGreen;
             btnProceed.FlatStyle = FlatStyle.Popup;
             btnProceed.ForeColor = Color.White;
-            btnProceed.Location = new Point(1057, 113);
+            btnProceed.Location = new Point(976, 113);
             btnProceed.Name = "btnProceed";
             btnProceed.Size = new Size(75, 25);
             btnProceed.TabIndex = 0;
@@ -484,22 +484,24 @@ namespace PAKOPointOfSale.Transactions
             lblPaymentMethod.BackColor = Color.Transparent;
             lblPaymentMethod.Font = new Font("Microsoft Sans Serif", 9.75F);
             lblPaymentMethod.ForeColor = Color.Black;
-            lblPaymentMethod.Location = new Point(231, 536);
+            lblPaymentMethod.Location = new Point(231, 649);
             lblPaymentMethod.Name = "lblPaymentMethod";
             lblPaymentMethod.Size = new Size(38, 16);
             lblPaymentMethod.TabIndex = 19;
             lblPaymentMethod.Text = "Cash";
+            lblPaymentMethod.Visible = false;
             // 
             // label10
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Microsoft Sans Serif", 9.75F);
             label10.ForeColor = Color.Black;
-            label10.Location = new Point(40, 536);
+            label10.Location = new Point(40, 649);
             label10.Name = "label10";
             label10.Size = new Size(111, 16);
             label10.TabIndex = 18;
             label10.Text = "Payment Method:";
+            label10.Visible = false;
             // 
             // lblCashReceived
             // 
@@ -507,7 +509,7 @@ namespace PAKOPointOfSale.Transactions
             lblCashReceived.BackColor = Color.Transparent;
             lblCashReceived.Font = new Font("Microsoft Sans Serif", 9.75F);
             lblCashReceived.ForeColor = Color.Black;
-            lblCashReceived.Location = new Point(231, 585);
+            lblCashReceived.Location = new Point(230, 531);
             lblCashReceived.Name = "lblCashReceived";
             lblCashReceived.Size = new Size(31, 16);
             lblCashReceived.TabIndex = 21;
@@ -518,7 +520,7 @@ namespace PAKOPointOfSale.Transactions
             label11.AutoSize = true;
             label11.Font = new Font("Microsoft Sans Serif", 9.75F);
             label11.ForeColor = Color.Black;
-            label11.Location = new Point(40, 585);
+            label11.Location = new Point(39, 531);
             label11.Name = "label11";
             label11.Size = new Size(103, 16);
             label11.TabIndex = 20;
@@ -530,7 +532,7 @@ namespace PAKOPointOfSale.Transactions
             lblChange.BackColor = Color.Transparent;
             lblChange.Font = new Font("Microsoft Sans Serif", 9.75F);
             lblChange.ForeColor = Color.Black;
-            lblChange.Location = new Point(230, 628);
+            lblChange.Location = new Point(229, 574);
             lblChange.Name = "lblChange";
             lblChange.Size = new Size(31, 16);
             lblChange.TabIndex = 23;
@@ -541,7 +543,7 @@ namespace PAKOPointOfSale.Transactions
             label12.AutoSize = true;
             label12.Font = new Font("Microsoft Sans Serif", 9.75F);
             label12.ForeColor = Color.Black;
-            label12.Location = new Point(40, 628);
+            label12.Location = new Point(39, 574);
             label12.Name = "label12";
             label12.Size = new Size(57, 16);
             label12.TabIndex = 22;
@@ -552,7 +554,7 @@ namespace PAKOPointOfSale.Transactions
             btnViewReceipt.BackColor = Color.Goldenrod;
             btnViewReceipt.FlatStyle = FlatStyle.Popup;
             btnViewReceipt.ForeColor = Color.Transparent;
-            btnViewReceipt.Location = new Point(1150, 112);
+            btnViewReceipt.Location = new Point(1202, 113);
             btnViewReceipt.Name = "btnViewReceipt";
             btnViewReceipt.Size = new Size(86, 25);
             btnViewReceipt.TabIndex = 25;
@@ -566,7 +568,7 @@ namespace PAKOPointOfSale.Transactions
             cmbInvoiceAction.FlatStyle = FlatStyle.Popup;
             cmbInvoiceAction.FormattingEnabled = true;
             cmbInvoiceAction.Items.AddRange(new object[] { "", "Void", "Return" });
-            cmbInvoiceAction.Location = new Point(835, 113);
+            cmbInvoiceAction.Location = new Point(754, 113);
             cmbInvoiceAction.Name = "cmbInvoiceAction";
             cmbInvoiceAction.Size = new Size(206, 23);
             cmbInvoiceAction.TabIndex = 26;
@@ -576,7 +578,7 @@ namespace PAKOPointOfSale.Transactions
             // 
             label9.AutoSize = true;
             label9.ForeColor = Color.Black;
-            label9.Location = new Point(739, 121);
+            label9.Location = new Point(658, 121);
             label9.Name = "label9";
             label9.Size = new Size(86, 15);
             label9.TabIndex = 27;
@@ -726,12 +728,12 @@ namespace PAKOPointOfSale.Transactions
             // 
             // btnViewReason
             // 
-            btnViewReason.BackColor = Color.Goldenrod;
+            btnViewReason.BackColor = Color.DarkSlateGray;
             btnViewReason.FlatStyle = FlatStyle.Popup;
-            btnViewReason.ForeColor = Color.Black;
-            btnViewReason.Location = new Point(117, 668);
+            btnViewReason.ForeColor = Color.White;
+            btnViewReason.Location = new Point(1106, 113);
             btnViewReason.Name = "btnViewReason";
-            btnViewReason.Size = new Size(90, 23);
+            btnViewReason.Size = new Size(90, 25);
             btnViewReason.TabIndex = 157;
             btnViewReason.Text = "View Reason";
             btnViewReason.UseVisualStyleBackColor = false;
