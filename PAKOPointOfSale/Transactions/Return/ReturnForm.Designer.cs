@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReturnForm));
             lblInvoiceNumber = new Label();
             label3 = new Label();
@@ -94,26 +94,27 @@
             // 
             dgvReturnItems.AllowUserToAddRows = false;
             dgvReturnItems.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.ForeColor = Color.Black;
-            dgvReturnItems.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dgvReturnItems.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dgvReturnItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvReturnItems.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             dgvReturnItems.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvReturnItems.Columns.AddRange(new DataGridViewColumn[] { id, product_id, product_code, product_name, product_brand, quantity, remainingQty, unit_of_measurement, unit_price, discount_type, discount, total_amount, vatable_sales, vat_amount, vat_exempt, transaction_id, remove });
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = SystemColors.Window;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle5.ForeColor = Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            dgvReturnItems.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvReturnItems.DefaultCellStyle = dataGridViewCellStyle2;
             dgvReturnItems.Location = new Point(12, 140);
             dgvReturnItems.Name = "dgvReturnItems";
             dgvReturnItems.RowHeadersVisible = false;
-            dataGridViewCellStyle6.ForeColor = Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
-            dgvReturnItems.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.ForeColor = Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dgvReturnItems.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dgvReturnItems.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvReturnItems.Size = new Size(1346, 532);
             dgvReturnItems.TabIndex = 8;
             dgvReturnItems.CellClick += dgvReturnItems_CellClick;

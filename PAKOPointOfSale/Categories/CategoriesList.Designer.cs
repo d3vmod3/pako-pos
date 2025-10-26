@@ -37,6 +37,12 @@ namespace PAKOPointOfSale.Categories
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CategoriesList));
             dataGridView1 = new DataGridView();
+            id = new DataGridViewTextBoxColumn();
+            name = new DataGridViewTextBoxColumn();
+            descriptionDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            productsDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            editCategory = new DataGridViewButtonColumn();
+            deleteCategory = new DataGridViewButtonColumn();
             categoryBindingSource = new BindingSource(components);
             btnAdd = new Button();
             btnExport = new Button();
@@ -47,12 +53,6 @@ namespace PAKOPointOfSale.Categories
             lblcategorieslist = new Label();
             btnClose = new Button();
             pictureBox3 = new PictureBox();
-            id = new DataGridViewTextBoxColumn();
-            name = new DataGridViewTextBoxColumn();
-            descriptionDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            productsDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            editCategory = new DataGridViewButtonColumn();
-            deleteCategory = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)categoryBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -103,9 +103,58 @@ namespace PAKOPointOfSale.Categories
             dataGridView1.RowHeadersVisible = false;
             dataGridViewCellStyle5.ForeColor = Color.Black;
             dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(1334, 544);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick_1;
+            // 
+            // id
+            // 
+            id.DataPropertyName = "id";
+            id.HeaderText = "id";
+            id.Name = "id";
+            id.ReadOnly = true;
+            id.Visible = false;
+            // 
+            // name
+            // 
+            name.DataPropertyName = "name";
+            name.HeaderText = "Category Name";
+            name.Name = "name";
+            name.ReadOnly = true;
+            name.Resizable = DataGridViewTriState.False;
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            descriptionDataGridViewTextBoxColumn.DataPropertyName = "description";
+            descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
+            descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            descriptionDataGridViewTextBoxColumn.ReadOnly = true;
+            descriptionDataGridViewTextBoxColumn.Resizable = DataGridViewTriState.False;
+            // 
+            // productsDataGridViewTextBoxColumn
+            // 
+            productsDataGridViewTextBoxColumn.DataPropertyName = "Products";
+            productsDataGridViewTextBoxColumn.HeaderText = "Products";
+            productsDataGridViewTextBoxColumn.Name = "productsDataGridViewTextBoxColumn";
+            productsDataGridViewTextBoxColumn.ReadOnly = true;
+            productsDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // editCategory
+            // 
+            editCategory.HeaderText = "";
+            editCategory.Name = "editCategory";
+            editCategory.ReadOnly = true;
+            editCategory.Text = "Edit";
+            editCategory.UseColumnTextForButtonValue = true;
+            // 
+            // deleteCategory
+            // 
+            deleteCategory.HeaderText = "";
+            deleteCategory.Name = "deleteCategory";
+            deleteCategory.ReadOnly = true;
+            deleteCategory.Text = "Delete";
+            deleteCategory.UseColumnTextForButtonValue = true;
             // 
             // categoryBindingSource
             // 
@@ -217,54 +266,6 @@ namespace PAKOPointOfSale.Categories
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 152;
             pictureBox3.TabStop = false;
-            // 
-            // id
-            // 
-            id.DataPropertyName = "id";
-            id.HeaderText = "id";
-            id.Name = "id";
-            id.ReadOnly = true;
-            id.Visible = false;
-            // 
-            // name
-            // 
-            name.DataPropertyName = "name";
-            name.HeaderText = "Category Name";
-            name.Name = "name";
-            name.ReadOnly = true;
-            name.Resizable = DataGridViewTriState.False;
-            // 
-            // descriptionDataGridViewTextBoxColumn
-            // 
-            descriptionDataGridViewTextBoxColumn.DataPropertyName = "description";
-            descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
-            descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            descriptionDataGridViewTextBoxColumn.ReadOnly = true;
-            descriptionDataGridViewTextBoxColumn.Resizable = DataGridViewTriState.False;
-            // 
-            // productsDataGridViewTextBoxColumn
-            // 
-            productsDataGridViewTextBoxColumn.DataPropertyName = "Products";
-            productsDataGridViewTextBoxColumn.HeaderText = "Products";
-            productsDataGridViewTextBoxColumn.Name = "productsDataGridViewTextBoxColumn";
-            productsDataGridViewTextBoxColumn.ReadOnly = true;
-            productsDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // editCategory
-            // 
-            editCategory.HeaderText = "";
-            editCategory.Name = "editCategory";
-            editCategory.ReadOnly = true;
-            editCategory.Text = "Edit";
-            editCategory.UseColumnTextForButtonValue = true;
-            // 
-            // deleteCategory
-            // 
-            deleteCategory.HeaderText = "";
-            deleteCategory.Name = "deleteCategory";
-            deleteCategory.ReadOnly = true;
-            deleteCategory.Text = "Delete";
-            deleteCategory.UseColumnTextForButtonValue = true;
             // 
             // CategoriesList
             // 

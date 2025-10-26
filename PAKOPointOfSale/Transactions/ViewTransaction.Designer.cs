@@ -131,6 +131,7 @@ namespace PAKOPointOfSale.Transactions
             dgvItems.Location = new Point(369, 143);
             dgvItems.Name = "dgvItems";
             dgvItems.RowHeadersVisible = false;
+            dgvItems.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvItems.Size = new Size(1000, 548);
             dgvItems.TabIndex = 1;
             dgvItems.CellContentClick += dgvItems_CellContentClick;

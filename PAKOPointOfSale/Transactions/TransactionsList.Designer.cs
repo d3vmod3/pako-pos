@@ -31,6 +31,23 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TransactionsList));
             dtgvTransactions = new DataGridView();
+            id = new DataGridViewTextBoxColumn();
+            invoicenumberDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            vatamountDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            vatablesalesDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            vatexemptDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            subtotalDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            grandtotalDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            paymentmethodDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            cashreceivedDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            cashchangeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            statusDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            transaction_type = new DataGridViewTextBoxColumn();
+            created_at = new DataGridViewTextBoxColumn();
+            return_number = new DataGridViewTextBoxColumn();
+            void_number = new DataGridViewTextBoxColumn();
+            salesinvoiceitemsDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            viewInvoice = new DataGridViewButtonColumn();
             transactionBindingSource = new BindingSource(components);
             textBox1 = new TextBox();
             label1 = new Label();
@@ -49,23 +66,6 @@
             label5 = new Label();
             cmbTransactionType = new ComboBox();
             btnExport = new Button();
-            id = new DataGridViewTextBoxColumn();
-            invoicenumberDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            vatamountDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            vatablesalesDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            vatexemptDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            subtotalDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            grandtotalDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            paymentmethodDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            cashreceivedDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            cashchangeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            statusDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            transaction_type = new DataGridViewTextBoxColumn();
-            created_at = new DataGridViewTextBoxColumn();
-            return_number = new DataGridViewTextBoxColumn();
-            void_number = new DataGridViewTextBoxColumn();
-            salesinvoiceitemsDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            viewInvoice = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)dtgvTransactions).BeginInit();
             ((System.ComponentModel.ISupportInitialize)transactionBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -87,9 +87,140 @@
             dtgvTransactions.Name = "dtgvTransactions";
             dtgvTransactions.ReadOnly = true;
             dtgvTransactions.RowHeadersVisible = false;
+            dtgvTransactions.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dtgvTransactions.Size = new Size(1343, 503);
             dtgvTransactions.TabIndex = 0;
             dtgvTransactions.CellContentClick += dtgvTransactions_CellContentClick;
+            // 
+            // id
+            // 
+            id.DataPropertyName = "id";
+            id.HeaderText = "id";
+            id.Name = "id";
+            id.ReadOnly = true;
+            id.Visible = false;
+            // 
+            // invoicenumberDataGridViewTextBoxColumn
+            // 
+            invoicenumberDataGridViewTextBoxColumn.DataPropertyName = "invoice_number";
+            invoicenumberDataGridViewTextBoxColumn.HeaderText = "Invoice Number";
+            invoicenumberDataGridViewTextBoxColumn.Name = "invoicenumberDataGridViewTextBoxColumn";
+            invoicenumberDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // vatamountDataGridViewTextBoxColumn
+            // 
+            vatamountDataGridViewTextBoxColumn.DataPropertyName = "vat_amount";
+            vatamountDataGridViewTextBoxColumn.HeaderText = "vat_amount";
+            vatamountDataGridViewTextBoxColumn.Name = "vatamountDataGridViewTextBoxColumn";
+            vatamountDataGridViewTextBoxColumn.ReadOnly = true;
+            vatamountDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // vatablesalesDataGridViewTextBoxColumn
+            // 
+            vatablesalesDataGridViewTextBoxColumn.DataPropertyName = "vatable_sales";
+            vatablesalesDataGridViewTextBoxColumn.HeaderText = "vatable_sales";
+            vatablesalesDataGridViewTextBoxColumn.Name = "vatablesalesDataGridViewTextBoxColumn";
+            vatablesalesDataGridViewTextBoxColumn.ReadOnly = true;
+            vatablesalesDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // vatexemptDataGridViewTextBoxColumn
+            // 
+            vatexemptDataGridViewTextBoxColumn.DataPropertyName = "vat_exempt";
+            vatexemptDataGridViewTextBoxColumn.HeaderText = "vat_exempt";
+            vatexemptDataGridViewTextBoxColumn.Name = "vatexemptDataGridViewTextBoxColumn";
+            vatexemptDataGridViewTextBoxColumn.ReadOnly = true;
+            vatexemptDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // subtotalDataGridViewTextBoxColumn
+            // 
+            subtotalDataGridViewTextBoxColumn.DataPropertyName = "sub_total";
+            subtotalDataGridViewTextBoxColumn.HeaderText = "Sub Total";
+            subtotalDataGridViewTextBoxColumn.Name = "subtotalDataGridViewTextBoxColumn";
+            subtotalDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // grandtotalDataGridViewTextBoxColumn
+            // 
+            grandtotalDataGridViewTextBoxColumn.DataPropertyName = "grand_total";
+            grandtotalDataGridViewTextBoxColumn.HeaderText = "Grand Total";
+            grandtotalDataGridViewTextBoxColumn.Name = "grandtotalDataGridViewTextBoxColumn";
+            grandtotalDataGridViewTextBoxColumn.ReadOnly = true;
+            grandtotalDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // paymentmethodDataGridViewTextBoxColumn
+            // 
+            paymentmethodDataGridViewTextBoxColumn.DataPropertyName = "payment_method";
+            paymentmethodDataGridViewTextBoxColumn.HeaderText = "Payment Method";
+            paymentmethodDataGridViewTextBoxColumn.Name = "paymentmethodDataGridViewTextBoxColumn";
+            paymentmethodDataGridViewTextBoxColumn.ReadOnly = true;
+            paymentmethodDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // cashreceivedDataGridViewTextBoxColumn
+            // 
+            cashreceivedDataGridViewTextBoxColumn.DataPropertyName = "cash_received";
+            cashreceivedDataGridViewTextBoxColumn.HeaderText = "Cash Received";
+            cashreceivedDataGridViewTextBoxColumn.Name = "cashreceivedDataGridViewTextBoxColumn";
+            cashreceivedDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cashchangeDataGridViewTextBoxColumn
+            // 
+            cashchangeDataGridViewTextBoxColumn.DataPropertyName = "cash_change";
+            cashchangeDataGridViewTextBoxColumn.HeaderText = "Change";
+            cashchangeDataGridViewTextBoxColumn.Name = "cashchangeDataGridViewTextBoxColumn";
+            cashchangeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // statusDataGridViewTextBoxColumn
+            // 
+            statusDataGridViewTextBoxColumn.DataPropertyName = "status";
+            statusDataGridViewTextBoxColumn.HeaderText = "Status";
+            statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            statusDataGridViewTextBoxColumn.ReadOnly = true;
+            statusDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // transaction_type
+            // 
+            transaction_type.DataPropertyName = "transaction_type";
+            transaction_type.HeaderText = "Transaction Type";
+            transaction_type.Name = "transaction_type";
+            transaction_type.ReadOnly = true;
+            // 
+            // created_at
+            // 
+            created_at.DataPropertyName = "created_at";
+            created_at.HeaderText = "Transaction Date";
+            created_at.Name = "created_at";
+            created_at.ReadOnly = true;
+            // 
+            // return_number
+            // 
+            return_number.DataPropertyName = "return_number";
+            return_number.HeaderText = "Return Number";
+            return_number.Name = "return_number";
+            return_number.ReadOnly = true;
+            return_number.Visible = false;
+            // 
+            // void_number
+            // 
+            void_number.DataPropertyName = "void_number";
+            void_number.HeaderText = "Void Number";
+            void_number.Name = "void_number";
+            void_number.ReadOnly = true;
+            void_number.Visible = false;
+            // 
+            // salesinvoiceitemsDataGridViewTextBoxColumn
+            // 
+            salesinvoiceitemsDataGridViewTextBoxColumn.DataPropertyName = "sales_invoice_items";
+            salesinvoiceitemsDataGridViewTextBoxColumn.HeaderText = "sales_invoice_items";
+            salesinvoiceitemsDataGridViewTextBoxColumn.Name = "salesinvoiceitemsDataGridViewTextBoxColumn";
+            salesinvoiceitemsDataGridViewTextBoxColumn.ReadOnly = true;
+            salesinvoiceitemsDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // viewInvoice
+            // 
+            viewInvoice.HeaderText = "";
+            viewInvoice.Name = "viewInvoice";
+            viewInvoice.ReadOnly = true;
+            viewInvoice.Text = "View Transaction";
+            viewInvoice.UseColumnTextForButtonValue = true;
             // 
             // transactionBindingSource
             // 
@@ -273,136 +404,6 @@
             btnExport.Text = "Export";
             btnExport.UseVisualStyleBackColor = false;
             btnExport.Click += btnExport_Click;
-            // 
-            // id
-            // 
-            id.DataPropertyName = "id";
-            id.HeaderText = "id";
-            id.Name = "id";
-            id.ReadOnly = true;
-            id.Visible = false;
-            // 
-            // invoicenumberDataGridViewTextBoxColumn
-            // 
-            invoicenumberDataGridViewTextBoxColumn.DataPropertyName = "invoice_number";
-            invoicenumberDataGridViewTextBoxColumn.HeaderText = "Invoice Number";
-            invoicenumberDataGridViewTextBoxColumn.Name = "invoicenumberDataGridViewTextBoxColumn";
-            invoicenumberDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // vatamountDataGridViewTextBoxColumn
-            // 
-            vatamountDataGridViewTextBoxColumn.DataPropertyName = "vat_amount";
-            vatamountDataGridViewTextBoxColumn.HeaderText = "vat_amount";
-            vatamountDataGridViewTextBoxColumn.Name = "vatamountDataGridViewTextBoxColumn";
-            vatamountDataGridViewTextBoxColumn.ReadOnly = true;
-            vatamountDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // vatablesalesDataGridViewTextBoxColumn
-            // 
-            vatablesalesDataGridViewTextBoxColumn.DataPropertyName = "vatable_sales";
-            vatablesalesDataGridViewTextBoxColumn.HeaderText = "vatable_sales";
-            vatablesalesDataGridViewTextBoxColumn.Name = "vatablesalesDataGridViewTextBoxColumn";
-            vatablesalesDataGridViewTextBoxColumn.ReadOnly = true;
-            vatablesalesDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // vatexemptDataGridViewTextBoxColumn
-            // 
-            vatexemptDataGridViewTextBoxColumn.DataPropertyName = "vat_exempt";
-            vatexemptDataGridViewTextBoxColumn.HeaderText = "vat_exempt";
-            vatexemptDataGridViewTextBoxColumn.Name = "vatexemptDataGridViewTextBoxColumn";
-            vatexemptDataGridViewTextBoxColumn.ReadOnly = true;
-            vatexemptDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // subtotalDataGridViewTextBoxColumn
-            // 
-            subtotalDataGridViewTextBoxColumn.DataPropertyName = "sub_total";
-            subtotalDataGridViewTextBoxColumn.HeaderText = "Sub Total";
-            subtotalDataGridViewTextBoxColumn.Name = "subtotalDataGridViewTextBoxColumn";
-            subtotalDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // grandtotalDataGridViewTextBoxColumn
-            // 
-            grandtotalDataGridViewTextBoxColumn.DataPropertyName = "grand_total";
-            grandtotalDataGridViewTextBoxColumn.HeaderText = "Grand Total";
-            grandtotalDataGridViewTextBoxColumn.Name = "grandtotalDataGridViewTextBoxColumn";
-            grandtotalDataGridViewTextBoxColumn.ReadOnly = true;
-            grandtotalDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // paymentmethodDataGridViewTextBoxColumn
-            // 
-            paymentmethodDataGridViewTextBoxColumn.DataPropertyName = "payment_method";
-            paymentmethodDataGridViewTextBoxColumn.HeaderText = "Payment Method";
-            paymentmethodDataGridViewTextBoxColumn.Name = "paymentmethodDataGridViewTextBoxColumn";
-            paymentmethodDataGridViewTextBoxColumn.ReadOnly = true;
-            paymentmethodDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // cashreceivedDataGridViewTextBoxColumn
-            // 
-            cashreceivedDataGridViewTextBoxColumn.DataPropertyName = "cash_received";
-            cashreceivedDataGridViewTextBoxColumn.HeaderText = "Cash Received";
-            cashreceivedDataGridViewTextBoxColumn.Name = "cashreceivedDataGridViewTextBoxColumn";
-            cashreceivedDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cashchangeDataGridViewTextBoxColumn
-            // 
-            cashchangeDataGridViewTextBoxColumn.DataPropertyName = "cash_change";
-            cashchangeDataGridViewTextBoxColumn.HeaderText = "Change";
-            cashchangeDataGridViewTextBoxColumn.Name = "cashchangeDataGridViewTextBoxColumn";
-            cashchangeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // statusDataGridViewTextBoxColumn
-            // 
-            statusDataGridViewTextBoxColumn.DataPropertyName = "status";
-            statusDataGridViewTextBoxColumn.HeaderText = "Status";
-            statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
-            statusDataGridViewTextBoxColumn.ReadOnly = true;
-            statusDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // transaction_type
-            // 
-            transaction_type.DataPropertyName = "transaction_type";
-            transaction_type.HeaderText = "Transaction Type";
-            transaction_type.Name = "transaction_type";
-            transaction_type.ReadOnly = true;
-            // 
-            // created_at
-            // 
-            created_at.DataPropertyName = "created_at";
-            created_at.HeaderText = "Transaction Date";
-            created_at.Name = "created_at";
-            created_at.ReadOnly = true;
-            // 
-            // return_number
-            // 
-            return_number.DataPropertyName = "return_number";
-            return_number.HeaderText = "Return Number";
-            return_number.Name = "return_number";
-            return_number.ReadOnly = true;
-            return_number.Visible = false;
-            // 
-            // void_number
-            // 
-            void_number.DataPropertyName = "void_number";
-            void_number.HeaderText = "Void Number";
-            void_number.Name = "void_number";
-            void_number.ReadOnly = true;
-            void_number.Visible = false;
-            // 
-            // salesinvoiceitemsDataGridViewTextBoxColumn
-            // 
-            salesinvoiceitemsDataGridViewTextBoxColumn.DataPropertyName = "sales_invoice_items";
-            salesinvoiceitemsDataGridViewTextBoxColumn.HeaderText = "sales_invoice_items";
-            salesinvoiceitemsDataGridViewTextBoxColumn.Name = "salesinvoiceitemsDataGridViewTextBoxColumn";
-            salesinvoiceitemsDataGridViewTextBoxColumn.ReadOnly = true;
-            salesinvoiceitemsDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // viewInvoice
-            // 
-            viewInvoice.HeaderText = "";
-            viewInvoice.Name = "viewInvoice";
-            viewInvoice.ReadOnly = true;
-            viewInvoice.Text = "View Transaction";
-            viewInvoice.UseColumnTextForButtonValue = true;
             // 
             // TransactionsList
             // 
