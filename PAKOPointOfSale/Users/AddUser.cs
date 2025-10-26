@@ -71,9 +71,9 @@ namespace PAKOPointOfSale.Users
 
                     string sql = @"
                         INSERT INTO Users
-                        (username, password, first_name, middle_name, last_name, birthday, gender, suffix, user_type_id, created_at, is_active)
+                        (username, password, first_name, middle_name, last_name, birthday, gender, suffix, user_type_id, created_at, is_active, is_reset)
                         VALUES
-                        (@username, @password, @first_name, @middle_name, @last_name, @birthday, @gender, @suffix, @user_type_id, @created_at,@is_active)
+                        (@username, @password, @first_name, @middle_name, @last_name, @birthday, @gender, @suffix, @user_type_id, @created_at,@is_active, @is_reset)
                     ";
 
                     using (SqlCommand cmd = new SqlCommand(sql, conn))
@@ -89,6 +89,7 @@ namespace PAKOPointOfSale.Users
                         cmd.Parameters.AddWithValue("@user_type_id", (int)cmbRole.SelectedValue);
                         cmd.Parameters.AddWithValue("@created_at", DateTime.Now);
                         cmd.Parameters.AddWithValue("@is_active", false);
+                        cmd.Parameters.AddWithValue("@is_reset", true);
 
                         cmd.ExecuteNonQuery();
                     }

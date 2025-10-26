@@ -118,6 +118,7 @@ namespace PAKOPointOfSale.Users
                             suffix = @suffix,
                             user_type_id = @user_type_id,
                             is_active = @is_active
+                            is_reset = @is_reset
                         WHERE id = @id
                     ";
 
@@ -132,6 +133,7 @@ namespace PAKOPointOfSale.Users
                         cmd.Parameters.AddWithValue("@suffix", string.IsNullOrEmpty(txtSuffix.Text) ? (object)DBNull.Value : txtSuffix.Text);
                         cmd.Parameters.AddWithValue("@user_type_id", (int)cmbRole.SelectedValue);
                         cmd.Parameters.AddWithValue("@is_active", chkIsActive.Checked);
+                        cmd.Parameters.AddWithValue("@is_reset", false);
                         cmd.Parameters.AddWithValue("@id", _userId);
 
                         int rowsAffected = cmd.ExecuteNonQuery();
