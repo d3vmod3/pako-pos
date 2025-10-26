@@ -31,6 +31,7 @@
             cmbStatus = new ComboBox();
             label1 = new Label();
             btnFilter = new Button();
+            btnClose = new Button();
             SuspendLayout();
             // 
             // cmbStatus
@@ -47,7 +48,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.ForeColor = Color.White;
+            label1.ForeColor = Color.Black;
             label1.Location = new Point(15, 27);
             label1.Name = "label1";
             label1.Size = new Size(85, 15);
@@ -58,13 +59,27 @@
             // 
             btnFilter.BackColor = Color.Khaki;
             btnFilter.FlatStyle = FlatStyle.Popup;
-            btnFilter.Location = new Point(223, 53);
+            btnFilter.Location = new Point(161, 53);
             btnFilter.Name = "btnFilter";
-            btnFilter.Size = new Size(75, 23);
+            btnFilter.Size = new Size(69, 23);
             btnFilter.TabIndex = 2;
             btnFilter.Text = "Filter";
             btnFilter.UseVisualStyleBackColor = false;
             btnFilter.Click += btnFilter_Click;
+            // 
+            // btnClose
+            // 
+            btnClose.BackColor = Color.Red;
+            btnClose.FlatStyle = FlatStyle.Popup;
+            btnClose.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnClose.ForeColor = Color.White;
+            btnClose.Location = new Point(232, 53);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(66, 23);
+            btnClose.TabIndex = 116;
+            btnClose.Text = "Close";
+            btnClose.UseVisualStyleBackColor = false;
+            btnClose.Click += btnClose_Click;
             // 
             // Status
             // 
@@ -72,6 +87,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
             ClientSize = new Size(316, 93);
+            Controls.Add(btnClose);
             Controls.Add(btnFilter);
             Controls.Add(label1);
             Controls.Add(cmbStatus);
@@ -91,5 +107,6 @@
         private ComboBox cmbStatus;
         private Label label1;
         private Button btnFilter;
+        private Button btnClose;
     }
 }

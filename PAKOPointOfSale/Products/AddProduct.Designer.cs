@@ -187,9 +187,9 @@
             btnSubmit.BackColor = Color.SeaGreen;
             btnSubmit.FlatStyle = FlatStyle.Popup;
             btnSubmit.Font = new Font("Microsoft Sans Serif", 9.75F);
-            btnSubmit.Location = new Point(1034, 695);
+            btnSubmit.Location = new Point(1084, 695);
             btnSubmit.Name = "btnSubmit";
-            btnSubmit.Size = new Size(106, 27);
+            btnSubmit.Size = new Size(82, 27);
             btnSubmit.TabIndex = 99;
             btnSubmit.Text = "Submit";
             btnSubmit.UseVisualStyleBackColor = false;
@@ -413,7 +413,7 @@
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(-1, 0);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(260, 117);
+            pictureBox1.Size = new Size(296, 117);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 112;
             pictureBox1.TabStop = false;
@@ -422,11 +422,11 @@
             // 
             label1.AutoSize = true;
             label1.BackColor = Color.DimGray;
-            label1.Font = new Font("Impact", 39.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Impact", 50.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(565, 26);
+            label1.Location = new Point(606, 18);
             label1.Name = "label1";
-            label1.Size = new Size(345, 65);
+            label1.Size = new Size(439, 82);
             label1.TabIndex = 113;
             label1.Text = "ADD PRODUCTS";
             // 
@@ -436,9 +436,9 @@
             btnClose.FlatStyle = FlatStyle.Popup;
             btnClose.Font = new Font("Microsoft Sans Serif", 9.75F);
             btnClose.ForeColor = Color.White;
-            btnClose.Location = new Point(1146, 695);
+            btnClose.Location = new Point(1172, 695);
             btnClose.Name = "btnClose";
-            btnClose.Size = new Size(106, 27);
+            btnClose.Size = new Size(80, 27);
             btnClose.TabIndex = 114;
             btnClose.Text = "Close";
             btnClose.UseVisualStyleBackColor = false;
@@ -466,7 +466,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ActiveBorder;
+            BackColor = Color.CadetBlue;
             ClientSize = new Size(1370, 788);
             Controls.Add(txtBarcode);
             Controls.Add(label2);

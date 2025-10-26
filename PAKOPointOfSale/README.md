@@ -19,7 +19,8 @@ dotnet ef database update
 #If you want to migrate fresh (drop datababase and create and seed again)
 Run the following commands on Package Manager Console terminal:
 Drop-Database
-Update-Database
+
+
 
 #For PDF printing, run:
 Install-Package PdfSharp.NETStandard

@@ -6,7 +6,7 @@ namespace PAKOPointOfSale.Products.Filters
     {
         public DateTime DateFrom { get; private set; }
         public DateTime DateTo { get; private set; }
-        public string formTitle="";
+        public string formTitle = "";
         public DateRange(string _formTitle)
         {
             InitializeComponent();
@@ -36,6 +36,11 @@ namespace PAKOPointOfSale.Products.Filters
         private void DateRange_Load(object sender, EventArgs e)
         {
             dtTo.MaxDate = DateTime.Today;
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

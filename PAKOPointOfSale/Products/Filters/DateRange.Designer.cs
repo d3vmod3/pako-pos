@@ -33,6 +33,7 @@
             label2 = new Label();
             dtTo = new DateTimePicker();
             btnFilter = new Button();
+            btnClose = new Button();
             SuspendLayout();
             // 
             // dtFrom
@@ -45,7 +46,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.ForeColor = Color.White;
+            label1.ForeColor = Color.Black;
             label1.Location = new Point(12, 35);
             label1.Name = "label1";
             label1.Size = new Size(65, 15);
@@ -55,8 +56,8 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.ForeColor = Color.White;
-            label2.Location = new Point(24, 74);
+            label2.ForeColor = Color.Black;
+            label2.Location = new Point(24, 80);
             label2.Name = "label2";
             label2.Size = new Size(50, 15);
             label2.TabIndex = 3;
@@ -64,7 +65,7 @@
             // 
             // dtTo
             // 
-            dtTo.Location = new Point(80, 68);
+            dtTo.Location = new Point(80, 74);
             dtTo.Name = "dtTo";
             dtTo.Size = new Size(200, 23);
             dtTo.TabIndex = 2;
@@ -74,20 +75,35 @@
             // 
             btnFilter.BackColor = Color.Khaki;
             btnFilter.FlatStyle = FlatStyle.Popup;
-            btnFilter.Location = new Point(205, 100);
+            btnFilter.Location = new Point(146, 115);
             btnFilter.Name = "btnFilter";
-            btnFilter.Size = new Size(75, 23);
+            btnFilter.Size = new Size(62, 23);
             btnFilter.TabIndex = 4;
             btnFilter.Text = "Filter";
             btnFilter.UseVisualStyleBackColor = false;
             btnFilter.Click += btnFilter_Click;
+            // 
+            // btnClose
+            // 
+            btnClose.BackColor = Color.Red;
+            btnClose.FlatStyle = FlatStyle.Popup;
+            btnClose.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnClose.ForeColor = Color.White;
+            btnClose.Location = new Point(214, 115);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(66, 23);
+            btnClose.TabIndex = 115;
+            btnClose.Text = "Close";
+            btnClose.UseVisualStyleBackColor = false;
+            btnClose.Click += btnClose_Click;
             // 
             // DateRange
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
-            ClientSize = new Size(293, 140);
+            ClientSize = new Size(293, 150);
+            Controls.Add(btnClose);
             Controls.Add(btnFilter);
             Controls.Add(label2);
             Controls.Add(dtTo);
@@ -111,5 +127,6 @@
         private Label label2;
         private DateTimePicker dtTo;
         private Button btnFilter;
+        private Button btnClose;
     }
 }

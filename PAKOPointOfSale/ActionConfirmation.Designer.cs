@@ -39,7 +39,7 @@
             // 
             // txtUsername
             // 
-            txtUsername.Location = new Point(134, 53);
+            txtUsername.Location = new Point(134, 43);
             txtUsername.Name = "txtUsername";
             txtUsername.Size = new Size(208, 23);
             txtUsername.TabIndex = 0;
@@ -57,7 +57,7 @@
             btnOk.BackColor = Color.SeaGreen;
             btnOk.FlatStyle = FlatStyle.Popup;
             btnOk.ForeColor = Color.White;
-            btnOk.Location = new Point(186, 111);
+            btnOk.Location = new Point(186, 125);
             btnOk.Name = "btnOk";
             btnOk.Size = new Size(75, 23);
             btnOk.TabIndex = 2;
@@ -68,7 +68,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(57, 61);
+            label1.Location = new Point(57, 51);
             label1.Name = "label1";
             label1.Size = new Size(63, 15);
             label1.TabIndex = 3;
@@ -97,7 +97,7 @@
             button1.BackColor = Color.Red;
             button1.FlatStyle = FlatStyle.Popup;
             button1.ForeColor = Color.White;
-            button1.Location = new Point(267, 111);
+            button1.Location = new Point(267, 125);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 6;
@@ -109,7 +109,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ActiveBorder;
+            BackColor = Color.CadetBlue;
             ClientSize = new Size(408, 174);
             Controls.Add(button1);
             Controls.Add(lblMessage);

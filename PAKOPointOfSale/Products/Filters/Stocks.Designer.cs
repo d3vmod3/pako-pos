@@ -31,6 +31,7 @@
             label1 = new Label();
             btnFilter = new Button();
             num_quantity = new NumericUpDown();
+            btnClose = new Button();
             ((System.ComponentModel.ISupportInitialize)num_quantity).BeginInit();
             SuspendLayout();
             // 
@@ -48,7 +49,7 @@
             btnFilter.BackColor = Color.Khaki;
             btnFilter.FlatStyle = FlatStyle.Popup;
             btnFilter.ForeColor = Color.Black;
-            btnFilter.Location = new Point(296, 73);
+            btnFilter.Location = new Point(223, 76);
             btnFilter.Name = "btnFilter";
             btnFilter.Size = new Size(75, 23);
             btnFilter.TabIndex = 2;
@@ -65,12 +66,27 @@
             num_quantity.Size = new Size(359, 23);
             num_quantity.TabIndex = 3;
             // 
+            // btnClose
+            // 
+            btnClose.BackColor = Color.Red;
+            btnClose.FlatStyle = FlatStyle.Popup;
+            btnClose.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnClose.ForeColor = Color.White;
+            btnClose.Location = new Point(305, 76);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(66, 23);
+            btnClose.TabIndex = 117;
+            btnClose.Text = "Cancel";
+            btnClose.UseVisualStyleBackColor = false;
+            btnClose.Click += btnClose_Click;
+            // 
             // Stocks
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
             ClientSize = new Size(391, 118);
+            Controls.Add(btnClose);
             Controls.Add(num_quantity);
             Controls.Add(btnFilter);
             Controls.Add(label1);
@@ -92,5 +108,6 @@
         private Label label1;
         private Button btnFilter;
         private NumericUpDown num_quantity;
+        private Button btnClose;
     }
 }

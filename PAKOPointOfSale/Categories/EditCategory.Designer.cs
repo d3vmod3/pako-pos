@@ -133,7 +133,7 @@
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
             pictureBox2.Location = new Point(1, 1);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(100, 65);
+            pictureBox2.Size = new Size(126, 65);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 30;
             pictureBox2.TabStop = false;
@@ -142,11 +142,11 @@
             // 
             lbleditcategory.AutoSize = true;
             lbleditcategory.BackColor = SystemColors.ControlDarkDark;
-            lbleditcategory.Font = new Font("Impact", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbleditcategory.Font = new Font("Impact", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbleditcategory.ForeColor = Color.White;
-            lbleditcategory.Location = new Point(193, 19);
+            lbleditcategory.Location = new Point(172, 16);
             lbleditcategory.Name = "lbleditcategory";
-            lbleditcategory.Size = new Size(137, 26);
+            lbleditcategory.Size = new Size(205, 39);
             lbleditcategory.TabIndex = 31;
             lbleditcategory.Text = "EDIT CATEGORY";
             // 
@@ -154,7 +154,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ActiveBorder;
+            BackColor = Color.CadetBlue;
             ClientSize = new Size(502, 283);
             Controls.Add(lbleditcategory);
             Controls.Add(pictureBox2);

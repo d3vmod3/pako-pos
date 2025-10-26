@@ -44,17 +44,19 @@
             // 
             // txtCategoryName
             // 
-            txtCategoryName.Location = new Point(134, 82);
+            txtCategoryName.Location = new Point(134, 88);
+            txtCategoryName.Margin = new Padding(4, 3, 4, 3);
             txtCategoryName.Name = "txtCategoryName";
             txtCategoryName.Size = new Size(332, 23);
             txtCategoryName.TabIndex = 1;
             // 
             // txtDescription
             // 
-            txtDescription.Location = new Point(134, 133);
+            txtDescription.Location = new Point(134, 142);
+            txtDescription.Margin = new Padding(4, 3, 4, 3);
             txtDescription.Multiline = true;
             txtDescription.Name = "txtDescription";
-            txtDescription.Size = new Size(332, 87);
+            txtDescription.Size = new Size(332, 92);
             txtDescription.TabIndex = 2;
             // 
             // label2
@@ -62,7 +64,8 @@
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 9.75F);
             label2.ForeColor = Color.Black;
-            label2.Location = new Point(28, 86);
+            label2.Location = new Point(28, 92);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(102, 16);
             label2.TabIndex = 4;
@@ -74,7 +77,8 @@
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 9.75F);
             label3.ForeColor = Color.Black;
-            label3.Location = new Point(28, 131);
+            label3.Location = new Point(28, 140);
+            label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.Size = new Size(75, 16);
             label3.TabIndex = 5;
@@ -85,9 +89,10 @@
             btnSubmit.BackColor = Color.SeaGreen;
             btnSubmit.FlatStyle = FlatStyle.Popup;
             btnSubmit.ForeColor = Color.White;
-            btnSubmit.Location = new Point(308, 233);
+            btnSubmit.Location = new Point(308, 248);
+            btnSubmit.Margin = new Padding(4, 3, 4, 3);
             btnSubmit.Name = "btnSubmit";
-            btnSubmit.Size = new Size(76, 24);
+            btnSubmit.Size = new Size(76, 25);
             btnSubmit.TabIndex = 17;
             btnSubmit.Text = "Submit";
             btnSubmit.UseVisualStyleBackColor = false;
@@ -98,9 +103,10 @@
             btnClose.BackColor = Color.Red;
             btnClose.FlatStyle = FlatStyle.Popup;
             btnClose.ForeColor = Color.White;
-            btnClose.Location = new Point(390, 234);
+            btnClose.Location = new Point(390, 249);
+            btnClose.Margin = new Padding(4, 3, 4, 3);
             btnClose.Name = "btnClose";
-            btnClose.Size = new Size(76, 24);
+            btnClose.Size = new Size(76, 25);
             btnClose.TabIndex = 18;
             btnClose.Text = "Close";
             btnClose.UseVisualStyleBackColor = false;
@@ -109,9 +115,10 @@
             // pictureBox1
             // 
             pictureBox1.BackColor = SystemColors.ControlDarkDark;
-            pictureBox1.Location = new Point(0, -1);
+            pictureBox1.Location = new Point(0, -2);
+            pictureBox1.Margin = new Padding(4, 3, 4, 3);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(499, 65);
+            pictureBox1.Size = new Size(499, 70);
             pictureBox1.TabIndex = 19;
             pictureBox1.TabStop = false;
             // 
@@ -119,9 +126,10 @@
             // 
             pictureBox2.BackColor = SystemColors.ControlDarkDark;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(0, -1);
+            pictureBox2.Location = new Point(4, -2);
+            pictureBox2.Margin = new Padding(4, 3, 4, 3);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(100, 65);
+            pictureBox2.Size = new Size(150, 70);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 20;
             pictureBox2.TabStop = false;
@@ -130,19 +138,20 @@
             // 
             lbladdcategory.AutoSize = true;
             lbladdcategory.BackColor = SystemColors.ControlDarkDark;
-            lbladdcategory.Font = new Font("Impact", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbladdcategory.Location = new Point(204, 19);
+            lbladdcategory.Font = new Font("Impact", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbladdcategory.Location = new Point(203, 18);
+            lbladdcategory.Margin = new Padding(4, 0, 4, 0);
             lbladdcategory.Name = "lbladdcategory";
-            lbladdcategory.Size = new Size(134, 26);
+            lbladdcategory.Size = new Size(181, 36);
             lbladdcategory.TabIndex = 21;
             lbladdcategory.Text = "ADD CATEGORY";
             // 
             // AddCategory
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(7F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ActiveBorder;
-            ClientSize = new Size(498, 270);
+            BackColor = Color.CadetBlue;
+            ClientSize = new Size(498, 288);
             Controls.Add(lbladdcategory);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
@@ -152,8 +161,10 @@
             Controls.Add(label2);
             Controls.Add(txtDescription);
             Controls.Add(txtCategoryName);
+            Font = new Font("Segoe UI Emoji", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             ForeColor = Color.White;
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(4, 3, 4, 3);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "AddCategory";

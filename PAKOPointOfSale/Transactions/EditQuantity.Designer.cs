@@ -56,7 +56,7 @@
             // lblProductName
             // 
             lblProductName.AutoSize = true;
-            lblProductName.BackColor = SystemColors.ActiveBorder;
+            lblProductName.BackColor = Color.CadetBlue;
             lblProductName.BorderStyle = BorderStyle.FixedSingle;
             lblProductName.Font = new Font("Microsoft Sans Serif", 11.25F);
             lblProductName.ForeColor = Color.Black;
@@ -68,9 +68,9 @@
             // 
             // btnOk
             // 
-            btnOk.BackColor = Color.Orange;
+            btnOk.BackColor = Color.CornflowerBlue;
             btnOk.FlatStyle = FlatStyle.Popup;
-            btnOk.ForeColor = Color.Black;
+            btnOk.ForeColor = Color.White;
             btnOk.Location = new Point(152, 366);
             btnOk.Name = "btnOk";
             btnOk.Size = new Size(75, 23);
@@ -82,7 +82,7 @@
             // lblProductBrand
             // 
             lblProductBrand.AutoSize = true;
-            lblProductBrand.BackColor = SystemColors.ActiveBorder;
+            lblProductBrand.BackColor = Color.CadetBlue;
             lblProductBrand.BorderStyle = BorderStyle.FixedSingle;
             lblProductBrand.Font = new Font("Microsoft Sans Serif", 11.25F);
             lblProductBrand.ForeColor = Color.Black;
@@ -95,7 +95,7 @@
             // lblUOM
             // 
             lblUOM.AutoSize = true;
-            lblUOM.BackColor = SystemColors.ActiveBorder;
+            lblUOM.BackColor = Color.CadetBlue;
             lblUOM.BorderStyle = BorderStyle.FixedSingle;
             lblUOM.Font = new Font("Microsoft Sans Serif", 11.25F);
             lblUOM.ForeColor = Color.Black;
@@ -108,7 +108,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.BackColor = SystemColors.ActiveBorder;
+            label4.BackColor = Color.CadetBlue;
             label4.Font = new Font("Microsoft Sans Serif", 11.25F);
             label4.ForeColor = Color.Black;
             label4.Location = new Point(35, 243);
@@ -134,7 +134,7 @@
             // lblCurrentQty
             // 
             lblCurrentQty.AutoSize = true;
-            lblCurrentQty.BackColor = SystemColors.ActiveBorder;
+            lblCurrentQty.BackColor = Color.CadetBlue;
             lblCurrentQty.Font = new Font("Microsoft Sans Serif", 11.25F);
             lblCurrentQty.ForeColor = Color.Black;
             lblCurrentQty.Location = new Point(33, 205);
@@ -146,7 +146,7 @@
             // lblCurrentQtyValue
             // 
             lblCurrentQtyValue.AutoSize = true;
-            lblCurrentQtyValue.BackColor = SystemColors.ActiveBorder;
+            lblCurrentQtyValue.BackColor = Color.CadetBlue;
             lblCurrentQtyValue.BorderStyle = BorderStyle.FixedSingle;
             lblCurrentQtyValue.Font = new Font("Microsoft Sans Serif", 11.25F);
             lblCurrentQtyValue.ForeColor = Color.Black;
@@ -159,7 +159,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.BackColor = SystemColors.ActiveBorder;
+            label1.BackColor = Color.CadetBlue;
             label1.Font = new Font("Microsoft Sans Serif", 11.25F);
             label1.ForeColor = Color.Black;
             label1.Location = new Point(33, 87);
@@ -171,7 +171,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.BackColor = SystemColors.ActiveBorder;
+            label2.BackColor = Color.CadetBlue;
             label2.Font = new Font("Microsoft Sans Serif", 11.25F);
             label2.ForeColor = Color.Black;
             label2.Location = new Point(35, 130);
@@ -183,7 +183,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.BackColor = SystemColors.ActiveBorder;
+            label3.BackColor = Color.CadetBlue;
             label3.Font = new Font("Microsoft Sans Serif", 11.25F);
             label3.ForeColor = Color.Black;
             label3.Location = new Point(35, 169);
@@ -195,7 +195,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.BackColor = SystemColors.ActiveBorder;
+            label5.BackColor = Color.CadetBlue;
             label5.Font = new Font("Microsoft Sans Serif", 11.25F);
             label5.ForeColor = Color.Black;
             label5.Location = new Point(33, 322);
@@ -207,7 +207,7 @@
             // lblUnitPrice
             // 
             lblUnitPrice.AutoSize = true;
-            lblUnitPrice.BackColor = SystemColors.ActiveBorder;
+            lblUnitPrice.BackColor = Color.CadetBlue;
             lblUnitPrice.BorderStyle = BorderStyle.FixedSingle;
             lblUnitPrice.Font = new Font("Microsoft Sans Serif", 11.25F);
             lblUnitPrice.ForeColor = Color.Black;
@@ -220,7 +220,7 @@
             // lblCategory
             // 
             lblCategory.AutoSize = true;
-            lblCategory.BackColor = SystemColors.ActiveBorder;
+            lblCategory.BackColor = Color.CadetBlue;
             lblCategory.BorderStyle = BorderStyle.FixedSingle;
             lblCategory.Font = new Font("Microsoft Sans Serif", 11.25F);
             lblCategory.ForeColor = Color.Black;
@@ -233,7 +233,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.BackColor = SystemColors.ActiveBorder;
+            label7.BackColor = Color.CadetBlue;
             label7.Font = new Font("Microsoft Sans Serif", 11.25F);
             label7.ForeColor = Color.Black;
             label7.Location = new Point(35, 285);
@@ -291,7 +291,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ActiveBorder;
+            BackColor = Color.CadetBlue;
             ClientSize = new Size(344, 402);
             Controls.Add(btnClose);
             Controls.Add(label6);

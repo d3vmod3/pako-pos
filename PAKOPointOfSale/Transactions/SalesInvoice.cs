@@ -32,7 +32,7 @@ namespace PAKOPointOfSale.Transactions
 
         private void SalesInvoice_Load(object sender, EventArgs e)
         {
-            timer1.Start();
+            timeAndDate.Start();
         }
 
         private void btnSearchProduct_Click(object sender, EventArgs e)
@@ -1285,7 +1285,7 @@ namespace PAKOPointOfSale.Transactions
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            if(dtgvCart.Rows.Count > 0)
+            if (dtgvCart.Rows.Count > 0)
             {
                 DialogResult result = MessageBox.Show(
                         "Are you sure you want to remove the selected item(s)?",
@@ -1310,6 +1310,16 @@ namespace PAKOPointOfSale.Transactions
             {
                 MessageBox.Show("Please select at least one item from the cart.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lblDiscountAmount_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

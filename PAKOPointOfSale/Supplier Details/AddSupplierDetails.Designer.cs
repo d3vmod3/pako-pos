@@ -152,7 +152,7 @@
             lblAddUser.BackColor = Color.DimGray;
             lblAddUser.Font = new Font("Impact", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblAddUser.ForeColor = Color.White;
-            lblAddUser.Location = new Point(124, 22);
+            lblAddUser.Location = new Point(131, 20);
             lblAddUser.Name = "lblAddUser";
             lblAddUser.Size = new Size(143, 29);
             lblAddUser.TabIndex = 33;
@@ -164,7 +164,7 @@
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(2, 1);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(97, 66);
+            pictureBox1.Size = new Size(123, 66);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 32;
             pictureBox1.TabStop = false;
@@ -202,7 +202,7 @@
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(79, 24);
             btnClose.TabIndex = 150;
-            btnClose.Text = "Close";
+            btnClose.Text = "Cancel";
             btnClose.UseVisualStyleBackColor = false;
             btnClose.Click += btnClose_Click;
             // 
@@ -219,7 +219,7 @@
             // 
             AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ButtonShadow;
+            BackColor = Color.CadetBlue;
             ClientSize = new Size(372, 360);
             Controls.Add(label1);
             Controls.Add(btnClose);

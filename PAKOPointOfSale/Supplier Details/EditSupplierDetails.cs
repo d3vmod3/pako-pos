@@ -198,5 +198,10 @@ namespace PAKOPointOfSale.Supplier_Details
                 e.Handled = true; // prevent typing more than 10 digits
             }
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

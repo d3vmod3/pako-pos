@@ -31,23 +31,6 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TransactionsList));
             dtgvTransactions = new DataGridView();
-            id = new DataGridViewTextBoxColumn();
-            invoicenumberDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            vatamountDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            vatablesalesDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            vatexemptDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            subtotalDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            grandtotalDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            paymentmethodDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            cashreceivedDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            cashchangeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            statusDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            transaction_type = new DataGridViewTextBoxColumn();
-            created_at = new DataGridViewTextBoxColumn();
-            return_number = new DataGridViewTextBoxColumn();
-            void_number = new DataGridViewTextBoxColumn();
-            salesinvoiceitemsDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            viewInvoice = new DataGridViewButtonColumn();
             transactionBindingSource = new BindingSource(components);
             textBox1 = new TextBox();
             label1 = new Label();
@@ -66,6 +49,23 @@
             label5 = new Label();
             cmbTransactionType = new ComboBox();
             btnExport = new Button();
+            id = new DataGridViewTextBoxColumn();
+            invoicenumberDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            vatamountDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            vatablesalesDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            vatexemptDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            subtotalDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            grandtotalDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            paymentmethodDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            cashreceivedDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            cashchangeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            statusDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            transaction_type = new DataGridViewTextBoxColumn();
+            created_at = new DataGridViewTextBoxColumn();
+            return_number = new DataGridViewTextBoxColumn();
+            void_number = new DataGridViewTextBoxColumn();
+            salesinvoiceitemsDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            viewInvoice = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)dtgvTransactions).BeginInit();
             ((System.ComponentModel.ISupportInitialize)transactionBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -83,13 +83,196 @@
             dtgvTransactions.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgvTransactions.Columns.AddRange(new DataGridViewColumn[] { id, invoicenumberDataGridViewTextBoxColumn, vatamountDataGridViewTextBoxColumn, vatablesalesDataGridViewTextBoxColumn, vatexemptDataGridViewTextBoxColumn, subtotalDataGridViewTextBoxColumn, grandtotalDataGridViewTextBoxColumn, paymentmethodDataGridViewTextBoxColumn, cashreceivedDataGridViewTextBoxColumn, cashchangeDataGridViewTextBoxColumn, statusDataGridViewTextBoxColumn, transaction_type, created_at, return_number, void_number, salesinvoiceitemsDataGridViewTextBoxColumn, viewInvoice });
             dtgvTransactions.DataSource = transactionBindingSource;
-            dtgvTransactions.Location = new Point(13, 208);
+            dtgvTransactions.Location = new Point(13, 172);
             dtgvTransactions.Name = "dtgvTransactions";
             dtgvTransactions.ReadOnly = true;
             dtgvTransactions.RowHeadersVisible = false;
-            dtgvTransactions.Size = new Size(1343, 467);
+            dtgvTransactions.Size = new Size(1343, 503);
             dtgvTransactions.TabIndex = 0;
             dtgvTransactions.CellContentClick += dtgvTransactions_CellContentClick;
+            // 
+            // transactionBindingSource
+            // 
+            transactionBindingSource.DataSource = typeof(Transaction);
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(151, 6);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(248, 23);
+            textBox1.TabIndex = 1;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.FlatStyle = FlatStyle.Popup;
+            label1.ForeColor = Color.Black;
+            label1.Location = new Point(13, 118);
+            label1.Name = "label1";
+            label1.Size = new Size(133, 15);
+            label1.TabIndex = 2;
+            label1.Text = "Search Invoice Number:";
+            // 
+            // txtSearch
+            // 
+            txtSearch.Location = new Point(13, 139);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(214, 23);
+            txtSearch.TabIndex = 3;
+            txtSearch.TextChanged += txtSearch_TextChanged;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.Red;
+            button1.FlatStyle = FlatStyle.Popup;
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(1281, 138);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 22);
+            button1.TabIndex = 4;
+            button1.Text = "Close";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.BackColor = Color.DimGray;
+            pictureBox2.Location = new Point(0, 1);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(1370, 103);
+            pictureBox2.TabIndex = 113;
+            pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.DimGray;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(0, 1);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(277, 103);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 114;
+            pictureBox1.TabStop = false;
+            // 
+            // lblsearchproduct
+            // 
+            lblsearchproduct.AutoSize = true;
+            lblsearchproduct.BackColor = Color.DimGray;
+            lblsearchproduct.Font = new Font("Impact", 47.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblsearchproduct.ForeColor = Color.White;
+            lblsearchproduct.Location = new Point(558, 14);
+            lblsearchproduct.Name = "lblsearchproduct";
+            lblsearchproduct.Size = new Size(524, 76);
+            lblsearchproduct.TabIndex = 115;
+            lblsearchproduct.Text = "TRANSACTIONS LIST";
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.BackColor = SystemColors.ControlDarkDark;
+            pictureBox3.ErrorImage = null;
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.InitialImage = null;
+            pictureBox3.Location = new Point(-21, 683);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(1402, 91);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 151;
+            pictureBox3.TabStop = false;
+            // 
+            // grpFilter
+            // 
+            grpFilter.Controls.Add(label4);
+            grpFilter.Controls.Add(dtpTo);
+            grpFilter.Controls.Add(label3);
+            grpFilter.Controls.Add(dtpFrom);
+            grpFilter.ForeColor = Color.Black;
+            grpFilter.Location = new Point(265, 116);
+            grpFilter.Name = "grpFilter";
+            grpFilter.Size = new Size(533, 50);
+            grpFilter.TabIndex = 152;
+            grpFilter.TabStop = false;
+            grpFilter.Text = "Filter";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(270, 23);
+            label4.Name = "label4";
+            label4.Size = new Size(50, 15);
+            label4.TabIndex = 158;
+            label4.Text = "Date To:";
+            // 
+            // dtpTo
+            // 
+            dtpTo.Location = new Point(326, 15);
+            dtpTo.Name = "dtpTo";
+            dtpTo.Size = new Size(195, 23);
+            dtpTo.TabIndex = 157;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.ForeColor = Color.Black;
+            label3.Location = new Point(6, 19);
+            label3.Name = "label3";
+            label3.Size = new Size(65, 15);
+            label3.TabIndex = 156;
+            label3.Text = "Date From:";
+            // 
+            // dtpFrom
+            // 
+            dtpFrom.Location = new Point(77, 15);
+            dtpFrom.Name = "dtpFrom";
+            dtpFrom.Size = new Size(187, 23);
+            dtpFrom.TabIndex = 155;
+            // 
+            // btnClearFilter
+            // 
+            btnClearFilter.BackColor = Color.FromArgb(255, 128, 128);
+            btnClearFilter.FlatStyle = FlatStyle.Popup;
+            btnClearFilter.ForeColor = Color.Black;
+            btnClearFilter.Location = new Point(1090, 138);
+            btnClearFilter.Name = "btnClearFilter";
+            btnClearFilter.Size = new Size(75, 23);
+            btnClearFilter.TabIndex = 164;
+            btnClearFilter.Text = "Clear Filter";
+            btnClearFilter.UseVisualStyleBackColor = false;
+            btnClearFilter.Click += btnClearFilter_Click_1;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(835, 118);
+            label5.Name = "label5";
+            label5.Size = new Size(128, 15);
+            label5.TabIndex = 163;
+            label5.Text = "Filter Transaction Type:";
+            // 
+            // cmbTransactionType
+            // 
+            cmbTransactionType.BackColor = SystemColors.ButtonFace;
+            cmbTransactionType.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbTransactionType.FormattingEnabled = true;
+            cmbTransactionType.Items.AddRange(new object[] { "All", "Sales Invoice", "Void", "Return" });
+            cmbTransactionType.Location = new Point(835, 138);
+            cmbTransactionType.Name = "cmbTransactionType";
+            cmbTransactionType.Size = new Size(238, 23);
+            cmbTransactionType.TabIndex = 162;
+            cmbTransactionType.SelectedIndexChanged += cmbStatus_SelectedIndexChanged;
+            // 
+            // btnExport
+            // 
+            btnExport.BackColor = Color.Gold;
+            btnExport.FlatStyle = FlatStyle.Popup;
+            btnExport.ForeColor = Color.Black;
+            btnExport.Location = new Point(1185, 138);
+            btnExport.Name = "btnExport";
+            btnExport.Size = new Size(75, 22);
+            btnExport.TabIndex = 153;
+            btnExport.Text = "Export";
+            btnExport.UseVisualStyleBackColor = false;
+            btnExport.Click += btnExport_Click;
             // 
             // id
             // 
@@ -151,6 +334,7 @@
             paymentmethodDataGridViewTextBoxColumn.HeaderText = "Payment Method";
             paymentmethodDataGridViewTextBoxColumn.Name = "paymentmethodDataGridViewTextBoxColumn";
             paymentmethodDataGridViewTextBoxColumn.ReadOnly = true;
+            paymentmethodDataGridViewTextBoxColumn.Visible = false;
             // 
             // cashreceivedDataGridViewTextBoxColumn
             // 
@@ -219,189 +403,6 @@
             viewInvoice.ReadOnly = true;
             viewInvoice.Text = "View Transaction";
             viewInvoice.UseColumnTextForButtonValue = true;
-            // 
-            // transactionBindingSource
-            // 
-            transactionBindingSource.DataSource = typeof(Transaction);
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(151, 6);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(248, 23);
-            textBox1.TabIndex = 1;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.Khaki;
-            label1.FlatStyle = FlatStyle.Popup;
-            label1.ForeColor = Color.Black;
-            label1.Location = new Point(13, 118);
-            label1.Name = "label1";
-            label1.Size = new Size(133, 15);
-            label1.TabIndex = 2;
-            label1.Text = "Search Invoice Number:";
-            // 
-            // txtSearch
-            // 
-            txtSearch.Location = new Point(13, 143);
-            txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(288, 23);
-            txtSearch.TabIndex = 3;
-            txtSearch.TextChanged += txtSearch_TextChanged;
-            // 
-            // button1
-            // 
-            button1.BackColor = Color.Red;
-            button1.FlatStyle = FlatStyle.Popup;
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(1281, 127);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 22);
-            button1.TabIndex = 4;
-            button1.Text = "Close";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.BackColor = Color.DimGray;
-            pictureBox2.Location = new Point(0, 1);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(1370, 103);
-            pictureBox2.TabIndex = 113;
-            pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.BackColor = Color.DimGray;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(0, 1);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(277, 103);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 114;
-            pictureBox1.TabStop = false;
-            // 
-            // lblsearchproduct
-            // 
-            lblsearchproduct.AutoSize = true;
-            lblsearchproduct.BackColor = Color.DimGray;
-            lblsearchproduct.Font = new Font("Impact", 47.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblsearchproduct.ForeColor = Color.White;
-            lblsearchproduct.Location = new Point(558, 14);
-            lblsearchproduct.Name = "lblsearchproduct";
-            lblsearchproduct.Size = new Size(524, 76);
-            lblsearchproduct.TabIndex = 115;
-            lblsearchproduct.Text = "TRANSACTIONS LIST";
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.BackColor = SystemColors.ControlDarkDark;
-            pictureBox3.ErrorImage = null;
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.InitialImage = null;
-            pictureBox3.Location = new Point(-21, 683);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(1402, 91);
-            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox3.TabIndex = 151;
-            pictureBox3.TabStop = false;
-            // 
-            // grpFilter
-            // 
-            grpFilter.Controls.Add(label4);
-            grpFilter.Controls.Add(dtpTo);
-            grpFilter.Controls.Add(label3);
-            grpFilter.Controls.Add(dtpFrom);
-            grpFilter.ForeColor = Color.Black;
-            grpFilter.Location = new Point(423, 116);
-            grpFilter.Name = "grpFilter";
-            grpFilter.Size = new Size(627, 50);
-            grpFilter.TabIndex = 152;
-            grpFilter.TabStop = false;
-            grpFilter.Text = "Filter";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(334, 21);
-            label4.Name = "label4";
-            label4.Size = new Size(50, 15);
-            label4.TabIndex = 158;
-            label4.Text = "Date To:";
-            // 
-            // dtpTo
-            // 
-            dtpTo.Location = new Point(390, 16);
-            dtpTo.Name = "dtpTo";
-            dtpTo.Size = new Size(231, 23);
-            dtpTo.TabIndex = 157;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.ForeColor = Color.Black;
-            label3.Location = new Point(6, 19);
-            label3.Name = "label3";
-            label3.Size = new Size(65, 15);
-            label3.TabIndex = 156;
-            label3.Text = "Date From:";
-            // 
-            // dtpFrom
-            // 
-            dtpFrom.Location = new Point(77, 15);
-            dtpFrom.Name = "dtpFrom";
-            dtpFrom.Size = new Size(251, 23);
-            dtpFrom.TabIndex = 155;
-            // 
-            // btnClearFilter
-            // 
-            btnClearFilter.BackColor = Color.FromArgb(255, 128, 128);
-            btnClearFilter.FlatStyle = FlatStyle.Popup;
-            btnClearFilter.ForeColor = Color.Black;
-            btnClearFilter.Location = new Point(975, 172);
-            btnClearFilter.Name = "btnClearFilter";
-            btnClearFilter.Size = new Size(75, 23);
-            btnClearFilter.TabIndex = 164;
-            btnClearFilter.Text = "Clear Filter";
-            btnClearFilter.UseVisualStyleBackColor = false;
-            btnClearFilter.Click += btnClearFilter_Click_1;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(420, 176);
-            label5.Name = "label5";
-            label5.Size = new Size(128, 15);
-            label5.TabIndex = 163;
-            label5.Text = "Filter Transaction Type:";
-            // 
-            // cmbTransactionType
-            // 
-            cmbTransactionType.BackColor = SystemColors.ButtonFace;
-            cmbTransactionType.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbTransactionType.FormattingEnabled = true;
-            cmbTransactionType.Items.AddRange(new object[] { "All", "Sales Invoice", "Void", "Return" });
-            cmbTransactionType.Location = new Point(554, 172);
-            cmbTransactionType.Name = "cmbTransactionType";
-            cmbTransactionType.Size = new Size(328, 23);
-            cmbTransactionType.TabIndex = 162;
-            cmbTransactionType.SelectedIndexChanged += cmbStatus_SelectedIndexChanged;
-            // 
-            // btnExport
-            // 
-            btnExport.BackColor = Color.Gold;
-            btnExport.FlatStyle = FlatStyle.Popup;
-            btnExport.ForeColor = Color.Black;
-            btnExport.Location = new Point(1192, 127);
-            btnExport.Name = "btnExport";
-            btnExport.Size = new Size(75, 22);
-            btnExport.TabIndex = 153;
-            btnExport.Text = "Export";
-            btnExport.UseVisualStyleBackColor = false;
-            btnExport.Click += btnExport_Click;
             // 
             // TransactionsList
             // 

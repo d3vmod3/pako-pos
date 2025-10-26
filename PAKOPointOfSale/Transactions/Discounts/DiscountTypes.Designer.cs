@@ -47,7 +47,7 @@
             cmbDiscountTypes.FlatStyle = FlatStyle.Popup;
             cmbDiscountTypes.FormattingEnabled = true;
             cmbDiscountTypes.Items.AddRange(new object[] { "None", "Senior Citizen 5%", "Senior Citizen 20%", "Person With Disability 5%", "Person With Disability 20%", "National Athletes and Coaches 20%", "Regular Discount" });
-            cmbDiscountTypes.Location = new Point(12, 51);
+            cmbDiscountTypes.Location = new Point(12, 44);
             cmbDiscountTypes.Name = "cmbDiscountTypes";
             cmbDiscountTypes.Size = new Size(317, 23);
             cmbDiscountTypes.TabIndex = 0;
@@ -69,7 +69,7 @@
             // lblNote
             // 
             lblNote.AutoSize = true;
-            lblNote.BackColor = Color.White;
+            lblNote.BackColor = Color.CadetBlue;
             lblNote.ForeColor = Color.Black;
             lblNote.Location = new Point(29, 12);
             lblNote.Name = "lblNote";
@@ -131,7 +131,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
+            BackColor = Color.CadetBlue;
             ClientSize = new Size(341, 166);
             Controls.Add(panel1);
             Controls.Add(label1);

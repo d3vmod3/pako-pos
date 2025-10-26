@@ -30,6 +30,10 @@
         {
             components = new System.ComponentModel.Container();
             dtgvParkedTransactions = new DataGridView();
+            transactionBindingSource = new BindingSource(components);
+            txtSearch = new TextBox();
+            label1 = new Label();
+            btnClose = new Button();
             id = new DataGridViewTextBoxColumn();
             park_number = new DataGridViewTextBoxColumn();
             vat_amount = new DataGridViewTextBoxColumn();
@@ -47,10 +51,6 @@
             settle = new DataGridViewButtonColumn();
             salesinvoiceitemsDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             cancel = new DataGridViewButtonColumn();
-            transactionBindingSource = new BindingSource(components);
-            txtSearch = new TextBox();
-            label1 = new Label();
-            btnClose = new Button();
             ((System.ComponentModel.ISupportInitialize)dtgvParkedTransactions).BeginInit();
             ((System.ComponentModel.ISupportInitialize)transactionBindingSource).BeginInit();
             SuspendLayout();
@@ -64,14 +64,48 @@
             dtgvParkedTransactions.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgvParkedTransactions.Columns.AddRange(new DataGridViewColumn[] { id, park_number, vat_amount, vatable_sales, vat_exempt, sub_total, grandtotalDataGridViewTextBoxColumn, paymentmethodDataGridViewTextBoxColumn, cashreceivedDataGridViewTextBoxColumn, cashchangeDataGridViewTextBoxColumn, status, remarksDataGridViewTextBoxColumn, transactiontypeDataGridViewTextBoxColumn, createdatDataGridViewTextBoxColumn, settle, salesinvoiceitemsDataGridViewTextBoxColumn, cancel });
             dtgvParkedTransactions.DataSource = transactionBindingSource;
-            dtgvParkedTransactions.Location = new Point(12, 48);
+            dtgvParkedTransactions.Location = new Point(12, 49);
             dtgvParkedTransactions.Name = "dtgvParkedTransactions";
             dtgvParkedTransactions.ReadOnly = true;
             dtgvParkedTransactions.RowHeadersVisible = false;
-            dtgvParkedTransactions.Size = new Size(747, 294);
+            dtgvParkedTransactions.Size = new Size(795, 326);
             dtgvParkedTransactions.TabIndex = 0;
             dtgvParkedTransactions.CellContentClick += dtgvParkedTransactions_CellContentClick;
             dtgvParkedTransactions.CellFormatting += dtgvParkedTransactions_CellFormatting;
+            // 
+            // transactionBindingSource
+            // 
+            transactionBindingSource.DataSource = typeof(Transaction);
+            // 
+            // txtSearch
+            // 
+            txtSearch.Location = new Point(157, 19);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(259, 23);
+            txtSearch.TabIndex = 1;
+            txtSearch.TextChanged += textBox1_TextChanged;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(12, 22);
+            label1.Name = "label1";
+            label1.Size = new Size(139, 15);
+            label1.TabIndex = 2;
+            label1.Text = "Search Pending Number:";
+            // 
+            // btnClose
+            // 
+            btnClose.BackColor = Color.Red;
+            btnClose.FlatStyle = FlatStyle.Popup;
+            btnClose.ForeColor = Color.White;
+            btnClose.Location = new Point(723, 19);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(84, 24);
+            btnClose.TabIndex = 21;
+            btnClose.Text = "Close";
+            btnClose.UseVisualStyleBackColor = false;
+            btnClose.Click += btnClose_Click;
             // 
             // id
             // 
@@ -85,9 +119,10 @@
             // 
             park_number.DataPropertyName = "park_number";
             park_number.HeaderText = "Pending Number";
+            park_number.MinimumWidth = 150;
             park_number.Name = "park_number";
             park_number.ReadOnly = true;
-            park_number.Width = 113;
+            park_number.Width = 150;
             // 
             // vat_amount
             // 
@@ -225,46 +260,12 @@
             cancel.UseColumnTextForButtonValue = true;
             cancel.Width = 50;
             // 
-            // transactionBindingSource
-            // 
-            transactionBindingSource.DataSource = typeof(Transaction);
-            // 
-            // txtSearch
-            // 
-            txtSearch.Location = new Point(157, 19);
-            txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(259, 23);
-            txtSearch.TabIndex = 1;
-            txtSearch.TextChanged += textBox1_TextChanged;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(12, 22);
-            label1.Name = "label1";
-            label1.Size = new Size(139, 15);
-            label1.TabIndex = 2;
-            label1.Text = "Search Pending Number:";
-            // 
-            // btnClose
-            // 
-            btnClose.BackColor = Color.Red;
-            btnClose.FlatStyle = FlatStyle.Popup;
-            btnClose.ForeColor = Color.White;
-            btnClose.Location = new Point(675, 19);
-            btnClose.Name = "btnClose";
-            btnClose.Size = new Size(84, 24);
-            btnClose.TabIndex = 21;
-            btnClose.Text = "Close";
-            btnClose.UseVisualStyleBackColor = false;
-            btnClose.Click += btnClose_Click;
-            // 
             // ParkTransactionsList
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
-            ClientSize = new Size(769, 354);
+            ClientSize = new Size(819, 386);
             Controls.Add(btnClose);
             Controls.Add(label1);
             Controls.Add(txtSearch);

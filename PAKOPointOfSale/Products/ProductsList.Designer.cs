@@ -333,7 +333,7 @@
             panel1.Controls.Add(dataGridView1);
             panel1.Location = new Point(0, 152);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1368, 636);
+            panel1.Size = new Size(1368, 624);
             panel1.TabIndex = 6;
             // 
             // pictureBox3
@@ -344,7 +344,7 @@
             pictureBox3.InitialImage = null;
             pictureBox3.Location = new Point(0, 530);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(1386, 97);
+            pictureBox3.Size = new Size(1386, 94);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 14;
             pictureBox3.TabStop = false;

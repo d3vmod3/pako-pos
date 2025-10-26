@@ -47,6 +47,7 @@
             pictureBox2 = new PictureBox();
             dateTimePicker1 = new DateTimePicker();
             label1 = new Label();
+            btnClose = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
@@ -57,7 +58,7 @@
             btnSubmit.FlatStyle = FlatStyle.Popup;
             btnSubmit.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnSubmit.ForeColor = Color.White;
-            btnSubmit.Location = new Point(650, 281);
+            btnSubmit.Location = new Point(568, 288);
             btnSubmit.Name = "btnSubmit";
             btnSubmit.Size = new Size(75, 23);
             btnSubmit.TabIndex = 25;
@@ -200,7 +201,7 @@
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(0, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(113, 76);
+            pictureBox1.Size = new Size(160, 76);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 29;
             pictureBox1.TabStop = false;
@@ -230,12 +231,27 @@
             label1.TabIndex = 152;
             label1.Text = "+63";
             // 
+            // btnClose
+            // 
+            btnClose.BackColor = Color.Red;
+            btnClose.FlatStyle = FlatStyle.Popup;
+            btnClose.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnClose.ForeColor = Color.White;
+            btnClose.Location = new Point(649, 288);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(76, 23);
+            btnClose.TabIndex = 153;
+            btnClose.Text = "Cancel";
+            btnClose.UseVisualStyleBackColor = false;
+            btnClose.Click += btnClose_Click;
+            // 
             // EditSupplierDetails
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ButtonShadow;
+            BackColor = Color.CadetBlue;
             ClientSize = new Size(768, 336);
+            Controls.Add(btnClose);
             Controls.Add(label1);
             Controls.Add(lblAddUser);
             Controls.Add(pictureBox1);
@@ -285,5 +301,6 @@
         private PictureBox pictureBox2;
         private DateTimePicker dateTimePicker1;
         private Label label1;
+        private Button btnClose;
     }
 }
