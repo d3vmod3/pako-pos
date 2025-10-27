@@ -36,7 +36,7 @@ namespace PAKOPointOfSale.Products.Filters
         private void DateRange_Load(object sender, EventArgs e)
         {
             
-            if(formTitle == "Filter ny Date Range" || formTitle == "Filter by Date Received")
+            if(formTitle == "Filter by Date Range" || formTitle == "Filter by Date Received")
             {
                 dtTo.MaxDate = DateTime.Today;
             }
