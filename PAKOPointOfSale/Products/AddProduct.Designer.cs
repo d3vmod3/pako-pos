@@ -177,6 +177,7 @@
             // dtpDateReceived
             // 
             dtpDateReceived.Font = new Font("Microsoft Sans Serif", 9.75F);
+            dtpDateReceived.Format = DateTimePickerFormat.Short;
             dtpDateReceived.Location = new Point(902, 552);
             dtpDateReceived.Name = "dtpDateReceived";
             dtpDateReceived.Size = new Size(353, 22);

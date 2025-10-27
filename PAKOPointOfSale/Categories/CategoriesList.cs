@@ -66,7 +66,7 @@ namespace PAKOPointOfSale.Categories
                     conn.Open();
 
                     // Select all users (adjust columns as needed)
-                    string query = @"SELECT id,name,description,is_active FROM categories";
+                    string query = @"SELECT id,name,description FROM categories";
 
                     using (SqlDataAdapter da = new SqlDataAdapter(query, conn))
                     {
@@ -124,6 +124,7 @@ namespace PAKOPointOfSale.Categories
                                 cmd.ExecuteNonQuery();
                             }
                         }
+                        loadCategories();
                     }
                     catch (Exception ex)
                     {
@@ -147,8 +148,7 @@ namespace PAKOPointOfSale.Categories
                                     SELECT 
                                         id,
                                         name,
-                                        description,
-                                        is_active
+                                        description
                                     FROM Categories
                                     WHERE 
                                         name LIKE @search

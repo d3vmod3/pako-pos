@@ -69,8 +69,13 @@ namespace PAKOPointOfSale.Products
                                 dtpDateExpiration.Value = Convert.ToDateTime(reader["date_expiration"]);
 
                                 // Set ComboBoxes by Value
-                                cmbSupplier.SelectedValue = reader["supplier_id"] is DBNull ? null : reader["supplier_id"];
-                                cmbCategory.SelectedValue = reader["category_id"] is DBNull ? null : reader["category_id"];
+                                cmbSupplier.SelectedValue = reader["supplier_id"] == DBNull.Value
+                                    ? DBNull.Value
+                                    : reader["supplier_id"];
+
+                                cmbCategory.SelectedValue = reader["category_id"] == DBNull.Value
+                                    ? DBNull.Value
+                                    : reader["category_id"];
                                 cmbUnitofMeasurements.Text = reader["unit_of_measurement"].ToString();
                                 cmbStatus.Text = reader["status"].ToString();
                                 chkIsActive.Checked = Convert.ToBoolean(reader["is_active"]);

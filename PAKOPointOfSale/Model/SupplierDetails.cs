@@ -11,5 +11,4 @@ public class SupplierDetails
     public string? gateway { get; set; }
     public DateTime created_at { get; set; }
     public Boolean is_active { get; set; }
-    public ICollection<Product> products { get; set; }
 }

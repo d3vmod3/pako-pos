@@ -45,7 +45,6 @@
             lblAddUser = new Label();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
-            dateTimePicker1 = new DateTimePicker();
             label1 = new Label();
             btnClose = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -215,13 +214,6 @@
             pictureBox2.TabIndex = 31;
             pictureBox2.TabStop = false;
             // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.Location = new Point(516, 212);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(209, 23);
-            dateTimePicker1.TabIndex = 28;
-            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -256,7 +248,6 @@
             Controls.Add(lblAddUser);
             Controls.Add(pictureBox1);
             Controls.Add(pictureBox2);
-            Controls.Add(dateTimePicker1);
             Controls.Add(lblCreatedAt);
             Controls.Add(chkIsActive);
             Controls.Add(btnSubmit);

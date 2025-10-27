@@ -35,6 +35,7 @@
             btnCancel = new Button();
             label2 = new Label();
             chkShowPassword = new CheckBox();
+            label3 = new Label();
             SuspendLayout();
             // 
             // label1
@@ -48,7 +49,7 @@
             // 
             // txtPassword
             // 
-            txtPassword.Location = new Point(104, 64);
+            txtPassword.Location = new Point(119, 64);
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '•';
             txtPassword.Size = new Size(212, 23);
@@ -56,7 +57,7 @@
             // 
             // txtConfirmPassword
             // 
-            txtConfirmPassword.Location = new Point(104, 93);
+            txtConfirmPassword.Location = new Point(119, 93);
             txtConfirmPassword.Name = "txtConfirmPassword";
             txtConfirmPassword.PasswordChar = '•';
             txtConfirmPassword.Size = new Size(212, 23);
@@ -91,7 +92,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(11, 67);
+            label2.Location = new Point(26, 72);
             label2.Name = "label2";
             label2.Size = new Size(87, 15);
             label2.TabIndex = 5;
@@ -100,7 +101,7 @@
             // chkShowPassword
             // 
             chkShowPassword.AutoSize = true;
-            chkShowPassword.Location = new Point(324, 97);
+            chkShowPassword.Location = new Point(339, 97);
             chkShowPassword.Name = "chkShowPassword";
             chkShowPassword.Size = new Size(108, 19);
             chkShowPassword.TabIndex = 6;
@@ -108,12 +109,23 @@
             chkShowPassword.UseVisualStyleBackColor = true;
             chkShowPassword.CheckedChanged += chkShowPassword_CheckedChanged;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(6, 96);
+            label3.Name = "label3";
+            label3.Size = new Size(107, 15);
+            label3.TabIndex = 7;
+            label3.Text = "Confirm Password:";
+            label3.Click += label3_Click;
+            // 
             // ResetPassword
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
             ClientSize = new Size(447, 186);
+            Controls.Add(label3);
             Controls.Add(chkShowPassword);
             Controls.Add(label2);
             Controls.Add(btnCancel);
@@ -139,5 +151,6 @@
         private Button btnCancel;
         private Label label2;
         private CheckBox chkShowPassword;
+        private Label label3;
     }
 }

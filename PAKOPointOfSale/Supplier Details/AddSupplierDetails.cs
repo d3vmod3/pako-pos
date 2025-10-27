@@ -45,7 +45,7 @@ namespace PAKOPointOfSale.Supplier_Details
                         cmd.Parameters.AddWithValue("@contact_number", string.IsNullOrWhiteSpace(txtContactNumber.Text) ? DBNull.Value : txtContactNumber.Text.Trim());
                         cmd.Parameters.AddWithValue("@account_number", string.IsNullOrWhiteSpace(txtAccountNumber.Text) ? DBNull.Value : txtAccountNumber.Text.Trim());
                         cmd.Parameters.AddWithValue("@gateway", string.IsNullOrWhiteSpace(txtGateway.Text) ? DBNull.Value : txtGateway.Text.Trim());
-                        cmd.Parameters.AddWithValue("@created_at", DateTime.Now);
+                        cmd.Parameters.AddWithValue("@created_at", DateTime.Today);
                         cmd.Parameters.AddWithValue("@is_active", false);
 
                         int rowsAffected = cmd.ExecuteNonQuery();

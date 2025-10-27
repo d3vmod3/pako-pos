@@ -10,9 +10,7 @@ namespace WinFormsApp1.Model
     public class Product
     {
         public int id { get; set; }
-        [ForeignKey("supplier")]
         public int? supplier_id { get; set; }
-        [ForeignKey("category")]
         public int? category_id { get; set; }
         public string product_name { get; set; }
         public string? product_brand { get; set; }
@@ -30,8 +28,5 @@ namespace WinFormsApp1.Model
         public DateTime date_expiration { get; set; }
         public Boolean is_active { get; set; }
         public DateTime created_at { get; set; }
-        
-        public SupplierDetails supplier { get; set; }
-        public Category category { get; set; }
     }
 }

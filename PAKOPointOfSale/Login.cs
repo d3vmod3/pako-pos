@@ -75,7 +75,7 @@ namespace PAKOPointOfSale
                     string query = @"
                         SELECT id, user_type_id,first_name,last_name
                         FROM Users
-                        WHERE username = @username AND password = @password AND is_active = 1";
+                        WHERE username = @username AND password = @password";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
@@ -90,7 +90,6 @@ namespace PAKOPointOfSale
                                 user_id = reader.GetInt32(reader.GetOrdinal("id"));
                                 firstName = reader.GetString(reader.GetOrdinal("first_name"));
                                 lastName = reader.GetString(reader.GetOrdinal("last_name"));
-                                user_id = reader.GetInt32(reader.GetOrdinal("id"));
                                 return user_type_id;
 
                             }
@@ -161,11 +160,12 @@ namespace PAKOPointOfSale
                 string query = @"
                 SELECT id, is_reset
                 FROM Users
-                WHERE is_reset = @isReset";
+                WHERE is_reset = @isReset and id=@id";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@isReset", true);
+                    cmd.Parameters.AddWithValue("@id", userID);
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
@@ -185,7 +185,7 @@ namespace PAKOPointOfSale
             {
                 login(); // Simulate clicking the login button
             }
-            
+
         }
 
         private void txtPassword_KeyDown(object sender, KeyEventArgs e)
@@ -194,6 +194,11 @@ namespace PAKOPointOfSale
             {
                 login(); // Simulate clicking the login button
             }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -30,23 +30,13 @@
         {
             components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SuppliersList));
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             btnExport = new Button();
             btnAdd = new Button();
             txtSearch = new TextBox();
             lblSearch = new Label();
             dataGridView1 = new DataGridView();
-            id = new DataGridViewTextBoxColumn();
-            nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            addressDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            contactnumberDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            accountnumberDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            gatewayDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            is_active = new DataGridViewTextBoxColumn();
-            createdatDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            productsDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            edit = new DataGridViewButtonColumn();
             supplierDetailsBindingSource = new BindingSource(components);
             pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
@@ -62,6 +52,15 @@
             btnClearFilter = new Button();
             cmbStatus = new ComboBox();
             label5 = new Label();
+            id = new DataGridViewTextBoxColumn();
+            nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            addressDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            contactnumberDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            accountnumberDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            gatewayDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            is_active = new DataGridViewTextBoxColumn();
+            created_at = new DataGridViewTextBoxColumn();
+            edit = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)supplierDetailsBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -119,7 +118,7 @@
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { id, nameDataGridViewTextBoxColumn, addressDataGridViewTextBoxColumn, contactnumberDataGridViewTextBoxColumn, accountnumberDataGridViewTextBoxColumn, gatewayDataGridViewTextBoxColumn, is_active, createdatDataGridViewTextBoxColumn, productsDataGridViewTextBoxColumn, edit });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { id, nameDataGridViewTextBoxColumn, addressDataGridViewTextBoxColumn, contactnumberDataGridViewTextBoxColumn, accountnumberDataGridViewTextBoxColumn, gatewayDataGridViewTextBoxColumn, is_active, created_at, edit });
             dataGridView1.DataSource = supplierDetailsBindingSource;
             dataGridView1.Location = new Point(12, 152);
             dataGridView1.Name = "dataGridView1";
@@ -131,85 +130,6 @@
             dataGridView1.Size = new Size(1343, 511);
             dataGridView1.TabIndex = 5;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
-            // 
-            // id
-            // 
-            id.DataPropertyName = "id";
-            id.HeaderText = "id";
-            id.Name = "id";
-            id.ReadOnly = true;
-            id.Visible = false;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            nameDataGridViewTextBoxColumn.DataPropertyName = "name";
-            nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // addressDataGridViewTextBoxColumn
-            // 
-            addressDataGridViewTextBoxColumn.DataPropertyName = "address";
-            addressDataGridViewTextBoxColumn.HeaderText = "Address";
-            addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
-            addressDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // contactnumberDataGridViewTextBoxColumn
-            // 
-            contactnumberDataGridViewTextBoxColumn.DataPropertyName = "contact_number";
-            contactnumberDataGridViewTextBoxColumn.HeaderText = "Contact Number";
-            contactnumberDataGridViewTextBoxColumn.Name = "contactnumberDataGridViewTextBoxColumn";
-            contactnumberDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // accountnumberDataGridViewTextBoxColumn
-            // 
-            accountnumberDataGridViewTextBoxColumn.DataPropertyName = "account_number";
-            accountnumberDataGridViewTextBoxColumn.HeaderText = "Account Number";
-            accountnumberDataGridViewTextBoxColumn.Name = "accountnumberDataGridViewTextBoxColumn";
-            accountnumberDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // gatewayDataGridViewTextBoxColumn
-            // 
-            gatewayDataGridViewTextBoxColumn.DataPropertyName = "gateway";
-            gatewayDataGridViewTextBoxColumn.HeaderText = "Gateway";
-            gatewayDataGridViewTextBoxColumn.Name = "gatewayDataGridViewTextBoxColumn";
-            gatewayDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // is_active
-            // 
-            is_active.DataPropertyName = "is_active";
-            is_active.HeaderText = "Active";
-            is_active.Name = "is_active";
-            is_active.ReadOnly = true;
-            is_active.Resizable = DataGridViewTriState.True;
-            is_active.SortMode = DataGridViewColumnSortMode.NotSortable;
-            // 
-            // createdatDataGridViewTextBoxColumn
-            // 
-            createdatDataGridViewTextBoxColumn.DataPropertyName = "created_at";
-            createdatDataGridViewTextBoxColumn.HeaderText = "Date Created";
-            createdatDataGridViewTextBoxColumn.Name = "createdatDataGridViewTextBoxColumn";
-            createdatDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // productsDataGridViewTextBoxColumn
-            // 
-            productsDataGridViewTextBoxColumn.DataPropertyName = "products";
-            productsDataGridViewTextBoxColumn.HeaderText = "products";
-            productsDataGridViewTextBoxColumn.Name = "productsDataGridViewTextBoxColumn";
-            productsDataGridViewTextBoxColumn.ReadOnly = true;
-            productsDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // edit
-            // 
-            edit.DataPropertyName = "id";
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.ForeColor = Color.Black;
-            edit.DefaultCellStyle = dataGridViewCellStyle1;
-            edit.HeaderText = "";
-            edit.Name = "edit";
-            edit.ReadOnly = true;
-            edit.Text = "Edit";
-            edit.UseColumnTextForButtonValue = true;
             // 
             // supplierDetailsBindingSource
             // 
@@ -360,6 +280,77 @@
             label5.TabIndex = 161;
             label5.Text = "Filter Status:";
             // 
+            // id
+            // 
+            id.DataPropertyName = "id";
+            id.HeaderText = "id";
+            id.Name = "id";
+            id.ReadOnly = true;
+            id.Visible = false;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            nameDataGridViewTextBoxColumn.DataPropertyName = "name";
+            nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // addressDataGridViewTextBoxColumn
+            // 
+            addressDataGridViewTextBoxColumn.DataPropertyName = "address";
+            addressDataGridViewTextBoxColumn.HeaderText = "Address";
+            addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
+            addressDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // contactnumberDataGridViewTextBoxColumn
+            // 
+            contactnumberDataGridViewTextBoxColumn.DataPropertyName = "contact_number";
+            contactnumberDataGridViewTextBoxColumn.HeaderText = "Contact Number";
+            contactnumberDataGridViewTextBoxColumn.Name = "contactnumberDataGridViewTextBoxColumn";
+            contactnumberDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // accountnumberDataGridViewTextBoxColumn
+            // 
+            accountnumberDataGridViewTextBoxColumn.DataPropertyName = "account_number";
+            accountnumberDataGridViewTextBoxColumn.HeaderText = "Account Number";
+            accountnumberDataGridViewTextBoxColumn.Name = "accountnumberDataGridViewTextBoxColumn";
+            accountnumberDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // gatewayDataGridViewTextBoxColumn
+            // 
+            gatewayDataGridViewTextBoxColumn.DataPropertyName = "gateway";
+            gatewayDataGridViewTextBoxColumn.HeaderText = "Gateway";
+            gatewayDataGridViewTextBoxColumn.Name = "gatewayDataGridViewTextBoxColumn";
+            gatewayDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // is_active
+            // 
+            is_active.DataPropertyName = "is_active";
+            is_active.HeaderText = "Active";
+            is_active.Name = "is_active";
+            is_active.ReadOnly = true;
+            is_active.Resizable = DataGridViewTriState.True;
+            is_active.SortMode = DataGridViewColumnSortMode.NotSortable;
+            // 
+            // created_at
+            // 
+            created_at.DataPropertyName = "created_at";
+            created_at.HeaderText = "Date Created";
+            created_at.Name = "created_at";
+            created_at.ReadOnly = true;
+            // 
+            // edit
+            // 
+            edit.DataPropertyName = "id";
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            edit.DefaultCellStyle = dataGridViewCellStyle1;
+            edit.HeaderText = "";
+            edit.Name = "edit";
+            edit.ReadOnly = true;
+            edit.Text = "Edit";
+            edit.UseColumnTextForButtonValue = true;
+            // 
             // SuppliersList
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -432,5 +423,6 @@
         private DataGridViewTextBoxColumn createdatDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn productsDataGridViewTextBoxColumn;
         private DataGridViewButtonColumn edit;
+        private DataGridViewTextBoxColumn created_at;
     }
 }

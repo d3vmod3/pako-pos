@@ -37,6 +37,7 @@
             label1 = new Label();
             pictureBox1 = new PictureBox();
             checkBox1 = new CheckBox();
+            btnClose = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -138,6 +139,21 @@
             checkBox1.UseVisualStyleBackColor = true;
             checkBox1.CheckedChanged += checkBox1_CheckedChanged;
             // 
+            // btnClose
+            // 
+            btnClose.BackColor = Color.Red;
+            btnClose.BackgroundImage = (Image)resources.GetObject("btnClose.BackgroundImage");
+            btnClose.BackgroundImageLayout = ImageLayout.Stretch;
+            btnClose.FlatStyle = FlatStyle.Popup;
+            btnClose.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnClose.ForeColor = Color.White;
+            btnClose.Location = new Point(307, 12);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(37, 25);
+            btnClose.TabIndex = 46;
+            btnClose.UseVisualStyleBackColor = false;
+            btnClose.Click += btnClose_Click;
+            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -145,6 +161,7 @@
             BackColor = Color.DarkSlateGray;
             ClientSize = new Size(356, 462);
             ControlBox = false;
+            Controls.Add(btnClose);
             Controls.Add(checkBox1);
             Controls.Add(label1);
             Controls.Add(pictureBox3);
@@ -176,5 +193,6 @@
         private Label label1;
         private PictureBox pictureBox1;
         private CheckBox checkBox1;
+        private Button btnClose;
     }
 }

@@ -34,7 +34,6 @@
             label2 = new Label();
             txtDescription = new TextBox();
             txtCategoryName = new TextBox();
-            chkIsActive = new CheckBox();
             btnClose = new Button();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
@@ -94,17 +93,6 @@
             txtCategoryName.Size = new Size(342, 23);
             txtCategoryName.TabIndex = 8;
             // 
-            // chkIsActive
-            // 
-            chkIsActive.AutoSize = true;
-            chkIsActive.ForeColor = Color.Black;
-            chkIsActive.Location = new Point(412, 218);
-            chkIsActive.Name = "chkIsActive";
-            chkIsActive.Size = new Size(59, 19);
-            chkIsActive.TabIndex = 27;
-            chkIsActive.Text = "Active";
-            chkIsActive.UseVisualStyleBackColor = true;
-            // 
             // btnClose
             // 
             btnClose.BackColor = Color.Red;
@@ -160,7 +148,6 @@
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
             Controls.Add(btnClose);
-            Controls.Add(chkIsActive);
             Controls.Add(btnSubmit);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -186,7 +173,6 @@
         private Label label2;
         private TextBox txtDescription;
         private TextBox txtCategoryName;
-        private CheckBox chkIsActive;
         private Button btnClose;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;

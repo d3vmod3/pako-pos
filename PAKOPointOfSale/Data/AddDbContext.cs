@@ -96,16 +96,16 @@ namespace WinFormsApp1.Data
             );
 
             modelBuilder.Entity<Category>().HasData(
-                new Category { id = 1, name = "Lubricants & Fluids", description = "Engine oils, brake fluids, and coolant products", is_active = true },
-                new Category { id = 2, name = "Electrical & Batteries", description = "Motorcycle batteries, bulbs, spark plugs, and wiring components", is_active = true },
-                new Category { id = 3, name = "Tires & Wheels", description = "Inner tubes, tires, and wheel accessories", is_active = true },
-                new Category { id = 4, name = "Riding Gear", description = "Helmets, gloves, jackets, and safety equipment", is_active = true },
-                new Category { id = 5, name = "Brakes & Suspension", description = "Brake pads, discs, shocks, and fork oils", is_active = true },
-                new Category { id = 6, name = "Chains & Sprockets", description = "Drive chains, sprockets, and chain kits", is_active = true },
-                new Category { id = 7, name = "Body & Accessories", description = "Side mirrors, stickers, covers, and guards", is_active = true },
-                new Category { id = 8, name = "Tools & Maintenance", description = "Wrenches, lubricants, and cleaning kits", is_active = true },
-                new Category { id = 9, name = "Lights & Indicators", description = "Headlights, signal lights, and LED kits", is_active = true },
-                new Category { id = 10, name = "Engine Parts", description = "Pistons, gaskets, valves, and rebuild kits", is_active = true }
+                new Category { id = 1, name = "Lubricants & Fluids", description = "Engine oils, brake fluids, and coolant products"},
+                new Category { id = 2, name = "Electrical & Batteries", description = "Motorcycle batteries, bulbs, spark plugs, and wiring components"},
+                new Category { id = 3, name = "Tires & Wheels", description = "Inner tubes, tires, and wheel accessories",},
+                new Category { id = 4, name = "Riding Gear", description = "Helmets, gloves, jackets, and safety equipment"},
+                new Category { id = 5, name = "Brakes & Suspension", description = "Brake pads, discs, shocks, and fork oils"},
+                new Category { id = 6, name = "Chains & Sprockets", description = "Drive chains, sprockets, and chain kits"},
+                new Category { id = 7, name = "Body & Accessories", description = "Side mirrors, stickers, covers, and guards"},
+                new Category { id = 8, name = "Tools & Maintenance", description = "Wrenches, lubricants, and cleaning kits" },
+                new Category { id = 9, name = "Lights & Indicators", description = "Headlights, signal lights, and LED kits"},
+                new Category { id = 10, name = "Engine Parts", description = "Pistons, gaskets, valves, and rebuild kits"}
             );
 
             modelBuilder.Entity<SupplierDetails>().HasData(
