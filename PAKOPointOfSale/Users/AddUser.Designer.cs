@@ -251,7 +251,7 @@
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(4, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(113, 76);
+            pictureBox1.Size = new Size(178, 76);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 17;
             pictureBox1.TabStop = false;
@@ -261,11 +261,11 @@
             // 
             lblAddUser.AutoSize = true;
             lblAddUser.BackColor = Color.DimGray;
-            lblAddUser.Font = new Font("Impact", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblAddUser.Font = new Font("Impact", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblAddUser.ForeColor = Color.White;
-            lblAddUser.Location = new Point(294, 18);
+            lblAddUser.Location = new Point(323, 9);
             lblAddUser.Name = "lblAddUser";
-            lblAddUser.Size = new Size(151, 43);
+            lblAddUser.Size = new Size(208, 60);
             lblAddUser.TabIndex = 18;
             lblAddUser.Text = "ADD USER";
             // 

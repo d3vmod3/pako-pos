@@ -35,12 +35,21 @@ namespace PAKOPointOfSale.Products.Filters
 
         private void DateRange_Load(object sender, EventArgs e)
         {
-            dtTo.MaxDate = DateTime.Today;
+            
+            if(formTitle == "Filter ny Date Range" || formTitle == "Filter by Date Received")
+            {
+                dtTo.MaxDate = DateTime.Today;
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void dtTo_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

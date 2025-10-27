@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SuppliersList));
             btnExport = new Button();
             btnAdd = new Button();
@@ -123,6 +125,8 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle2;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(1343, 511);
             dataGridView1.TabIndex = 5;
@@ -198,6 +202,9 @@
             // edit
             // 
             edit.DataPropertyName = "id";
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            edit.DefaultCellStyle = dataGridViewCellStyle1;
             edit.HeaderText = "";
             edit.Name = "edit";
             edit.ReadOnly = true;
@@ -401,16 +408,6 @@
         private Label lblSearch;
         private DataGridView dataGridView1;
         private BindingSource supplierDetailsBindingSource;
-        private DataGridViewTextBoxColumn id;
-        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn contactnumberDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn accountnumberDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn gatewayDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn is_active;
-        private DataGridViewTextBoxColumn createdatDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn productsDataGridViewTextBoxColumn;
-        private DataGridViewButtonColumn edit;
         private PictureBox pictureBox2;
         private PictureBox pictureBox1;
         private Label label1;
@@ -425,5 +422,15 @@
         private Button btnClearFilter;
         private ComboBox cmbStatus;
         private Label label5;
+        private DataGridViewTextBoxColumn id;
+        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn contactnumberDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn accountnumberDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn gatewayDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn is_active;
+        private DataGridViewTextBoxColumn createdatDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn productsDataGridViewTextBoxColumn;
+        private DataGridViewButtonColumn edit;
     }
 }

@@ -105,5 +105,10 @@ namespace PAKOPointOfSale
             LoggedInUser.Logout(this);
             this.Close();
         }
+
+        private void ResetPassword_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

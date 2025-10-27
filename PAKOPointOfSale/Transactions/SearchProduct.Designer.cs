@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SearchProduct));
             label1 = new Label();
             txtSearch = new TextBox();
@@ -92,10 +95,20 @@
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { product_name, addToCart, id, productdescriptionDataGridViewTextBoxColumn, productcodeDataGridViewTextBoxColumn, skuDataGridViewTextBoxColumn, quantityDataGridViewTextBoxColumn, unitofmeasurementDataGridViewTextBoxColumn, costpriceDataGridViewTextBoxColumn, unitpriceDataGridViewTextBoxColumn, remarksDataGridViewTextBoxColumn, statusDataGridViewTextBoxColumn, datereceivedDataGridViewTextBoxColumn, dateexpirationDataGridViewTextBoxColumn });
             dataGridView1.DataSource = productBindingSource;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridView1.Location = new Point(12, 124);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
+            dataGridViewCellStyle3.ForeColor = Color.Black;
+            dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle3;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(1346, 540);
             dataGridView1.TabIndex = 3;
@@ -111,6 +124,9 @@
             // addToCart
             // 
             addToCart.DataPropertyName = "id";
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            addToCart.DefaultCellStyle = dataGridViewCellStyle1;
             addToCart.HeaderText = "Action";
             addToCart.Name = "addToCart";
             addToCart.ReadOnly = true;
@@ -299,14 +315,16 @@
         private PictureBox pictureBox2;
         private PictureBox pictureBox1;
         private Label lblsearchproduct;
+        private DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn supplierDataGridViewTextBoxColumn;
+        private PictureBox pictureBox3;
+        private Button button1;
         private DataGridViewTextBoxColumn product_name;
         private DataGridViewButtonColumn addToCart;
         private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn productdescriptionDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn productcodeDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn skuDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn supplierDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn unitofmeasurementDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn costpriceDataGridViewTextBoxColumn;
@@ -315,7 +333,5 @@
         private DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn datereceivedDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn dateexpirationDataGridViewTextBoxColumn;
-        private PictureBox pictureBox3;
-        private Button button1;
     }
 }

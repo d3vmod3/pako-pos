@@ -279,7 +279,7 @@
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(0, 1);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(116, 80);
+            pictureBox1.Size = new Size(153, 80);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 38;
             pictureBox1.TabStop = false;
@@ -288,11 +288,11 @@
             // 
             lbledituser.AutoSize = true;
             lbledituser.BackColor = Color.DimGray;
-            lbledituser.Font = new Font("Impact", 27.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbledituser.Font = new Font("Impact", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbledituser.ForeColor = Color.White;
-            lbledituser.Location = new Point(358, 19);
+            lbledituser.Location = new Point(358, 9);
             lbledituser.Name = "lbledituser";
-            lbledituser.Size = new Size(164, 45);
+            lbledituser.Size = new Size(213, 60);
             lbledituser.TabIndex = 39;
             lbledituser.Text = "EDIT USER";
             // 

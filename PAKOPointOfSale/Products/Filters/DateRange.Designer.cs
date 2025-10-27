@@ -70,6 +70,7 @@
             dtTo.Size = new Size(200, 23);
             dtTo.TabIndex = 2;
             dtTo.Value = new DateTime(2025, 10, 20, 0, 0, 0, 0);
+            dtTo.ValueChanged += dtTo_ValueChanged;
             // 
             // btnFilter
             // 

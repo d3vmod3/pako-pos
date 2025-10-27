@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TransactionsList));
             dtgvTransactions = new DataGridView();
             id = new DataGridViewTextBoxColumn();
@@ -87,6 +88,8 @@
             dtgvTransactions.Name = "dtgvTransactions";
             dtgvTransactions.ReadOnly = true;
             dtgvTransactions.RowHeadersVisible = false;
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dtgvTransactions.RowsDefaultCellStyle = dataGridViewCellStyle1;
             dtgvTransactions.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dtgvTransactions.Size = new Size(1343, 503);
             dtgvTransactions.TabIndex = 0;

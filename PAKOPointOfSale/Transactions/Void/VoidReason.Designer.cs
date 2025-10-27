@@ -31,6 +31,7 @@
             btnSubmit = new Button();
             label1 = new Label();
             txtReason = new TextBox();
+            button1 = new Button();
             SuspendLayout();
             // 
             // btnSubmit
@@ -38,7 +39,7 @@
             btnSubmit.BackColor = Color.SeaGreen;
             btnSubmit.FlatStyle = FlatStyle.Popup;
             btnSubmit.ForeColor = Color.White;
-            btnSubmit.Location = new Point(345, 205);
+            btnSubmit.Location = new Point(260, 203);
             btnSubmit.Name = "btnSubmit";
             btnSubmit.Size = new Size(75, 23);
             btnSubmit.TabIndex = 5;
@@ -64,12 +65,26 @@
             txtReason.Size = new Size(408, 146);
             txtReason.TabIndex = 3;
             // 
+            // button1
+            // 
+            button1.BackColor = Color.Red;
+            button1.FlatStyle = FlatStyle.Popup;
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(343, 203);
+            button1.Name = "button1";
+            button1.Size = new Size(77, 23);
+            button1.TabIndex = 14;
+            button1.Text = "Close";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
             // VoidReason
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
             ClientSize = new Size(431, 238);
+            Controls.Add(button1);
             Controls.Add(btnSubmit);
             Controls.Add(label1);
             Controls.Add(txtReason);
@@ -87,5 +102,6 @@
         private Button btnSubmit;
         private Label label1;
         private TextBox txtReason;
+        private Button button1;
     }
 }

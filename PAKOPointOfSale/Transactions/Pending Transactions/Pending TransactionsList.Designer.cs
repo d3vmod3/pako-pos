@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             dtgvParkedTransactions = new DataGridView();
             id = new DataGridViewTextBoxColumn();
             park_number = new DataGridViewTextBoxColumn();
@@ -68,8 +69,10 @@
             dtgvParkedTransactions.Name = "dtgvParkedTransactions";
             dtgvParkedTransactions.ReadOnly = true;
             dtgvParkedTransactions.RowHeadersVisible = false;
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dtgvParkedTransactions.RowsDefaultCellStyle = dataGridViewCellStyle1;
             dtgvParkedTransactions.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgvParkedTransactions.Size = new Size(795, 326);
+            dtgvParkedTransactions.Size = new Size(953, 419);
             dtgvParkedTransactions.TabIndex = 0;
             dtgvParkedTransactions.CellContentClick += dtgvParkedTransactions_CellContentClick;
             dtgvParkedTransactions.CellFormatting += dtgvParkedTransactions_CellFormatting;
@@ -181,29 +184,30 @@
             // 
             transactiontypeDataGridViewTextBoxColumn.DataPropertyName = "transaction_type";
             transactiontypeDataGridViewTextBoxColumn.HeaderText = "Transaction Type";
+            transactiontypeDataGridViewTextBoxColumn.MinimumWidth = 150;
             transactiontypeDataGridViewTextBoxColumn.Name = "transactiontypeDataGridViewTextBoxColumn";
             transactiontypeDataGridViewTextBoxColumn.ReadOnly = true;
-            transactiontypeDataGridViewTextBoxColumn.Width = 111;
+            transactiontypeDataGridViewTextBoxColumn.Width = 150;
             // 
             // createdatDataGridViewTextBoxColumn
             // 
             createdatDataGridViewTextBoxColumn.DataPropertyName = "created_at";
             createdatDataGridViewTextBoxColumn.HeaderText = "Date Pending";
+            createdatDataGridViewTextBoxColumn.MinimumWidth = 120;
             createdatDataGridViewTextBoxColumn.Name = "createdatDataGridViewTextBoxColumn";
             createdatDataGridViewTextBoxColumn.ReadOnly = true;
-            createdatDataGridViewTextBoxColumn.Width = 95;
+            createdatDataGridViewTextBoxColumn.Width = 120;
             // 
             // settle
             // 
             settle.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             settle.DataPropertyName = "settle";
             settle.HeaderText = "";
-            settle.MinimumWidth = 50;
+            settle.MinimumWidth = 100;
             settle.Name = "settle";
             settle.ReadOnly = true;
             settle.Text = "Settle";
             settle.UseColumnTextForButtonValue = true;
-            settle.Width = 50;
             // 
             // salesinvoiceitemsDataGridViewTextBoxColumn
             // 
@@ -218,14 +222,13 @@
             // 
             cancel.DataPropertyName = "cancel";
             cancel.HeaderText = "";
-            cancel.MinimumWidth = 50;
+            cancel.MinimumWidth = 100;
             cancel.Name = "cancel";
             cancel.ReadOnly = true;
             cancel.Resizable = DataGridViewTriState.True;
             cancel.SortMode = DataGridViewColumnSortMode.Automatic;
             cancel.Text = "Cancel";
             cancel.UseColumnTextForButtonValue = true;
-            cancel.Width = 50;
             // 
             // transactionBindingSource
             // 
@@ -253,7 +256,7 @@
             btnClose.BackColor = Color.Red;
             btnClose.FlatStyle = FlatStyle.Popup;
             btnClose.ForeColor = Color.White;
-            btnClose.Location = new Point(723, 19);
+            btnClose.Location = new Point(881, 19);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(84, 24);
             btnClose.TabIndex = 21;
@@ -266,7 +269,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
-            ClientSize = new Size(819, 386);
+            ClientSize = new Size(977, 480);
             Controls.Add(btnClose);
             Controls.Add(label1);
             Controls.Add(txtSearch);

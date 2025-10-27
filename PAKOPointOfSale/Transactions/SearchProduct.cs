@@ -164,7 +164,7 @@ namespace PAKOPointOfSale.Transactions
                 }
                 DataGridViewButtonColumn c = (DataGridViewButtonColumn)dataGridView1.Columns["addToCart"];
                 c.FlatStyle = FlatStyle.Flat;
-                c.DefaultCellStyle.ForeColor = Color.White;
+                c.DefaultCellStyle.ForeColor = Color.Black;
                 c.DefaultCellStyle.BackColor = Color.LightBlue;
             }
             catch (Exception ex)

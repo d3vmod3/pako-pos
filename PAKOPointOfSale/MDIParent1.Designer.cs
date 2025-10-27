@@ -30,9 +30,9 @@ namespace PAKOPointOfSale
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MDIParent1));
             menuStrip = new MenuStrip();
             statusStrip = new StatusStrip();
@@ -132,31 +132,31 @@ namespace PAKOPointOfSale
             // 
             dtgvTop5SellingProducts.AllowUserToAddRows = false;
             dtgvTop5SellingProducts.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.ForeColor = Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = Color.White;
-            dtgvTop5SellingProducts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = Color.White;
+            dtgvTop5SellingProducts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             dtgvTop5SellingProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgvTop5SellingProducts.BackgroundColor = SystemColors.ControlLight;
             dtgvTop5SellingProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgvTop5SellingProducts.Columns.AddRange(new DataGridViewColumn[] { product_name, total_quantity_sold, total_sales });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dtgvTop5SellingProducts.DefaultCellStyle = dataGridViewCellStyle2;
-            dtgvTop5SellingProducts.Location = new Point(15, 37);
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = SystemColors.Window;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            dtgvTop5SellingProducts.DefaultCellStyle = dataGridViewCellStyle5;
+            dtgvTop5SellingProducts.Location = new Point(15, 22);
             dtgvTop5SellingProducts.Name = "dtgvTop5SellingProducts";
             dtgvTop5SellingProducts.ReadOnly = true;
             dtgvTop5SellingProducts.RowHeadersVisible = false;
-            dataGridViewCellStyle3.ForeColor = Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dtgvTop5SellingProducts.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.ForeColor = Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dtgvTop5SellingProducts.RowsDefaultCellStyle = dataGridViewCellStyle6;
             dtgvTop5SellingProducts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgvTop5SellingProducts.Size = new Size(513, 262);
+            dtgvTop5SellingProducts.Size = new Size(513, 277);
             dtgvTop5SellingProducts.TabIndex = 11;
             // 
             // product_name
@@ -185,7 +185,7 @@ namespace PAKOPointOfSale
             label2.AutoSize = true;
             label2.BackColor = Color.Transparent;
             label2.ForeColor = Color.Black;
-            label2.Location = new Point(254, 318);
+            label2.Location = new Point(210, 318);
             label2.Name = "label2";
             label2.Size = new Size(50, 15);
             label2.TabIndex = 9;
@@ -193,9 +193,9 @@ namespace PAKOPointOfSale
             // 
             // dtpTo
             // 
-            dtpTo.Location = new Point(243, 336);
+            dtpTo.Location = new Point(210, 336);
             dtpTo.Name = "dtpTo";
-            dtpTo.Size = new Size(232, 23);
+            dtpTo.Size = new Size(185, 23);
             dtpTo.TabIndex = 8;
             // 
             // label1
@@ -214,13 +214,12 @@ namespace PAKOPointOfSale
             dtpFrom.CalendarMonthBackground = Color.White;
             dtpFrom.Location = new Point(12, 336);
             dtpFrom.Name = "dtpFrom";
-            dtpFrom.Size = new Size(225, 23);
+            dtpFrom.Size = new Size(187, 23);
             dtpFrom.TabIndex = 6;
             // 
             // groupBox1
             // 
             groupBox1.BackColor = Color.CadetBlue;
-            groupBox1.Controls.Add(btnExportTop5Selling);
             groupBox1.Controls.Add(dtgvTop5SellingProducts);
             groupBox1.ForeColor = Color.White;
             groupBox1.Location = new Point(12, 365);
@@ -235,7 +234,7 @@ namespace PAKOPointOfSale
             btnExportTop5Selling.BackColor = Color.Goldenrod;
             btnExportTop5Selling.FlatStyle = FlatStyle.Popup;
             btnExportTop5Selling.ForeColor = Color.Black;
-            btnExportTop5Selling.Location = new Point(453, 11);
+            btnExportTop5Selling.Location = new Point(479, 336);
             btnExportTop5Selling.Name = "btnExportTop5Selling";
             btnExportTop5Selling.Size = new Size(75, 23);
             btnExportTop5Selling.TabIndex = 16;
@@ -248,7 +247,7 @@ namespace PAKOPointOfSale
             btnFilter.BackColor = Color.Khaki;
             btnFilter.FlatStyle = FlatStyle.Popup;
             btnFilter.ForeColor = Color.Black;
-            btnFilter.Location = new Point(481, 336);
+            btnFilter.Location = new Point(402, 336);
             btnFilter.Name = "btnFilter";
             btnFilter.Size = new Size(75, 23);
             btnFilter.TabIndex = 15;
@@ -447,7 +446,7 @@ namespace PAKOPointOfSale
             label10.FlatStyle = FlatStyle.System;
             label10.Font = new Font("Impact", 54.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label10.ForeColor = SystemColors.ButtonHighlight;
-            label10.Location = new Point(520, 34);
+            label10.Location = new Point(521, 32);
             label10.Name = "label10";
             label10.Size = new Size(391, 91);
             label10.TabIndex = 155;
@@ -737,6 +736,7 @@ namespace PAKOPointOfSale
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
             ClientSize = new Size(1367, 788);
+            Controls.Add(btnExportTop5Selling);
             Controls.Add(lblFullName);
             Controls.Add(pictureBox3);
             Controls.Add(pictureBox4);

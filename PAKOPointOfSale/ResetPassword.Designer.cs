@@ -112,7 +112,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ActiveBorder;
+            BackColor = Color.CadetBlue;
             ClientSize = new Size(447, 186);
             Controls.Add(chkShowPassword);
             Controls.Add(label2);
@@ -125,6 +125,7 @@
             Name = "ResetPassword";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Reset Password";
+            Load += ResetPassword_Load;
             ResumeLayout(false);
             PerformLayout();
         }
