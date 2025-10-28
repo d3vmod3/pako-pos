@@ -1116,8 +1116,8 @@ namespace PAKOPointOfSale.Transactions
                         si.discount_type as [discountType],
                         si.total_amount as [subTotal]
                     FROM ParkedSalesInvoiceItems si
-                    INNER JOIN Products p ON si.product_id = p.id
-                    INNER JOIN Categories c ON p.id = c.id 
+                    LEFT JOIN Products p ON si.product_id = p.id
+                    LEFT JOIN Categories c ON p.id = c.id 
                     WHERE si.transaction_id = @transactionId
                     ORDER BY si.id", conn))
                 {

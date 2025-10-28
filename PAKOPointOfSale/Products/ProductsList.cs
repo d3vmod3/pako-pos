@@ -82,8 +82,8 @@ namespace PAKOPointOfSale.Products
                     p.date_expiration,
                     p.created_at,
                     p.is_active,
-                    s.name AS supplier_name,
-                    c.name AS category_name
+                    ISNULL(s.name, 'Unknown') AS supplier_name,
+                    ISNULL(c.name, 'Unknown') AS category_name
                 FROM Products p
                 LEFT JOIN SupplierDetails s ON p.supplier_id = s.id
                 LEFT JOIN Categories c ON p.category_id = c.id

@@ -69,12 +69,12 @@ namespace PAKOPointOfSale.Products
                                 dtpDateExpiration.Value = Convert.ToDateTime(reader["date_expiration"]);
 
                                 // Set ComboBoxes by Value
-                                cmbSupplier.SelectedValue = reader["supplier_id"] == DBNull.Value
-                                    ? DBNull.Value
+                                cmbSupplier.SelectedValue = reader["supplier_id"] == "Unknown"
+                                    ? "Unknown"
                                     : reader["supplier_id"];
 
-                                cmbCategory.SelectedValue = reader["category_id"] == DBNull.Value
-                                    ? DBNull.Value
+                                cmbCategory.SelectedValue = reader["category_id"] == "Unknown"
+                                    ? "Unknown"
                                     : reader["category_id"];
                                 cmbUnitofMeasurements.Text = reader["unit_of_measurement"].ToString();
                                 cmbStatus.Text = reader["status"].ToString();
@@ -119,7 +119,7 @@ namespace PAKOPointOfSale.Products
 
                         DataRow emptyRow = dt.NewRow();
                         emptyRow["id"] = DBNull.Value;
-                        emptyRow["name"] = ""; // empty display
+                        emptyRow["name"] = "Unknown"; // empty display
                         dt.Rows.InsertAt(emptyRow, 0);
 
                         cmbSupplier.DisplayMember = "name";
@@ -156,7 +156,7 @@ namespace PAKOPointOfSale.Products
 
                         DataRow emptyRow = dt.NewRow();
                         emptyRow["id"] = DBNull.Value;
-                        emptyRow["name"] = ""; // empty display
+                        emptyRow["name"] = "Unknown"; // empty display
                         dt.Rows.InsertAt(emptyRow, 0);
 
                         cmbCategory.DisplayMember = "name";
@@ -206,16 +206,16 @@ namespace PAKOPointOfSale.Products
                     return false;
                 }
             }
-            if (_productCode != txtProductCode.Text)
-            {
-                if (IsProductCodeExists(txtProductCode.Text))
-                {
-                    MessageBox.Show("Product Code already exists. Please use a different one.",
-                                    "Duplicate Product Code", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtProductCode.Focus();
-                    return false;
-                }
-            }
+            //if (_productCode != txtProductCode.Text)
+            //{
+            //    if (IsProductCodeExists(txtProductCode.Text))
+            //    {
+            //        MessageBox.Show("Product Code already exists. Please use a different one.",
+            //                        "Duplicate Product Code", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //        txtProductCode.Focus();
+            //        return false;
+            //    }
+            //}
 
             //if (_barcode != txtBarcode.Text)
             //{
@@ -239,9 +239,9 @@ namespace PAKOPointOfSale.Products
             }
 
             // --- Date Expiration ---
-            if (dtpDateExpiration.Value.Date <= DateTime.Now.Date.AddYears(1))
+            if (dtpDateExpiration.Value.Date < DateTime.Now.Date.AddMonths(1))
             {
-                MessageBox.Show("Date Expiration must be more than 1 year from today.", "Invalid Date",
+                MessageBox.Show("Date Expiration must be more than a month from today.", "Invalid Date",
                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 dtpDateExpiration.Focus();
                 return false;

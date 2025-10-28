@@ -56,7 +56,7 @@ namespace PAKOPointOfSale.Products
 
                         DataRow emptyRow = dt.NewRow();
                         emptyRow["id"] = DBNull.Value;
-                        emptyRow["name"] = ""; // empty display
+                        emptyRow["name"] = "Unknown"; // empty display
                         dt.Rows.InsertAt(emptyRow, 0);
 
                         cmbSupplier.DisplayMember = "name";
@@ -93,7 +93,7 @@ namespace PAKOPointOfSale.Products
 
                         DataRow emptyRow = dt.NewRow();
                         emptyRow["id"] = DBNull.Value;
-                        emptyRow["name"] = ""; // empty display
+                        emptyRow["name"] = "Unknown"; // empty display
                         dt.Rows.InsertAt(emptyRow, 0);
 
                         cmbCategory.DisplayMember = "name";
@@ -195,13 +195,13 @@ namespace PAKOPointOfSale.Products
             //    return false;
             //}
 
-            if (IsSkuExists(txtSKU.Text))
-            {
-                MessageBox.Show("SKU already exists. Please use a different one.",
-                                "Duplicate SKU", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtSKU.Focus();
-                return false;
-            }
+            //if (IsSkuExists(txtSKU.Text))
+            //{
+            //    MessageBox.Show("SKU already exists. Please use a different one.",
+            //                    "Duplicate SKU", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    txtSKU.Focus();
+            //    return false;
+            //}
 
             if (IsProductCodeExists(txtProductCode.Text))
             {
@@ -219,7 +219,7 @@ namespace PAKOPointOfSale.Products
             //    return false;
             //}
 
-            
+
 
 
 
@@ -232,9 +232,9 @@ namespace PAKOPointOfSale.Products
             }
 
             // --- Date Expiration ---
-            if (dtpDateExpiration.Value.Date <= DateTime.Now.Date.AddYears(1))
+            if (dtpDateExpiration.Value.Date < DateTime.Now.Date.AddMonths(1))
             {
-                MessageBox.Show("Date Expiration must be more than 1 year from today.", "Invalid Date",
+                MessageBox.Show("Date Expiration must be more than a month from today.", "Invalid Date",
                                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 dtpDateExpiration.Focus();
                 return false;
@@ -331,6 +331,11 @@ namespace PAKOPointOfSale.Products
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
