@@ -27,7 +27,7 @@ namespace PAKOPointOfSale
             Form childForm = new Form();
             childForm.MdiParent = this;
             childForm.Text = "Window " + childFormNumber++;
-            childForm.Show();
+            childForm.ShowDialog();
         }
 
         private void OpenFile(object sender, EventArgs e)
@@ -215,7 +215,7 @@ namespace PAKOPointOfSale
                 return;
             }
             Transactions.SalesInvoice salesInvoiceForm = new Transactions.SalesInvoice();
-            salesInvoiceForm.Show();
+            salesInvoiceForm.ShowDialog();
         }
 
         private void transactionsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -397,7 +397,7 @@ namespace PAKOPointOfSale
                 return;
             }
             Products.ProductsList productsForm = new Products.ProductsList();
-            productsForm.Show();
+            productsForm.ShowDialog();
         }
 
         private void btnCategories_Click(object sender, EventArgs e)
@@ -408,7 +408,7 @@ namespace PAKOPointOfSale
                 return;
             }
             Categories.CategoriesList categoriesList = new Categories.CategoriesList();
-            categoriesList.Show();
+            categoriesList.ShowDialog();
         }
 
         private void btnSuppliers_Click(object sender, EventArgs e)
@@ -419,7 +419,7 @@ namespace PAKOPointOfSale
                 return;
             }
             Supplier_Details.SuppliersList suppliersList = new Supplier_Details.SuppliersList();
-            suppliersList.Show();
+            suppliersList.ShowDialog();
         }
 
         private void btnTransactions_Click(object sender, EventArgs e)
@@ -430,7 +430,7 @@ namespace PAKOPointOfSale
                 return;
             }
             Transactions.TransactionsList transactionsListForm = new Transactions.TransactionsList();
-            transactionsListForm.Show();
+            transactionsListForm.ShowDialog();
         }
 
         private void btnUsers_Click(object sender, EventArgs e)
@@ -441,7 +441,7 @@ namespace PAKOPointOfSale
                 return;
             }
             Users.UsersList usersListForm = new Users.UsersList();
-            usersListForm.Show();
+            usersListForm.ShowDialog();
         }
 
         private void btnUac_Click(object sender, EventArgs e)
@@ -452,7 +452,7 @@ namespace PAKOPointOfSale
                 return;
             }
             UAC.UAC userAccessControlForm = new UAC.UAC();
-            userAccessControlForm.Show();
+            userAccessControlForm.ShowDialog();
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
