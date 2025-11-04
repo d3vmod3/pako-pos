@@ -59,7 +59,6 @@ namespace PAKOPointOfSale.Categories
                         // Add parameters to avoid SQL injection
                         cmd.Parameters.AddWithValue("@name", txtCategoryName.Text.Trim());
                         cmd.Parameters.AddWithValue("@description", txtDescription.Text.Trim());
-                        cmd.Parameters.AddWithValue("@is_active", false);
 
                         int rowsAffected = cmd.ExecuteNonQuery();
 
@@ -121,6 +120,14 @@ namespace PAKOPointOfSale.Categories
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtCategoryName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //if (!char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != ' ')
+            //{
+            //    e.Handled = true; // suppress the key
+            //}
         }
     }
 }

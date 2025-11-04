@@ -90,6 +90,14 @@ namespace PAKOPointOfSale.Transactions.Return
             c.DefaultCellStyle.ForeColor = Color.White;
             c.DefaultCellStyle.BackColor = Color.LightBlue;
 
+            dgvReturnItems.Columns["unit_price"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvReturnItems.Columns["quantity"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvReturnItems.Columns["remainingQty"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvReturnItems.Columns["vat_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvReturnItems.Columns["vatable_sales"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvReturnItems.Columns["vat_exempt"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvReturnItems.Columns["discount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvReturnItems.Columns["total_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
         }
 

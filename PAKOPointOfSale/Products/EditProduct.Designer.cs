@@ -291,6 +291,7 @@
             // 
             txtSKU.Font = new Font("Segoe UI", 9.75F);
             txtSKU.Location = new Point(274, 599);
+            txtSKU.MaxLength = 32;
             txtSKU.Name = "txtSKU";
             txtSKU.Size = new Size(369, 25);
             txtSKU.TabIndex = 122;
@@ -299,6 +300,7 @@
             // 
             txtProductCode.Font = new Font("Segoe UI", 9.75F);
             txtProductCode.Location = new Point(274, 547);
+            txtProductCode.MaxLength = 12;
             txtProductCode.Name = "txtProductCode";
             txtProductCode.Size = new Size(369, 25);
             txtProductCode.TabIndex = 121;
@@ -316,6 +318,7 @@
             // 
             txtProductBrand.Font = new Font("Segoe UI", 9.75F);
             txtProductBrand.Location = new Point(274, 323);
+            txtProductBrand.MaxLength = 30;
             txtProductBrand.Name = "txtProductBrand";
             txtProductBrand.Size = new Size(369, 25);
             txtProductBrand.TabIndex = 119;
@@ -324,6 +327,7 @@
             // 
             txtProductName.Font = new Font("Segoe UI", 9.75F);
             txtProductName.Location = new Point(274, 264);
+            txtProductName.MaxLength = 50;
             txtProductName.Name = "txtProductName";
             txtProductName.Size = new Size(369, 25);
             txtProductName.TabIndex = 118;
@@ -448,6 +452,7 @@
             // 
             txtBarcode.Font = new Font("Segoe UI", 9.75F);
             txtBarcode.Location = new Point(274, 293);
+            txtBarcode.MaxLength = 15;
             txtBarcode.Name = "txtBarcode";
             txtBarcode.Size = new Size(369, 25);
             txtBarcode.TabIndex = 148;

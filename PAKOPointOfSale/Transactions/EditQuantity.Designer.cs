@@ -40,14 +40,14 @@
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
-            label5 = new Label();
-            lblUnitPrice = new Label();
             lblCategory = new Label();
             label7 = new Label();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
             label6 = new Label();
             btnClose = new Button();
+            label5 = new Label();
+            lblUnitPrice = new Label();
             ((System.ComponentModel.ISupportInitialize)num_AppliedQty).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -192,31 +192,6 @@
             label3.TabIndex = 10;
             label3.Text = "Unit:";
             // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.BackColor = Color.CadetBlue;
-            label5.Font = new Font("Microsoft Sans Serif", 11.25F);
-            label5.ForeColor = Color.Black;
-            label5.Location = new Point(33, 322);
-            label5.Name = "label5";
-            label5.Size = new Size(119, 18);
-            label5.TabIndex = 11;
-            label5.Text = "Current Quantity:";
-            // 
-            // lblUnitPrice
-            // 
-            lblUnitPrice.AutoSize = true;
-            lblUnitPrice.BackColor = Color.CadetBlue;
-            lblUnitPrice.BorderStyle = BorderStyle.FixedSingle;
-            lblUnitPrice.Font = new Font("Microsoft Sans Serif", 11.25F);
-            lblUnitPrice.ForeColor = Color.Black;
-            lblUnitPrice.Location = new Point(178, 322);
-            lblUnitPrice.Name = "lblUnitPrice";
-            lblUnitPrice.Size = new Size(18, 20);
-            lblUnitPrice.TabIndex = 12;
-            lblUnitPrice.Text = "0";
-            // 
             // lblCategory
             // 
             lblCategory.AutoSize = true;
@@ -287,6 +262,31 @@
             btnClose.UseVisualStyleBackColor = false;
             btnClose.Click += btnClose_Click;
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.BackColor = Color.CadetBlue;
+            label5.Font = new Font("Microsoft Sans Serif", 11.25F);
+            label5.ForeColor = Color.Black;
+            label5.Location = new Point(33, 322);
+            label5.Name = "label5";
+            label5.Size = new Size(76, 18);
+            label5.TabIndex = 11;
+            label5.Text = "Unit Price:";
+            // 
+            // lblUnitPrice
+            // 
+            lblUnitPrice.AutoSize = true;
+            lblUnitPrice.BackColor = Color.CadetBlue;
+            lblUnitPrice.BorderStyle = BorderStyle.FixedSingle;
+            lblUnitPrice.Font = new Font("Microsoft Sans Serif", 11.25F);
+            lblUnitPrice.ForeColor = Color.Black;
+            lblUnitPrice.Location = new Point(178, 322);
+            lblUnitPrice.Name = "lblUnitPrice";
+            lblUnitPrice.Size = new Size(18, 20);
+            lblUnitPrice.TabIndex = 12;
+            lblUnitPrice.Text = "0";
+            // 
             // EditQuantity
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -338,13 +338,13 @@
         private Label label1;
         private Label label2;
         private Label label3;
-        private Label label5;
-        private Label lblUnitPrice;
         private Label lblCategory;
         private Label label7;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
         private Label label6;
         private Button btnClose;
+        private Label label5;
+        private Label lblUnitPrice;
     }
 }

@@ -179,6 +179,9 @@ namespace PAKOPointOfSale
                     adapter.Fill(dt);
                 }
                 dtgvTop5SellingProducts.DataSource = dt;
+                dtgvTop5SellingProducts.Columns["total_quantity_sold"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dtgvTop5SellingProducts.Columns["total_sales"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dtgvTop5SellingProducts.Columns["product_name"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             }
         }
 

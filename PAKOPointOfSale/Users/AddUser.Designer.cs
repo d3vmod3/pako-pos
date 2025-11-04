@@ -59,6 +59,7 @@
             txtUsername.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtUsername.ForeColor = Color.Black;
             txtUsername.Location = new Point(143, 109);
+            txtUsername.MaxLength = 32;
             txtUsername.Name = "txtUsername";
             txtUsername.Size = new Size(205, 24);
             txtUsername.TabIndex = 0;
@@ -69,6 +70,7 @@
             txtFirstName.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtFirstName.ForeColor = Color.Black;
             txtFirstName.Location = new Point(143, 154);
+            txtFirstName.MaxLength = 20;
             txtFirstName.Name = "txtFirstName";
             txtFirstName.Size = new Size(205, 24);
             txtFirstName.TabIndex = 1;
@@ -79,6 +81,7 @@
             txtMiddleName.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtMiddleName.ForeColor = Color.Black;
             txtMiddleName.Location = new Point(143, 196);
+            txtMiddleName.MaxLength = 20;
             txtMiddleName.Name = "txtMiddleName";
             txtMiddleName.Size = new Size(205, 24);
             txtMiddleName.TabIndex = 2;
@@ -89,6 +92,7 @@
             txtLastName.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtLastName.ForeColor = Color.Black;
             txtLastName.Location = new Point(143, 247);
+            txtLastName.MaxLength = 20;
             txtLastName.Name = "txtLastName";
             txtLastName.Size = new Size(205, 24);
             txtLastName.TabIndex = 3;
@@ -98,6 +102,7 @@
             txtSuffix.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtSuffix.ForeColor = Color.Black;
             txtSuffix.Location = new Point(477, 109);
+            txtSuffix.MaxLength = 3;
             txtSuffix.Name = "txtSuffix";
             txtSuffix.Size = new Size(205, 24);
             txtSuffix.TabIndex = 4;
@@ -117,7 +122,7 @@
             cmbGender.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cmbGender.ForeColor = Color.White;
             cmbGender.FormattingEnabled = true;
-            cmbGender.Items.AddRange(new object[] { "Male", "Female" });
+            cmbGender.Items.AddRange(new object[] { "Male", "Female", "Others" });
             cmbGender.Location = new Point(477, 194);
             cmbGender.Name = "cmbGender";
             cmbGender.Size = new Size(205, 26);

@@ -33,6 +33,9 @@ namespace PAKOPointOfSale.Transactions
         private void SalesInvoice_Load(object sender, EventArgs e)
         {
             timeAndDate.Start();
+            dtgvCart.Columns["appliedQty"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dtgvCart.Columns["unit_price"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dtgvCart.Columns["subTotal"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
         }
 
         private void btnSearchProduct_Click(object sender, EventArgs e)
