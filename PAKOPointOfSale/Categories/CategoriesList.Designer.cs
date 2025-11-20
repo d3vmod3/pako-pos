@@ -66,7 +66,7 @@ namespace PAKOPointOfSale.Categories
             dataGridViewCellStyle1.ForeColor = Color.Black;
             dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.AutoGenerateColumns = false;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BackgroundColor = SystemColors.ActiveBorder;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = Color.CadetBlue;
@@ -225,27 +225,26 @@ namespace PAKOPointOfSale.Categories
             id.Name = "id";
             id.ReadOnly = true;
             id.Visible = false;
-            id.Width = 23;
             // 
             // name
             // 
             name.DataPropertyName = "name";
             name.FillWeight = 98.48173F;
             name.HeaderText = "Category Name";
+            name.MinimumWidth = 500;
             name.Name = "name";
             name.ReadOnly = true;
             name.Resizable = DataGridViewTriState.False;
-            name.Width = 106;
             // 
             // descriptionDataGridViewTextBoxColumn
             // 
             descriptionDataGridViewTextBoxColumn.DataPropertyName = "description";
             descriptionDataGridViewTextBoxColumn.FillWeight = 98.48173F;
             descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
+            descriptionDataGridViewTextBoxColumn.MinimumWidth = 600;
             descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
             descriptionDataGridViewTextBoxColumn.ReadOnly = true;
             descriptionDataGridViewTextBoxColumn.Resizable = DataGridViewTriState.False;
-            descriptionDataGridViewTextBoxColumn.Width = 92;
             // 
             // editCategory
             // 
@@ -256,7 +255,6 @@ namespace PAKOPointOfSale.Categories
             editCategory.ReadOnly = true;
             editCategory.Text = "Edit";
             editCategory.UseColumnTextForButtonValue = true;
-            editCategory.Width = 80;
             // 
             // deleteCategory
             // 
@@ -267,7 +265,6 @@ namespace PAKOPointOfSale.Categories
             deleteCategory.ReadOnly = true;
             deleteCategory.Text = "Delete";
             deleteCategory.UseColumnTextForButtonValue = true;
-            deleteCategory.Width = 50;
             // 
             // CategoriesList
             // 

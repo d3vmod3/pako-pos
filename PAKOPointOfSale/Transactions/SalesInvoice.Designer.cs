@@ -31,6 +31,8 @@ namespace PAKOPointOfSale.Transactions
         {
             components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SalesInvoice));
             productBindingSource = new BindingSource(components);
             userTypeBindingSource = new BindingSource(components);
@@ -136,7 +138,7 @@ namespace PAKOPointOfSale.Transactions
             dtgvCart.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
@@ -144,14 +146,28 @@ namespace PAKOPointOfSale.Transactions
             dtgvCart.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dtgvCart.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgvCart.Columns.AddRange(new DataGridViewColumn[] { id, product, brand, unit_of_measurement, appliedQty, unit_price, category, discountType, discountAmount, subTotal, vatableSales, vatAmount, vatExempt });
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dtgvCart.DefaultCellStyle = dataGridViewCellStyle2;
             dtgvCart.Location = new Point(12, 147);
             dtgvCart.Name = "dtgvCart";
             dtgvCart.RowHeadersVisible = false;
             dtgvCart.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dtgvCart.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dtgvCart.RowsDefaultCellStyle = dataGridViewCellStyle3;
             dtgvCart.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgvCart.Size = new Size(996, 500);
+            dtgvCart.Size = new Size(996, 501);
             dtgvCart.TabIndex = 4;
             dtgvCart.CellClick += dtgvCart_CellClick;
             dtgvCart.CellContentClick += dtgvCart_CellContentClick;
@@ -280,9 +296,9 @@ namespace PAKOPointOfSale.Transactions
             btnPark.FlatStyle = FlatStyle.Popup;
             btnPark.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             btnPark.ForeColor = Color.White;
-            btnPark.Location = new Point(635, 654);
+            btnPark.Location = new Point(662, 653);
             btnPark.Name = "btnPark";
-            btnPark.Size = new Size(165, 33);
+            btnPark.Size = new Size(149, 33);
             btnPark.TabIndex = 7;
             btnPark.Text = "Pending";
             btnPark.UseVisualStyleBackColor = false;
@@ -603,9 +619,9 @@ namespace PAKOPointOfSale.Transactions
             btnApplyDiscount.FlatStyle = FlatStyle.Popup;
             btnApplyDiscount.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             btnApplyDiscount.ForeColor = Color.White;
-            btnApplyDiscount.Location = new Point(299, 109);
+            btnApplyDiscount.Location = new Point(507, 653);
             btnApplyDiscount.Name = "btnApplyDiscount";
-            btnApplyDiscount.Size = new Size(128, 32);
+            btnApplyDiscount.Size = new Size(149, 35);
             btnApplyDiscount.TabIndex = 45;
             btnApplyDiscount.Text = "Apply Discount";
             btnApplyDiscount.UseVisualStyleBackColor = false;
@@ -644,7 +660,7 @@ namespace PAKOPointOfSale.Transactions
             btnClearCart.ForeColor = Color.White;
             btnClearCart.Location = new Point(31, 653);
             btnClearCart.Name = "btnClearCart";
-            btnClearCart.Size = new Size(173, 34);
+            btnClearCart.Size = new Size(120, 34);
             btnClearCart.TabIndex = 45;
             btnClearCart.Text = "Clear Cart";
             btnClearCart.UseVisualStyleBackColor = false;
@@ -771,7 +787,7 @@ namespace PAKOPointOfSale.Transactions
             // 
             lblParkLabel.AutoSize = true;
             lblParkLabel.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
-            lblParkLabel.Location = new Point(765, 117);
+            lblParkLabel.Location = new Point(815, 118);
             lblParkLabel.Name = "lblParkLabel";
             lblParkLabel.Size = new Size(126, 16);
             lblParkLabel.TabIndex = 157;
@@ -782,7 +798,7 @@ namespace PAKOPointOfSale.Transactions
             // 
             lblParkNumber.AutoSize = true;
             lblParkNumber.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
-            lblParkNumber.Location = new Point(903, 117);
+            lblParkNumber.Location = new Point(953, 118);
             lblParkNumber.Name = "lblParkNumber";
             lblParkNumber.Size = new Size(55, 16);
             lblParkNumber.TabIndex = 158;
@@ -795,9 +811,9 @@ namespace PAKOPointOfSale.Transactions
             btnParkedTransactions.FlatStyle = FlatStyle.Popup;
             btnParkedTransactions.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             btnParkedTransactions.ForeColor = Color.White;
-            btnParkedTransactions.Location = new Point(443, 654);
+            btnParkedTransactions.Location = new Point(342, 654);
             btnParkedTransactions.Name = "btnParkedTransactions";
-            btnParkedTransactions.Size = new Size(174, 34);
+            btnParkedTransactions.Size = new Size(159, 34);
             btnParkedTransactions.TabIndex = 159;
             btnParkedTransactions.Text = "Pending Transactions";
             btnParkedTransactions.UseVisualStyleBackColor = false;
@@ -809,7 +825,7 @@ namespace PAKOPointOfSale.Transactions
             btnScan.FlatStyle = FlatStyle.Popup;
             btnScan.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnScan.ForeColor = Color.White;
-            btnScan.Location = new Point(155, 109);
+            btnScan.Location = new Point(142, 109);
             btnScan.Name = "btnScan";
             btnScan.Size = new Size(126, 32);
             btnScan.TabIndex = 160;
@@ -823,9 +839,9 @@ namespace PAKOPointOfSale.Transactions
             btnRemove.FlatStyle = FlatStyle.Popup;
             btnRemove.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             btnRemove.ForeColor = Color.White;
-            btnRemove.Location = new Point(225, 653);
+            btnRemove.Location = new Point(155, 654);
             btnRemove.Name = "btnRemove";
-            btnRemove.Size = new Size(197, 34);
+            btnRemove.Size = new Size(181, 34);
             btnRemove.TabIndex = 161;
             btnRemove.Text = "Remove Selected Item(s)";
             btnRemove.UseVisualStyleBackColor = false;

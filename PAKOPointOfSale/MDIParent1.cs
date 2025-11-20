@@ -623,5 +623,10 @@ namespace PAKOPointOfSale
         {
 
         }
+
+        private void gbLowStocks_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
