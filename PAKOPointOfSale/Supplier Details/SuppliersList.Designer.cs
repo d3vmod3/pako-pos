@@ -29,9 +29,17 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SuppliersList));
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
             btnExport = new Button();
             btnAdd = new Button();
             txtSearch = new TextBox();
@@ -124,8 +132,8 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
-            dataGridViewCellStyle2.ForeColor = Color.Black;
-            dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.ForeColor = Color.Black;
+            dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle10;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(1343, 511);
             dataGridView1.TabIndex = 5;
@@ -274,7 +282,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(750, 105);
+            label5.Location = new Point(750, 102);
             label5.Name = "label5";
             label5.Size = new Size(71, 15);
             label5.TabIndex = 161;
@@ -283,6 +291,8 @@
             // id
             // 
             id.DataPropertyName = "id";
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            id.DefaultCellStyle = dataGridViewCellStyle1;
             id.HeaderText = "id";
             id.Name = "id";
             id.ReadOnly = true;
@@ -291,6 +301,9 @@
             // nameDataGridViewTextBoxColumn
             // 
             nameDataGridViewTextBoxColumn.DataPropertyName = "name";
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            nameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            nameDataGridViewTextBoxColumn.FillWeight = 85.27919F;
             nameDataGridViewTextBoxColumn.HeaderText = "Name";
             nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             nameDataGridViewTextBoxColumn.ReadOnly = true;
@@ -298,6 +311,9 @@
             // addressDataGridViewTextBoxColumn
             // 
             addressDataGridViewTextBoxColumn.DataPropertyName = "address";
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            addressDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            addressDataGridViewTextBoxColumn.FillWeight = 85.27919F;
             addressDataGridViewTextBoxColumn.HeaderText = "Address";
             addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
             addressDataGridViewTextBoxColumn.ReadOnly = true;
@@ -305,6 +321,9 @@
             // contactnumberDataGridViewTextBoxColumn
             // 
             contactnumberDataGridViewTextBoxColumn.DataPropertyName = "contact_number";
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            contactnumberDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            contactnumberDataGridViewTextBoxColumn.FillWeight = 85.27919F;
             contactnumberDataGridViewTextBoxColumn.HeaderText = "Contact Number";
             contactnumberDataGridViewTextBoxColumn.Name = "contactnumberDataGridViewTextBoxColumn";
             contactnumberDataGridViewTextBoxColumn.ReadOnly = true;
@@ -312,6 +331,9 @@
             // accountnumberDataGridViewTextBoxColumn
             // 
             accountnumberDataGridViewTextBoxColumn.DataPropertyName = "account_number";
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            accountnumberDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
+            accountnumberDataGridViewTextBoxColumn.FillWeight = 85.27919F;
             accountnumberDataGridViewTextBoxColumn.HeaderText = "Account Number";
             accountnumberDataGridViewTextBoxColumn.Name = "accountnumberDataGridViewTextBoxColumn";
             accountnumberDataGridViewTextBoxColumn.ReadOnly = true;
@@ -319,6 +341,9 @@
             // gatewayDataGridViewTextBoxColumn
             // 
             gatewayDataGridViewTextBoxColumn.DataPropertyName = "gateway";
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            gatewayDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
+            gatewayDataGridViewTextBoxColumn.FillWeight = 85.27919F;
             gatewayDataGridViewTextBoxColumn.HeaderText = "Gateway";
             gatewayDataGridViewTextBoxColumn.Name = "gatewayDataGridViewTextBoxColumn";
             gatewayDataGridViewTextBoxColumn.ReadOnly = true;
@@ -326,6 +351,9 @@
             // is_active
             // 
             is_active.DataPropertyName = "is_active";
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            is_active.DefaultCellStyle = dataGridViewCellStyle7;
+            is_active.FillWeight = 85.27919F;
             is_active.HeaderText = "Active";
             is_active.Name = "is_active";
             is_active.ReadOnly = true;
@@ -335,6 +363,9 @@
             // created_at
             // 
             created_at.DataPropertyName = "created_at";
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            created_at.DefaultCellStyle = dataGridViewCellStyle8;
+            created_at.FillWeight = 85.27919F;
             created_at.HeaderText = "Date Created";
             created_at.Name = "created_at";
             created_at.ReadOnly = true;
@@ -342,9 +373,10 @@
             // edit
             // 
             edit.DataPropertyName = "id";
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.ForeColor = Color.Black;
-            edit.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.ForeColor = Color.Black;
+            edit.DefaultCellStyle = dataGridViewCellStyle9;
+            edit.FillWeight = 203.045685F;
             edit.HeaderText = "";
             edit.Name = "edit";
             edit.ReadOnly = true;
@@ -413,6 +445,8 @@
         private Button btnClearFilter;
         private ComboBox cmbStatus;
         private Label label5;
+        private DataGridViewTextBoxColumn createdatDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn productsDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
@@ -420,9 +454,7 @@
         private DataGridViewTextBoxColumn accountnumberDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn gatewayDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn is_active;
-        private DataGridViewTextBoxColumn createdatDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn productsDataGridViewTextBoxColumn;
-        private DataGridViewButtonColumn edit;
         private DataGridViewTextBoxColumn created_at;
+        private DataGridViewButtonColumn edit;
     }
 }

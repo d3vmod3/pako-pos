@@ -203,5 +203,10 @@ namespace PAKOPointOfSale.Supplier_Details
         {
             this.Close();
         }
+
+        private void lblAddUser_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

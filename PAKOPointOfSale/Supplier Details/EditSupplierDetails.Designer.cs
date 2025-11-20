@@ -57,7 +57,7 @@
             btnSubmit.FlatStyle = FlatStyle.Popup;
             btnSubmit.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnSubmit.ForeColor = Color.White;
-            btnSubmit.Location = new Point(568, 288);
+            btnSubmit.Location = new Point(217, 341);
             btnSubmit.Name = "btnSubmit";
             btnSubmit.Size = new Size(75, 23);
             btnSubmit.TabIndex = 25;
@@ -68,7 +68,7 @@
             // txtPaymentGateway
             // 
             txtPaymentGateway.Font = new Font("Segoe UI", 9F);
-            txtPaymentGateway.Location = new Point(516, 163);
+            txtPaymentGateway.Location = new Point(162, 254);
             txtPaymentGateway.Multiline = true;
             txtPaymentGateway.Name = "txtPaymentGateway";
             txtPaymentGateway.Size = new Size(209, 23);
@@ -77,7 +77,7 @@
             // txtAccountNumber
             // 
             txtAccountNumber.Font = new Font("Segoe UI", 9F);
-            txtAccountNumber.Location = new Point(516, 111);
+            txtAccountNumber.Location = new Point(162, 212);
             txtAccountNumber.Multiline = true;
             txtAccountNumber.Name = "txtAccountNumber";
             txtAccountNumber.Size = new Size(209, 23);
@@ -86,7 +86,7 @@
             // txtContactNumber
             // 
             txtContactNumber.Font = new Font("Segoe UI", 9F);
-            txtContactNumber.Location = new Point(184, 213);
+            txtContactNumber.Location = new Point(195, 168);
             txtContactNumber.Multiline = true;
             txtContactNumber.Name = "txtContactNumber";
             txtContactNumber.Size = new Size(176, 23);
@@ -96,7 +96,7 @@
             // txtAddress
             // 
             txtAddress.Font = new Font("Segoe UI", 9F);
-            txtAddress.Location = new Point(151, 164);
+            txtAddress.Location = new Point(162, 128);
             txtAddress.Multiline = true;
             txtAddress.Name = "txtAddress";
             txtAddress.Size = new Size(209, 23);
@@ -105,7 +105,7 @@
             // txtSupplierName
             // 
             txtSupplierName.Font = new Font("Segoe UI", 9F);
-            txtSupplierName.Location = new Point(151, 112);
+            txtSupplierName.Location = new Point(162, 87);
             txtSupplierName.Multiline = true;
             txtSupplierName.Name = "txtSupplierName";
             txtSupplierName.Size = new Size(209, 23);
@@ -115,7 +115,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Calibri", 11.25F);
-            label6.Location = new Point(393, 168);
+            label6.Location = new Point(33, 255);
             label6.Name = "label6";
             label6.Size = new Size(120, 18);
             label6.TabIndex = 19;
@@ -125,7 +125,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Calibri", 11.25F);
-            label5.Location = new Point(393, 116);
+            label5.Location = new Point(33, 217);
             label5.Name = "label5";
             label5.Size = new Size(112, 18);
             label5.TabIndex = 18;
@@ -135,7 +135,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Calibri", 11.25F);
-            label4.Location = new Point(32, 222);
+            label4.Location = new Point(32, 173);
             label4.Name = "label4";
             label4.Size = new Size(109, 18);
             label4.TabIndex = 17;
@@ -145,7 +145,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Calibri", 11.25F);
-            label3.Location = new Point(32, 167);
+            label3.Location = new Point(32, 133);
             label3.Name = "label3";
             label3.Size = new Size(58, 18);
             label3.TabIndex = 16;
@@ -156,7 +156,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Calibri", 11.25F);
-            label2.Location = new Point(32, 116);
+            label2.Location = new Point(32, 92);
             label2.Name = "label2";
             label2.Size = new Size(100, 18);
             label2.TabIndex = 15;
@@ -165,7 +165,7 @@
             // chkIsActive
             // 
             chkIsActive.AutoSize = true;
-            chkIsActive.Location = new Point(666, 254);
+            chkIsActive.Location = new Point(312, 316);
             chkIsActive.Name = "chkIsActive";
             chkIsActive.Size = new Size(59, 19);
             chkIsActive.TabIndex = 26;
@@ -176,7 +176,7 @@
             // 
             lblCreatedAt.AutoSize = true;
             lblCreatedAt.Font = new Font("Calibri", 11.25F);
-            lblCreatedAt.Location = new Point(393, 217);
+            lblCreatedAt.Location = new Point(33, 297);
             lblCreatedAt.Name = "lblCreatedAt";
             lblCreatedAt.Size = new Size(89, 18);
             lblCreatedAt.TabIndex = 27;
@@ -188,11 +188,12 @@
             lblAddUser.BackColor = Color.DimGray;
             lblAddUser.Font = new Font("Impact", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblAddUser.ForeColor = Color.White;
-            lblAddUser.Location = new Point(298, 21);
+            lblAddUser.Location = new Point(134, 9);
             lblAddUser.Name = "lblAddUser";
             lblAddUser.Size = new Size(215, 43);
             lblAddUser.TabIndex = 30;
             lblAddUser.Text = "EDIT SUPPLIER";
+            lblAddUser.Click += lblAddUser_Click;
             // 
             // pictureBox1
             // 
@@ -200,7 +201,7 @@
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(0, 2);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(160, 76);
+            pictureBox1.Size = new Size(110, 62);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 29;
             pictureBox1.TabStop = false;
@@ -208,16 +209,16 @@
             // pictureBox2
             // 
             pictureBox2.BackColor = Color.DimGray;
-            pictureBox2.Location = new Point(-3, 2);
+            pictureBox2.Location = new Point(-3, 0);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(771, 76);
+            pictureBox2.Size = new Size(425, 62);
             pictureBox2.TabIndex = 31;
             pictureBox2.TabStop = false;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(151, 217);
+            label1.Location = new Point(162, 176);
             label1.Name = "label1";
             label1.Size = new Size(27, 15);
             label1.TabIndex = 152;
@@ -229,7 +230,7 @@
             btnClose.FlatStyle = FlatStyle.Popup;
             btnClose.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnClose.ForeColor = Color.White;
-            btnClose.Location = new Point(649, 288);
+            btnClose.Location = new Point(298, 341);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(76, 23);
             btnClose.TabIndex = 153;
@@ -242,7 +243,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
-            ClientSize = new Size(768, 336);
+            ClientSize = new Size(414, 394);
             Controls.Add(btnClose);
             Controls.Add(label1);
             Controls.Add(lblAddUser);

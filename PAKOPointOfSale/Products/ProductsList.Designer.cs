@@ -316,7 +316,7 @@
             btnAdd.ForeColor = Color.White;
             btnAdd.Location = new Point(1119, 108);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(75, 23);
+            btnAdd.Size = new Size(75, 24);
             btnAdd.TabIndex = 3;
             btnAdd.Text = "Add";
             btnAdd.UseVisualStyleBackColor = false;
@@ -330,7 +330,7 @@
             btnExport.ForeColor = Color.Black;
             btnExport.Location = new Point(1200, 108);
             btnExport.Name = "btnExport";
-            btnExport.Size = new Size(75, 23);
+            btnExport.Size = new Size(75, 24);
             btnExport.TabIndex = 5;
             btnExport.Text = "Export";
             btnExport.UseVisualStyleBackColor = false;
@@ -389,7 +389,7 @@
             btnClose.ForeColor = Color.White;
             btnClose.Location = new Point(1281, 108);
             btnClose.Name = "btnClose";
-            btnClose.Size = new Size(75, 23);
+            btnClose.Size = new Size(75, 24);
             btnClose.TabIndex = 11;
             btnClose.Text = "Close";
             btnClose.UseVisualStyleBackColor = false;
@@ -443,7 +443,7 @@
             btnFilter.FlatStyle = FlatStyle.Popup;
             btnFilter.Location = new Point(773, 109);
             btnFilter.Name = "btnFilter";
-            btnFilter.Size = new Size(75, 23);
+            btnFilter.Size = new Size(75, 24);
             btnFilter.TabIndex = 149;
             btnFilter.Text = "Filter";
             btnFilter.UseVisualStyleBackColor = false;
@@ -455,7 +455,7 @@
             btnClearFilter.FlatStyle = FlatStyle.Popup;
             btnClearFilter.Location = new Point(854, 109);
             btnClearFilter.Name = "btnClearFilter";
-            btnClearFilter.Size = new Size(75, 23);
+            btnClearFilter.Size = new Size(75, 24);
             btnClearFilter.TabIndex = 150;
             btnClearFilter.Text = "Clear Filter";
             btnClearFilter.UseVisualStyleBackColor = false;

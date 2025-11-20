@@ -143,7 +143,7 @@ namespace PAKOPointOfSale.Transactions
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
             dtgvCart.RowsDefaultCellStyle = dataGridViewCellStyle2;
             dtgvCart.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgvCart.Size = new Size(951, 500);
+            dtgvCart.Size = new Size(996, 500);
             dtgvCart.TabIndex = 4;
             dtgvCart.CellClick += dtgvCart_CellClick;
             dtgvCart.CellContentClick += dtgvCart_CellContentClick;
@@ -212,7 +212,7 @@ namespace PAKOPointOfSale.Transactions
             // subTotal
             // 
             subTotal.DataPropertyName = "subTotal";
-            subTotal.HeaderText = "Sub Total";
+            subTotal.HeaderText = "Total";
             subTotal.Name = "subTotal";
             subTotal.ReadOnly = true;
             // 
@@ -257,7 +257,7 @@ namespace PAKOPointOfSale.Transactions
             btnConfirm.FlatStyle = FlatStyle.Popup;
             btnConfirm.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             btnConfirm.ForeColor = Color.White;
-            btnConfirm.Location = new Point(781, 652);
+            btnConfirm.Location = new Point(817, 653);
             btnConfirm.Name = "btnConfirm";
             btnConfirm.Size = new Size(167, 33);
             btnConfirm.TabIndex = 6;
@@ -271,7 +271,7 @@ namespace PAKOPointOfSale.Transactions
             btnPark.FlatStyle = FlatStyle.Popup;
             btnPark.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             btnPark.ForeColor = Color.White;
-            btnPark.Location = new Point(610, 652);
+            btnPark.Location = new Point(635, 654);
             btnPark.Name = "btnPark";
             btnPark.Size = new Size(165, 33);
             btnPark.TabIndex = 7;
@@ -287,9 +287,9 @@ namespace PAKOPointOfSale.Transactions
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
-            groupBox1.Location = new Point(21, 431);
+            groupBox1.Location = new Point(15, 445);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(357, 142);
+            groupBox1.Size = new Size(317, 142);
             groupBox1.TabIndex = 8;
             groupBox1.TabStop = false;
             // 
@@ -373,9 +373,9 @@ namespace PAKOPointOfSale.Transactions
             groupBox2.Controls.Add(btn1k);
             groupBox2.Font = new Font("Impact", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             groupBox2.ForeColor = Color.Black;
-            groupBox2.Location = new Point(6, 3);
+            groupBox2.Location = new Point(3, 3);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(388, 104);
+            groupBox2.Size = new Size(345, 104);
             groupBox2.TabIndex = 28;
             groupBox2.TabStop = false;
             groupBox2.Text = "Quick Amounts";
@@ -385,9 +385,9 @@ namespace PAKOPointOfSale.Transactions
             btn1h.BackColor = Color.YellowGreen;
             btn1h.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
             btn1h.ForeColor = Color.Black;
-            btn1h.Location = new Point(288, 25);
+            btn1h.Location = new Point(255, 25);
             btn1h.Name = "btn1h";
-            btn1h.Size = new Size(88, 69);
+            btn1h.Size = new Size(74, 69);
             btn1h.TabIndex = 31;
             btn1h.Text = "₱100";
             btn1h.UseVisualStyleBackColor = false;
@@ -398,9 +398,9 @@ namespace PAKOPointOfSale.Transactions
             btn2h.BackColor = Color.YellowGreen;
             btn2h.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
             btn2h.ForeColor = Color.Black;
-            btn2h.Location = new Point(194, 26);
+            btn2h.Location = new Point(170, 26);
             btn2h.Name = "btn2h";
-            btn2h.Size = new Size(88, 68);
+            btn2h.Size = new Size(79, 68);
             btn2h.TabIndex = 30;
             btn2h.Text = "₱200";
             btn2h.UseVisualStyleBackColor = false;
@@ -411,9 +411,9 @@ namespace PAKOPointOfSale.Transactions
             btn5h.BackColor = Color.YellowGreen;
             btn5h.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
             btn5h.ForeColor = Color.Black;
-            btn5h.Location = new Point(100, 25);
+            btn5h.Location = new Point(90, 26);
             btn5h.Name = "btn5h";
-            btn5h.Size = new Size(88, 69);
+            btn5h.Size = new Size(74, 69);
             btn5h.TabIndex = 29;
             btn5h.Text = "₱500";
             btn5h.UseVisualStyleBackColor = false;
@@ -424,9 +424,9 @@ namespace PAKOPointOfSale.Transactions
             btn1k.BackColor = Color.YellowGreen;
             btn1k.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
             btn1k.ForeColor = Color.Black;
-            btn1k.Location = new Point(6, 25);
+            btn1k.Location = new Point(7, 26);
             btn1k.Name = "btn1k";
-            btn1k.Size = new Size(88, 72);
+            btn1k.Size = new Size(77, 69);
             btn1k.TabIndex = 0;
             btn1k.Text = "₱1000";
             btn1k.UseVisualStyleBackColor = false;
@@ -436,7 +436,7 @@ namespace PAKOPointOfSale.Transactions
             // 
             btnKey1.BackColor = Color.LightSeaGreen;
             btnKey1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnKey1.Location = new Point(12, 113);
+            btnKey1.Location = new Point(8, 115);
             btnKey1.Name = "btnKey1";
             btnKey1.Size = new Size(104, 63);
             btnKey1.TabIndex = 32;
@@ -448,7 +448,7 @@ namespace PAKOPointOfSale.Transactions
             // 
             btnKey2.BackColor = Color.LightSeaGreen;
             btnKey2.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
-            btnKey2.Location = new Point(144, 113);
+            btnKey2.Location = new Point(118, 115);
             btnKey2.Name = "btnKey2";
             btnKey2.Size = new Size(104, 63);
             btnKey2.TabIndex = 33;
@@ -460,7 +460,7 @@ namespace PAKOPointOfSale.Transactions
             // 
             btnKey3.BackColor = Color.LightSeaGreen;
             btnKey3.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
-            btnKey3.Location = new Point(274, 113);
+            btnKey3.Location = new Point(228, 113);
             btnKey3.Name = "btnKey3";
             btnKey3.Size = new Size(104, 63);
             btnKey3.TabIndex = 34;
@@ -472,7 +472,7 @@ namespace PAKOPointOfSale.Transactions
             // 
             btnKey4.BackColor = Color.LightSeaGreen;
             btnKey4.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
-            btnKey4.Location = new Point(13, 184);
+            btnKey4.Location = new Point(9, 186);
             btnKey4.Name = "btnKey4";
             btnKey4.Size = new Size(104, 60);
             btnKey4.TabIndex = 35;
@@ -484,7 +484,7 @@ namespace PAKOPointOfSale.Transactions
             // 
             btnKey7.BackColor = Color.LightSeaGreen;
             btnKey7.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
-            btnKey7.Location = new Point(13, 251);
+            btnKey7.Location = new Point(9, 253);
             btnKey7.Name = "btnKey7";
             btnKey7.Size = new Size(104, 60);
             btnKey7.TabIndex = 36;
@@ -496,7 +496,7 @@ namespace PAKOPointOfSale.Transactions
             // 
             btnKey9.BackColor = Color.LightSeaGreen;
             btnKey9.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
-            btnKey9.Location = new Point(274, 251);
+            btnKey9.Location = new Point(228, 251);
             btnKey9.Name = "btnKey9";
             btnKey9.Size = new Size(104, 58);
             btnKey9.TabIndex = 37;
@@ -508,7 +508,7 @@ namespace PAKOPointOfSale.Transactions
             // 
             btnKey5.BackColor = Color.LightSeaGreen;
             btnKey5.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
-            btnKey5.Location = new Point(146, 184);
+            btnKey5.Location = new Point(120, 186);
             btnKey5.Name = "btnKey5";
             btnKey5.Size = new Size(104, 60);
             btnKey5.TabIndex = 38;
@@ -520,7 +520,7 @@ namespace PAKOPointOfSale.Transactions
             // 
             btnKey8.BackColor = Color.LightSeaGreen;
             btnKey8.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
-            btnKey8.Location = new Point(147, 251);
+            btnKey8.Location = new Point(121, 253);
             btnKey8.Name = "btnKey8";
             btnKey8.Size = new Size(104, 60);
             btnKey8.TabIndex = 39;
@@ -532,7 +532,7 @@ namespace PAKOPointOfSale.Transactions
             // 
             btnKey6.BackColor = Color.LightSeaGreen;
             btnKey6.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
-            btnKey6.Location = new Point(274, 184);
+            btnKey6.Location = new Point(228, 184);
             btnKey6.Name = "btnKey6";
             btnKey6.Size = new Size(104, 60);
             btnKey6.TabIndex = 40;
@@ -544,7 +544,7 @@ namespace PAKOPointOfSale.Transactions
             // 
             btnClearCash.BackColor = Color.LightSeaGreen;
             btnClearCash.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
-            btnClearCash.Location = new Point(274, 320);
+            btnClearCash.Location = new Point(228, 324);
             btnClearCash.Name = "btnClearCash";
             btnClearCash.Size = new Size(104, 57);
             btnClearCash.TabIndex = 41;
@@ -555,10 +555,10 @@ namespace PAKOPointOfSale.Transactions
             // txtCash
             // 
             txtCash.Font = new Font("Impact", 15.75F);
-            txtCash.Location = new Point(104, 399);
+            txtCash.Location = new Point(105, 399);
             txtCash.Multiline = true;
             txtCash.Name = "txtCash";
-            txtCash.Size = new Size(272, 32);
+            txtCash.Size = new Size(227, 32);
             txtCash.TabIndex = 42;
             txtCash.TextChanged += textBox1_TextChanged_1;
             txtCash.KeyPress += textBox1_KeyPress;
@@ -568,7 +568,7 @@ namespace PAKOPointOfSale.Transactions
             // 
             btnDot.BackColor = Color.LightSeaGreen;
             btnDot.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
-            btnDot.Location = new Point(12, 322);
+            btnDot.Location = new Point(8, 324);
             btnDot.Name = "btnDot";
             btnDot.Size = new Size(105, 57);
             btnDot.TabIndex = 43;
@@ -580,7 +580,7 @@ namespace PAKOPointOfSale.Transactions
             // 
             btn00.BackColor = Color.LightSeaGreen;
             btn00.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
-            btn00.Location = new Point(150, 322);
+            btn00.Location = new Point(124, 324);
             btn00.Name = "btn00";
             btn00.Size = new Size(101, 57);
             btn00.TabIndex = 44;
@@ -594,7 +594,7 @@ namespace PAKOPointOfSale.Transactions
             btnApplyDiscount.FlatStyle = FlatStyle.Popup;
             btnApplyDiscount.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             btnApplyDiscount.ForeColor = Color.White;
-            btnApplyDiscount.Location = new Point(274, 109);
+            btnApplyDiscount.Location = new Point(299, 109);
             btnApplyDiscount.Name = "btnApplyDiscount";
             btnApplyDiscount.Size = new Size(128, 32);
             btnApplyDiscount.TabIndex = 45;
@@ -621,9 +621,9 @@ namespace PAKOPointOfSale.Transactions
             panel1.Controls.Add(btnKey9);
             panel1.Controls.Add(btnKey8);
             panel1.Controls.Add(btnKey5);
-            panel1.Location = new Point(969, 100);
+            panel1.Location = new Point(1014, 100);
             panel1.Name = "panel1";
-            panel1.Size = new Size(386, 586);
+            panel1.Size = new Size(344, 599);
             panel1.TabIndex = 46;
             panel1.Paint += panel1_Paint;
             // 
@@ -633,9 +633,9 @@ namespace PAKOPointOfSale.Transactions
             btnClearCart.FlatStyle = FlatStyle.Popup;
             btnClearCart.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             btnClearCart.ForeColor = Color.White;
-            btnClearCart.Location = new Point(31, 652);
+            btnClearCart.Location = new Point(31, 653);
             btnClearCart.Name = "btnClearCart";
-            btnClearCart.Size = new Size(190, 34);
+            btnClearCart.Size = new Size(173, 34);
             btnClearCart.TabIndex = 45;
             btnClearCart.Text = "Clear Cart";
             btnClearCart.UseVisualStyleBackColor = false;
@@ -786,7 +786,7 @@ namespace PAKOPointOfSale.Transactions
             btnParkedTransactions.FlatStyle = FlatStyle.Popup;
             btnParkedTransactions.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             btnParkedTransactions.ForeColor = Color.White;
-            btnParkedTransactions.Location = new Point(430, 652);
+            btnParkedTransactions.Location = new Point(443, 654);
             btnParkedTransactions.Name = "btnParkedTransactions";
             btnParkedTransactions.Size = new Size(174, 34);
             btnParkedTransactions.TabIndex = 159;
@@ -800,7 +800,7 @@ namespace PAKOPointOfSale.Transactions
             btnScan.FlatStyle = FlatStyle.Popup;
             btnScan.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnScan.ForeColor = Color.White;
-            btnScan.Location = new Point(142, 109);
+            btnScan.Location = new Point(155, 109);
             btnScan.Name = "btnScan";
             btnScan.Size = new Size(126, 32);
             btnScan.TabIndex = 160;
@@ -814,7 +814,7 @@ namespace PAKOPointOfSale.Transactions
             btnRemove.FlatStyle = FlatStyle.Popup;
             btnRemove.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             btnRemove.ForeColor = Color.White;
-            btnRemove.Location = new Point(227, 652);
+            btnRemove.Location = new Point(225, 653);
             btnRemove.Name = "btnRemove";
             btnRemove.Size = new Size(197, 34);
             btnRemove.TabIndex = 161;
