@@ -61,7 +61,17 @@ namespace WinFormsApp1.Data
                 new Permission { id = 18, user_type_id = 3, module_name = "Sales Invoice", can_view = true, can_add = true, can_edit = true }, // SetActive N/A
                 new Permission { id = 19, user_type_id = 3, module_name = "Transactions", can_view = true, can_add = false, can_edit = true, can_delete = false },
                 new Permission { id = 20, user_type_id = 3, module_name = "User Access Control", can_view = false }, // Add & Edit & SetActive N/A
-                new Permission { id = 21, user_type_id = 3, module_name = "Users", can_view = false, can_add = false, can_edit = false, can_delete = false }
+                new Permission { id = 21, user_type_id = 3, module_name = "Users", can_view = false, can_add = false, can_edit = false, can_delete = false },
+
+                //Dashboard admin
+                new Permission { id = 22, user_type_id = 2, module_name = "Top 5 Selling", can_view = true, can_add = false, can_edit = false, can_delete = false },
+                new Permission { id = 23, user_type_id = 2, module_name = "Low in Stock", can_view = true, can_add = false, can_edit = false, can_delete = false },
+                new Permission { id = 24, user_type_id = 2, module_name = "Sales", can_view = true, can_add = false, can_edit = false, can_delete = false },
+
+                //Dashboard Cashier
+                new Permission { id = 25, user_type_id = 3, module_name = "Top 5 Selling", can_view = false, can_add = false, can_edit = false, can_delete = false },
+                new Permission { id = 26, user_type_id = 3, module_name = "Low in Stock", can_view = true, can_add = false, can_edit = false, can_delete = false },
+                new Permission { id = 27, user_type_id = 3, module_name = "Sales", can_view = false, can_add = false, can_edit = false, can_delete = false }
             );
 
 
@@ -136,6 +146,7 @@ namespace WinFormsApp1.Data
                         sku = "MO-1L-001",
                         barcode = "4801981100001",
                         quantity = 80,
+                        low_stock_quantity = 20,
                         unit_of_measurement = "Bottle",
                         cost_price = 250,
                         unit_price = 300,
@@ -160,6 +171,7 @@ namespace WinFormsApp1.Data
                         quantity = 150,
                         unit_of_measurement = "Piece",
                         cost_price = 80,
+                        low_stock_quantity = 20,
                         unit_price = 120,
                         remarks = "Popular maintenance item",
                         status = "Good",
@@ -180,6 +192,7 @@ namespace WinFormsApp1.Data
                         sku = "BAT-12V5-003",
                         barcode = "4801981100002",
                         quantity = 40,
+                        low_stock_quantity = 20,
                         unit_of_measurement = "Piece",
                         cost_price = 950,
                         unit_price = 1200,
@@ -202,6 +215,7 @@ namespace WinFormsApp1.Data
                         sku = "CHN-KT-004",
                         barcode = "4801981100002",
                         quantity = 30,
+                        low_stock_quantity = 15,
                         unit_of_measurement = "Set",
                         cost_price = 800,
                         unit_price = 950,
@@ -224,6 +238,7 @@ namespace WinFormsApp1.Data
                         sku = "TIR-17-005",
                         barcode = "4801981100002",
                         quantity = 50,
+                        low_stock_quantity = 20,
                         unit_of_measurement = "Piece",
                         cost_price = 950,
                         unit_price = 1200,
@@ -246,6 +261,7 @@ namespace WinFormsApp1.Data
                         sku = "HLM-FF-006",
                         barcode = "4801981100006",
                         quantity = 20,
+                        low_stock_quantity = 5,
                         unit_of_measurement = "Piece",
                         cost_price = 1400,
                         unit_price = 1800,
@@ -268,6 +284,7 @@ namespace WinFormsApp1.Data
                         sku = "GLV-001-007",
                         barcode = "4801981100007",
                         quantity = 60,
+                        low_stock_quantity = 20,
                         unit_of_measurement = "Pair",
                         cost_price = 350,
                         unit_price = 500,
@@ -290,6 +307,7 @@ namespace WinFormsApp1.Data
                         sku = "MIR-SET-008",
                         barcode = "4801981100008",
                         quantity = 45,
+                        low_stock_quantity = 10,
                         unit_of_measurement = "Set",
                         cost_price = 250,
                         unit_price = 400,
@@ -311,7 +329,8 @@ namespace WinFormsApp1.Data
                         product_code = "BLBH4",
                         sku = "BLB-H4-009",
                         barcode = "4801981100009",
-                        quantity = 100,
+                        quantity = 50,
+                        low_stock_quantity = 20,
                         unit_of_measurement = "Piece",
                         cost_price = 90,
                         unit_price = 150,
@@ -333,7 +352,8 @@ namespace WinFormsApp1.Data
                         product_code = "BRKPADS",
                         sku = "BRK-FR-010",
                         barcode = "4801981100010",
-                        quantity = 75,
+                        quantity = 50,
+                        low_stock_quantity = 20,
                         unit_of_measurement = "Set",
                         cost_price = 600,
                         unit_price = 850,

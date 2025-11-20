@@ -22,6 +22,7 @@ namespace PAKOPointOfSale.Transactions.Return
             _id = id;
             _invoiceNumber = invoiceNumber;
             _selectedItems = selectedItems;
+            this.KeyPreview = true;
         }
 
         private void ReturnForm_Load(object sender, EventArgs e)
@@ -310,7 +311,7 @@ namespace PAKOPointOfSale.Transactions.Return
             {
                 decimal currentQuantityApplied = Convert.ToDecimal(row.Cells["quantity"].Value);
                 decimal remainingQty = Convert.ToDecimal(row.Cells["remainingQty"].Value);
-                if(currentQuantityApplied == 0)
+                if (currentQuantityApplied == 0)
                 {
                     MessageBox.Show(
                         "Return quantity cannot be less than 1.",
@@ -433,7 +434,16 @@ namespace PAKOPointOfSale.Transactions.Return
 
         private void dgvReturnItems_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-           
+
+        }
+
+        private void ReturnForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close(); // Hide the current form
+                e.Handled = true; // Prevent further processing of the key event
+            }
         }
     }
 }

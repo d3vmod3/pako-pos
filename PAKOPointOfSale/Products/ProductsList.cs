@@ -23,6 +23,7 @@ namespace PAKOPointOfSale.Products
         public ProductsList()
         {
             InitializeComponent();
+            this.KeyPreview = true;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -573,6 +574,15 @@ namespace PAKOPointOfSale.Products
             }
 
             e.HasMorePages = false;
+        }
+
+        private void ProductsList_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close(); // Hide the current form
+                e.Handled = true; // Prevent further processing of the key event
+            }
         }
     }
 }

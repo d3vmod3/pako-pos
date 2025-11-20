@@ -351,6 +351,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ReturnForm";
             Load += ReturnForm_Load;
+            KeyDown += ReturnForm_KeyDown;
             ((System.ComponentModel.ISupportInitialize)dgvReturnItems).EndInit();
             ((System.ComponentModel.ISupportInitialize)salesInvoiceItemBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();

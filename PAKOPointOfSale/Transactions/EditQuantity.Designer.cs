@@ -318,6 +318,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Set Quantity";
             Load += EditQuantity_Load;
+            KeyDown += EditQuantity_KeyDown;
             ((System.ComponentModel.ISupportInitialize)num_AppliedQty).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();

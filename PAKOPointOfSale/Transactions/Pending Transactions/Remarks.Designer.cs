@@ -50,6 +50,7 @@
             label1.Size = new Size(408, 30);
             label1.TabIndex = 1;
             label1.Text = "Kindly provide remarks. This helps prevent mix-ups when retrieving pending\r\ntransactions with your customer.";
+            label1.Click += label1_Click;
             // 
             // btnProceed
             // 
@@ -91,6 +92,8 @@
             Name = "Remarks";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Remarks";
+            Load += Remarks_Load;
+            KeyDown += Remarks_KeyDown;
             ResumeLayout(false);
             PerformLayout();
         }

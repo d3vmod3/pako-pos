@@ -67,11 +67,14 @@
             btnClose = new Button();
             txtBarcode = new TextBox();
             label2 = new Label();
+            num_low_quantity = new NumericUpDown();
+            label3 = new Label();
             ((System.ComponentModel.ISupportInitialize)num_quantity).BeginInit();
             ((System.ComponentModel.ISupportInitialize)num_unitPrice).BeginInit();
             ((System.ComponentModel.ISupportInitialize)num_costPrice).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)num_low_quantity).BeginInit();
             SuspendLayout();
             // 
             // cmbStatus
@@ -80,7 +83,7 @@
             cmbStatus.FlatStyle = FlatStyle.Popup;
             cmbStatus.Font = new Font("Microsoft Sans Serif", 9.75F);
             cmbStatus.FormattingEnabled = true;
-            cmbStatus.Items.AddRange(new object[] { "Good", "Deffective" });
+            cmbStatus.Items.AddRange(new object[] { "Good", "Defective" });
             cmbStatus.Location = new Point(902, 522);
             cmbStatus.Name = "cmbStatus";
             cmbStatus.Size = new Size(353, 24);
@@ -134,7 +137,7 @@
             cmbUnitofMeasurements.Font = new Font("Microsoft Sans Serif", 9.75F);
             cmbUnitofMeasurements.FormattingEnabled = true;
             cmbUnitofMeasurements.Items.AddRange(new object[] { "Bag", "Box", "Bottle", "Bundle", "Can", "Carton", "Case", "Dozen", "Gallon", "Gram", "Hour", "Job", "Kit", "Kilogram", "Liter", "Milliliter", "Pair", "Pack", "Piece", "Roll", "Sheet", "Tray", "Tin", "Set" });
-            cmbUnitofMeasurements.Location = new Point(906, 202);
+            cmbUnitofMeasurements.Location = new Point(906, 221);
             cmbUnitofMeasurements.Name = "cmbUnitofMeasurements";
             cmbUnitofMeasurements.Size = new Size(349, 24);
             cmbUnitofMeasurements.TabIndex = 104;
@@ -260,7 +263,7 @@
             // 
             lblUnitofMeasurement.AutoSize = true;
             lblUnitofMeasurement.Font = new Font("Microsoft Sans Serif", 11.25F);
-            lblUnitofMeasurement.Location = new Point(746, 205);
+            lblUnitofMeasurement.Location = new Point(746, 224);
             lblUnitofMeasurement.Name = "lblUnitofMeasurement";
             lblUnitofMeasurement.Size = new Size(154, 18);
             lblUnitofMeasurement.TabIndex = 92;
@@ -463,12 +466,34 @@
             label2.TabIndex = 115;
             label2.Text = "Barcode";
             // 
+            // num_low_quantity
+            // 
+            num_low_quantity.DecimalPlaces = 2;
+            num_low_quantity.Font = new Font("Microsoft Sans Serif", 9.75F);
+            num_low_quantity.Location = new Point(906, 183);
+            num_low_quantity.Maximum = new decimal(new int[] { 999999, 0, 0, 0 });
+            num_low_quantity.Name = "num_low_quantity";
+            num_low_quantity.Size = new Size(350, 22);
+            num_low_quantity.TabIndex = 118;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Microsoft Sans Serif", 11.25F);
+            label3.Location = new Point(746, 186);
+            label3.Name = "label3";
+            label3.Size = new Size(152, 18);
+            label3.TabIndex = 117;
+            label3.Text = "Low In Stock Quantity";
+            // 
             // AddProducts
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
             ClientSize = new Size(1370, 788);
+            Controls.Add(num_low_quantity);
+            Controls.Add(label3);
             Controls.Add(txtBarcode);
             Controls.Add(label2);
             Controls.Add(btnClose);
@@ -514,11 +539,13 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AddProducts";
             Load += AddProducts_Load;
+            KeyDown += AddProducts_KeyDown;
             ((System.ComponentModel.ISupportInitialize)num_quantity).EndInit();
             ((System.ComponentModel.ISupportInitialize)num_unitPrice).EndInit();
             ((System.ComponentModel.ISupportInitialize)num_costPrice).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)num_low_quantity).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -563,5 +590,7 @@
         private Button btnClose;
         private TextBox txtBarcode;
         private Label label2;
+        private NumericUpDown num_low_quantity;
+        private Label label3;
     }
 }

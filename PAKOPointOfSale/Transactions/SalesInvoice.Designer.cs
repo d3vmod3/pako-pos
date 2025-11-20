@@ -30,7 +30,7 @@ namespace PAKOPointOfSale.Transactions
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SalesInvoice));
             productBindingSource = new BindingSource(components);
             userTypeBindingSource = new BindingSource(components);
@@ -140,8 +140,8 @@ namespace PAKOPointOfSale.Transactions
             dtgvCart.Name = "dtgvCart";
             dtgvCart.RowHeadersVisible = false;
             dtgvCart.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dtgvCart.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dtgvCart.RowsDefaultCellStyle = dataGridViewCellStyle1;
             dtgvCart.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dtgvCart.Size = new Size(996, 500);
             dtgvCart.TabIndex = 4;
@@ -193,6 +193,7 @@ namespace PAKOPointOfSale.Transactions
             category.HeaderText = "Category";
             category.Name = "category";
             category.ReadOnly = true;
+            category.Visible = false;
             // 
             // discountType
             // 
@@ -858,6 +859,8 @@ namespace PAKOPointOfSale.Transactions
             Text = "Sales Invoice";
             WindowState = FormWindowState.Maximized;
             Load += SalesInvoice_Load;
+            KeyDown += SalesInvoice_KeyDown;
+            KeyPress += SalesInvoice_KeyPress;
             ((System.ComponentModel.ISupportInitialize)productBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)userTypeBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)dtgvCart).EndInit();

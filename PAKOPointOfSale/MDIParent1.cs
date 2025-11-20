@@ -102,6 +102,7 @@ namespace PAKOPointOfSale
         {
             timeReloadData.Start();
             defaultFilter();
+            LoadDashboardViewPermission();
 
 
         }
@@ -124,6 +125,7 @@ namespace PAKOPointOfSale
             // Load grid for this week
             LoadTop5SellingProducts(weekStart, weekEnd);
             comboBoxSalesFilter.SelectedItem = "Today"; // default
+            LoadLowStockProducts();
             timeReloadData.Start();
         }
 
@@ -155,6 +157,7 @@ namespace PAKOPointOfSale
                     ON sii.transaction_id = t.id
                 WHERE 
                     t.transaction_type = 'Sales Invoice'
+                    AND sii.transaction_type = 'salesInvoice'
                     AND t.status = 'success'
                     AND t.status = 'success'
                     AND t.created_at BETWEEN @from AND @to
@@ -179,6 +182,32 @@ namespace PAKOPointOfSale
                     adapter.Fill(dt);
                 }
                 dtgvTop5SellingProducts.DataSource = dt;
+            }
+        }
+
+        private void LoadLowStockProducts()
+        {
+            string connString = Program.ConnString;
+
+            string query = @"
+               SELECT p.product_name, p.quantity, s.name as 'supplier'
+                from Products P 
+                LEFT JOIN SupplierDetails s
+                ON s.id = p.supplier_id
+                WHERE quantity <= low_stock_quantity
+            ";
+
+            using (var conn = new SqlConnection(connString))
+            using (var cmd = new SqlCommand(query, conn))
+            {
+                DataTable dt = new DataTable();
+                conn.Open();
+
+                using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                {
+                    adapter.Fill(dt);
+                }
+                dtgvLowStocks.DataSource = dt;
             }
         }
 
@@ -287,10 +316,9 @@ namespace PAKOPointOfSale
                                 SUM(sii.unit_price * sii.quantity) AS gross_sales,
 
                                 -- Net Sales = Total amount - total returns
-                                SUM(sii.total_amount) - ISNULL(SUM(rt_total.total_return_amount), 0) AS net_sales,
+                                SUM(sii.total_amount) - ISNULL(SUM(rt_total.total_return_amount), 0) AS net_sales
 
-                                -- Grand Total = Gross - returns
-                                SUM(sii.unit_price * sii.quantity) - ISNULL(SUM(rt_total.total_return_amount), 0) AS grand_total
+                               
                             FROM Transactions t
                             INNER JOIN SalesInvoiceItems sii 
                                 ON sii.transaction_id = t.id
@@ -325,17 +353,17 @@ namespace PAKOPointOfSale
                     {
                         decimal grossSales = reader["gross_sales"] != DBNull.Value ? Convert.ToDecimal(reader["gross_sales"]) : 0;
                         decimal netSales = reader["net_sales"] != DBNull.Value ? Convert.ToDecimal(reader["net_sales"]) : 0;
-                        decimal grandTotal = reader["grand_total"] != DBNull.Value ? Convert.ToDecimal(reader["grand_total"]) : 0;
+                        //decimal grandTotal = reader["grand_total"] != DBNull.Value ? Convert.ToDecimal(reader["grand_total"]) : 0;
 
                         lblGrossSales.Text = grossSales.ToString("C2", new CultureInfo("en-PH"));
                         lblNetSales.Text = netSales.ToString("C2", new CultureInfo("en-PH"));
-                        lblGrandTotal.Text = grandTotal.ToString("C2", new CultureInfo("en-PH"));
+                        //lblGrandTotal.Text = grandTotal.ToString("C2", new CultureInfo("en-PH"));
                     }
                     else
                     {
                         lblGrossSales.Text = "0.00";
                         lblNetSales.Text = "0.00";
-                        lblGrandTotal.Text = "0.00";
+                        //lblGrandTotal.Text = "0.00";
                     }
                 }
             }
@@ -361,6 +389,27 @@ namespace PAKOPointOfSale
         {
             LoadSales(Convert.ToDateTime(dtpFromSales.Value.Date), Convert.ToDateTime(dtpToSales.Value.Date));
             LoadTop5SellingProducts(Convert.ToDateTime(dtpFrom.Value.Date), Convert.ToDateTime(dtpTo.Value.Date));
+            LoadLowStockProducts();
+            LoadDashboardViewPermission();
+
+
+
+        }
+
+        private void LoadDashboardViewPermission()
+        {
+            if (!LoggedInUser.HasPermission("Top 5 Selling", "view"))
+            {
+                gbTop5Sellings.Visible = false;
+            }
+            if (!LoggedInUser.HasPermission("Sales", "view"))
+            {
+                gbSales.Visible = false;
+            }
+            if (!LoggedInUser.HasPermission("Low in Stock", "view"))
+            {
+                gbLowStocks.Visible = false;
+            }
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
@@ -376,7 +425,10 @@ namespace PAKOPointOfSale
 
         private void button2_Click_1(object sender, EventArgs e)
         {
+            var loginForm = new Login(); // Replace with your login form
+            loginForm.Show();
             LoggedInUser.Logout(this);
+            
         }
 
         private void menuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)

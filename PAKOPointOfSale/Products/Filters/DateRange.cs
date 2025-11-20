@@ -11,6 +11,7 @@ namespace PAKOPointOfSale.Products.Filters
         {
             InitializeComponent();
             this.Text = _formTitle;
+            this.KeyPreview = true;
         }
 
         private void btnFilter_Click(object sender, EventArgs e)
@@ -35,8 +36,8 @@ namespace PAKOPointOfSale.Products.Filters
 
         private void DateRange_Load(object sender, EventArgs e)
         {
-            
-            if(formTitle == "Filter by Date Range" || formTitle == "Filter by Date Received")
+
+            if (formTitle == "Filter by Date Range" || formTitle == "Filter by Date Received")
             {
                 dtTo.MaxDate = DateTime.Today;
             }
@@ -50,6 +51,15 @@ namespace PAKOPointOfSale.Products.Filters
         private void dtTo_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void DateRange_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close(); // Hide the current form
+                e.Handled = true; // Prevent further processing of the key event
+            }
         }
     }
 }

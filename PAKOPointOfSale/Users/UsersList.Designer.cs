@@ -323,6 +323,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Users List";
             Load += UsersList_Load;
+            KeyDown += UsersList_KeyDown;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)userBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

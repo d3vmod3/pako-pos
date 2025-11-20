@@ -78,6 +78,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Return Reason";
             Load += ReturnReason_Load;
+            KeyDown += ReturnReason_KeyDown;
             ResumeLayout(false);
             PerformLayout();
         }

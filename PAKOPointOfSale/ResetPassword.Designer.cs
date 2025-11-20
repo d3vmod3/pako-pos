@@ -138,6 +138,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Reset Password";
             Load += ResetPassword_Load;
+            KeyDown += ResetPassword_KeyDown;
             ResumeLayout(false);
             PerformLayout();
         }

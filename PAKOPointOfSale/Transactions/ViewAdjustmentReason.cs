@@ -19,6 +19,8 @@ namespace PAKOPointOfSale.Transactions
             _invoice_number = invoice_number;
             _transaction_type = transaction_type;
             InitializeComponent();
+            this.KeyPreview = true;
+
         }
 
         private void ViewAdjustmentReason_Load(object sender, EventArgs e)
@@ -80,6 +82,15 @@ namespace PAKOPointOfSale.Transactions
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void ViewAdjustmentReason_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close(); // Hide the current form
+                e.Handled = true; // Prevent further processing of the key event
+            }
         }
     }
 }

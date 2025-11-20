@@ -20,6 +20,8 @@ namespace PAKOPointOfSale.Transactions.Parked_Transactions
         public ParkTransactionsList()
         {
             InitializeComponent();
+            this.KeyPreview = true;
+
         }
         private void LoadParkedTransactions()
         {
@@ -183,6 +185,15 @@ namespace PAKOPointOfSale.Transactions.Parked_Transactions
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void ParkTransactionsList_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close(); // Hide the current form
+                e.Handled = true; // Prevent further processing of the key event
+            }
         }
     }
 }

@@ -495,6 +495,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ProductsList";
             Load += ProductsList_Load;
+            KeyDown += ProductsList_KeyDown;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)productBindingSource).EndInit();
             panel1.ResumeLayout(false);

@@ -18,6 +18,7 @@ namespace PAKOPointOfSale.Supplier_Details
         public SuppliersList()
         {
             InitializeComponent();
+            this.KeyPreview = true;
         }
 
         private void SuppliersList_Load(object sender, EventArgs e)
@@ -221,6 +222,15 @@ namespace PAKOPointOfSale.Supplier_Details
         private void btnClearFilter_Click(object sender, EventArgs e)
         {
             loadSuppliers();
+        }
+
+        private void SuppliersList_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close(); // Hide the current form
+                e.Handled = true; // Prevent further processing of the key event
+            }
         }
     }
 }

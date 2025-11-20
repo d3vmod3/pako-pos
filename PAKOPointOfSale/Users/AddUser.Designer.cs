@@ -326,6 +326,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Add User";
             Load += AddUser_Load;
+            KeyDown += AddUser_KeyDown;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);

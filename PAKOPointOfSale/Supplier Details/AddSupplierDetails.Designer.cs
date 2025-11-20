@@ -245,6 +245,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AddSupplierDetails";
             Load += AddSupplierDetails_Load;
+            KeyDown += AddSupplierDetails_KeyDown;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);

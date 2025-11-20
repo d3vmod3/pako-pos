@@ -21,6 +21,7 @@ namespace PAKOPointOfSale.Users
         {
             InitializeComponent();
             _userId = userId;
+            this.KeyPreview = true;
         }
 
         private void EditUser_Load(object sender, EventArgs e)
@@ -117,7 +118,7 @@ namespace PAKOPointOfSale.Users
                             gender = @gender,
                             suffix = @suffix,
                             user_type_id = @user_type_id,
-                            is_active = @is_active
+                            is_active = @is_active,
                             is_reset = @is_reset
                         WHERE id = @id
                     ";
@@ -266,7 +267,7 @@ namespace PAKOPointOfSale.Users
 
                     using (SqlCommand cmd = new SqlCommand(sql, conn))
                     {
-                       
+
                         cmd.Parameters.AddWithValue("@id", _userId);
                         cmd.Parameters.AddWithValue("@isReset", _userId);
                         cmd.Parameters.AddWithValue("@password", "password123");
@@ -283,6 +284,15 @@ namespace PAKOPointOfSale.Users
                         }
                     }
                 }
+            }
+        }
+
+        private void EditUser_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close(); // Hide the current form
+                e.Handled = true; // Prevent further processing of the key event
             }
         }
     }

@@ -176,6 +176,7 @@
             Name = "Login";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "PAKO Point-Of-Sale";
+            Load += Login_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

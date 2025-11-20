@@ -17,12 +17,13 @@ namespace PAKOPointOfSale.Transactions
     {
         private DataTable productsTable;
         private SalesInvoice _salesInvoice;
-        private string _barcode="";
-        public SearchProduct(SalesInvoice salesInvoice ,string? barcode="")
+        private string _barcode = "";
+        public SearchProduct(SalesInvoice salesInvoice, string? barcode = "")
         {
             InitializeComponent();
             _barcode = string.IsNullOrEmpty(barcode) ? "" : barcode;
             _salesInvoice = salesInvoice;
+            this.KeyPreview = true;
         }
 
         private void loadProducts()
@@ -70,7 +71,7 @@ namespace PAKOPointOfSale.Transactions
 
                     // Optional: auto-size columns
                     dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                    
+
                 }
                 DataGridViewButtonColumn c = (DataGridViewButtonColumn)dataGridView1.Columns["addToCart"];
                 c.FlatStyle = FlatStyle.Flat;
@@ -104,7 +105,7 @@ namespace PAKOPointOfSale.Transactions
 
         private void SearchProduct_Load(object sender, EventArgs e)
         {
-            if(_barcode !="")
+            if (_barcode != "")
             {
                 loadProductsWithDuplicateBarcodes();
             }
@@ -112,7 +113,7 @@ namespace PAKOPointOfSale.Transactions
             {
                 loadProducts();
             }
-                
+
         }
 
         private void loadProductsWithDuplicateBarcodes()
@@ -198,6 +199,20 @@ namespace PAKOPointOfSale.Transactions
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void SearchProduct_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void SearchProduct_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close(); // Hide the current form
+                e.Handled = true; // Prevent further processing of the key event
+            }
         }
     }
 }

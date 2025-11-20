@@ -16,6 +16,7 @@ namespace PAKOPointOfSale.Categories
         public AddCategory()
         {
             InitializeComponent();
+            this.KeyPreview = true;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -121,6 +122,15 @@ namespace PAKOPointOfSale.Categories
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void AddCategory_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close(); // Hide the current form
+                e.Handled = true; // Prevent further processing of the key event
+            }
         }
     }
 }

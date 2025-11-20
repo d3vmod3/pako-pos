@@ -279,6 +279,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ParkTransactionsList";
             Load += ParkTransactionsList_Load_1;
+            KeyDown += ParkTransactionsList_KeyDown;
             ((System.ComponentModel.ISupportInitialize)dtgvParkedTransactions).EndInit();
             ((System.ComponentModel.ISupportInitialize)transactionBindingSource).EndInit();
             ResumeLayout(false);

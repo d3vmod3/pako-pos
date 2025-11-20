@@ -16,13 +16,14 @@ namespace PAKOPointOfSale.Transactions.Parked_Transactions
         public Remarks()
         {
             InitializeComponent();
+            this.KeyPreview = true;
         }
 
         private void btnProceed_Click(object sender, EventArgs e)
         {
             if (txtRemarks.Text.Trim() == "")
             {
-                
+
                 MessageBox.Show("Please input remarks.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
@@ -35,6 +36,25 @@ namespace PAKOPointOfSale.Transactions.Parked_Transactions
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Remarks_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Remarks_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close(); // Hide the current form
+                e.Handled = true; // Prevent further processing of the key event
+            }
         }
     }
 }

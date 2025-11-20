@@ -23,6 +23,7 @@ namespace PAKOPointOfSale.Products
         {
             _productId = product_id;
             InitializeComponent();
+            this.KeyPreview = true;
         }
 
         private void EditProduct_Load(object sender, EventArgs e)
@@ -61,6 +62,7 @@ namespace PAKOPointOfSale.Products
                                 txtProductCode.Text = reader["product_code"].ToString();
                                 txtSKU.Text = reader["sku"].ToString();
                                 num_quantity.Text = reader["quantity"].ToString();
+                                num_low_quantity.Text = reader["low_stock_quantity"].ToString();
                                 cmbUnitofMeasurements.Text = reader["unit_of_measurement"].ToString();
                                 num_costPrice.Text = reader["cost_price"].ToString();
                                 num_unitPrice.Text = reader["unit_price"].ToString();
@@ -228,7 +230,7 @@ namespace PAKOPointOfSale.Products
             //    }
             //}
 
-            
+
 
             if (dtpDateReceived.Value.Date > DateTime.Now.Date)
             {
@@ -339,11 +341,11 @@ namespace PAKOPointOfSale.Products
 
             //try
             //{
-                using (SqlConnection conn = new SqlConnection(connString))
-                {
-                    conn.Open();
+            using (SqlConnection conn = new SqlConnection(connString))
+            {
+                conn.Open();
 
-                    string sql = @"
+                string sql = @"
                 UPDATE Products
                 SET 
                     supplier_id = @supplier_id,
@@ -365,41 +367,42 @@ namespace PAKOPointOfSale.Products
                     is_active = @is_active
                 WHERE id = @id";
 
-                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    // Parameters
+                    cmd.Parameters.AddWithValue("@id", _productId);
+                    cmd.Parameters.AddWithValue("@supplier_id", cmbSupplier.SelectedValue != null ? cmbSupplier.SelectedValue : DBNull.Value);
+                    cmd.Parameters.AddWithValue("@category_id", cmbCategory.SelectedValue != null ? cmbCategory.SelectedValue : DBNull.Value);
+                    cmd.Parameters.AddWithValue("@product_name", txtProductName.Text.Trim());
+                    cmd.Parameters.AddWithValue("@product_brand", string.IsNullOrWhiteSpace(txtProductBrand.Text) ? DBNull.Value : txtProductBrand.Text.Trim());
+                    cmd.Parameters.AddWithValue("@product_description", string.IsNullOrWhiteSpace(txtDescription.Text) ? DBNull.Value : txtDescription.Text.Trim());
+                    cmd.Parameters.AddWithValue("@barcode", string.IsNullOrWhiteSpace(txtBarcode.Text) ? DBNull.Value : txtBarcode.Text);
+                    cmd.Parameters.AddWithValue("@product_code", string.IsNullOrWhiteSpace(txtProductCode.Text) ? DBNull.Value : txtProductCode.Text.Trim());
+                    cmd.Parameters.AddWithValue("@sku", string.IsNullOrWhiteSpace(txtSKU.Text) ? DBNull.Value : txtSKU.Text.Trim());
+                    cmd.Parameters.AddWithValue("@quantity", decimal.Parse(num_quantity.Text.Trim()));
+                    cmd.Parameters.AddWithValue("@low_stock_quantity", decimal.Parse(num_low_quantity.Text.Trim()));
+                    cmd.Parameters.AddWithValue("@unit_of_measurement", cmbUnitofMeasurements.Text.Trim());
+                    cmd.Parameters.AddWithValue("@cost_price", decimal.Parse(num_costPrice.Text.Trim()));
+                    cmd.Parameters.AddWithValue("@unit_price", decimal.Parse(num_unitPrice.Text.Trim()));
+                    cmd.Parameters.AddWithValue("@remarks", string.IsNullOrWhiteSpace(txtRemarks.Text) ? DBNull.Value : txtRemarks.Text.Trim());
+                    cmd.Parameters.AddWithValue("@status", cmbStatus.Text.Trim());
+                    cmd.Parameters.AddWithValue("@date_received", dtpDateReceived.Value);
+                    cmd.Parameters.AddWithValue("@date_expiration", dtpDateExpiration.Value);
+                    cmd.Parameters.AddWithValue("@is_active", chkIsActive.Checked);
+
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
                     {
-                        // Parameters
-                        cmd.Parameters.AddWithValue("@id", _productId);
-                        cmd.Parameters.AddWithValue("@supplier_id", cmbSupplier.SelectedValue != null ? cmbSupplier.SelectedValue : DBNull.Value);
-                        cmd.Parameters.AddWithValue("@category_id", cmbCategory.SelectedValue != null ? cmbCategory.SelectedValue : DBNull.Value);
-                        cmd.Parameters.AddWithValue("@product_name", txtProductName.Text.Trim());
-                        cmd.Parameters.AddWithValue("@product_brand", string.IsNullOrWhiteSpace(txtProductBrand.Text) ? DBNull.Value : txtProductBrand.Text.Trim());
-                        cmd.Parameters.AddWithValue("@product_description", string.IsNullOrWhiteSpace(txtDescription.Text) ? DBNull.Value : txtDescription.Text.Trim());
-                        cmd.Parameters.AddWithValue("@barcode", string.IsNullOrWhiteSpace(txtBarcode.Text) ? DBNull.Value : txtBarcode.Text);
-                        cmd.Parameters.AddWithValue("@product_code", string.IsNullOrWhiteSpace(txtProductCode.Text) ? DBNull.Value : txtProductCode.Text.Trim());
-                        cmd.Parameters.AddWithValue("@sku", string.IsNullOrWhiteSpace(txtSKU.Text) ? DBNull.Value : txtSKU.Text.Trim());
-                        cmd.Parameters.AddWithValue("@quantity", decimal.Parse(num_quantity.Text.Trim()));
-                        cmd.Parameters.AddWithValue("@unit_of_measurement", cmbUnitofMeasurements.Text.Trim());
-                        cmd.Parameters.AddWithValue("@cost_price", decimal.Parse(num_costPrice.Text.Trim()));
-                        cmd.Parameters.AddWithValue("@unit_price", decimal.Parse(num_unitPrice.Text.Trim()));
-                        cmd.Parameters.AddWithValue("@remarks", string.IsNullOrWhiteSpace(txtRemarks.Text) ? DBNull.Value : txtRemarks.Text.Trim());
-                        cmd.Parameters.AddWithValue("@status", cmbStatus.Text.Trim());
-                        cmd.Parameters.AddWithValue("@date_received", dtpDateReceived.Value);
-                        cmd.Parameters.AddWithValue("@date_expiration", dtpDateExpiration.Value);
-                        cmd.Parameters.AddWithValue("@is_active", chkIsActive.Checked);
-
-                        int rowsAffected = cmd.ExecuteNonQuery();
-
-                        if (rowsAffected > 0)
-                        {
-                            MessageBox.Show("Product updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.Close(); // or reload your products grid
-                        }
-                        else
-                        {
-                            MessageBox.Show("No changes were made.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
+                        MessageBox.Show("Product updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close(); // or reload your products grid
+                    }
+                    else
+                    {
+                        MessageBox.Show("No changes were made.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
+            }
             //}
             //catch (Exception ex)
             //{
@@ -410,6 +413,15 @@ namespace PAKOPointOfSale.Products
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void EditProduct_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close(); // Hide the current form
+                e.Handled = true; // Prevent further processing of the key event
+            }
         }
     }
 }

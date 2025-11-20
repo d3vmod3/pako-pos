@@ -26,6 +26,7 @@ namespace PAKOPointOfSale.Categories
             AddCategory addCategory = new AddCategory();
             addCategory.ShowDialog();
             loadCategories();
+            this.KeyPreview = true;
         }
 
         private void CategoryList_Load(object sender, EventArgs e)
@@ -46,7 +47,7 @@ namespace PAKOPointOfSale.Categories
         {
             if (!LoggedInUser.HasPermission("Categories", "add"))
             {
-               btnAdd.Visible = false;
+                btnAdd.Visible = false;
             }
             if (!LoggedInUser.HasPermission("Categories", "edit"))
             {
@@ -100,8 +101,8 @@ namespace PAKOPointOfSale.Categories
             }
             if (e.ColumnIndex == dataGridView1.Columns["deleteCategory"].Index)
             {
-                var result = MessageBox.Show($"Are you sure you want to delete {categoryName}?", "Warning!",MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if(result == DialogResult.Yes)
+                var result = MessageBox.Show($"Are you sure you want to delete {categoryName}?", "Warning!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
                 {
                     try
                     {
@@ -257,6 +258,15 @@ namespace PAKOPointOfSale.Categories
             catch (Exception ex)
             {
                 MessageBox.Show("Error exporting CSV: " + ex.Message);
+            }
+        }
+
+        private void CategoriesList_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close(); // Hide the current form
+                e.Handled = true; // Prevent further processing of the key event
             }
         }
     }

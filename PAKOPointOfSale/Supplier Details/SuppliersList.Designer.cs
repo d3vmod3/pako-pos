@@ -30,7 +30,6 @@
         {
             components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SuppliersList));
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
@@ -40,11 +39,21 @@
             DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SuppliersList));
             btnExport = new Button();
             btnAdd = new Button();
             txtSearch = new TextBox();
             lblSearch = new Label();
             dataGridView1 = new DataGridView();
+            id = new DataGridViewTextBoxColumn();
+            nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            addressDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            contactnumberDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            accountnumberDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            gatewayDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            is_active = new DataGridViewTextBoxColumn();
+            created_at = new DataGridViewTextBoxColumn();
+            edit = new DataGridViewButtonColumn();
             supplierDetailsBindingSource = new BindingSource(components);
             pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
@@ -60,15 +69,6 @@
             btnClearFilter = new Button();
             cmbStatus = new ComboBox();
             label5 = new Label();
-            id = new DataGridViewTextBoxColumn();
-            nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            addressDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            contactnumberDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            accountnumberDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            gatewayDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            is_active = new DataGridViewTextBoxColumn();
-            created_at = new DataGridViewTextBoxColumn();
-            edit = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)supplierDetailsBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -138,6 +138,101 @@
             dataGridView1.Size = new Size(1343, 511);
             dataGridView1.TabIndex = 5;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            // 
+            // id
+            // 
+            id.DataPropertyName = "id";
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            id.DefaultCellStyle = dataGridViewCellStyle1;
+            id.HeaderText = "id";
+            id.Name = "id";
+            id.ReadOnly = true;
+            id.Visible = false;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            nameDataGridViewTextBoxColumn.DataPropertyName = "name";
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            nameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            nameDataGridViewTextBoxColumn.FillWeight = 85.27919F;
+            nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // addressDataGridViewTextBoxColumn
+            // 
+            addressDataGridViewTextBoxColumn.DataPropertyName = "address";
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            addressDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            addressDataGridViewTextBoxColumn.FillWeight = 85.27919F;
+            addressDataGridViewTextBoxColumn.HeaderText = "Address";
+            addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
+            addressDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // contactnumberDataGridViewTextBoxColumn
+            // 
+            contactnumberDataGridViewTextBoxColumn.DataPropertyName = "contact_number";
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            contactnumberDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            contactnumberDataGridViewTextBoxColumn.FillWeight = 85.27919F;
+            contactnumberDataGridViewTextBoxColumn.HeaderText = "Contact Number";
+            contactnumberDataGridViewTextBoxColumn.Name = "contactnumberDataGridViewTextBoxColumn";
+            contactnumberDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // accountnumberDataGridViewTextBoxColumn
+            // 
+            accountnumberDataGridViewTextBoxColumn.DataPropertyName = "account_number";
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            accountnumberDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
+            accountnumberDataGridViewTextBoxColumn.FillWeight = 85.27919F;
+            accountnumberDataGridViewTextBoxColumn.HeaderText = "Account Number";
+            accountnumberDataGridViewTextBoxColumn.Name = "accountnumberDataGridViewTextBoxColumn";
+            accountnumberDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // gatewayDataGridViewTextBoxColumn
+            // 
+            gatewayDataGridViewTextBoxColumn.DataPropertyName = "gateway";
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            gatewayDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
+            gatewayDataGridViewTextBoxColumn.FillWeight = 85.27919F;
+            gatewayDataGridViewTextBoxColumn.HeaderText = "Gateway";
+            gatewayDataGridViewTextBoxColumn.Name = "gatewayDataGridViewTextBoxColumn";
+            gatewayDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // is_active
+            // 
+            is_active.DataPropertyName = "is_active";
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            is_active.DefaultCellStyle = dataGridViewCellStyle7;
+            is_active.FillWeight = 85.27919F;
+            is_active.HeaderText = "Active";
+            is_active.Name = "is_active";
+            is_active.ReadOnly = true;
+            is_active.Resizable = DataGridViewTriState.True;
+            is_active.SortMode = DataGridViewColumnSortMode.NotSortable;
+            // 
+            // created_at
+            // 
+            created_at.DataPropertyName = "created_at";
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            created_at.DefaultCellStyle = dataGridViewCellStyle8;
+            created_at.FillWeight = 85.27919F;
+            created_at.HeaderText = "Date Created";
+            created_at.Name = "created_at";
+            created_at.ReadOnly = true;
+            // 
+            // edit
+            // 
+            edit.DataPropertyName = "id";
+            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.ForeColor = Color.Black;
+            edit.DefaultCellStyle = dataGridViewCellStyle9;
+            edit.FillWeight = 203.045685F;
+            edit.HeaderText = "";
+            edit.Name = "edit";
+            edit.ReadOnly = true;
+            edit.Text = "Edit";
+            edit.UseColumnTextForButtonValue = true;
             // 
             // supplierDetailsBindingSource
             // 
@@ -288,101 +383,6 @@
             label5.TabIndex = 161;
             label5.Text = "Filter Status:";
             // 
-            // id
-            // 
-            id.DataPropertyName = "id";
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            id.DefaultCellStyle = dataGridViewCellStyle1;
-            id.HeaderText = "id";
-            id.Name = "id";
-            id.ReadOnly = true;
-            id.Visible = false;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            nameDataGridViewTextBoxColumn.DataPropertyName = "name";
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            nameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            nameDataGridViewTextBoxColumn.FillWeight = 85.27919F;
-            nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // addressDataGridViewTextBoxColumn
-            // 
-            addressDataGridViewTextBoxColumn.DataPropertyName = "address";
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            addressDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
-            addressDataGridViewTextBoxColumn.FillWeight = 85.27919F;
-            addressDataGridViewTextBoxColumn.HeaderText = "Address";
-            addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
-            addressDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // contactnumberDataGridViewTextBoxColumn
-            // 
-            contactnumberDataGridViewTextBoxColumn.DataPropertyName = "contact_number";
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            contactnumberDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
-            contactnumberDataGridViewTextBoxColumn.FillWeight = 85.27919F;
-            contactnumberDataGridViewTextBoxColumn.HeaderText = "Contact Number";
-            contactnumberDataGridViewTextBoxColumn.Name = "contactnumberDataGridViewTextBoxColumn";
-            contactnumberDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // accountnumberDataGridViewTextBoxColumn
-            // 
-            accountnumberDataGridViewTextBoxColumn.DataPropertyName = "account_number";
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            accountnumberDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
-            accountnumberDataGridViewTextBoxColumn.FillWeight = 85.27919F;
-            accountnumberDataGridViewTextBoxColumn.HeaderText = "Account Number";
-            accountnumberDataGridViewTextBoxColumn.Name = "accountnumberDataGridViewTextBoxColumn";
-            accountnumberDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // gatewayDataGridViewTextBoxColumn
-            // 
-            gatewayDataGridViewTextBoxColumn.DataPropertyName = "gateway";
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            gatewayDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
-            gatewayDataGridViewTextBoxColumn.FillWeight = 85.27919F;
-            gatewayDataGridViewTextBoxColumn.HeaderText = "Gateway";
-            gatewayDataGridViewTextBoxColumn.Name = "gatewayDataGridViewTextBoxColumn";
-            gatewayDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // is_active
-            // 
-            is_active.DataPropertyName = "is_active";
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            is_active.DefaultCellStyle = dataGridViewCellStyle7;
-            is_active.FillWeight = 85.27919F;
-            is_active.HeaderText = "Active";
-            is_active.Name = "is_active";
-            is_active.ReadOnly = true;
-            is_active.Resizable = DataGridViewTriState.True;
-            is_active.SortMode = DataGridViewColumnSortMode.NotSortable;
-            // 
-            // created_at
-            // 
-            created_at.DataPropertyName = "created_at";
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            created_at.DefaultCellStyle = dataGridViewCellStyle8;
-            created_at.FillWeight = 85.27919F;
-            created_at.HeaderText = "Date Created";
-            created_at.Name = "created_at";
-            created_at.ReadOnly = true;
-            // 
-            // edit
-            // 
-            edit.DataPropertyName = "id";
-            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.ForeColor = Color.Black;
-            edit.DefaultCellStyle = dataGridViewCellStyle9;
-            edit.FillWeight = 203.045685F;
-            edit.HeaderText = "";
-            edit.Name = "edit";
-            edit.ReadOnly = true;
-            edit.Text = "Edit";
-            edit.UseColumnTextForButtonValue = true;
-            // 
             // SuppliersList
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -414,6 +414,7 @@
             Text = "Suppliers List";
             WindowState = FormWindowState.Maximized;
             Load += SuppliersList_Load;
+            KeyDown += SuppliersList_KeyDown;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)supplierDetailsBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();

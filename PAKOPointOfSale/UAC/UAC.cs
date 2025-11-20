@@ -19,6 +19,7 @@ namespace PAKOPointOfSale.UAC
         public UAC()
         {
             InitializeComponent();
+            this.KeyPreview = true;
         }
 
         private void UAC_Load(object sender, EventArgs e)
@@ -29,6 +30,25 @@ namespace PAKOPointOfSale.UAC
             dataGridView1.DataSource = permissionsDt;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
+
+
+
+
+
+
+
+        }
+        private void loadPermissions()
+        {
+            if (!LoggedInUser.HasPermission("User Access Control", "edit"))
+            {
+                btnUpdate.Visible = false;
+            }
+
+        }
+
+        private void ReadOnlySelectedPermissions()
+        {
             // Loop through all rows and disable specific checkboxes
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
@@ -46,7 +66,7 @@ namespace PAKOPointOfSale.UAC
                     row.Cells["can_delete2"].Style.BackColor = Color.LightGray;
                 }
 
-                 else if (module.Equals("Transactions", StringComparison.OrdinalIgnoreCase))
+                else if (module.Equals("Transactions", StringComparison.OrdinalIgnoreCase))
                 {
                     row.Cells["can_edit2"].ReadOnly = true;
                     row.Cells["can_delete2"].ReadOnly = true;
@@ -65,6 +85,36 @@ namespace PAKOPointOfSale.UAC
                     row.Cells["can_add2"].Style.BackColor = Color.LightGray;
                     row.Cells["can_delete2"].Style.BackColor = Color.LightGray;
                 }
+
+                else if (module.Equals("Sales", StringComparison.OrdinalIgnoreCase))
+                {
+                    row.Cells["can_add2"].ReadOnly = true;
+                    row.Cells["can_edit2"].ReadOnly = true;
+                    row.Cells["can_delete2"].ReadOnly = true;
+                    row.Cells["can_add2"].Style.BackColor = Color.LightGray;
+                    row.Cells["can_edit2"].Style.BackColor = Color.LightGray;
+                    row.Cells["can_delete2"].Style.BackColor = Color.LightGray;
+                }
+                else if (module.Equals("Top 5 Selling", StringComparison.OrdinalIgnoreCase))
+                {
+                    row.Cells["can_add2"].ReadOnly = true;
+                    row.Cells["can_edit2"].ReadOnly = true;
+                    row.Cells["can_delete2"].ReadOnly = true;
+                    row.Cells["can_add2"].Style.BackColor = Color.LightGray;
+                    row.Cells["can_edit2"].Style.BackColor = Color.LightGray;
+                    row.Cells["can_delete2"].Style.BackColor = Color.LightGray;
+                }
+                else if (module.Equals("Low in Stock", StringComparison.OrdinalIgnoreCase))
+                {
+                    row.Cells["can_add2"].ReadOnly = true;
+                    row.Cells["can_edit2"].ReadOnly = true;
+                    row.Cells["can_delete2"].ReadOnly = true;
+                    row.Cells["can_add2"].Style.BackColor = Color.LightGray;
+                    row.Cells["can_edit2"].Style.BackColor = Color.LightGray;
+                    row.Cells["can_delete2"].Style.BackColor = Color.LightGray;
+                }
+
+
             }
 
             // Optional: make module_name column read-only
@@ -72,17 +122,6 @@ namespace PAKOPointOfSale.UAC
             {
                 dataGridView1.Columns["module_name2"].ReadOnly = true;
             }
-
-
-
-        }
-        private void loadPermissions()
-        {
-            if (!LoggedInUser.HasPermission("User Access Control", "edit"))
-            {
-                btnUpdate.Visible = false;
-            }
-
         }
         private void LoadUserRoles()
         {
@@ -137,7 +176,7 @@ namespace PAKOPointOfSale.UAC
                             permissionsDt = new DataTable();
                             adapter.Fill(permissionsDt);
 
-                            //dataGridView1.DataSource = dt;
+                            dataGridView1.DataSource = permissionsDt;
 
                             // Optional formatting
                             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -157,6 +196,7 @@ namespace PAKOPointOfSale.UAC
             if (cmbRole.SelectedValue != null)
             {
                 LoadPermissionsForRole(Convert.ToInt32(cmbRole.SelectedValue));
+                ReadOnlySelectedPermissions();
             }
         }
 
@@ -242,6 +282,20 @@ namespace PAKOPointOfSale.UAC
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void UAC_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close(); // Hide the current form
+                e.Handled = true; // Prevent further processing of the key event
+            }
         }
     }
 }

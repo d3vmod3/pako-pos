@@ -20,6 +20,7 @@ namespace PAKOPointOfSale.Supplier_Details
         {
             _supplierId = supplierId;
             InitializeComponent();
+            this.KeyPreview = true;
         }
 
         private void EditSupplierDetails_Load(object sender, EventArgs e)
@@ -207,6 +208,15 @@ namespace PAKOPointOfSale.Supplier_Details
         private void lblAddUser_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void EditSupplierDetails_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close(); // Hide the current form
+                e.Handled = true; // Prevent further processing of the key event
+            }
         }
     }
 }

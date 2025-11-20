@@ -22,6 +22,7 @@ namespace PAKOPointOfSale
             _is_admin = is_admin;
             _action = action;
             InitializeComponent();
+            this.KeyPreview = true;
         }
 
         private void ActionConfirmation_Load(object sender, EventArgs e)
@@ -40,7 +41,7 @@ namespace PAKOPointOfSale
                 return;
             }
 
-            if (ConfirmAdminLogin(username, password)==false)
+            if (ConfirmAdminLogin(username, password) == false)
             {
                 MessageBox.Show("Invalid admin credentials.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -71,7 +72,7 @@ namespace PAKOPointOfSale
                         cmd.Parameters.AddWithValue("@password", password);
 
                         int count = (int)cmd.ExecuteScalar();
-                        if(count > 0)
+                        if (count > 0)
                         {
                             return true;
                         }
@@ -92,6 +93,15 @@ namespace PAKOPointOfSale
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void ActionConfirmation_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close(); // Hide the current form
+                e.Handled = true; // Prevent further processing of the key event
+            }
         }
     }
 }

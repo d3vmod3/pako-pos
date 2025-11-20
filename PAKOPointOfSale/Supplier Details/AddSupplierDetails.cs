@@ -17,6 +17,8 @@ namespace PAKOPointOfSale.Supplier_Details
         public AddSupplierDetails()
         {
             InitializeComponent();
+            this.KeyPreview = true;
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -141,6 +143,15 @@ namespace PAKOPointOfSale.Supplier_Details
             if (textBox.Text.Length >= 10)
             {
                 e.Handled = true; // prevent typing more than 10 digits
+            }
+        }
+
+        private void AddSupplierDetails_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close(); // Hide the current form
+                e.Handled = true; // Prevent further processing of the key event
             }
         }
     }

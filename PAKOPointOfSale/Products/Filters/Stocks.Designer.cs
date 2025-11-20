@@ -98,6 +98,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Filter Stocks";
             Load += Stocks_Load;
+            KeyDown += Stocks_KeyDown;
             ((System.ComponentModel.ISupportInitialize)num_quantity).EndInit();
             ResumeLayout(false);
             PerformLayout();

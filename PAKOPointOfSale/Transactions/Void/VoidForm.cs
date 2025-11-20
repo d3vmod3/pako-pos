@@ -20,6 +20,7 @@ namespace PAKOPointOfSale.Transactions.Void
             _id = id;
             _invoiceNumber = invoiceNumber;
             InitializeComponent();
+            this.KeyPreview = true;
         }
 
         private void btnProceed_Click(object sender, EventArgs e)
@@ -101,7 +102,7 @@ namespace PAKOPointOfSale.Transactions.Void
                                     cmd.Parameters.AddWithValue("@cash_received", cashReceived);
                                     cmd.Parameters.AddWithValue("@cash_change", cashChange);
                                     cmd.Parameters.AddWithValue("@created_at", DateTime.Now);
-                                    
+
 
                                     int voidTransactionId = Convert.ToInt32(cmd.ExecuteScalar());
 
@@ -183,6 +184,15 @@ namespace PAKOPointOfSale.Transactions.Void
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void VoidForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close(); // Hide the current form
+                e.Handled = true; // Prevent further processing of the key event
+            }
         }
     }
 }

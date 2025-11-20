@@ -358,6 +358,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Edit User";
             Load += EditUser_Load;
+            KeyDown += EditUser_KeyDown;
             ((System.ComponentModel.ISupportInitialize)userTypeBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

@@ -160,6 +160,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Edit Category";
             Load += EditCategory_Load;
+            KeyDown += EditCategory_KeyDown;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);

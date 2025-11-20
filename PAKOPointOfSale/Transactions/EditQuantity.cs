@@ -20,6 +20,7 @@ namespace PAKOPointOfSale.Transactions
             _productId = productId;
             _salesInvoice = salesInvoice;
             InitializeComponent();
+            this.KeyPreview = true;
         }
 
         private void EditQuantity_Load(object sender, EventArgs e)
@@ -117,6 +118,16 @@ namespace PAKOPointOfSale.Transactions
         private void num_AppliedQty_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void EditQuantity_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close(); // Hide the current form
+                e.Handled = true; // Prevent further processing of the key event
+            }
         }
     }
 }

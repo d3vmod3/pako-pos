@@ -17,6 +17,7 @@ namespace PAKOPointOfSale.Products.Filters
         public Status()
         {
             InitializeComponent();
+            this.KeyPreview = true;
         }
 
         private void Status_Load(object sender, EventArgs e)
@@ -44,6 +45,15 @@ namespace PAKOPointOfSale.Products.Filters
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Status_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close(); // Hide the current form
+                e.Handled = true; // Prevent further processing of the key event
+            }
         }
     }
 }

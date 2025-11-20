@@ -33,10 +33,11 @@ namespace PAKOPointOfSale
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MDIParent1));
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             menuStrip = new MenuStrip();
             statusStrip = new StatusStrip();
-            toolStripStatusLabel = new ToolStripStatusLabel();
             toolTip = new ToolTip(components);
             dtgvTop5SellingProducts = new DataGridView();
             product_name = new DataGridViewTextBoxColumn();
@@ -46,7 +47,7 @@ namespace PAKOPointOfSale
             dtpTo = new DateTimePicker();
             label1 = new Label();
             dtpFrom = new DateTimePicker();
-            groupBox1 = new GroupBox();
+            gbTop5Sellings = new GroupBox();
             btnExportTop5Selling = new Button();
             btnFilter = new Button();
             comboBoxSalesFilter = new ComboBox();
@@ -56,12 +57,11 @@ namespace PAKOPointOfSale
             label7 = new Label();
             dtpToSales = new DateTimePicker();
             btnFilterDateSales = new Button();
-            groupBox2 = new GroupBox();
-            lblGrandTotal = new Label();
+            gbSales = new GroupBox();
             lblGrossSales = new Label();
             lblNetSales = new Label();
-            label9 = new Label();
             label8 = new Label();
+            btnClearFilters = new Button();
             label4 = new Label();
             timeReloadData = new System.Windows.Forms.Timer(components);
             pictureBox2 = new PictureBox();
@@ -87,18 +87,21 @@ namespace PAKOPointOfSale
             label18 = new Label();
             label19 = new Label();
             pictureBox4 = new PictureBox();
-            btnClearFilters = new Button();
             timerDateandTime = new System.Windows.Forms.Timer(components);
-            pictureBox3 = new PictureBox();
             lblFullName = new Label();
-            statusStrip.SuspendLayout();
+            gbLowStocks = new GroupBox();
+            dtgvLowStocks = new DataGridView();
+            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dtgvTop5SellingProducts).BeginInit();
-            groupBox1.SuspendLayout();
-            groupBox2.SuspendLayout();
+            gbTop5Sellings.SuspendLayout();
+            gbSales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            gbLowStocks.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dtgvLowStocks).BeginInit();
             SuspendLayout();
             // 
             // menuStrip
@@ -113,20 +116,12 @@ namespace PAKOPointOfSale
             // 
             // statusStrip
             // 
-            statusStrip.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel });
             statusStrip.Location = new Point(0, 766);
             statusStrip.Name = "statusStrip";
             statusStrip.Padding = new Padding(1, 0, 16, 0);
             statusStrip.Size = new Size(1367, 22);
             statusStrip.TabIndex = 2;
             statusStrip.Text = "StatusStrip";
-            // 
-            // toolStripStatusLabel
-            // 
-            toolStripStatusLabel.BackColor = Color.White;
-            toolStripStatusLabel.Name = "toolStripStatusLabel";
-            toolStripStatusLabel.Size = new Size(39, 17);
-            toolStripStatusLabel.Text = "Status";
             // 
             // dtgvTop5SellingProducts
             // 
@@ -148,7 +143,7 @@ namespace PAKOPointOfSale
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dtgvTop5SellingProducts.DefaultCellStyle = dataGridViewCellStyle2;
-            dtgvTop5SellingProducts.Location = new Point(15, 22);
+            dtgvTop5SellingProducts.Location = new Point(13, 84);
             dtgvTop5SellingProducts.Name = "dtgvTop5SellingProducts";
             dtgvTop5SellingProducts.ReadOnly = true;
             dtgvTop5SellingProducts.RowHeadersVisible = false;
@@ -156,7 +151,7 @@ namespace PAKOPointOfSale
             dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
             dtgvTop5SellingProducts.RowsDefaultCellStyle = dataGridViewCellStyle3;
             dtgvTop5SellingProducts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgvTop5SellingProducts.Size = new Size(513, 277);
+            dtgvTop5SellingProducts.Size = new Size(513, 146);
             dtgvTop5SellingProducts.TabIndex = 11;
             // 
             // product_name
@@ -185,7 +180,7 @@ namespace PAKOPointOfSale
             label2.AutoSize = true;
             label2.BackColor = Color.Transparent;
             label2.ForeColor = Color.Black;
-            label2.Location = new Point(210, 318);
+            label2.Location = new Point(205, 18);
             label2.Name = "label2";
             label2.Size = new Size(50, 15);
             label2.TabIndex = 9;
@@ -193,7 +188,7 @@ namespace PAKOPointOfSale
             // 
             // dtpTo
             // 
-            dtpTo.Location = new Point(210, 336);
+            dtpTo.Location = new Point(205, 36);
             dtpTo.Name = "dtpTo";
             dtpTo.Size = new Size(185, 23);
             dtpTo.TabIndex = 8;
@@ -203,7 +198,7 @@ namespace PAKOPointOfSale
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(18, 318);
+            label1.Location = new Point(13, 18);
             label1.Name = "label1";
             label1.Size = new Size(65, 15);
             label1.TabIndex = 7;
@@ -212,29 +207,35 @@ namespace PAKOPointOfSale
             // dtpFrom
             // 
             dtpFrom.CalendarMonthBackground = Color.White;
-            dtpFrom.Location = new Point(12, 336);
+            dtpFrom.Location = new Point(7, 36);
             dtpFrom.Name = "dtpFrom";
             dtpFrom.Size = new Size(187, 23);
             dtpFrom.TabIndex = 6;
             // 
-            // groupBox1
+            // gbTop5Sellings
             // 
-            groupBox1.BackColor = Color.CadetBlue;
-            groupBox1.Controls.Add(dtgvTop5SellingProducts);
-            groupBox1.ForeColor = Color.White;
-            groupBox1.Location = new Point(12, 365);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(542, 306);
-            groupBox1.TabIndex = 13;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Top 5 Selling Products";
+            gbTop5Sellings.BackColor = Color.CadetBlue;
+            gbTop5Sellings.Controls.Add(dtgvTop5SellingProducts);
+            gbTop5Sellings.Controls.Add(btnExportTop5Selling);
+            gbTop5Sellings.Controls.Add(dtpFrom);
+            gbTop5Sellings.Controls.Add(label1);
+            gbTop5Sellings.Controls.Add(dtpTo);
+            gbTop5Sellings.Controls.Add(label2);
+            gbTop5Sellings.Controls.Add(btnFilter);
+            gbTop5Sellings.ForeColor = Color.White;
+            gbTop5Sellings.Location = new Point(12, 319);
+            gbTop5Sellings.Name = "gbTop5Sellings";
+            gbTop5Sellings.Size = new Size(542, 230);
+            gbTop5Sellings.TabIndex = 13;
+            gbTop5Sellings.TabStop = false;
+            gbTop5Sellings.Text = "Top 5 Selling Products";
             // 
             // btnExportTop5Selling
             // 
             btnExportTop5Selling.BackColor = Color.Goldenrod;
             btnExportTop5Selling.FlatStyle = FlatStyle.Popup;
             btnExportTop5Selling.ForeColor = Color.Black;
-            btnExportTop5Selling.Location = new Point(479, 336);
+            btnExportTop5Selling.Location = new Point(474, 36);
             btnExportTop5Selling.Name = "btnExportTop5Selling";
             btnExportTop5Selling.Size = new Size(75, 23);
             btnExportTop5Selling.TabIndex = 16;
@@ -247,7 +248,7 @@ namespace PAKOPointOfSale
             btnFilter.BackColor = Color.Khaki;
             btnFilter.FlatStyle = FlatStyle.Popup;
             btnFilter.ForeColor = Color.Black;
-            btnFilter.Location = new Point(402, 336);
+            btnFilter.Location = new Point(397, 36);
             btnFilter.Name = "btnFilter";
             btnFilter.Size = new Size(75, 23);
             btnFilter.TabIndex = 15;
@@ -259,7 +260,7 @@ namespace PAKOPointOfSale
             // 
             comboBoxSalesFilter.FormattingEnabled = true;
             comboBoxSalesFilter.Items.AddRange(new object[] { "Today", "This Week", "This Month", "This Year" });
-            comboBoxSalesFilter.Location = new Point(959, 337);
+            comboBoxSalesFilter.Location = new Point(405, 37);
             comboBoxSalesFilter.Name = "comboBoxSalesFilter";
             comboBoxSalesFilter.Size = new Size(203, 23);
             comboBoxSalesFilter.TabIndex = 18;
@@ -269,7 +270,7 @@ namespace PAKOPointOfSale
             // 
             label3.AutoSize = true;
             label3.BackColor = Color.Transparent;
-            label3.Location = new Point(959, 319);
+            label3.Location = new Point(405, 19);
             label3.Name = "label3";
             label3.Size = new Size(113, 15);
             label3.TabIndex = 19;
@@ -280,7 +281,7 @@ namespace PAKOPointOfSale
             dtpFromSales.CalendarFont = new Font("Segoe UI", 8.25F);
             dtpFromSales.CalendarMonthBackground = Color.White;
             dtpFromSales.CalendarTrailingForeColor = SystemColors.AppWorkspace;
-            dtpFromSales.Location = new Point(560, 336);
+            dtpFromSales.Location = new Point(6, 36);
             dtpFromSales.Name = "dtpFromSales";
             dtpFromSales.Size = new Size(192, 23);
             dtpFromSales.TabIndex = 22;
@@ -290,7 +291,7 @@ namespace PAKOPointOfSale
             label6.AutoSize = true;
             label6.BackColor = Color.Transparent;
             label6.ForeColor = Color.Black;
-            label6.Location = new Point(560, 319);
+            label6.Location = new Point(6, 19);
             label6.Name = "label6";
             label6.Size = new Size(38, 15);
             label6.TabIndex = 23;
@@ -301,7 +302,7 @@ namespace PAKOPointOfSale
             label7.AutoSize = true;
             label7.BackColor = Color.Transparent;
             label7.ForeColor = Color.Black;
-            label7.Location = new Point(761, 319);
+            label7.Location = new Point(207, 19);
             label7.Name = "label7";
             label7.Size = new Size(23, 15);
             label7.TabIndex = 25;
@@ -311,7 +312,7 @@ namespace PAKOPointOfSale
             // 
             dtpToSales.CalendarFont = new Font("Segoe UI", 8.25F);
             dtpToSales.CalendarTitleBackColor = SystemColors.MenuHighlight;
-            dtpToSales.Location = new Point(761, 336);
+            dtpToSales.Location = new Point(207, 36);
             dtpToSales.Name = "dtpToSales";
             dtpToSales.Size = new Size(192, 23);
             dtpToSales.TabIndex = 24;
@@ -321,7 +322,7 @@ namespace PAKOPointOfSale
             btnFilterDateSales.BackColor = Color.Khaki;
             btnFilterDateSales.FlatStyle = FlatStyle.Popup;
             btnFilterDateSales.ForeColor = Color.Black;
-            btnFilterDateSales.Location = new Point(1280, 336);
+            btnFilterDateSales.Location = new Point(721, 35);
             btnFilterDateSales.Name = "btnFilterDateSales";
             btnFilterDateSales.Size = new Size(73, 23);
             btnFilterDateSales.TabIndex = 27;
@@ -329,41 +330,36 @@ namespace PAKOPointOfSale
             btnFilterDateSales.UseVisualStyleBackColor = false;
             btnFilterDateSales.Click += button2_Click;
             // 
-            // groupBox2
+            // gbSales
             // 
-            groupBox2.BackColor = Color.CadetBlue;
-            groupBox2.Controls.Add(lblGrandTotal);
-            groupBox2.Controls.Add(lblGrossSales);
-            groupBox2.Controls.Add(lblNetSales);
-            groupBox2.Controls.Add(label9);
-            groupBox2.Controls.Add(label8);
-            groupBox2.Controls.Add(label4);
-            groupBox2.ForeColor = Color.White;
-            groupBox2.Location = new Point(560, 365);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(796, 306);
-            groupBox2.TabIndex = 17;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "Sales";
-            groupBox2.Enter += groupBox2_Enter;
-            // 
-            // lblGrandTotal
-            // 
-            lblGrandTotal.AutoSize = true;
-            lblGrandTotal.Font = new Font("Impact", 36F, FontStyle.Italic);
-            lblGrandTotal.ForeColor = Color.Black;
-            lblGrandTotal.Location = new Point(430, 217);
-            lblGrandTotal.Name = "lblGrandTotal";
-            lblGrandTotal.Size = new Size(112, 60);
-            lblGrandTotal.TabIndex = 5;
-            lblGrandTotal.Text = "0.00";
+            gbSales.BackColor = Color.CadetBlue;
+            gbSales.Controls.Add(lblGrossSales);
+            gbSales.Controls.Add(lblNetSales);
+            gbSales.Controls.Add(label8);
+            gbSales.Controls.Add(btnClearFilters);
+            gbSales.Controls.Add(label4);
+            gbSales.Controls.Add(label6);
+            gbSales.Controls.Add(comboBoxSalesFilter);
+            gbSales.Controls.Add(label3);
+            gbSales.Controls.Add(dtpFromSales);
+            gbSales.Controls.Add(dtpToSales);
+            gbSales.Controls.Add(label7);
+            gbSales.Controls.Add(btnFilterDateSales);
+            gbSales.ForeColor = Color.White;
+            gbSales.Location = new Point(560, 319);
+            gbSales.Name = "gbSales";
+            gbSales.Size = new Size(796, 433);
+            gbSales.TabIndex = 17;
+            gbSales.TabStop = false;
+            gbSales.Text = "Sales";
+            gbSales.Enter += groupBox2_Enter;
             // 
             // lblGrossSales
             // 
             lblGrossSales.AutoSize = true;
             lblGrossSales.Font = new Font("Impact", 36F, FontStyle.Italic);
             lblGrossSales.ForeColor = Color.Black;
-            lblGrossSales.Location = new Point(430, 124);
+            lblGrossSales.Location = new Point(366, 202);
             lblGrossSales.Name = "lblGrossSales";
             lblGrossSales.Size = new Size(112, 60);
             lblGrossSales.TabIndex = 4;
@@ -374,40 +370,42 @@ namespace PAKOPointOfSale
             lblNetSales.AutoSize = true;
             lblNetSales.Font = new Font("Impact", 36F, FontStyle.Italic);
             lblNetSales.ForeColor = Color.Black;
-            lblNetSales.Location = new Point(430, 37);
+            lblNetSales.Location = new Point(366, 115);
             lblNetSales.Name = "lblNetSales";
             lblNetSales.Size = new Size(112, 60);
             lblNetSales.TabIndex = 3;
             lblNetSales.Text = "0.00";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Impact", 36F);
-            label9.ForeColor = Color.Black;
-            label9.Location = new Point(100, 217);
-            label9.Name = "label9";
-            label9.Size = new Size(259, 60);
-            label9.TabIndex = 2;
-            label9.Text = "Grand Total:";
             // 
             // label8
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Impact", 36F);
             label8.ForeColor = Color.Black;
-            label8.Location = new Point(100, 124);
+            label8.Location = new Point(36, 202);
             label8.Name = "label8";
             label8.Size = new Size(267, 60);
             label8.TabIndex = 1;
             label8.Text = "Gross Sales:";
+            // 
+            // btnClearFilters
+            // 
+            btnClearFilters.BackColor = Color.FloralWhite;
+            btnClearFilters.FlatStyle = FlatStyle.Popup;
+            btnClearFilters.ForeColor = Color.Black;
+            btnClearFilters.Location = new Point(609, 36);
+            btnClearFilters.Name = "btnClearFilters";
+            btnClearFilters.Size = new Size(106, 23);
+            btnClearFilters.TabIndex = 177;
+            btnClearFilters.Text = "Clear Filters";
+            btnClearFilters.UseVisualStyleBackColor = false;
+            btnClearFilters.Click += btnClearFilters_Click;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Impact", 36F);
             label4.ForeColor = Color.Black;
-            label4.Location = new Point(100, 37);
+            label4.Location = new Point(36, 115);
             label4.Name = "label4";
             label4.Size = new Size(219, 60);
             label4.TabIndex = 0;
@@ -686,37 +684,11 @@ namespace PAKOPointOfSale
             pictureBox4.TabIndex = 177;
             pictureBox4.TabStop = false;
             // 
-            // btnClearFilters
-            // 
-            btnClearFilters.BackColor = Color.FloralWhite;
-            btnClearFilters.FlatStyle = FlatStyle.Popup;
-            btnClearFilters.ForeColor = Color.Black;
-            btnClearFilters.Location = new Point(1168, 337);
-            btnClearFilters.Name = "btnClearFilters";
-            btnClearFilters.Size = new Size(106, 23);
-            btnClearFilters.TabIndex = 177;
-            btnClearFilters.Text = "Clear Filters";
-            btnClearFilters.UseVisualStyleBackColor = false;
-            btnClearFilters.Click += btnClearFilters_Click;
-            // 
             // timerDateandTime
             // 
             timerDateandTime.Enabled = true;
             timerDateandTime.Interval = 1000;
             timerDateandTime.Tick += timer1_Tick_1;
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.BackColor = SystemColors.ControlDarkDark;
-            pictureBox3.ErrorImage = null;
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.InitialImage = null;
-            pictureBox3.Location = new Point(-13, 677);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(1402, 91);
-            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox3.TabIndex = 181;
-            pictureBox3.TabStop = false;
             // 
             // lblFullName
             // 
@@ -730,17 +702,79 @@ namespace PAKOPointOfSale
             lblFullName.TabIndex = 183;
             lblFullName.Text = "Full Name";
             // 
+            // gbLowStocks
+            // 
+            gbLowStocks.BackColor = Color.CadetBlue;
+            gbLowStocks.Controls.Add(dtgvLowStocks);
+            gbLowStocks.ForeColor = Color.White;
+            gbLowStocks.Location = new Point(12, 555);
+            gbLowStocks.Name = "gbLowStocks";
+            gbLowStocks.Size = new Size(542, 197);
+            gbLowStocks.TabIndex = 185;
+            gbLowStocks.TabStop = false;
+            gbLowStocks.Text = "Low Stock Products";
+            // 
+            // dtgvLowStocks
+            // 
+            dtgvLowStocks.AllowUserToAddRows = false;
+            dtgvLowStocks.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = Color.White;
+            dtgvLowStocks.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dtgvLowStocks.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dtgvLowStocks.BackgroundColor = SystemColors.ControlLight;
+            dtgvLowStocks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtgvLowStocks.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3 });
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = SystemColors.Window;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle5.ForeColor = Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            dtgvLowStocks.DefaultCellStyle = dataGridViewCellStyle5;
+            dtgvLowStocks.Location = new Point(15, 22);
+            dtgvLowStocks.Name = "dtgvLowStocks";
+            dtgvLowStocks.ReadOnly = true;
+            dtgvLowStocks.RowHeadersVisible = false;
+            dataGridViewCellStyle6.ForeColor = Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dtgvLowStocks.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dtgvLowStocks.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dtgvLowStocks.Size = new Size(513, 162);
+            dtgvLowStocks.TabIndex = 11;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            dataGridViewTextBoxColumn1.DataPropertyName = "product_name";
+            dataGridViewTextBoxColumn1.HeaderText = "Product";
+            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            dataGridViewTextBoxColumn2.DataPropertyName = "quantity";
+            dataGridViewTextBoxColumn2.HeaderText = "Remaining Quantity";
+            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            dataGridViewTextBoxColumn3.DataPropertyName = "supplier";
+            dataGridViewTextBoxColumn3.HeaderText = "Supplier";
+            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
             // MDIParent1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
             ClientSize = new Size(1367, 788);
-            Controls.Add(btnExportTop5Selling);
+            Controls.Add(gbLowStocks);
             Controls.Add(lblFullName);
-            Controls.Add(pictureBox3);
             Controls.Add(pictureBox4);
-            Controls.Add(btnClearFilters);
             Controls.Add(label19);
             Controls.Add(label18);
             Controls.Add(label17);
@@ -762,20 +796,8 @@ namespace PAKOPointOfSale
             Controls.Add(label10);
             Controls.Add(pictureBox1);
             Controls.Add(pictureBox2);
-            Controls.Add(btnFilter);
-            Controls.Add(btnFilterDateSales);
-            Controls.Add(label7);
-            Controls.Add(dtpToSales);
-            Controls.Add(label6);
-            Controls.Add(dtpFromSales);
-            Controls.Add(label3);
-            Controls.Add(comboBoxSalesFilter);
-            Controls.Add(groupBox2);
-            Controls.Add(groupBox1);
-            Controls.Add(label2);
-            Controls.Add(dtpTo);
-            Controls.Add(label1);
-            Controls.Add(dtpFrom);
+            Controls.Add(gbSales);
+            Controls.Add(gbTop5Sellings);
             Controls.Add(btnPos);
             Controls.Add(statusStrip);
             Controls.Add(menuStrip);
@@ -790,16 +812,16 @@ namespace PAKOPointOfSale
             TransparencyKey = Color.White;
             WindowState = FormWindowState.Maximized;
             Load += SuperAdminForm_Load;
-            statusStrip.ResumeLayout(false);
-            statusStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dtgvTop5SellingProducts).EndInit();
-            groupBox1.ResumeLayout(false);
-            groupBox2.ResumeLayout(false);
-            groupBox2.PerformLayout();
+            gbTop5Sellings.ResumeLayout(false);
+            gbTop5Sellings.PerformLayout();
+            gbSales.ResumeLayout(false);
+            gbSales.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            gbLowStocks.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dtgvLowStocks).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -813,7 +835,6 @@ namespace PAKOPointOfSale
 
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.StatusStrip statusStrip;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
         private System.Windows.Forms.ToolTip toolTip;
         private DataGridView dtgvTop5SellingProducts;
         private DataGridViewTextBoxColumn product_name;
@@ -823,7 +844,7 @@ namespace PAKOPointOfSale
         private DateTimePicker dtpTo;
         private Label label1;
         private DateTimePicker dtpFrom;
-        private GroupBox groupBox1;
+        private GroupBox gbTop5Sellings;
         private Button btnFilter;
         private ComboBox comboBoxSalesFilter;
         private Label label3;
@@ -832,11 +853,9 @@ namespace PAKOPointOfSale
         private Label label7;
         private DateTimePicker dtpToSales;
         private Button btnFilterDateSales;
-        private GroupBox groupBox2;
-        private Label lblGrandTotal;
+        private GroupBox gbSales;
         private Label lblGrossSales;
         private Label lblNetSales;
-        private Label label9;
         private Label label8;
         private Label label4;
         private System.Windows.Forms.Timer timeReloadData;
@@ -864,11 +883,15 @@ namespace PAKOPointOfSale
         private Label label19;
         private PictureBox pictureBox4;
         private Button btnClearFilters;
-        private PictureBox pictureBox3;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timerDateandTime;
         private Label lblFullName;
         private Button btnExportTop5Selling;
+        private GroupBox gbLowStocks;
+        private DataGridView dtgvLowStocks;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
     }
 }
 

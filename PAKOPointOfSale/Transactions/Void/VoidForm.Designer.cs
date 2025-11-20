@@ -171,6 +171,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Void";
             Load += VoidForm_Load;
+            KeyDown += VoidForm_KeyDown;
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);

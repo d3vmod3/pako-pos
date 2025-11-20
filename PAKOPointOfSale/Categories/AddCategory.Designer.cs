@@ -171,6 +171,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Categories";
             Load += AddCategory_Load;
+            KeyDown += AddCategory_KeyDown;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);

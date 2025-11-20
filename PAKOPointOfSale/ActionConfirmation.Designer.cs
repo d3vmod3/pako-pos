@@ -123,6 +123,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Input Credentials";
             Load += ActionConfirmation_Load;
+            KeyDown += ActionConfirmation_KeyDown;
             ResumeLayout(false);
             PerformLayout();
         }

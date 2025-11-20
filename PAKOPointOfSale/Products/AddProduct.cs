@@ -17,6 +17,7 @@ namespace PAKOPointOfSale.Products
         public AddProducts()
         {
             InitializeComponent();
+            this.KeyPreview = true;
         }
 
 
@@ -147,6 +148,7 @@ namespace PAKOPointOfSale.Products
                         cmd.Parameters.AddWithValue("@product_code", txtProductCode.Text.Trim());
                         cmd.Parameters.AddWithValue("@sku", txtSKU.Text.Trim());
                         cmd.Parameters.AddWithValue("@quantity", decimal.Parse(num_quantity.Text.Trim()));
+                        cmd.Parameters.AddWithValue("@low_stock_quantity", decimal.Parse(num_low_quantity.Text.Trim()));
                         cmd.Parameters.AddWithValue("@unit_of_measurement", cmbUnitofMeasurements.Text.Trim());
                         cmd.Parameters.AddWithValue("@cost_price", decimal.Parse(num_costPrice.Text.Trim()));
                         cmd.Parameters.AddWithValue("@unit_price", decimal.Parse(num_unitPrice.Text.Trim()));
@@ -336,6 +338,15 @@ namespace PAKOPointOfSale.Products
         private void pictureBox2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void AddProducts_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close(); // Hide the current form
+                e.Handled = true; // Prevent further processing of the key event
+            }
         }
     }
 }

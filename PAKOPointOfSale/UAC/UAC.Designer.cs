@@ -235,18 +235,17 @@
             dataGridView1.DataSource = permissionBindingSource;
             dataGridView1.Location = new Point(12, 128);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(1352, 539);
             dataGridView1.TabIndex = 152;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick_1;
             // 
             // idDataGridViewTextBoxColumn
             // 
             idDataGridViewTextBoxColumn.DataPropertyName = "id";
             idDataGridViewTextBoxColumn.HeaderText = "id";
             idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            idDataGridViewTextBoxColumn.ReadOnly = true;
             idDataGridViewTextBoxColumn.Visible = false;
             // 
             // usertypeidDataGridViewTextBoxColumn
@@ -254,7 +253,6 @@
             usertypeidDataGridViewTextBoxColumn.DataPropertyName = "user_type_id";
             usertypeidDataGridViewTextBoxColumn.HeaderText = "user_type_id";
             usertypeidDataGridViewTextBoxColumn.Name = "usertypeidDataGridViewTextBoxColumn";
-            usertypeidDataGridViewTextBoxColumn.ReadOnly = true;
             usertypeidDataGridViewTextBoxColumn.Visible = false;
             // 
             // module_name2
@@ -262,35 +260,30 @@
             module_name2.DataPropertyName = "module_name";
             module_name2.HeaderText = "Module";
             module_name2.Name = "module_name2";
-            module_name2.ReadOnly = true;
             // 
             // can_view2
             // 
             can_view2.DataPropertyName = "can_view";
             can_view2.HeaderText = "View";
             can_view2.Name = "can_view2";
-            can_view2.ReadOnly = true;
             // 
             // can_add2
             // 
             can_add2.DataPropertyName = "can_add";
             can_add2.HeaderText = "Add";
             can_add2.Name = "can_add2";
-            can_add2.ReadOnly = true;
             // 
             // can_edit2
             // 
             can_edit2.DataPropertyName = "can_edit";
             can_edit2.HeaderText = "Edit";
             can_edit2.Name = "can_edit2";
-            can_edit2.ReadOnly = true;
             // 
             // can_delete2
             // 
             can_delete2.DataPropertyName = "can_delete";
             can_delete2.HeaderText = "Delete";
             can_delete2.Name = "can_delete2";
-            can_delete2.ReadOnly = true;
             can_delete2.Visible = false;
             // 
             // userTypeDataGridViewTextBoxColumn1
@@ -298,7 +291,6 @@
             userTypeDataGridViewTextBoxColumn1.DataPropertyName = "userType";
             userTypeDataGridViewTextBoxColumn1.HeaderText = "userType";
             userTypeDataGridViewTextBoxColumn1.Name = "userTypeDataGridViewTextBoxColumn1";
-            userTypeDataGridViewTextBoxColumn1.ReadOnly = true;
             userTypeDataGridViewTextBoxColumn1.Visible = false;
             // 
             // permissionBindingSource
@@ -332,6 +324,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "User Access Control";
             Load += UAC_Load;
+            KeyDown += UAC_KeyDown;
             ((System.ComponentModel.ISupportInitialize)userTypeBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

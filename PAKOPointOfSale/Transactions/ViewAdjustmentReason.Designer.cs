@@ -68,6 +68,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "View Reason";
             Load += ViewAdjustmentReason_Load;
+            KeyDown += ViewAdjustmentReason_KeyDown;
             ResumeLayout(false);
             PerformLayout();
         }

@@ -25,6 +25,7 @@ namespace PAKOPointOfSale.Users
         {
             loadUsers();
             loadPermissions();
+            this.KeyPreview = true;
 
         }
         private void loadPermissions()
@@ -138,6 +139,15 @@ namespace PAKOPointOfSale.Users
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void UsersList_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close(); // Hide the current form
+                e.Handled = true; // Prevent further processing of the key event
+            }
         }
     }
 }

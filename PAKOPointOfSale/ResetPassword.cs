@@ -18,6 +18,7 @@ namespace PAKOPointOfSale
         {
             _user_id = user_id;
             InitializeComponent();
+            this.KeyPreview = true;
         }
 
         private void chkShowPassword_CheckedChanged(object sender, EventArgs e)
@@ -114,6 +115,15 @@ namespace PAKOPointOfSale
         private void label3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void ResetPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close(); // Hide the current form
+                e.Handled = true; // Prevent further processing of the key event
+            }
         }
     }
 }

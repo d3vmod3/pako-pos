@@ -98,6 +98,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Status";
             Load += Status_Load;
+            KeyDown += Status_KeyDown;
             ResumeLayout(false);
             PerformLayout();
         }

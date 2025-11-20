@@ -22,6 +22,7 @@ namespace PAKOPointOfSale.Transactions
         {
             _id = id;
             InitializeComponent();
+            this.KeyPreview = true;
         }
 
         private void ViewTransaction_Load(object sender, EventArgs e)
@@ -125,7 +126,7 @@ namespace PAKOPointOfSale.Transactions
 
                         if (returnedQuantities.TryGetValue(productId, out int returnedQty))
                         {
-                            
+
                             int remainingQty = Math.Max(originalQty - returnedQty, 0);
                             row.Cells["remainingQty"].Value = remainingQty; // ✅ update DataGridView
                             row.Cells["quantity"].Value = originalQty; // ✅ update DataGridView
@@ -133,7 +134,7 @@ namespace PAKOPointOfSale.Transactions
                             // mark as returned if no quantity remains
                             if (remainingQty == 0)
                             {
-                                
+
                                 row.Cells["selectReturn"].ReadOnly = true;
                                 row.Cells["selectReturn"].Style.BackColor = Color.DarkGray;
                                 row.Cells["selectReturn"].Value = false;
@@ -152,7 +153,7 @@ namespace PAKOPointOfSale.Transactions
 
                 if (transactionType == "Void" || transactionType == "Sales Invoice")
                 {
-                    
+
                     using (var cmdVoid = new SqlCommand("SELECT void_number, invoice_number, transaction_id FROM VoidTransactions WHERE invoice_number = @invoiceNumber", conn))
                     {
                         cmdVoid.Parameters.AddWithValue("@invoiceNumber", lblInvoiceNumber.Text);
@@ -187,7 +188,7 @@ namespace PAKOPointOfSale.Transactions
                 }
                 else if (transactionType == "Return" || transactionType == "Sales Invoice")
                 {
-                    
+
                     using (var cmdReturn = new SqlCommand("SELECT TOP 1 * FROM ReturnTransactions WHERE invoice_number = @invoiceNumber and transaction_id=@transactionId  ORDER BY id DESC", conn))
                     {
                         cmdReturn.Parameters.AddWithValue("@invoiceNumber", lblInvoiceNumber.Text);
@@ -315,7 +316,7 @@ namespace PAKOPointOfSale.Transactions
                 {
                     Transactions.Return.ReturnForm returnItemsForm = new Transactions.Return.ReturnForm(_id, _invoiceNumber, selectedItems);
 
-                    if(returnItemsForm.ShowDialog() == DialogResult.OK)
+                    if (returnItemsForm.ShowDialog() == DialogResult.OK)
                     {
                         this.Close();
                     }
@@ -342,7 +343,7 @@ namespace PAKOPointOfSale.Transactions
                 {
                     lblReturnNote.Visible = true;
                 }
-                if(lblVoidOrReturn.Text == "Return No.: ")
+                if (lblVoidOrReturn.Text == "Return No.: ")
                 {
                     dgvItems.Columns["remainingQty"].Visible = false;
                     dgvItems.Columns["quantity"].HeaderText = "Returned Quantity";
@@ -505,9 +506,18 @@ namespace PAKOPointOfSale.Transactions
 
         private void btnViewReason_Click(object sender, EventArgs e)
         {
-            Transactions.ViewAdjustmentReason viewReasonForm = new Transactions.ViewAdjustmentReason(Convert.ToInt32(lblTransactionId.Text),lblInvoiceNumber.Text,lblTransactionType.Text);
+            Transactions.ViewAdjustmentReason viewReasonForm = new Transactions.ViewAdjustmentReason(Convert.ToInt32(lblTransactionId.Text), lblInvoiceNumber.Text, lblTransactionType.Text);
             viewReasonForm.ShowDialog();
-            
+
+        }
+
+        private void lbViewTransaction_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close(); // Hide the current form
+                e.Handled = true; // Prevent further processing of the key event
+            }
         }
     }
 }

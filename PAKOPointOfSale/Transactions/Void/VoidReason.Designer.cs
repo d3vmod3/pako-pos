@@ -93,6 +93,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Void Reason";
             Load += VoidReason_Load;
+            KeyDown += VoidReason_KeyDown;
             ResumeLayout(false);
             PerformLayout();
         }

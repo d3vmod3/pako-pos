@@ -28,6 +28,7 @@ namespace PAKOPointOfSale.Transactions
         public SalesInvoice()
         {
             InitializeComponent();
+            this.KeyPreview = true;
         }
 
         private void SalesInvoice_Load(object sender, EventArgs e)
@@ -926,9 +927,8 @@ namespace PAKOPointOfSale.Transactions
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            
             this.Close();
-            MDIParent1 dashboardForm = new MDIParent1();
-            dashboardForm.Show();
         }
 
         private void button2_Click_Park(object sender, EventArgs e)
@@ -1295,12 +1295,13 @@ namespace PAKOPointOfSale.Transactions
                     );
                 if (result == DialogResult.Yes)
                 {
-                    for (int i = dtgvCart.Rows.Count - 1; i >= 0; i--)
+                    for (int i = 0; i <= dtgvCart.Rows.Count - 1; i++)
                     {
                         DataGridViewRow row = dtgvCart.Rows[i];
                         if (row.Selected && !row.IsNewRow)
                         {
-                            dtgvCart.Rows.RemoveAt(i);
+                            //dtgvCart.Rows.RemoveAt(i);
+                            dtgvCart.Rows.Remove(row);
                         }
                     }
                 }
@@ -1320,6 +1321,27 @@ namespace PAKOPointOfSale.Transactions
         private void lblDiscountAmount_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void SalesInvoice_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close(); // Hide the current form
+                e.Handled = true; // Prevent further processing of the key event
+            }
+
+            if (e.KeyCode == Keys.Space)
+            {
+                Transactions.SearchProduct searchProductForm = new Transactions.SearchProduct(this);
+                searchProductForm.Show();
+                e.Handled = true; // Prevent further processing of the key event
+            }
+        }
+
+        private void SalesInvoice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
         }
     }
 }

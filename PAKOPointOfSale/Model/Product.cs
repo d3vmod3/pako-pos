@@ -19,6 +19,7 @@ namespace WinFormsApp1.Model
         public string? product_code { get; set; }
         public string sku { get; set; }
         public decimal quantity { get; set; }
+        public decimal low_stock_quantity { get; set; }
         public string unit_of_measurement { get; set; }
         public decimal cost_price { get; set; }
         public decimal unit_price { get; set; }

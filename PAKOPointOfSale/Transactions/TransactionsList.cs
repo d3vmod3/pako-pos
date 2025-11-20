@@ -19,6 +19,8 @@ namespace PAKOPointOfSale.Transactions
         public TransactionsList()
         {
             InitializeComponent();
+            this.KeyPreview = true;
+
         }
 
         private void TransactionsList_Load(object sender, EventArgs e)
@@ -144,7 +146,7 @@ namespace PAKOPointOfSale.Transactions
 
         private void btnFilter_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void cmbStatus_SelectedIndexChanged(object sender, EventArgs e)
@@ -280,6 +282,15 @@ namespace PAKOPointOfSale.Transactions
             catch (Exception ex)
             {
                 MessageBox.Show("Error exporting CSV: " + ex.Message);
+            }
+        }
+
+        private void TransactionsList_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close(); // Hide the current form
+                e.Handled = true; // Prevent further processing of the key event
             }
         }
     }

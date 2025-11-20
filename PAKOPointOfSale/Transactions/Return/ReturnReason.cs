@@ -10,13 +10,14 @@ using System.Windows.Forms;
 
 namespace PAKOPointOfSale.Transactions.Return
 {
-   
+
     public partial class ReturnReason : Form
     {
         public event Action<string> Reason;
         public ReturnReason()
         {
             InitializeComponent();
+            this.KeyPreview = true;
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -27,7 +28,16 @@ namespace PAKOPointOfSale.Transactions.Return
 
         private void ReturnReason_Load(object sender, EventArgs e)
         {
-            
+
+        }
+
+        private void ReturnReason_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close(); // Hide the current form
+                e.Handled = true; // Prevent further processing of the key event
+            }
         }
     }
 }

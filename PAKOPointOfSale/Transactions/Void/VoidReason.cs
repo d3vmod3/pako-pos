@@ -16,6 +16,7 @@ namespace PAKOPointOfSale.Transactions.Void
         public VoidReason()
         {
             InitializeComponent();
+            this.KeyPreview = true;
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -32,6 +33,15 @@ namespace PAKOPointOfSale.Transactions.Void
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void VoidReason_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close(); // Hide the current form
+                e.Handled = true; // Prevent further processing of the key event
+            }
         }
     }
 }

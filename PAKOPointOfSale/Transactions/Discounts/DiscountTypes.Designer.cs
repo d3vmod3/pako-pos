@@ -145,6 +145,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Apply Discount";
             Load += DiscountTypes_Load;
+            KeyDown += DiscountTypes_KeyDown;
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

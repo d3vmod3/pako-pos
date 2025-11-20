@@ -12,6 +12,8 @@ namespace PAKOPointOfSale.Transactions.Discounts
         public DiscountTypes()
         {
             InitializeComponent();
+            this.KeyPreview = true;
+
         }
 
         private void DiscountTypes_Load(object sender, EventArgs e)
@@ -59,6 +61,15 @@ namespace PAKOPointOfSale.Transactions.Discounts
             {
                 this.Size = new Size(341, 166);
                 panel1.Location = new Point(12, 78);
+            }
+        }
+
+        private void DiscountTypes_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close(); // Hide the current form
+                e.Handled = true; // Prevent further processing of the key event
             }
         }
     }

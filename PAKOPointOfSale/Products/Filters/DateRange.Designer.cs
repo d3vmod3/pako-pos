@@ -117,6 +117,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Filter by";
             Load += DateRange_Load;
+            KeyDown += DateRange_KeyDown;
             ResumeLayout(false);
             PerformLayout();
         }
