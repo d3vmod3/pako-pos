@@ -19,6 +19,7 @@ public class Transaction
     public decimal cash_change { get; set; }
     public string status { get; set; }  // "success" or pending
     public string? remarks { get; set; }
+    [MaxLength(15)]
     public string transaction_type { get; set; }
     public DateTime created_at { get; set; }
 

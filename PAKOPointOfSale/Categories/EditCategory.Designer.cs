@@ -89,6 +89,7 @@
             // txtCategoryName
             // 
             txtCategoryName.Location = new Point(129, 79);
+            txtCategoryName.MaxLength = 50;
             txtCategoryName.Name = "txtCategoryName";
             txtCategoryName.Size = new Size(342, 23);
             txtCategoryName.TabIndex = 8;

@@ -274,6 +274,14 @@ namespace PAKOPointOfSale.Products
                 return false;
             }
 
+            if (cmbUnitofMeasurements.SelectedItem == "")
+            {
+                MessageBox.Show("Please select a Unit of Measurement.",
+                                "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cmbUnitofMeasurements.Focus();
+                return false;
+            }
+
             // --- Status validation ---
             if (!cmbStatus.Items.Cast<string>().Any(s => s == cmbStatus.Text))
             {
@@ -357,6 +365,7 @@ namespace PAKOPointOfSale.Products
                     product_code = @product_code,
                     sku = @sku,
                     quantity = @quantity,
+                    low_stock_quantity = @low_stock_quantity,
                     unit_of_measurement = @unit_of_measurement,
                     cost_price = @cost_price,
                     unit_price = @unit_price,

@@ -46,6 +46,7 @@
             // 
             txtCategoryName.Location = new Point(134, 88);
             txtCategoryName.Margin = new Padding(4, 3, 4, 3);
+            txtCategoryName.MaxLength = 50;
             txtCategoryName.Name = "txtCategoryName";
             txtCategoryName.Size = new Size(332, 23);
             txtCategoryName.TabIndex = 1;

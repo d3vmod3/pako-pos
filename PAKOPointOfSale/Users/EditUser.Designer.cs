@@ -207,6 +207,7 @@
             // 
             txtSuffix.Font = new Font("Microsoft Sans Serif", 11.25F);
             txtSuffix.Location = new Point(514, 110);
+            txtSuffix.MaxLength = 3;
             txtSuffix.Name = "txtSuffix";
             txtSuffix.Size = new Size(225, 24);
             txtSuffix.TabIndex = 21;
@@ -215,6 +216,7 @@
             // 
             txtLastName.Font = new Font("Microsoft Sans Serif", 11.25F);
             txtLastName.Location = new Point(153, 290);
+            txtLastName.MaxLength = 20;
             txtLastName.Name = "txtLastName";
             txtLastName.Size = new Size(226, 24);
             txtLastName.TabIndex = 20;
@@ -223,6 +225,7 @@
             // 
             txtMiddleName.Font = new Font("Microsoft Sans Serif", 11.25F);
             txtMiddleName.Location = new Point(156, 228);
+            txtMiddleName.MaxLength = 20;
             txtMiddleName.Name = "txtMiddleName";
             txtMiddleName.Size = new Size(223, 24);
             txtMiddleName.TabIndex = 19;
@@ -231,6 +234,7 @@
             // 
             txtFirstName.Font = new Font("Microsoft Sans Serif", 11.25F);
             txtFirstName.Location = new Point(156, 165);
+            txtFirstName.MaxLength = 20;
             txtFirstName.Name = "txtFirstName";
             txtFirstName.Size = new Size(223, 24);
             txtFirstName.TabIndex = 18;
@@ -239,6 +243,7 @@
             // 
             txtUsername.Font = new Font("Microsoft Sans Serif", 11.25F);
             txtUsername.Location = new Point(156, 109);
+            txtUsername.MaxLength = 32;
             txtUsername.Name = "txtUsername";
             txtUsername.Size = new Size(223, 24);
             txtUsername.TabIndex = 17;

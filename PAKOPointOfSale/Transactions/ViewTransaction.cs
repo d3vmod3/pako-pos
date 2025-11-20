@@ -255,7 +255,18 @@ namespace PAKOPointOfSale.Transactions
                         }
                     }
                 }
+
             }
+            dgvItems.Columns["unit_price"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvItems.Columns["quantity"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvItems.Columns["remainingQty"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvItems.Columns["vat_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvItems.Columns["vatable_sales"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvItems.Columns["vat_exempt"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvItems.Columns["discount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvItems.Columns["total_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvItems.Columns["unit_of_measurement"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            
         }
 
 

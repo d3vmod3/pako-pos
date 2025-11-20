@@ -68,7 +68,8 @@
             // txtPaymentGateway
             // 
             txtPaymentGateway.Font = new Font("Segoe UI", 9F);
-            txtPaymentGateway.Location = new Point(162, 254);
+            txtPaymentGateway.Location = new Point(516, 163);
+            txtPaymentGateway.MaxLength = 12;
             txtPaymentGateway.Multiline = true;
             txtPaymentGateway.Name = "txtPaymentGateway";
             txtPaymentGateway.Size = new Size(209, 23);
@@ -77,7 +78,8 @@
             // txtAccountNumber
             // 
             txtAccountNumber.Font = new Font("Segoe UI", 9F);
-            txtAccountNumber.Location = new Point(162, 212);
+            txtAccountNumber.Location = new Point(516, 111);
+            txtAccountNumber.MaxLength = 18;
             txtAccountNumber.Multiline = true;
             txtAccountNumber.Name = "txtAccountNumber";
             txtAccountNumber.Size = new Size(209, 23);
@@ -86,7 +88,8 @@
             // txtContactNumber
             // 
             txtContactNumber.Font = new Font("Segoe UI", 9F);
-            txtContactNumber.Location = new Point(195, 168);
+            txtContactNumber.Location = new Point(184, 213);
+            txtContactNumber.MaxLength = 10;
             txtContactNumber.Multiline = true;
             txtContactNumber.Name = "txtContactNumber";
             txtContactNumber.Size = new Size(176, 23);
@@ -105,7 +108,8 @@
             // txtSupplierName
             // 
             txtSupplierName.Font = new Font("Segoe UI", 9F);
-            txtSupplierName.Location = new Point(162, 87);
+            txtSupplierName.Location = new Point(151, 112);
+            txtSupplierName.MaxLength = 50;
             txtSupplierName.Multiline = true;
             txtSupplierName.Name = "txtSupplierName";
             txtSupplierName.Size = new Size(209, 23);

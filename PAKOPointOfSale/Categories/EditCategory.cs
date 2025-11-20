@@ -92,7 +92,7 @@ namespace PAKOPointOfSale.Categories
                         UPDATE Categories
                         SET 
                             name = @name,
-                            description = @description,
+                            description = @description
                         WHERE id = @id
                     ";
 

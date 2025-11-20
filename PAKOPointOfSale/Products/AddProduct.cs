@@ -134,7 +134,7 @@ namespace PAKOPointOfSale.Products
                      date_received, date_expiration,is_active,created_at)
                     VALUES
                     (@supplier_id, @category_id, @product_name, @product_brand, @product_description,@barcode, @product_code, 
-                     @sku, @quantity, @unit_of_measurement, @cost_price, @unit_price, @remarks, @status, 
+                     @sku, @quantity,@low_stock_quantity, @unit_of_measurement, @cost_price, @unit_price, @remarks, @status, 
                      @date_received, @date_expiration,@is_active, @created_at)";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
@@ -266,6 +266,15 @@ namespace PAKOPointOfSale.Products
                 cmbUnitofMeasurements.Focus();
                 return false;
             }
+
+            if (cmbUnitofMeasurements.SelectedItem == "")
+            {
+                MessageBox.Show("Please select a Unit of Measurement.",
+                                "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cmbUnitofMeasurements.Focus();
+                return false;
+            }
+
 
             // --- Status validation ---
             if (!cmbStatus.Items.Cast<string>().Any(s => s == cmbStatus.Text))

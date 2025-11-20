@@ -103,6 +103,7 @@
             // 
             txtSupplierName.Font = new Font("Calibri", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtSupplierName.Location = new Point(124, 93);
+            txtSupplierName.MaxLength = 50;
             txtSupplierName.Multiline = true;
             txtSupplierName.Name = "txtSupplierName";
             txtSupplierName.Size = new Size(219, 20);
@@ -121,6 +122,7 @@
             // 
             txtContactNumber.Font = new Font("Calibri", 8.25F);
             txtContactNumber.Location = new Point(159, 175);
+            txtContactNumber.MaxLength = 10;
             txtContactNumber.Multiline = true;
             txtContactNumber.Name = "txtContactNumber";
             txtContactNumber.Size = new Size(184, 20);
@@ -132,6 +134,7 @@
             // 
             txtAccountNumber.Font = new Font("Calibri", 8.25F);
             txtAccountNumber.Location = new Point(124, 215);
+            txtAccountNumber.MaxLength = 18;
             txtAccountNumber.Multiline = true;
             txtAccountNumber.Name = "txtAccountNumber";
             txtAccountNumber.Size = new Size(219, 20);
@@ -141,6 +144,7 @@
             // 
             txtGateway.Font = new Font("Calibri", 8.25F);
             txtGateway.Location = new Point(124, 256);
+            txtGateway.MaxLength = 12;
             txtGateway.Multiline = true;
             txtGateway.Name = "txtGateway";
             txtGateway.Size = new Size(219, 20);

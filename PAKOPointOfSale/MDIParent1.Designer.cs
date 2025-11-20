@@ -91,9 +91,9 @@ namespace PAKOPointOfSale
             lblFullName = new Label();
             gbLowStocks = new GroupBox();
             dtgvLowStocks = new DataGridView();
-            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
+            product_name2 = new DataGridViewTextBoxColumn();
+            quantity = new DataGridViewTextBoxColumn();
+            supplier = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dtgvTop5SellingProducts).BeginInit();
             gbTop5Sellings.SuspendLayout();
             gbSales.SuspendLayout();
@@ -133,8 +133,6 @@ namespace PAKOPointOfSale
             dtgvTop5SellingProducts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dtgvTop5SellingProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgvTop5SellingProducts.BackgroundColor = SystemColors.ControlLight;
-            dtgvTop5SellingProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgvTop5SellingProducts.Columns.AddRange(new DataGridViewColumn[] { product_name, total_quantity_sold, total_sales });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
@@ -142,6 +140,9 @@ namespace PAKOPointOfSale
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dtgvTop5SellingProducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dtgvTop5SellingProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtgvTop5SellingProducts.Columns.AddRange(new DataGridViewColumn[] { product_name, total_quantity_sold, total_sales });
             dtgvTop5SellingProducts.DefaultCellStyle = dataGridViewCellStyle2;
             dtgvTop5SellingProducts.Location = new Point(13, 84);
             dtgvTop5SellingProducts.Name = "dtgvTop5SellingProducts";
@@ -229,6 +230,7 @@ namespace PAKOPointOfSale
             gbTop5Sellings.TabIndex = 13;
             gbTop5Sellings.TabStop = false;
             gbTop5Sellings.Text = "Top 5 Selling Products";
+            gbTop5Sellings.Enter += gbTop5Sellings_Enter;
             // 
             // btnExportTop5Selling
             // 
@@ -725,7 +727,7 @@ namespace PAKOPointOfSale
             dtgvLowStocks.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgvLowStocks.BackgroundColor = SystemColors.ControlLight;
             dtgvLowStocks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgvLowStocks.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3 });
+            dtgvLowStocks.Columns.AddRange(new DataGridViewColumn[] { product_name2, quantity, supplier });
             dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = SystemColors.Window;
             dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F);
@@ -745,26 +747,26 @@ namespace PAKOPointOfSale
             dtgvLowStocks.Size = new Size(513, 162);
             dtgvLowStocks.TabIndex = 11;
             // 
-            // dataGridViewTextBoxColumn1
+            // product_name2
             // 
-            dataGridViewTextBoxColumn1.DataPropertyName = "product_name";
-            dataGridViewTextBoxColumn1.HeaderText = "Product";
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            dataGridViewTextBoxColumn1.ReadOnly = true;
+            product_name2.DataPropertyName = "product_name";
+            product_name2.HeaderText = "Product";
+            product_name2.Name = "product_name2";
+            product_name2.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn2
+            // quantity
             // 
-            dataGridViewTextBoxColumn2.DataPropertyName = "quantity";
-            dataGridViewTextBoxColumn2.HeaderText = "Remaining Quantity";
-            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            dataGridViewTextBoxColumn2.ReadOnly = true;
+            quantity.DataPropertyName = "quantity";
+            quantity.HeaderText = "Remaining Quantity";
+            quantity.Name = "quantity";
+            quantity.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn3
+            // supplier
             // 
-            dataGridViewTextBoxColumn3.DataPropertyName = "supplier";
-            dataGridViewTextBoxColumn3.HeaderText = "Supplier";
-            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            dataGridViewTextBoxColumn3.ReadOnly = true;
+            supplier.DataPropertyName = "supplier";
+            supplier.HeaderText = "Supplier";
+            supplier.Name = "supplier";
+            supplier.ReadOnly = true;
             // 
             // MDIParent1
             // 
@@ -889,9 +891,9 @@ namespace PAKOPointOfSale
         private Button btnExportTop5Selling;
         private GroupBox gbLowStocks;
         private DataGridView dtgvLowStocks;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private DataGridViewTextBoxColumn product_name2;
+        private DataGridViewTextBoxColumn quantity;
+        private DataGridViewTextBoxColumn supplier;
     }
 }
 

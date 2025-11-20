@@ -104,6 +104,9 @@ namespace PAKOPointOfSale.Products
                 c.FlatStyle = FlatStyle.Flat;
                 c.DefaultCellStyle.ForeColor = Color.White;
                 c.DefaultCellStyle.BackColor = Color.LightBlue;
+                dataGridView1.Columns["unit_price"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dataGridView1.Columns["quantity"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dataGridView1.Columns["cost_price"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             }
             catch (Exception ex)
             {

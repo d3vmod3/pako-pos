@@ -74,6 +74,9 @@ namespace PAKOPointOfSale.Transactions
                 c.FlatStyle = FlatStyle.Flat;
                 c.DefaultCellStyle.ForeColor = Color.White;
                 c.DefaultCellStyle.BackColor = Color.LightBlue;
+                dtgvTransactions.Columns["cash_change"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dtgvTransactions.Columns["sub_total"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dtgvTransactions.Columns["cash_received"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             }
             catch (Exception ex)
             {

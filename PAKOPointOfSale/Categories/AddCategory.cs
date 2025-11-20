@@ -53,14 +53,13 @@ namespace PAKOPointOfSale.Categories
                 {
                     conn.Open();
 
-                    string query = "INSERT INTO Categories (name, description, is_active) VALUES (@name, @description, @is_active)";
+                    string query = "INSERT INTO Categories (name, description) VALUES (@name, @description)";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
                         // Add parameters to avoid SQL injection
                         cmd.Parameters.AddWithValue("@name", txtCategoryName.Text.Trim());
                         cmd.Parameters.AddWithValue("@description", txtDescription.Text.Trim());
-                        cmd.Parameters.AddWithValue("@is_active", false);
 
                         int rowsAffected = cmd.ExecuteNonQuery();
 

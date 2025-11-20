@@ -27,7 +27,7 @@ namespace PAKOPointOfSale
             Form childForm = new Form();
             childForm.MdiParent = this;
             childForm.Text = "Window " + childFormNumber++;
-            childForm.Show();
+            childForm.ShowDialog();
         }
 
         private void OpenFile(object sender, EventArgs e)
@@ -182,6 +182,10 @@ namespace PAKOPointOfSale
                     adapter.Fill(dt);
                 }
                 dtgvTop5SellingProducts.DataSource = dt;
+                dtgvTop5SellingProducts.Columns["product_name"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+                dtgvTop5SellingProducts.Columns["total_quantity_sold"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dtgvTop5SellingProducts.Columns["total_sales"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
             }
         }
 
@@ -208,7 +212,11 @@ namespace PAKOPointOfSale
                     adapter.Fill(dt);
                 }
                 dtgvLowStocks.DataSource = dt;
+                dtgvLowStocks.Columns["product_name2"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dtgvLowStocks.Columns["quantity"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dtgvLowStocks.Columns["supplier"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             }
+
         }
 
         private void usersToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -244,7 +252,7 @@ namespace PAKOPointOfSale
                 return;
             }
             Transactions.SalesInvoice salesInvoiceForm = new Transactions.SalesInvoice();
-            salesInvoiceForm.Show();
+            salesInvoiceForm.ShowDialog();
         }
 
         private void transactionsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -428,7 +436,7 @@ namespace PAKOPointOfSale
             var loginForm = new Login(); // Replace with your login form
             loginForm.Show();
             LoggedInUser.Logout(this);
-            
+
         }
 
         private void menuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -449,7 +457,7 @@ namespace PAKOPointOfSale
                 return;
             }
             Products.ProductsList productsForm = new Products.ProductsList();
-            productsForm.Show();
+            productsForm.ShowDialog();
         }
 
         private void btnCategories_Click(object sender, EventArgs e)
@@ -460,7 +468,7 @@ namespace PAKOPointOfSale
                 return;
             }
             Categories.CategoriesList categoriesList = new Categories.CategoriesList();
-            categoriesList.Show();
+            categoriesList.ShowDialog();
         }
 
         private void btnSuppliers_Click(object sender, EventArgs e)
@@ -471,7 +479,7 @@ namespace PAKOPointOfSale
                 return;
             }
             Supplier_Details.SuppliersList suppliersList = new Supplier_Details.SuppliersList();
-            suppliersList.Show();
+            suppliersList.ShowDialog();
         }
 
         private void btnTransactions_Click(object sender, EventArgs e)
@@ -482,7 +490,7 @@ namespace PAKOPointOfSale
                 return;
             }
             Transactions.TransactionsList transactionsListForm = new Transactions.TransactionsList();
-            transactionsListForm.Show();
+            transactionsListForm.ShowDialog();
         }
 
         private void btnUsers_Click(object sender, EventArgs e)
@@ -493,7 +501,7 @@ namespace PAKOPointOfSale
                 return;
             }
             Users.UsersList usersListForm = new Users.UsersList();
-            usersListForm.Show();
+            usersListForm.ShowDialog();
         }
 
         private void btnUac_Click(object sender, EventArgs e)
@@ -504,7 +512,7 @@ namespace PAKOPointOfSale
                 return;
             }
             UAC.UAC userAccessControlForm = new UAC.UAC();
-            userAccessControlForm.Show();
+            userAccessControlForm.ShowDialog();
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -609,6 +617,11 @@ namespace PAKOPointOfSale
                     }
                 }
             }
+        }
+
+        private void gbTop5Sellings_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

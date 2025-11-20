@@ -31,6 +31,7 @@ namespace PAKOPointOfSale.Transactions
         private void InitializeComponent()
         {
             components = new Container();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             ComponentResourceManager resources = new ComponentResourceManager(typeof(lbViewTransaction));
             btnProceed = new Button();
             dgvItems = new DataGridView();
@@ -125,6 +126,14 @@ namespace PAKOPointOfSale.Transactions
             dgvItems.AutoGenerateColumns = false;
             dgvItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvItems.BackgroundColor = SystemColors.ScrollBar;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvItems.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvItems.Columns.AddRange(new DataGridViewColumn[] { id, product_code, product_id, product_name, product_brand, selectReturn, transaction_id, dataGridViewTextBoxColumn1, quantity, remainingQty, unit_price, vat_amount, vatable_sales, vat_exempt, discount, discount_type, total_amount, unit_of_measurement, reason, transaction, product });
             dgvItems.DataSource = salesInvoiceItemBindingSource;

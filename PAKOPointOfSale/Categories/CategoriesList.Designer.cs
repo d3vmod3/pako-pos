@@ -37,11 +37,6 @@ namespace PAKOPointOfSale.Categories
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CategoriesList));
             dataGridView1 = new DataGridView();
-            id = new DataGridViewTextBoxColumn();
-            name = new DataGridViewTextBoxColumn();
-            descriptionDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            editCategory = new DataGridViewButtonColumn();
-            deleteCategory = new DataGridViewButtonColumn();
             categoryBindingSource = new BindingSource(components);
             btnAdd = new Button();
             btnExport = new Button();
@@ -52,6 +47,11 @@ namespace PAKOPointOfSale.Categories
             lblcategorieslist = new Label();
             btnClose = new Button();
             pictureBox3 = new PictureBox();
+            id = new DataGridViewTextBoxColumn();
+            name = new DataGridViewTextBoxColumn();
+            descriptionDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            editCategory = new DataGridViewButtonColumn();
+            deleteCategory = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)categoryBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -66,9 +66,9 @@ namespace PAKOPointOfSale.Categories
             dataGridViewCellStyle1.ForeColor = Color.Black;
             dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.AutoGenerateColumns = false;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridView1.BackgroundColor = SystemColors.ActiveBorder;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = Color.CadetBlue;
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
             dataGridViewCellStyle2.ForeColor = Color.Black;
@@ -106,52 +106,6 @@ namespace PAKOPointOfSale.Categories
             dataGridView1.Size = new Size(1334, 542);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick_1;
-            // 
-            // id
-            // 
-            id.DataPropertyName = "id";
-            id.HeaderText = "id";
-            id.Name = "id";
-            id.ReadOnly = true;
-            id.Visible = false;
-            // 
-            // name
-            // 
-            name.DataPropertyName = "name";
-            name.FillWeight = 98.48173F;
-            name.HeaderText = "Category Name";
-            name.Name = "name";
-            name.ReadOnly = true;
-            name.Resizable = DataGridViewTriState.False;
-            // 
-            // descriptionDataGridViewTextBoxColumn
-            // 
-            descriptionDataGridViewTextBoxColumn.DataPropertyName = "description";
-            descriptionDataGridViewTextBoxColumn.FillWeight = 98.48173F;
-            descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
-            descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            descriptionDataGridViewTextBoxColumn.ReadOnly = true;
-            descriptionDataGridViewTextBoxColumn.Resizable = DataGridViewTriState.False;
-            // 
-            // editCategory
-            // 
-            editCategory.FillWeight = 101.51371F;
-            editCategory.HeaderText = "";
-            editCategory.MinimumWidth = 50;
-            editCategory.Name = "editCategory";
-            editCategory.ReadOnly = true;
-            editCategory.Text = "Edit";
-            editCategory.UseColumnTextForButtonValue = true;
-            // 
-            // deleteCategory
-            // 
-            deleteCategory.FillWeight = 101.522842F;
-            deleteCategory.HeaderText = "";
-            deleteCategory.MinimumWidth = 50;
-            deleteCategory.Name = "deleteCategory";
-            deleteCategory.ReadOnly = true;
-            deleteCategory.Text = "Delete";
-            deleteCategory.UseColumnTextForButtonValue = true;
             // 
             // categoryBindingSource
             // 
@@ -263,6 +217,57 @@ namespace PAKOPointOfSale.Categories
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 152;
             pictureBox3.TabStop = false;
+            // 
+            // id
+            // 
+            id.DataPropertyName = "id";
+            id.HeaderText = "id";
+            id.Name = "id";
+            id.ReadOnly = true;
+            id.Visible = false;
+            id.Width = 23;
+            // 
+            // name
+            // 
+            name.DataPropertyName = "name";
+            name.FillWeight = 98.48173F;
+            name.HeaderText = "Category Name";
+            name.Name = "name";
+            name.ReadOnly = true;
+            name.Resizable = DataGridViewTriState.False;
+            name.Width = 106;
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            descriptionDataGridViewTextBoxColumn.DataPropertyName = "description";
+            descriptionDataGridViewTextBoxColumn.FillWeight = 98.48173F;
+            descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
+            descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            descriptionDataGridViewTextBoxColumn.ReadOnly = true;
+            descriptionDataGridViewTextBoxColumn.Resizable = DataGridViewTriState.False;
+            descriptionDataGridViewTextBoxColumn.Width = 92;
+            // 
+            // editCategory
+            // 
+            editCategory.FillWeight = 101.51371F;
+            editCategory.HeaderText = "";
+            editCategory.MinimumWidth = 80;
+            editCategory.Name = "editCategory";
+            editCategory.ReadOnly = true;
+            editCategory.Text = "Edit";
+            editCategory.UseColumnTextForButtonValue = true;
+            editCategory.Width = 80;
+            // 
+            // deleteCategory
+            // 
+            deleteCategory.FillWeight = 101.522842F;
+            deleteCategory.HeaderText = "";
+            deleteCategory.MinimumWidth = 50;
+            deleteCategory.Name = "deleteCategory";
+            deleteCategory.ReadOnly = true;
+            deleteCategory.Text = "Delete";
+            deleteCategory.UseColumnTextForButtonValue = true;
+            deleteCategory.Width = 50;
             // 
             // CategoriesList
             // 

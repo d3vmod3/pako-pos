@@ -47,7 +47,7 @@ namespace PAKOPointOfSale
                     }
                     else
                     {
-                        mainMenuForm.Show();
+                        mainMenuForm.ShowDialog();
                     }
                     return;
                 }
