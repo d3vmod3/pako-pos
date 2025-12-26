@@ -159,11 +159,6 @@ namespace PAKOPointOfSale.Transactions
             txtScannedBarcode.Focus();
         }
 
-        private void dtgvCart_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-        }
-
         private void QuantityColumn_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Allow only digits and control keys (like backspace)
@@ -1337,8 +1332,44 @@ namespace PAKOPointOfSale.Transactions
             if (e.KeyCode == Keys.Space)
             {
                 Transactions.SearchProduct searchProductForm = new Transactions.SearchProduct(this);
-                searchProductForm.Show();
+                searchProductForm.ShowDialog();
                 e.Handled = true; // Prevent further processing of the key event
+            }
+
+
+            if (e.KeyCode == Keys.F1)   
+            {
+                btnClearCart.PerformClick();        
+            }
+
+            if (e.KeyCode == Keys.F2)   
+            {
+                btnRemove.PerformClick();       
+            }
+
+            if (e.KeyCode == Keys.F3)   
+            {
+                btnParkedTransactions .PerformClick();        
+            }
+
+            if (e.KeyCode == Keys.F4)   
+            {
+                btnApplyDiscount.PerformClick();        
+            }
+
+            if (e.KeyCode == Keys.F5)   
+            {
+                btnPark.PerformClick();     
+            }
+
+            if (e.KeyCode == Keys.Enter)  
+            {
+                btnConfirm.PerformClick();       
+            }
+
+            if (e.KeyCode == Keys.ShiftKey)   
+            {
+                btnScan.PerformClick();       
             }
         }
 

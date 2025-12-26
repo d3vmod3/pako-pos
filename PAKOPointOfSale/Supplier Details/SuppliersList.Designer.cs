@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
@@ -39,6 +39,7 @@
             DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SuppliersList));
             btnExport = new Button();
             btnAdd = new Button();
@@ -127,7 +128,7 @@
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
@@ -140,8 +141,8 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
-            dataGridViewCellStyle10.ForeColor = Color.Black;
-            dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle11.ForeColor = Color.Black;
+            dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle11;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(1343, 511);
             dataGridView1.TabIndex = 5;
@@ -150,8 +151,14 @@
             // id
             // 
             id.DataPropertyName = "id";
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            id.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = SystemColors.Control;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            id.DefaultCellStyle = dataGridViewCellStyle2;
             id.HeaderText = "id";
             id.Name = "id";
             id.ReadOnly = true;
@@ -160,8 +167,8 @@
             // nameDataGridViewTextBoxColumn
             // 
             nameDataGridViewTextBoxColumn.DataPropertyName = "name";
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            nameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            nameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
             nameDataGridViewTextBoxColumn.FillWeight = 85.27919F;
             nameDataGridViewTextBoxColumn.HeaderText = "Name";
             nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
@@ -170,8 +177,8 @@
             // addressDataGridViewTextBoxColumn
             // 
             addressDataGridViewTextBoxColumn.DataPropertyName = "address";
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            addressDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            addressDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
             addressDataGridViewTextBoxColumn.FillWeight = 85.27919F;
             addressDataGridViewTextBoxColumn.HeaderText = "Address";
             addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
@@ -180,8 +187,8 @@
             // contactnumberDataGridViewTextBoxColumn
             // 
             contactnumberDataGridViewTextBoxColumn.DataPropertyName = "contact_number";
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            contactnumberDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            contactnumberDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
             contactnumberDataGridViewTextBoxColumn.FillWeight = 85.27919F;
             contactnumberDataGridViewTextBoxColumn.HeaderText = "Contact Number";
             contactnumberDataGridViewTextBoxColumn.Name = "contactnumberDataGridViewTextBoxColumn";
@@ -190,8 +197,8 @@
             // accountnumberDataGridViewTextBoxColumn
             // 
             accountnumberDataGridViewTextBoxColumn.DataPropertyName = "account_number";
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            accountnumberDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            accountnumberDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
             accountnumberDataGridViewTextBoxColumn.FillWeight = 85.27919F;
             accountnumberDataGridViewTextBoxColumn.HeaderText = "Account Number";
             accountnumberDataGridViewTextBoxColumn.Name = "accountnumberDataGridViewTextBoxColumn";
@@ -200,8 +207,8 @@
             // gatewayDataGridViewTextBoxColumn
             // 
             gatewayDataGridViewTextBoxColumn.DataPropertyName = "gateway";
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            gatewayDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            gatewayDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle7;
             gatewayDataGridViewTextBoxColumn.FillWeight = 85.27919F;
             gatewayDataGridViewTextBoxColumn.HeaderText = "Gateway";
             gatewayDataGridViewTextBoxColumn.Name = "gatewayDataGridViewTextBoxColumn";
@@ -210,8 +217,8 @@
             // is_active
             // 
             is_active.DataPropertyName = "is_active";
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            is_active.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            is_active.DefaultCellStyle = dataGridViewCellStyle8;
             is_active.FillWeight = 85.27919F;
             is_active.HeaderText = "Active";
             is_active.Name = "is_active";
@@ -222,8 +229,8 @@
             // created_at
             // 
             created_at.DataPropertyName = "created_at";
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            created_at.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            created_at.DefaultCellStyle = dataGridViewCellStyle9;
             created_at.FillWeight = 85.27919F;
             created_at.HeaderText = "Date Created";
             created_at.Name = "created_at";
@@ -232,10 +239,10 @@
             // edit
             // 
             edit.DataPropertyName = "id";
-            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.ForeColor = Color.Black;
-            edit.DefaultCellStyle = dataGridViewCellStyle9;
-            edit.FillWeight = 203.045685F;
+            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.ForeColor = Color.Black;
+            edit.DefaultCellStyle = dataGridViewCellStyle10;
+            edit.FillWeight = 85F;
             edit.HeaderText = "";
             edit.Name = "edit";
             edit.ReadOnly = true;
@@ -273,7 +280,7 @@
             label1.FlatStyle = FlatStyle.System;
             label1.Font = new Font("Impact", 50.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.ButtonHighlight;
-            label1.Location = new Point(583, 9);
+            label1.Location = new Point(501, 9);
             label1.Name = "label1";
             label1.Size = new Size(440, 82);
             label1.TabIndex = 147;

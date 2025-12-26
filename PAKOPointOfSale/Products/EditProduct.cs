@@ -432,5 +432,20 @@ namespace PAKOPointOfSale.Products
                 e.Handled = true; // Prevent further processing of the key event
             }
         }
+
+        private void lblQuantity_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtpDateReceived_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblProductDescription_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

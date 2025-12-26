@@ -357,5 +357,35 @@ namespace PAKOPointOfSale.Products
                 e.Handled = true; // Prevent further processing of the key event
             }
         }
+
+        private void num_quantity_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblQuantity_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblUnitofMeasurement_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblQuantity_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblRemarks_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

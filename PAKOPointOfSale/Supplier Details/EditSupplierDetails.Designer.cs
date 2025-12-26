@@ -68,7 +68,7 @@
             // txtPaymentGateway
             // 
             txtPaymentGateway.Font = new Font("Segoe UI", 9F);
-            txtPaymentGateway.Location = new Point(516, 163);
+            txtPaymentGateway.Location = new Point(173, 250);
             txtPaymentGateway.MaxLength = 12;
             txtPaymentGateway.Multiline = true;
             txtPaymentGateway.Name = "txtPaymentGateway";
@@ -78,28 +78,28 @@
             // txtAccountNumber
             // 
             txtAccountNumber.Font = new Font("Segoe UI", 9F);
-            txtAccountNumber.Location = new Point(516, 111);
+            txtAccountNumber.Location = new Point(193, 168);
             txtAccountNumber.MaxLength = 18;
             txtAccountNumber.Multiline = true;
             txtAccountNumber.Name = "txtAccountNumber";
-            txtAccountNumber.Size = new Size(209, 23);
+            txtAccountNumber.Size = new Size(189, 23);
             txtAccountNumber.TabIndex = 23;
             // 
             // txtContactNumber
             // 
             txtContactNumber.Font = new Font("Segoe UI", 9F);
-            txtContactNumber.Location = new Point(184, 213);
+            txtContactNumber.Location = new Point(173, 212);
             txtContactNumber.MaxLength = 10;
             txtContactNumber.Multiline = true;
             txtContactNumber.Name = "txtContactNumber";
-            txtContactNumber.Size = new Size(176, 23);
+            txtContactNumber.Size = new Size(209, 23);
             txtContactNumber.TabIndex = 22;
             txtContactNumber.KeyPress += txtContactNumber_KeyPress;
             // 
             // txtAddress
             // 
             txtAddress.Font = new Font("Segoe UI", 9F);
-            txtAddress.Location = new Point(162, 128);
+            txtAddress.Location = new Point(173, 133);
             txtAddress.Multiline = true;
             txtAddress.Name = "txtAddress";
             txtAddress.Size = new Size(209, 23);
@@ -108,7 +108,7 @@
             // txtSupplierName
             // 
             txtSupplierName.Font = new Font("Segoe UI", 9F);
-            txtSupplierName.Location = new Point(151, 112);
+            txtSupplierName.Location = new Point(173, 92);
             txtSupplierName.MaxLength = 50;
             txtSupplierName.Multiline = true;
             txtSupplierName.Name = "txtSupplierName";

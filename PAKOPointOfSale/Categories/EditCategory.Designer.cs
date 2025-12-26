@@ -58,11 +58,11 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 9.75F);
+            label3.Font = new Font("Sans Serif Collection", 9.749998F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.Black;
             label3.Location = new Point(36, 128);
             label3.Name = "label3";
-            label3.Size = new Size(74, 17);
+            label3.Size = new Size(87, 44);
             label3.TabIndex = 12;
             label3.Text = "Description";
             // 

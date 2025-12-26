@@ -137,7 +137,7 @@ namespace PAKOPointOfSale
             dtgvTop5SellingProducts.BackgroundColor = SystemColors.ControlLight;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle2.ForeColor = Color.White;
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
@@ -217,7 +217,7 @@ namespace PAKOPointOfSale
             // dtpFrom
             // 
             dtpFrom.CalendarMonthBackground = Color.White;
-            dtpFrom.Location = new Point(7, 36);
+            dtpFrom.Location = new Point(12, 36);
             dtpFrom.Name = "dtpFrom";
             dtpFrom.Size = new Size(187, 23);
             dtpFrom.TabIndex = 6;
@@ -246,7 +246,7 @@ namespace PAKOPointOfSale
             btnExportTop5Selling.BackColor = Color.Goldenrod;
             btnExportTop5Selling.FlatStyle = FlatStyle.Popup;
             btnExportTop5Selling.ForeColor = Color.Black;
-            btnExportTop5Selling.Location = new Point(481, 38);
+            btnExportTop5Selling.Location = new Point(481, 36);
             btnExportTop5Selling.Name = "btnExportTop5Selling";
             btnExportTop5Selling.Size = new Size(75, 23);
             btnExportTop5Selling.TabIndex = 16;
@@ -259,7 +259,7 @@ namespace PAKOPointOfSale
             btnFilter.BackColor = Color.Khaki;
             btnFilter.FlatStyle = FlatStyle.Popup;
             btnFilter.ForeColor = Color.Black;
-            btnFilter.Location = new Point(398, 38);
+            btnFilter.Location = new Point(398, 36);
             btnFilter.Name = "btnFilter";
             btnFilter.Size = new Size(75, 23);
             btnFilter.TabIndex = 15;
@@ -271,9 +271,9 @@ namespace PAKOPointOfSale
             // 
             comboBoxSalesFilter.FormattingEnabled = true;
             comboBoxSalesFilter.Items.AddRange(new object[] { "Today", "This Week", "This Month", "This Year" });
-            comboBoxSalesFilter.Location = new Point(297, 37);
+            comboBoxSalesFilter.Location = new Point(311, 37);
             comboBoxSalesFilter.Name = "comboBoxSalesFilter";
-            comboBoxSalesFilter.Size = new Size(116, 23);
+            comboBoxSalesFilter.Size = new Size(102, 23);
             comboBoxSalesFilter.TabIndex = 18;
             comboBoxSalesFilter.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
@@ -281,7 +281,8 @@ namespace PAKOPointOfSale
             // 
             label3.AutoSize = true;
             label3.BackColor = Color.Transparent;
-            label3.Location = new Point(297, 18);
+            label3.ForeColor = Color.Black;
+            label3.Location = new Point(308, 18);
             label3.Name = "label3";
             label3.Size = new Size(113, 15);
             label3.TabIndex = 19;
@@ -294,7 +295,7 @@ namespace PAKOPointOfSale
             dtpFromSales.CalendarTrailingForeColor = SystemColors.AppWorkspace;
             dtpFromSales.Location = new Point(6, 36);
             dtpFromSales.Name = "dtpFromSales";
-            dtpFromSales.Size = new Size(139, 23);
+            dtpFromSales.Size = new Size(144, 23);
             dtpFromSales.TabIndex = 22;
             // 
             // label6
@@ -325,7 +326,7 @@ namespace PAKOPointOfSale
             dtpToSales.CalendarTitleBackColor = SystemColors.MenuHighlight;
             dtpToSales.Location = new Point(156, 36);
             dtpToSales.Name = "dtpToSales";
-            dtpToSales.Size = new Size(135, 23);
+            dtpToSales.Size = new Size(149, 23);
             dtpToSales.TabIndex = 24;
             // 
             // btnFilterDateSales
@@ -370,7 +371,7 @@ namespace PAKOPointOfSale
             lblGrossSales.AutoSize = true;
             lblGrossSales.Font = new Font("Century", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblGrossSales.ForeColor = Color.Black;
-            lblGrossSales.Location = new Point(202, 127);
+            lblGrossSales.Location = new Point(229, 128);
             lblGrossSales.Name = "lblGrossSales";
             lblGrossSales.Size = new Size(89, 41);
             lblGrossSales.TabIndex = 4;
@@ -381,7 +382,7 @@ namespace PAKOPointOfSale
             lblNetSales.AutoSize = true;
             lblNetSales.Font = new Font("Century", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblNetSales.ForeColor = Color.Black;
-            lblNetSales.Location = new Point(171, 71);
+            lblNetSales.Location = new Point(229, 74);
             lblNetSales.Name = "lblNetSales";
             lblNetSales.Size = new Size(89, 41);
             lblNetSales.TabIndex = 3;
@@ -392,7 +393,7 @@ namespace PAKOPointOfSale
             label8.AutoSize = true;
             label8.Font = new Font("Impact", 26.25F);
             label8.ForeColor = Color.Black;
-            label8.Location = new Point(1, 127);
+            label8.Location = new Point(20, 128);
             label8.Name = "label8";
             label8.Size = new Size(193, 43);
             label8.TabIndex = 1;
@@ -403,7 +404,7 @@ namespace PAKOPointOfSale
             btnClearFilters.BackColor = Color.FloralWhite;
             btnClearFilters.FlatStyle = FlatStyle.Popup;
             btnClearFilters.ForeColor = Color.Black;
-            btnClearFilters.Location = new Point(419, 37);
+            btnClearFilters.Location = new Point(419, 36);
             btnClearFilters.Name = "btnClearFilters";
             btnClearFilters.Size = new Size(80, 23);
             btnClearFilters.TabIndex = 177;
@@ -416,7 +417,7 @@ namespace PAKOPointOfSale
             label4.AutoSize = true;
             label4.Font = new Font("Impact", 26.25F);
             label4.ForeColor = Color.Black;
-            label4.Location = new Point(6, 71);
+            label4.Location = new Point(20, 71);
             label4.Name = "label4";
             label4.Size = new Size(159, 43);
             label4.TabIndex = 0;
@@ -738,7 +739,7 @@ namespace PAKOPointOfSale
             dtgvLowStocks.BackgroundColor = SystemColors.ControlLight;
             dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle6.BackColor = SystemColors.Control;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle6.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;

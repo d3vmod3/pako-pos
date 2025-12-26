@@ -317,7 +317,7 @@
             label2.FlatStyle = FlatStyle.System;
             label2.Font = new Font("Impact", 50.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = SystemColors.ButtonHighlight;
-            label2.Location = new Point(555, 9);
+            label2.Location = new Point(545, 9);
             label2.Name = "label2";
             label2.Size = new Size(533, 82);
             label2.TabIndex = 157;

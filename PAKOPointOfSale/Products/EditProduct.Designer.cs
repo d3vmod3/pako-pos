@@ -95,7 +95,7 @@
             cmbStatus.Font = new Font("Microsoft Sans Serif", 9.75F);
             cmbStatus.FormattingEnabled = true;
             cmbStatus.Items.AddRange(new object[] { "Good", "Deffective" });
-            cmbStatus.Location = new Point(912, 530);
+            cmbStatus.Location = new Point(957, 295);
             cmbStatus.Name = "cmbStatus";
             cmbStatus.Size = new Size(353, 24);
             cmbStatus.TabIndex = 141;
@@ -104,26 +104,26 @@
             // 
             num_quantity.DecimalPlaces = 2;
             num_quantity.Font = new Font("Microsoft Sans Serif", 9.75F);
-            num_quantity.Location = new Point(916, 159);
+            num_quantity.Location = new Point(526, 295);
             num_quantity.Maximum = new decimal(new int[] { 999999, 0, 0, 0 });
             num_quantity.Name = "num_quantity";
-            num_quantity.Size = new Size(350, 22);
+            num_quantity.Size = new Size(370, 22);
             num_quantity.TabIndex = 140;
             // 
             // txtRemarks
             // 
             txtRemarks.Font = new Font("Microsoft Sans Serif", 9.75F);
-            txtRemarks.Location = new Point(913, 355);
+            txtRemarks.Location = new Point(701, 464);
             txtRemarks.Multiline = true;
             txtRemarks.Name = "txtRemarks";
-            txtRemarks.Size = new Size(353, 161);
+            txtRemarks.Size = new Size(609, 161);
             txtRemarks.TabIndex = 139;
             // 
             // num_unitPrice
             // 
             num_unitPrice.DecimalPlaces = 2;
             num_unitPrice.Font = new Font("Microsoft Sans Serif", 9.75F);
-            num_unitPrice.Location = new Point(915, 316);
+            num_unitPrice.Location = new Point(957, 245);
             num_unitPrice.Maximum = new decimal(new int[] { 999999, 0, 0, 0 });
             num_unitPrice.Name = "num_unitPrice";
             num_unitPrice.Size = new Size(350, 22);
@@ -133,7 +133,7 @@
             // 
             num_costPrice.DecimalPlaces = 2;
             num_costPrice.Font = new Font("Microsoft Sans Serif", 9.75F);
-            num_costPrice.Location = new Point(915, 265);
+            num_costPrice.Location = new Point(957, 193);
             num_costPrice.Maximum = new decimal(new int[] { 999999, 0, 0, 0 });
             num_costPrice.Name = "num_costPrice";
             num_costPrice.Size = new Size(350, 22);
@@ -148,9 +148,9 @@
             cmbUnitofMeasurements.Font = new Font("Microsoft Sans Serif", 9.75F);
             cmbUnitofMeasurements.FormattingEnabled = true;
             cmbUnitofMeasurements.Items.AddRange(new object[] { "Bag", "Box", "Bottle", "Bundle", "Can", "Carton", "Case", "Dozen", "Gallon", "Gram", "Hour", "Job", "Kit", "Kilogram", "Liter", "Milliliter", "Pair", "Pack", "Piece", "Roll", "Sheet", "Tray", "Tin", "Set" });
-            cmbUnitofMeasurements.Location = new Point(916, 228);
+            cmbUnitofMeasurements.Location = new Point(527, 400);
             cmbUnitofMeasurements.Name = "cmbUnitofMeasurements";
-            cmbUnitofMeasurements.Size = new Size(349, 24);
+            cmbUnitofMeasurements.Size = new Size(369, 24);
             cmbUnitofMeasurements.TabIndex = 136;
             // 
             // cmbCategory
@@ -161,9 +161,9 @@
             cmbCategory.FlatStyle = FlatStyle.Popup;
             cmbCategory.Font = new Font("Segoe UI", 9.75F);
             cmbCategory.FormattingEnabled = true;
-            cmbCategory.Location = new Point(274, 214);
+            cmbCategory.Location = new Point(92, 245);
             cmbCategory.Name = "cmbCategory";
-            cmbCategory.Size = new Size(369, 25);
+            cmbCategory.Size = new Size(378, 25);
             cmbCategory.TabIndex = 135;
             // 
             // cmbSupplier
@@ -174,16 +174,16 @@
             cmbSupplier.FlatStyle = FlatStyle.Popup;
             cmbSupplier.Font = new Font("Segoe UI", 9.75F);
             cmbSupplier.FormattingEnabled = true;
-            cmbSupplier.Location = new Point(274, 162);
+            cmbSupplier.Location = new Point(92, 193);
             cmbSupplier.Name = "cmbSupplier";
-            cmbSupplier.Size = new Size(369, 25);
+            cmbSupplier.Size = new Size(378, 25);
             cmbSupplier.TabIndex = 134;
             // 
             // dtpDateExpiration
             // 
             dtpDateExpiration.Font = new Font("Microsoft Sans Serif", 9.75F);
             dtpDateExpiration.Format = DateTimePickerFormat.Short;
-            dtpDateExpiration.Location = new Point(912, 603);
+            dtpDateExpiration.Location = new Point(954, 400);
             dtpDateExpiration.Name = "dtpDateExpiration";
             dtpDateExpiration.Size = new Size(353, 22);
             dtpDateExpiration.TabIndex = 133;
@@ -192,10 +192,11 @@
             // 
             dtpDateReceived.Font = new Font("Microsoft Sans Serif", 9.75F);
             dtpDateReceived.Format = DateTimePickerFormat.Short;
-            dtpDateReceived.Location = new Point(912, 560);
+            dtpDateReceived.Location = new Point(957, 350);
             dtpDateReceived.Name = "dtpDateReceived";
             dtpDateReceived.Size = new Size(353, 22);
             dtpDateReceived.TabIndex = 132;
+            dtpDateReceived.ValueChanged += dtpDateReceived_ValueChanged;
             // 
             // btnSubmit
             // 
@@ -214,7 +215,7 @@
             // 
             lblDateExpiration.AutoSize = true;
             lblDateExpiration.Font = new Font("Microsoft Sans Serif", 11.25F);
-            lblDateExpiration.Location = new Point(756, 609);
+            lblDateExpiration.Location = new Point(954, 379);
             lblDateExpiration.Name = "lblDateExpiration";
             lblDateExpiration.Size = new Size(108, 18);
             lblDateExpiration.TabIndex = 130;
@@ -224,7 +225,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Microsoft Sans Serif", 11.25F);
-            label7.Location = new Point(756, 566);
+            label7.Location = new Point(957, 329);
             label7.Name = "label7";
             label7.Size = new Size(104, 18);
             label7.TabIndex = 129;
@@ -234,7 +235,7 @@
             // 
             lblStatus.AutoSize = true;
             lblStatus.Font = new Font("Microsoft Sans Serif", 11.25F);
-            lblStatus.Location = new Point(756, 530);
+            lblStatus.Location = new Point(957, 274);
             lblStatus.Name = "lblStatus";
             lblStatus.Size = new Size(50, 18);
             lblStatus.TabIndex = 128;
@@ -244,7 +245,7 @@
             // 
             lblRemarks.AutoSize = true;
             lblRemarks.Font = new Font("Microsoft Sans Serif", 11.25F);
-            lblRemarks.Location = new Point(766, 356);
+            lblRemarks.Location = new Point(741, 437);
             lblRemarks.Name = "lblRemarks";
             lblRemarks.Size = new Size(69, 18);
             lblRemarks.TabIndex = 127;
@@ -254,7 +255,7 @@
             // 
             lblUnitPrice.AutoSize = true;
             lblUnitPrice.Font = new Font("Microsoft Sans Serif", 11.25F);
-            lblUnitPrice.Location = new Point(759, 318);
+            lblUnitPrice.Location = new Point(957, 224);
             lblUnitPrice.Name = "lblUnitPrice";
             lblUnitPrice.Size = new Size(72, 18);
             lblUnitPrice.TabIndex = 126;
@@ -264,7 +265,7 @@
             // 
             lblCostPrice.AutoSize = true;
             lblCostPrice.Font = new Font("Microsoft Sans Serif", 11.25F);
-            lblCostPrice.Location = new Point(757, 267);
+            lblCostPrice.Location = new Point(957, 169);
             lblCostPrice.Name = "lblCostPrice";
             lblCostPrice.Size = new Size(78, 18);
             lblCostPrice.TabIndex = 125;
@@ -274,7 +275,7 @@
             // 
             lblUnitofMeasurement.AutoSize = true;
             lblUnitofMeasurement.Font = new Font("Microsoft Sans Serif", 11.25F);
-            lblUnitofMeasurement.Location = new Point(756, 231);
+            lblUnitofMeasurement.Location = new Point(527, 384);
             lblUnitofMeasurement.Name = "lblUnitofMeasurement";
             lblUnitofMeasurement.Size = new Size(154, 18);
             lblUnitofMeasurement.TabIndex = 124;
@@ -284,16 +285,17 @@
             // 
             lblQuantity.AutoSize = true;
             lblQuantity.Font = new Font("Microsoft Sans Serif", 11.25F);
-            lblQuantity.Location = new Point(756, 162);
+            lblQuantity.Location = new Point(526, 274);
             lblQuantity.Name = "lblQuantity";
             lblQuantity.Size = new Size(62, 18);
             lblQuantity.TabIndex = 123;
             lblQuantity.Text = "Quantity";
+            lblQuantity.Click += lblQuantity_Click;
             // 
             // txtSKU
             // 
             txtSKU.Font = new Font("Segoe UI", 9.75F);
-            txtSKU.Location = new Point(274, 599);
+            txtSKU.Location = new Point(527, 245);
             txtSKU.MaxLength = 32;
             txtSKU.Name = "txtSKU";
             txtSKU.Size = new Size(369, 25);
@@ -302,7 +304,7 @@
             // txtProductCode
             // 
             txtProductCode.Font = new Font("Segoe UI", 9.75F);
-            txtProductCode.Location = new Point(274, 547);
+            txtProductCode.Location = new Point(527, 193);
             txtProductCode.MaxLength = 12;
             txtProductCode.Name = "txtProductCode";
             txtProductCode.Size = new Size(369, 25);
@@ -311,35 +313,35 @@
             // txtDescription
             // 
             txtDescription.Font = new Font("Segoe UI", 9.75F);
-            txtDescription.Location = new Point(274, 369);
+            txtDescription.Location = new Point(92, 464);
             txtDescription.Multiline = true;
             txtDescription.Name = "txtDescription";
-            txtDescription.Size = new Size(369, 161);
+            txtDescription.Size = new Size(575, 161);
             txtDescription.TabIndex = 120;
             // 
             // txtProductBrand
             // 
             txtProductBrand.Font = new Font("Segoe UI", 9.75F);
-            txtProductBrand.Location = new Point(274, 323);
+            txtProductBrand.Location = new Point(92, 400);
             txtProductBrand.MaxLength = 30;
             txtProductBrand.Name = "txtProductBrand";
-            txtProductBrand.Size = new Size(369, 25);
+            txtProductBrand.Size = new Size(378, 25);
             txtProductBrand.TabIndex = 119;
             // 
             // txtProductName
             // 
             txtProductName.Font = new Font("Segoe UI", 9.75F);
-            txtProductName.Location = new Point(274, 264);
+            txtProductName.Location = new Point(92, 295);
             txtProductName.MaxLength = 50;
             txtProductName.Name = "txtProductName";
-            txtProductName.Size = new Size(369, 25);
+            txtProductName.Size = new Size(378, 25);
             txtProductName.TabIndex = 118;
             // 
             // lblSKU
             // 
             lblSKU.AutoSize = true;
             lblSKU.Font = new Font("Microsoft Sans Serif", 11.25F);
-            lblSKU.Location = new Point(153, 607);
+            lblSKU.Location = new Point(527, 224);
             lblSKU.Name = "lblSKU";
             lblSKU.Size = new Size(39, 18);
             lblSKU.TabIndex = 117;
@@ -349,7 +351,7 @@
             // 
             lblProductCode.AutoSize = true;
             lblProductCode.Font = new Font("Microsoft Sans Serif", 11.25F);
-            lblProductCode.Location = new Point(140, 553);
+            lblProductCode.Location = new Point(527, 171);
             lblProductCode.Name = "lblProductCode";
             lblProductCode.Size = new Size(100, 18);
             lblProductCode.TabIndex = 116;
@@ -359,17 +361,18 @@
             // 
             lblProductDescription.AutoSize = true;
             lblProductDescription.Font = new Font("Microsoft Sans Serif", 11.25F);
-            lblProductDescription.Location = new Point(130, 370);
+            lblProductDescription.Location = new Point(92, 443);
             lblProductDescription.Name = "lblProductDescription";
             lblProductDescription.Size = new Size(139, 18);
             lblProductDescription.TabIndex = 115;
             lblProductDescription.Text = "Product Description";
+            lblProductDescription.Click += lblProductDescription_Click;
             // 
             // lblProductBrand
             // 
             lblProductBrand.AutoSize = true;
             lblProductBrand.Font = new Font("Microsoft Sans Serif", 11.25F);
-            lblProductBrand.Location = new Point(130, 324);
+            lblProductBrand.Location = new Point(93, 379);
             lblProductBrand.Name = "lblProductBrand";
             lblProductBrand.Size = new Size(103, 18);
             lblProductBrand.TabIndex = 114;
@@ -379,7 +382,7 @@
             // 
             lblProductName.AutoSize = true;
             lblProductName.Font = new Font("Microsoft Sans Serif", 11.25F);
-            lblProductName.Location = new Point(130, 273);
+            lblProductName.Location = new Point(93, 276);
             lblProductName.Name = "lblProductName";
             lblProductName.Size = new Size(108, 18);
             lblProductName.TabIndex = 113;
@@ -389,7 +392,7 @@
             // 
             lblCategory.AutoSize = true;
             lblCategory.Font = new Font("Microsoft Sans Serif", 11.25F);
-            lblCategory.Location = new Point(130, 222);
+            lblCategory.Location = new Point(92, 224);
             lblCategory.Name = "lblCategory";
             lblCategory.Size = new Size(68, 18);
             lblCategory.TabIndex = 112;
@@ -399,7 +402,7 @@
             // 
             lblSupplierID.AutoSize = true;
             lblSupplierID.Font = new Font("Microsoft Sans Serif", 11.25F);
-            lblSupplierID.Location = new Point(131, 169);
+            lblSupplierID.Location = new Point(92, 172);
             lblSupplierID.Name = "lblSupplierID";
             lblSupplierID.Size = new Size(61, 18);
             lblSupplierID.TabIndex = 111;
@@ -431,7 +434,7 @@
             label1.BackColor = Color.DimGray;
             label1.Font = new Font("Impact", 48F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(615, 21);
+            label1.Location = new Point(507, 19);
             label1.Name = "label1";
             label1.Size = new Size(424, 80);
             label1.TabIndex = 145;
@@ -454,17 +457,17 @@
             // txtBarcode
             // 
             txtBarcode.Font = new Font("Segoe UI", 9.75F);
-            txtBarcode.Location = new Point(274, 293);
+            txtBarcode.Location = new Point(92, 351);
             txtBarcode.MaxLength = 15;
             txtBarcode.Name = "txtBarcode";
-            txtBarcode.Size = new Size(369, 25);
+            txtBarcode.Size = new Size(378, 25);
             txtBarcode.TabIndex = 148;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 11.25F);
-            label2.Location = new Point(130, 298);
+            label2.Location = new Point(93, 330);
             label2.Name = "label2";
             label2.Size = new Size(64, 18);
             label2.TabIndex = 147;
@@ -474,17 +477,17 @@
             // 
             num_low_quantity.DecimalPlaces = 2;
             num_low_quantity.Font = new Font("Microsoft Sans Serif", 9.75F);
-            num_low_quantity.Location = new Point(916, 187);
+            num_low_quantity.Location = new Point(527, 351);
             num_low_quantity.Maximum = new decimal(new int[] { 999999, 0, 0, 0 });
             num_low_quantity.Name = "num_low_quantity";
-            num_low_quantity.Size = new Size(350, 22);
+            num_low_quantity.Size = new Size(369, 22);
             num_low_quantity.TabIndex = 150;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 11.25F);
-            label3.Location = new Point(756, 190);
+            label3.Location = new Point(527, 330);
             label3.Name = "label3";
             label3.Size = new Size(152, 18);
             label3.TabIndex = 149;

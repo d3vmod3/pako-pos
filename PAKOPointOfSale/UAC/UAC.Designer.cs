@@ -30,6 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UAC));
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             cmbRole = new ComboBox();
             userTypeBindingSource = new BindingSource(components);
             label1 = new Label();
@@ -133,7 +134,7 @@
             lbluserslist.BackColor = Color.DimGray;
             lbluserslist.Font = new Font("Impact", 48F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbluserslist.ForeColor = Color.White;
-            lbluserslist.Location = new Point(445, 7);
+            lbluserslist.Location = new Point(408, 9);
             lbluserslist.Name = "lbluserslist";
             lbluserslist.Size = new Size(641, 80);
             lbluserslist.TabIndex = 19;
@@ -230,6 +231,14 @@
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.AllowUserToOrderColumns = true;
             dataGridView1.AutoGenerateColumns = false;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, usertypeidDataGridViewTextBoxColumn, module_name2, can_view2, can_add2, can_edit2, can_delete2, userTypeDataGridViewTextBoxColumn1 });
             dataGridView1.DataSource = permissionBindingSource;
