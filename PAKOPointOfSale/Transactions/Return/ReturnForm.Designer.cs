@@ -58,14 +58,12 @@
             button1 = new Button();
             label1 = new Label();
             pictureBox5 = new PictureBox();
-            pictureBox3 = new PictureBox();
             pictureBox1 = new PictureBox();
             label2 = new Label();
             btnClose = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvReturnItems).BeginInit();
             ((System.ComponentModel.ISupportInitialize)salesInvoiceItemBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -124,7 +122,7 @@
             dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
             dgvReturnItems.RowsDefaultCellStyle = dataGridViewCellStyle4;
             dgvReturnItems.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvReturnItems.Size = new Size(1346, 535);
+            dgvReturnItems.Size = new Size(1346, 623);
             dgvReturnItems.TabIndex = 8;
             dgvReturnItems.CellClick += dgvReturnItems_CellClick;
             dgvReturnItems.CellContentClick += dgvReturnItems_CellContentClick;
@@ -287,19 +285,6 @@
             pictureBox5.TabIndex = 154;
             pictureBox5.TabStop = false;
             // 
-            // pictureBox3
-            // 
-            pictureBox3.BackColor = SystemColors.ControlDarkDark;
-            pictureBox3.ErrorImage = null;
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.InitialImage = null;
-            pictureBox3.Location = new Point(-16, 694);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(1415, 101);
-            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox3.TabIndex = 155;
-            pictureBox3.TabStop = false;
-            // 
             // pictureBox1
             // 
             pictureBox1.BackColor = Color.DimGray;
@@ -347,7 +332,6 @@
             Controls.Add(btnClose);
             Controls.Add(label2);
             Controls.Add(pictureBox1);
-            Controls.Add(pictureBox3);
             Controls.Add(pictureBox5);
             Controls.Add(label1);
             Controls.Add(button1);
@@ -366,7 +350,6 @@
             ((System.ComponentModel.ISupportInitialize)dgvReturnItems).EndInit();
             ((System.ComponentModel.ISupportInitialize)salesInvoiceItemBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -383,7 +366,6 @@
         private Label label1;
         private DataGridViewTextBoxColumn trasaction_id;
         private PictureBox pictureBox5;
-        private PictureBox pictureBox3;
         private PictureBox pictureBox1;
         private Label label2;
         private Button btnClose;

@@ -61,7 +61,6 @@
             btnAdd = new Button();
             btnExport = new Button();
             panel1 = new Panel();
-            pictureBox3 = new PictureBox();
             label1 = new Label();
             pictureBox1 = new PictureBox();
             btnClose = new Button();
@@ -75,7 +74,6 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)productBindingSource).BeginInit();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
@@ -114,7 +112,7 @@
             dataGridViewCellStyle4.ForeColor = Color.Black;
             dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(1353, 516);
+            dataGridView1.Size = new Size(1353, 624);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -348,26 +346,12 @@
             // 
             // panel1
             // 
-            panel1.Controls.Add(pictureBox3);
             panel1.Controls.Add(dataGridView1);
             panel1.Controls.Add(label1);
             panel1.Location = new Point(0, 152);
             panel1.Name = "panel1";
             panel1.Size = new Size(1368, 624);
             panel1.TabIndex = 6;
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.BackColor = SystemColors.ControlDarkDark;
-            pictureBox3.ErrorImage = null;
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.InitialImage = null;
-            pictureBox3.Location = new Point(0, 530);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(1386, 94);
-            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox3.TabIndex = 14;
-            pictureBox3.TabStop = false;
             // 
             // label1
             // 
@@ -513,7 +497,6 @@
             ((System.ComponentModel.ISupportInitialize)productBindingSource).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
@@ -536,7 +519,6 @@
         private Button btnClose;
         private PictureBox pictureBox2;
         private Label label2;
-        private PictureBox pictureBox3;
         private DataGridViewTextBoxColumn supplierDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
         private Label label3;

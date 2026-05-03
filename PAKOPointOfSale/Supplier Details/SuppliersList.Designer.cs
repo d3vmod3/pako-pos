@@ -32,7 +32,6 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SuppliersList));
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
@@ -40,26 +39,12 @@
             DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SuppliersList));
             btnExport = new Button();
             btnAdd = new Button();
             txtSearch = new TextBox();
             lblSearch = new Label();
             dataGridView1 = new DataGridView();
-            supplierDetailsBindingSource = new BindingSource(components);
-            pictureBox2 = new PictureBox();
-            pictureBox1 = new PictureBox();
-            label1 = new Label();
-            label2 = new Label();
-            btnClose = new Button();
-            pictureBox3 = new PictureBox();
-            dtpFrom = new DateTimePicker();
-            label3 = new Label();
-            label4 = new Label();
-            dtpTo = new DateTimePicker();
-            btnFilter = new Button();
-            btnClearFilter = new Button();
-            cmbStatus = new ComboBox();
-            label5 = new Label();
             id = new DataGridViewTextBoxColumn();
             nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             addressDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -68,11 +53,24 @@
             is_active = new DataGridViewTextBoxColumn();
             created_at = new DataGridViewTextBoxColumn();
             edit = new DataGridViewButtonColumn();
+            supplierDetailsBindingSource = new BindingSource(components);
+            pictureBox2 = new PictureBox();
+            pictureBox1 = new PictureBox();
+            label1 = new Label();
+            label2 = new Label();
+            btnClose = new Button();
+            dtpFrom = new DateTimePicker();
+            label3 = new Label();
+            label4 = new Label();
+            dtpTo = new DateTimePicker();
+            btnFilter = new Button();
+            btnClearFilter = new Button();
+            cmbStatus = new ComboBox();
+            label5 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)supplierDetailsBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // btnExport
@@ -152,164 +150,9 @@
             dataGridViewCellStyle10.ForeColor = Color.Black;
             dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle10;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(1343, 511);
+            dataGridView1.Size = new Size(1343, 606);
             dataGridView1.TabIndex = 5;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
-            // 
-            // supplierDetailsBindingSource
-            // 
-            supplierDetailsBindingSource.DataSource = typeof(SupplierDetails);
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.BackColor = SystemColors.ControlDarkDark;
-            pictureBox2.Location = new Point(-1, 0);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(1370, 95);
-            pictureBox2.TabIndex = 11;
-            pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.BackColor = Color.DimGray;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(12, 0);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(251, 95);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 146;
-            pictureBox1.TabStop = false;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.BackColor = SystemColors.ControlDarkDark;
-            label1.FlatStyle = FlatStyle.System;
-            label1.Font = new Font("Impact", 50.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.ForeColor = SystemColors.ButtonHighlight;
-            label1.Location = new Point(501, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(440, 82);
-            label1.TabIndex = 147;
-            label1.Text = "SUPPLIERS LIST";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(12, 117);
-            label2.Name = "label2";
-            label2.Size = new Size(59, 20);
-            label2.TabIndex = 148;
-            label2.Text = "Search:";
-            label2.Click += label2_Click;
-            // 
-            // btnClose
-            // 
-            btnClose.BackColor = Color.Red;
-            btnClose.FlatStyle = FlatStyle.Popup;
-            btnClose.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnClose.ForeColor = Color.Black;
-            btnClose.Location = new Point(1276, 111);
-            btnClose.Name = "btnClose";
-            btnClose.Size = new Size(79, 29);
-            btnClose.TabIndex = 149;
-            btnClose.Text = "Close";
-            btnClose.UseVisualStyleBackColor = false;
-            btnClose.Click += btnClose_Click;
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.BackColor = SystemColors.ControlDarkDark;
-            pictureBox3.ErrorImage = null;
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.InitialImage = null;
-            pictureBox3.Location = new Point(-1, 669);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(1402, 97);
-            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox3.TabIndex = 150;
-            pictureBox3.TabStop = false;
-            pictureBox3.Click += pictureBox3_Click;
-            // 
-            // dtpFrom
-            // 
-            dtpFrom.Location = new Point(327, 114);
-            dtpFrom.Name = "dtpFrom";
-            dtpFrom.Size = new Size(185, 23);
-            dtpFrom.TabIndex = 151;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(330, 98);
-            label3.Name = "label3";
-            label3.Size = new Size(66, 15);
-            label3.TabIndex = 152;
-            label3.Text = "Date From:";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(520, 98);
-            label4.Name = "label4";
-            label4.Size = new Size(51, 15);
-            label4.TabIndex = 154;
-            label4.Text = "Date To:";
-            // 
-            // dtpTo
-            // 
-            dtpTo.Location = new Point(519, 115);
-            dtpTo.Name = "dtpTo";
-            dtpTo.Size = new Size(187, 23);
-            dtpTo.TabIndex = 153;
-            // 
-            // btnFilter
-            // 
-            btnFilter.BackColor = Color.Khaki;
-            btnFilter.FlatStyle = FlatStyle.Popup;
-            btnFilter.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
-            btnFilter.Location = new Point(899, 112);
-            btnFilter.Name = "btnFilter";
-            btnFilter.Size = new Size(75, 28);
-            btnFilter.TabIndex = 159;
-            btnFilter.Text = "Filter";
-            btnFilter.UseVisualStyleBackColor = false;
-            btnFilter.Click += btnFilter_Click;
-            // 
-            // btnClearFilter
-            // 
-            btnClearFilter.BackColor = Color.FromArgb(255, 128, 128);
-            btnClearFilter.FlatStyle = FlatStyle.Popup;
-            btnClearFilter.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
-            btnClearFilter.Location = new Point(980, 112);
-            btnClearFilter.Name = "btnClearFilter";
-            btnClearFilter.Size = new Size(86, 28);
-            btnClearFilter.TabIndex = 158;
-            btnClearFilter.Text = "Clear Filter";
-            btnClearFilter.UseVisualStyleBackColor = false;
-            btnClearFilter.Click += btnClearFilter_Click;
-            // 
-            // cmbStatus
-            // 
-            cmbStatus.FormattingEnabled = true;
-            cmbStatus.Items.AddRange(new object[] { "All", "Active", "Inactive" });
-            cmbStatus.Location = new Point(742, 115);
-            cmbStatus.Name = "cmbStatus";
-            cmbStatus.Size = new Size(151, 23);
-            cmbStatus.TabIndex = 160;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(750, 98);
-            label5.Name = "label5";
-            label5.Size = new Size(72, 15);
-            label5.TabIndex = 161;
-            label5.Text = "Filter Status:";
             // 
             // id
             // 
@@ -399,6 +242,147 @@
             edit.Text = "Edit";
             edit.UseColumnTextForButtonValue = true;
             // 
+            // supplierDetailsBindingSource
+            // 
+            supplierDetailsBindingSource.DataSource = typeof(SupplierDetails);
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.BackColor = SystemColors.ControlDarkDark;
+            pictureBox2.Location = new Point(-1, 0);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(1370, 95);
+            pictureBox2.TabIndex = 11;
+            pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.DimGray;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(12, 0);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(251, 95);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 146;
+            pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = SystemColors.ControlDarkDark;
+            label1.FlatStyle = FlatStyle.System;
+            label1.Font = new Font("Impact", 50.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = SystemColors.ButtonHighlight;
+            label1.Location = new Point(501, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(440, 82);
+            label1.TabIndex = 147;
+            label1.Text = "SUPPLIERS LIST";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(12, 117);
+            label2.Name = "label2";
+            label2.Size = new Size(59, 20);
+            label2.TabIndex = 148;
+            label2.Text = "Search:";
+            label2.Click += label2_Click;
+            // 
+            // btnClose
+            // 
+            btnClose.BackColor = Color.Red;
+            btnClose.FlatStyle = FlatStyle.Popup;
+            btnClose.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnClose.ForeColor = Color.Black;
+            btnClose.Location = new Point(1276, 111);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(79, 29);
+            btnClose.TabIndex = 149;
+            btnClose.Text = "Close";
+            btnClose.UseVisualStyleBackColor = false;
+            btnClose.Click += btnClose_Click;
+            // 
+            // dtpFrom
+            // 
+            dtpFrom.Location = new Point(327, 114);
+            dtpFrom.Name = "dtpFrom";
+            dtpFrom.Size = new Size(185, 23);
+            dtpFrom.TabIndex = 151;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(330, 98);
+            label3.Name = "label3";
+            label3.Size = new Size(66, 15);
+            label3.TabIndex = 152;
+            label3.Text = "Date From:";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Location = new Point(520, 98);
+            label4.Name = "label4";
+            label4.Size = new Size(51, 15);
+            label4.TabIndex = 154;
+            label4.Text = "Date To:";
+            // 
+            // dtpTo
+            // 
+            dtpTo.Location = new Point(519, 115);
+            dtpTo.Name = "dtpTo";
+            dtpTo.Size = new Size(187, 23);
+            dtpTo.TabIndex = 153;
+            // 
+            // btnFilter
+            // 
+            btnFilter.BackColor = Color.Khaki;
+            btnFilter.FlatStyle = FlatStyle.Popup;
+            btnFilter.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
+            btnFilter.Location = new Point(899, 112);
+            btnFilter.Name = "btnFilter";
+            btnFilter.Size = new Size(75, 28);
+            btnFilter.TabIndex = 159;
+            btnFilter.Text = "Filter";
+            btnFilter.UseVisualStyleBackColor = false;
+            btnFilter.Click += btnFilter_Click;
+            // 
+            // btnClearFilter
+            // 
+            btnClearFilter.BackColor = Color.FromArgb(255, 128, 128);
+            btnClearFilter.FlatStyle = FlatStyle.Popup;
+            btnClearFilter.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
+            btnClearFilter.Location = new Point(980, 112);
+            btnClearFilter.Name = "btnClearFilter";
+            btnClearFilter.Size = new Size(86, 28);
+            btnClearFilter.TabIndex = 158;
+            btnClearFilter.Text = "Clear Filter";
+            btnClearFilter.UseVisualStyleBackColor = false;
+            btnClearFilter.Click += btnClearFilter_Click;
+            // 
+            // cmbStatus
+            // 
+            cmbStatus.FormattingEnabled = true;
+            cmbStatus.Items.AddRange(new object[] { "All", "Active", "Inactive" });
+            cmbStatus.Location = new Point(742, 115);
+            cmbStatus.Name = "cmbStatus";
+            cmbStatus.Size = new Size(151, 23);
+            cmbStatus.TabIndex = 160;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.Location = new Point(750, 98);
+            label5.Name = "label5";
+            label5.Size = new Size(72, 15);
+            label5.TabIndex = 161;
+            label5.Text = "Filter Status:";
+            // 
             // SuppliersList
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -413,7 +397,6 @@
             Controls.Add(dtpTo);
             Controls.Add(label3);
             Controls.Add(dtpFrom);
-            Controls.Add(pictureBox3);
             Controls.Add(btnClose);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -435,7 +418,6 @@
             ((System.ComponentModel.ISupportInitialize)supplierDetailsBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -453,7 +435,6 @@
         private Label label1;
         private Label label2;
         private Button btnClose;
-        private PictureBox pictureBox3;
         private DateTimePicker dtpFrom;
         private Label label3;
         private Label label4;

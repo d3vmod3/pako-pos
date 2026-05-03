@@ -88,7 +88,6 @@ namespace PAKOPointOfSale.Transactions
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
             pictureBox3 = new PictureBox();
-            pictureBox4 = new PictureBox();
             pictureBox5 = new PictureBox();
             pictureBox6 = new PictureBox();
             lblsearchproduct = new Label();
@@ -103,9 +102,9 @@ namespace PAKOPointOfSale.Transactions
             ((ISupportInitialize)pictureBox1).BeginInit();
             ((ISupportInitialize)pictureBox2).BeginInit();
             ((ISupportInitialize)pictureBox3).BeginInit();
-            ((ISupportInitialize)pictureBox4).BeginInit();
             ((ISupportInitialize)pictureBox5).BeginInit();
             ((ISupportInitialize)pictureBox6).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // btnProceed
@@ -143,7 +142,7 @@ namespace PAKOPointOfSale.Transactions
             dgvItems.Name = "dgvItems";
             dgvItems.RowHeadersVisible = false;
             dgvItems.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvItems.Size = new Size(1063, 509);
+            dgvItems.Size = new Size(1063, 589);
             dgvItems.TabIndex = 1;
             dgvItems.CellContentClick += dgvItems_CellContentClick;
             // 
@@ -505,19 +504,20 @@ namespace PAKOPointOfSale.Transactions
             lblPaymentMethod.BackColor = Color.Transparent;
             lblPaymentMethod.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             lblPaymentMethod.ForeColor = Color.Black;
-            lblPaymentMethod.Location = new Point(234, 712);
+            lblPaymentMethod.Location = new Point(130, 455);
             lblPaymentMethod.Name = "lblPaymentMethod";
             lblPaymentMethod.Size = new Size(37, 17);
             lblPaymentMethod.TabIndex = 19;
             lblPaymentMethod.Text = "Cash";
             lblPaymentMethod.Visible = false;
+            lblPaymentMethod.Click += lblPaymentMethod_Click;
             // 
             // label10
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             label10.ForeColor = Color.Black;
-            label10.Location = new Point(16, 712);
+            label10.Location = new Point(6, 455);
             label10.Name = "label10";
             label10.Size = new Size(117, 17);
             label10.TabIndex = 18;
@@ -668,19 +668,6 @@ namespace PAKOPointOfSale.Transactions
             pictureBox3.TabIndex = 0;
             pictureBox3.TabStop = false;
             // 
-            // pictureBox4
-            // 
-            pictureBox4.BackColor = SystemColors.ControlDarkDark;
-            pictureBox4.ErrorImage = null;
-            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.InitialImage = null;
-            pictureBox4.Location = new Point(-1, 665);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(1395, 85);
-            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox4.TabIndex = 152;
-            pictureBox4.TabStop = false;
-            // 
             // pictureBox5
             // 
             pictureBox5.BackColor = Color.DimGray;
@@ -780,9 +767,11 @@ namespace PAKOPointOfSale.Transactions
             // 
             panel1.BackColor = Color.White;
             panel1.BorderStyle = BorderStyle.Fixed3D;
+            panel1.Controls.Add(label10);
+            panel1.Controls.Add(lblPaymentMethod);
             panel1.Location = new Point(12, 148);
             panel1.Name = "panel1";
-            panel1.Size = new Size(277, 472);
+            panel1.Size = new Size(277, 589);
             panel1.TabIndex = 159;
             // 
             // lbViewTransaction
@@ -797,7 +786,6 @@ namespace PAKOPointOfSale.Transactions
             Controls.Add(lblsearchproduct);
             Controls.Add(pictureBox6);
             Controls.Add(pictureBox5);
-            Controls.Add(pictureBox4);
             Controls.Add(lblVoidOrReturn);
             Controls.Add(lblReturnNote);
             Controls.Add(lblAdjustmentNumber);
@@ -810,8 +798,6 @@ namespace PAKOPointOfSale.Transactions
             Controls.Add(label12);
             Controls.Add(lblCashReceived);
             Controls.Add(label11);
-            Controls.Add(lblPaymentMethod);
-            Controls.Add(label10);
             Controls.Add(lblGrandTotal);
             Controls.Add(lblVatExempt);
             Controls.Add(lblVatAmount);
@@ -843,9 +829,10 @@ namespace PAKOPointOfSale.Transactions
             ((ISupportInitialize)pictureBox1).EndInit();
             ((ISupportInitialize)pictureBox2).EndInit();
             ((ISupportInitialize)pictureBox3).EndInit();
-            ((ISupportInitialize)pictureBox4).EndInit();
             ((ISupportInitialize)pictureBox5).EndInit();
             ((ISupportInitialize)pictureBox6).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -894,7 +881,6 @@ namespace PAKOPointOfSale.Transactions
         private PictureBox pictureBox3;
         private PictureBox pictureBox2;
         private PictureBox pictureBox1;
-        private PictureBox pictureBox4;
         private PictureBox pictureBox5;
         private PictureBox pictureBox6;
         private Label lblsearchproduct;

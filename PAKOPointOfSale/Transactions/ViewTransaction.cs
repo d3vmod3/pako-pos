@@ -545,5 +545,10 @@ namespace PAKOPointOfSale.Transactions
         {
 
         }
+
+        private void lblPaymentMethod_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
