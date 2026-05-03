@@ -141,8 +141,8 @@ namespace PAKOPointOfSale.Products
             }
             else
             {
-                // Filter by multiple columns (product name, code, SKU, brand)
-                string rowFilter = $"product_name LIKE '%{filter}%' OR product_code LIKE '%{filter}%' OR sku LIKE '%{filter}%' OR product_brand LIKE '%{filter}%'";
+                // Filter by multiple columns (barcode,product name, code, SKU, brand)
+                string rowFilter = $"product_name LIKE '%{filter}%' OR product_code LIKE '%{filter}%' OR sku LIKE '%{filter}%' OR product_brand LIKE '%{filter}%' OR barcode LIKE '%{filter}%'";
                 DataView dv = new DataView(productsTable);
                 dv.RowFilter = rowFilter;
                 dataGridView1.DataSource = dv;

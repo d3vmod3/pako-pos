@@ -32,12 +32,17 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SearchProduct));
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             label1 = new Label();
             txtSearch = new TextBox();
             productBindingSource = new BindingSource(components);
             dataGridView1 = new DataGridView();
+            pictureBox2 = new PictureBox();
+            pictureBox1 = new PictureBox();
+            lblsearchproduct = new Label();
+            pictureBox3 = new PictureBox();
+            button1 = new Button();
             product_name = new DataGridViewTextBoxColumn();
             addToCart = new DataGridViewButtonColumn();
             id = new DataGridViewTextBoxColumn();
@@ -52,11 +57,6 @@
             statusDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             datereceivedDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             dateexpirationDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            pictureBox2 = new PictureBox();
-            pictureBox1 = new PictureBox();
-            lblsearchproduct = new Label();
-            pictureBox3 = new PictureBox();
-            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)productBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -122,6 +122,66 @@
             dataGridView1.Size = new Size(1346, 553);
             dataGridView1.TabIndex = 3;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            dataGridView1.CellDoubleClick += dataGridView1_CellDoubleClick;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.BackColor = Color.DimGray;
+            pictureBox2.Location = new Point(-1, -1);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(1371, 90);
+            pictureBox2.TabIndex = 112;
+            pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.DimGray;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(1, 1);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(221, 88);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 113;
+            pictureBox1.TabStop = false;
+            // 
+            // lblsearchproduct
+            // 
+            lblsearchproduct.AutoSize = true;
+            lblsearchproduct.BackColor = Color.DimGray;
+            lblsearchproduct.Font = new Font("Impact", 39.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblsearchproduct.ForeColor = Color.White;
+            lblsearchproduct.Location = new Point(570, 9);
+            lblsearchproduct.Name = "lblsearchproduct";
+            lblsearchproduct.Size = new Size(396, 65);
+            lblsearchproduct.TabIndex = 114;
+            lblsearchproduct.Text = "SEARCH PRODUCT";
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.BackColor = SystemColors.ControlDarkDark;
+            pictureBox3.ErrorImage = null;
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.InitialImage = null;
+            pictureBox3.Location = new Point(-1, 685);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(1402, 87);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 151;
+            pictureBox3.TabStop = false;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.Red;
+            button1.FlatStyle = FlatStyle.Popup;
+            button1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.Black;
+            button1.Location = new Point(1283, 96);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 26);
+            button1.TabIndex = 152;
+            button1.Text = "Close";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // product_name
             // 
@@ -141,6 +201,7 @@
             addToCart.ReadOnly = true;
             addToCart.Text = "Add";
             addToCart.UseColumnTextForButtonValue = true;
+            addToCart.Visible = false;
             // 
             // id
             // 
@@ -227,65 +288,6 @@
             dateexpirationDataGridViewTextBoxColumn.HeaderText = "Expiry Date";
             dateexpirationDataGridViewTextBoxColumn.Name = "dateexpirationDataGridViewTextBoxColumn";
             dateexpirationDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.BackColor = Color.DimGray;
-            pictureBox2.Location = new Point(-1, -1);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(1371, 90);
-            pictureBox2.TabIndex = 112;
-            pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.BackColor = Color.DimGray;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(1, 1);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(221, 88);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 113;
-            pictureBox1.TabStop = false;
-            // 
-            // lblsearchproduct
-            // 
-            lblsearchproduct.AutoSize = true;
-            lblsearchproduct.BackColor = Color.DimGray;
-            lblsearchproduct.Font = new Font("Impact", 39.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblsearchproduct.ForeColor = Color.White;
-            lblsearchproduct.Location = new Point(570, 9);
-            lblsearchproduct.Name = "lblsearchproduct";
-            lblsearchproduct.Size = new Size(396, 65);
-            lblsearchproduct.TabIndex = 114;
-            lblsearchproduct.Text = "SEARCH PRODUCT";
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.BackColor = SystemColors.ControlDarkDark;
-            pictureBox3.ErrorImage = null;
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.InitialImage = null;
-            pictureBox3.Location = new Point(-1, 685);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(1402, 87);
-            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox3.TabIndex = 151;
-            pictureBox3.TabStop = false;
-            // 
-            // button1
-            // 
-            button1.BackColor = Color.Red;
-            button1.FlatStyle = FlatStyle.Popup;
-            button1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.Black;
-            button1.Location = new Point(1283, 96);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 26);
-            button1.TabIndex = 152;
-            button1.Text = "Close";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
             // 
             // SearchProduct
             // 

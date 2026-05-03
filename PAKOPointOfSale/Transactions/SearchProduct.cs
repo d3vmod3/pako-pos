@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinFormsApp1.Model;
 
 namespace PAKOPointOfSale.Transactions
 {
@@ -212,6 +213,24 @@ namespace PAKOPointOfSale.Transactions
             {
                 this.Close(); // Hide the current form
                 e.Handled = true; // Prevent further processing of the key event
+            }
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return; // ignore header clicks
+
+            // Get the ID of the selected user
+            int productId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["id"].Value);
+            Transactions.EditQuantity setQuantityForm = new Transactions.EditQuantity(productId, _salesInvoice);
+            setQuantityForm.ShowDialog(); // modal so user finishes editing first
+            if (_barcode != "")
+            {
+                loadProductsWithDuplicateBarcodes();
+            }
+            else
+            {
+                loadProducts();
             }
         }
     }

@@ -129,5 +129,13 @@ namespace PAKOPointOfSale.Transactions
                 e.Handled = true; // Prevent further processing of the key event
             }
         }
+
+        private void num_AppliedQty_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Space)
+            {
+                btnOk.PerformClick();
+            }
+        }
     }
 }

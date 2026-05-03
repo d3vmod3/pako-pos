@@ -99,6 +99,7 @@ namespace PAKOPointOfSale.Transactions
             btnParkedTransactions = new Button();
             btnScan = new Button();
             btnRemove = new Button();
+            btnTransactions = new Button();
             ((System.ComponentModel.ISupportInitialize)productBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)userTypeBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dtgvCart).BeginInit();
@@ -847,12 +848,27 @@ namespace PAKOPointOfSale.Transactions
             btnRemove.UseVisualStyleBackColor = false;
             btnRemove.Click += btnRemove_Click;
             // 
+            // btnTransactions
+            // 
+            btnTransactions.BackColor = Color.SteelBlue;
+            btnTransactions.FlatStyle = FlatStyle.Popup;
+            btnTransactions.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnTransactions.ForeColor = Color.White;
+            btnTransactions.Location = new Point(372, 111);
+            btnTransactions.Name = "btnTransactions";
+            btnTransactions.Size = new Size(158, 32);
+            btnTransactions.TabIndex = 162;
+            btnTransactions.Text = "Transactions  [F6]";
+            btnTransactions.UseVisualStyleBackColor = false;
+            btnTransactions.Click += btnTransactions_Click;
+            // 
             // SalesInvoice
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
             ClientSize = new Size(1367, 777);
+            Controls.Add(btnTransactions);
             Controls.Add(btnRemove);
             Controls.Add(btnScan);
             Controls.Add(btnClearCart);
@@ -981,5 +997,6 @@ namespace PAKOPointOfSale.Transactions
         private DataGridViewTextBoxColumn vatableSales;
         private DataGridViewTextBoxColumn vatAmount;
         private DataGridViewTextBoxColumn vatExempt;
+        private Button btnTransactions;
     }
 }

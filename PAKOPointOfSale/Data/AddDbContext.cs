@@ -119,16 +119,16 @@ namespace WinFormsApp1.Data
             );
 
             modelBuilder.Entity<SupplierDetails>().HasData(
-                new SupplierDetails { id = 1, name = "ABC Traders", contact_number = "09170000001", address = "123 Street A", account_number = "ACC1001", gateway = "GATE1", created_at = new DateTime(2025, 1, 14) },
-                new SupplierDetails { id = 2, name = "XYZ Supplies", contact_number = "09170000002", address = "456 Street B", account_number = "ACC1002", gateway = "GATE2", created_at = new DateTime(2025, 3, 7) },
-                new SupplierDetails { id = 3, name = "MegaCorp", contact_number = "09170000003", address = "789 Street C", account_number = "ACC1003", gateway = "GATE3", created_at = new DateTime(2025, 5, 21) },
-                new SupplierDetails { id = 4, name = "Foodies Inc", contact_number = "09170000004", address = "101 Street D", account_number = "ACC1004", gateway = "GATE4", created_at = new DateTime(2025, 2, 28) },
-                new SupplierDetails { id = 5, name = "SnackKing", contact_number = "09170000005", address = "202 Street E", account_number = "ACC1005", gateway = "GATE5", created_at = new DateTime(2025, 6, 15) },
-                new SupplierDetails { id = 6, name = "ElectroMart", contact_number = "09170000006", address = "303 Street F", account_number = "ACC1006", gateway = "GATE6", created_at = new DateTime(2025, 8, 3) },
-                new SupplierDetails { id = 7, name = "Cool Drinks Co", contact_number = "09170000007", address = "404 Street G", account_number = "ACC1007", gateway = "GATE7", created_at = new DateTime(2025, 9, 19) },
-                new SupplierDetails { id = 8, name = "Fresh Foods", contact_number = "09170000008", address = "505 Street H", account_number = "ACC1008", gateway = "GATE8", created_at = new DateTime(2025, 7, 11) },
-                new SupplierDetails { id = 9, name = "Global Traders", contact_number = "09170000009", address = "606 Street I", account_number = "ACC1009", gateway = "GATE9", created_at = new DateTime(2025, 4, 26) },
-                new SupplierDetails { id = 10, name = "Local Supplies", contact_number = "09170000010", address = "707 Street J", account_number = "ACC1010", gateway = "GATE10", created_at = new DateTime(2025, 12, 8) }
+                new SupplierDetails { id = 1, name = "ABC Traders", contact_number = "09170000001", address = "123 Street A", email = "sample1@example.com", created_at = new DateTime(2025, 1, 14) },
+                new SupplierDetails { id = 2, name = "XYZ Supplies", contact_number = "09170000002", address = "456 Street B", email = "sample10@example.com", created_at = new DateTime(2025, 3, 7) },
+                new SupplierDetails { id = 3, name = "MegaCorp", contact_number = "09170000003", address = "789 Street C", email = "sample2@example.com", created_at = new DateTime(2025, 5, 21) },
+                new SupplierDetails { id = 4, name = "Foodies Inc", contact_number = "09170000004", address = "101 Street D",  email = "sample3@example.com", created_at = new DateTime(2025, 2, 28) },
+                new SupplierDetails { id = 5, name = "SnackKing", contact_number = "09170000005", address = "202 Street E", email = "sample4@example.com", created_at = new DateTime(2025, 6, 15) },
+                new SupplierDetails { id = 6, name = "ElectroMart", contact_number = "09170000006", address = "303 Street F", email = "sample5@example.com", created_at = new DateTime(2025, 8, 3) },
+                new SupplierDetails { id = 7, name = "Cool Drinks Co", contact_number = "09170000007", address = "404 Street G", email = "sample6@example.com", created_at = new DateTime(2025, 9, 19) },
+                new SupplierDetails { id = 8, name = "Fresh Foods", contact_number = "09170000008", address = "505 Street H", email = "sample7@example.com", created_at = new DateTime(2025, 7, 11) },
+                new SupplierDetails { id = 9, name = "Global Traders", contact_number = "09170000009", address = "606 Street I", email = "sample8@example.com", created_at = new DateTime(2025, 4, 26) },
+                new SupplierDetails { id = 10, name = "Local Supplies", contact_number = "09170000010", address = "707 Street J", email = "sample9@example.com", created_at = new DateTime(2025, 12, 8) }
             );
 
 

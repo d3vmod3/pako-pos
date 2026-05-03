@@ -131,6 +131,7 @@
             num_AppliedQty.TabIndex = 5;
             num_AppliedQty.Value = new decimal(new int[] { 1, 0, 0, 0 });
             num_AppliedQty.ValueChanged += num_AppliedQty_ValueChanged;
+            num_AppliedQty.KeyDown += num_AppliedQty_KeyDown;
             // 
             // lblCurrentQty
             // 

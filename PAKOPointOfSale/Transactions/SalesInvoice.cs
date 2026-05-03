@@ -139,7 +139,7 @@ namespace PAKOPointOfSale.Transactions
                 }
             }
 
-            lblTotal.Text = total.ToString("#,##0.00"); // or just total.ToString("N2")
+            lblTotal.Text = total.ToString("N2"); // or just total.ToString("N2")
             lblDiscountAmount.Text = discount_total.ToString("-" + "#,##0.00"); // or just total.ToString("N2")
         }
 
@@ -233,7 +233,7 @@ namespace PAKOPointOfSale.Transactions
 
                 // Recalculate subtotal, VAT, etc.
                 decimal subTotal = qty * price;
-                row.Cells["subTotal"].Value = subTotal.ToString("0.00");
+                row.Cells["subTotal"].Value = subTotal.ToString("N2");
                 row.Cells["vatableSales"].Value = SalesInvoiceFunctions.getVATableSales(price, qty).ToString("0.00");
                 row.Cells["vatAmount"].Value = SalesInvoiceFunctions.getVATAmount(price, qty).ToString("0.00");
 
@@ -282,7 +282,7 @@ namespace PAKOPointOfSale.Transactions
 
             // Compute subtotal
             decimal subTotal = qty * price;
-            row.Cells["subTotal"].Value = subTotal.ToString("0.00");
+            row.Cells["subTotal"].Value = subTotal.ToString("N2");
 
             // Compute VAT
             row.Cells["vatableSales"].Value = SalesInvoiceFunctions.getVATableSales(price, qty).ToString("0.00");
@@ -749,7 +749,8 @@ namespace PAKOPointOfSale.Transactions
 
                     }
                     row.Cells["discountAmount"].Value = discountAmount;
-                    row.Cells["subTotal"].Value = originalSubTotal - discountAmount;
+                    decimal subTotal = originalSubTotal - discountAmount;
+                    row.Cells["subTotal"].Value = subTotal.ToString();  
                 }
             }
         }
@@ -928,7 +929,7 @@ namespace PAKOPointOfSale.Transactions
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            
+
             this.Close();
         }
 
@@ -1340,45 +1341,61 @@ namespace PAKOPointOfSale.Transactions
             }
 
 
-            if (e.KeyCode == Keys.F1)   
+            if (e.KeyCode == Keys.F1)
             {
-                btnClearCart.PerformClick();        
+                btnClearCart.PerformClick();
             }
 
-            if (e.KeyCode == Keys.F2)   
+            if (e.KeyCode == Keys.F2)
             {
-                btnRemove.PerformClick();       
+                btnRemove.PerformClick();
             }
 
-            if (e.KeyCode == Keys.F3)   
+            if (e.KeyCode == Keys.F3)
             {
-                btnParkedTransactions .PerformClick();        
+                btnParkedTransactions.PerformClick();
             }
 
-            if (e.KeyCode == Keys.F4)   
+            if (e.KeyCode == Keys.F4)
             {
-                btnApplyDiscount.PerformClick();        
+                btnApplyDiscount.PerformClick();
             }
 
-            if (e.KeyCode == Keys.F5)   
+            if (e.KeyCode == Keys.F5)
             {
-                btnPark.PerformClick();     
+                btnPark.PerformClick();
             }
 
-            if (e.KeyCode == Keys.Enter)  
+            if (e.KeyCode == Keys.Enter)
             {
-                btnConfirm.PerformClick();       
+                btnConfirm.PerformClick();
             }
 
-            if (e.KeyCode == Keys.ShiftKey)   
+            if (e.KeyCode == Keys.ShiftKey)
             {
-                btnScan.PerformClick();       
+                btnScan.PerformClick();
+            }
+
+            if (e.KeyCode == Keys.F6)
+            {
+                btnTransactions.PerformClick();
             }
         }
 
         private void SalesInvoice_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
+
+        }
+
+        private void btnTransactions_Click(object sender, EventArgs e)
+        {
+            if (!LoggedInUser.HasPermission("Transactions", "view"))
+            {
+                MessageBox.Show("You do not have permission to view Transactions", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            Transactions.TransactionsList transactionsListForm = new Transactions.TransactionsList();
+            transactionsListForm.ShowDialog();
         }
     }
 }
