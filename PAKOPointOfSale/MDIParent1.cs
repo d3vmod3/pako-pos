@@ -628,5 +628,24 @@ namespace PAKOPointOfSale
         {
 
         }
+
+        private void backupDatabaseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Options.Options optionsForm = new Options.Options();
+            optionsForm.SelectedOption = "Backup Database";
+            optionsForm.ShowDialog();
+        }
+
+        private void activityLogsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //if (!LoggedInUser.HasPermission("User Access Control", "view"))
+            //{
+            //    MessageBox.Show("You do not have permission to view User Access Control.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return;
+            //}
+            Options.Options optionsForm = new Options.Options();
+            optionsForm.SelectedOption = "Activity Logs";
+            optionsForm.ShowDialog();
+        }
     }
 }

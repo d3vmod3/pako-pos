@@ -39,6 +39,9 @@ namespace PAKOPointOfSale
             DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             menuStrip = new MenuStrip();
+            optionsToolStripMenuItem = new ToolStripMenuItem();
+            activityLogsToolStripMenuItem = new ToolStripMenuItem();
+            backupDatabaseToolStripMenuItem = new ToolStripMenuItem();
             statusStrip = new StatusStrip();
             toolTip = new ToolTip(components);
             dtgvTop5SellingProducts = new DataGridView();
@@ -96,6 +99,7 @@ namespace PAKOPointOfSale
             product_name2 = new DataGridViewTextBoxColumn();
             quantity = new DataGridViewTextBoxColumn();
             supplier = new DataGridViewTextBoxColumn();
+            menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgvTop5SellingProducts).BeginInit();
             gbTop5Sellings.SuspendLayout();
             gbSales.SuspendLayout();
@@ -108,6 +112,7 @@ namespace PAKOPointOfSale
             // 
             // menuStrip
             // 
+            menuStrip.Items.AddRange(new ToolStripItem[] { optionsToolStripMenuItem });
             menuStrip.Location = new Point(0, 0);
             menuStrip.Name = "menuStrip";
             menuStrip.Padding = new Padding(7, 2, 0, 2);
@@ -116,9 +121,30 @@ namespace PAKOPointOfSale
             menuStrip.Text = "MenuStrip";
             menuStrip.ItemClicked += menuStrip_ItemClicked;
             // 
+            // optionsToolStripMenuItem
+            // 
+            optionsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { activityLogsToolStripMenuItem, backupDatabaseToolStripMenuItem });
+            optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
+            optionsToolStripMenuItem.Size = new Size(61, 20);
+            optionsToolStripMenuItem.Text = "Options";
+            // 
+            // activityLogsToolStripMenuItem
+            // 
+            activityLogsToolStripMenuItem.Name = "activityLogsToolStripMenuItem";
+            activityLogsToolStripMenuItem.Size = new Size(180, 22);
+            activityLogsToolStripMenuItem.Text = "Activity Logs";
+            activityLogsToolStripMenuItem.Click += activityLogsToolStripMenuItem_Click;
+            // 
+            // backupDatabaseToolStripMenuItem
+            // 
+            backupDatabaseToolStripMenuItem.Name = "backupDatabaseToolStripMenuItem";
+            backupDatabaseToolStripMenuItem.Size = new Size(180, 22);
+            backupDatabaseToolStripMenuItem.Text = "Backup Database";
+            backupDatabaseToolStripMenuItem.Click += backupDatabaseToolStripMenuItem_Click;
+            // 
             // statusStrip
             // 
-            statusStrip.Location = new Point(0, 766);
+            statusStrip.Location = new Point(0, 1388);
             statusStrip.Name = "statusStrip";
             statusStrip.Padding = new Padding(1, 0, 16, 0);
             statusStrip.Size = new Size(1367, 22);
@@ -236,7 +262,7 @@ namespace PAKOPointOfSale
             gbTop5Sellings.Controls.Add(btnFilter);
             gbTop5Sellings.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             gbTop5Sellings.ForeColor = Color.Black;
-            gbTop5Sellings.Location = new Point(23, 485);
+            gbTop5Sellings.Location = new Point(733, 943);
             gbTop5Sellings.Name = "gbTop5Sellings";
             gbTop5Sellings.Size = new Size(575, 230);
             gbTop5Sellings.TabIndex = 13;
@@ -368,7 +394,7 @@ namespace PAKOPointOfSale
             gbSales.Controls.Add(btnFilterDateSales);
             gbSales.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             gbSales.ForeColor = Color.Black;
-            gbSales.Location = new Point(24, 288);
+            gbSales.Location = new Point(734, 746);
             gbSales.Name = "gbSales";
             gbSales.Size = new Size(574, 186);
             gbSales.TabIndex = 17;
@@ -458,7 +484,6 @@ namespace PAKOPointOfSale
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 154;
             pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
             // 
             // label10
             // 
@@ -539,7 +564,7 @@ namespace PAKOPointOfSale
             // 
             btnPos.BackgroundImage = Properties.Resources.pos_terminal;
             btnPos.BackgroundImageLayout = ImageLayout.Stretch;
-            btnPos.Location = new Point(1187, 179);
+            btnPos.Location = new Point(45, 907);
             btnPos.Name = "btnPos";
             btnPos.Size = new Size(130, 92);
             btnPos.TabIndex = 4;
@@ -550,7 +575,7 @@ namespace PAKOPointOfSale
             // 
             btnCategories.BackgroundImage = Properties.Resources.category_icon_png_17;
             btnCategories.BackgroundImageLayout = ImageLayout.Stretch;
-            btnCategories.Location = new Point(63, 179);
+            btnCategories.Location = new Point(45, 312);
             btnCategories.Name = "btnCategories";
             btnCategories.Size = new Size(121, 93);
             btnCategories.TabIndex = 164;
@@ -561,7 +586,7 @@ namespace PAKOPointOfSale
             // 
             btnProducts.BackgroundImage = Properties.Resources.products;
             btnProducts.BackgroundImageLayout = ImageLayout.Stretch;
-            btnProducts.Location = new Point(234, 177);
+            btnProducts.Location = new Point(45, 411);
             btnProducts.Name = "btnProducts";
             btnProducts.Size = new Size(135, 94);
             btnProducts.TabIndex = 165;
@@ -572,7 +597,7 @@ namespace PAKOPointOfSale
             // 
             btnSuppliers.BackgroundImage = Properties.Resources.suppliers;
             btnSuppliers.BackgroundImageLayout = ImageLayout.Stretch;
-            btnSuppliers.Location = new Point(421, 179);
+            btnSuppliers.Location = new Point(45, 511);
             btnSuppliers.Name = "btnSuppliers";
             btnSuppliers.Size = new Size(137, 94);
             btnSuppliers.TabIndex = 166;
@@ -583,7 +608,7 @@ namespace PAKOPointOfSale
             // 
             btnTransactions.BackgroundImage = Properties.Resources.transactions;
             btnTransactions.BackgroundImageLayout = ImageLayout.Stretch;
-            btnTransactions.Location = new Point(614, 180);
+            btnTransactions.Location = new Point(45, 611);
             btnTransactions.Name = "btnTransactions";
             btnTransactions.Size = new Size(132, 94);
             btnTransactions.TabIndex = 167;
@@ -594,7 +619,7 @@ namespace PAKOPointOfSale
             // 
             btnUsers.BackgroundImage = Properties.Resources.users;
             btnUsers.BackgroundImageLayout = ImageLayout.Stretch;
-            btnUsers.Location = new Point(803, 182);
+            btnUsers.Location = new Point(45, 711);
             btnUsers.Name = "btnUsers";
             btnUsers.Size = new Size(130, 92);
             btnUsers.TabIndex = 168;
@@ -605,7 +630,7 @@ namespace PAKOPointOfSale
             // 
             btnUac.BackgroundImage = Properties.Resources.UAC;
             btnUac.BackgroundImageLayout = ImageLayout.Stretch;
-            btnUac.Location = new Point(991, 182);
+            btnUac.Location = new Point(45, 809);
             btnUac.Name = "btnUac";
             btnUac.Size = new Size(141, 92);
             btnUac.TabIndex = 169;
@@ -719,7 +744,7 @@ namespace PAKOPointOfSale
             lblFullName.BackColor = Color.WhiteSmoke;
             lblFullName.Font = new Font("Impact", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblFullName.ForeColor = Color.Black;
-            lblFullName.Location = new Point(23, 2);
+            lblFullName.Location = new Point(1004, 1);
             lblFullName.Name = "lblFullName";
             lblFullName.Size = new Size(71, 20);
             lblFullName.TabIndex = 183;
@@ -804,7 +829,7 @@ namespace PAKOPointOfSale
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
-            ClientSize = new Size(1367, 788);
+            ClientSize = new Size(1367, 1410);
             Controls.Add(gbLowStocks);
             Controls.Add(lblFullName);
             Controls.Add(pictureBox4);
@@ -845,6 +870,8 @@ namespace PAKOPointOfSale
             TransparencyKey = Color.White;
             WindowState = FormWindowState.Maximized;
             Load += SuperAdminForm_Load;
+            menuStrip.ResumeLayout(false);
+            menuStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dtgvTop5SellingProducts).EndInit();
             gbTop5Sellings.ResumeLayout(false);
             gbTop5Sellings.PerformLayout();
@@ -925,6 +952,9 @@ namespace PAKOPointOfSale
         private DataGridViewTextBoxColumn product_name2;
         private DataGridViewTextBoxColumn quantity;
         private DataGridViewTextBoxColumn supplier;
+        private ToolStripMenuItem optionsToolStripMenuItem;
+        private ToolStripMenuItem activityLogsToolStripMenuItem;
+        private ToolStripMenuItem backupDatabaseToolStripMenuItem;
     }
 }
 

@@ -16,6 +16,9 @@
     <Compile Update="MDIParent1.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Options\Options.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Products\AddProduct.cs">
       <SubType>Form</SubType>
     </Compile>
