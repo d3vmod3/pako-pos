@@ -36,17 +36,16 @@ namespace PAKOPointOfSale.Supplier_Details
 
                     string query = @"
                 INSERT INTO SupplierDetails 
-                (name, address, contact_number, account_number, gateway, created_at, is_active)
+                (name, address, contact_number, email, created_at, is_active)
                 VALUES 
-                (@name, @address, @contact_number, @account_number, @gateway, @created_at, @is_active)";
+                (@name, @address, @contact_number, @email, @created_at, @is_active)";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@name", txtSupplierName.Text.Trim());
                         cmd.Parameters.AddWithValue("@address", string.IsNullOrWhiteSpace(txtAddress.Text) ? DBNull.Value : txtAddress.Text.Trim());
                         cmd.Parameters.AddWithValue("@contact_number", string.IsNullOrWhiteSpace(txtContactNumber.Text) ? DBNull.Value : txtContactNumber.Text.Trim());
-                        cmd.Parameters.AddWithValue("@account_number", string.IsNullOrWhiteSpace(txtAccountNumber.Text) ? DBNull.Value : txtAccountNumber.Text.Trim());
-                        cmd.Parameters.AddWithValue("@gateway", string.IsNullOrWhiteSpace(txtGateway.Text) ? DBNull.Value : txtGateway.Text.Trim());
+                        cmd.Parameters.AddWithValue("@email", string.IsNullOrWhiteSpace(txtEmail.Text) ? DBNull.Value : txtEmail.Text.Trim());
                         cmd.Parameters.AddWithValue("@created_at", DateTime.Today);
                         cmd.Parameters.AddWithValue("@is_active", false);
 

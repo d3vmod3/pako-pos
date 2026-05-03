@@ -30,12 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditSupplierDetails));
             btnSubmit = new Button();
-            txtPaymentGateway = new TextBox();
-            txtAccountNumber = new TextBox();
             txtContactNumber = new TextBox();
+            txtEmail = new TextBox();
             txtAddress = new TextBox();
             txtSupplierName = new TextBox();
-            label6 = new Label();
             label5 = new Label();
             label4 = new Label();
             label3 = new Label();
@@ -65,36 +63,26 @@
             btnSubmit.UseVisualStyleBackColor = false;
             btnSubmit.Click += btnSubmit_Click;
             // 
-            // txtPaymentGateway
-            // 
-            txtPaymentGateway.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
-            txtPaymentGateway.Location = new Point(147, 255);
-            txtPaymentGateway.MaxLength = 12;
-            txtPaymentGateway.Multiline = true;
-            txtPaymentGateway.Name = "txtPaymentGateway";
-            txtPaymentGateway.Size = new Size(209, 23);
-            txtPaymentGateway.TabIndex = 24;
-            // 
-            // txtAccountNumber
-            // 
-            txtAccountNumber.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
-            txtAccountNumber.Location = new Point(183, 168);
-            txtAccountNumber.MaxLength = 18;
-            txtAccountNumber.Multiline = true;
-            txtAccountNumber.Name = "txtAccountNumber";
-            txtAccountNumber.Size = new Size(173, 23);
-            txtAccountNumber.TabIndex = 23;
-            // 
             // txtContactNumber
             // 
             txtContactNumber.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
-            txtContactNumber.Location = new Point(147, 212);
-            txtContactNumber.MaxLength = 10;
+            txtContactNumber.Location = new Point(183, 168);
+            txtContactNumber.MaxLength = 18;
             txtContactNumber.Multiline = true;
             txtContactNumber.Name = "txtContactNumber";
-            txtContactNumber.Size = new Size(209, 23);
-            txtContactNumber.TabIndex = 22;
+            txtContactNumber.Size = new Size(173, 23);
+            txtContactNumber.TabIndex = 23;
             txtContactNumber.KeyPress += txtContactNumber_KeyPress;
+            // 
+            // txtEmail
+            // 
+            txtEmail.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
+            txtEmail.Location = new Point(147, 212);
+            txtEmail.MaxLength = 50;
+            txtEmail.Multiline = true;
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(209, 23);
+            txtEmail.TabIndex = 22;
             // 
             // txtAddress
             // 
@@ -115,31 +103,21 @@
             txtSupplierName.Size = new Size(209, 23);
             txtSupplierName.TabIndex = 20;
             // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(22, 255);
-            label6.Name = "label6";
-            label6.Size = new Size(121, 17);
-            label6.TabIndex = 19;
-            label6.Text = "Payment Gateway:";
-            // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(27, 215);
+            label5.Location = new Point(98, 215);
             label5.Name = "label5";
-            label5.Size = new Size(116, 17);
+            label5.Size = new Size(43, 17);
             label5.TabIndex = 18;
-            label5.Text = "Account Number:";
+            label5.Text = "Email:";
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(30, 174);
+            label4.Location = new Point(30, 168);
             label4.Name = "label4";
             label4.Size = new Size(113, 17);
             label4.TabIndex = 17;
@@ -181,7 +159,7 @@
             // 
             lblCreatedAt.AutoSize = true;
             lblCreatedAt.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblCreatedAt.Location = new Point(51, 290);
+            lblCreatedAt.Location = new Point(53, 245);
             lblCreatedAt.Name = "lblCreatedAt";
             lblCreatedAt.Size = new Size(90, 17);
             lblCreatedAt.TabIndex = 27;
@@ -258,12 +236,10 @@
             Controls.Add(lblCreatedAt);
             Controls.Add(chkIsActive);
             Controls.Add(btnSubmit);
-            Controls.Add(txtPaymentGateway);
-            Controls.Add(txtAccountNumber);
             Controls.Add(txtContactNumber);
+            Controls.Add(txtEmail);
             Controls.Add(txtAddress);
             Controls.Add(txtSupplierName);
-            Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -284,8 +260,8 @@
 
         private Button btnSubmit;
         private TextBox txtPaymentGateway;
-        private TextBox txtAccountNumber;
         private TextBox txtContactNumber;
+        private TextBox txtEmail;
         private TextBox txtAddress;
         private TextBox txtSupplierName;
         private Label label6;

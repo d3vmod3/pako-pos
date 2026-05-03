@@ -25,9 +25,9 @@ namespace PAKOPointOfSale.Supplier_Details
 
         private void EditSupplierDetails_Load(object sender, EventArgs e)
         {
-            LoadCategoryData();
+            LoadSupplierData();
         }
-        private void LoadCategoryData()
+        private void LoadSupplierData()
         {
             try
             {
@@ -37,7 +37,7 @@ namespace PAKOPointOfSale.Supplier_Details
                 {
                     conn.Open();
 
-                    string sql = @"SELECT name, address, contact_number, account_number, gateway, created_at, is_active 
+                    string sql = @"SELECT name, address, contact_number, email, created_at, is_active 
                        FROM SupplierDetails 
                        WHERE id = @id";
 
@@ -53,8 +53,7 @@ namespace PAKOPointOfSale.Supplier_Details
                                 txtSupplierName.Text = reader["name"].ToString();
                                 txtAddress.Text = reader["address"].ToString();
                                 txtContactNumber.Text = reader["contact_number"].ToString();
-                                txtAccountNumber.Text = reader["account_number"].ToString();
-                                txtPaymentGateway.Text = reader["gateway"].ToString();
+                                txtEmail.Text = reader["email"].ToString();
                                 chkIsActive.Checked = Convert.ToBoolean(reader["is_active"]);
                                 DateTime createdAt = Convert.ToDateTime(reader["created_at"]);
                                 lblCreatedAt.Text = "Date Created: " + createdAt.ToString("yyyy-MM-dd HH:mm");
@@ -138,8 +137,7 @@ namespace PAKOPointOfSale.Supplier_Details
                                         name = @name,
                                         address = @address,
                                         contact_number = @contact_number,
-                                        account_number = @account_number,
-                                        gateway = @gateway,
+                                        email = @email,
                                         is_active = @is_active
                                     WHERE id = @id";
 
@@ -147,9 +145,8 @@ namespace PAKOPointOfSale.Supplier_Details
                     {
                         cmd.Parameters.AddWithValue("@name", txtSupplierName.Text.Trim());
                         cmd.Parameters.AddWithValue("@address", string.IsNullOrWhiteSpace(txtAddress.Text) ? DBNull.Value : txtAddress.Text.Trim());
-                        cmd.Parameters.AddWithValue("@contact_number", string.IsNullOrWhiteSpace(txtContactNumber.Text) ? DBNull.Value : txtContactNumber.Text.Trim());
-                        cmd.Parameters.AddWithValue("@account_number", string.IsNullOrWhiteSpace(txtAccountNumber.Text) ? DBNull.Value : txtAccountNumber.Text.Trim());
-                        cmd.Parameters.AddWithValue("@gateway", string.IsNullOrWhiteSpace(txtPaymentGateway.Text) ? DBNull.Value : txtPaymentGateway.Text.Trim());
+                        cmd.Parameters.AddWithValue("@contact_number", string.IsNullOrWhiteSpace(txtEmail.Text) ? DBNull.Value : txtEmail.Text.Trim());
+                        cmd.Parameters.AddWithValue("@email;", string.IsNullOrWhiteSpace(txtEmail.Text) ? DBNull.Value : txtEmail.Text.Trim()); txtPaymentGateway.Text.Trim();
                         cmd.Parameters.AddWithValue("@is_active", chkIsActive.Checked);
                         cmd.Parameters.AddWithValue("@id", _supplierId);
 

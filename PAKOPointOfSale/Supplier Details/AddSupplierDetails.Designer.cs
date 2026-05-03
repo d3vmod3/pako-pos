@@ -33,12 +33,10 @@
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
-            label6 = new Label();
             txtSupplierName = new TextBox();
             txtAddress = new TextBox();
             txtContactNumber = new TextBox();
-            txtAccountNumber = new TextBox();
-            txtGateway = new TextBox();
+            txtEmail = new TextBox();
             lblAddUser = new Label();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
@@ -83,21 +81,11 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(19, 221);
+            label5.Location = new Point(89, 218);
             label5.Name = "label5";
-            label5.Size = new Size(116, 17);
+            label5.Size = new Size(43, 17);
             label5.TabIndex = 4;
-            label5.Text = "Account Number:";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(72, 262);
-            label6.Name = "label6";
-            label6.Size = new Size(63, 17);
-            label6.TabIndex = 5;
-            label6.Text = "Gateway:";
+            label5.Text = "Email:";
             // 
             // txtSupplierName
             // 
@@ -130,25 +118,15 @@
             txtContactNumber.TextChanged += txtContactNumber_TextChanged;
             txtContactNumber.KeyPress += txtContactNumber_KeyPress;
             // 
-            // txtAccountNumber
+            // txtEmail
             // 
-            txtAccountNumber.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            txtAccountNumber.Location = new Point(141, 218);
-            txtAccountNumber.MaxLength = 18;
-            txtAccountNumber.Multiline = true;
-            txtAccountNumber.Name = "txtAccountNumber";
-            txtAccountNumber.Size = new Size(219, 20);
-            txtAccountNumber.TabIndex = 11;
-            // 
-            // txtGateway
-            // 
-            txtGateway.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            txtGateway.Location = new Point(141, 259);
-            txtGateway.MaxLength = 12;
-            txtGateway.Multiline = true;
-            txtGateway.Name = "txtGateway";
-            txtGateway.Size = new Size(219, 20);
-            txtGateway.TabIndex = 12;
+            txtEmail.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            txtEmail.Location = new Point(141, 218);
+            txtEmail.MaxLength = 50;
+            txtEmail.Multiline = true;
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(219, 20);
+            txtEmail.TabIndex = 11;
             // 
             // lblAddUser
             // 
@@ -232,12 +210,10 @@
             Controls.Add(lblAddUser);
             Controls.Add(pictureBox1);
             Controls.Add(pictureBox2);
-            Controls.Add(txtGateway);
-            Controls.Add(txtAccountNumber);
+            Controls.Add(txtEmail);
             Controls.Add(txtContactNumber);
             Controls.Add(txtAddress);
             Controls.Add(txtSupplierName);
-            Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -262,12 +238,10 @@
         private Label label3;
         private Label label4;
         private Label label5;
-        private Label label6;
         private TextBox txtSupplierName;
         private TextBox txtAddress;
         private TextBox txtContactNumber;
-        private TextBox txtAccountNumber;
-        private TextBox txtGateway;
+        private TextBox txtEmail;
         private Label lblAddUser;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;

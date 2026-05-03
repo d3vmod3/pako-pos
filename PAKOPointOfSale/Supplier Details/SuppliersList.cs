@@ -53,7 +53,7 @@ namespace PAKOPointOfSale.Supplier_Details
                     conn.Open();
 
 
-                    string query = @"SELECT id,name,address,contact_number,account_number,gateway,created_at,is_active FROM SupplierDetails";
+                    string query = @"SELECT id,name,address,contact_number,email,created_at,is_active FROM SupplierDetails";
 
                     using (SqlDataAdapter da = new SqlDataAdapter(query, conn))
                     {
