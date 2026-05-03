@@ -80,10 +80,10 @@
             // chkIsActive
             // 
             chkIsActive.AutoSize = true;
-            chkIsActive.Font = new Font("Microsoft Sans Serif", 11.25F);
-            chkIsActive.Location = new Point(1199, 646);
+            chkIsActive.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            chkIsActive.Location = new Point(1197, 628);
             chkIsActive.Name = "chkIsActive";
-            chkIsActive.Size = new Size(66, 22);
+            chkIsActive.Size = new Size(64, 21);
             chkIsActive.TabIndex = 142;
             chkIsActive.Text = "Active";
             chkIsActive.UseVisualStyleBackColor = true;
@@ -92,28 +92,28 @@
             // 
             cmbStatus.BackColor = Color.DimGray;
             cmbStatus.FlatStyle = FlatStyle.Popup;
-            cmbStatus.Font = new Font("Microsoft Sans Serif", 9.75F);
+            cmbStatus.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             cmbStatus.FormattingEnabled = true;
             cmbStatus.Items.AddRange(new object[] { "Good", "Deffective" });
-            cmbStatus.Location = new Point(957, 295);
+            cmbStatus.Location = new Point(911, 264);
             cmbStatus.Name = "cmbStatus";
-            cmbStatus.Size = new Size(353, 24);
+            cmbStatus.Size = new Size(353, 25);
             cmbStatus.TabIndex = 141;
             // 
             // num_quantity
             // 
             num_quantity.DecimalPlaces = 2;
-            num_quantity.Font = new Font("Microsoft Sans Serif", 9.75F);
-            num_quantity.Location = new Point(526, 295);
+            num_quantity.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            num_quantity.Location = new Point(480, 266);
             num_quantity.Maximum = new decimal(new int[] { 999999, 0, 0, 0 });
             num_quantity.Name = "num_quantity";
-            num_quantity.Size = new Size(370, 22);
+            num_quantity.Size = new Size(370, 25);
             num_quantity.TabIndex = 140;
             // 
             // txtRemarks
             // 
-            txtRemarks.Font = new Font("Microsoft Sans Serif", 9.75F);
-            txtRemarks.Location = new Point(701, 464);
+            txtRemarks.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtRemarks.Location = new Point(653, 461);
             txtRemarks.Multiline = true;
             txtRemarks.Name = "txtRemarks";
             txtRemarks.Size = new Size(609, 161);
@@ -122,21 +122,21 @@
             // num_unitPrice
             // 
             num_unitPrice.DecimalPlaces = 2;
-            num_unitPrice.Font = new Font("Microsoft Sans Serif", 9.75F);
-            num_unitPrice.Location = new Point(957, 245);
+            num_unitPrice.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            num_unitPrice.Location = new Point(911, 207);
             num_unitPrice.Maximum = new decimal(new int[] { 999999, 0, 0, 0 });
             num_unitPrice.Name = "num_unitPrice";
-            num_unitPrice.Size = new Size(350, 22);
+            num_unitPrice.Size = new Size(350, 25);
             num_unitPrice.TabIndex = 138;
             // 
             // num_costPrice
             // 
             num_costPrice.DecimalPlaces = 2;
-            num_costPrice.Font = new Font("Microsoft Sans Serif", 9.75F);
-            num_costPrice.Location = new Point(957, 193);
+            num_costPrice.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            num_costPrice.Location = new Point(911, 152);
             num_costPrice.Maximum = new decimal(new int[] { 999999, 0, 0, 0 });
             num_costPrice.Name = "num_costPrice";
-            num_costPrice.Size = new Size(350, 22);
+            num_costPrice.Size = new Size(350, 25);
             num_costPrice.TabIndex = 137;
             // 
             // cmbUnitofMeasurements
@@ -145,12 +145,12 @@
             cmbUnitofMeasurements.AutoCompleteSource = AutoCompleteSource.ListItems;
             cmbUnitofMeasurements.BackColor = Color.DimGray;
             cmbUnitofMeasurements.FlatStyle = FlatStyle.Popup;
-            cmbUnitofMeasurements.Font = new Font("Microsoft Sans Serif", 9.75F);
+            cmbUnitofMeasurements.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             cmbUnitofMeasurements.FormattingEnabled = true;
             cmbUnitofMeasurements.Items.AddRange(new object[] { "Bag", "Box", "Bottle", "Bundle", "Can", "Carton", "Case", "Dozen", "Gallon", "Gram", "Hour", "Job", "Kit", "Kilogram", "Liter", "Milliliter", "Pair", "Pack", "Piece", "Roll", "Sheet", "Tray", "Tin", "Set" });
-            cmbUnitofMeasurements.Location = new Point(527, 400);
+            cmbUnitofMeasurements.Location = new Point(481, 384);
             cmbUnitofMeasurements.Name = "cmbUnitofMeasurements";
-            cmbUnitofMeasurements.Size = new Size(369, 24);
+            cmbUnitofMeasurements.Size = new Size(369, 25);
             cmbUnitofMeasurements.TabIndex = 136;
             // 
             // cmbCategory
@@ -159,9 +159,9 @@
             cmbCategory.AutoCompleteSource = AutoCompleteSource.ListItems;
             cmbCategory.BackColor = Color.DimGray;
             cmbCategory.FlatStyle = FlatStyle.Popup;
-            cmbCategory.Font = new Font("Segoe UI", 9.75F);
+            cmbCategory.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             cmbCategory.FormattingEnabled = true;
-            cmbCategory.Location = new Point(92, 245);
+            cmbCategory.Location = new Point(46, 207);
             cmbCategory.Name = "cmbCategory";
             cmbCategory.Size = new Size(378, 25);
             cmbCategory.TabIndex = 135;
@@ -172,29 +172,29 @@
             cmbSupplier.AutoCompleteSource = AutoCompleteSource.ListItems;
             cmbSupplier.BackColor = Color.DimGray;
             cmbSupplier.FlatStyle = FlatStyle.Popup;
-            cmbSupplier.Font = new Font("Segoe UI", 9.75F);
+            cmbSupplier.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             cmbSupplier.FormattingEnabled = true;
-            cmbSupplier.Location = new Point(92, 193);
+            cmbSupplier.Location = new Point(46, 152);
             cmbSupplier.Name = "cmbSupplier";
             cmbSupplier.Size = new Size(378, 25);
             cmbSupplier.TabIndex = 134;
             // 
             // dtpDateExpiration
             // 
-            dtpDateExpiration.Font = new Font("Microsoft Sans Serif", 9.75F);
+            dtpDateExpiration.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dtpDateExpiration.Format = DateTimePickerFormat.Short;
-            dtpDateExpiration.Location = new Point(954, 400);
+            dtpDateExpiration.Location = new Point(908, 384);
             dtpDateExpiration.Name = "dtpDateExpiration";
-            dtpDateExpiration.Size = new Size(353, 22);
+            dtpDateExpiration.Size = new Size(353, 25);
             dtpDateExpiration.TabIndex = 133;
             // 
             // dtpDateReceived
             // 
-            dtpDateReceived.Font = new Font("Microsoft Sans Serif", 9.75F);
+            dtpDateReceived.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dtpDateReceived.Format = DateTimePickerFormat.Short;
-            dtpDateReceived.Location = new Point(957, 350);
+            dtpDateReceived.Location = new Point(911, 321);
             dtpDateReceived.Name = "dtpDateReceived";
-            dtpDateReceived.Size = new Size(353, 22);
+            dtpDateReceived.Size = new Size(353, 25);
             dtpDateReceived.TabIndex = 132;
             dtpDateReceived.ValueChanged += dtpDateReceived_ValueChanged;
             // 
@@ -202,8 +202,8 @@
             // 
             btnSubmit.BackColor = Color.SeaGreen;
             btnSubmit.FlatStyle = FlatStyle.Popup;
-            btnSubmit.Font = new Font("Microsoft Sans Serif", 9F);
-            btnSubmit.Location = new Point(1092, 697);
+            btnSubmit.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
+            btnSubmit.Location = new Point(542, 638);
             btnSubmit.Name = "btnSubmit";
             btnSubmit.Size = new Size(85, 28);
             btnSubmit.TabIndex = 131;
@@ -214,88 +214,88 @@
             // lblDateExpiration
             // 
             lblDateExpiration.AutoSize = true;
-            lblDateExpiration.Font = new Font("Microsoft Sans Serif", 11.25F);
-            lblDateExpiration.Location = new Point(954, 379);
+            lblDateExpiration.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
+            lblDateExpiration.Location = new Point(908, 365);
             lblDateExpiration.Name = "lblDateExpiration";
-            lblDateExpiration.Size = new Size(108, 18);
+            lblDateExpiration.Size = new Size(104, 17);
             lblDateExpiration.TabIndex = 130;
-            lblDateExpiration.Text = "Date Expiration";
+            lblDateExpiration.Text = "Date Expiration:";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Font = new Font("Microsoft Sans Serif", 11.25F);
-            label7.Location = new Point(957, 329);
+            label7.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
+            label7.Location = new Point(911, 300);
             label7.Name = "label7";
-            label7.Size = new Size(104, 18);
+            label7.Size = new Size(96, 17);
             label7.TabIndex = 129;
-            label7.Text = "Date Received";
+            label7.Text = "Date Received:";
             // 
             // lblStatus
             // 
             lblStatus.AutoSize = true;
-            lblStatus.Font = new Font("Microsoft Sans Serif", 11.25F);
-            lblStatus.Location = new Point(957, 274);
+            lblStatus.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
+            lblStatus.Location = new Point(911, 246);
             lblStatus.Name = "lblStatus";
-            lblStatus.Size = new Size(50, 18);
+            lblStatus.Size = new Size(49, 17);
             lblStatus.TabIndex = 128;
-            lblStatus.Text = "Status";
+            lblStatus.Text = "Status:";
             // 
             // lblRemarks
             // 
             lblRemarks.AutoSize = true;
-            lblRemarks.Font = new Font("Microsoft Sans Serif", 11.25F);
-            lblRemarks.Location = new Point(741, 437);
+            lblRemarks.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
+            lblRemarks.Location = new Point(653, 441);
             lblRemarks.Name = "lblRemarks";
-            lblRemarks.Size = new Size(69, 18);
+            lblRemarks.Size = new Size(63, 17);
             lblRemarks.TabIndex = 127;
-            lblRemarks.Text = "Remarks";
+            lblRemarks.Text = "Remarks:";
             // 
             // lblUnitPrice
             // 
             lblUnitPrice.AutoSize = true;
-            lblUnitPrice.Font = new Font("Microsoft Sans Serif", 11.25F);
-            lblUnitPrice.Location = new Point(957, 224);
+            lblUnitPrice.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
+            lblUnitPrice.Location = new Point(911, 189);
             lblUnitPrice.Name = "lblUnitPrice";
-            lblUnitPrice.Size = new Size(72, 18);
+            lblUnitPrice.Size = new Size(69, 17);
             lblUnitPrice.TabIndex = 126;
-            lblUnitPrice.Text = "Unit Price";
+            lblUnitPrice.Text = "Unit Price:";
             // 
             // lblCostPrice
             // 
             lblCostPrice.AutoSize = true;
-            lblCostPrice.Font = new Font("Microsoft Sans Serif", 11.25F);
-            lblCostPrice.Location = new Point(957, 169);
+            lblCostPrice.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
+            lblCostPrice.Location = new Point(911, 133);
             lblCostPrice.Name = "lblCostPrice";
-            lblCostPrice.Size = new Size(78, 18);
+            lblCostPrice.Size = new Size(71, 17);
             lblCostPrice.TabIndex = 125;
-            lblCostPrice.Text = "Cost Price";
+            lblCostPrice.Text = "Cost Price:";
             // 
             // lblUnitofMeasurement
             // 
             lblUnitofMeasurement.AutoSize = true;
-            lblUnitofMeasurement.Font = new Font("Microsoft Sans Serif", 11.25F);
-            lblUnitofMeasurement.Location = new Point(527, 384);
+            lblUnitofMeasurement.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
+            lblUnitofMeasurement.Location = new Point(481, 364);
             lblUnitofMeasurement.Name = "lblUnitofMeasurement";
-            lblUnitofMeasurement.Size = new Size(154, 18);
+            lblUnitofMeasurement.Size = new Size(146, 17);
             lblUnitofMeasurement.TabIndex = 124;
-            lblUnitofMeasurement.Text = "Unit of Measurements";
+            lblUnitofMeasurement.Text = "Unit of Measurements:";
             // 
             // lblQuantity
             // 
             lblQuantity.AutoSize = true;
-            lblQuantity.Font = new Font("Microsoft Sans Serif", 11.25F);
-            lblQuantity.Location = new Point(526, 274);
+            lblQuantity.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
+            lblQuantity.Location = new Point(480, 248);
             lblQuantity.Name = "lblQuantity";
-            lblQuantity.Size = new Size(62, 18);
+            lblQuantity.Size = new Size(64, 17);
             lblQuantity.TabIndex = 123;
-            lblQuantity.Text = "Quantity";
+            lblQuantity.Text = "Quantity:";
             lblQuantity.Click += lblQuantity_Click;
             // 
             // txtSKU
             // 
-            txtSKU.Font = new Font("Segoe UI", 9.75F);
-            txtSKU.Location = new Point(527, 245);
+            txtSKU.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtSKU.Location = new Point(481, 207);
             txtSKU.MaxLength = 32;
             txtSKU.Name = "txtSKU";
             txtSKU.Size = new Size(369, 25);
@@ -303,8 +303,8 @@
             // 
             // txtProductCode
             // 
-            txtProductCode.Font = new Font("Segoe UI", 9.75F);
-            txtProductCode.Location = new Point(527, 193);
+            txtProductCode.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtProductCode.Location = new Point(481, 152);
             txtProductCode.MaxLength = 12;
             txtProductCode.Name = "txtProductCode";
             txtProductCode.Size = new Size(369, 25);
@@ -312,8 +312,8 @@
             // 
             // txtDescription
             // 
-            txtDescription.Font = new Font("Segoe UI", 9.75F);
-            txtDescription.Location = new Point(92, 464);
+            txtDescription.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtDescription.Location = new Point(44, 461);
             txtDescription.Multiline = true;
             txtDescription.Name = "txtDescription";
             txtDescription.Size = new Size(575, 161);
@@ -321,8 +321,8 @@
             // 
             // txtProductBrand
             // 
-            txtProductBrand.Font = new Font("Segoe UI", 9.75F);
-            txtProductBrand.Location = new Point(92, 400);
+            txtProductBrand.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtProductBrand.Location = new Point(46, 384);
             txtProductBrand.MaxLength = 30;
             txtProductBrand.Name = "txtProductBrand";
             txtProductBrand.Size = new Size(378, 25);
@@ -330,8 +330,8 @@
             // 
             // txtProductName
             // 
-            txtProductName.Font = new Font("Segoe UI", 9.75F);
-            txtProductName.Location = new Point(92, 295);
+            txtProductName.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtProductName.Location = new Point(46, 265);
             txtProductName.MaxLength = 50;
             txtProductName.Name = "txtProductName";
             txtProductName.Size = new Size(378, 25);
@@ -340,80 +340,80 @@
             // lblSKU
             // 
             lblSKU.AutoSize = true;
-            lblSKU.Font = new Font("Microsoft Sans Serif", 11.25F);
-            lblSKU.Location = new Point(527, 224);
+            lblSKU.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
+            lblSKU.Location = new Point(481, 189);
             lblSKU.Name = "lblSKU";
-            lblSKU.Size = new Size(39, 18);
+            lblSKU.Size = new Size(35, 17);
             lblSKU.TabIndex = 117;
-            lblSKU.Text = "SKU";
+            lblSKU.Text = "SKU:";
             // 
             // lblProductCode
             // 
             lblProductCode.AutoSize = true;
-            lblProductCode.Font = new Font("Microsoft Sans Serif", 11.25F);
-            lblProductCode.Location = new Point(527, 171);
+            lblProductCode.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
+            lblProductCode.Location = new Point(481, 131);
             lblProductCode.Name = "lblProductCode";
-            lblProductCode.Size = new Size(100, 18);
+            lblProductCode.Size = new Size(94, 17);
             lblProductCode.TabIndex = 116;
-            lblProductCode.Text = "Product Code";
+            lblProductCode.Text = "Product Code:";
             // 
             // lblProductDescription
             // 
             lblProductDescription.AutoSize = true;
-            lblProductDescription.Font = new Font("Microsoft Sans Serif", 11.25F);
-            lblProductDescription.Location = new Point(92, 443);
+            lblProductDescription.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
+            lblProductDescription.Location = new Point(44, 441);
             lblProductDescription.Name = "lblProductDescription";
-            lblProductDescription.Size = new Size(139, 18);
+            lblProductDescription.Size = new Size(131, 17);
             lblProductDescription.TabIndex = 115;
-            lblProductDescription.Text = "Product Description";
+            lblProductDescription.Text = "Product Description:";
             lblProductDescription.Click += lblProductDescription_Click;
             // 
             // lblProductBrand
             // 
             lblProductBrand.AutoSize = true;
-            lblProductBrand.Font = new Font("Microsoft Sans Serif", 11.25F);
-            lblProductBrand.Location = new Point(93, 379);
+            lblProductBrand.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
+            lblProductBrand.Location = new Point(46, 364);
             lblProductBrand.Name = "lblProductBrand";
-            lblProductBrand.Size = new Size(103, 18);
+            lblProductBrand.Size = new Size(99, 17);
             lblProductBrand.TabIndex = 114;
-            lblProductBrand.Text = "Product Brand";
+            lblProductBrand.Text = "Product Brand:";
             // 
             // lblProductName
             // 
             lblProductName.AutoSize = true;
-            lblProductName.Font = new Font("Microsoft Sans Serif", 11.25F);
-            lblProductName.Location = new Point(93, 276);
+            lblProductName.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
+            lblProductName.Location = new Point(47, 246);
             lblProductName.Name = "lblProductName";
-            lblProductName.Size = new Size(108, 18);
+            lblProductName.Size = new Size(103, 17);
             lblProductName.TabIndex = 113;
-            lblProductName.Text = "Product  Name";
+            lblProductName.Text = "Product  Name:";
             // 
             // lblCategory
             // 
             lblCategory.AutoSize = true;
-            lblCategory.Font = new Font("Microsoft Sans Serif", 11.25F);
-            lblCategory.Location = new Point(92, 224);
+            lblCategory.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
+            lblCategory.Location = new Point(46, 188);
             lblCategory.Name = "lblCategory";
-            lblCategory.Size = new Size(68, 18);
+            lblCategory.Size = new Size(67, 17);
             lblCategory.TabIndex = 112;
-            lblCategory.Text = "Category";
+            lblCategory.Text = "Category:";
             // 
             // lblSupplierID
             // 
             lblSupplierID.AutoSize = true;
-            lblSupplierID.Font = new Font("Microsoft Sans Serif", 11.25F);
-            lblSupplierID.Location = new Point(92, 172);
+            lblSupplierID.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
+            lblSupplierID.Location = new Point(46, 132);
             lblSupplierID.Name = "lblSupplierID";
-            lblSupplierID.Size = new Size(61, 18);
+            lblSupplierID.Size = new Size(61, 17);
             lblSupplierID.TabIndex = 111;
-            lblSupplierID.Text = "Supplier";
+            lblSupplierID.Text = "Supplier:";
             // 
             // pictureBox2
             // 
             pictureBox2.BackColor = Color.DimGray;
             pictureBox2.Location = new Point(0, -3);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(1387, 120);
+            pictureBox2.Size = new Size(1387, 104);
             pictureBox2.TabIndex = 143;
             pictureBox2.TabStop = false;
             // 
@@ -423,7 +423,7 @@
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(0, -3);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(256, 120);
+            pictureBox1.Size = new Size(256, 104);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 144;
             pictureBox1.TabStop = false;
@@ -434,7 +434,7 @@
             label1.BackColor = Color.DimGray;
             label1.Font = new Font("Impact", 48F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(507, 19);
+            label1.Location = new Point(522, 9);
             label1.Name = "label1";
             label1.Size = new Size(424, 80);
             label1.TabIndex = 145;
@@ -444,9 +444,9 @@
             // 
             btnClose.BackColor = Color.Red;
             btnClose.FlatStyle = FlatStyle.Popup;
-            btnClose.Font = new Font("Microsoft Sans Serif", 9F);
-            btnClose.ForeColor = Color.White;
-            btnClose.Location = new Point(1183, 697);
+            btnClose.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
+            btnClose.ForeColor = Color.Black;
+            btnClose.Location = new Point(642, 638);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(83, 28);
             btnClose.TabIndex = 146;
@@ -456,8 +456,8 @@
             // 
             // txtBarcode
             // 
-            txtBarcode.Font = new Font("Segoe UI", 9.75F);
-            txtBarcode.Location = new Point(92, 351);
+            txtBarcode.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtBarcode.Location = new Point(46, 322);
             txtBarcode.MaxLength = 15;
             txtBarcode.Name = "txtBarcode";
             txtBarcode.Size = new Size(378, 25);
@@ -466,39 +466,39 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Microsoft Sans Serif", 11.25F);
-            label2.Location = new Point(93, 330);
+            label2.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
+            label2.Location = new Point(47, 301);
             label2.Name = "label2";
-            label2.Size = new Size(64, 18);
+            label2.Size = new Size(60, 17);
             label2.TabIndex = 147;
-            label2.Text = "Barcode";
+            label2.Text = "Barcode:";
             // 
             // num_low_quantity
             // 
             num_low_quantity.DecimalPlaces = 2;
-            num_low_quantity.Font = new Font("Microsoft Sans Serif", 9.75F);
-            num_low_quantity.Location = new Point(527, 351);
+            num_low_quantity.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            num_low_quantity.Location = new Point(481, 322);
             num_low_quantity.Maximum = new decimal(new int[] { 999999, 0, 0, 0 });
             num_low_quantity.Name = "num_low_quantity";
-            num_low_quantity.Size = new Size(369, 22);
+            num_low_quantity.Size = new Size(369, 25);
             num_low_quantity.TabIndex = 150;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Microsoft Sans Serif", 11.25F);
-            label3.Location = new Point(527, 330);
+            label3.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
+            label3.Location = new Point(481, 301);
             label3.Name = "label3";
-            label3.Size = new Size(152, 18);
+            label3.Size = new Size(145, 17);
             label3.TabIndex = 149;
-            label3.Text = "Low In Stock Quantity";
+            label3.Text = "Low In Stock Quantity:";
             // 
             // EditProduct
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
-            ClientSize = new Size(1386, 788);
+            ClientSize = new Size(1299, 683);
             Controls.Add(num_low_quantity);
             Controls.Add(label3);
             Controls.Add(txtBarcode);

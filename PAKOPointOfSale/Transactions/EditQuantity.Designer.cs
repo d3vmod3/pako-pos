@@ -58,11 +58,11 @@
             lblProductName.AutoSize = true;
             lblProductName.BackColor = Color.CadetBlue;
             lblProductName.BorderStyle = BorderStyle.FixedSingle;
-            lblProductName.Font = new Font("Microsoft Sans Serif", 11.25F);
+            lblProductName.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             lblProductName.ForeColor = Color.Black;
             lblProductName.Location = new Point(178, 87);
             lblProductName.Name = "lblProductName";
-            lblProductName.Size = new Size(62, 20);
+            lblProductName.Size = new Size(58, 19);
             lblProductName.TabIndex = 0;
             lblProductName.Text = "Product";
             // 
@@ -70,10 +70,11 @@
             // 
             btnOk.BackColor = Color.CornflowerBlue;
             btnOk.FlatStyle = FlatStyle.Popup;
-            btnOk.ForeColor = Color.White;
-            btnOk.Location = new Point(152, 366);
+            btnOk.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
+            btnOk.ForeColor = Color.Black;
+            btnOk.Location = new Point(91, 362);
             btnOk.Name = "btnOk";
-            btnOk.Size = new Size(75, 23);
+            btnOk.Size = new Size(75, 27);
             btnOk.TabIndex = 1;
             btnOk.Text = "OK";
             btnOk.UseVisualStyleBackColor = false;
@@ -84,11 +85,11 @@
             lblProductBrand.AutoSize = true;
             lblProductBrand.BackColor = Color.CadetBlue;
             lblProductBrand.BorderStyle = BorderStyle.FixedSingle;
-            lblProductBrand.Font = new Font("Microsoft Sans Serif", 11.25F);
+            lblProductBrand.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             lblProductBrand.ForeColor = Color.Black;
             lblProductBrand.Location = new Point(178, 128);
             lblProductBrand.Name = "lblProductBrand";
-            lblProductBrand.Size = new Size(49, 20);
+            lblProductBrand.Size = new Size(46, 19);
             lblProductBrand.TabIndex = 2;
             lblProductBrand.Text = "Brand";
             // 
@@ -97,11 +98,11 @@
             lblUOM.AutoSize = true;
             lblUOM.BackColor = Color.CadetBlue;
             lblUOM.BorderStyle = BorderStyle.FixedSingle;
-            lblUOM.Font = new Font("Microsoft Sans Serif", 11.25F);
+            lblUOM.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             lblUOM.ForeColor = Color.Black;
             lblUOM.Location = new Point(178, 167);
             lblUOM.Name = "lblUOM";
-            lblUOM.Size = new Size(36, 20);
+            lblUOM.Size = new Size(35, 19);
             lblUOM.TabIndex = 3;
             lblUOM.Text = "Unit";
             // 
@@ -109,24 +110,24 @@
             // 
             label4.AutoSize = true;
             label4.BackColor = Color.CadetBlue;
-            label4.Font = new Font("Microsoft Sans Serif", 11.25F);
+            label4.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             label4.ForeColor = Color.Black;
             label4.Location = new Point(35, 243);
             label4.Name = "label4";
-            label4.Size = new Size(66, 18);
+            label4.Size = new Size(64, 17);
             label4.TabIndex = 4;
             label4.Text = "Quantity:";
             // 
             // num_AppliedQty
             // 
             num_AppliedQty.BackColor = Color.White;
-            num_AppliedQty.Font = new Font("Microsoft Sans Serif", 11.25F);
+            num_AppliedQty.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             num_AppliedQty.ForeColor = Color.Black;
             num_AppliedQty.Location = new Point(178, 241);
             num_AppliedQty.Maximum = new decimal(new int[] { 999999, 0, 0, 0 });
             num_AppliedQty.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             num_AppliedQty.Name = "num_AppliedQty";
-            num_AppliedQty.Size = new Size(143, 24);
+            num_AppliedQty.Size = new Size(143, 25);
             num_AppliedQty.TabIndex = 5;
             num_AppliedQty.Value = new decimal(new int[] { 1, 0, 0, 0 });
             num_AppliedQty.ValueChanged += num_AppliedQty_ValueChanged;
@@ -135,11 +136,11 @@
             // 
             lblCurrentQty.AutoSize = true;
             lblCurrentQty.BackColor = Color.CadetBlue;
-            lblCurrentQty.Font = new Font("Microsoft Sans Serif", 11.25F);
+            lblCurrentQty.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             lblCurrentQty.ForeColor = Color.Black;
             lblCurrentQty.Location = new Point(33, 205);
             lblCurrentQty.Name = "lblCurrentQty";
-            lblCurrentQty.Size = new Size(119, 18);
+            lblCurrentQty.Size = new Size(114, 17);
             lblCurrentQty.TabIndex = 6;
             lblCurrentQty.Text = "Current Quantity:";
             // 
@@ -148,11 +149,11 @@
             lblCurrentQtyValue.AutoSize = true;
             lblCurrentQtyValue.BackColor = Color.CadetBlue;
             lblCurrentQtyValue.BorderStyle = BorderStyle.FixedSingle;
-            lblCurrentQtyValue.Font = new Font("Microsoft Sans Serif", 11.25F);
+            lblCurrentQtyValue.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             lblCurrentQtyValue.ForeColor = Color.Black;
             lblCurrentQtyValue.Location = new Point(178, 203);
             lblCurrentQtyValue.Name = "lblCurrentQtyValue";
-            lblCurrentQtyValue.Size = new Size(18, 20);
+            lblCurrentQtyValue.Size = new Size(17, 19);
             lblCurrentQtyValue.TabIndex = 7;
             lblCurrentQtyValue.Text = "0";
             // 
@@ -160,11 +161,11 @@
             // 
             label1.AutoSize = true;
             label1.BackColor = Color.CadetBlue;
-            label1.Font = new Font("Microsoft Sans Serif", 11.25F);
+            label1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             label1.ForeColor = Color.Black;
             label1.Location = new Point(33, 87);
             label1.Name = "label1";
-            label1.Size = new Size(64, 18);
+            label1.Size = new Size(59, 17);
             label1.TabIndex = 8;
             label1.Text = "Product:";
             // 
@@ -172,11 +173,11 @@
             // 
             label2.AutoSize = true;
             label2.BackColor = Color.CadetBlue;
-            label2.Font = new Font("Microsoft Sans Serif", 11.25F);
+            label2.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             label2.ForeColor = Color.Black;
             label2.Location = new Point(35, 130);
             label2.Name = "label2";
-            label2.Size = new Size(51, 18);
+            label2.Size = new Size(47, 17);
             label2.TabIndex = 9;
             label2.Text = "Brand:";
             // 
@@ -184,11 +185,11 @@
             // 
             label3.AutoSize = true;
             label3.BackColor = Color.CadetBlue;
-            label3.Font = new Font("Microsoft Sans Serif", 11.25F);
+            label3.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             label3.ForeColor = Color.Black;
             label3.Location = new Point(35, 169);
             label3.Name = "label3";
-            label3.Size = new Size(38, 18);
+            label3.Size = new Size(36, 17);
             label3.TabIndex = 10;
             label3.Text = "Unit:";
             // 
@@ -197,11 +198,11 @@
             lblCategory.AutoSize = true;
             lblCategory.BackColor = Color.CadetBlue;
             lblCategory.BorderStyle = BorderStyle.FixedSingle;
-            lblCategory.Font = new Font("Microsoft Sans Serif", 11.25F);
+            lblCategory.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             lblCategory.ForeColor = Color.Black;
             lblCategory.Location = new Point(178, 283);
             lblCategory.Name = "lblCategory";
-            lblCategory.Size = new Size(70, 20);
+            lblCategory.Size = new Size(66, 19);
             lblCategory.TabIndex = 14;
             lblCategory.Text = "Category";
             // 
@@ -209,11 +210,11 @@
             // 
             label7.AutoSize = true;
             label7.BackColor = Color.CadetBlue;
-            label7.Font = new Font("Microsoft Sans Serif", 11.25F);
+            label7.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             label7.ForeColor = Color.Black;
             label7.Location = new Point(35, 285);
             label7.Name = "label7";
-            label7.Size = new Size(72, 18);
+            label7.Size = new Size(67, 17);
             label7.TabIndex = 13;
             label7.Text = "Category:";
             // 
@@ -253,10 +254,11 @@
             // 
             btnClose.BackColor = Color.Red;
             btnClose.FlatStyle = FlatStyle.Popup;
-            btnClose.ForeColor = Color.White;
-            btnClose.Location = new Point(237, 366);
+            btnClose.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
+            btnClose.ForeColor = Color.Black;
+            btnClose.Location = new Point(192, 362);
             btnClose.Name = "btnClose";
-            btnClose.Size = new Size(84, 24);
+            btnClose.Size = new Size(84, 28);
             btnClose.TabIndex = 115;
             btnClose.Text = "Cancel";
             btnClose.UseVisualStyleBackColor = false;
@@ -266,11 +268,11 @@
             // 
             label5.AutoSize = true;
             label5.BackColor = Color.CadetBlue;
-            label5.Font = new Font("Microsoft Sans Serif", 11.25F);
+            label5.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             label5.ForeColor = Color.Black;
             label5.Location = new Point(33, 322);
             label5.Name = "label5";
-            label5.Size = new Size(76, 18);
+            label5.Size = new Size(69, 17);
             label5.TabIndex = 11;
             label5.Text = "Unit Price:";
             // 
@@ -279,11 +281,11 @@
             lblUnitPrice.AutoSize = true;
             lblUnitPrice.BackColor = Color.CadetBlue;
             lblUnitPrice.BorderStyle = BorderStyle.FixedSingle;
-            lblUnitPrice.Font = new Font("Microsoft Sans Serif", 11.25F);
+            lblUnitPrice.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             lblUnitPrice.ForeColor = Color.Black;
             lblUnitPrice.Location = new Point(178, 322);
             lblUnitPrice.Name = "lblUnitPrice";
-            lblUnitPrice.Size = new Size(18, 20);
+            lblUnitPrice.Size = new Size(17, 19);
             lblUnitPrice.TabIndex = 12;
             lblUnitPrice.Text = "0";
             // 

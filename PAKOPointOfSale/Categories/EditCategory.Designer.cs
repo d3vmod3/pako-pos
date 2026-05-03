@@ -46,8 +46,9 @@
             // 
             btnSubmit.BackColor = Color.SeaGreen;
             btnSubmit.FlatStyle = FlatStyle.Popup;
-            btnSubmit.ForeColor = Color.White;
-            btnSubmit.Location = new Point(315, 243);
+            btnSubmit.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSubmit.ForeColor = Color.Black;
+            btnSubmit.Location = new Point(191, 232);
             btnSubmit.Name = "btnSubmit";
             btnSubmit.Size = new Size(75, 28);
             btnSubmit.TabIndex = 13;
@@ -58,28 +59,29 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Sans Serif Collection", 9.749998F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.Black;
-            label3.Location = new Point(36, 128);
+            label3.Location = new Point(46, 136);
             label3.Name = "label3";
-            label3.Size = new Size(87, 44);
+            label3.Size = new Size(79, 17);
             label3.TabIndex = 12;
-            label3.Text = "Description";
+            label3.Text = "Description:";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 9.75F);
+            label2.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.Black;
-            label2.Location = new Point(27, 79);
+            label2.Location = new Point(22, 89);
             label2.Name = "label2";
-            label2.Size = new Size(100, 17);
+            label2.Size = new Size(107, 17);
             label2.TabIndex = 11;
-            label2.Text = "Category Name";
+            label2.Text = "Category Name:";
             // 
             // txtDescription
             // 
-            txtDescription.Location = new Point(129, 128);
+            txtDescription.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtDescription.Location = new Point(129, 136);
             txtDescription.Multiline = true;
             txtDescription.Name = "txtDescription";
             txtDescription.Size = new Size(342, 84);
@@ -88,7 +90,8 @@
             // 
             // txtCategoryName
             // 
-            txtCategoryName.Location = new Point(129, 79);
+            txtCategoryName.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtCategoryName.Location = new Point(129, 88);
             txtCategoryName.MaxLength = 50;
             txtCategoryName.Name = "txtCategoryName";
             txtCategoryName.Size = new Size(342, 23);
@@ -98,8 +101,9 @@
             // 
             btnClose.BackColor = Color.Red;
             btnClose.FlatStyle = FlatStyle.Popup;
-            btnClose.ForeColor = Color.White;
-            btnClose.Location = new Point(396, 243);
+            btnClose.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnClose.ForeColor = Color.Black;
+            btnClose.Location = new Point(272, 232);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(75, 28);
             btnClose.TabIndex = 28;
@@ -110,7 +114,7 @@
             // pictureBox1
             // 
             pictureBox1.BackColor = SystemColors.ControlDarkDark;
-            pictureBox1.Location = new Point(1, 1);
+            pictureBox1.Location = new Point(5, -3);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(499, 65);
             pictureBox1.TabIndex = 29;
@@ -122,7 +126,7 @@
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
             pictureBox2.Location = new Point(1, 1);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(126, 65);
+            pictureBox2.Size = new Size(126, 61);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 30;
             pictureBox2.TabStop = false;
@@ -131,11 +135,11 @@
             // 
             lbleditcategory.AutoSize = true;
             lbleditcategory.BackColor = SystemColors.ControlDarkDark;
-            lbleditcategory.Font = new Font("Impact", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbleditcategory.Font = new Font("Impact", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbleditcategory.ForeColor = Color.White;
-            lbleditcategory.Location = new Point(172, 16);
+            lbleditcategory.Location = new Point(172, 11);
             lbleditcategory.Name = "lbleditcategory";
-            lbleditcategory.Size = new Size(205, 39);
+            lbleditcategory.Size = new Size(224, 43);
             lbleditcategory.TabIndex = 31;
             lbleditcategory.Text = "EDIT CATEGORY";
             // 

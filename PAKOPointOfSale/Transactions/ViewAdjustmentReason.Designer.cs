@@ -34,6 +34,7 @@
             // 
             // txtReason
             // 
+            txtReason.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtReason.Location = new Point(12, 12);
             txtReason.Multiline = true;
             txtReason.Name = "txtReason";
@@ -46,8 +47,9 @@
             // 
             btnBack.BackColor = Color.SeaGreen;
             btnBack.FlatStyle = FlatStyle.Popup;
-            btnBack.ForeColor = Color.White;
-            btnBack.Location = new Point(450, 195);
+            btnBack.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBack.ForeColor = Color.Black;
+            btnBack.Location = new Point(227, 195);
             btnBack.Name = "btnBack";
             btnBack.Size = new Size(75, 23);
             btnBack.TabIndex = 1;

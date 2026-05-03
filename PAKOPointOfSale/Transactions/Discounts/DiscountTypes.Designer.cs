@@ -45,11 +45,12 @@
             // 
             cmbDiscountTypes.BackColor = SystemColors.ActiveBorder;
             cmbDiscountTypes.FlatStyle = FlatStyle.Popup;
+            cmbDiscountTypes.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             cmbDiscountTypes.FormattingEnabled = true;
             cmbDiscountTypes.Items.AddRange(new object[] { "None", "Senior Citizen 5%", "Senior Citizen 20%", "Person With Disability 5%", "Person With Disability 20%", "National Athletes and Coaches 20%", "Regular Discount" });
             cmbDiscountTypes.Location = new Point(12, 44);
             cmbDiscountTypes.Name = "cmbDiscountTypes";
-            cmbDiscountTypes.Size = new Size(317, 23);
+            cmbDiscountTypes.Size = new Size(317, 25);
             cmbDiscountTypes.TabIndex = 0;
             cmbDiscountTypes.SelectedIndexChanged += cmbDiscountTypes_SelectedIndexChanged;
             // 
@@ -57,10 +58,11 @@
             // 
             btnOk.BackColor = Color.CornflowerBlue;
             btnOk.FlatStyle = FlatStyle.Popup;
+            btnOk.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             btnOk.ForeColor = Color.White;
             btnOk.Location = new Point(75, 41);
             btnOk.Name = "btnOk";
-            btnOk.Size = new Size(74, 23);
+            btnOk.Size = new Size(74, 24);
             btnOk.TabIndex = 1;
             btnOk.Text = "OK";
             btnOk.UseVisualStyleBackColor = false;
@@ -70,10 +72,11 @@
             // 
             lblNote.AutoSize = true;
             lblNote.BackColor = Color.CadetBlue;
+            lblNote.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblNote.ForeColor = Color.Black;
-            lblNote.Location = new Point(29, 12);
+            lblNote.Location = new Point(10, 10);
             lblNote.Name = "lblNote";
-            lblNote.Size = new Size(260, 15);
+            lblNote.Size = new Size(297, 17);
             lblNote.TabIndex = 2;
             lblNote.Text = "Note: You can ONLY choose ONE Discount Type";
             // 
@@ -90,10 +93,11 @@
             // 
             btnCancel.BackColor = Color.Red;
             btnCancel.FlatStyle = FlatStyle.Popup;
+            btnCancel.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             btnCancel.ForeColor = Color.White;
             btnCancel.Location = new Point(155, 41);
             btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(74, 23);
+            btnCancel.Size = new Size(74, 24);
             btnCancel.TabIndex = 14;
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = false;

@@ -36,6 +36,7 @@
             // 
             // txtRemarks
             // 
+            txtRemarks.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtRemarks.Location = new Point(12, 55);
             txtRemarks.Multiline = true;
             txtRemarks.Name = "txtRemarks";
@@ -45,9 +46,10 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(8, 12);
+            label1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(4, 12);
             label1.Name = "label1";
-            label1.Size = new Size(408, 30);
+            label1.Size = new Size(472, 34);
             label1.TabIndex = 1;
             label1.Text = "Kindly provide remarks. This helps prevent mix-ups when retrieving pending\r\ntransactions with your customer.";
             label1.Click += label1_Click;
@@ -56,10 +58,11 @@
             // 
             btnProceed.BackColor = Color.OrangeRed;
             btnProceed.FlatStyle = FlatStyle.Popup;
-            btnProceed.ForeColor = Color.White;
-            btnProceed.Location = new Point(252, 162);
+            btnProceed.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
+            btnProceed.ForeColor = Color.Black;
+            btnProceed.Location = new Point(129, 162);
             btnProceed.Name = "btnProceed";
-            btnProceed.Size = new Size(75, 23);
+            btnProceed.Size = new Size(75, 31);
             btnProceed.TabIndex = 2;
             btnProceed.Text = "Pending";
             btnProceed.UseVisualStyleBackColor = false;
@@ -69,10 +72,11 @@
             // 
             btnCancel.BackColor = Color.Red;
             btnCancel.FlatStyle = FlatStyle.Popup;
-            btnCancel.ForeColor = Color.White;
-            btnCancel.Location = new Point(335, 162);
+            btnCancel.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
+            btnCancel.ForeColor = Color.Black;
+            btnCancel.Location = new Point(221, 162);
             btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(75, 23);
+            btnCancel.Size = new Size(75, 31);
             btnCancel.TabIndex = 3;
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = false;
@@ -83,7 +87,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
-            ClientSize = new Size(422, 197);
+            ClientSize = new Size(422, 202);
             Controls.Add(btnCancel);
             Controls.Add(btnProceed);
             Controls.Add(label1);

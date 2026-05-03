@@ -48,7 +48,7 @@
             btnLogin.BackColor = Color.SeaGreen;
             btnLogin.BackgroundImageLayout = ImageLayout.Stretch;
             btnLogin.FlatStyle = FlatStyle.Popup;
-            btnLogin.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLogin.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnLogin.ForeColor = Color.White;
             btnLogin.Location = new Point(117, 405);
             btnLogin.Name = "btnLogin";
@@ -60,7 +60,7 @@
             // 
             // txtPassword
             // 
-            txtPassword.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtPassword.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold);
             txtPassword.Location = new Point(64, 325);
             txtPassword.Multiline = true;
             txtPassword.Name = "txtPassword";
@@ -72,7 +72,7 @@
             // 
             // txtUsername
             // 
-            txtUsername.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtUsername.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold);
             txtUsername.Location = new Point(64, 266);
             txtUsername.Multiline = true;
             txtUsername.Name = "txtUsername";
@@ -129,11 +129,11 @@
             // checkBox1
             // 
             checkBox1.AutoSize = true;
-            checkBox1.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            checkBox1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             checkBox1.ForeColor = Color.White;
             checkBox1.Location = new Point(196, 366);
             checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(118, 21);
+            checkBox1.Size = new Size(122, 21);
             checkBox1.TabIndex = 8;
             checkBox1.Text = "Show Password";
             checkBox1.UseVisualStyleBackColor = true;

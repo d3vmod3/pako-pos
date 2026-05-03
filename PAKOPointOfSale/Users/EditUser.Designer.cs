@@ -64,11 +64,11 @@
             // 
             btnSubmit.BackColor = Color.SeaGreen;
             btnSubmit.FlatStyle = FlatStyle.Popup;
-            btnSubmit.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnSubmit.ForeColor = Color.White;
-            btnSubmit.Location = new Point(577, 354);
+            btnSubmit.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
+            btnSubmit.ForeColor = Color.Black;
+            btnSubmit.Location = new Point(401, 354);
             btnSubmit.Name = "btnSubmit";
-            btnSubmit.Size = new Size(78, 23);
+            btnSubmit.Size = new Size(86, 30);
             btnSubmit.TabIndex = 33;
             btnSubmit.Text = "Submit";
             btnSubmit.UseVisualStyleBackColor = false;
@@ -77,11 +77,11 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Font = new Font("Microsoft Sans Serif", 11.25F);
+            label8.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             label8.ForeColor = Color.Black;
-            label8.Location = new Point(412, 248);
+            label8.Location = new Point(440, 249);
             label8.Name = "label8";
-            label8.Size = new Size(79, 18);
+            label8.Size = new Size(68, 17);
             label8.TabIndex = 32;
             label8.Text = "User Role:";
             // 
@@ -91,12 +91,12 @@
             cmbRole.DataSource = userTypeBindingSource;
             cmbRole.DisplayMember = "name";
             cmbRole.FlatStyle = FlatStyle.Popup;
-            cmbRole.Font = new Font("Microsoft Sans Serif", 11.25F);
+            cmbRole.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             cmbRole.ForeColor = Color.White;
             cmbRole.FormattingEnabled = true;
-            cmbRole.Location = new Point(514, 240);
+            cmbRole.Location = new Point(514, 243);
             cmbRole.Name = "cmbRole";
-            cmbRole.Size = new Size(225, 26);
+            cmbRole.Size = new Size(225, 25);
             cmbRole.TabIndex = 31;
             cmbRole.ValueMember = "id";
             // 
@@ -107,77 +107,77 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Font = new Font("Microsoft Sans Serif", 11.25F);
+            label7.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             label7.ForeColor = Color.Black;
-            label7.Location = new Point(412, 208);
+            label7.Location = new Point(455, 209);
             label7.Name = "label7";
-            label7.Size = new Size(61, 18);
+            label7.Size = new Size(56, 17);
             label7.TabIndex = 30;
             label7.Text = "Gender:";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Font = new Font("Microsoft Sans Serif", 11.25F);
+            label6.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             label6.ForeColor = Color.Black;
-            label6.Location = new Point(412, 165);
+            label6.Location = new Point(444, 160);
             label6.Name = "label6";
-            label6.Size = new Size(70, 18);
+            label6.Size = new Size(67, 17);
             label6.TabIndex = 29;
             label6.Text = "Birthdate:";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Microsoft Sans Serif", 11.25F);
+            label5.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             label5.ForeColor = Color.Black;
-            label5.Location = new Point(412, 115);
+            label5.Location = new Point(464, 117);
             label5.Name = "label5";
-            label5.Size = new Size(48, 18);
+            label5.Size = new Size(44, 17);
             label5.TabIndex = 28;
             label5.Text = "Suffix:";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Microsoft Sans Serif", 11.25F);
+            label4.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             label4.ForeColor = Color.Black;
-            label4.Location = new Point(39, 293);
+            label4.Location = new Point(75, 294);
             label4.Name = "label4";
-            label4.Size = new Size(84, 18);
+            label4.Size = new Size(75, 17);
             label4.TabIndex = 27;
             label4.Text = "Last Name:";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Microsoft Sans Serif", 11.25F);
+            label3.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             label3.ForeColor = Color.Black;
-            label3.Location = new Point(39, 233);
+            label3.Location = new Point(58, 235);
             label3.Name = "label3";
-            label3.Size = new Size(99, 18);
+            label3.Size = new Size(92, 17);
             label3.TabIndex = 26;
             label3.Text = "Middle Name:";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Microsoft Sans Serif", 11.25F);
+            label2.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             label2.ForeColor = Color.Black;
-            label2.Location = new Point(39, 170);
+            label2.Location = new Point(73, 172);
             label2.Name = "label2";
-            label2.Size = new Size(85, 18);
+            label2.Size = new Size(77, 17);
             label2.TabIndex = 25;
             label2.Text = "First Name:";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 11.25F);
+            label1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(39, 109);
+            label1.Location = new Point(81, 115);
             label1.Name = "label1";
-            label1.Size = new Size(81, 18);
+            label1.Size = new Size(72, 17);
             label1.TabIndex = 24;
             label1.Text = "Username:";
             // 
@@ -185,75 +185,76 @@
             // 
             cmbGender.BackColor = Color.DimGray;
             cmbGender.FlatStyle = FlatStyle.Popup;
-            cmbGender.Font = new Font("Microsoft Sans Serif", 11.25F);
+            cmbGender.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             cmbGender.ForeColor = Color.White;
             cmbGender.FormattingEnabled = true;
             cmbGender.Items.AddRange(new object[] { "Male", "Female" });
-            cmbGender.Location = new Point(514, 200);
+            cmbGender.Location = new Point(514, 201);
             cmbGender.Name = "cmbGender";
-            cmbGender.Size = new Size(225, 26);
+            cmbGender.Size = new Size(225, 25);
             cmbGender.TabIndex = 23;
             // 
             // dtpBirthdate
             // 
             dtpBirthdate.CalendarFont = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dtpBirthdate.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dtpBirthdate.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dtpBirthdate.Location = new Point(514, 157);
             dtpBirthdate.Name = "dtpBirthdate";
-            dtpBirthdate.Size = new Size(225, 22);
+            dtpBirthdate.Size = new Size(225, 25);
             dtpBirthdate.TabIndex = 22;
             // 
             // txtSuffix
             // 
-            txtSuffix.Font = new Font("Microsoft Sans Serif", 11.25F);
+            txtSuffix.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtSuffix.Location = new Point(514, 110);
             txtSuffix.MaxLength = 3;
             txtSuffix.Name = "txtSuffix";
-            txtSuffix.Size = new Size(225, 24);
+            txtSuffix.Size = new Size(225, 25);
             txtSuffix.TabIndex = 21;
             // 
             // txtLastName
             // 
-            txtLastName.Font = new Font("Microsoft Sans Serif", 11.25F);
+            txtLastName.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             txtLastName.Location = new Point(153, 290);
             txtLastName.MaxLength = 20;
             txtLastName.Name = "txtLastName";
-            txtLastName.Size = new Size(226, 24);
+            txtLastName.Size = new Size(226, 25);
             txtLastName.TabIndex = 20;
             // 
             // txtMiddleName
             // 
-            txtMiddleName.Font = new Font("Microsoft Sans Serif", 11.25F);
+            txtMiddleName.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             txtMiddleName.Location = new Point(156, 228);
             txtMiddleName.MaxLength = 20;
             txtMiddleName.Name = "txtMiddleName";
-            txtMiddleName.Size = new Size(223, 24);
+            txtMiddleName.Size = new Size(223, 25);
             txtMiddleName.TabIndex = 19;
             // 
             // txtFirstName
             // 
-            txtFirstName.Font = new Font("Microsoft Sans Serif", 11.25F);
+            txtFirstName.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             txtFirstName.Location = new Point(156, 165);
             txtFirstName.MaxLength = 20;
             txtFirstName.Name = "txtFirstName";
-            txtFirstName.Size = new Size(223, 24);
+            txtFirstName.Size = new Size(223, 25);
             txtFirstName.TabIndex = 18;
             // 
             // txtUsername
             // 
-            txtUsername.Font = new Font("Microsoft Sans Serif", 11.25F);
+            txtUsername.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             txtUsername.Location = new Point(156, 109);
             txtUsername.MaxLength = 32;
             txtUsername.Name = "txtUsername";
-            txtUsername.Size = new Size(223, 24);
+            txtUsername.Size = new Size(223, 25);
             txtUsername.TabIndex = 17;
             // 
             // chkIsActive
             // 
             chkIsActive.AutoSize = true;
-            chkIsActive.Location = new Point(680, 319);
+            chkIsActive.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            chkIsActive.Location = new Point(680, 320);
             chkIsActive.Name = "chkIsActive";
-            chkIsActive.Size = new Size(59, 19);
+            chkIsActive.Size = new Size(64, 21);
             chkIsActive.TabIndex = 34;
             chkIsActive.Text = "Active";
             chkIsActive.UseVisualStyleBackColor = true;
@@ -261,11 +262,11 @@
             // lblCreatedAt
             // 
             lblCreatedAt.AutoSize = true;
-            lblCreatedAt.Font = new Font("Microsoft Sans Serif", 11.25F);
+            lblCreatedAt.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             lblCreatedAt.ForeColor = Color.Black;
-            lblCreatedAt.Location = new Point(411, 287);
+            lblCreatedAt.Location = new Point(421, 294);
             lblCreatedAt.Name = "lblCreatedAt";
-            lblCreatedAt.Size = new Size(99, 18);
+            lblCreatedAt.Size = new Size(90, 17);
             lblCreatedAt.TabIndex = 35;
             lblCreatedAt.Text = "Date Created:";
             // 
@@ -305,11 +306,11 @@
             // 
             btnClose.BackColor = Color.Red;
             btnClose.FlatStyle = FlatStyle.Popup;
-            btnClose.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnClose.ForeColor = Color.White;
-            btnClose.Location = new Point(661, 354);
+            btnClose.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
+            btnClose.ForeColor = Color.Black;
+            btnClose.Location = new Point(505, 354);
             btnClose.Name = "btnClose";
-            btnClose.Size = new Size(78, 23);
+            btnClose.Size = new Size(87, 30);
             btnClose.TabIndex = 40;
             btnClose.Text = "Close";
             btnClose.UseVisualStyleBackColor = false;
@@ -319,10 +320,11 @@
             // 
             btnReset.BackColor = Color.OrangeRed;
             btnReset.FlatStyle = FlatStyle.Popup;
-            btnReset.ForeColor = Color.White;
-            btnReset.Location = new Point(471, 354);
+            btnReset.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
+            btnReset.ForeColor = Color.Black;
+            btnReset.Location = new Point(260, 354);
             btnReset.Name = "btnReset";
-            btnReset.Size = new Size(100, 23);
+            btnReset.Size = new Size(119, 30);
             btnReset.TabIndex = 41;
             btnReset.Text = "Reset Password";
             btnReset.UseVisualStyleBackColor = false;
@@ -333,7 +335,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
-            ClientSize = new Size(815, 398);
+            ClientSize = new Size(815, 405);
             Controls.Add(btnReset);
             Controls.Add(btnClose);
             Controls.Add(lbledituser);

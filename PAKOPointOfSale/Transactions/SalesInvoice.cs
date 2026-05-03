@@ -519,7 +519,9 @@ namespace PAKOPointOfSale.Transactions
 
         private void textBox1_TextChanged_1(object sender, EventArgs e)
         {
-            if (txtCash.Text.Trim() != "")
+            int rowCount = dtgvCart.Rows.Count;
+
+            if (txtCash.Text.Trim() != "" && rowCount != 0)
             {
                 decimal cash = 0;
                 decimal total = 0;
@@ -532,6 +534,7 @@ namespace PAKOPointOfSale.Transactions
             }
             else
             {
+                txtCash.Clear();
                 lblChange.Text = "0.00";
             }
         }

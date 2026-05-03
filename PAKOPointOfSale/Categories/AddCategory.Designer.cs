@@ -44,6 +44,7 @@
             // 
             // txtCategoryName
             // 
+            txtCategoryName.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtCategoryName.Location = new Point(134, 88);
             txtCategoryName.Margin = new Padding(4, 3, 4, 3);
             txtCategoryName.MaxLength = 50;
@@ -53,6 +54,7 @@
             // 
             // txtDescription
             // 
+            txtDescription.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtDescription.Location = new Point(134, 142);
             txtDescription.Margin = new Padding(4, 3, 4, 3);
             txtDescription.Multiline = true;
@@ -63,34 +65,35 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Microsoft Sans Serif", 9.75F);
+            label2.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             label2.ForeColor = Color.Black;
-            label2.Location = new Point(28, 92);
+            label2.Location = new Point(19, 90);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(102, 16);
+            label2.Size = new Size(107, 17);
             label2.TabIndex = 4;
-            label2.Text = "Category Name";
+            label2.Text = "Category Name:";
             label2.Click += label2_Click;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Microsoft Sans Serif", 9.75F);
+            label3.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             label3.ForeColor = Color.Black;
-            label3.Location = new Point(28, 140);
+            label3.Location = new Point(47, 142);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(75, 16);
+            label3.Size = new Size(79, 17);
             label3.TabIndex = 5;
-            label3.Text = "Description";
+            label3.Text = "Description:";
             // 
             // btnSubmit
             // 
             btnSubmit.BackColor = Color.SeaGreen;
             btnSubmit.FlatStyle = FlatStyle.Popup;
-            btnSubmit.ForeColor = Color.White;
-            btnSubmit.Location = new Point(308, 248);
+            btnSubmit.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
+            btnSubmit.ForeColor = Color.Black;
+            btnSubmit.Location = new Point(178, 250);
             btnSubmit.Margin = new Padding(4, 3, 4, 3);
             btnSubmit.Name = "btnSubmit";
             btnSubmit.Size = new Size(76, 25);
@@ -103,8 +106,9 @@
             // 
             btnClose.BackColor = Color.Red;
             btnClose.FlatStyle = FlatStyle.Popup;
-            btnClose.ForeColor = Color.White;
-            btnClose.Location = new Point(390, 249);
+            btnClose.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
+            btnClose.ForeColor = Color.Black;
+            btnClose.Location = new Point(269, 250);
             btnClose.Margin = new Padding(4, 3, 4, 3);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(76, 25);

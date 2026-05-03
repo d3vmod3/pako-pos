@@ -31,6 +31,7 @@
             components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
@@ -81,10 +82,11 @@
             // 
             btnExport.BackColor = Color.Gold;
             btnExport.FlatStyle = FlatStyle.Popup;
+            btnExport.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnExport.ForeColor = Color.Black;
-            btnExport.Location = new Point(1191, 119);
+            btnExport.Location = new Point(1191, 111);
             btnExport.Name = "btnExport";
-            btnExport.Size = new Size(79, 24);
+            btnExport.Size = new Size(79, 29);
             btnExport.TabIndex = 9;
             btnExport.Text = "Export";
             btnExport.UseVisualStyleBackColor = false;
@@ -94,10 +96,11 @@
             // 
             btnAdd.BackColor = Color.Green;
             btnAdd.FlatStyle = FlatStyle.Popup;
-            btnAdd.ForeColor = Color.White;
-            btnAdd.Location = new Point(1106, 120);
+            btnAdd.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAdd.ForeColor = Color.Black;
+            btnAdd.Location = new Point(1106, 112);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(79, 24);
+            btnAdd.Size = new Size(79, 28);
             btnAdd.TabIndex = 8;
             btnAdd.Text = "Add";
             btnAdd.UseVisualStyleBackColor = false;
@@ -105,9 +108,9 @@
             // 
             // txtSearch
             // 
-            txtSearch.Location = new Point(12, 121);
+            txtSearch.Location = new Point(77, 114);
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(265, 23);
+            txtSearch.Size = new Size(217, 23);
             txtSearch.TabIndex = 7;
             txtSearch.TextChanged += txtSearch_TextChanged;
             // 
@@ -128,7 +131,7 @@
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
@@ -137,12 +140,20 @@
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { id, nameDataGridViewTextBoxColumn, addressDataGridViewTextBoxColumn, contactnumberDataGridViewTextBoxColumn, accountnumberDataGridViewTextBoxColumn, gatewayDataGridViewTextBoxColumn, is_active, created_at, edit });
             dataGridView1.DataSource = supplierDetailsBindingSource;
+            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = SystemColors.Window;
+            dataGridViewCellStyle11.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle11.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle11;
             dataGridView1.Location = new Point(12, 152);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
-            dataGridViewCellStyle11.ForeColor = Color.Black;
-            dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle12.ForeColor = Color.Black;
+            dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle12;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(1343, 511);
             dataGridView1.TabIndex = 5;
@@ -289,10 +300,10 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(15, 102);
+            label2.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(12, 117);
             label2.Name = "label2";
-            label2.Size = new Size(45, 15);
+            label2.Size = new Size(59, 20);
             label2.TabIndex = 148;
             label2.Text = "Search:";
             label2.Click += label2_Click;
@@ -301,10 +312,11 @@
             // 
             btnClose.BackColor = Color.Red;
             btnClose.FlatStyle = FlatStyle.Popup;
-            btnClose.ForeColor = Color.White;
-            btnClose.Location = new Point(1276, 119);
+            btnClose.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnClose.ForeColor = Color.Black;
+            btnClose.Location = new Point(1276, 111);
             btnClose.Name = "btnClose";
-            btnClose.Size = new Size(79, 24);
+            btnClose.Size = new Size(79, 29);
             btnClose.TabIndex = 149;
             btnClose.Text = "Close";
             btnClose.UseVisualStyleBackColor = false;
@@ -326,7 +338,7 @@
             // 
             // dtpFrom
             // 
-            dtpFrom.Location = new Point(317, 121);
+            dtpFrom.Location = new Point(327, 114);
             dtpFrom.Name = "dtpFrom";
             dtpFrom.Size = new Size(185, 23);
             dtpFrom.TabIndex = 151;
@@ -334,24 +346,26 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(317, 103);
+            label3.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(330, 98);
             label3.Name = "label3";
-            label3.Size = new Size(65, 15);
+            label3.Size = new Size(66, 15);
             label3.TabIndex = 152;
             label3.Text = "Date From:";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(532, 103);
+            label4.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Location = new Point(520, 98);
             label4.Name = "label4";
-            label4.Size = new Size(50, 15);
+            label4.Size = new Size(51, 15);
             label4.TabIndex = 154;
             label4.Text = "Date To:";
             // 
             // dtpTo
             // 
-            dtpTo.Location = new Point(532, 121);
+            dtpTo.Location = new Point(519, 115);
             dtpTo.Name = "dtpTo";
             dtpTo.Size = new Size(187, 23);
             dtpTo.TabIndex = 153;
@@ -360,9 +374,10 @@
             // 
             btnFilter.BackColor = Color.Khaki;
             btnFilter.FlatStyle = FlatStyle.Popup;
-            btnFilter.Location = new Point(907, 121);
+            btnFilter.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
+            btnFilter.Location = new Point(899, 112);
             btnFilter.Name = "btnFilter";
-            btnFilter.Size = new Size(75, 23);
+            btnFilter.Size = new Size(75, 28);
             btnFilter.TabIndex = 159;
             btnFilter.Text = "Filter";
             btnFilter.UseVisualStyleBackColor = false;
@@ -372,9 +387,10 @@
             // 
             btnClearFilter.BackColor = Color.FromArgb(255, 128, 128);
             btnClearFilter.FlatStyle = FlatStyle.Popup;
-            btnClearFilter.Location = new Point(988, 120);
+            btnClearFilter.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
+            btnClearFilter.Location = new Point(980, 112);
             btnClearFilter.Name = "btnClearFilter";
-            btnClearFilter.Size = new Size(75, 23);
+            btnClearFilter.Size = new Size(86, 28);
             btnClearFilter.TabIndex = 158;
             btnClearFilter.Text = "Clear Filter";
             btnClearFilter.UseVisualStyleBackColor = false;
@@ -384,7 +400,7 @@
             // 
             cmbStatus.FormattingEnabled = true;
             cmbStatus.Items.AddRange(new object[] { "All", "Active", "Inactive" });
-            cmbStatus.Location = new Point(750, 121);
+            cmbStatus.Location = new Point(742, 115);
             cmbStatus.Name = "cmbStatus";
             cmbStatus.Size = new Size(151, 23);
             cmbStatus.TabIndex = 160;
@@ -392,9 +408,10 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(750, 102);
+            label5.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.Location = new Point(750, 98);
             label5.Name = "label5";
-            label5.Size = new Size(71, 15);
+            label5.Size = new Size(72, 15);
             label5.TabIndex = 161;
             label5.Text = "Filter Status:";
             // 

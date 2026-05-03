@@ -41,15 +41,16 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(11, 21);
+            label1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(146, 19);
             label1.Name = "label1";
-            label1.Size = new Size(152, 15);
+            label1.Size = new Size(176, 17);
             label1.TabIndex = 0;
             label1.Text = "Please input new password.";
             // 
             // txtPassword
             // 
-            txtPassword.Location = new Point(119, 64);
+            txtPassword.Location = new Point(179, 63);
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '•';
             txtPassword.Size = new Size(212, 23);
@@ -57,7 +58,7 @@
             // 
             // txtConfirmPassword
             // 
-            txtConfirmPassword.Location = new Point(119, 93);
+            txtConfirmPassword.Location = new Point(178, 97);
             txtConfirmPassword.Name = "txtConfirmPassword";
             txtConfirmPassword.PasswordChar = '•';
             txtConfirmPassword.Size = new Size(212, 23);
@@ -67,8 +68,9 @@
             // 
             btnSubmit.BackColor = Color.SeaGreen;
             btnSubmit.FlatStyle = FlatStyle.Popup;
+            btnSubmit.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
             btnSubmit.ForeColor = Color.White;
-            btnSubmit.Location = new Point(272, 151);
+            btnSubmit.Location = new Point(146, 152);
             btnSubmit.Name = "btnSubmit";
             btnSubmit.Size = new Size(75, 23);
             btnSubmit.TabIndex = 3;
@@ -80,8 +82,9 @@
             // 
             btnCancel.BackColor = Color.Red;
             btnCancel.FlatStyle = FlatStyle.Popup;
+            btnCancel.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
             btnCancel.ForeColor = Color.White;
-            btnCancel.Location = new Point(353, 151);
+            btnCancel.Location = new Point(227, 152);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(75, 23);
             btnCancel.TabIndex = 4;
@@ -92,18 +95,20 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(26, 72);
+            label2.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(71, 67);
             label2.Name = "label2";
-            label2.Size = new Size(87, 15);
+            label2.Size = new Size(100, 17);
             label2.TabIndex = 5;
             label2.Text = "New Password:";
             // 
             // chkShowPassword
             // 
             chkShowPassword.AutoSize = true;
-            chkShowPassword.Location = new Point(339, 97);
+            chkShowPassword.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            chkShowPassword.Location = new Point(282, 126);
             chkShowPassword.Name = "chkShowPassword";
-            chkShowPassword.Size = new Size(108, 19);
+            chkShowPassword.Size = new Size(109, 19);
             chkShowPassword.TabIndex = 6;
             chkShowPassword.Text = "Show Password";
             chkShowPassword.UseVisualStyleBackColor = true;
@@ -112,9 +117,10 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(6, 96);
+            label3.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(51, 99);
             label3.Name = "label3";
-            label3.Size = new Size(107, 15);
+            label3.Size = new Size(121, 17);
             label3.TabIndex = 7;
             label3.Text = "Confirm Password:";
             label3.Click += label3_Click;
@@ -124,7 +130,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
-            ClientSize = new Size(447, 186);
+            ClientSize = new Size(447, 191);
             Controls.Add(label3);
             Controls.Add(chkShowPassword);
             Controls.Add(label2);

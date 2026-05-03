@@ -38,10 +38,11 @@
             // 
             btnSubmit.BackColor = Color.SeaGreen;
             btnSubmit.FlatStyle = FlatStyle.Popup;
-            btnSubmit.ForeColor = Color.White;
-            btnSubmit.Location = new Point(260, 203);
+            btnSubmit.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
+            btnSubmit.ForeColor = Color.Black;
+            btnSubmit.Location = new Point(142, 198);
             btnSubmit.Name = "btnSubmit";
-            btnSubmit.Size = new Size(75, 23);
+            btnSubmit.Size = new Size(75, 28);
             btnSubmit.TabIndex = 5;
             btnSubmit.Text = "Submit";
             btnSubmit.UseVisualStyleBackColor = false;
@@ -50,15 +51,16 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(12, 18);
+            label1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(52, 26);
             label1.Name = "label1";
-            label1.Size = new Size(293, 17);
+            label1.Size = new Size(309, 17);
             label1.TabIndex = 4;
             label1.Text = "Please indicate the reason why you want to void?";
             // 
             // txtReason
             // 
+            txtReason.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtReason.Location = new Point(12, 46);
             txtReason.Multiline = true;
             txtReason.Name = "txtReason";
@@ -69,10 +71,11 @@
             // 
             button1.BackColor = Color.Red;
             button1.FlatStyle = FlatStyle.Popup;
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(343, 203);
+            button1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
+            button1.ForeColor = Color.Black;
+            button1.Location = new Point(235, 198);
             button1.Name = "button1";
-            button1.Size = new Size(77, 23);
+            button1.Size = new Size(77, 28);
             button1.TabIndex = 14;
             button1.Text = "Close";
             button1.UseVisualStyleBackColor = false;

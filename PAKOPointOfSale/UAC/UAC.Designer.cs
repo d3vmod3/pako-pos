@@ -31,6 +31,7 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UAC));
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             cmbRole = new ComboBox();
             userTypeBindingSource = new BindingSource(components);
             label1 = new Label();
@@ -73,9 +74,9 @@
             cmbRole.DataSource = userTypeBindingSource;
             cmbRole.DisplayMember = "name";
             cmbRole.FormattingEnabled = true;
-            cmbRole.Location = new Point(84, 99);
+            cmbRole.Location = new Point(95, 105);
             cmbRole.Name = "cmbRole";
-            cmbRole.Size = new Size(376, 23);
+            cmbRole.Size = new Size(328, 23);
             cmbRole.TabIndex = 1;
             cmbRole.ValueMember = "id";
             cmbRole.SelectedIndexChanged += cmbRole_SelectedIndexChanged;
@@ -88,21 +89,23 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.BackColor = Color.Khaki;
-            label1.Location = new Point(14, 102);
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(17, 111);
             label1.Name = "label1";
-            label1.Size = new Size(64, 15);
+            label1.Size = new Size(76, 17);
             label1.TabIndex = 2;
-            label1.Text = "Select Role";
+            label1.Text = "Select Role:";
             // 
             // btnUpdate
             // 
             btnUpdate.BackColor = Color.DodgerBlue;
             btnUpdate.FlatStyle = FlatStyle.Popup;
-            btnUpdate.ForeColor = Color.White;
-            btnUpdate.Location = new Point(1172, 99);
+            btnUpdate.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
+            btnUpdate.ForeColor = SystemColors.ActiveCaptionText;
+            btnUpdate.Location = new Point(1133, 99);
             btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(104, 23);
+            btnUpdate.Size = new Size(123, 31);
             btnUpdate.TabIndex = 3;
             btnUpdate.Text = "Update Changes";
             btnUpdate.UseVisualStyleBackColor = false;
@@ -134,7 +137,7 @@
             lbluserslist.BackColor = Color.DimGray;
             lbluserslist.Font = new Font("Impact", 48F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbluserslist.ForeColor = Color.White;
-            lbluserslist.Location = new Point(408, 9);
+            lbluserslist.Location = new Point(481, 5);
             lbluserslist.Name = "lbluserslist";
             lbluserslist.Size = new Size(641, 80);
             lbluserslist.TabIndex = 19;
@@ -144,10 +147,11 @@
             // 
             btnClose.BackColor = Color.Red;
             btnClose.FlatStyle = FlatStyle.Popup;
-            btnClose.ForeColor = Color.White;
-            btnClose.Location = new Point(1285, 99);
+            btnClose.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
+            btnClose.ForeColor = SystemColors.ActiveCaptionText;
+            btnClose.Location = new Point(1274, 99);
             btnClose.Name = "btnClose";
-            btnClose.Size = new Size(79, 24);
+            btnClose.Size = new Size(79, 31);
             btnClose.TabIndex = 150;
             btnClose.Text = "Close";
             btnClose.UseVisualStyleBackColor = false;
@@ -231,9 +235,9 @@
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.AllowUserToOrderColumns = true;
             dataGridView1.AutoGenerateColumns = false;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
@@ -242,11 +246,19 @@
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, usertypeidDataGridViewTextBoxColumn, module_name2, can_view2, can_add2, can_edit2, can_delete2, userTypeDataGridViewTextBoxColumn1 });
             dataGridView1.DataSource = permissionBindingSource;
-            dataGridView1.Location = new Point(12, 128);
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridView1.Location = new Point(13, 136);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(1352, 539);
+            dataGridView1.Size = new Size(1342, 539);
             dataGridView1.TabIndex = 152;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick_1;
             // 
@@ -315,7 +327,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
-            ClientSize = new Size(1386, 788);
+            ClientSize = new Size(1370, 772);
             Controls.Add(dataGridView1);
             Controls.Add(pictureBox3);
             Controls.Add(btnClose);

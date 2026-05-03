@@ -257,16 +257,16 @@ namespace PAKOPointOfSale.Transactions
                 }
 
             }
-            dgvItems.Columns["unit_price"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dgvItems.Columns["quantity"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dgvItems.Columns["remainingQty"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dgvItems.Columns["vat_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dgvItems.Columns["vatable_sales"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dgvItems.Columns["vat_exempt"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dgvItems.Columns["discount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dgvItems.Columns["total_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvItems.Columns["unit_price"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvItems.Columns["quantity"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvItems.Columns["remainingQty"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvItems.Columns["vat_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvItems.Columns["vatable_sales"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvItems.Columns["vat_exempt"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvItems.Columns["discount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvItems.Columns["total_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvItems.Columns["unit_of_measurement"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            
+
         }
 
 
@@ -529,6 +529,21 @@ namespace PAKOPointOfSale.Transactions
                 this.Close(); // Hide the current form
                 e.Handled = true; // Prevent further processing of the key event
             }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

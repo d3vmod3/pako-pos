@@ -35,6 +35,7 @@
             // 
             // txtReason
             // 
+            txtReason.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtReason.Location = new Point(12, 46);
             txtReason.Multiline = true;
             txtReason.Name = "txtReason";
@@ -44,10 +45,10 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(12, 17);
+            label1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(21, 17);
             label1.Name = "label1";
-            label1.Size = new Size(365, 17);
+            label1.Size = new Size(387, 17);
             label1.TabIndex = 1;
             label1.Text = "Please indicate the reason why you want to return the item(s).";
             // 
@@ -55,8 +56,9 @@
             // 
             btnSubmit.BackColor = Color.SeaGreen;
             btnSubmit.FlatStyle = FlatStyle.Popup;
-            btnSubmit.ForeColor = Color.White;
-            btnSubmit.Location = new Point(345, 200);
+            btnSubmit.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSubmit.ForeColor = Color.Black;
+            btnSubmit.Location = new Point(188, 200);
             btnSubmit.Name = "btnSubmit";
             btnSubmit.Size = new Size(75, 23);
             btnSubmit.TabIndex = 2;

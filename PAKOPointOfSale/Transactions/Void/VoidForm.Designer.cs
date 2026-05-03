@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VoidForm));
             btnViewReceipt = new Button();
-            label1 = new Label();
             btnConfirm = new Button();
             label2 = new Label();
             label3 = new Label();
@@ -38,6 +37,7 @@
             pictureBox2 = new PictureBox();
             button1 = new Button();
             pictureBox1 = new PictureBox();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -46,35 +46,25 @@
             // 
             btnViewReceipt.BackColor = Color.ForestGreen;
             btnViewReceipt.FlatStyle = FlatStyle.Popup;
-            btnViewReceipt.ForeColor = Color.White;
-            btnViewReceipt.Location = new Point(341, 169);
+            btnViewReceipt.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
+            btnViewReceipt.ForeColor = Color.Black;
+            btnViewReceipt.Location = new Point(172, 177);
             btnViewReceipt.Name = "btnViewReceipt";
-            btnViewReceipt.Size = new Size(88, 28);
+            btnViewReceipt.Size = new Size(92, 32);
             btnViewReceipt.TabIndex = 0;
             btnViewReceipt.Text = "View Receipt";
             btnViewReceipt.UseVisualStyleBackColor = false;
             btnViewReceipt.Click += btnViewReceipt_Click;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Segoe UI Semibold", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.Black;
-            label1.Location = new Point(57, 127);
-            label1.Name = "label1";
-            label1.Size = new Size(579, 32);
-            label1.TabIndex = 1;
-            label1.Text = "Please review the receipt before voiding this receipt";
-            // 
             // btnConfirm
             // 
             btnConfirm.BackColor = Color.Red;
             btnConfirm.FlatStyle = FlatStyle.Popup;
-            btnConfirm.ForeColor = Color.White;
-            btnConfirm.Location = new Point(445, 170);
+            btnConfirm.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
+            btnConfirm.ForeColor = Color.Black;
+            btnConfirm.Location = new Point(281, 177);
             btnConfirm.Name = "btnConfirm";
-            btnConfirm.Size = new Size(88, 27);
+            btnConfirm.Size = new Size(117, 33);
             btnConfirm.TabIndex = 2;
             btnConfirm.Text = "Confirm Void";
             btnConfirm.UseVisualStyleBackColor = false;
@@ -86,7 +76,7 @@
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.Black;
-            label2.Location = new Point(189, 72);
+            label2.Location = new Point(189, 76);
             label2.Name = "label2";
             label2.Size = new Size(303, 20);
             label2.TabIndex = 3;
@@ -96,11 +86,11 @@
             // 
             label3.AutoSize = true;
             label3.BackColor = Color.Transparent;
-            label3.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold);
+            label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             label3.ForeColor = Color.Black;
-            label3.Location = new Point(243, 99);
+            label3.Location = new Point(233, 109);
             label3.Name = "label3";
-            label3.Size = new Size(124, 20);
+            label3.Size = new Size(138, 21);
             label3.TabIndex = 4;
             label3.Text = "Invoice Number:";
             // 
@@ -108,11 +98,11 @@
             // 
             lblInvoiceNumber.AutoSize = true;
             lblInvoiceNumber.BackColor = Color.Transparent;
-            lblInvoiceNumber.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold);
+            lblInvoiceNumber.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblInvoiceNumber.ForeColor = Color.Black;
-            lblInvoiceNumber.Location = new Point(372, 99);
+            lblInvoiceNumber.Location = new Point(377, 109);
             lblInvoiceNumber.Name = "lblInvoiceNumber";
-            lblInvoiceNumber.Size = new Size(57, 20);
+            lblInvoiceNumber.Size = new Size(64, 21);
             lblInvoiceNumber.TabIndex = 5;
             lblInvoiceNumber.Text = "000000";
             // 
@@ -129,10 +119,11 @@
             // 
             button1.BackColor = Color.Red;
             button1.FlatStyle = FlatStyle.Popup;
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(548, 170);
+            button1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
+            button1.ForeColor = Color.Black;
+            button1.Location = new Point(414, 177);
             button1.Name = "button1";
-            button1.Size = new Size(88, 27);
+            button1.Size = new Size(92, 33);
             button1.TabIndex = 13;
             button1.Text = "Cancel";
             button1.UseVisualStyleBackColor = false;
@@ -149,12 +140,24 @@
             pictureBox1.TabIndex = 114;
             pictureBox1.TabStop = false;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.Black;
+            label1.Location = new Point(138, 140);
+            label1.Name = "label1";
+            label1.Size = new Size(391, 21);
+            label1.TabIndex = 1;
+            label1.Text = "Please review the receipt before voiding this receipt";
+            // 
             // VoidForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveBorder;
-            ClientSize = new Size(671, 211);
+            ClientSize = new Size(671, 233);
             Controls.Add(pictureBox1);
             Controls.Add(button1);
             Controls.Add(pictureBox2);
@@ -181,7 +184,6 @@
         #endregion
 
         private Button btnViewReceipt;
-        private Label label1;
         private Button btnConfirm;
         private Label label2;
         private Label label3;
@@ -189,5 +191,6 @@
         private PictureBox pictureBox2;
         private Button button1;
         private PictureBox pictureBox1;
+        private Label label1;
     }
 }

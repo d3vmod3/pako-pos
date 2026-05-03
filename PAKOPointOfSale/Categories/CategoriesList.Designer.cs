@@ -70,7 +70,7 @@ namespace PAKOPointOfSale.Categories
             dataGridView1.BackgroundColor = SystemColors.ActiveBorder;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = Color.CadetBlue;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle2.ForeColor = Color.Black;
             dataGridViewCellStyle2.SelectionBackColor = Color.Transparent;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
@@ -81,16 +81,17 @@ namespace PAKOPointOfSale.Categories
             dataGridView1.DataSource = categoryBindingSource;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = SystemColors.Window;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle3.ForeColor = SystemColors.ControlDark;
             dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             dataGridView1.GridColor = Color.Black;
-            dataGridView1.Location = new Point(12, 136);
+            dataGridView1.Location = new Point(12, 146);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
+            dataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = SystemColors.Window;
             dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
@@ -103,7 +104,7 @@ namespace PAKOPointOfSale.Categories
             dataGridViewCellStyle5.ForeColor = Color.Black;
             dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle5;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(1334, 542);
+            dataGridView1.Size = new Size(1334, 532);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick_1;
             // 
@@ -163,10 +164,11 @@ namespace PAKOPointOfSale.Categories
             // 
             btnAdd.BackColor = Color.ForestGreen;
             btnAdd.FlatStyle = FlatStyle.Popup;
-            btnAdd.ForeColor = Color.White;
-            btnAdd.Location = new Point(1105, 108);
+            btnAdd.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAdd.ForeColor = Color.Black;
+            btnAdd.Location = new Point(1086, 109);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(75, 22);
+            btnAdd.Size = new Size(75, 28);
             btnAdd.TabIndex = 1;
             btnAdd.Text = "Add";
             btnAdd.UseVisualStyleBackColor = false;
@@ -176,10 +178,11 @@ namespace PAKOPointOfSale.Categories
             // 
             btnExport.BackColor = Color.Gold;
             btnExport.FlatStyle = FlatStyle.Popup;
+            btnExport.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnExport.ForeColor = Color.Black;
-            btnExport.Location = new Point(1186, 108);
+            btnExport.Location = new Point(1177, 109);
             btnExport.Name = "btnExport";
-            btnExport.Size = new Size(75, 22);
+            btnExport.Size = new Size(75, 28);
             btnExport.TabIndex = 3;
             btnExport.Text = "Export";
             btnExport.UseVisualStyleBackColor = false;
@@ -187,7 +190,7 @@ namespace PAKOPointOfSale.Categories
             // 
             // txtSearch
             // 
-            txtSearch.Location = new Point(60, 106);
+            txtSearch.Location = new Point(73, 115);
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(351, 23);
             txtSearch.TabIndex = 7;
@@ -197,12 +200,13 @@ namespace PAKOPointOfSale.Categories
             // 
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(12, 111);
+            label1.Location = new Point(16, 120);
             label1.Name = "label1";
-            label1.Size = new Size(42, 15);
+            label1.Size = new Size(51, 17);
             label1.TabIndex = 8;
-            label1.Text = "Search";
+            label1.Text = "Search:";
             label1.Click += label1_Click;
             // 
             // pictureBox1
@@ -244,10 +248,11 @@ namespace PAKOPointOfSale.Categories
             // 
             btnClose.BackColor = Color.Red;
             btnClose.FlatStyle = FlatStyle.Popup;
-            btnClose.ForeColor = Color.White;
-            btnClose.Location = new Point(1267, 108);
+            btnClose.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnClose.ForeColor = Color.Black;
+            btnClose.Location = new Point(1268, 109);
             btnClose.Name = "btnClose";
-            btnClose.Size = new Size(75, 22);
+            btnClose.Size = new Size(75, 28);
             btnClose.TabIndex = 12;
             btnClose.Text = "Close";
             btnClose.UseVisualStyleBackColor = false;

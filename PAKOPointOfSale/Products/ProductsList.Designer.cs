@@ -89,7 +89,7 @@
             dataGridView1.BackgroundColor = SystemColors.ActiveBorder;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
@@ -134,7 +134,7 @@
             barcode.HeaderText = "Barcode";
             barcode.Name = "barcode";
             barcode.ReadOnly = true;
-            barcode.Width = 75;
+            barcode.Width = 82;
             // 
             // product_name
             // 
@@ -145,7 +145,7 @@
             product_name.Resizable = DataGridViewTriState.True;
             product_name.SortMode = DataGridViewColumnSortMode.Automatic;
             product_name.VisitedLinkColor = Color.Black;
-            product_name.Width = 109;
+            product_name.Width = 111;
             // 
             // productbrandDataGridViewTextBoxColumn
             // 
@@ -153,7 +153,7 @@
             productbrandDataGridViewTextBoxColumn.HeaderText = "Brand";
             productbrandDataGridViewTextBoxColumn.Name = "productbrandDataGridViewTextBoxColumn";
             productbrandDataGridViewTextBoxColumn.ReadOnly = true;
-            productbrandDataGridViewTextBoxColumn.Width = 63;
+            productbrandDataGridViewTextBoxColumn.Width = 69;
             // 
             // category_name
             // 
@@ -161,7 +161,7 @@
             category_name.HeaderText = "Category";
             category_name.Name = "category_name";
             category_name.ReadOnly = true;
-            category_name.Width = 80;
+            category_name.Width = 89;
             // 
             // supplier_name
             // 
@@ -177,7 +177,7 @@
             productdescriptionDataGridViewTextBoxColumn.HeaderText = "Description";
             productdescriptionDataGridViewTextBoxColumn.Name = "productdescriptionDataGridViewTextBoxColumn";
             productdescriptionDataGridViewTextBoxColumn.ReadOnly = true;
-            productdescriptionDataGridViewTextBoxColumn.Width = 92;
+            productdescriptionDataGridViewTextBoxColumn.Width = 104;
             // 
             // productcodeDataGridViewTextBoxColumn
             // 
@@ -185,7 +185,7 @@
             productcodeDataGridViewTextBoxColumn.HeaderText = "Code";
             productcodeDataGridViewTextBoxColumn.Name = "productcodeDataGridViewTextBoxColumn";
             productcodeDataGridViewTextBoxColumn.ReadOnly = true;
-            productcodeDataGridViewTextBoxColumn.Width = 60;
+            productcodeDataGridViewTextBoxColumn.Width = 64;
             // 
             // skuDataGridViewTextBoxColumn
             // 
@@ -193,7 +193,7 @@
             skuDataGridViewTextBoxColumn.HeaderText = "SKU";
             skuDataGridViewTextBoxColumn.Name = "skuDataGridViewTextBoxColumn";
             skuDataGridViewTextBoxColumn.ReadOnly = true;
-            skuDataGridViewTextBoxColumn.Width = 53;
+            skuDataGridViewTextBoxColumn.Width = 57;
             // 
             // quantity
             // 
@@ -201,7 +201,7 @@
             quantity.HeaderText = "Quantity";
             quantity.Name = "quantity";
             quantity.ReadOnly = true;
-            quantity.Width = 78;
+            quantity.Width = 87;
             // 
             // unitofmeasurementDataGridViewTextBoxColumn
             // 
@@ -209,7 +209,7 @@
             unitofmeasurementDataGridViewTextBoxColumn.HeaderText = "Unit";
             unitofmeasurementDataGridViewTextBoxColumn.Name = "unitofmeasurementDataGridViewTextBoxColumn";
             unitofmeasurementDataGridViewTextBoxColumn.ReadOnly = true;
-            unitofmeasurementDataGridViewTextBoxColumn.Width = 54;
+            unitofmeasurementDataGridViewTextBoxColumn.Width = 59;
             // 
             // cost_price
             // 
@@ -217,7 +217,7 @@
             cost_price.HeaderText = "Cost Price";
             cost_price.Name = "cost_price";
             cost_price.ReadOnly = true;
-            cost_price.Width = 85;
+            cost_price.Width = 87;
             // 
             // unit_price
             // 
@@ -225,7 +225,7 @@
             unit_price.HeaderText = "Unit Price";
             unit_price.Name = "unit_price";
             unit_price.ReadOnly = true;
-            unit_price.Width = 83;
+            unit_price.Width = 86;
             // 
             // remarksDataGridViewTextBoxColumn
             // 
@@ -251,7 +251,7 @@
             datereceivedDataGridViewTextBoxColumn.HeaderText = "Date Received";
             datereceivedDataGridViewTextBoxColumn.Name = "datereceivedDataGridViewTextBoxColumn";
             datereceivedDataGridViewTextBoxColumn.ReadOnly = true;
-            datereceivedDataGridViewTextBoxColumn.Width = 106;
+            datereceivedDataGridViewTextBoxColumn.Width = 110;
             // 
             // dateexpirationDataGridViewTextBoxColumn
             // 
@@ -259,7 +259,7 @@
             dateexpirationDataGridViewTextBoxColumn.HeaderText = "Expiration Date";
             dateexpirationDataGridViewTextBoxColumn.Name = "dateexpirationDataGridViewTextBoxColumn";
             dateexpirationDataGridViewTextBoxColumn.ReadOnly = true;
-            dateexpirationDataGridViewTextBoxColumn.Width = 111;
+            dateexpirationDataGridViewTextBoxColumn.Width = 118;
             // 
             // is_active
             // 
@@ -278,6 +278,7 @@
             createdatDataGridViewTextBoxColumn.HeaderText = "Date Created";
             createdatDataGridViewTextBoxColumn.Name = "createdatDataGridViewTextBoxColumn";
             createdatDataGridViewTextBoxColumn.ReadOnly = true;
+            createdatDataGridViewTextBoxColumn.Width = 104;
             // 
             // edit
             // 
@@ -301,17 +302,17 @@
             // lblSearch
             // 
             lblSearch.AutoSize = true;
-            lblSearch.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblSearch.Location = new Point(12, 115);
+            lblSearch.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSearch.Location = new Point(12, 120);
             lblSearch.Name = "lblSearch";
-            lblSearch.Size = new Size(45, 15);
+            lblSearch.Size = new Size(59, 20);
             lblSearch.TabIndex = 1;
             lblSearch.Text = "Search:";
             lblSearch.Click += lblSearch_Click;
             // 
             // txtSearch
             // 
-            txtSearch.Location = new Point(63, 110);
+            txtSearch.Location = new Point(77, 117);
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(326, 23);
             txtSearch.TabIndex = 2;
@@ -321,11 +322,11 @@
             // 
             btnAdd.BackColor = Color.ForestGreen;
             btnAdd.FlatStyle = FlatStyle.Popup;
-            btnAdd.Font = new Font("Microsoft Sans Serif", 9.75F);
-            btnAdd.ForeColor = Color.White;
-            btnAdd.Location = new Point(1119, 108);
+            btnAdd.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAdd.ForeColor = Color.Black;
+            btnAdd.Location = new Point(1103, 117);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(75, 24);
+            btnAdd.Size = new Size(75, 26);
             btnAdd.TabIndex = 3;
             btnAdd.Text = "Add";
             btnAdd.UseVisualStyleBackColor = false;
@@ -335,11 +336,11 @@
             // 
             btnExport.BackColor = Color.Goldenrod;
             btnExport.FlatStyle = FlatStyle.Flat;
-            btnExport.Font = new Font("Microsoft Sans Serif", 9.75F);
+            btnExport.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnExport.ForeColor = Color.Black;
-            btnExport.Location = new Point(1200, 108);
+            btnExport.Location = new Point(1192, 116);
             btnExport.Name = "btnExport";
-            btnExport.Size = new Size(75, 24);
+            btnExport.Size = new Size(75, 26);
             btnExport.TabIndex = 5;
             btnExport.Text = "Export";
             btnExport.UseVisualStyleBackColor = false;
@@ -349,6 +350,7 @@
             // 
             panel1.Controls.Add(pictureBox3);
             panel1.Controls.Add(dataGridView1);
+            panel1.Controls.Add(label1);
             panel1.Location = new Point(0, 152);
             panel1.Name = "panel1";
             panel1.Size = new Size(1368, 624);
@@ -372,7 +374,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Italic, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(45, 136);
+            label1.Location = new Point(27, 41);
             label1.Name = "label1";
             label1.Size = new Size(181, 16);
             label1.TabIndex = 7;
@@ -394,11 +396,11 @@
             // 
             btnClose.BackColor = Color.Red;
             btnClose.FlatStyle = FlatStyle.Popup;
-            btnClose.Font = new Font("Microsoft Sans Serif", 9.75F);
-            btnClose.ForeColor = Color.White;
-            btnClose.Location = new Point(1281, 108);
+            btnClose.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnClose.ForeColor = Color.Black;
+            btnClose.Location = new Point(1279, 116);
             btnClose.Name = "btnClose";
-            btnClose.Size = new Size(75, 24);
+            btnClose.Size = new Size(75, 26);
             btnClose.TabIndex = 11;
             btnClose.Text = "Close";
             btnClose.UseVisualStyleBackColor = false;
@@ -408,9 +410,9 @@
             // 
             pictureBox2.BackColor = Color.DimGray;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(0, -4);
+            pictureBox2.Location = new Point(0, -3);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(254, 107);
+            pictureBox2.Size = new Size(241, 106);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 145;
             pictureBox2.TabStop = false;
@@ -421,7 +423,7 @@
             label2.BackColor = Color.DimGray;
             label2.Font = new Font("Impact", 47.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(466, 18);
+            label2.Location = new Point(560, 16);
             label2.Name = "label2";
             label2.Size = new Size(413, 76);
             label2.TabIndex = 146;
@@ -430,9 +432,10 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(493, 113);
+            label3.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(476, 120);
             label3.Name = "label3";
-            label3.Size = new Size(52, 15);
+            label3.Size = new Size(69, 20);
             label3.TabIndex = 147;
             label3.Text = "Filter By:";
             // 
@@ -440,7 +443,7 @@
             // 
             cmbFilterType.FormattingEnabled = true;
             cmbFilterType.Items.AddRange(new object[] { "", "Date and Time", "Date Received", "Expiration Date", "Status", "Stock" });
-            cmbFilterType.Location = new Point(551, 109);
+            cmbFilterType.Location = new Point(551, 118);
             cmbFilterType.Name = "cmbFilterType";
             cmbFilterType.Size = new Size(216, 23);
             cmbFilterType.TabIndex = 148;
@@ -450,9 +453,10 @@
             // 
             btnFilter.BackColor = Color.FromArgb(255, 255, 128);
             btnFilter.FlatStyle = FlatStyle.Popup;
-            btnFilter.Location = new Point(773, 109);
+            btnFilter.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnFilter.Location = new Point(773, 117);
             btnFilter.Name = "btnFilter";
-            btnFilter.Size = new Size(75, 24);
+            btnFilter.Size = new Size(75, 26);
             btnFilter.TabIndex = 149;
             btnFilter.Text = "Filter";
             btnFilter.UseVisualStyleBackColor = false;
@@ -462,9 +466,10 @@
             // 
             btnClearFilter.BackColor = Color.FromArgb(255, 128, 128);
             btnClearFilter.FlatStyle = FlatStyle.Popup;
-            btnClearFilter.Location = new Point(854, 109);
+            btnClearFilter.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnClearFilter.Location = new Point(854, 117);
             btnClearFilter.Name = "btnClearFilter";
-            btnClearFilter.Size = new Size(75, 24);
+            btnClearFilter.Size = new Size(88, 26);
             btnClearFilter.TabIndex = 150;
             btnClearFilter.Text = "Clear Filter";
             btnClearFilter.UseVisualStyleBackColor = false;
@@ -489,7 +494,6 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(pictureBox2);
-            Controls.Add(label1);
             Controls.Add(btnClose);
             Controls.Add(pictureBox1);
             Controls.Add(btnExport);
@@ -508,6 +512,7 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)productBindingSource).EndInit();
             panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();

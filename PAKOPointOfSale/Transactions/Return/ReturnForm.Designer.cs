@@ -72,22 +72,22 @@
             // lblInvoiceNumber
             // 
             lblInvoiceNumber.AutoSize = true;
-            lblInvoiceNumber.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
+            lblInvoiceNumber.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold | FontStyle.Italic);
             lblInvoiceNumber.ForeColor = Color.Black;
-            lblInvoiceNumber.Location = new Point(753, 112);
+            lblInvoiceNumber.Location = new Point(753, 114);
             lblInvoiceNumber.Name = "lblInvoiceNumber";
-            lblInvoiceNumber.Size = new Size(69, 20);
+            lblInvoiceNumber.Size = new Size(78, 25);
             lblInvoiceNumber.TabIndex = 7;
             lblInvoiceNumber.Text = "000000";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold);
+            label3.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold | FontStyle.Italic);
             label3.ForeColor = Color.Black;
-            label3.Location = new Point(598, 111);
+            label3.Location = new Point(598, 113);
             label3.Name = "label3";
-            label3.Size = new Size(138, 20);
+            label3.Size = new Size(155, 25);
             label3.TabIndex = 6;
             label3.Text = "Invoice Number:";
             // 
@@ -101,7 +101,7 @@
             dgvReturnItems.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = SystemColors.Control;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
@@ -109,22 +109,22 @@
             dgvReturnItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvReturnItems.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvReturnItems.Columns.AddRange(new DataGridViewColumn[] { id, product_id, product_code, product_name, product_brand, quantity, remainingQty, unit_of_measurement, unit_price, discount_type, discount, total_amount, vatable_sales, vat_amount, vat_exempt, transaction_id, remove });
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = SystemColors.Window;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle3.ForeColor = Color.White;
             dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             dgvReturnItems.DefaultCellStyle = dataGridViewCellStyle3;
-            dgvReturnItems.Location = new Point(12, 140);
+            dgvReturnItems.Location = new Point(12, 153);
             dgvReturnItems.Name = "dgvReturnItems";
             dgvReturnItems.RowHeadersVisible = false;
             dataGridViewCellStyle4.ForeColor = Color.Black;
             dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
             dgvReturnItems.RowsDefaultCellStyle = dataGridViewCellStyle4;
             dgvReturnItems.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvReturnItems.Size = new Size(1346, 532);
+            dgvReturnItems.Size = new Size(1346, 535);
             dgvReturnItems.TabIndex = 8;
             dgvReturnItems.CellClick += dgvReturnItems_CellClick;
             dgvReturnItems.CellContentClick += dgvReturnItems_CellContentClick;
@@ -257,10 +257,11 @@
             // 
             button1.BackColor = Color.ForestGreen;
             button1.FlatStyle = FlatStyle.Popup;
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(1168, 111);
+            button1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
+            button1.ForeColor = Color.Black;
+            button1.Location = new Point(1134, 111);
             button1.Name = "button1";
-            button1.Size = new Size(100, 24);
+            button1.Size = new Size(127, 36);
             button1.TabIndex = 9;
             button1.Text = "Confirm Return";
             button1.UseVisualStyleBackColor = false;
@@ -269,11 +270,11 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 9.75F);
+            label1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(12, 118);
+            label1.Location = new Point(11, 118);
             label1.Name = "label1";
-            label1.Size = new Size(330, 16);
+            label1.Size = new Size(354, 17);
             label1.TabIndex = 10;
             label1.Text = "Adjust the applied quantity for each item to be returned.";
             // 
@@ -292,7 +293,7 @@
             pictureBox3.ErrorImage = null;
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
             pictureBox3.InitialImage = null;
-            pictureBox3.Location = new Point(-16, 686);
+            pictureBox3.Location = new Point(-16, 694);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(1415, 101);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -327,10 +328,11 @@
             // 
             btnClose.BackColor = Color.Red;
             btnClose.FlatStyle = FlatStyle.Popup;
-            btnClose.ForeColor = Color.White;
-            btnClose.Location = new Point(1274, 111);
+            btnClose.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
+            btnClose.ForeColor = Color.Black;
+            btnClose.Location = new Point(1277, 111);
             btnClose.Name = "btnClose";
-            btnClose.Size = new Size(79, 24);
+            btnClose.Size = new Size(79, 36);
             btnClose.TabIndex = 158;
             btnClose.Text = "Close";
             btnClose.UseVisualStyleBackColor = false;
