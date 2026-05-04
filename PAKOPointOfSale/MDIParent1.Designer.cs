@@ -30,14 +30,14 @@ namespace PAKOPointOfSale
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle13 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle14 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle15 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle16 = new DataGridViewCellStyle();
             menuStrip = new MenuStrip();
             optionsToolStripMenuItem = new ToolStripMenuItem();
             activityLogsToolStripMenuItem = new ToolStripMenuItem();
@@ -84,13 +84,6 @@ namespace PAKOPointOfSale
             btnTransactions = new Button();
             btnUsers = new Button();
             btnUac = new Button();
-            label13 = new Label();
-            label14 = new Label();
-            label15 = new Label();
-            label16 = new Label();
-            label17 = new Label();
-            label18 = new Label();
-            label19 = new Label();
             pictureBox4 = new PictureBox();
             timerDateandTime = new System.Windows.Forms.Timer(components);
             lblFullName = new Label();
@@ -99,6 +92,7 @@ namespace PAKOPointOfSale
             product_name2 = new DataGridViewTextBoxColumn();
             quantity = new DataGridViewTextBoxColumn();
             supplier = new DataGridViewTextBoxColumn();
+            panel1 = new Panel();
             menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtgvTop5SellingProducts).BeginInit();
             gbTop5Sellings.SuspendLayout();
@@ -131,20 +125,20 @@ namespace PAKOPointOfSale
             // activityLogsToolStripMenuItem
             // 
             activityLogsToolStripMenuItem.Name = "activityLogsToolStripMenuItem";
-            activityLogsToolStripMenuItem.Size = new Size(180, 22);
+            activityLogsToolStripMenuItem.Size = new Size(164, 22);
             activityLogsToolStripMenuItem.Text = "Activity Logs";
             activityLogsToolStripMenuItem.Click += activityLogsToolStripMenuItem_Click;
             // 
             // backupDatabaseToolStripMenuItem
             // 
             backupDatabaseToolStripMenuItem.Name = "backupDatabaseToolStripMenuItem";
-            backupDatabaseToolStripMenuItem.Size = new Size(180, 22);
+            backupDatabaseToolStripMenuItem.Size = new Size(164, 22);
             backupDatabaseToolStripMenuItem.Text = "Backup Database";
             backupDatabaseToolStripMenuItem.Click += backupDatabaseToolStripMenuItem_Click;
             // 
             // statusStrip
             // 
-            statusStrip.Location = new Point(0, 1388);
+            statusStrip.Location = new Point(0, 720);
             statusStrip.Name = "statusStrip";
             statusStrip.Padding = new Padding(1, 0, 16, 0);
             statusStrip.Size = new Size(1367, 22);
@@ -155,37 +149,37 @@ namespace PAKOPointOfSale
             // 
             dtgvTop5SellingProducts.AllowUserToAddRows = false;
             dtgvTop5SellingProducts.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.ForeColor = Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = Color.White;
-            dtgvTop5SellingProducts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.ForeColor = Color.Black;
+            dataGridViewCellStyle9.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = Color.White;
+            dtgvTop5SellingProducts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             dtgvTop5SellingProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgvTop5SellingProducts.BackgroundColor = SystemColors.ControlLight;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dtgvTop5SellingProducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = SystemColors.Window;
+            dataGridViewCellStyle10.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle10.ForeColor = Color.White;
+            dataGridViewCellStyle10.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.False;
+            dtgvTop5SellingProducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             dtgvTop5SellingProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgvTop5SellingProducts.Columns.AddRange(new DataGridViewColumn[] { product_name, total_quantity_sold, total_sales });
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = SystemColors.Window;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            dtgvTop5SellingProducts.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = SystemColors.Window;
+            dataGridViewCellStyle11.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle11.ForeColor = Color.Black;
+            dataGridViewCellStyle11.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.False;
+            dtgvTop5SellingProducts.DefaultCellStyle = dataGridViewCellStyle11;
             dtgvTop5SellingProducts.Location = new Point(13, 72);
             dtgvTop5SellingProducts.Name = "dtgvTop5SellingProducts";
             dtgvTop5SellingProducts.ReadOnly = true;
             dtgvTop5SellingProducts.RowHeadersVisible = false;
-            dataGridViewCellStyle4.ForeColor = Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dtgvTop5SellingProducts.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.ForeColor = Color.Black;
+            dataGridViewCellStyle12.SelectionBackColor = SystemColors.Highlight;
+            dtgvTop5SellingProducts.RowsDefaultCellStyle = dataGridViewCellStyle12;
             dtgvTop5SellingProducts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dtgvTop5SellingProducts.Size = new Size(547, 146);
             dtgvTop5SellingProducts.TabIndex = 11;
@@ -262,7 +256,7 @@ namespace PAKOPointOfSale
             gbTop5Sellings.Controls.Add(btnFilter);
             gbTop5Sellings.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             gbTop5Sellings.ForeColor = Color.Black;
-            gbTop5Sellings.Location = new Point(733, 943);
+            gbTop5Sellings.Location = new Point(282, 333);
             gbTop5Sellings.Name = "gbTop5Sellings";
             gbTop5Sellings.Size = new Size(575, 230);
             gbTop5Sellings.TabIndex = 13;
@@ -394,7 +388,7 @@ namespace PAKOPointOfSale
             gbSales.Controls.Add(btnFilterDateSales);
             gbSales.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             gbSales.ForeColor = Color.Black;
-            gbSales.Location = new Point(734, 746);
+            gbSales.Location = new Point(282, 141);
             gbSales.Name = "gbSales";
             gbSales.Size = new Size(574, 186);
             gbSales.TabIndex = 17;
@@ -562,164 +556,96 @@ namespace PAKOPointOfSale
             // 
             // btnPos
             // 
-            btnPos.BackgroundImage = Properties.Resources.pos_terminal;
             btnPos.BackgroundImageLayout = ImageLayout.Stretch;
-            btnPos.Location = new Point(45, 907);
+            btnPos.FlatStyle = FlatStyle.Flat;
+            btnPos.Font = new Font("Impact", 20.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnPos.Location = new Point(21, 603);
             btnPos.Name = "btnPos";
-            btnPos.Size = new Size(130, 92);
+            btnPos.Size = new Size(234, 72);
             btnPos.TabIndex = 4;
+            btnPos.Text = "POINT OF SALE";
             btnPos.UseVisualStyleBackColor = true;
             btnPos.Click += button1_Click;
             // 
             // btnCategories
             // 
-            btnCategories.BackgroundImage = Properties.Resources.category_icon_png_17;
             btnCategories.BackgroundImageLayout = ImageLayout.Stretch;
-            btnCategories.Location = new Point(45, 312);
+            btnCategories.FlatStyle = FlatStyle.Flat;
+            btnCategories.Font = new Font("Impact", 20.25F);
+            btnCategories.Location = new Point(21, 141);
             btnCategories.Name = "btnCategories";
-            btnCategories.Size = new Size(121, 93);
+            btnCategories.Size = new Size(234, 72);
             btnCategories.TabIndex = 164;
+            btnCategories.Text = "CATEGORIES";
             btnCategories.UseVisualStyleBackColor = true;
             btnCategories.Click += btnCategories_Click;
             // 
             // btnProducts
             // 
-            btnProducts.BackgroundImage = Properties.Resources.products;
+            btnProducts.BackColor = Color.CadetBlue;
             btnProducts.BackgroundImageLayout = ImageLayout.Stretch;
-            btnProducts.Location = new Point(45, 411);
+            btnProducts.FlatStyle = FlatStyle.Flat;
+            btnProducts.Font = new Font("Impact", 20.25F);
+            btnProducts.Location = new Point(21, 218);
             btnProducts.Name = "btnProducts";
-            btnProducts.Size = new Size(135, 94);
+            btnProducts.Size = new Size(234, 72);
             btnProducts.TabIndex = 165;
-            btnProducts.UseVisualStyleBackColor = true;
+            btnProducts.Tag = "";
+            btnProducts.Text = "PRODUCTS";
+            btnProducts.UseVisualStyleBackColor = false;
             btnProducts.Click += btnProducts_Click;
             // 
             // btnSuppliers
             // 
-            btnSuppliers.BackgroundImage = Properties.Resources.suppliers;
             btnSuppliers.BackgroundImageLayout = ImageLayout.Stretch;
-            btnSuppliers.Location = new Point(45, 511);
+            btnSuppliers.FlatStyle = FlatStyle.Flat;
+            btnSuppliers.Font = new Font("Impact", 20.25F);
+            btnSuppliers.Location = new Point(21, 295);
             btnSuppliers.Name = "btnSuppliers";
-            btnSuppliers.Size = new Size(137, 94);
+            btnSuppliers.Size = new Size(234, 72);
             btnSuppliers.TabIndex = 166;
+            btnSuppliers.Text = "SUPPLIERS";
             btnSuppliers.UseVisualStyleBackColor = true;
             btnSuppliers.Click += btnSuppliers_Click;
             // 
             // btnTransactions
             // 
-            btnTransactions.BackgroundImage = Properties.Resources.transactions;
             btnTransactions.BackgroundImageLayout = ImageLayout.Stretch;
-            btnTransactions.Location = new Point(45, 611);
+            btnTransactions.FlatStyle = FlatStyle.Flat;
+            btnTransactions.Font = new Font("Impact", 20.25F);
+            btnTransactions.Location = new Point(21, 372);
             btnTransactions.Name = "btnTransactions";
-            btnTransactions.Size = new Size(132, 94);
+            btnTransactions.Size = new Size(234, 72);
             btnTransactions.TabIndex = 167;
+            btnTransactions.Text = "TRANSACTIONS";
             btnTransactions.UseVisualStyleBackColor = true;
             btnTransactions.Click += btnTransactions_Click;
             // 
             // btnUsers
             // 
-            btnUsers.BackgroundImage = Properties.Resources.users;
             btnUsers.BackgroundImageLayout = ImageLayout.Stretch;
-            btnUsers.Location = new Point(45, 711);
+            btnUsers.FlatStyle = FlatStyle.Flat;
+            btnUsers.Font = new Font("Impact", 20.25F);
+            btnUsers.Location = new Point(21, 449);
             btnUsers.Name = "btnUsers";
-            btnUsers.Size = new Size(130, 92);
+            btnUsers.Size = new Size(234, 72);
             btnUsers.TabIndex = 168;
+            btnUsers.Text = "USERS";
             btnUsers.UseVisualStyleBackColor = true;
             btnUsers.Click += btnUsers_Click;
             // 
             // btnUac
             // 
-            btnUac.BackgroundImage = Properties.Resources.UAC;
             btnUac.BackgroundImageLayout = ImageLayout.Stretch;
-            btnUac.Location = new Point(45, 809);
+            btnUac.FlatStyle = FlatStyle.Flat;
+            btnUac.Font = new Font("Impact", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnUac.Location = new Point(21, 526);
             btnUac.Name = "btnUac";
-            btnUac.Size = new Size(141, 92);
+            btnUac.Size = new Size(234, 72);
             btnUac.TabIndex = 169;
+            btnUac.Text = "USER ACCESS CONTROL";
             btnUac.UseVisualStyleBackColor = true;
             btnUac.Click += btnUac_Click;
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.BackColor = Color.Transparent;
-            label13.Font = new Font("Impact", 20.25F);
-            label13.ForeColor = Color.Black;
-            label13.Location = new Point(54, 143);
-            label13.Name = "label13";
-            label13.Size = new Size(144, 34);
-            label13.TabIndex = 170;
-            label13.Text = "CATEGORIES";
-            // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.BackColor = Color.Transparent;
-            label14.Font = new Font("Impact", 20.25F);
-            label14.ForeColor = Color.Black;
-            label14.Location = new Point(235, 143);
-            label14.Name = "label14";
-            label14.Size = new Size(130, 34);
-            label14.TabIndex = 171;
-            label14.Text = "PRODUCTS";
-            // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.BackColor = Color.Transparent;
-            label15.Font = new Font("Impact", 20.25F);
-            label15.ForeColor = Color.Black;
-            label15.Location = new Point(427, 144);
-            label15.Name = "label15";
-            label15.Size = new Size(130, 34);
-            label15.TabIndex = 172;
-            label15.Text = "SUPPLIERS";
-            // 
-            // label16
-            // 
-            label16.AutoSize = true;
-            label16.BackColor = Color.Transparent;
-            label16.Font = new Font("Impact", 20.25F);
-            label16.ForeColor = Color.Black;
-            label16.Location = new Point(594, 148);
-            label16.Name = "label16";
-            label16.Size = new Size(178, 34);
-            label16.TabIndex = 173;
-            label16.Text = "TRANSACTIONS";
-            // 
-            // label17
-            // 
-            label17.AutoSize = true;
-            label17.BackColor = Color.Transparent;
-            label17.Font = new Font("Impact", 20.25F);
-            label17.ForeColor = Color.Black;
-            label17.Location = new Point(818, 148);
-            label17.Name = "label17";
-            label17.Size = new Size(84, 34);
-            label17.TabIndex = 174;
-            label17.Text = "USERS";
-            // 
-            // label18
-            // 
-            label18.AutoSize = true;
-            label18.BackColor = Color.Transparent;
-            label18.Font = new Font("Impact", 20.25F);
-            label18.ForeColor = Color.Black;
-            label18.Location = new Point(1038, 148);
-            label18.Name = "label18";
-            label18.Size = new Size(59, 34);
-            label18.TabIndex = 175;
-            label18.Text = "UAC";
-            // 
-            // label19
-            // 
-            label19.AutoSize = true;
-            label19.BackColor = Color.Transparent;
-            label19.Font = new Font("Impact", 20.25F);
-            label19.ForeColor = Color.Black;
-            label19.Location = new Point(1222, 146);
-            label19.Name = "label19";
-            label19.Size = new Size(58, 34);
-            label19.TabIndex = 171;
-            label19.Text = "POS";
             // 
             // pictureBox4
             // 
@@ -756,9 +682,9 @@ namespace PAKOPointOfSale
             gbLowStocks.Controls.Add(dtgvLowStocks);
             gbLowStocks.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             gbLowStocks.ForeColor = Color.Black;
-            gbLowStocks.Location = new Point(625, 288);
+            gbLowStocks.Location = new Point(862, 141);
             gbLowStocks.Name = "gbLowStocks";
-            gbLowStocks.Size = new Size(718, 427);
+            gbLowStocks.Size = new Size(493, 427);
             gbLowStocks.TabIndex = 185;
             gbLowStocks.TabStop = false;
             gbLowStocks.Text = "Low Stock Products";
@@ -768,39 +694,39 @@ namespace PAKOPointOfSale
             // 
             dtgvLowStocks.AllowUserToAddRows = false;
             dtgvLowStocks.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle5.ForeColor = Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = Color.White;
-            dtgvLowStocks.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle13.ForeColor = Color.Black;
+            dataGridViewCellStyle13.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = Color.White;
+            dtgvLowStocks.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             dtgvLowStocks.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgvLowStocks.BackgroundColor = SystemColors.ControlLight;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = SystemColors.Control;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle6.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            dtgvLowStocks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle14.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = SystemColors.Control;
+            dataGridViewCellStyle14.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle14.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle14.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = DataGridViewTriState.True;
+            dtgvLowStocks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             dtgvLowStocks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgvLowStocks.Columns.AddRange(new DataGridViewColumn[] { product_name2, quantity, supplier });
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = SystemColors.Window;
-            dataGridViewCellStyle7.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle7.ForeColor = Color.Black;
-            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.False;
-            dtgvLowStocks.DefaultCellStyle = dataGridViewCellStyle7;
-            dtgvLowStocks.Location = new Point(15, 24);
+            dataGridViewCellStyle15.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.BackColor = SystemColors.Window;
+            dataGridViewCellStyle15.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle15.ForeColor = Color.Black;
+            dataGridViewCellStyle15.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = DataGridViewTriState.False;
+            dtgvLowStocks.DefaultCellStyle = dataGridViewCellStyle15;
+            dtgvLowStocks.Location = new Point(6, 24);
             dtgvLowStocks.Name = "dtgvLowStocks";
             dtgvLowStocks.ReadOnly = true;
             dtgvLowStocks.RowHeadersVisible = false;
-            dataGridViewCellStyle8.ForeColor = Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
-            dtgvLowStocks.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle16.ForeColor = Color.Black;
+            dataGridViewCellStyle16.SelectionBackColor = SystemColors.Highlight;
+            dtgvLowStocks.RowsDefaultCellStyle = dataGridViewCellStyle16;
             dtgvLowStocks.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgvLowStocks.Size = new Size(688, 391);
+            dtgvLowStocks.Size = new Size(481, 391);
             dtgvLowStocks.TabIndex = 11;
             // 
             // product_name2
@@ -824,22 +750,22 @@ namespace PAKOPointOfSale
             supplier.Name = "supplier";
             supplier.ReadOnly = true;
             // 
+            // panel1
+            // 
+            panel1.BackColor = Color.Azure;
+            panel1.Location = new Point(2, 127);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(274, 590);
+            panel1.TabIndex = 187;
+            // 
             // MDIParent1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
-            ClientSize = new Size(1367, 1410);
-            Controls.Add(gbLowStocks);
+            ClientSize = new Size(1367, 742);
             Controls.Add(lblFullName);
             Controls.Add(pictureBox4);
-            Controls.Add(label19);
-            Controls.Add(label18);
-            Controls.Add(label17);
-            Controls.Add(label15);
-            Controls.Add(label16);
-            Controls.Add(label14);
-            Controls.Add(label13);
             Controls.Add(btnUac);
             Controls.Add(btnUsers);
             Controls.Add(btnTransactions);
@@ -850,6 +776,7 @@ namespace PAKOPointOfSale
             Controls.Add(lblTime);
             Controls.Add(lblDate);
             Controls.Add(label11);
+            Controls.Add(gbLowStocks);
             Controls.Add(label12);
             Controls.Add(label10);
             Controls.Add(pictureBox1);
@@ -859,6 +786,7 @@ namespace PAKOPointOfSale
             Controls.Add(btnPos);
             Controls.Add(statusStrip);
             Controls.Add(menuStrip);
+            Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             IsMdiContainer = true;
             MainMenuStrip = menuStrip;
@@ -934,13 +862,6 @@ namespace PAKOPointOfSale
         private Button btnTransactions;
         private Button btnUsers;
         private Button btnUac;
-        private Label label13;
-        private Label label14;
-        private Label label15;
-        private Label label16;
-        private Label label17;
-        private Label label18;
-        private Label label19;
         private PictureBox pictureBox4;
         private Button btnClearFilters;
         private System.Windows.Forms.Timer timer1;
@@ -955,6 +876,7 @@ namespace PAKOPointOfSale
         private ToolStripMenuItem optionsToolStripMenuItem;
         private ToolStripMenuItem activityLogsToolStripMenuItem;
         private ToolStripMenuItem backupDatabaseToolStripMenuItem;
+        private Panel panel1;
     }
 }
 
