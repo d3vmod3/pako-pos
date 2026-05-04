@@ -647,5 +647,16 @@ namespace PAKOPointOfSale
             optionsForm.SelectedOption = "Activity Logs";
             optionsForm.ShowDialog();
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            //if (!LoggedInUser.HasPermission("Sales Invoice", "view"))
+            //{
+            //    MessageBox.Show("You do not have permission to create a Sales Invoice.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return;
+            //}
+            Inventory.Inventory inventoryForm = new Inventory.Inventory();
+            inventoryForm.ShowDialog();
+        }
     }
 }

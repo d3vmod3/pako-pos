@@ -130,7 +130,7 @@ namespace PAKOPointOfSale.Products
                     string query = @"
                     INSERT INTO Products
                     (supplier_id, category_id, product_name, product_brand, product_description,barcode, product_code, 
-                     sku, quantity, unit_of_measurement, cost_price, unit_price, remarks, status, 
+                     sku, quantity,low_stock_quantity, unit_of_measurement, cost_price, unit_price, remarks, status, 
                      date_received, date_expiration,is_active,created_at)
                     VALUES
                     (@supplier_id, @category_id, @product_name, @product_brand, @product_description,@barcode, @product_code, 
@@ -159,7 +159,7 @@ namespace PAKOPointOfSale.Products
                         cmd.Parameters.AddWithValue("@is_active", chkIsActive.Checked);
                         cmd.Parameters.AddWithValue("@created_at", DateTime.Now);
 
-                        int rowsAffected = cmd.ExecuteNonQuery();
+                         int rowsAffected = cmd.ExecuteNonQuery();
 
                         if (rowsAffected > 0)
                         {
