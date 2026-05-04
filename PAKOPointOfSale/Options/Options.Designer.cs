@@ -28,29 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lbOptions = new ListBox();
+            lstOptions = new ListBox();
             grpBoxActivityLogs = new GroupBox();
             dataGridView1 = new DataGridView();
             grpBoxBackupDatabase = new GroupBox();
-            lblDescription = new Label();
-            textBox1 = new TextBox();
+            btnSaveDbaseBackupLocation = new Button();
             label1 = new Label();
-            btnSave = new Button();
+            txtDbaseLocation = new TextBox();
+            lblDescription = new Label();
+            folderBrowserDialogDbaseBackupLocation = new FolderBrowserDialog();
+            btnChoosePath = new Button();
             grpBoxActivityLogs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             grpBoxBackupDatabase.SuspendLayout();
             SuspendLayout();
             // 
-            // lbOptions
+            // lstOptions
             // 
-            lbOptions.FormattingEnabled = true;
-            lbOptions.ItemHeight = 15;
-            lbOptions.Items.AddRange(new object[] { "Activity Logs", "Backup Database" });
-            lbOptions.Location = new Point(12, 12);
-            lbOptions.Name = "lbOptions";
-            lbOptions.Size = new Size(120, 424);
-            lbOptions.TabIndex = 0;
-            lbOptions.SelectedIndexChanged += lbOptions_SelectedIndexChanged;
+            lstOptions.FormattingEnabled = true;
+            lstOptions.ItemHeight = 15;
+            lstOptions.Items.AddRange(new object[] { "Activity Logs", "Backup Database" });
+            lstOptions.Location = new Point(12, 12);
+            lstOptions.Name = "lstOptions";
+            lstOptions.Size = new Size(120, 424);
+            lstOptions.TabIndex = 0;
+            lstOptions.SelectedIndexChanged += lstOptions_SelectedIndexChanged;
             // 
             // grpBoxActivityLogs
             // 
@@ -72,9 +74,10 @@
             // 
             // grpBoxBackupDatabase
             // 
-            grpBoxBackupDatabase.Controls.Add(btnSave);
+            grpBoxBackupDatabase.Controls.Add(btnChoosePath);
+            grpBoxBackupDatabase.Controls.Add(btnSaveDbaseBackupLocation);
             grpBoxBackupDatabase.Controls.Add(label1);
-            grpBoxBackupDatabase.Controls.Add(textBox1);
+            grpBoxBackupDatabase.Controls.Add(txtDbaseLocation);
             grpBoxBackupDatabase.Controls.Add(lblDescription);
             grpBoxBackupDatabase.Location = new Point(138, 12);
             grpBoxBackupDatabase.Name = "grpBoxBackupDatabase";
@@ -82,6 +85,34 @@
             grpBoxBackupDatabase.TabIndex = 1;
             grpBoxBackupDatabase.TabStop = false;
             grpBoxBackupDatabase.Text = "Backup Database";
+            // 
+            // btnSaveDbaseBackupLocation
+            // 
+            btnSaveDbaseBackupLocation.Location = new Point(921, 398);
+            btnSaveDbaseBackupLocation.Name = "btnSaveDbaseBackupLocation";
+            btnSaveDbaseBackupLocation.Size = new Size(101, 23);
+            btnSaveDbaseBackupLocation.TabIndex = 3;
+            btnSaveDbaseBackupLocation.Text = "Save Changes";
+            btnSaveDbaseBackupLocation.UseVisualStyleBackColor = true;
+            btnSaveDbaseBackupLocation.Click += btnSaveDbaseBackupLocation_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(6, 144);
+            label1.Name = "label1";
+            label1.Size = new Size(476, 15);
+            label1.TabIndex = 2;
+            label1.Text = "Note: If the textbox is empty, the file will be saved in the same location as the application.";
+            // 
+            // txtDbaseLocation
+            // 
+            txtDbaseLocation.Location = new Point(6, 62);
+            txtDbaseLocation.Multiline = true;
+            txtDbaseLocation.Name = "txtDbaseLocation";
+            txtDbaseLocation.ReadOnly = true;
+            txtDbaseLocation.Size = new Size(486, 79);
+            txtDbaseLocation.TabIndex = 1;
             // 
             // lblDescription
             // 
@@ -92,31 +123,15 @@
             lblDescription.TabIndex = 0;
             lblDescription.Text = "Choose where the backup database file will be stored.";
             // 
-            // textBox1
+            // btnChoosePath
             // 
-            textBox1.Location = new Point(6, 64);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(486, 79);
-            textBox1.TabIndex = 1;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(6, 157);
-            label1.Name = "label1";
-            label1.Size = new Size(476, 15);
-            label1.TabIndex = 2;
-            label1.Text = "Note: If the textbox is empty, the file will be saved in the same location as the application.";
-            // 
-            // btnSave
-            // 
-            btnSave.Location = new Point(921, 398);
-            btnSave.Name = "btnSave";
-            btnSave.Size = new Size(101, 23);
-            btnSave.TabIndex = 3;
-            btnSave.Text = "Save Changes";
-            btnSave.UseVisualStyleBackColor = true;
+            btnChoosePath.Location = new Point(301, 33);
+            btnChoosePath.Name = "btnChoosePath";
+            btnChoosePath.Size = new Size(75, 23);
+            btnChoosePath.TabIndex = 4;
+            btnChoosePath.Text = "Select Folder";
+            btnChoosePath.UseVisualStyleBackColor = true;
+            btnChoosePath.Click += btnChoosePath_Click;
             // 
             // Options
             // 
@@ -125,7 +140,7 @@
             ClientSize = new Size(1178, 451);
             Controls.Add(grpBoxBackupDatabase);
             Controls.Add(grpBoxActivityLogs);
-            Controls.Add(lbOptions);
+            Controls.Add(lstOptions);
             Name = "Options";
             Text = "Options";
             Load += Options_Load;
@@ -138,13 +153,15 @@
 
         #endregion
 
-        private ListBox lbOptions;
+        private ListBox lstOptions;
         private GroupBox grpBoxActivityLogs;
         private DataGridView dataGridView1;
         private GroupBox grpBoxBackupDatabase;
-        private Button btnSave;
+        private Button btnSaveDbaseBackupLocation;
         private Label label1;
-        private TextBox textBox1;
+        private TextBox txtDbaseLocation;
         private Label lblDescription;
+        private Button btnChoosePath;
+        private FolderBrowserDialog folderBrowserDialogDbaseBackupLocation;
     }
 }

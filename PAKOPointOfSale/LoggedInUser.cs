@@ -71,11 +71,55 @@ namespace PAKOPointOfSale
 
         }
 
+
+        private static string getBackupLocation()
+        {
+            string location = "";
+            try
+            {
+                string connString = PAKOPointOfSale.Program.ConnString;
+
+                using (SqlConnection conn = new SqlConnection(connString))
+                {
+                    conn.Open();
+
+                    string sql = @"SELECT [key],value FROM options where [key]='backup_database_location'";
+
+
+                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    {
+
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                location = reader["value"].ToString();
+                                return location;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Path doesn't exist!");
+                            }
+                        }
+                    }
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading user: " + ex.Message);
+            }
+
+            return null;
+        }
+
         private static void backupDatabase()
         {
             try { 
                 string appPath = Application.StartupPath;
-                string backupFolder = Path.Combine(appPath, "Backups");
+                string backupLocation = getBackupLocation();
+                string backupFolder = !string.IsNullOrEmpty(backupLocation) ? backupLocation : Path.Combine(appPath, "Backups");
                 string dbName = "db_pos";
                 string timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
                 string backupFile = Path.Combine(backupFolder, $"{dbName}_{timestamp}.bak");

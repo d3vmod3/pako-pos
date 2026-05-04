@@ -12,6 +12,7 @@ namespace WinFormsApp1.Data
 {
     public class AppDbContext : DbContext
     {
+        public DbSet<Option> Options { get; set; }
         public DbSet<UserType> UserTypes { get; set; }
         public DbSet<Permission> Permissions { get; set; }
         public DbSet<User> Users { get; set; }
@@ -38,6 +39,10 @@ namespace WinFormsApp1.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Option>().HasData(
+                new Option { id = 1, key = "backup_database_location", value="" }
+            );
 
             modelBuilder.Entity<UserType>().HasData(
                 new UserType { id = 2, name = "Admin" },

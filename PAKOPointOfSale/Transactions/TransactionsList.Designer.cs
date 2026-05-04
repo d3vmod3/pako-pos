@@ -59,7 +59,6 @@
             pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
             lblsearchproduct = new Label();
-            pictureBox3 = new PictureBox();
             grpFilter = new GroupBox();
             label4 = new Label();
             dtpTo = new DateTimePicker();
@@ -73,7 +72,6 @@
             ((System.ComponentModel.ISupportInitialize)transactionBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             grpFilter.SuspendLayout();
             SuspendLayout();
             // 
@@ -109,7 +107,7 @@
             dataGridViewCellStyle3.ForeColor = Color.Black;
             dtgvTransactions.RowsDefaultCellStyle = dataGridViewCellStyle3;
             dtgvTransactions.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgvTransactions.Size = new Size(1343, 503);
+            dtgvTransactions.Size = new Size(1343, 585);
             dtgvTransactions.TabIndex = 0;
             dtgvTransactions.CellContentClick += dtgvTransactions_CellContentClick;
             // 
@@ -321,19 +319,6 @@
             lblsearchproduct.TabIndex = 115;
             lblsearchproduct.Text = "TRANSACTIONS LIST";
             // 
-            // pictureBox3
-            // 
-            pictureBox3.BackColor = SystemColors.ControlDarkDark;
-            pictureBox3.ErrorImage = null;
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.InitialImage = null;
-            pictureBox3.Location = new Point(-21, 683);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(1402, 91);
-            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox3.TabIndex = 151;
-            pictureBox3.TabStop = false;
-            // 
             // grpFilter
             // 
             grpFilter.Controls.Add(label4);
@@ -442,7 +427,6 @@
             ClientSize = new Size(1368, 769);
             Controls.Add(btnExport);
             Controls.Add(grpFilter);
-            Controls.Add(pictureBox3);
             Controls.Add(btnClearFilter);
             Controls.Add(lblsearchproduct);
             Controls.Add(pictureBox1);
@@ -463,7 +447,6 @@
             ((System.ComponentModel.ISupportInitialize)transactionBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             grpFilter.ResumeLayout(false);
             grpFilter.PerformLayout();
             ResumeLayout(false);
@@ -477,7 +460,6 @@
         private Label label1;
         private BindingSource transactionBindingSource;
         private TextBox textBox1;
-        private PictureBox pictureBox3;
         private PictureBox pictureBox2;
         private PictureBox pictureBox1;
         private Button btnClose;
