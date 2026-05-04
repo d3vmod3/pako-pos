@@ -81,37 +81,66 @@ namespace PAKOPointOfSale.Transactions
 
             }
         }
-        public void AddProductToCart(int id, string product, string brand, string unit, decimal price, string category, decimal quantity, decimal subTotal, bool? isPending = false, string? discountYpe = "none")
+        public void AddProductToCart(int id, string product, string brand, string unit,
+    decimal price, string category, decimal quantity, decimal subTotal,
+    bool? isPending = false, string? discountType = "none")
         {
-            // Create a new row in your DataGridView (e.g., dgvCart)
+            // 🔍 Check if product already exists
+            foreach (DataGridViewRow row in dtgvCart.Rows)
+            {
+                if (row.Cells[0].Value != null && Convert.ToInt32(row.Cells[0].Value) == id)
+                {
+                    // ✅ Product exists → update quantity
+                    decimal currentQty = Convert.ToDecimal(row.Cells[4].Value);
+                    decimal newQty = currentQty + quantity;
+
+                    row.Cells[4].Value = newQty;
+
+                    // Recompute subtotal
+                    decimal newSubTotal = newQty * price;
+                    row.Cells[9].Value = newSubTotal;
+
+                    // Recompute VAT
+                    row.Cells[10].Value = SalesInvoiceFunctions.getVATableSales(price, newQty);
+                    row.Cells[11].Value = SalesInvoiceFunctions.getVATAmount(price, newQty);
+
+                    // Optional: reapply discount if needed
+                    if (isPending == true && discountType != "none")
+                    {
+                        RecalculateAmounts(row.Index, discountType);
+                    }
+
+                    ComputeGrandTotal();
+                    return; // 🚨 stop here, don’t add new row
+                }
+            }
+
+            // ❌ If not found → add new row (your original logic)
             string VATableSales = Convert.ToString(SalesInvoiceFunctions.getVATableSales(price, quantity));
             string VATAmount = Convert.ToString(SalesInvoiceFunctions.getVATAmount(price, quantity));
 
-            //string VATExempt = Convert.ToString(SalesInvoiceFunctions.getVATExempt(price, quantity));
-
             int rowIndex = dtgvCart.Rows.Add(
-                    id,
-                    product,
-                    brand,
-                    unit,
-                    quantity,
-                    price,
-                    category,
-                    "none",
-                    "0.00",
-                    subTotal,
-                    VATableSales,
-                    VATAmount,
-                    "0.00"
-                );
+                id,
+                product,
+                brand,
+                unit,
+                quantity,
+                price,
+                category,
+                "none",
+                "0.00",
+                subTotal,
+                VATableSales,
+                VATAmount,
+                "0.00"
+            );
 
-            ComputeGrandTotal();
-            if (isPending == true && discountYpe != "none")
+            if (isPending == true && discountType != "none")
             {
-                DataGridViewRow newRow = dtgvCart.Rows[rowIndex];
-                RecalculateAmounts(rowIndex, discountYpe);
+                RecalculateAmounts(rowIndex, discountType);
             }
 
+            ComputeGrandTotal();
         }
 
         private void ComputeGrandTotal()
