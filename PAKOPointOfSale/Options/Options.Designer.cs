@@ -32,12 +32,13 @@
             grpBoxActivityLogs = new GroupBox();
             dataGridView1 = new DataGridView();
             grpBoxBackupDatabase = new GroupBox();
+            btnChoosePath = new Button();
             btnSaveDbaseBackupLocation = new Button();
             label1 = new Label();
             txtDbaseLocation = new TextBox();
             lblDescription = new Label();
             folderBrowserDialogDbaseBackupLocation = new FolderBrowserDialog();
-            btnChoosePath = new Button();
+            btnBackup = new Button();
             grpBoxActivityLogs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             grpBoxBackupDatabase.SuspendLayout();
@@ -74,6 +75,7 @@
             // 
             // grpBoxBackupDatabase
             // 
+            grpBoxBackupDatabase.Controls.Add(btnBackup);
             grpBoxBackupDatabase.Controls.Add(btnChoosePath);
             grpBoxBackupDatabase.Controls.Add(btnSaveDbaseBackupLocation);
             grpBoxBackupDatabase.Controls.Add(label1);
@@ -85,6 +87,16 @@
             grpBoxBackupDatabase.TabIndex = 1;
             grpBoxBackupDatabase.TabStop = false;
             grpBoxBackupDatabase.Text = "Backup Database";
+            // 
+            // btnChoosePath
+            // 
+            btnChoosePath.Location = new Point(301, 26);
+            btnChoosePath.Name = "btnChoosePath";
+            btnChoosePath.Size = new Size(75, 23);
+            btnChoosePath.TabIndex = 4;
+            btnChoosePath.Text = "Select Folder";
+            btnChoosePath.UseVisualStyleBackColor = true;
+            btnChoosePath.Click += btnChoosePath_Click;
             // 
             // btnSaveDbaseBackupLocation
             // 
@@ -99,7 +111,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(6, 144);
+            label1.Location = new Point(6, 137);
             label1.Name = "label1";
             label1.Size = new Size(476, 15);
             label1.TabIndex = 2;
@@ -107,7 +119,7 @@
             // 
             // txtDbaseLocation
             // 
-            txtDbaseLocation.Location = new Point(6, 62);
+            txtDbaseLocation.Location = new Point(6, 55);
             txtDbaseLocation.Multiline = true;
             txtDbaseLocation.Name = "txtDbaseLocation";
             txtDbaseLocation.ReadOnly = true;
@@ -117,21 +129,21 @@
             // lblDescription
             // 
             lblDescription.AutoSize = true;
-            lblDescription.Location = new Point(6, 37);
+            lblDescription.Location = new Point(6, 30);
             lblDescription.Name = "lblDescription";
             lblDescription.Size = new Size(289, 15);
             lblDescription.TabIndex = 0;
             lblDescription.Text = "Choose where the backup database file will be stored.";
             // 
-            // btnChoosePath
+            // btnBackup
             // 
-            btnChoosePath.Location = new Point(301, 33);
-            btnChoosePath.Name = "btnChoosePath";
-            btnChoosePath.Size = new Size(75, 23);
-            btnChoosePath.TabIndex = 4;
-            btnChoosePath.Text = "Select Folder";
-            btnChoosePath.UseVisualStyleBackColor = true;
-            btnChoosePath.Click += btnChoosePath_Click;
+            btnBackup.Location = new Point(921, 22);
+            btnBackup.Name = "btnBackup";
+            btnBackup.Size = new Size(101, 23);
+            btnBackup.TabIndex = 5;
+            btnBackup.Text = "Backup Now";
+            btnBackup.UseVisualStyleBackColor = true;
+            btnBackup.Click += btnBackup_Click;
             // 
             // Options
             // 
@@ -163,5 +175,6 @@
         private Label lblDescription;
         private Button btnChoosePath;
         private FolderBrowserDialog folderBrowserDialogDbaseBackupLocation;
+        private Button btnBackup;
     }
 }

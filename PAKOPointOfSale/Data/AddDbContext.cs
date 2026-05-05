@@ -27,8 +27,7 @@ namespace WinFormsApp1.Data
         public DbSet<SalesInvoiceItem> SalesInvoiceItems { get; set; }
         public DbSet<ParkedTransaction> ParkedTransactions { get; set; }
         public DbSet<ParkedSalesInvoiceItem> ParkedSalesInvoiceItems { get; set; }
-        
-        
+        public DbSet<ActivityLog> ActivityLogs { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {

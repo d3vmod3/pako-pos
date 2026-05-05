@@ -122,18 +122,19 @@ namespace PAKOPointOfSale
             optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             optionsToolStripMenuItem.Size = new Size(61, 20);
             optionsToolStripMenuItem.Text = "Options";
+            optionsToolStripMenuItem.Click += optionsToolStripMenuItem_Click;
             // 
             // activityLogsToolStripMenuItem
             // 
             activityLogsToolStripMenuItem.Name = "activityLogsToolStripMenuItem";
-            activityLogsToolStripMenuItem.Size = new Size(164, 22);
+            activityLogsToolStripMenuItem.Size = new Size(180, 22);
             activityLogsToolStripMenuItem.Text = "Activity Logs";
             activityLogsToolStripMenuItem.Click += activityLogsToolStripMenuItem_Click;
             // 
             // backupDatabaseToolStripMenuItem
             // 
             backupDatabaseToolStripMenuItem.Name = "backupDatabaseToolStripMenuItem";
-            backupDatabaseToolStripMenuItem.Size = new Size(164, 22);
+            backupDatabaseToolStripMenuItem.Size = new Size(180, 22);
             backupDatabaseToolStripMenuItem.Text = "Backup Database";
             backupDatabaseToolStripMenuItem.Click += backupDatabaseToolStripMenuItem_Click;
             // 

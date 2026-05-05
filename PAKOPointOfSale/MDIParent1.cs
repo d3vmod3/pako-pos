@@ -251,6 +251,13 @@ namespace PAKOPointOfSale
                 MessageBox.Show("You do not have permission to create a Sales Invoice.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Dashboard",
+                description: "Clicked Point of Sale button",
+                payload: null
+            );
             Transactions.SalesInvoice salesInvoiceForm = new Transactions.SalesInvoice();
             salesInvoiceForm.ShowDialog();
         }
@@ -270,6 +277,18 @@ namespace PAKOPointOfSale
             timeReloadData.Stop();
             DateTime fromDate = dtpFrom.Value.Date;
             DateTime toDate = dtpTo.Value.Date;
+
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Dashboard",
+                description: "Clicked Filter Button on Top 5 Selling Products Groupbox",
+                payload: new
+                {
+                    date_from = dtpFrom.Text,
+                    date_to = dtpTo.Text,
+                }
+            );
 
             if (fromDate > toDate)
             {
@@ -389,6 +408,18 @@ namespace PAKOPointOfSale
                 return;
             }
 
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Dashboard",
+                description: "Clicked Filter Button on Sales Groupbox",
+                payload: new
+                {
+                    date_from = dtpFromSales.Text,
+                    date_to = dtpToSales.Text,
+                    quick_filter = comboBoxSalesFilter?.SelectedItem?.ToString()
+                }
+            );
             LoadSales(fromDate, toDate);
 
         }
@@ -436,6 +467,16 @@ namespace PAKOPointOfSale
             var loginForm = new Login(); // Replace with your login form
             loginForm.Show();
             LoggedInUser.Logout(this);
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Logout",
+                description: "Logout",
+                payload: new
+                {
+                    status = "success"
+                }
+            );
 
         }
 
@@ -456,6 +497,13 @@ namespace PAKOPointOfSale
                 MessageBox.Show("You do not have permission to view Products.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Dashboard",
+                description: "Clicked Products button",
+                payload: null
+            );
             Products.ProductsList productsForm = new Products.ProductsList();
             productsForm.ShowDialog();
         }
@@ -467,6 +515,13 @@ namespace PAKOPointOfSale
                 MessageBox.Show("You do not have permission to view Categories.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Dashboard",
+                description: "Clicked Categories button",
+                payload: null
+            );
             Categories.CategoriesList categoriesList = new Categories.CategoriesList();
             categoriesList.ShowDialog();
         }
@@ -478,6 +533,13 @@ namespace PAKOPointOfSale
                 MessageBox.Show("You do not have permission to view Suppliers.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Dashboard",
+                description: "Suppliers Products button",
+                payload: null
+            );
             Supplier_Details.SuppliersList suppliersList = new Supplier_Details.SuppliersList();
             suppliersList.ShowDialog();
         }
@@ -489,6 +551,13 @@ namespace PAKOPointOfSale
                 MessageBox.Show("You do not have permission to view Transactions", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Dashboard",
+                description: "Transactions Products button",
+                payload: null
+            );
             Transactions.TransactionsList transactionsListForm = new Transactions.TransactionsList();
             transactionsListForm.ShowDialog();
         }
@@ -500,6 +569,13 @@ namespace PAKOPointOfSale
                 MessageBox.Show("You do not have permission to view User Accounts.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Dashboard",
+                description: "Clicked Users button",
+                payload: null
+            );
             Users.UsersList usersListForm = new Users.UsersList();
             usersListForm.ShowDialog();
         }
@@ -511,6 +587,13 @@ namespace PAKOPointOfSale
                 MessageBox.Show("You do not have permission to view User Access Control.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Dashboard",
+                description: "Clicked User Access Control button",
+                payload: null
+            );
             UAC.UAC userAccessControlForm = new UAC.UAC();
             userAccessControlForm.ShowDialog();
         }
@@ -523,6 +606,13 @@ namespace PAKOPointOfSale
         private void btnClearFilters_Click(object sender, EventArgs e)
         {
             timeReloadData.Start();
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Dashboard",
+                description: "Clicked Clear Filter Button on Sales Groupbox",
+                payload: null
+            );
             defaultFilter();
         }
 
@@ -547,6 +637,17 @@ namespace PAKOPointOfSale
             if (dtgvTop5SellingProducts.Rows.Count == 0)
             {
                 MessageBox.Show("No data to export.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ActivityLogs.Log(
+                    user: LoggedInUser.FullName,
+                    action: "click",
+                    module: "Dashboard",
+                    description: "Clicked Export button on Top 5 Selling Products",
+                    payload: new
+                    {
+                        status = "failed",
+                        message = "No data to export."
+                    }
+                );
                 return;
             }
 
@@ -592,6 +693,13 @@ namespace PAKOPointOfSale
                                 }
                             }
                         }
+                        ActivityLogs.Log(
+                            user: LoggedInUser.FullName,
+                            action: "click",
+                            module: "Dashboard",
+                            description: "Clicked Export button on Top 5 Selling Products",
+                            payload: null
+                        );
 
                         DialogResult openFile = MessageBox.Show("Do you want to open the exported file?", "Open File", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
@@ -601,14 +709,35 @@ namespace PAKOPointOfSale
                             {
                                 System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
                                 {
+
                                     FileName = csvFilePath, // or your CSV/Excel file path
                                     UseShellExecute = true
                                 });
+                                ActivityLogs.Log(
+                                    user: LoggedInUser.FullName,
+                                    action: "click",
+                                    module: "Dashboard",
+                                    description: "Clicked Yes button",
+                                    payload: new
+                                    {
+                                        status = "success"
+                                    }
+                                );
                             }
                             catch (Exception ex)
                             {
                                 MessageBox.Show("Failed to open file: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
+                        }
+                        else
+                        {
+                            ActivityLogs.Log(
+                                user: LoggedInUser.FullName,
+                                action: "click",
+                                module: "Dashboard",
+                                description: "Clicked No button",
+                                payload: null
+                            );
                         }
                     }
                     catch (Exception ex)
@@ -631,6 +760,13 @@ namespace PAKOPointOfSale
 
         private void backupDatabaseToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Dashboard",
+                description: "Clicked Options > Backup Database",
+                payload: null
+            );
             Options.Options optionsForm = new Options.Options();
             optionsForm.SelectedOption = "Backup Database";
             optionsForm.ShowDialog();
@@ -643,6 +779,13 @@ namespace PAKOPointOfSale
             //    MessageBox.Show("You do not have permission to view User Access Control.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             //    return;
             //}
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Dashboard",
+                description: "Clicked Options > Activity Logs",
+                payload: null
+            );
             Options.Options optionsForm = new Options.Options();
             optionsForm.SelectedOption = "Activity Logs";
             optionsForm.ShowDialog();
@@ -655,8 +798,26 @@ namespace PAKOPointOfSale
             //    MessageBox.Show("You do not have permission to create a Sales Invoice.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             //    return;
             //}
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Dashboard",
+                description: "Clicked Inventory button",
+                payload: null
+            );
             Inventory.Inventory inventoryForm = new Inventory.Inventory();
             inventoryForm.ShowDialog();
+        }
+
+        private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Dashboard",
+                description: "Clicked Options Menu",
+                payload: null
+            );
         }
     }
 }

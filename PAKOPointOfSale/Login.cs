@@ -35,6 +35,17 @@ namespace PAKOPointOfSale
                 LoggedInUser.LastName = lastName;
                 LoggedInUser.CurrentUserTypeId = userTypeId;
 
+                ActivityLogs.Log(
+                    user: LoggedInUser.FullName,
+                    action: "login",
+                    module: "Login",
+                    description: "Logged in successfully",
+                    payload: new
+                    {
+                        status= "Success"
+                    }
+                );
+
 
                 this.Hide();
                 MDIParent1 mainMenuForm = new MDIParent1();
@@ -91,7 +102,6 @@ namespace PAKOPointOfSale
                                 firstName = reader.GetString(reader.GetOrdinal("first_name"));
                                 lastName = reader.GetString(reader.GetOrdinal("last_name"));
                                 return user_type_id;
-
                             }
                         }
                     }

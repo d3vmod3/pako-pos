@@ -113,7 +113,7 @@ namespace PAKOPointOfSale.Options
             {
                 string connString = PAKOPointOfSale.Program.ConnString;
 
-                if(!Path.Exists(txtDbaseLocation.Text))
+                if (!Path.Exists(txtDbaseLocation.Text))
                 {
                     MessageBox.Show("Path not found. Please choose a valid directory.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -152,6 +152,21 @@ namespace PAKOPointOfSale.Options
         {
             folderBrowserDialogDbaseBackupLocation.ShowDialog();
             txtDbaseLocation.Text = folderBrowserDialogDbaseBackupLocation.SelectedPath;
+        }
+
+        private void btnBackup_Click(object sender, EventArgs e)
+        {
+            BackupDatabase.backup();
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Options > Backup database",
+                description: "Backup Database",
+                payload: new
+                {
+                    file = BackupDatabase._backupFile
+                }
+            );
         }
     }
 }
