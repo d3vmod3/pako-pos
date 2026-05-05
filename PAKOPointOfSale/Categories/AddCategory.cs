@@ -41,7 +41,7 @@ namespace PAKOPointOfSale.Categories
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-
+            
             if (!validateForm())
             {
                 return;
@@ -65,12 +65,36 @@ namespace PAKOPointOfSale.Categories
 
                         if (rowsAffected > 0)
                         {
+                            
                             MessageBox.Show("Category added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            ActivityLogs.Log(
+                                user: LoggedInUser.FullName,
+                                action: "click",
+                                module: "Add Category",
+                                description: "Clicked Submit button",
+                                payload: new
+                                {
+                                    category_name = txtCategoryName.Text,
+                                    description = txtDescription.Text,
+                                    status = "success"
+                                }
+                            );
                             this.Close();
                         }
                         else
                         {
                             MessageBox.Show("No record was inserted.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            ActivityLogs.Log(
+                                user: LoggedInUser.FullName,
+                                action: "click",
+                                module: "Add Category",
+                                description: "Clicked Submit button",
+                                payload: new
+                                {
+                                    status = "failed",
+                                    message = "No record was inserted."
+                                }
+                            );
                         }
                     }
                 }

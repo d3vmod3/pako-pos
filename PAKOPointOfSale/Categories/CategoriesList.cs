@@ -23,6 +23,13 @@ namespace PAKOPointOfSale.Categories
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Categories List",
+                description: "Clicked Add button",
+                payload: null
+            );
             AddCategory addCategory = new AddCategory();
             addCategory.ShowDialog();
             loadCategories();
@@ -95,12 +102,33 @@ namespace PAKOPointOfSale.Categories
             if (e.ColumnIndex == dataGridView1.Columns["editCategory"].Index)
             {
                 EditCategory editCategoryForm = new EditCategory(categoryId);
+                ActivityLogs.Log(
+                    user: LoggedInUser.FullName,
+                    action: "click",
+                    module: "Categories List",
+                    description: "Clicked Edit button",
+                    payload: new
+                    {
+                        category_name = categoryName,
+                    }
+                );
                 editCategoryForm.ShowDialog(); // modal so user finishes editing first
+                
                 loadCategories();
 
             }
             if (e.ColumnIndex == dataGridView1.Columns["deleteCategory"].Index)
             {
+                ActivityLogs.Log(
+                    user: LoggedInUser.FullName,
+                    action: "click",
+                    module: "Categories List",
+                    description: "Clicked Delete button",
+                    payload: new
+                    {
+                        category_name = categoryName,
+                    }
+                );
                 var result = MessageBox.Show($"Are you sure you want to delete {categoryName}?", "Warning!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
                 {
@@ -123,6 +151,17 @@ namespace PAKOPointOfSale.Categories
                                 cmd.Parameters.AddWithValue("id", categoryId);
 
                                 cmd.ExecuteNonQuery();
+                                ActivityLogs.Log(
+                                    user: LoggedInUser.FullName,
+                                    action: "click",
+                                    module: "Categories List",
+                                    description: "Clicked Delete > Yes button",
+                                    payload: new
+                                    {
+                                        category_name = categoryName,
+                                        status="success",
+                                    }
+                                );
                             }
                         }
                         loadCategories();
@@ -131,6 +170,19 @@ namespace PAKOPointOfSale.Categories
                     {
                         MessageBox.Show("Error searching users: " + ex.Message);
                     }
+                }
+                else
+                {
+                    ActivityLogs.Log(
+                    user: LoggedInUser.FullName,
+                    action: "click",
+                    module: "Categories List",
+                    description: "Clicked Delete > No or Closed button. Didn't proceed to delete",
+                    payload: new
+                    {
+                        category_name = categoryName,
+                    }
+                );
                 }
 
             }
@@ -163,6 +215,13 @@ namespace PAKOPointOfSale.Categories
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Categories List",
+                description: "Clicked Close button",
+                payload:null
+            );
             this.Close();
         }
 
@@ -176,6 +235,17 @@ namespace PAKOPointOfSale.Categories
             if (dataGridView1.Rows.Count == 0)
             {
                 MessageBox.Show("No data to export.");
+                ActivityLogs.Log(
+                    user: LoggedInUser.FullName,
+                    action: "click",
+                    module: "Categories List",
+                    description: "Clicked Export button",
+                    payload: new
+                    {
+                        status = "failed",
+                        message = "No data to export."
+                    }
+                );
                 return;
             }
 

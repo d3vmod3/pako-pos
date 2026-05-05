@@ -108,11 +108,34 @@ namespace PAKOPointOfSale.Categories
                         if (rowsAffected > 0)
                         {
                             MessageBox.Show("Category updated successfully!");
+                            ActivityLogs.Log(
+                                user: LoggedInUser.FullName,
+                                action: "click",
+                                module: "Edit Category",
+                                description: "Clicked Submit button",
+                                payload: new
+                                {
+                                    category_name = txtCategoryName.Text,
+                                    description = txtDescription.Text,
+                                    status = "success"
+                                }
+                            );
                             this.Close(); // close the EditUser form
                         }
                         else
                         {
-                            MessageBox.Show("Category not found.");
+                            MessageBox.Show("No changes made.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            ActivityLogs.Log(
+                                user: LoggedInUser.FullName,
+                                action: "click",
+                                module: "Edit Category",
+                                description: "Clicked Submit button",
+                                payload: new
+                                {
+                                    status = "failed",
+                                    message = "No changes made."
+                                }
+                            );
                         }
                     }
                 }
