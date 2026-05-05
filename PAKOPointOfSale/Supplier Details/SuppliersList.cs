@@ -77,6 +77,14 @@ namespace PAKOPointOfSale.Supplier_Details
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Suppliers List",
+                description: "Clicked Add button",
+                payload: null
+
+            );
             Supplier_Details.AddSupplierDetails addSupplierForm = new Supplier_Details.AddSupplierDetails();
             addSupplierForm.ShowDialog();
             loadSuppliers();
@@ -134,6 +142,13 @@ namespace PAKOPointOfSale.Supplier_Details
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Suppliers List",
+                description: "Clicked Close button"
+            );
             this.Close();
         }
 
@@ -141,6 +156,17 @@ namespace PAKOPointOfSale.Supplier_Details
         {
             if (suppliersTable == null || suppliersTable.Rows.Count == 0)
             {
+                ActivityLogs.Log(
+                    user: LoggedInUser.FullName,
+                    action: "click",
+                    module: "Suppliers List",
+                    description: "Clicked Filter button",
+                    payload: new
+                    {
+                        status = "failed",
+                        reason = "No data loaded"
+                    }
+                );
                 MessageBox.Show("No data loaded.");
                 return;
             }
@@ -164,6 +190,18 @@ namespace PAKOPointOfSale.Supplier_Details
                 // Apply filter to DataView
                 suppliersTable.DefaultView.RowFilter = filter;
                 dataGridView1.DataSource = suppliersTable.DefaultView;
+                ActivityLogs.Log(
+                    user: LoggedInUser.FullName,
+                    action: "click",
+                    module: "Suppliers List",
+                    description: "Clicked Filter button",
+                    payload: new
+                    {
+                        active_status = status,
+                        date_from = fromDate.ToString("yyyy-MM-dd"),
+                        date_to = toDate.ToString("yyyy-MM-dd")
+                    }
+                );
             }
             catch (Exception ex)
             {
@@ -175,10 +213,18 @@ namespace PAKOPointOfSale.Supplier_Details
         {
             try
             {
+                ActivityLogs.Log(
+                    user: LoggedInUser.FullName,
+                    action: "click",
+                    module: "Suppliers List",
+                    description: "Clicked Export button",
+                    payload: null
+                );
                 using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "CSV files (*.csv)|*.csv", FileName = "Suppliers.csv" })
                 {
                     if (sfd.ShowDialog() == DialogResult.OK)
                     {
+
                         StringBuilder csv = new StringBuilder();
 
                         // Add header row (only visible columns with non-empty header)
@@ -199,17 +245,42 @@ namespace PAKOPointOfSale.Supplier_Details
                         // Write to file
                         File.WriteAllText(sfd.FileName, csv.ToString(), Encoding.UTF8);
 
+                        ActivityLogs.Log(
+                            user: LoggedInUser.FullName,
+                            action: "click",
+                            module: "Suppliers List",
+                            description: "Saved CSV File",
+                            payload: new
+                            {
+                                file = sfd.FileName
+                            }
+                        );
                         // Ask user if they want to open the file
                         var result = MessageBox.Show("CSV exported successfully!\nDo you want to open it now?", "Export Complete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                         if (result == DialogResult.Yes)
                         {
+
                             System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo()
                             {
                                 FileName = sfd.FileName,
                                 UseShellExecute = true
                             });
                         }
+
+                    }
+                    else
+                    {
+                        ActivityLogs.Log(
+                            user: LoggedInUser.FullName,
+                            action: "click",
+                            module: "Suppliers List",
+                            description: "Saved CSV File",
+                            payload: new
+                            {
+                                file = sfd.FileName
+                            }
+                        );
                     }
                 }
             }
@@ -221,6 +292,13 @@ namespace PAKOPointOfSale.Supplier_Details
 
         private void btnClearFilter_Click(object sender, EventArgs e)
         {
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Suppliers List",
+                description: "Clicked Clear Filter button",
+                payload: null
+            );
             loadSuppliers();
         }
 

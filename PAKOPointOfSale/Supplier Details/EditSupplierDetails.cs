@@ -154,11 +154,41 @@ namespace PAKOPointOfSale.Supplier_Details
 
                         if (rowsAffected > 0)
                         {
+                            ActivityLogs.Log(
+                                user: LoggedInUser.FullName,
+                                action: "click",
+                                module: "Edit Supplier Details",
+                                description: "Clicked Submit button",
+                                payload: new
+                                {
+                                    name = txtSupplierName.Text,
+                                    address = txtAddress.Text,
+                                    contactNumber = txtContactNumber.Text,
+                                    email = txtEmail.Text,
+                                    is_active = chkIsActive.Checked,
+                                }
+                            );
                             MessageBox.Show("Supplier updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             this.Close(); // or refresh the list form
                         }
                         else
                         {
+                            ActivityLogs.Log(
+                                user: LoggedInUser.FullName,
+                                action: "click",
+                                module: "Edit Supplier Details",
+                                description: "Clicked Submit button",
+                                payload: new
+                                {
+                                    name = txtSupplierName.Text,
+                                    address = txtAddress.Text,
+                                    contactNumber = txtContactNumber.Text,
+                                    email = txtEmail.Text,
+                                    is_active = chkIsActive.Checked,
+                                    status = "failed",
+                                    message = "No rows were inserted."
+                                }
+                            );
                             MessageBox.Show("No supplier record was updated.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
@@ -199,6 +229,13 @@ namespace PAKOPointOfSale.Supplier_Details
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Edit Supplier Details",
+                description: "Clicked Cancel button",
+                payload: null
+            );
             this.Close();
         }
 
