@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading.Channels;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinFormsApp1.Data;
@@ -216,13 +217,13 @@ namespace PAKOPointOfSale.UAC
                     return;
                 }
 
-                // Commit any edits in DataGridView
                 dataGridView1.EndEdit();
 
-
-
                 int userTypeId = Convert.ToInt32(cmbRole.SelectedValue);
+                string roleName = cmbRole.Text;
                 string connString = Program.ConnString;
+
+                var changes = new List<object>();
 
                 using (SqlConnection conn = new SqlConnection(connString))
                 {
@@ -232,24 +233,36 @@ namespace PAKOPointOfSale.UAC
                     {
                         if (row.IsNewRow) continue;
 
-
-                        // ✅ Correct column names based on your SELECT query
                         string moduleName = row.Cells["module_name2"].Value?.ToString();
+
                         bool canView = Convert.ToBoolean(row.Cells["can_view2"].Value ?? false);
                         bool canAdd = Convert.ToBoolean(row.Cells["can_add2"].Value ?? false);
                         bool canEdit = Convert.ToBoolean(row.Cells["can_edit2"].Value ?? false);
                         bool canDelete = Convert.ToBoolean(row.Cells["can_delete2"].Value ?? false);
 
+                        // Collect changes for logging
+                        changes.Add(new
+                        {
+                            module = moduleName,
+                            permissions = new
+                            {
+                                can_view = canView,
+                                can_add = canAdd,
+                                can_edit = canEdit,
+                                can_delete = canDelete
+                            }
+                        });
+
                         string updateQuery = @"
-                            UPDATE Permissions
-                            SET 
-                                can_view = @can_view,
-                                can_add = @can_add,
-                                can_edit = @can_edit,
-                                can_delete = @can_delete
-                            WHERE user_type_id = @user_type_id 
-                            AND module_name = @module_name;
-                        ";
+                                                UPDATE Permissions
+                                                SET 
+                                                    can_view = @can_view,
+                                                    can_add = @can_add,
+                                                    can_edit = @can_edit,
+                                                    can_delete = @can_delete
+                                                WHERE user_type_id = @user_type_id 
+                                                AND module_name = @module_name;
+                                            ";
 
                         using (SqlCommand cmd = new SqlCommand(updateQuery, conn))
                         {
@@ -265,18 +278,38 @@ namespace PAKOPointOfSale.UAC
                     }
                 }
 
+                // ✅ Log AFTER successful update
+                ActivityLogs.Log(
+                    user: LoggedInUser.FullName,
+                    action: "click",
+                    module: "User Access Control",
+                    description: "Clicked Update Changes button",
+                    payload: new
+                    {
+                        role_id = userTypeId,
+                        role_name = roleName,
+                        total_modules = changes.Count,
+                        updated_modules = changes
+                    }
+                );
+
                 MessageBox.Show("Permissions successfully updated.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error saving permissions: " + ex.Message);
             }
-
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "User Access Control",
+                description: "Clicked Close button",
+                payload: null
+            );
         }
 
         private void btnClose_Click(object sender, EventArgs e)

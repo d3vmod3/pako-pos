@@ -141,11 +141,31 @@ namespace PAKOPointOfSale.Users
 
                         if (rowsAffected > 0)
                         {
+                            ActivityLogs.Log(
+                                user: LoggedInUser.FullName,
+                                action: "click",
+                                module: "Edit User",
+                                description: "Clicked Submit button",
+                                payload: new
+                                {
+                                    username = txtUsername.Text,
+                                    first_name = txtFirstName.Text,
+                                    middle_name = txtMiddleName.Text,
+                                    last_name = txtLastName.Text,
+                                    birthday = dtpBirthdate.Value,
+                            });
                             MessageBox.Show("User updated successfully!");
                             this.Close(); // close the EditUser form
                         }
                         else
                         {
+                            ActivityLogs.Log(
+                                user: LoggedInUser.FullName,
+                                action: "click",
+                                module: "Edit User",
+                                description: "Clicked Submit button",
+                                payload: null
+                            );
                             MessageBox.Show("User not found.");
                         }
                     }
@@ -243,12 +263,26 @@ namespace PAKOPointOfSale.Users
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Edit User",
+                description: "Clicked Close button",
+                payload: null
+            );
             this.Close();
         }
 
         private void btnReset_Click(object sender, EventArgs e)
         {
             var confirmForm = new ActionConfirmation("Please confirm admin credentials to proceed.", true, "reset password");
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Edit User",
+                description: "Clicked Reset Password button",
+                payload: null
+            );
             if (confirmForm.ShowDialog() == DialogResult.OK)
             {
                 string connString = PAKOPointOfSale.Program.ConnString;
@@ -276,6 +310,16 @@ namespace PAKOPointOfSale.Users
 
                         if (rowsAffected > 0)
                         {
+                            ActivityLogs.Log(
+                                user: LoggedInUser.FullName,
+                                action: "click",
+                                module: "Edit User",
+                                description: "Clicked Reset Password > Confirm button",
+                                payload: new
+                                {
+                                    status="success"
+                                }
+                            );
                             MessageBox.Show("Password was successfully reset!");
                         }
                         else

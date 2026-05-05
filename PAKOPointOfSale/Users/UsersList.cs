@@ -107,6 +107,15 @@ namespace PAKOPointOfSale.Users
         private void btnAdd_Click(object sender, EventArgs e)
         {
             AddUser adduser = new AddUser();
+
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Users List",
+                description: "Clicked Add button",
+                payload: null
+            );
+
             adduser.ShowDialog();
             loadUsers();
         }
@@ -138,6 +147,13 @@ namespace PAKOPointOfSale.Users
 
         private void button2_Click(object sender, EventArgs e)
         {
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Users List",
+                description: "Clicked Close button",
+                payload: null
+            );
             this.Close();
         }
 
@@ -147,6 +163,106 @@ namespace PAKOPointOfSale.Users
             {
                 this.Close(); // Hide the current form
                 e.Handled = true; // Prevent further processing of the key event
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.Rows.Count == 0)
+            {
+                MessageBox.Show("No data to export.");
+                ActivityLogs.Log(
+                    user: LoggedInUser.FullName,
+                    action: "click",
+                    module: "Categories List",
+                    description: "Clicked Export button",
+                    payload: new
+                    {
+                        status = "failed",
+                        message = "No data to export."
+                    }
+                );
+                return;
+            }
+
+            try
+            {
+                // Ask where to save the CSV
+                using (SaveFileDialog sfd = new SaveFileDialog()
+                {
+                    Filter = "CSV files (*.csv)|*.csv",
+                    FileName = "Categories.csv"
+                })
+                {
+                    if (sfd.ShowDialog() == DialogResult.OK)
+                    {
+                        StringBuilder csvContent = new StringBuilder();
+
+                        // Include only visible columns
+                        var visibleColumns = dataGridView1.Columns
+                            .Cast<DataGridViewColumn>()
+                            .Where(c => c.Visible && !string.Equals(c.HeaderText, "", StringComparison.OrdinalIgnoreCase))
+                            .ToList();
+
+                        // Write header row
+                        csvContent.AppendLine(string.Join(",", visibleColumns.Select(c => "\"" + c.HeaderText + "\"")));
+
+                        // Write data rows
+                        foreach (DataGridViewRow row in dataGridView1.Rows)
+                        {
+                            if (row.IsNewRow) continue; // skip the new row placeholder
+
+                            var values = visibleColumns.Select(c =>
+                            {
+                                var cellValue = row.Cells[c.Index].Value?.ToString() ?? "";
+                                // Escape double quotes for CSV
+                                return "\"" + cellValue.Replace("\"", "\"\"") + "\"";
+                            });
+
+                            csvContent.AppendLine(string.Join(",", values));
+                        }
+
+                        // Save the CSV file
+                        File.WriteAllText(sfd.FileName, csvContent.ToString(), Encoding.UTF8);
+                        ActivityLogs.Log(
+                            user: LoggedInUser.FullName,
+                            action: "click",
+                            module: "Users List",
+                            description: "Saved CSV File",
+                            payload: new
+                            {
+                                file = sfd.FileName
+                            }
+                        );
+                        // Ask to open it
+                        var result = MessageBox.Show("Export successful! Do you want to open the file?", "Export Complete", MessageBoxButtons.YesNo);
+                        if (result == DialogResult.Yes)
+                        {
+                            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo()
+                            {
+                                FileName = sfd.FileName,
+                                UseShellExecute = true
+                            });
+                        }
+                    }
+                    else
+                    {
+                        ActivityLogs.Log(
+                            user: LoggedInUser.FullName,
+                            action: "click",
+                            module: "Users List",
+                            description: "Clicked Cancelled",
+                            payload: new
+                            {
+                                file = sfd.FileName
+                            }
+                        );
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error exporting CSV: " + ex.Message);
             }
         }
     }

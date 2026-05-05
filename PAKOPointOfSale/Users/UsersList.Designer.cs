@@ -290,8 +290,9 @@
             button1.Name = "button1";
             button1.Size = new Size(79, 27);
             button1.TabIndex = 7;
-            button1.Text = "Print";
+            button1.Text = "Export";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // button2
             // 

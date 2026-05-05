@@ -95,6 +95,20 @@ namespace PAKOPointOfSale.Users
                         cmd.ExecuteNonQuery();
                     }
 
+                    ActivityLogs.Log(
+                        user: LoggedInUser.FullName,
+                        action: "click",
+                        module: "Add User",
+                        description: "Clicked Submit button",
+                        payload: new
+                        {
+                            username = txtUsername.Text,
+                            first_name = txtFirstName.Text,
+                            middle_name = txtMiddleName.Text,
+                            last_name = txtLastName.Text,
+                            birthday = dtpBirthdate.Value,
+                    });
+
                     MessageBox.Show("User added successfully!");
                     this.Close();
                 }
@@ -190,6 +204,13 @@ namespace PAKOPointOfSale.Users
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Add User",
+                description: "Clicked Close button",
+                payload: null
+            );
             this.Close();
         }
 
