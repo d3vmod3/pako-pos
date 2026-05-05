@@ -30,6 +30,19 @@ namespace PAKOPointOfSale.Products.Filters
                 return;
             }
 
+
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Products List Filter by Date Created",
+                description: "Clicked Filter button",
+                payload: new
+                {
+                    date_from = DateFrom,
+                    date_to = DateTo
+                }
+            );
+
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
@@ -45,6 +58,13 @@ namespace PAKOPointOfSale.Products.Filters
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Products List Filter by Date Created",
+                description: "Clicked Close button",
+                payload: null
+            );
             this.Close();
         }
 

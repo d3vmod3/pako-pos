@@ -403,11 +403,83 @@ namespace PAKOPointOfSale.Products
 
                     if (rowsAffected > 0)
                     {
+                        ActivityLogs.Log(
+                            user: LoggedInUser.FullName,
+                            action: "click",
+                            module: "Edit Product",
+                            description: "Update Product",
+                            payload: new
+                            {
+                                supplier = cmbSupplier.SelectedItem?.ToString(),
+                                category = cmbCategory.SelectedItem?.ToString(),
+
+                                product_name = txtProductName.Text.Trim(),
+                                product_brand = txtProductBrand.Text.Trim(),
+                                product_description = txtDescription.Text.Trim(),
+
+                                barcode = txtBarcode.Text.Trim(),
+                                product_code = txtProductCode.Text.Trim(),
+                                sku = txtSKU.Text.Trim(),
+
+                                quantity = decimal.TryParse(num_quantity.Text, out var qty) ? qty : 0,
+                                low_stock_quantity = decimal.TryParse(num_low_quantity.Text, out var lowQty) ? lowQty : 0,
+
+                                unit_of_measurement = cmbUnitofMeasurements.Text.Trim(),
+
+                                cost_price = decimal.TryParse(num_costPrice.Text, out var cost) ? cost : 0,
+                                unit_price = decimal.TryParse(num_unitPrice.Text, out var price) ? price : 0,
+
+                                remarks = txtRemarks.Text.Trim(),
+                                status = cmbStatus.Text.Trim(),
+
+                                date_received = dtpDateReceived.Value,
+                                date_expiration = dtpDateExpiration.Value,
+
+                                is_active = chkIsActive.Checked
+                            }
+                        );
                         MessageBox.Show("Product updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close(); // or reload your products grid
                     }
                     else
                     {
+                        ActivityLogs.Log(
+                            user: LoggedInUser.FullName,
+                            action: "click",
+                            module: "Edit Product",
+                            description: "Update Product",
+                            payload: new
+                            {
+                                status = "failed",
+                                message = "No changes were made.",
+                                supplier = cmbSupplier.SelectedItem?.ToString(),
+                                category = cmbCategory.SelectedItem?.ToString(),
+
+                                product_name = txtProductName.Text.Trim(),
+                                product_brand = txtProductBrand.Text.Trim(),
+                                product_description = txtDescription.Text.Trim(),
+
+                                barcode = txtBarcode.Text.Trim(),
+                                product_code = txtProductCode.Text.Trim(),
+                                sku = txtSKU.Text.Trim(),
+
+                                quantity = decimal.TryParse(num_quantity.Text, out var qty) ? qty : 0,
+                                low_stock_quantity = decimal.TryParse(num_low_quantity.Text, out var lowQty) ? lowQty : 0,
+
+                                unit_of_measurement = cmbUnitofMeasurements.Text.Trim(),
+
+                                cost_price = decimal.TryParse(num_costPrice.Text, out var cost) ? cost : 0,
+                                unit_price = decimal.TryParse(num_unitPrice.Text, out var price) ? price : 0,
+
+                                remarks = txtRemarks.Text.Trim(),
+                                product_status = cmbStatus.Text.Trim(),
+
+                                date_received = dtpDateReceived.Value,
+                                date_expiration = dtpDateExpiration.Value,
+
+                                is_active = chkIsActive.Checked
+                            }
+                        );
                         MessageBox.Show("No changes were made.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
@@ -421,6 +493,13 @@ namespace PAKOPointOfSale.Products
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Edit Product",
+                description: "Clicked close button",
+                payload: null
+            );
             this.Close();
         }
 

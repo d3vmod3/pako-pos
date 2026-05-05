@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace PAKOPointOfSale.Products.Filters
 {
@@ -30,6 +31,16 @@ namespace PAKOPointOfSale.Products.Filters
             if (cmbStatus.SelectedItem.ToString() != "")
             {
                 StatusType = cmbStatus.SelectedItem.ToString();
+                ActivityLogs.Log(
+                    user: LoggedInUser.FullName,
+                    action: "click",
+                    module: "Products List Filter by Status",
+                    description: "Clicked Filter button",
+                    payload: new
+                    {
+                        product_status = cmbStatus.SelectedItem?.ToString(),
+                    }
+                );
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
@@ -44,6 +55,13 @@ namespace PAKOPointOfSale.Products.Filters
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Products List Filter by Status",
+                description: "Clicked Close button",
+                payload: null
+            );
             this.Close();
         }
 

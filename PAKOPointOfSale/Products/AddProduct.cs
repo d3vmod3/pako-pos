@@ -159,15 +159,87 @@ namespace PAKOPointOfSale.Products
                         cmd.Parameters.AddWithValue("@is_active", chkIsActive.Checked);
                         cmd.Parameters.AddWithValue("@created_at", DateTime.Now);
 
-                         int rowsAffected = cmd.ExecuteNonQuery();
+                        int rowsAffected = cmd.ExecuteNonQuery();
 
                         if (rowsAffected > 0)
                         {
+                            ActivityLogs.Log(
+                                user: LoggedInUser.FullName,
+                                action: "click",
+                                module: "Add Product",
+                                description: "Created new product",
+                                payload: new
+                                {
+                                    supplier = cmbSupplier.SelectedItem?.ToString(),
+                                    category = cmbCategory.SelectedItem?.ToString(),
+
+                                    product_name = txtProductName.Text.Trim(),
+                                    product_brand = txtProductBrand.Text.Trim(),
+                                    product_description = txtDescription.Text.Trim(),
+
+                                    barcode = txtBarcode.Text.Trim(),
+                                    product_code = txtProductCode.Text.Trim(),
+                                    sku = txtSKU.Text.Trim(),
+
+                                    quantity = decimal.TryParse(num_quantity.Text, out var qty) ? qty : 0,
+                                    low_stock_quantity = decimal.TryParse(num_low_quantity.Text, out var lowQty) ? lowQty : 0,
+
+                                    unit_of_measurement = cmbUnitofMeasurements.Text.Trim(),
+
+                                    cost_price = decimal.TryParse(num_costPrice.Text, out var cost) ? cost : 0,
+                                    unit_price = decimal.TryParse(num_unitPrice.Text, out var price) ? price : 0,
+
+                                    remarks = txtRemarks.Text.Trim(),
+                                    product_status = cmbStatus.Text.Trim(),
+
+                                    date_received = dtpDateReceived.Value,
+                                    date_expiration = dtpDateExpiration.Value,
+
+                                    is_active = chkIsActive.Checked
+                                }
+                            );
                             MessageBox.Show("Product added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             this.Close(); // close the AddProduct form
                         }
                         else
                         {
+                            ActivityLogs.Log(
+                                user: LoggedInUser.FullName,
+                                action: "click",
+                                module: "Add Product",
+                                description: "Created new product",
+                                payload: new
+                                {
+                                    status = "failed",
+                                    message = "No rows were inserted.",
+                                    supplier = cmbSupplier.SelectedItem?.ToString(),
+                                    category = cmbCategory.SelectedItem?.ToString(),
+
+                                    product_name = txtProductName.Text.Trim(),
+                                    product_brand = txtProductBrand.Text.Trim(),
+                                    product_description = txtDescription.Text.Trim(),
+
+                                    barcode = txtBarcode.Text.Trim(),
+                                    product_code = txtProductCode.Text.Trim(),
+                                    sku = txtSKU.Text.Trim(),
+
+                                    quantity = decimal.TryParse(num_quantity.Text, out var qty) ? qty : 0,
+                                    low_stock_quantity = decimal.TryParse(num_low_quantity.Text, out var lowQty) ? lowQty : 0,
+
+                                    unit_of_measurement = cmbUnitofMeasurements.Text.Trim(),
+
+                                    cost_price = decimal.TryParse(num_costPrice.Text, out var cost) ? cost : 0,
+                                    unit_price = decimal.TryParse(num_unitPrice.Text, out var price) ? price : 0,
+
+                                    remarks = txtRemarks.Text.Trim(),
+                                    product_status = cmbStatus.Text.Trim(),
+
+                                    date_received = dtpDateReceived.Value,
+                                    date_expiration = dtpDateExpiration.Value,
+
+                                    is_active = chkIsActive.Checked
+                                }
+                            );
                             MessageBox.Show("No rows were inserted.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                     }
@@ -341,6 +413,13 @@ namespace PAKOPointOfSale.Products
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Add Product",
+                description: "Clicked close button",
+                payload: null
+            );
             this.Close();
         }
 

@@ -147,7 +147,8 @@ namespace PAKOPointOfSale.Supplier_Details
                 user: LoggedInUser.FullName,
                 action: "click",
                 module: "Suppliers List",
-                description: "Clicked Close button"
+                description: "Clicked Close button",
+                payload: null
             );
             this.Close();
         }
@@ -275,7 +276,7 @@ namespace PAKOPointOfSale.Supplier_Details
                             user: LoggedInUser.FullName,
                             action: "click",
                             module: "Suppliers List",
-                            description: "Saved CSV File",
+                            description: "Clicked Cancel button",
                             payload: new
                             {
                                 file = sfd.FileName
@@ -295,7 +296,7 @@ namespace PAKOPointOfSale.Supplier_Details
             ActivityLogs.Log(
                 user: LoggedInUser.FullName,
                 action: "click",
-                module: "Suppliers List",
+                module: "Products List",
                 description: "Clicked Clear Filter button",
                 payload: null
             );

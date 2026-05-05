@@ -24,6 +24,16 @@ namespace PAKOPointOfSale.Products.Filters
             SelectedQuantity = num_quantity.Value;
 
             // close the dialog with OK result
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Products List Filter by Stocks",
+                description: "Clicked Filter button",
+                payload: new
+                {
+                    product_status = num_quantity.Text.ToString(),
+                }
+            );
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
@@ -35,6 +45,16 @@ namespace PAKOPointOfSale.Products.Filters
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Products List Filter by Stocks",
+                description: "Clicked Cancel button",
+                payload: new
+                {
+                    product_status = num_quantity.Text.ToString(),
+                }
+            );
             this.Close();
         }
 

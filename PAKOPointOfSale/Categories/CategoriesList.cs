@@ -288,7 +288,16 @@ namespace PAKOPointOfSale.Categories
 
                         // Save the CSV file
                         File.WriteAllText(sfd.FileName, csvContent.ToString(), Encoding.UTF8);
-
+                        ActivityLogs.Log(
+                            user: LoggedInUser.FullName,
+                            action: "click",
+                            module: "Categories List",
+                            description: "Saved CSV File",
+                            payload: new
+                            {
+                                file = sfd.FileName
+                            }
+                        );
                         // Ask to open it
                         var result = MessageBox.Show("Export successful! Do you want to open the file?", "Export Complete", MessageBoxButtons.YesNo);
                         if (result == DialogResult.Yes)
@@ -299,6 +308,19 @@ namespace PAKOPointOfSale.Categories
                                 UseShellExecute = true
                             });
                         }
+                    }
+                    else
+                    {
+                        ActivityLogs.Log(
+                            user: LoggedInUser.FullName,
+                            action: "click",
+                            module: "Suppliers List",
+                            description: "Clicked Cancelled",
+                            payload: new
+                            {
+                                file = sfd.FileName
+                            }
+                        );
                     }
                 }
             }

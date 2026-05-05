@@ -29,6 +29,13 @@ namespace PAKOPointOfSale.Products
         private void btnAdd_Click(object sender, EventArgs e)
         {
             Products.AddProducts addProductForm = new Products.AddProducts();
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Products List",
+                description: "Clicked Add button",
+                payload: null
+            );
             addProductForm.ShowDialog();
             LoadProducts();
 
@@ -161,6 +168,13 @@ namespace PAKOPointOfSale.Products
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Products List",
+                description: "Clicked Close button",
+                payload: null
+            );
             this.Close();
         }
 
@@ -171,12 +185,24 @@ namespace PAKOPointOfSale.Products
 
         private void btnFilter_Click(object sender, EventArgs e)
         {
+            
+            
             if (cmbFilterType.SelectedIndex <= 0)
             {
                 MessageBox.Show("Please choose filter type", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 cmbFilterType.Focus();
                 return;
             }
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Products List",
+                description: "Clicked Filter button",
+                payload: new
+                {
+                    filter_type = cmbFilterType.SelectedItem?.ToString()
+                }
+            );
             string selected = cmbFilterType.SelectedItem.ToString();
             if (selected == "Stock")
             {
@@ -394,63 +420,110 @@ namespace PAKOPointOfSale.Products
 
         private void btnExport_Click(object sender, EventArgs e)
         {
-            using (SaveFileDialog sfd = new SaveFileDialog())
+            if (dataGridView1.Rows.Count == 0)
             {
-                sfd.Filter = "CSV files (*.csv)|*.csv";
-                sfd.FileName = "ExportedData.csv";
-                sfd.Title = "Save as CSV";
-
-                if (sfd.ShowDialog() == DialogResult.OK)
-                {
-                    try
+                MessageBox.Show("No data to export.");
+                ActivityLogs.Log(
+                    user: LoggedInUser.FullName,
+                    action: "click",
+                    module: "Products List",
+                    description: "Clicked Export button",
+                    payload: new
                     {
-                        using (StreamWriter sw = new StreamWriter(sfd.FileName, false, Encoding.UTF8))
+                        status = "failed",
+                        message = "No data to export."
+                    }
+                );
+                return;
+            }
+            try
+            {
+                using (SaveFileDialog sfd = new SaveFileDialog())
+                {
+                    sfd.Filter = "CSV files (*.csv)|*.csv";
+                    sfd.FileName = "ExportedData.csv";
+                    sfd.Title = "Save as CSV";
+
+                    if (sfd.ShowDialog() == DialogResult.OK)
+                    {
+                        try
                         {
-                            var visibleColumns = dataGridView1.Columns
-                                .Cast<DataGridViewColumn>()
-                                .Where(c => c.Visible && !string.Equals(c.HeaderText, "", StringComparison.OrdinalIgnoreCase))
-                                .ToList();
-
-                            // Write header
-                            sw.WriteLine(string.Join(",", visibleColumns.Select(c => QuoteCsv(c.HeaderText))));
-
-                            // Write rows
-                            foreach (DataGridViewRow row in dataGridView1.Rows)
+                            using (StreamWriter sw = new StreamWriter(sfd.FileName, false, Encoding.UTF8))
                             {
-                                if (!row.IsNewRow)
+                                var visibleColumns = dataGridView1.Columns
+                                    .Cast<DataGridViewColumn>()
+                                    .Where(c => c.Visible && !string.Equals(c.HeaderText, "", StringComparison.OrdinalIgnoreCase))
+                                    .ToList();
+
+                                // Write header
+                                sw.WriteLine(string.Join(",", visibleColumns.Select(c => QuoteCsv(c.HeaderText))));
+
+                                // Write rows
+                                foreach (DataGridViewRow row in dataGridView1.Rows)
                                 {
-                                    var cells = visibleColumns.Select(c =>
+                                    if (!row.IsNewRow)
                                     {
-                                        var value = row.Cells[c.Index].Value?.ToString() ?? "";
-
-                                        // Prevent barcode scientific notation
-                                        if (c.HeaderText.ToLower().Contains("barcode"))
+                                        var cells = visibleColumns.Select(c =>
                                         {
-                                            value = "=\"" + value + "\""; // Keeps exact digits
-                                        }
+                                            var value = row.Cells[c.Index].Value?.ToString() ?? "";
 
-                                        return QuoteCsv(value);
-                                    });
+                                            // Prevent barcode scientific notation
+                                            if (c.HeaderText.ToLower().Contains("barcode"))
+                                            {
+                                                value = "=\"" + value + "\""; // Keeps exact digits
+                                            }
 
-                                    sw.WriteLine(string.Join(",", cells));
+                                            return QuoteCsv(value);
+                                        });
+
+                                        sw.WriteLine(string.Join(",", cells));
+                                    }
                                 }
                             }
+
+                            ActivityLogs.Log(
+                                user: LoggedInUser.FullName,
+                                action: "click",
+                                module: "Products List",
+                                description: "Saved CSV File",
+                                payload: new
+                                {
+                                    file = sfd.FileName
+                                }
+                            );
+
+                            MessageBox.Show("Data successfully exported to CSV!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            // 🔹 Automatically open the file
+                            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo()
+                            {
+                                FileName = sfd.FileName,
+                                UseShellExecute = true
+                            });
                         }
-
-                        MessageBox.Show("Data successfully exported to CSV!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        // 🔹 Automatically open the file
-                        System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo()
+                        catch (Exception ex)
                         {
-                            FileName = sfd.FileName,
-                            UseShellExecute = true
-                        });
+                            MessageBox.Show($"Error exporting data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        MessageBox.Show($"Error exporting data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        ActivityLogs.Log(
+                            user: LoggedInUser.FullName,
+                            action: "click",
+                            module: "Products List",
+                            description: "Clicked Cancel button",
+                            payload: new
+                            {
+                                file = sfd.FileName
+                            }
+                        );
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Unexpected error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
