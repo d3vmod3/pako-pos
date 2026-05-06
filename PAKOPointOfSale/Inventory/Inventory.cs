@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinFormsApp1.Model;
 
 namespace PAKOPointOfSale.Inventory
 {
@@ -164,6 +165,16 @@ namespace PAKOPointOfSale.Inventory
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Inventory",
+                description: "Clicked submit button",
+                payload: new
+                {
+                    product = txSearchQuery.Text,
+                }
+            );
             LoadRecentlyAddedProducts();
             LoadLowStockProducts();
             LoadOutOfStocks();
