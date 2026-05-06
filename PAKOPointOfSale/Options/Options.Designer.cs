@@ -28,20 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             lstOptions = new ListBox();
             grpBoxActivityLogs = new GroupBox();
-            dataGridView1 = new DataGridView();
+            btnExport = new Button();
+            btnFilter = new Button();
+            label4 = new Label();
+            dtpTo = new DateTimePicker();
+            label3 = new Label();
+            dtpFrom = new DateTimePicker();
+            dgvActivityLogs = new DataGridView();
+            timestamp = new DataGridViewTextBoxColumn();
+            user = new DataGridViewTextBoxColumn();
+            module = new DataGridViewTextBoxColumn();
+            action = new DataGridViewTextBoxColumn();
+            description = new DataGridViewTextBoxColumn();
+            payload = new DataGridViewTextBoxColumn();
             grpBoxBackupDatabase = new GroupBox();
+            btnBackup = new Button();
             btnChoosePath = new Button();
             btnSaveDbaseBackupLocation = new Button();
             label1 = new Label();
             txtDbaseLocation = new TextBox();
             lblDescription = new Label();
             folderBrowserDialogDbaseBackupLocation = new FolderBrowserDialog();
-            btnBackup = new Button();
+            addActivityLogsTableBindingSource = new BindingSource(components);
+            addActivityLogsTableBindingSource1 = new BindingSource(components);
             grpBoxActivityLogs.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvActivityLogs).BeginInit();
             grpBoxBackupDatabase.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)addActivityLogsTableBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)addActivityLogsTableBindingSource1).BeginInit();
             SuspendLayout();
             // 
             // lstOptions
@@ -57,21 +74,129 @@
             // 
             // grpBoxActivityLogs
             // 
-            grpBoxActivityLogs.Controls.Add(dataGridView1);
+            grpBoxActivityLogs.Controls.Add(btnExport);
+            grpBoxActivityLogs.Controls.Add(btnFilter);
+            grpBoxActivityLogs.Controls.Add(label4);
+            grpBoxActivityLogs.Controls.Add(dtpTo);
+            grpBoxActivityLogs.Controls.Add(label3);
+            grpBoxActivityLogs.Controls.Add(dtpFrom);
+            grpBoxActivityLogs.Controls.Add(dgvActivityLogs);
             grpBoxActivityLogs.Location = new Point(138, 12);
             grpBoxActivityLogs.Name = "grpBoxActivityLogs";
             grpBoxActivityLogs.Size = new Size(1028, 427);
             grpBoxActivityLogs.TabIndex = 0;
             grpBoxActivityLogs.TabStop = false;
             grpBoxActivityLogs.Text = "Activity Logs";
+            grpBoxActivityLogs.Enter += grpBoxActivityLogs_Enter;
             // 
-            // dataGridView1
+            // btnExport
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(6, 22);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(1016, 399);
-            dataGridView1.TabIndex = 0;
+            btnExport.Location = new Point(469, 31);
+            btnExport.Name = "btnExport";
+            btnExport.Size = new Size(75, 23);
+            btnExport.TabIndex = 160;
+            btnExport.Text = "Export CSV";
+            btnExport.UseVisualStyleBackColor = true;
+            btnExport.Click += btnExport_Click;
+            // 
+            // btnFilter
+            // 
+            btnFilter.Location = new Point(388, 31);
+            btnFilter.Name = "btnFilter";
+            btnFilter.Size = new Size(75, 23);
+            btnFilter.TabIndex = 159;
+            btnFilter.Text = "Filter";
+            btnFilter.UseVisualStyleBackColor = true;
+            btnFilter.Click += btnFilter_Click;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Location = new Point(196, 15);
+            label4.Name = "label4";
+            label4.Size = new Size(51, 15);
+            label4.TabIndex = 158;
+            label4.Text = "Date To:";
+            // 
+            // dtpTo
+            // 
+            dtpTo.Location = new Point(195, 32);
+            dtpTo.Name = "dtpTo";
+            dtpTo.Size = new Size(187, 23);
+            dtpTo.TabIndex = 157;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(6, 15);
+            label3.Name = "label3";
+            label3.Size = new Size(66, 15);
+            label3.TabIndex = 156;
+            label3.Text = "Date From:";
+            // 
+            // dtpFrom
+            // 
+            dtpFrom.Location = new Point(3, 31);
+            dtpFrom.Name = "dtpFrom";
+            dtpFrom.Size = new Size(185, 23);
+            dtpFrom.TabIndex = 155;
+            // 
+            // dgvActivityLogs
+            // 
+            dgvActivityLogs.AllowUserToAddRows = false;
+            dgvActivityLogs.AllowUserToDeleteRows = false;
+            dgvActivityLogs.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvActivityLogs.Columns.AddRange(new DataGridViewColumn[] { timestamp, user, module, action, description, payload });
+            dgvActivityLogs.Location = new Point(6, 61);
+            dgvActivityLogs.Name = "dgvActivityLogs";
+            dgvActivityLogs.ReadOnly = true;
+            dgvActivityLogs.RowHeadersVisible = false;
+            dgvActivityLogs.Size = new Size(1016, 360);
+            dgvActivityLogs.TabIndex = 0;
+            // 
+            // timestamp
+            // 
+            timestamp.DataPropertyName = "timestamp";
+            timestamp.HeaderText = "Time Stamp";
+            timestamp.Name = "timestamp";
+            timestamp.ReadOnly = true;
+            // 
+            // user
+            // 
+            user.DataPropertyName = "user";
+            user.HeaderText = "User";
+            user.Name = "user";
+            user.ReadOnly = true;
+            // 
+            // module
+            // 
+            module.DataPropertyName = "module";
+            module.HeaderText = "Module";
+            module.Name = "module";
+            module.ReadOnly = true;
+            // 
+            // action
+            // 
+            action.DataPropertyName = "action";
+            action.HeaderText = "Action";
+            action.Name = "action";
+            action.ReadOnly = true;
+            // 
+            // description
+            // 
+            description.DataPropertyName = "description";
+            description.HeaderText = "Description";
+            description.Name = "description";
+            description.ReadOnly = true;
+            // 
+            // payload
+            // 
+            payload.DataPropertyName = "payload";
+            payload.HeaderText = "Payload";
+            payload.Name = "payload";
+            payload.ReadOnly = true;
             // 
             // grpBoxBackupDatabase
             // 
@@ -87,6 +212,16 @@
             grpBoxBackupDatabase.TabIndex = 1;
             grpBoxBackupDatabase.TabStop = false;
             grpBoxBackupDatabase.Text = "Backup Database";
+            // 
+            // btnBackup
+            // 
+            btnBackup.Location = new Point(921, 22);
+            btnBackup.Name = "btnBackup";
+            btnBackup.Size = new Size(101, 23);
+            btnBackup.TabIndex = 5;
+            btnBackup.Text = "Backup Now";
+            btnBackup.UseVisualStyleBackColor = true;
+            btnBackup.Click += btnBackup_Click;
             // 
             // btnChoosePath
             // 
@@ -135,31 +270,32 @@
             lblDescription.TabIndex = 0;
             lblDescription.Text = "Choose where the backup database file will be stored.";
             // 
-            // btnBackup
+            // addActivityLogsTableBindingSource
             // 
-            btnBackup.Location = new Point(921, 22);
-            btnBackup.Name = "btnBackup";
-            btnBackup.Size = new Size(101, 23);
-            btnBackup.TabIndex = 5;
-            btnBackup.Text = "Backup Now";
-            btnBackup.UseVisualStyleBackColor = true;
-            btnBackup.Click += btnBackup_Click;
+            addActivityLogsTableBindingSource.DataSource = typeof(Migrations.AddActivityLogsTable);
+            // 
+            // addActivityLogsTableBindingSource1
+            // 
+            addActivityLogsTableBindingSource1.DataSource = typeof(Migrations.AddActivityLogsTable);
             // 
             // Options
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1178, 451);
-            Controls.Add(grpBoxBackupDatabase);
             Controls.Add(grpBoxActivityLogs);
             Controls.Add(lstOptions);
+            Controls.Add(grpBoxBackupDatabase);
             Name = "Options";
             Text = "Options";
             Load += Options_Load;
             grpBoxActivityLogs.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            grpBoxActivityLogs.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvActivityLogs).EndInit();
             grpBoxBackupDatabase.ResumeLayout(false);
             grpBoxBackupDatabase.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)addActivityLogsTableBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)addActivityLogsTableBindingSource1).EndInit();
             ResumeLayout(false);
         }
 
@@ -167,7 +303,7 @@
 
         private ListBox lstOptions;
         private GroupBox grpBoxActivityLogs;
-        private DataGridView dataGridView1;
+        private DataGridView dgvActivityLogs;
         private GroupBox grpBoxBackupDatabase;
         private Button btnSaveDbaseBackupLocation;
         private Label label1;
@@ -176,5 +312,19 @@
         private Button btnChoosePath;
         private FolderBrowserDialog folderBrowserDialogDbaseBackupLocation;
         private Button btnBackup;
+        private BindingSource addActivityLogsTableBindingSource;
+        private BindingSource addActivityLogsTableBindingSource1;
+        private Button btnExport;
+        private Button btnFilter;
+        private Label label4;
+        private DateTimePicker dtpTo;
+        private Label label3;
+        private DateTimePicker dtpFrom;
+        private DataGridViewTextBoxColumn timestamp;
+        private DataGridViewTextBoxColumn user;
+        private DataGridViewTextBoxColumn module;
+        private DataGridViewTextBoxColumn action;
+        private DataGridViewTextBoxColumn description;
+        private DataGridViewTextBoxColumn payload;
     }
 }

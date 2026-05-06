@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using ScottPlot.AxisLimitManagers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ namespace PAKOPointOfSale.Options
     public partial class Options : Form
     {
         public string SelectedOption;
+        private DataTable activityLogsTable;
         public Options()
         {
             InitializeComponent();
@@ -33,6 +35,7 @@ namespace PAKOPointOfSale.Options
                     case "Activity Logs":
                         grpBoxActivityLogs.Visible = true;
                         grpBoxBackupDatabase.Visible = false;
+                        loadActivityLogs();
                         break;
                     case "Backup Database":
                         grpBoxActivityLogs.Visible = false;
@@ -45,6 +48,43 @@ namespace PAKOPointOfSale.Options
                 }
             }
 
+        }
+
+        private void loadActivityLogs()
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(Program.ConnString))
+                {
+                    conn.Open();
+                    DateTime startDate = dtpFrom.Value.Date;
+                    DateTime endDate = dtpTo.Value.Date.AddDays(1).AddTicks(-1);
+                    // Select all users (adjust columns as needed)
+                    string query = @"SELECT [timestamp]
+                                      ,[user]
+                                      ,[module]
+                                      ,[action]
+                                      ,[description]
+                                      ,[payload]
+                                  FROM [db_pos].[dbo].[ActivityLogs]
+                                    Where timestamp BETWEEN @startDate AND @endDate";
+
+                    using (SqlDataAdapter da = new SqlDataAdapter(query, conn))
+                    {
+                        da.SelectCommand.Parameters.AddWithValue("@startDate", startDate);
+                        da.SelectCommand.Parameters.AddWithValue("@endDate", endDate);
+
+                        activityLogsTable = new DataTable();
+                        da.Fill(activityLogsTable);
+
+                        dgvActivityLogs.DataSource = activityLogsTable; // Bind DataTable to DataGridView
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading users: " + ex.Message);
+            }
         }
 
         private void loadBackupDatabaseLocation()
@@ -165,6 +205,107 @@ namespace PAKOPointOfSale.Options
                 payload: new
                 {
                     file = BackupDatabase._backupFile
+                }
+            );
+        }
+
+        private void grpBoxActivityLogs_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ActivityLogs.Log(
+                    user: LoggedInUser.FullName,
+                    action: "click",
+                    module: "Activity Logs",
+                    description: "Clicked Export button",
+                    payload: null
+                );
+                using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "CSV files (*.csv)|*.csv", FileName = "Suppliers.csv" })
+                {
+                    if (sfd.ShowDialog() == DialogResult.OK)
+                    {
+
+                        StringBuilder csv = new StringBuilder();
+
+                        // Add header row (only visible columns with non-empty header)
+                        var headers = dgvActivityLogs.Columns.Cast<DataGridViewColumn>()
+                                          .Where(c => c.Visible && !string.IsNullOrWhiteSpace(c.HeaderText));
+                        csv.AppendLine(string.Join(",", headers.Select(column => "\"" + column.HeaderText + "\"")));
+
+                        // Add rows (matching the same visible columns)
+                        foreach (DataGridViewRow row in dgvActivityLogs.Rows)
+                        {
+                            if (!row.IsNewRow)
+                            {
+                                var cells = headers.Select(c => "\"" + row.Cells[c.Index].Value?.ToString().Replace("\"", "\"\"") + "\"");
+                                csv.AppendLine(string.Join(",", cells));
+                            }
+                        }
+
+                        // Write to file
+                        File.WriteAllText(sfd.FileName, csv.ToString(), Encoding.UTF8);
+
+                        ActivityLogs.Log(
+                            user: LoggedInUser.FullName,
+                            action: "click",
+                            module: "Activity Logs",
+                            description: "Saved CSV File",
+                            payload: new
+                            {
+                                file = sfd.FileName
+                            }
+                        );
+                        // Ask user if they want to open the file
+                        var result = MessageBox.Show("CSV exported successfully!\nDo you want to open it now?", "Export Complete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                        if (result == DialogResult.Yes)
+                        {
+
+                            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo()
+                            {
+                                FileName = sfd.FileName,
+                                UseShellExecute = true
+                            });
+                        }
+
+                    }
+                    else
+                    {
+                        ActivityLogs.Log(
+                            user: LoggedInUser.FullName,
+                            action: "click",
+                            module: "Activity Logs",
+                            description: "Clicked Cancel button",
+                            payload: new
+                            {
+                                file = sfd.FileName
+                            }
+                        );
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error exporting CSV: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Activity Logs",
+                description: "Clicked Export button",
+                payload: new
+                {
+                    date_from = dtpFrom.Value.ToString(),
+                    date_to = dtpTo.Value.ToString()
                 }
             );
         }
