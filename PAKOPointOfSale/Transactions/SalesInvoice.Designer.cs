@@ -383,10 +383,11 @@ namespace PAKOPointOfSale.Transactions
             // 
             // txtScannedBarcode
             // 
-            txtScannedBarcode.Location = new Point(12, 195);
+            txtScannedBarcode.Location = new Point(536, 117);
             txtScannedBarcode.Name = "txtScannedBarcode";
             txtScannedBarcode.Size = new Size(181, 23);
             txtScannedBarcode.TabIndex = 9;
+            txtScannedBarcode.Visible = false;
             txtScannedBarcode.TextChanged += textBox1_TextChanged;
             txtScannedBarcode.KeyDown += txtScannedBarcode_KeyDown;
             txtScannedBarcode.KeyUp += txtScannedBarcode_KeyUp;

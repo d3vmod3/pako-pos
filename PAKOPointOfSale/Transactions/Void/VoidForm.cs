@@ -156,6 +156,17 @@ namespace PAKOPointOfSale.Transactions.Void
                         }
                     }
                     this.DialogResult = DialogResult.OK;
+                    ActivityLogs.Log(
+                        user: LoggedInUser.FullName,
+                        action: "click",
+                        module: "Transactions List > Void",
+                        description: "Void Confirmed",
+                        payload: new
+                        {
+                            status="success",
+                            invoice_number = lblInvoiceNumber.Text,
+                        }
+                    );
                     this.Close();
                 }
                 catch (Exception ex)
@@ -179,10 +190,30 @@ namespace PAKOPointOfSale.Transactions.Void
                 FileName = pdfPath,
                 UseShellExecute = true
             });
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Transactions List > Void",
+                description: "Clicked View Receipt button",
+                payload: new
+                {
+                    invoice_number = lblInvoiceNumber.Text,
+                }
+            );
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Transactions List > View Transaction",
+                description: "Clicked Cancel button",
+                payload: new
+                {
+                    invoice_number = lblInvoiceNumber.Text,
+                }
+            );
             this.Close();
         }
 

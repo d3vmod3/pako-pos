@@ -43,9 +43,31 @@ namespace PAKOPointOfSale
 
             if (ConfirmAdminLogin(username, password) == false)
             {
+                ActivityLogs.Log(
+                    user: LoggedInUser.FullName,
+                    action: "click",
+                    module: "Action Confirmation",
+                    description: "Clicked Submit button",
+                    payload: new
+                    {
+                        status = "failed",
+                        message = "Invalid admin credentials.\", \"Access Denied"
+                    }
+                );
                 MessageBox.Show("Invalid admin credentials.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Action Confirmation",
+                description: "Clicked Submit button",
+                payload: new
+                {
+                    status = "success",
+                }
+            );
 
             // If confirmation is successful
             this.DialogResult = DialogResult.OK;
@@ -92,6 +114,13 @@ namespace PAKOPointOfSale
 
         private void button1_Click(object sender, EventArgs e)
         {
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Action Confirmation",
+                description: "Clicked Cancel button",
+                payload: null
+            );
             this.Close();
         }
 

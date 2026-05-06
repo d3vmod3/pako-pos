@@ -70,6 +70,17 @@ namespace PAKOPointOfSale
 
                         if (rowsAffected > 0)
                         {
+                            ActivityLogs.Log(
+                                user: LoggedInUser.FullName,
+                                action: "click",
+                                module: "Users List > Edit User > Reset Password",
+                                description: "Clicked Submit Password button",
+                                payload: new
+                                {
+                                    status = "success",
+                                }
+                            );
+
                             MessageBox.Show(
                                 "You have successfully reset your password.\nPlease log in again with your new password.",
                                 "Password Reset Successful",
@@ -103,6 +114,13 @@ namespace PAKOPointOfSale
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Users List > Edit User > Reset Password",
+                description: "Clicked Cancel button",
+                payload: null
+            );
             LoggedInUser.Logout(this);
             this.Close();
         }

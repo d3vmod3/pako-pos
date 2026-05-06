@@ -104,6 +104,16 @@ namespace PAKOPointOfSale.Transactions.Parked_Transactions
                 }
                 TransactionId = transactionId;
                 ParkNumber = park_number;
+                ActivityLogs.Log(
+                    user: LoggedInUser.FullName,
+                    action: "click",
+                    module: "Pending Transactions List",
+                    description: "Clicked Settle button",
+                    payload: new
+                    {
+                        pending_number = ParkNumber,
+                    }
+                );
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
@@ -147,6 +157,17 @@ namespace PAKOPointOfSale.Transactions.Parked_Transactions
                         }
                     }
 
+                    ActivityLogs.Log(
+                        user: LoggedInUser.FullName,
+                        action: "click",
+                        module: "Pending Transactions List",
+                        description: "Clicked Cancel button",
+                        payload: new
+                        {
+                            pending_number = ParkNumber,
+                        }
+                    );
+
                     MessageBox.Show("Pending transaction has been cancelled.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 }
@@ -184,6 +205,13 @@ namespace PAKOPointOfSale.Transactions.Parked_Transactions
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Pending Transactions List",
+                description: "Clicked Close button",
+                payload: null
+            );
             this.Close();
         }
 

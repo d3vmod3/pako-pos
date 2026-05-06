@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinFormsApp1.Model;
 
 namespace PAKOPointOfSale.Transactions
 {
@@ -98,7 +99,20 @@ namespace PAKOPointOfSale.Transactions
 
                 // Add to cart
                 _salesInvoice.AddProductToCart(product_id, product, brand, unit, price, category, appliedQty, subTotal);
-
+                ActivityLogs.Log(
+                    user: LoggedInUser.FullName,
+                    action: "click",
+                    module: "Sales Invoice > Search Product > Clicked Ok button",
+                    description: "Double clicked an item",
+                    payload: new
+                    {
+                        product = product,
+                        brand = brand,
+                        quantity = appliedQty,
+                        unit_price = price.ToString(),
+                        category = category,
+                    }
+                );
                 this.Close();
             }
             catch (Exception ex)
@@ -112,6 +126,20 @@ namespace PAKOPointOfSale.Transactions
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Sales Invoice > Search Product > Clicked Cancel button",
+                description: "Double clicked an item",
+                payload: new
+                {
+                    product = lblProductName.Text,
+                    brand = lblProductBrand.Text,
+                    quantity = num_AppliedQty.Value.ToString(),
+                    unit_price = lblUnitPrice.Text,
+                    category = lblCategory.Text,
+                }
+            );
             this.Close();
         }
 

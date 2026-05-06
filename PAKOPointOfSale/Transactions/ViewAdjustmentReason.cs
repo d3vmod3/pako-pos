@@ -81,6 +81,17 @@ namespace PAKOPointOfSale.Transactions
 
         private void btnBack_Click(object sender, EventArgs e)
         {
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Transactions List > View Transaction",
+                description: "Clicked Back button",
+                payload: new
+                {
+                    transaction_type = _transaction_type,
+                    invoice_number = _invoice_number,
+                }
+            );
             this.Close();
         }
 

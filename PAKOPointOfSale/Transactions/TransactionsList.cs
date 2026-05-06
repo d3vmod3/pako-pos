@@ -25,6 +25,7 @@ namespace PAKOPointOfSale.Transactions
 
         private void TransactionsList_Load(object sender, EventArgs e)
         {
+
             LoadTransactions();
         }
         private void LoadTransactions()
@@ -93,6 +94,16 @@ namespace PAKOPointOfSale.Transactions
 
             if (e.ColumnIndex == dtgvTransactions.Columns["viewInvoice"].Index)
             {
+                ActivityLogs.Log(
+                    user: LoggedInUser.FullName,
+                    action: "click",
+                    module: "Transactions List",
+                    description: "Clicked View Transaction button",
+                    payload: new
+                    {
+                        transaction_id = dtgvTransactions.Rows[e.RowIndex].Cells["id"].Value
+                    }
+                );
                 Transactions.lbViewTransaction viewTransactionForm = new Transactions.lbViewTransaction(id);
                 viewTransactionForm.ShowDialog(); // modal so user finishes editing first
                 LoadTransactions();
@@ -144,6 +155,13 @@ namespace PAKOPointOfSale.Transactions
 
         private void button1_Click(object sender, EventArgs e)
         {
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Transactions List",
+                description: "Clicked close button",
+                payload: null
+            );
             this.Close();
         }
 
@@ -191,6 +209,19 @@ namespace PAKOPointOfSale.Transactions
                     dtgvTransactions.Columns["void_number"].Visible = false;
                 }
             }
+
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "Select",
+                module: "Transactions List",
+                description: "Selected Filter Transaction Type",
+                payload: new
+                {
+                    transaction_type = cmbTransactionType.SelectedItem?.ToString(),
+                    date_from = dtpFrom.Value.ToString("yyyy-MM-dd"),
+                    date_to = dtpTo.Value.ToString("yyyy-MM-dd"),
+                }
+            );
         }
 
         private void btnClearFilter_Click(object sender, EventArgs e)
@@ -200,6 +231,13 @@ namespace PAKOPointOfSale.Transactions
 
         private void btnClearFilter_Click_1(object sender, EventArgs e)
         {
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Transactions List",
+                description: "Clicked Clear Filter button",
+                payload: null
+            );
             LoadTransactions();
         }
 
@@ -268,7 +306,17 @@ namespace PAKOPointOfSale.Transactions
 
                             csvContent.AppendLine(string.Join(",", values));
                         }
-
+                        ActivityLogs.Log(
+                            user: LoggedInUser.FullName,
+                            action: "click",
+                            module: "Transactions List",
+                            description: "Clicked Export button",
+                            payload: new
+                            {
+                                status = "success",
+                                file = sfd.FileName,
+                            }
+                        );
                         File.WriteAllText(sfd.FileName, csvContent.ToString(), Encoding.UTF8);
 
                         if (MessageBox.Show("Export successful! Do you want to open the file?", "Export Complete", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -295,6 +343,16 @@ namespace PAKOPointOfSale.Transactions
                 this.Close(); // Hide the current form
                 e.Handled = true; // Prevent further processing of the key event
             }
+        }
+
+        private void dtpFrom_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtpTo_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -41,6 +41,13 @@ namespace PAKOPointOfSale.Transactions
 
         private void btnSearchProduct_Click(object sender, EventArgs e)
         {
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Sales Invoice",
+                description: "Clicked Search Product button",
+                payload: null
+            );
             Transactions.SearchProduct searchProductForm = new Transactions.SearchProduct(this);
             searchProductForm.Show();
         }
@@ -332,12 +339,29 @@ namespace PAKOPointOfSale.Transactions
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "scan barcode",
+                module: "Sales Invoice",
+                description: "Scanned a barcode using Barcode Scanner",
+                payload: new
+                {
+                    barcode = txtScannedBarcode.Text
+                }
+            );
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Sales Invoice",
+                description: "Clicked Confirm button",
+                payload: null
+            );
+
             if (validateTransaction())
             {
                 newSalesInvoice();
@@ -506,6 +530,18 @@ namespace PAKOPointOfSale.Transactions
 
                 // Commit transaction
                 sqlTran.Commit();
+                ActivityLogs.Log(
+                    user: LoggedInUser.FullName,
+                    action: "click",
+                    module: "Sales Invoice",
+                    description: "Clicked Confirm button",
+                    payload: new
+                    {
+                        status = "success",
+                        transaction_id = transactionId,
+                        invoice_number = invoiceNumber
+                    }
+                );
                 dtgvCart.Rows.Clear();
 
                 DialogResult result = MessageBox.Show(
@@ -521,9 +557,32 @@ namespace PAKOPointOfSale.Transactions
                     //Transactions.ReceiptPrinter receiptForm = new Transactions.ReceiptPrinter();
                     //receiptForm.GenerateReceiptFromDatabase(invoiceNumber);
                     Transactions.PrintSalesInvoiceReceipt.GenerateReceiptFromDatabase(invoiceNumber);
+                    ActivityLogs.Log(
+                        user: LoggedInUser.FullName,
+                        action: "click",
+                        module: "Sales Invoice",
+                        description: "Print Receipt",
+                        payload: new
+                        {
+                            status = "success",
+                            invoice_number = invoiceNumber
+                        }
+                    );
                 }
                 else
                 {
+                    ActivityLogs.Log(
+                        user: LoggedInUser.FullName,
+                        action: "click",
+                        module: "Sales Invoice",
+                        description: "Did not print the receipt",
+                        payload: new
+                        {
+                            status = "success",
+                            invoice_number = invoiceNumber,
+                            message= "You chose not to print the receipt."
+                        }
+                    );
                     // ❌ Optionally do nothing or close the form
                     MessageBox.Show("You chose not to print the receipt.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -664,39 +723,48 @@ namespace PAKOPointOfSale.Transactions
 
         private void button1_Click_2(object sender, EventArgs e)
         {
-            bool hasSelectedItems = false;
-
-            foreach (DataGridViewRow row in dtgvCart.Rows)
-            {
-                // Make sure the row is not new
-                if (!row.IsNewRow)
-                {
-                    // Check if the "select" cell is checked
-                    if (!row.IsNewRow)
-                    {
-                        hasSelectedItems = true;
-                        break;
-                    }
-                }
-            }
             if (dtgvCart.Rows.Count == 0)
             {
                 MessageBox.Show("Cart is empty!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (!hasSelectedItems)
+            if (dtgvCart.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Please select at least one item from the cart.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
-            else
+
+            var selectedProducts = new List<string>();
+
+            foreach (DataGridViewRow row in dtgvCart.SelectedRows)
             {
-                var applyDiscountForm = new Transactions.Discounts.DiscountTypes();
-                applyDiscountForm.DiscountSelected += ApplyDiscountToSelectedRows;
-                applyDiscountForm.Show();
+                if (row.IsNewRow) continue;
+
+                string productName = row.Cells["product"].Value?.ToString();
+
+                if (!string.IsNullOrEmpty(productName))
+                {
+                    selectedProducts.Add(productName);
+                }
             }
 
+            // ✅ Log only selected rows
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Sales Invoice",
+                description: $"Clicked Apply Discount for {selectedProducts.Count} item(s)",
+                payload: new
+                {
+                    total_selected = selectedProducts.Count,
+                    products = selectedProducts
+                }
+            );
 
+            var applyDiscountForm = new Transactions.Discounts.DiscountTypes();
+            applyDiscountForm.DiscountSelected += ApplyDiscountToSelectedRows;
+            applyDiscountForm.Show();
         }
         private void ApplyDiscountToSelectedRows(string selectedDiscountType, decimal? regularDiscountAmount)
         {
@@ -958,12 +1026,25 @@ namespace PAKOPointOfSale.Transactions
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Sales Invoice",
+                description: "Clicked Close button",
+                payload: null
+            );
             this.Close();
         }
 
         private void button2_Click_Park(object sender, EventArgs e)
         {
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Sales Invoice",
+                description: "Clicked Pending button",
+                payload: null
+            );
             if (dtgvCart.Rows.Count != 0)
             {
                 if (ParkNumber != "")
@@ -1097,8 +1178,58 @@ namespace PAKOPointOfSale.Transactions
                             returnTransactionId = Convert.ToInt32(cmd.ExecuteScalar());
                         }
 
+                        var items = new List<object>();
+
+                        foreach (DataGridViewRow row in dtgvCart.Rows)
+                        {
+                            if (row.IsNewRow) continue;
+
+                            items.Add(new
+                            {
+                                product_id = row.Cells["id"].Value,
+                                product_name = row.Cells["product"].Value?.ToString(),
+                                quantity = row.Cells["appliedQty"].Value,
+                                unit_price = row.Cells["unit_price"].Value,
+                                discount = row.Cells["discountAmount"].Value,
+                                discount_type = row.Cells["discountType"].Value?.ToString(),
+                                total = row.Cells["subTotal"].Value
+                            });
+                        }
+
                         // Commit transaction
                         sqlTran.Commit();
+                        ActivityLogs.Log(
+                            user: LoggedInUser.FullName,
+                            action: "PARK_TRANSACTION",
+                            module: "Sales Invoice",
+                            description: $"Parked transaction #{parkNumber}",
+                            payload: new
+                            {
+                                park_number = parkNumber,
+                                transaction_id = transactionId,
+                                transaction_type = "Park",
+
+                                totals = new
+                                {
+                                    vatable_sales = totalVatableSales,
+                                    vat_amount = totalVatAmount,
+                                    vat_exempt = totalVatExempt,
+                                    sub_total = totalOfSubtotal,
+                                    grand_total = grandTotal
+                                },
+
+                                payment = new
+                                {
+                                    method = "cash",
+                                    cash_received = 0.00,
+                                    change = Convert.ToDecimal(lblChange.Text)
+                                },
+
+                                remarks = remarks,
+                                total_items = items.Count,
+                                items = items
+                            }
+                        );
                         clearCart();
                         MessageBox.Show(
                             "Transaction successfully saved with Pending Number: " + parkNumber,
@@ -1181,8 +1312,16 @@ namespace PAKOPointOfSale.Transactions
         private void btnParkedTransactions_Click(object sender, EventArgs e)
         {
             var parkedTransactions = new Transactions.Parked_Transactions.ParkTransactionsList();
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Sales Invoice",
+                description: "Clicked Pending Transactions button",
+                payload: null
+            );
             if (parkedTransactions.ShowDialog() == DialogResult.OK)
             {
+                
                 clearCart();
                 TransactionID = parkedTransactions.TransactionId;
                 ParkNumber = parkedTransactions.ParkNumber;
@@ -1193,11 +1332,23 @@ namespace PAKOPointOfSale.Transactions
                 lblParkNumber.Text = ParkNumber;
                 //load the transaction to the cart
                 loadTransactionAndParkedItemDetails(TransactionID, ParkNumber);
+
+            }
+            else
+            {
+
             }
         }
 
         private void button1_Click_clear(object sender, EventArgs e)
         {
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Sales Invoice",
+                description: "Clicked Clear Cart button",
+                payload: null
+            );
             clearCart();
         }
 
@@ -1217,6 +1368,13 @@ namespace PAKOPointOfSale.Transactions
 
         private void btnScan_Click(object sender, EventArgs e)
         {
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Sales Invoice",
+                description: "Clicked Scan Barcode button",
+                payload: null
+            );
             MessageBox.Show("Barcode scanning mode activated. Ready to scan items.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             txtScannedBarcode.Focus();
         }
@@ -1316,26 +1474,62 @@ namespace PAKOPointOfSale.Transactions
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Sales Invoice",
+                description: "Clicked Remove Selected Items button",
+                payload: null
+            );
             if (dtgvCart.Rows.Count > 0)
             {
                 DialogResult result = MessageBox.Show(
-                        "Are you sure you want to remove the selected item(s)?",
-                        "Confirm Remove",
-                        MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Question
-                    );
+                    "Are you sure you want to remove the selected item(s)?",
+                    "Confirm Remove",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                );
+
                 if (result == DialogResult.Yes)
                 {
-                    for (int i = 0; i <= dtgvCart.Rows.Count - 1; i++)
+                    var removedProducts = new List<string>();
+
+                    // ✅ First: collect selected items
+                    foreach (DataGridViewRow row in dtgvCart.SelectedRows)
                     {
-                        DataGridViewRow row = dtgvCart.Rows[i];
-                        if (row.Selected && !row.IsNewRow)
+                        if (row.IsNewRow) continue;
+
+                        string productName = row.Cells["product"].Value?.ToString();
+
+                        if (!string.IsNullOrEmpty(productName))
                         {
-                            //dtgvCart.Rows.RemoveAt(i);
+                            removedProducts.Add(productName);
+                        }
+                    }
+
+                    // ✅ Then: remove rows safely
+                    foreach (DataGridViewRow row in dtgvCart.SelectedRows)
+                    {
+                        if (!row.IsNewRow)
+                        {
                             dtgvCart.Rows.Remove(row);
                         }
                     }
+
+                    // ✅ Log AFTER removal
+                    ActivityLogs.Log(
+                        user: LoggedInUser.FullName,
+                        action: "REMOVE_SELECTED_ITEMS",
+                        module: "Sales Invoice",
+                        description: $"Removed {removedProducts.Count} item(s) from cart",
+                        payload: new
+                        {
+                            total_removed = removedProducts.Count,
+                            products = removedProducts
+                        }
+                    );
                 }
+
                 ComputeGrandTotal();
             }
             else
@@ -1418,11 +1612,19 @@ namespace PAKOPointOfSale.Transactions
 
         private void btnTransactions_Click(object sender, EventArgs e)
         {
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Sales Invoice",
+                description: "Clicked Transactions button",
+                payload: null
+            );
             if (!LoggedInUser.HasPermission("Transactions", "view"))
             {
                 MessageBox.Show("You do not have permission to view Transactions", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            
             Transactions.TransactionsList transactionsListForm = new Transactions.TransactionsList();
             transactionsListForm.ShowDialog();
         }

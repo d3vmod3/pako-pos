@@ -41,11 +41,29 @@ namespace PAKOPointOfSale.Transactions.Discounts
             DiscountSelected?.Invoke(selectedDiscount, regularDiscountAmount);
 
             num_customDiscount.Value = 0.00m;
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "APPLY_DISCOUNT_CLICK",
+                module: "Sales Invoice",
+                description: "Sales Invoice > Discount Type > Clicked Ok button",
+                payload: new
+                {
+                    discount_type = selectedDiscount,
+                }
+            );
             this.Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "APPLY_DISCOUNT_CLICK",
+                module: "Sales Invoice",
+                description: "Sales Invoice > Discount Type > Cancel",
+                payload: null
+            );
+
             this.Close();
         }
 

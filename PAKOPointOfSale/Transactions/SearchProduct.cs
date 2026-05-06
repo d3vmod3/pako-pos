@@ -199,6 +199,13 @@ namespace PAKOPointOfSale.Transactions
 
         private void button1_Click(object sender, EventArgs e)
         {
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "scan barcode",
+                module: "Sales Invoice > Search Product",
+                description: "Clicked Close button",
+                payload: null
+            );
             this.Close();
         }
 
@@ -223,6 +230,16 @@ namespace PAKOPointOfSale.Transactions
             // Get the ID of the selected user
             int productId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["id"].Value);
             Transactions.EditQuantity setQuantityForm = new Transactions.EditQuantity(productId, _salesInvoice);
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Sales Invoice > Search Product",
+                description: "Double clicked an item",
+                payload: new
+                {
+                    product = dataGridView1.Rows[e.RowIndex].Cells["product_name"].Value
+                }
+            );
             setQuantityForm.ShowDialog(); // modal so user finishes editing first
             if (_barcode != "")
             {

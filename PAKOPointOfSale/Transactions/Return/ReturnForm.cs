@@ -275,7 +275,50 @@ namespace PAKOPointOfSale.Transactions.Return
                         }
 
                         // ✅ Commit all operations
+                        var items = new List<object>();
+
+                        foreach (DataGridViewRow row in dgvReturnItems.Rows)
+                        {
+                            if (row.IsNewRow) continue;
+
+                            items.Add(new
+                            {
+                                product_id = row.Cells["product_id"].Value,
+                                product_name = row.Cells["product_name"].Value?.ToString(), // make sure column exists
+                                quantity = row.Cells["quantity"].Value,
+                                unit_price = row.Cells["unit_price"].Value,
+                                discount = row.Cells["discount"].Value ?? 0,
+                                discount_type = row.Cells["discount_type"].Value?.ToString(),
+                                total = row.Cells["total_amount"].Value
+                            });
+                        }
                         sqlTrans.Commit();
+                        ActivityLogs.Log(
+                            user: LoggedInUser.FullName,
+                            action: "PROCESS_RETURN",
+                            module: "Sales Return",
+                            description: $"Processed return #{returnNumber} for invoice {_invoiceNumber}",
+                            payload: new
+                            {
+                                return_number = returnNumber,
+                                invoice_number = _invoiceNumber,
+                                transaction_id = newTransactionId,
+
+                                reason = reason,
+
+                                totals = new
+                                {
+                                    vatable_sales = totalVatableSales,
+                                    vat_amount = totalVatAmount,
+                                    vat_exempt = totalVatExempt,
+                                    sub_total = totalSubTotal,
+                                    grand_total = totalGrandTotal
+                                },
+
+                                total_items = items.Count,
+                                items = items
+                            }
+                        );
 
                         MessageBox.Show(
                             $"Return Transaction Successful!\nReturn No: {returnNumber}",
@@ -301,6 +344,13 @@ namespace PAKOPointOfSale.Transactions.Return
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Action Confirmation",
+                description: "Clicked Close button",
+                payload: null
+            );
             this.Close();
         }
 

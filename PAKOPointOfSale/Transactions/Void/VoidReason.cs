@@ -22,6 +22,16 @@ namespace PAKOPointOfSale.Transactions.Void
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             Reason?.Invoke(txtReason.Text.Trim());
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Transactions List > Set Void Reason",
+                description: "Clicked Submit button",
+                payload: new
+                {
+                    reason=txtReason.Text.Trim(),
+                }
+            );
             this.Close();
         }
 
@@ -32,6 +42,13 @@ namespace PAKOPointOfSale.Transactions.Void
 
         private void button1_Click(object sender, EventArgs e)
         {
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Transactions List > Set Void Reason",
+                description: "Clicked Close button",
+                payload: null
+            );
             this.Close();
         }
 

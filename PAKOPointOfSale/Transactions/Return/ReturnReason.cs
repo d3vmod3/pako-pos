@@ -23,6 +23,13 @@ namespace PAKOPointOfSale.Transactions.Return
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             Reason?.Invoke(txtReason.Text.Trim());
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Action Confirmation",
+                description: "Clicked Close button",
+                payload: null
+            );
             this.Close();
         }
 

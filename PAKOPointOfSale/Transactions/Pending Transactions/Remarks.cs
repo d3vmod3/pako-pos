@@ -21,6 +21,7 @@ namespace PAKOPointOfSale.Transactions.Parked_Transactions
 
         private void btnProceed_Click(object sender, EventArgs e)
         {
+
             if (txtRemarks.Text.Trim() == "")
             {
 
@@ -28,12 +29,30 @@ namespace PAKOPointOfSale.Transactions.Parked_Transactions
                 return;
             }
             RemarksValue = txtRemarks.Text;
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Pending Transaction > Set Remarks",
+                description: "Pending Transaction > Set Remarks > Clicked Pending button",
+                payload: new
+                {
+                    remarks = txtRemarks.Text
+                }
+            );
+
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Pending Transaction",
+                description: "Pending Transaction > Set Remarks > Clicked Cancel button",
+                payload: null
+            );
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }

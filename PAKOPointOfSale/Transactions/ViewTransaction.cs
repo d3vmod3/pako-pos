@@ -294,11 +294,36 @@ namespace PAKOPointOfSale.Transactions
                 if (countAlreadyReturneditems > 0)
                 {
                     //lblReturnNote.Visible = true;
+                    ActivityLogs.Log(
+                        user: LoggedInUser.FullName,
+                        action: "click",
+                        module: "Transactions List > View Transaction",
+                        description: "Clicked Proceed button",
+                        payload: new
+                        {
+                            transaction_id = lblTransactionId.Text,
+                            transaction_type = cmbInvoiceAction.SelectedItem?.ToString(),
+                            status="failed",
+                            message= "Sales invoices with returned items cannot be voided. Select all items and use 'Return' in the Invoice Action."
+                        }
+                    );
                     MessageBox.Show("Sales invoices with returned items cannot be voided. Select all items and use 'Return' in the Invoice Action.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 }
                 else
                 {
+                    ActivityLogs.Log(
+                        user: LoggedInUser.FullName,
+                        action: "click",
+                        module: "Transactions List > View Transaction",
+                        description: "Clicked Proceed Button button",
+                        payload: new
+                        {
+                            transaction_id = lblTransactionId.Text,
+                            transaction_type = cmbInvoiceAction.SelectedItem?.ToString(),
+                            status = "success",
+                        }
+                    );
                     Transactions.Void.VoidForm voidSalesInvoiceForm = new Transactions.Void.VoidForm(_id, _invoiceNumber);
                     if (voidSalesInvoiceForm.ShowDialog() == DialogResult.OK)
                     {
@@ -467,6 +492,18 @@ namespace PAKOPointOfSale.Transactions
                     FileName = pdfPath,
                     UseShellExecute = true
                 });
+                ActivityLogs.Log(
+                    user: LoggedInUser.FullName,
+                    action: "click",
+                    module: "Transactions List > View Transaction",
+                    description: "Clicked View Receipt button",
+                    payload: new
+                    {
+                        trnsaction_type="void",
+                        invoice_number = lblInvoiceNumber.Text,
+                    }
+                );
+
 
             }
             if (lblTransactionType.Text == "Return")
@@ -479,6 +516,17 @@ namespace PAKOPointOfSale.Transactions
                     FileName = pdfPath,
                     UseShellExecute = true
                 });
+                ActivityLogs.Log(
+                    user: LoggedInUser.FullName,
+                    action: "click",
+                    module: "Transactions List > View Transaction",
+                    description: "Clicked View Receipt button",
+                    payload: new
+                    {
+                        trnsaction_type = "return",
+                        invoice_number = lblInvoiceNumber.Text,
+                    }
+                );
 
             }
             if (lblTransactionType.Text == "Sales Invoice")
@@ -491,6 +539,17 @@ namespace PAKOPointOfSale.Transactions
                     FileName = pdfPath,
                     UseShellExecute = true
                 });
+                ActivityLogs.Log(
+                    user: LoggedInUser.FullName,
+                    action: "click",
+                    module: "Transactions List > View Transaction",
+                    description: "Clicked View Receipt button",
+                    payload: new
+                    {
+                        trnsaction_type = "sales invoice",
+                        invoice_number = lblInvoiceNumber.Text,
+                    }
+                );
 
             }
         }
@@ -518,6 +577,18 @@ namespace PAKOPointOfSale.Transactions
         private void btnViewReason_Click(object sender, EventArgs e)
         {
             Transactions.ViewAdjustmentReason viewReasonForm = new Transactions.ViewAdjustmentReason(Convert.ToInt32(lblTransactionId.Text), lblInvoiceNumber.Text, lblTransactionType.Text);
+            ActivityLogs.Log(
+                user: LoggedInUser.FullName,
+                action: "click",
+                module: "Transactions List > View Transaction",
+                description: "Clicked View Reason button",
+                payload: new
+                {
+                    transaction_type = lblTransactionType.Text,
+                    transaction_id = lblTransactionId.Text,
+                    invoice_number = lblInvoiceNumber.Text,
+                }
+            );
             viewReasonForm.ShowDialog();
 
         }
