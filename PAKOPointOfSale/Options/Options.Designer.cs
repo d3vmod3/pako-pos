@@ -272,11 +272,7 @@
             // 
             // addActivityLogsTableBindingSource
             // 
-            addActivityLogsTableBindingSource.DataSource = typeof(Migrations.AddActivityLogsTable);
-            // 
-            // addActivityLogsTableBindingSource1
-            // 
-            addActivityLogsTableBindingSource1.DataSource = typeof(Migrations.AddActivityLogsTable);
+
             // 
             // Options
             // 
