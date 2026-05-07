@@ -145,8 +145,8 @@ namespace PAKOPointOfSale.Supplier_Details
                     {
                         cmd.Parameters.AddWithValue("@name", txtSupplierName.Text.Trim());
                         cmd.Parameters.AddWithValue("@address", string.IsNullOrWhiteSpace(txtAddress.Text) ? DBNull.Value : txtAddress.Text.Trim());
-                        cmd.Parameters.AddWithValue("@contact_number", string.IsNullOrWhiteSpace(txtEmail.Text) ? DBNull.Value : txtEmail.Text.Trim());
-                        cmd.Parameters.AddWithValue("@email;", string.IsNullOrWhiteSpace(txtEmail.Text) ? DBNull.Value : txtEmail.Text.Trim()); txtPaymentGateway.Text.Trim();
+                        cmd.Parameters.AddWithValue("@contact_number", string.IsNullOrWhiteSpace(txtContactNumber.Text) ? DBNull.Value : txtContactNumber.Text.Trim());
+                        cmd.Parameters.AddWithValue("@email", string.IsNullOrWhiteSpace(txtEmail.Text) ? DBNull.Value : txtEmail.Text.Trim());
                         cmd.Parameters.AddWithValue("@is_active", chkIsActive.Checked);
                         cmd.Parameters.AddWithValue("@id", _supplierId);
 
