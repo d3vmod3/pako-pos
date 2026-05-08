@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             dtgvParkedTransactions = new DataGridView();
             id = new DataGridViewTextBoxColumn();
             park_number = new DataGridViewTextBoxColumn();
@@ -63,34 +63,34 @@
             dtgvParkedTransactions.AllowUserToAddRows = false;
             dtgvParkedTransactions.AllowUserToDeleteRows = false;
             dtgvParkedTransactions.AutoGenerateColumns = false;
-            dtgvParkedTransactions.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = SystemColors.Control;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dtgvParkedTransactions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dtgvParkedTransactions.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dtgvParkedTransactions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dtgvParkedTransactions.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgvParkedTransactions.Columns.AddRange(new DataGridViewColumn[] { id, park_number, vat_amount, vatable_sales, vat_exempt, sub_total, grandtotalDataGridViewTextBoxColumn, paymentmethodDataGridViewTextBoxColumn, cashreceivedDataGridViewTextBoxColumn, cashchangeDataGridViewTextBoxColumn, status, remarksDataGridViewTextBoxColumn, transactiontypeDataGridViewTextBoxColumn, createdatDataGridViewTextBoxColumn, settle, salesinvoiceitemsDataGridViewTextBoxColumn, cancel });
             dtgvParkedTransactions.DataSource = transactionBindingSource;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = SystemColors.Window;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle5.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            dtgvParkedTransactions.DefaultCellStyle = dataGridViewCellStyle5;
-            dtgvParkedTransactions.Location = new Point(12, 49);
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dtgvParkedTransactions.DefaultCellStyle = dataGridViewCellStyle2;
+            dtgvParkedTransactions.Location = new Point(0, 44);
             dtgvParkedTransactions.Name = "dtgvParkedTransactions";
             dtgvParkedTransactions.ReadOnly = true;
             dtgvParkedTransactions.RowHeadersVisible = false;
-            dataGridViewCellStyle6.ForeColor = Color.Black;
-            dtgvParkedTransactions.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.ForeColor = Color.Black;
+            dtgvParkedTransactions.RowsDefaultCellStyle = dataGridViewCellStyle3;
             dtgvParkedTransactions.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgvParkedTransactions.Size = new Size(995, 419);
+            dtgvParkedTransactions.Size = new Size(1000, 435);
             dtgvParkedTransactions.TabIndex = 0;
             dtgvParkedTransactions.CellContentClick += dtgvParkedTransactions_CellContentClick;
             dtgvParkedTransactions.CellFormatting += dtgvParkedTransactions_CellFormatting;
@@ -101,7 +101,6 @@
             id.HeaderText = "ID";
             id.Name = "id";
             id.ReadOnly = true;
-            id.Width = 47;
             // 
             // park_number
             // 
@@ -110,7 +109,6 @@
             park_number.MinimumWidth = 150;
             park_number.Name = "park_number";
             park_number.ReadOnly = true;
-            park_number.Width = 150;
             // 
             // vat_amount
             // 
@@ -119,7 +117,6 @@
             vat_amount.Name = "vat_amount";
             vat_amount.ReadOnly = true;
             vat_amount.Visible = false;
-            vat_amount.Width = 95;
             // 
             // vatable_sales
             // 
@@ -136,7 +133,6 @@
             vat_exempt.Name = "vat_exempt";
             vat_exempt.ReadOnly = true;
             vat_exempt.Visible = false;
-            vat_exempt.Width = 92;
             // 
             // sub_total
             // 
@@ -154,7 +150,6 @@
             grandtotalDataGridViewTextBoxColumn.HeaderText = "Total";
             grandtotalDataGridViewTextBoxColumn.Name = "grandtotalDataGridViewTextBoxColumn";
             grandtotalDataGridViewTextBoxColumn.ReadOnly = true;
-            grandtotalDataGridViewTextBoxColumn.Width = 64;
             // 
             // paymentmethodDataGridViewTextBoxColumn
             // 
@@ -163,7 +158,6 @@
             paymentmethodDataGridViewTextBoxColumn.Name = "paymentmethodDataGridViewTextBoxColumn";
             paymentmethodDataGridViewTextBoxColumn.ReadOnly = true;
             paymentmethodDataGridViewTextBoxColumn.Visible = false;
-            paymentmethodDataGridViewTextBoxColumn.Width = 126;
             // 
             // cashreceivedDataGridViewTextBoxColumn
             // 
@@ -172,7 +166,6 @@
             cashreceivedDataGridViewTextBoxColumn.Name = "cashreceivedDataGridViewTextBoxColumn";
             cashreceivedDataGridViewTextBoxColumn.ReadOnly = true;
             cashreceivedDataGridViewTextBoxColumn.Visible = false;
-            cashreceivedDataGridViewTextBoxColumn.Width = 105;
             // 
             // cashchangeDataGridViewTextBoxColumn
             // 
@@ -188,7 +181,6 @@
             status.HeaderText = "Status";
             status.Name = "status";
             status.ReadOnly = true;
-            status.Width = 71;
             // 
             // remarksDataGridViewTextBoxColumn
             // 
@@ -196,7 +188,6 @@
             remarksDataGridViewTextBoxColumn.HeaderText = "Remarks";
             remarksDataGridViewTextBoxColumn.Name = "remarksDataGridViewTextBoxColumn";
             remarksDataGridViewTextBoxColumn.ReadOnly = true;
-            remarksDataGridViewTextBoxColumn.Width = 85;
             // 
             // transactiontypeDataGridViewTextBoxColumn
             // 
@@ -205,7 +196,6 @@
             transactiontypeDataGridViewTextBoxColumn.MinimumWidth = 150;
             transactiontypeDataGridViewTextBoxColumn.Name = "transactiontypeDataGridViewTextBoxColumn";
             transactiontypeDataGridViewTextBoxColumn.ReadOnly = true;
-            transactiontypeDataGridViewTextBoxColumn.Width = 150;
             // 
             // createdatDataGridViewTextBoxColumn
             // 
@@ -214,7 +204,6 @@
             createdatDataGridViewTextBoxColumn.MinimumWidth = 120;
             createdatDataGridViewTextBoxColumn.Name = "createdatDataGridViewTextBoxColumn";
             createdatDataGridViewTextBoxColumn.ReadOnly = true;
-            createdatDataGridViewTextBoxColumn.Width = 120;
             // 
             // settle
             // 
@@ -234,7 +223,6 @@
             salesinvoiceitemsDataGridViewTextBoxColumn.Name = "salesinvoiceitemsDataGridViewTextBoxColumn";
             salesinvoiceitemsDataGridViewTextBoxColumn.ReadOnly = true;
             salesinvoiceitemsDataGridViewTextBoxColumn.Visible = false;
-            salesinvoiceitemsDataGridViewTextBoxColumn.Width = 134;
             // 
             // cancel
             // 
@@ -254,7 +242,7 @@
             // 
             // txtSearch
             // 
-            txtSearch.Location = new Point(178, 19);
+            txtSearch.Location = new Point(178, 13);
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(307, 23);
             txtSearch.TabIndex = 1;
@@ -264,7 +252,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(12, 22);
+            label1.Location = new Point(12, 16);
             label1.Name = "label1";
             label1.Size = new Size(160, 17);
             label1.TabIndex = 2;
@@ -276,7 +264,7 @@
             btnClose.FlatStyle = FlatStyle.Popup;
             btnClose.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnClose.ForeColor = Color.Black;
-            btnClose.Location = new Point(908, 16);
+            btnClose.Location = new Point(911, 11);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(84, 24);
             btnClose.TabIndex = 21;
@@ -288,7 +276,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Gainsboro;
+            BackColor = Color.CadetBlue;
             ClientSize = new Size(1000, 480);
             Controls.Add(btnClose);
             Controls.Add(label1);

@@ -32,7 +32,6 @@
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TransactionsList));
             dtgvTransactions = new DataGridView();
             id = new DataGridViewTextBoxColumn();
             invoicenumberDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -57,7 +56,6 @@
             txtSearch = new TextBox();
             button1 = new Button();
             pictureBox2 = new PictureBox();
-            pictureBox1 = new PictureBox();
             lblsearchproduct = new Label();
             grpFilter = new GroupBox();
             label4 = new Label();
@@ -71,7 +69,6 @@
             ((System.ComponentModel.ISupportInitialize)dtgvTransactions).BeginInit();
             ((System.ComponentModel.ISupportInitialize)transactionBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             grpFilter.SuspendLayout();
             SuspendLayout();
             // 
@@ -100,14 +97,14 @@
             dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
             dtgvTransactions.DefaultCellStyle = dataGridViewCellStyle5;
-            dtgvTransactions.Location = new Point(12, 172);
+            dtgvTransactions.Location = new Point(12, 147);
             dtgvTransactions.Name = "dtgvTransactions";
             dtgvTransactions.ReadOnly = true;
             dtgvTransactions.RowHeadersVisible = false;
             dataGridViewCellStyle6.ForeColor = Color.Black;
             dtgvTransactions.RowsDefaultCellStyle = dataGridViewCellStyle6;
             dtgvTransactions.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgvTransactions.Size = new Size(1343, 585);
+            dtgvTransactions.Size = new Size(1343, 610);
             dtgvTransactions.TabIndex = 0;
             dtgvTransactions.CellContentClick += dtgvTransactions_CellContentClick;
             // 
@@ -259,7 +256,7 @@
             label1.FlatStyle = FlatStyle.Popup;
             label1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(13, 110);
+            label1.Location = new Point(13, 92);
             label1.Name = "label1";
             label1.Size = new Size(153, 17);
             label1.TabIndex = 2;
@@ -267,7 +264,7 @@
             // 
             // txtSearch
             // 
-            txtSearch.Location = new Point(13, 131);
+            txtSearch.Location = new Point(13, 111);
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(229, 23);
             txtSearch.TabIndex = 3;
@@ -279,9 +276,9 @@
             button1.FlatStyle = FlatStyle.Popup;
             button1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.Black;
-            button1.Location = new Point(1279, 128);
+            button1.Location = new Point(1264, 105);
             button1.Name = "button1";
-            button1.Size = new Size(75, 28);
+            button1.Size = new Size(86, 28);
             button1.TabIndex = 4;
             button1.Text = "Close";
             button1.UseVisualStyleBackColor = false;
@@ -292,30 +289,19 @@
             pictureBox2.BackColor = Color.DimGray;
             pictureBox2.Location = new Point(0, 1);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(1370, 103);
+            pictureBox2.Size = new Size(1370, 86);
             pictureBox2.TabIndex = 113;
             pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.BackColor = Color.DimGray;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(0, 1);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(258, 103);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 114;
-            pictureBox1.TabStop = false;
             // 
             // lblsearchproduct
             // 
             lblsearchproduct.AutoSize = true;
             lblsearchproduct.BackColor = Color.DimGray;
-            lblsearchproduct.Font = new Font("Impact", 47.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblsearchproduct.Font = new Font("Impact", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblsearchproduct.ForeColor = Color.White;
-            lblsearchproduct.Location = new Point(535, 13);
+            lblsearchproduct.Location = new Point(535, 11);
             lblsearchproduct.Name = "lblsearchproduct";
-            lblsearchproduct.Size = new Size(524, 76);
+            lblsearchproduct.Size = new Size(399, 60);
             lblsearchproduct.TabIndex = 115;
             lblsearchproduct.Text = "TRANSACTIONS LIST";
             // 
@@ -327,7 +313,7 @@
             grpFilter.Controls.Add(dtpFrom);
             grpFilter.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             grpFilter.ForeColor = Color.Black;
-            grpFilter.Location = new Point(265, 112);
+            grpFilter.Location = new Point(265, 91);
             grpFilter.Name = "grpFilter";
             grpFilter.Size = new Size(533, 50);
             grpFilter.TabIndex = 152;
@@ -377,9 +363,9 @@
             btnClearFilter.FlatStyle = FlatStyle.Popup;
             btnClearFilter.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnClearFilter.ForeColor = Color.Black;
-            btnClearFilter.Location = new Point(1087, 129);
+            btnClearFilter.Location = new Point(1078, 106);
             btnClearFilter.Name = "btnClearFilter";
-            btnClearFilter.Size = new Size(82, 28);
+            btnClearFilter.Size = new Size(87, 28);
             btnClearFilter.TabIndex = 164;
             btnClearFilter.Text = "Clear Filter";
             btnClearFilter.UseVisualStyleBackColor = false;
@@ -389,7 +375,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(827, 112);
+            label5.Location = new Point(827, 93);
             label5.Name = "label5";
             label5.Size = new Size(146, 17);
             label5.TabIndex = 163;
@@ -401,7 +387,7 @@
             cmbTransactionType.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbTransactionType.FormattingEnabled = true;
             cmbTransactionType.Items.AddRange(new object[] { "All", "Sales Invoice", "Void", "Return" });
-            cmbTransactionType.Location = new Point(826, 134);
+            cmbTransactionType.Location = new Point(821, 111);
             cmbTransactionType.Name = "cmbTransactionType";
             cmbTransactionType.Size = new Size(238, 23);
             cmbTransactionType.TabIndex = 162;
@@ -413,9 +399,9 @@
             btnExport.FlatStyle = FlatStyle.Popup;
             btnExport.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnExport.ForeColor = Color.Black;
-            btnExport.Location = new Point(1187, 128);
+            btnExport.Location = new Point(1171, 105);
             btnExport.Name = "btnExport";
-            btnExport.Size = new Size(75, 28);
+            btnExport.Size = new Size(87, 28);
             btnExport.TabIndex = 153;
             btnExport.Text = "Export";
             btnExport.UseVisualStyleBackColor = false;
@@ -431,7 +417,6 @@
             Controls.Add(grpFilter);
             Controls.Add(btnClearFilter);
             Controls.Add(lblsearchproduct);
-            Controls.Add(pictureBox1);
             Controls.Add(pictureBox2);
             Controls.Add(label5);
             Controls.Add(button1);
@@ -443,12 +428,12 @@
             Name = "TransactionsList";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Transactions";
+            WindowState = FormWindowState.Maximized;
             Load += TransactionsList_Load;
             KeyDown += TransactionsList_KeyDown;
             ((System.ComponentModel.ISupportInitialize)dtgvTransactions).EndInit();
             ((System.ComponentModel.ISupportInitialize)transactionBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             grpFilter.ResumeLayout(false);
             grpFilter.PerformLayout();
             ResumeLayout(false);
@@ -463,7 +448,6 @@
         private BindingSource transactionBindingSource;
         private TextBox textBox1;
         private PictureBox pictureBox2;
-        private PictureBox pictureBox1;
         private Button btnClose;
         private Label label5;
         private TextBox txtSearch;

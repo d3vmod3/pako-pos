@@ -245,7 +245,7 @@
             label6.BackColor = Color.DimGray;
             label6.Font = new Font("Impact", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.White;
-            label6.Location = new Point(126, 18);
+            label6.Location = new Point(86, 19);
             label6.Name = "label6";
             label6.Size = new Size(150, 29);
             label6.TabIndex = 114;

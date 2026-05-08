@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UAC));
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             cmbRole = new ComboBox();
@@ -37,10 +36,8 @@
             label1 = new Label();
             btnUpdate = new Button();
             pictureBox2 = new PictureBox();
-            pictureBox1 = new PictureBox();
             lbluserslist = new Label();
             btnClose = new Button();
-            pictureBox3 = new PictureBox();
             module_name = new DataGridViewTextBoxColumn();
             can_view = new DataGridViewCheckBoxColumn();
             can_add = new DataGridViewCheckBoxColumn();
@@ -61,8 +58,6 @@
             permissionBindingSource3 = new BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)userTypeBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)permissionBindingSource2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)permissionBindingSource).BeginInit();
@@ -120,26 +115,15 @@
             pictureBox2.TabIndex = 12;
             pictureBox2.TabStop = false;
             // 
-            // pictureBox1
-            // 
-            pictureBox1.BackColor = Color.DimGray;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(1, -2);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(247, 93);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 18;
-            pictureBox1.TabStop = false;
-            // 
             // lbluserslist
             // 
             lbluserslist.AutoSize = true;
             lbluserslist.BackColor = Color.DimGray;
-            lbluserslist.Font = new Font("Impact", 48F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbluserslist.Font = new Font("Impact", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbluserslist.ForeColor = Color.White;
-            lbluserslist.Location = new Point(481, 5);
+            lbluserslist.Location = new Point(441, 12);
             lbluserslist.Name = "lbluserslist";
-            lbluserslist.Size = new Size(641, 80);
+            lbluserslist.Size = new Size(482, 60);
             lbluserslist.TabIndex = 19;
             lbluserslist.Text = "USERS ACCESS CONTROL";
             // 
@@ -149,26 +133,13 @@
             btnClose.FlatStyle = FlatStyle.Popup;
             btnClose.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             btnClose.ForeColor = SystemColors.ActiveCaptionText;
-            btnClose.Location = new Point(1274, 99);
+            btnClose.Location = new Point(1262, 99);
             btnClose.Name = "btnClose";
-            btnClose.Size = new Size(79, 31);
+            btnClose.Size = new Size(91, 31);
             btnClose.TabIndex = 150;
             btnClose.Text = "Close";
             btnClose.UseVisualStyleBackColor = false;
             btnClose.Click += btnClose_Click;
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.BackColor = SystemColors.ControlDarkDark;
-            pictureBox3.ErrorImage = null;
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.InitialImage = null;
-            pictureBox3.Location = new Point(-10, 684);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(1402, 93);
-            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox3.TabIndex = 151;
-            pictureBox3.TabStop = false;
             // 
             // module_name
             // 
@@ -235,6 +206,7 @@
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.AllowUserToOrderColumns = true;
             dataGridView1.AutoGenerateColumns = false;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -258,7 +230,7 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(1342, 539);
+            dataGridView1.Size = new Size(1342, 613);
             dataGridView1.TabIndex = 152;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick_1;
             // 
@@ -329,10 +301,8 @@
             BackColor = Color.CadetBlue;
             ClientSize = new Size(1370, 772);
             Controls.Add(dataGridView1);
-            Controls.Add(pictureBox3);
             Controls.Add(btnClose);
             Controls.Add(lbluserslist);
-            Controls.Add(pictureBox1);
             Controls.Add(pictureBox2);
             Controls.Add(btnUpdate);
             Controls.Add(label1);
@@ -348,8 +318,6 @@
             KeyDown += UAC_KeyDown;
             ((System.ComponentModel.ISupportInitialize)userTypeBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)permissionBindingSource2).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)permissionBindingSource).EndInit();
@@ -364,10 +332,8 @@
         private BindingSource userTypeBindingSource;
         private Button btnUpdate;
         private PictureBox pictureBox2;
-        private PictureBox pictureBox1;
         private Label lbluserslist;
         private Button btnClose;
-        private PictureBox pictureBox3;
         private DataGridViewTextBoxColumn module_name;
         private DataGridViewCheckBoxColumn can_view;
         private DataGridViewCheckBoxColumn can_add;

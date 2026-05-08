@@ -28,18 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VoidForm));
             btnViewReceipt = new Button();
             btnConfirm = new Button();
             label2 = new Label();
             label3 = new Label();
             lblInvoiceNumber = new Label();
-            pictureBox2 = new PictureBox();
             button1 = new Button();
-            pictureBox1 = new PictureBox();
             label1 = new Label();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // btnViewReceipt
@@ -48,7 +43,7 @@
             btnViewReceipt.FlatStyle = FlatStyle.Popup;
             btnViewReceipt.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             btnViewReceipt.ForeColor = Color.Black;
-            btnViewReceipt.Location = new Point(172, 177);
+            btnViewReceipt.Location = new Point(58, 127);
             btnViewReceipt.Name = "btnViewReceipt";
             btnViewReceipt.Size = new Size(92, 32);
             btnViewReceipt.TabIndex = 0;
@@ -62,7 +57,7 @@
             btnConfirm.FlatStyle = FlatStyle.Popup;
             btnConfirm.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             btnConfirm.ForeColor = Color.Black;
-            btnConfirm.Location = new Point(281, 177);
+            btnConfirm.Location = new Point(167, 127);
             btnConfirm.Name = "btnConfirm";
             btnConfirm.Size = new Size(117, 33);
             btnConfirm.TabIndex = 2;
@@ -76,7 +71,7 @@
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.Black;
-            label2.Location = new Point(189, 76);
+            label2.Location = new Point(75, 26);
             label2.Name = "label2";
             label2.Size = new Size(303, 20);
             label2.TabIndex = 3;
@@ -88,7 +83,7 @@
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             label3.ForeColor = Color.Black;
-            label3.Location = new Point(233, 109);
+            label3.Location = new Point(119, 59);
             label3.Name = "label3";
             label3.Size = new Size(138, 21);
             label3.TabIndex = 4;
@@ -100,20 +95,11 @@
             lblInvoiceNumber.BackColor = Color.Transparent;
             lblInvoiceNumber.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblInvoiceNumber.ForeColor = Color.Black;
-            lblInvoiceNumber.Location = new Point(377, 109);
+            lblInvoiceNumber.Location = new Point(263, 59);
             lblInvoiceNumber.Name = "lblInvoiceNumber";
             lblInvoiceNumber.Size = new Size(64, 21);
             lblInvoiceNumber.TabIndex = 5;
             lblInvoiceNumber.Text = "000000";
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.BackColor = Color.CadetBlue;
-            pictureBox2.Location = new Point(-5, 1);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(709, 57);
-            pictureBox2.TabIndex = 12;
-            pictureBox2.TabStop = false;
             // 
             // button1
             // 
@@ -121,7 +107,7 @@
             button1.FlatStyle = FlatStyle.Popup;
             button1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             button1.ForeColor = Color.Black;
-            button1.Location = new Point(414, 177);
+            button1.Location = new Point(300, 127);
             button1.Name = "button1";
             button1.Size = new Size(92, 33);
             button1.TabIndex = 13;
@@ -129,24 +115,13 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
-            // pictureBox1
-            // 
-            pictureBox1.BackColor = Color.CadetBlue;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(-5, 1);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(137, 57);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 114;
-            pictureBox1.TabStop = false;
-            // 
             // label1
             // 
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(138, 140);
+            label1.Location = new Point(24, 90);
             label1.Name = "label1";
             label1.Size = new Size(391, 21);
             label1.TabIndex = 1;
@@ -157,10 +132,8 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveBorder;
-            ClientSize = new Size(671, 233);
-            Controls.Add(pictureBox1);
+            ClientSize = new Size(457, 190);
             Controls.Add(button1);
-            Controls.Add(pictureBox2);
             Controls.Add(lblInvoiceNumber);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -175,8 +148,6 @@
             Text = "Void";
             Load += VoidForm_Load;
             KeyDown += VoidForm_KeyDown;
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -188,9 +159,7 @@
         private Label label2;
         private Label label3;
         private Label lblInvoiceNumber;
-        private PictureBox pictureBox2;
         private Button button1;
-        private PictureBox pictureBox1;
         private Label label1;
     }
 }

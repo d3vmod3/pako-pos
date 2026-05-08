@@ -847,7 +847,7 @@ namespace PAKOPointOfSale.Transactions
                     }
                     row.Cells["discountAmount"].Value = discountAmount;
                     decimal subTotal = originalSubTotal - discountAmount;
-                    row.Cells["subTotal"].Value = subTotal.ToString();  
+                    row.Cells["subTotal"].Value = subTotal.ToString("N2");  
                 }
             }
         }
@@ -865,7 +865,7 @@ namespace PAKOPointOfSale.Transactions
                 // Restore original values
                 selectedRow.Cells["DiscountType"].Value = "None";
                 selectedRow.Cells["discountAmount"].Value = 0m;
-                selectedRow.Cells["subTotal"].Value = originalSubTotal;
+                selectedRow.Cells["subTotal"].Value = originalSubTotal.ToString("N2");
                 selectedRow.Cells["vatAmount"].Value = 0.12m * (originalSubTotal / 1.12m);
                 selectedRow.Cells["vatExempt"].Value = 0.00m;
             }
@@ -922,7 +922,7 @@ namespace PAKOPointOfSale.Transactions
 
                 // Update row with discount
                 selectedRow.Cells["discountAmount"].Value = discountAmount;
-                selectedRow.Cells["subTotal"].Value = originalSubTotal - discountAmount;
+                selectedRow.Cells["subTotal"].Value = (originalSubTotal - discountAmount).ToString("N2");
             }
         }
 

@@ -134,7 +134,7 @@
             lblAddUser.BackColor = Color.DimGray;
             lblAddUser.Font = new Font("Impact", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblAddUser.ForeColor = Color.White;
-            lblAddUser.Location = new Point(165, 13);
+            lblAddUser.Location = new Point(126, 16);
             lblAddUser.Name = "lblAddUser";
             lblAddUser.Size = new Size(174, 36);
             lblAddUser.TabIndex = 33;

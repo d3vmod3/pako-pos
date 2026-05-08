@@ -268,11 +268,11 @@
             // 
             lblAddUser.AutoSize = true;
             lblAddUser.BackColor = Color.DimGray;
-            lblAddUser.Font = new Font("Impact", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblAddUser.Font = new Font("Impact", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblAddUser.ForeColor = Color.White;
-            lblAddUser.Location = new Point(323, 9);
+            lblAddUser.Location = new Point(188, 18);
             lblAddUser.Name = "lblAddUser";
-            lblAddUser.Size = new Size(208, 60);
+            lblAddUser.Size = new Size(151, 43);
             lblAddUser.TabIndex = 18;
             lblAddUser.Text = "ADD USER";
             // 

@@ -309,5 +309,10 @@ namespace PAKOPointOfSale.Options
                 }
             );
         }
+
+        private void dgvActivityLogs_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

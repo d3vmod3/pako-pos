@@ -32,7 +32,6 @@ namespace PAKOPointOfSale.Transactions
         {
             components = new Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            ComponentResourceManager resources = new ComponentResourceManager(typeof(lbViewTransaction));
             btnProceed = new Button();
             dgvItems = new DataGridView();
             id = new DataGridViewTextBoxColumn();
@@ -89,12 +88,10 @@ namespace PAKOPointOfSale.Transactions
             pictureBox2 = new PictureBox();
             pictureBox3 = new PictureBox();
             pictureBox5 = new PictureBox();
-            pictureBox6 = new PictureBox();
             lblsearchproduct = new Label();
             button1 = new Button();
             lblVoidOrReturn = new Label();
             btnViewReason = new Button();
-            lblReturnNote = new Label();
             btnClose = new Button();
             panel1 = new Panel();
             ((ISupportInitialize)dgvItems).BeginInit();
@@ -103,7 +100,6 @@ namespace PAKOPointOfSale.Transactions
             ((ISupportInitialize)pictureBox2).BeginInit();
             ((ISupportInitialize)pictureBox3).BeginInit();
             ((ISupportInitialize)pictureBox5).BeginInit();
-            ((ISupportInitialize)pictureBox6).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -112,7 +108,7 @@ namespace PAKOPointOfSale.Transactions
             btnProceed.BackColor = Color.ForestGreen;
             btnProceed.FlatStyle = FlatStyle.Popup;
             btnProceed.ForeColor = Color.Black;
-            btnProceed.Location = new Point(894, 114);
+            btnProceed.Location = new Point(1080, 103);
             btnProceed.Name = "btnProceed";
             btnProceed.Size = new Size(86, 28);
             btnProceed.TabIndex = 0;
@@ -138,11 +134,11 @@ namespace PAKOPointOfSale.Transactions
             dgvItems.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvItems.Columns.AddRange(new DataGridViewColumn[] { id, product_id, transaction_id, dataGridViewTextBoxColumn1, quantity, unit_price, vat_amount, vatable_sales, vat_exempt, discount, discount_type, total_amount, unit_of_measurement, transaction, product, product_code, product_name, product_brand, selectReturn, remainingQty, reason });
             dgvItems.DataSource = salesInvoiceItemBindingSource;
-            dgvItems.Location = new Point(295, 148);
+            dgvItems.Location = new Point(295, 135);
             dgvItems.Name = "dgvItems";
             dgvItems.RowHeadersVisible = false;
             dgvItems.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvItems.Size = new Size(1063, 589);
+            dgvItems.Size = new Size(1063, 641);
             dgvItems.TabIndex = 1;
             dgvItems.CellContentClick += dgvItems_CellContentClick;
             // 
@@ -309,7 +305,7 @@ namespace PAKOPointOfSale.Transactions
             label1.BackColor = Color.White;
             label1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(22, 270);
+            label1.Location = new Point(9, 205);
             label1.Name = "label1";
             label1.Size = new Size(109, 17);
             label1.TabIndex = 2;
@@ -321,7 +317,7 @@ namespace PAKOPointOfSale.Transactions
             label2.BackColor = Color.White;
             label2.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             label2.ForeColor = Color.Black;
-            label2.Location = new Point(24, 195);
+            label2.Location = new Point(24, 115);
             label2.Name = "label2";
             label2.Size = new Size(97, 17);
             label2.TabIndex = 3;
@@ -333,7 +329,7 @@ namespace PAKOPointOfSale.Transactions
             label3.BackColor = Color.White;
             label3.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             label3.ForeColor = Color.Black;
-            label3.Location = new Point(18, 307);
+            label3.Location = new Point(16, 248);
             label3.Name = "label3";
             label3.Size = new Size(103, 17);
             label3.TabIndex = 4;
@@ -346,7 +342,7 @@ namespace PAKOPointOfSale.Transactions
             label4.BackColor = Color.White;
             label4.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             label4.ForeColor = Color.Black;
-            label4.Location = new Point(23, 345);
+            label4.Location = new Point(60, 295);
             label4.Name = "label4";
             label4.Size = new Size(62, 17);
             label4.TabIndex = 5;
@@ -358,7 +354,7 @@ namespace PAKOPointOfSale.Transactions
             label5.BackColor = Color.White;
             label5.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             label5.ForeColor = Color.Black;
-            label5.Location = new Point(20, 386);
+            label5.Location = new Point(31, 339);
             label5.Name = "label5";
             label5.Size = new Size(91, 17);
             label5.TabIndex = 6;
@@ -370,7 +366,7 @@ namespace PAKOPointOfSale.Transactions
             label6.BackColor = Color.White;
             label6.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             label6.ForeColor = Color.Black;
-            label6.Location = new Point(20, 427);
+            label6.Location = new Point(32, 387);
             label6.Name = "label6";
             label6.Size = new Size(87, 17);
             label6.TabIndex = 7;
@@ -382,7 +378,7 @@ namespace PAKOPointOfSale.Transactions
             label7.BackColor = Color.White;
             label7.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             label7.ForeColor = Color.Black;
-            label7.Location = new Point(21, 464);
+            label7.Location = new Point(39, 433);
             label7.Name = "label7";
             label7.Size = new Size(83, 17);
             label7.TabIndex = 8;
@@ -394,7 +390,7 @@ namespace PAKOPointOfSale.Transactions
             label8.BackColor = Color.White;
             label8.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             label8.ForeColor = Color.Black;
-            label8.Location = new Point(19, 501);
+            label8.Location = new Point(43, 479);
             label8.Name = "label8";
             label8.Size = new Size(81, 17);
             label8.TabIndex = 9;
@@ -407,7 +403,7 @@ namespace PAKOPointOfSale.Transactions
             lblTransactionId.FlatStyle = FlatStyle.Popup;
             lblTransactionId.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
             lblTransactionId.ForeColor = Color.Black;
-            lblTransactionId.Location = new Point(144, 195);
+            lblTransactionId.Location = new Point(140, 112);
             lblTransactionId.Name = "lblTransactionId";
             lblTransactionId.Size = new Size(63, 20);
             lblTransactionId.TabIndex = 10;
@@ -419,7 +415,7 @@ namespace PAKOPointOfSale.Transactions
             lblInvoiceNumber.BackColor = Color.White;
             lblInvoiceNumber.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
             lblInvoiceNumber.ForeColor = Color.Black;
-            lblInvoiceNumber.Location = new Point(144, 268);
+            lblInvoiceNumber.Location = new Point(140, 205);
             lblInvoiceNumber.Name = "lblInvoiceNumber";
             lblInvoiceNumber.Size = new Size(63, 20);
             lblInvoiceNumber.TabIndex = 11;
@@ -431,7 +427,7 @@ namespace PAKOPointOfSale.Transactions
             lblTransactionDate.BackColor = Color.White;
             lblTransactionDate.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
             lblTransactionDate.ForeColor = Color.Black;
-            lblTransactionDate.Location = new Point(144, 305);
+            lblTransactionDate.Location = new Point(140, 245);
             lblTransactionDate.Name = "lblTransactionDate";
             lblTransactionDate.Size = new Size(87, 20);
             lblTransactionDate.TabIndex = 12;
@@ -444,7 +440,7 @@ namespace PAKOPointOfSale.Transactions
             lblSubTotal.BackColor = Color.White;
             lblSubTotal.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
             lblSubTotal.ForeColor = Color.Black;
-            lblSubTotal.Location = new Point(144, 343);
+            lblSubTotal.Location = new Point(140, 292);
             lblSubTotal.Name = "lblSubTotal";
             lblSubTotal.Size = new Size(40, 20);
             lblSubTotal.TabIndex = 13;
@@ -456,7 +452,7 @@ namespace PAKOPointOfSale.Transactions
             lblVatableSales.BackColor = Color.White;
             lblVatableSales.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
             lblVatableSales.ForeColor = Color.Black;
-            lblVatableSales.Location = new Point(144, 384);
+            lblVatableSales.Location = new Point(140, 339);
             lblVatableSales.Name = "lblVatableSales";
             lblVatableSales.Size = new Size(40, 20);
             lblVatableSales.TabIndex = 14;
@@ -468,7 +464,7 @@ namespace PAKOPointOfSale.Transactions
             lblVatAmount.BackColor = Color.White;
             lblVatAmount.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
             lblVatAmount.ForeColor = Color.Black;
-            lblVatAmount.Location = new Point(144, 424);
+            lblVatAmount.Location = new Point(140, 384);
             lblVatAmount.Name = "lblVatAmount";
             lblVatAmount.Size = new Size(40, 20);
             lblVatAmount.TabIndex = 15;
@@ -480,7 +476,7 @@ namespace PAKOPointOfSale.Transactions
             lblVatExempt.BackColor = Color.White;
             lblVatExempt.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
             lblVatExempt.ForeColor = Color.Black;
-            lblVatExempt.Location = new Point(144, 461);
+            lblVatExempt.Location = new Point(140, 430);
             lblVatExempt.Name = "lblVatExempt";
             lblVatExempt.Size = new Size(40, 20);
             lblVatExempt.TabIndex = 16;
@@ -492,7 +488,7 @@ namespace PAKOPointOfSale.Transactions
             lblGrandTotal.BackColor = Color.White;
             lblGrandTotal.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
             lblGrandTotal.ForeColor = Color.Black;
-            lblGrandTotal.Location = new Point(144, 499);
+            lblGrandTotal.Location = new Point(142, 476);
             lblGrandTotal.Name = "lblGrandTotal";
             lblGrandTotal.Size = new Size(40, 20);
             lblGrandTotal.TabIndex = 17;
@@ -504,7 +500,7 @@ namespace PAKOPointOfSale.Transactions
             lblPaymentMethod.BackColor = Color.Transparent;
             lblPaymentMethod.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             lblPaymentMethod.ForeColor = Color.Black;
-            lblPaymentMethod.Location = new Point(130, 455);
+            lblPaymentMethod.Location = new Point(146, 622);
             lblPaymentMethod.Name = "lblPaymentMethod";
             lblPaymentMethod.Size = new Size(37, 17);
             lblPaymentMethod.TabIndex = 19;
@@ -517,7 +513,7 @@ namespace PAKOPointOfSale.Transactions
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             label10.ForeColor = Color.Black;
-            label10.Location = new Point(6, 455);
+            label10.Location = new Point(11, 622);
             label10.Name = "label10";
             label10.Size = new Size(117, 17);
             label10.TabIndex = 18;
@@ -530,7 +526,7 @@ namespace PAKOPointOfSale.Transactions
             lblCashReceived.BackColor = Color.White;
             lblCashReceived.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
             lblCashReceived.ForeColor = Color.Black;
-            lblCashReceived.Location = new Point(144, 534);
+            lblCashReceived.Location = new Point(146, 521);
             lblCashReceived.Name = "lblCashReceived";
             lblCashReceived.Size = new Size(40, 20);
             lblCashReceived.TabIndex = 21;
@@ -542,7 +538,7 @@ namespace PAKOPointOfSale.Transactions
             label11.BackColor = Color.White;
             label11.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             label11.ForeColor = Color.Black;
-            label11.Location = new Point(19, 537);
+            label11.Location = new Point(31, 524);
             label11.Name = "label11";
             label11.Size = new Size(97, 17);
             label11.TabIndex = 20;
@@ -554,7 +550,7 @@ namespace PAKOPointOfSale.Transactions
             lblChange.BackColor = Color.White;
             lblChange.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
             lblChange.ForeColor = Color.Black;
-            lblChange.Location = new Point(144, 575);
+            lblChange.Location = new Point(146, 574);
             lblChange.Name = "lblChange";
             lblChange.Size = new Size(40, 20);
             lblChange.TabIndex = 23;
@@ -566,7 +562,7 @@ namespace PAKOPointOfSale.Transactions
             label12.BackColor = Color.White;
             label12.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             label12.ForeColor = Color.Black;
-            label12.Location = new Point(18, 575);
+            label12.Location = new Point(68, 576);
             label12.Name = "label12";
             label12.Size = new Size(57, 17);
             label12.TabIndex = 22;
@@ -577,7 +573,7 @@ namespace PAKOPointOfSale.Transactions
             btnViewReceipt.BackColor = Color.Goldenrod;
             btnViewReceipt.FlatStyle = FlatStyle.Popup;
             btnViewReceipt.ForeColor = Color.Black;
-            btnViewReceipt.Location = new Point(986, 114);
+            btnViewReceipt.Location = new Point(1172, 103);
             btnViewReceipt.Name = "btnViewReceipt";
             btnViewReceipt.Size = new Size(98, 28);
             btnViewReceipt.TabIndex = 25;
@@ -591,9 +587,9 @@ namespace PAKOPointOfSale.Transactions
             cmbInvoiceAction.FlatStyle = FlatStyle.Popup;
             cmbInvoiceAction.FormattingEnabled = true;
             cmbInvoiceAction.Items.AddRange(new object[] { "", "Void", "Return" });
-            cmbInvoiceAction.Location = new Point(668, 117);
+            cmbInvoiceAction.Location = new Point(390, 102);
             cmbInvoiceAction.Name = "cmbInvoiceAction";
-            cmbInvoiceAction.Size = new Size(215, 25);
+            cmbInvoiceAction.Size = new Size(263, 25);
             cmbInvoiceAction.TabIndex = 26;
             cmbInvoiceAction.SelectedIndexChanged += cmbInvoiceAction_SelectedIndexChanged;
             // 
@@ -601,7 +597,7 @@ namespace PAKOPointOfSale.Transactions
             // 
             label9.AutoSize = true;
             label9.ForeColor = Color.Black;
-            label9.Location = new Point(668, 99);
+            label9.Location = new Point(292, 109);
             label9.Name = "label9";
             label9.Size = new Size(97, 17);
             label9.TabIndex = 27;
@@ -613,7 +609,7 @@ namespace PAKOPointOfSale.Transactions
             lblTransactionType.BackColor = Color.White;
             lblTransactionType.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
             lblTransactionType.ForeColor = Color.Black;
-            lblTransactionType.Location = new Point(144, 231);
+            lblTransactionType.Location = new Point(140, 159);
             lblTransactionType.Name = "lblTransactionType";
             lblTransactionType.Size = new Size(127, 20);
             lblTransactionType.TabIndex = 29;
@@ -625,7 +621,7 @@ namespace PAKOPointOfSale.Transactions
             label14.BackColor = Color.White;
             label14.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             label14.ForeColor = Color.Black;
-            label14.Location = new Point(23, 234);
+            label14.Location = new Point(9, 161);
             label14.Name = "label14";
             label14.Size = new Size(112, 17);
             label14.TabIndex = 28;
@@ -637,7 +633,7 @@ namespace PAKOPointOfSale.Transactions
             lblAdjustmentNumber.BackColor = Color.White;
             lblAdjustmentNumber.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
             lblAdjustmentNumber.ForeColor = Color.Black;
-            lblAdjustmentNumber.Location = new Point(144, 162);
+            lblAdjustmentNumber.Location = new Point(142, 65);
             lblAdjustmentNumber.Name = "lblAdjustmentNumber";
             lblAdjustmentNumber.Size = new Size(63, 20);
             lblAdjustmentNumber.TabIndex = 30;
@@ -678,26 +674,15 @@ namespace PAKOPointOfSale.Transactions
             pictureBox5.TabStop = false;
             pictureBox5.Click += pictureBox5_Click;
             // 
-            // pictureBox6
-            // 
-            pictureBox6.BackColor = Color.DimGray;
-            pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
-            pictureBox6.Location = new Point(-1, 1);
-            pictureBox6.Name = "pictureBox6";
-            pictureBox6.Size = new Size(253, 95);
-            pictureBox6.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox6.TabIndex = 154;
-            pictureBox6.TabStop = false;
-            // 
             // lblsearchproduct
             // 
             lblsearchproduct.AutoSize = true;
             lblsearchproduct.BackColor = Color.DimGray;
-            lblsearchproduct.Font = new Font("Impact", 50.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblsearchproduct.Font = new Font("Impact", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblsearchproduct.ForeColor = Color.White;
-            lblsearchproduct.Location = new Point(584, 9);
+            lblsearchproduct.Location = new Point(601, 12);
             lblsearchproduct.Name = "lblsearchproduct";
-            lblsearchproduct.Size = new Size(448, 82);
+            lblsearchproduct.Size = new Size(320, 60);
             lblsearchproduct.TabIndex = 155;
             lblsearchproduct.Text = "TRANSACTIONS \r\n";
             // 
@@ -720,7 +705,7 @@ namespace PAKOPointOfSale.Transactions
             lblVoidOrReturn.BackColor = Color.White;
             lblVoidOrReturn.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             lblVoidOrReturn.ForeColor = Color.Black;
-            lblVoidOrReturn.Location = new Point(23, 162);
+            lblVoidOrReturn.Location = new Point(21, 68);
             lblVoidOrReturn.Name = "lblVoidOrReturn";
             lblVoidOrReturn.Size = new Size(99, 17);
             lblVoidOrReturn.TabIndex = 32;
@@ -731,7 +716,7 @@ namespace PAKOPointOfSale.Transactions
             btnViewReason.BackColor = Color.DarkSlateGray;
             btnViewReason.FlatStyle = FlatStyle.Popup;
             btnViewReason.ForeColor = Color.White;
-            btnViewReason.Location = new Point(1090, 114);
+            btnViewReason.Location = new Point(971, 103);
             btnViewReason.Name = "btnViewReason";
             btnViewReason.Size = new Size(103, 28);
             btnViewReason.TabIndex = 157;
@@ -739,25 +724,15 @@ namespace PAKOPointOfSale.Transactions
             btnViewReason.UseVisualStyleBackColor = false;
             btnViewReason.Click += btnViewReason_Click;
             // 
-            // lblReturnNote
-            // 
-            lblReturnNote.AutoSize = true;
-            lblReturnNote.ForeColor = Color.Black;
-            lblReturnNote.Location = new Point(297, 125);
-            lblReturnNote.Name = "lblReturnNote";
-            lblReturnNote.Size = new Size(323, 17);
-            lblReturnNote.TabIndex = 31;
-            lblReturnNote.Text = "Note: Gray items indicate they are already returned.";
-            // 
             // btnClose
             // 
             btnClose.BackColor = Color.Red;
             btnClose.FlatStyle = FlatStyle.Popup;
             btnClose.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnClose.ForeColor = Color.Black;
-            btnClose.Location = new Point(1282, 115);
+            btnClose.Location = new Point(1276, 102);
             btnClose.Name = "btnClose";
-            btnClose.Size = new Size(75, 28);
+            btnClose.Size = new Size(81, 28);
             btnClose.TabIndex = 158;
             btnClose.Text = "Close";
             btnClose.UseVisualStyleBackColor = false;
@@ -769,51 +744,50 @@ namespace PAKOPointOfSale.Transactions
             panel1.BorderStyle = BorderStyle.Fixed3D;
             panel1.Controls.Add(label10);
             panel1.Controls.Add(lblPaymentMethod);
-            panel1.Location = new Point(12, 148);
+            panel1.Controls.Add(label12);
+            panel1.Controls.Add(lblChange);
+            panel1.Controls.Add(label11);
+            panel1.Controls.Add(lblCashReceived);
+            panel1.Controls.Add(lblVoidOrReturn);
+            panel1.Controls.Add(lblAdjustmentNumber);
+            panel1.Controls.Add(label8);
+            panel1.Controls.Add(label7);
+            panel1.Controls.Add(lblGrandTotal);
+            panel1.Controls.Add(lblTransactionType);
+            panel1.Controls.Add(lblVatExempt);
+            panel1.Controls.Add(label14);
+            panel1.Controls.Add(lblTransactionId);
+            panel1.Controls.Add(label6);
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(lblVatAmount);
+            panel1.Controls.Add(lblVatableSales);
+            panel1.Controls.Add(label5);
+            panel1.Controls.Add(lblInvoiceNumber);
+            panel1.Controls.Add(lblTransactionDate);
+            panel1.Controls.Add(lblSubTotal);
+            panel1.Controls.Add(label4);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(label3);
+            panel1.Location = new Point(12, 94);
             panel1.Name = "panel1";
-            panel1.Size = new Size(277, 589);
+            panel1.Size = new Size(277, 700);
             panel1.TabIndex = 159;
+            panel1.Paint += panel1_Paint;
             // 
             // lbViewTransaction
             // 
             AutoScaleDimensions = new SizeF(8F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
-            ClientSize = new Size(1370, 749);
+            ClientSize = new Size(1370, 788);
             Controls.Add(btnViewReason);
             Controls.Add(btnClose);
             Controls.Add(button1);
             Controls.Add(lblsearchproduct);
-            Controls.Add(pictureBox6);
             Controls.Add(pictureBox5);
-            Controls.Add(lblVoidOrReturn);
-            Controls.Add(lblReturnNote);
-            Controls.Add(lblAdjustmentNumber);
-            Controls.Add(lblTransactionType);
-            Controls.Add(label14);
             Controls.Add(label9);
             Controls.Add(cmbInvoiceAction);
             Controls.Add(btnViewReceipt);
-            Controls.Add(lblChange);
-            Controls.Add(label12);
-            Controls.Add(lblCashReceived);
-            Controls.Add(label11);
-            Controls.Add(lblGrandTotal);
-            Controls.Add(lblVatExempt);
-            Controls.Add(lblVatAmount);
-            Controls.Add(lblVatableSales);
-            Controls.Add(lblSubTotal);
-            Controls.Add(lblTransactionDate);
-            Controls.Add(lblInvoiceNumber);
-            Controls.Add(lblTransactionId);
-            Controls.Add(label8);
-            Controls.Add(label7);
-            Controls.Add(label6);
-            Controls.Add(label5);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
             Controls.Add(dgvItems);
             Controls.Add(btnProceed);
             Controls.Add(panel1);
@@ -822,6 +796,7 @@ namespace PAKOPointOfSale.Transactions
             Name = "lbViewTransaction";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "View Transaction";
+            WindowState = FormWindowState.Maximized;
             Load += ViewTransaction_Load;
             KeyDown += lbViewTransaction_KeyDown;
             ((ISupportInitialize)dgvItems).EndInit();
@@ -830,7 +805,6 @@ namespace PAKOPointOfSale.Transactions
             ((ISupportInitialize)pictureBox2).EndInit();
             ((ISupportInitialize)pictureBox3).EndInit();
             ((ISupportInitialize)pictureBox5).EndInit();
-            ((ISupportInitialize)pictureBox6).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
@@ -882,7 +856,6 @@ namespace PAKOPointOfSale.Transactions
         private PictureBox pictureBox2;
         private PictureBox pictureBox1;
         private PictureBox pictureBox5;
-        private PictureBox pictureBox6;
         private Label lblsearchproduct;
         private Button button1;
         private Label lblVoidOrReturn;
@@ -908,7 +881,6 @@ namespace PAKOPointOfSale.Transactions
         private DataGridViewTextBoxColumn reason;
         private DataGridViewTextBoxColumn transaction;
         private DataGridViewTextBoxColumn product;
-        private Label lblReturnNote;
         private Button btnClose;
         private Panel panel1;
     }

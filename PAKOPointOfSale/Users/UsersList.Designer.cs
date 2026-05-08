@@ -32,7 +32,6 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UsersList));
             dataGridView1 = new DataGridView();
             id = new DataGridViewTextBoxColumn();
             usertypeidDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -53,14 +52,12 @@
             label1 = new Label();
             btnAdd = new Button();
             pictureBox1 = new PictureBox();
-            pictureBox2 = new PictureBox();
             lbluserslist = new Label();
             button1 = new Button();
             button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)userBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // dataGridView1
@@ -88,14 +85,14 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridView1.GridColor = SystemColors.InactiveCaptionText;
-            dataGridView1.Location = new Point(14, 140);
+            dataGridView1.Location = new Point(14, 129);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle3;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(1342, 623);
+            dataGridView1.Size = new Size(1342, 634);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -218,7 +215,7 @@
             // 
             // txtSearch
             // 
-            txtSearch.Location = new Point(77, 112);
+            txtSearch.Location = new Point(77, 98);
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(391, 23);
             txtSearch.TabIndex = 1;
@@ -228,7 +225,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(18, 116);
+            label1.Location = new Point(18, 102);
             label1.Name = "label1";
             label1.Size = new Size(51, 17);
             label1.TabIndex = 2;
@@ -240,9 +237,9 @@
             btnAdd.FlatStyle = FlatStyle.Popup;
             btnAdd.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             btnAdd.ForeColor = Color.Black;
-            btnAdd.Location = new Point(1073, 108);
+            btnAdd.Location = new Point(1067, 96);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(84, 27);
+            btnAdd.Size = new Size(90, 27);
             btnAdd.TabIndex = 3;
             btnAdd.Text = "Add User";
             btnAdd.UseVisualStyleBackColor = false;
@@ -251,32 +248,22 @@
             // pictureBox1
             // 
             pictureBox1.BackColor = Color.DimGray;
-            pictureBox1.Location = new Point(28, 1);
+            pictureBox1.Location = new Point(-20, 1);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(1358, 99);
+            pictureBox1.Size = new Size(1406, 88);
             pictureBox1.TabIndex = 4;
             pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.BackColor = Color.DimGray;
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(-2, -1);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(260, 101);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 5;
-            pictureBox2.TabStop = false;
             // 
             // lbluserslist
             // 
             lbluserslist.AutoSize = true;
             lbluserslist.BackColor = Color.DimGray;
-            lbluserslist.Font = new Font("Impact", 50.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbluserslist.FlatStyle = FlatStyle.Popup;
+            lbluserslist.Font = new Font("Impact", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbluserslist.ForeColor = Color.White;
-            lbluserslist.Location = new Point(625, 9);
+            lbluserslist.Location = new Point(573, 11);
             lbluserslist.Name = "lbluserslist";
-            lbluserslist.Size = new Size(328, 82);
+            lbluserslist.Size = new Size(234, 60);
             lbluserslist.TabIndex = 6;
             lbluserslist.Text = "USERS LIST";
             // 
@@ -286,9 +273,9 @@
             button1.FlatStyle = FlatStyle.Popup;
             button1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             button1.ForeColor = Color.Black;
-            button1.Location = new Point(1179, 108);
+            button1.Location = new Point(1163, 96);
             button1.Name = "button1";
-            button1.Size = new Size(79, 27);
+            button1.Size = new Size(95, 27);
             button1.TabIndex = 7;
             button1.Text = "Export";
             button1.UseVisualStyleBackColor = false;
@@ -300,9 +287,9 @@
             button2.FlatStyle = FlatStyle.Popup;
             button2.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             button2.ForeColor = Color.Black;
-            button2.Location = new Point(1280, 108);
+            button2.Location = new Point(1264, 96);
             button2.Name = "button2";
-            button2.Size = new Size(75, 27);
+            button2.Size = new Size(91, 27);
             button2.TabIndex = 8;
             button2.Text = "Close";
             button2.UseVisualStyleBackColor = false;
@@ -317,7 +304,6 @@
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(lbluserslist);
-            Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
             Controls.Add(btnAdd);
             Controls.Add(label1);
@@ -329,12 +315,12 @@
             Name = "UsersList";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Users List";
+            WindowState = FormWindowState.Maximized;
             Load += UsersList_Load;
             KeyDown += UsersList_KeyDown;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)userBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -348,7 +334,6 @@
         private Button btnAdd;
         private DataGridViewTextBoxColumn userTypeDataGridViewTextBoxColumn;
         private PictureBox pictureBox1;
-        private PictureBox pictureBox2;
         private Label lbluserslist;
         private Button button1;
         private Button button2;

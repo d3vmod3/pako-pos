@@ -144,7 +144,7 @@
             lbladdcategory.AutoSize = true;
             lbladdcategory.BackColor = SystemColors.ControlDarkDark;
             lbladdcategory.Font = new Font("Impact", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbladdcategory.Location = new Point(203, 18);
+            lbladdcategory.Location = new Point(210, 14);
             lbladdcategory.Margin = new Padding(4, 0, 4, 0);
             lbladdcategory.Name = "lbladdcategory";
             lbladdcategory.Size = new Size(181, 36);

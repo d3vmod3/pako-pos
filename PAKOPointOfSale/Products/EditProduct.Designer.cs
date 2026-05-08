@@ -432,11 +432,11 @@
             // 
             label1.AutoSize = true;
             label1.BackColor = Color.DimGray;
-            label1.Font = new Font("Impact", 48F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Impact", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(522, 9);
+            label1.Location = new Point(256, 19);
             label1.Name = "label1";
-            label1.Size = new Size(424, 80);
+            label1.Size = new Size(319, 60);
             label1.TabIndex = 145;
             label1.Text = "EDIT PRODUCTS";
             // 
@@ -498,7 +498,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
-            ClientSize = new Size(1299, 683);
+            ClientSize = new Size(1299, 737);
             Controls.Add(num_low_quantity);
             Controls.Add(label3);
             Controls.Add(txtBarcode);

@@ -46,13 +46,11 @@ namespace PAKOPointOfSale.Categories
             btnExport = new Button();
             txtSearch = new TextBox();
             label1 = new Label();
-            pictureBox1 = new PictureBox();
-            pictureBox2 = new PictureBox();
             lblcategorieslist = new Label();
             btnClose = new Button();
+            pictureBox2 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)categoryBindingSource).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
@@ -85,7 +83,7 @@ namespace PAKOPointOfSale.Categories
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             dataGridView1.GridColor = Color.Black;
-            dataGridView1.Location = new Point(12, 146);
+            dataGridView1.Location = new Point(12, 113);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
@@ -101,7 +99,7 @@ namespace PAKOPointOfSale.Categories
             dataGridViewCellStyle5.ForeColor = Color.Black;
             dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle5;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(1334, 630);
+            dataGridView1.Size = new Size(1334, 646);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick_1;
             // 
@@ -163,7 +161,7 @@ namespace PAKOPointOfSale.Categories
             btnAdd.FlatStyle = FlatStyle.Popup;
             btnAdd.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAdd.ForeColor = Color.Black;
-            btnAdd.Location = new Point(1086, 109);
+            btnAdd.Location = new Point(1106, 82);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(75, 28);
             btnAdd.TabIndex = 1;
@@ -177,7 +175,7 @@ namespace PAKOPointOfSale.Categories
             btnExport.FlatStyle = FlatStyle.Popup;
             btnExport.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnExport.ForeColor = Color.Black;
-            btnExport.Location = new Point(1177, 109);
+            btnExport.Location = new Point(1187, 81);
             btnExport.Name = "btnExport";
             btnExport.Size = new Size(75, 28);
             btnExport.TabIndex = 3;
@@ -187,7 +185,7 @@ namespace PAKOPointOfSale.Categories
             // 
             // txtSearch
             // 
-            txtSearch.Location = new Point(73, 115);
+            txtSearch.Location = new Point(66, 87);
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(351, 23);
             txtSearch.TabIndex = 7;
@@ -199,47 +197,25 @@ namespace PAKOPointOfSale.Categories
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(16, 120);
+            label1.Location = new Point(12, 92);
             label1.Name = "label1";
             label1.Size = new Size(51, 17);
             label1.TabIndex = 8;
             label1.Text = "Search:";
             label1.Click += label1_Click;
             // 
-            // pictureBox1
-            // 
-            pictureBox1.BackColor = SystemColors.ControlDarkDark;
-            pictureBox1.ErrorImage = null;
-            pictureBox1.InitialImage = null;
-            pictureBox1.Location = new Point(-8, 0);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(1394, 101);
-            pictureBox1.TabIndex = 9;
-            pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.BackColor = SystemColors.ControlDarkDark;
-            pictureBox2.Image = Properties.Resources.PakoLogo;
-            pictureBox2.Location = new Point(-3, 0);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(276, 100);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 10;
-            pictureBox2.TabStop = false;
-            // 
             // lblcategorieslist
             // 
             lblcategorieslist.AutoSize = true;
-            lblcategorieslist.BackColor = SystemColors.ControlDarkDark;
-            lblcategorieslist.Font = new Font("Impact", 50.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblcategorieslist.BackColor = Color.DimGray;
+            lblcategorieslist.Font = new Font("Impact", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblcategorieslist.ForeColor = Color.White;
-            lblcategorieslist.Location = new Point(470, 9);
+            lblcategorieslist.Location = new Point(525, 8);
             lblcategorieslist.Name = "lblcategorieslist";
-            lblcategorieslist.Size = new Size(490, 82);
+            lblcategorieslist.Size = new Size(354, 60);
             lblcategorieslist.TabIndex = 11;
             lblcategorieslist.Text = "CATEGORIES LIST";
+            lblcategorieslist.Click += lblcategorieslist_Click;
             // 
             // btnClose
             // 
@@ -247,7 +223,7 @@ namespace PAKOPointOfSale.Categories
             btnClose.FlatStyle = FlatStyle.Popup;
             btnClose.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnClose.ForeColor = Color.Black;
-            btnClose.Location = new Point(1268, 109);
+            btnClose.Location = new Point(1268, 81);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(75, 28);
             btnClose.TabIndex = 12;
@@ -255,17 +231,25 @@ namespace PAKOPointOfSale.Categories
             btnClose.UseVisualStyleBackColor = false;
             btnClose.Click += btnClose_Click;
             // 
+            // pictureBox2
+            // 
+            pictureBox2.BackColor = SystemColors.ControlDarkDark;
+            pictureBox2.Location = new Point(1, -18);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(1383, 95);
+            pictureBox2.TabIndex = 152;
+            pictureBox2.TabStop = false;
+            // 
             // CategoriesList
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             BackColor = Color.CadetBlue;
-            ClientSize = new Size(1358, 788);
-            Controls.Add(btnClose);
+            ClientSize = new Size(1383, 788);
             Controls.Add(lblcategorieslist);
             Controls.Add(pictureBox2);
-            Controls.Add(pictureBox1);
+            Controls.Add(btnClose);
             Controls.Add(label1);
             Controls.Add(txtSearch);
             Controls.Add(btnExport);
@@ -277,11 +261,11 @@ namespace PAKOPointOfSale.Categories
             Name = "CategoriesList";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Categories List";
+            WindowState = FormWindowState.Maximized;
             Load += CategoryList_Load;
             KeyDown += CategoriesList_KeyDown;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)categoryBindingSource).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -305,8 +289,6 @@ namespace PAKOPointOfSale.Categories
         private DataGridViewButtonColumn edit;
         private DataGridViewButtonColumn archive;
         private BindingSource categoryBindingSource;
-        private PictureBox pictureBox1;
-        private PictureBox pictureBox2;
         private Label lblcategorieslist;
         private Button btnClose;
         private Label dtpFrom;
@@ -316,5 +298,6 @@ namespace PAKOPointOfSale.Categories
         private DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
         private DataGridViewButtonColumn editCategory;
         private DataGridViewButtonColumn deleteCategory;
+        private PictureBox pictureBox2;
     }
 }

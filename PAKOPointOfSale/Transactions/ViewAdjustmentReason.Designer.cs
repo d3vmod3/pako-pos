@@ -39,7 +39,7 @@
             txtReason.Multiline = true;
             txtReason.Name = "txtReason";
             txtReason.ReadOnly = true;
-            txtReason.Size = new Size(513, 176);
+            txtReason.Size = new Size(505, 121);
             txtReason.TabIndex = 0;
             txtReason.TextChanged += txtReason_TextChanged;
             // 
@@ -49,7 +49,7 @@
             btnBack.FlatStyle = FlatStyle.Popup;
             btnBack.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnBack.ForeColor = Color.Black;
-            btnBack.Location = new Point(227, 195);
+            btnBack.Location = new Point(220, 139);
             btnBack.Name = "btnBack";
             btnBack.Size = new Size(75, 23);
             btnBack.TabIndex = 1;
@@ -62,7 +62,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
-            ClientSize = new Size(537, 230);
+            ClientSize = new Size(537, 175);
             Controls.Add(btnBack);
             Controls.Add(txtReason);
             FormBorderStyle = FormBorderStyle.None;

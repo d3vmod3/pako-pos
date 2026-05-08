@@ -113,7 +113,7 @@ namespace PAKOPointOfSale.Categories
                     }
                 );
                 editCategoryForm.ShowDialog(); // modal so user finishes editing first
-                
+
                 loadCategories();
 
             }
@@ -159,7 +159,7 @@ namespace PAKOPointOfSale.Categories
                                     payload: new
                                     {
                                         category_name = categoryName,
-                                        status="success",
+                                        status = "success",
                                     }
                                 );
                             }
@@ -220,7 +220,7 @@ namespace PAKOPointOfSale.Categories
                 action: "click",
                 module: "Categories List",
                 description: "Clicked Close button",
-                payload:null
+                payload: null
             );
             this.Close();
         }
@@ -337,6 +337,11 @@ namespace PAKOPointOfSale.Categories
                 this.Close(); // Hide the current form
                 e.Handled = true; // Prevent further processing of the key event
             }
+        }
+
+        private void lblcategorieslist_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

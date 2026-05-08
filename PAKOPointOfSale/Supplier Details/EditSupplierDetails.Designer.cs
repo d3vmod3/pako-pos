@@ -169,11 +169,11 @@
             // 
             lblAddUser.AutoSize = true;
             lblAddUser.BackColor = Color.DimGray;
-            lblAddUser.Font = new Font("Impact", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblAddUser.Font = new Font("Impact", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblAddUser.ForeColor = Color.White;
-            lblAddUser.Location = new Point(134, 9);
+            lblAddUser.Location = new Point(110, 12);
             lblAddUser.Name = "lblAddUser";
-            lblAddUser.Size = new Size(215, 43);
+            lblAddUser.Size = new Size(177, 36);
             lblAddUser.TabIndex = 30;
             lblAddUser.Text = "EDIT SUPPLIER";
             lblAddUser.Click += lblAddUser_Click;

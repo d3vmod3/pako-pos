@@ -819,5 +819,10 @@ namespace PAKOPointOfSale
                 payload: null
             );
         }
+
+        private void toolTip_Popup(object sender, PopupEventArgs e)
+        {
+
+        }
     }
 }

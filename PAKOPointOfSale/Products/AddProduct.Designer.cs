@@ -433,11 +433,11 @@
             // 
             label1.AutoSize = true;
             label1.BackColor = Color.DimGray;
-            label1.Font = new Font("Impact", 48F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Impact", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(613, 16);
+            label1.Location = new Point(281, 27);
             label1.Name = "label1";
-            label1.Size = new Size(416, 80);
+            label1.Size = new Size(314, 60);
             label1.TabIndex = 113;
             label1.Text = "ADD PRODUCTS";
             // 

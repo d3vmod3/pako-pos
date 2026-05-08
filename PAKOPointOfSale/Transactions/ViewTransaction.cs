@@ -303,8 +303,8 @@ namespace PAKOPointOfSale.Transactions
                         {
                             transaction_id = lblTransactionId.Text,
                             transaction_type = cmbInvoiceAction.SelectedItem?.ToString(),
-                            status="failed",
-                            message= "Sales invoices with returned items cannot be voided. Select all items and use 'Return' in the Invoice Action."
+                            status = "failed",
+                            message = "Sales invoices with returned items cannot be voided. Select all items and use 'Return' in the Invoice Action."
                         }
                     );
                     MessageBox.Show("Sales invoices with returned items cannot be voided. Select all items and use 'Return' in the Invoice Action.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -377,7 +377,7 @@ namespace PAKOPointOfSale.Transactions
                 dgvItems.Columns["remainingQty"].Visible = true;
                 if (countAlreadyReturneditems > 0)
                 {
-                    lblReturnNote.Visible = true;
+              
                 }
                 if (lblVoidOrReturn.Text == "Return No.: ")
                 {
@@ -499,7 +499,7 @@ namespace PAKOPointOfSale.Transactions
                     description: "Clicked View Receipt button",
                     payload: new
                     {
-                        trnsaction_type="void",
+                        trnsaction_type = "void",
                         invoice_number = lblInvoiceNumber.Text,
                     }
                 );
@@ -618,6 +618,11 @@ namespace PAKOPointOfSale.Transactions
         }
 
         private void lblPaymentMethod_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

@@ -30,14 +30,14 @@ namespace PAKOPointOfSale
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle13 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle14 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle15 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle16 = new DataGridViewCellStyle();
             menuStrip = new MenuStrip();
             optionsToolStripMenuItem = new ToolStripMenuItem();
             activityLogsToolStripMenuItem = new ToolStripMenuItem();
@@ -127,54 +127,58 @@ namespace PAKOPointOfSale
             // activityLogsToolStripMenuItem
             // 
             activityLogsToolStripMenuItem.Name = "activityLogsToolStripMenuItem";
-            activityLogsToolStripMenuItem.Size = new Size(180, 22);
+            activityLogsToolStripMenuItem.Size = new Size(164, 22);
             activityLogsToolStripMenuItem.Text = "Activity Logs";
             activityLogsToolStripMenuItem.Click += activityLogsToolStripMenuItem_Click;
             // 
             // backupDatabaseToolStripMenuItem
             // 
             backupDatabaseToolStripMenuItem.Name = "backupDatabaseToolStripMenuItem";
-            backupDatabaseToolStripMenuItem.Size = new Size(180, 22);
+            backupDatabaseToolStripMenuItem.Size = new Size(164, 22);
             backupDatabaseToolStripMenuItem.Text = "Backup Database";
             backupDatabaseToolStripMenuItem.Click += backupDatabaseToolStripMenuItem_Click;
+            // 
+            // toolTip
+            // 
+            toolTip.Popup += toolTip_Popup;
             // 
             // dtgvTop5SellingProducts
             // 
             dtgvTop5SellingProducts.AllowUserToAddRows = false;
             dtgvTop5SellingProducts.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.ForeColor = Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = Color.White;
-            dtgvTop5SellingProducts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.ForeColor = Color.Black;
+            dataGridViewCellStyle9.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = Color.White;
+            dtgvTop5SellingProducts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             dtgvTop5SellingProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgvTop5SellingProducts.BackgroundColor = SystemColors.ControlLight;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dtgvTop5SellingProducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = SystemColors.Window;
+            dataGridViewCellStyle10.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle10.ForeColor = Color.White;
+            dataGridViewCellStyle10.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.False;
+            dtgvTop5SellingProducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             dtgvTop5SellingProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgvTop5SellingProducts.Columns.AddRange(new DataGridViewColumn[] { product_name, total_quantity_sold, total_sales });
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = SystemColors.Window;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            dtgvTop5SellingProducts.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = SystemColors.Window;
+            dataGridViewCellStyle11.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle11.ForeColor = Color.Black;
+            dataGridViewCellStyle11.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.False;
+            dtgvTop5SellingProducts.DefaultCellStyle = dataGridViewCellStyle11;
             dtgvTop5SellingProducts.Location = new Point(13, 72);
             dtgvTop5SellingProducts.Name = "dtgvTop5SellingProducts";
             dtgvTop5SellingProducts.ReadOnly = true;
             dtgvTop5SellingProducts.RowHeadersVisible = false;
-            dataGridViewCellStyle4.ForeColor = Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dtgvTop5SellingProducts.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.ForeColor = Color.Black;
+            dataGridViewCellStyle12.SelectionBackColor = SystemColors.Highlight;
+            dtgvTop5SellingProducts.RowsDefaultCellStyle = dataGridViewCellStyle12;
             dtgvTop5SellingProducts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgvTop5SellingProducts.Size = new Size(547, 146);
+            dtgvTop5SellingProducts.Size = new Size(547, 331);
             dtgvTop5SellingProducts.TabIndex = 11;
             // 
             // product_name
@@ -251,7 +255,7 @@ namespace PAKOPointOfSale
             gbTop5Sellings.ForeColor = Color.Black;
             gbTop5Sellings.Location = new Point(282, 333);
             gbTop5Sellings.Name = "gbTop5Sellings";
-            gbTop5Sellings.Size = new Size(575, 230);
+            gbTop5Sellings.Size = new Size(575, 421);
             gbTop5Sellings.TabIndex = 13;
             gbTop5Sellings.TabStop = false;
             gbTop5Sellings.Text = "Top 5 Selling Products";
@@ -479,11 +483,11 @@ namespace PAKOPointOfSale
             label10.FlatStyle = FlatStyle.System;
             label10.Font = new Font("Impact", 48F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label10.ForeColor = SystemColors.ButtonHighlight;
-            label10.Location = new Point(541, 40);
+            label10.Location = new Point(450, 32);
             label10.Name = "label10";
-            label10.Size = new Size(341, 80);
+            label10.Size = new Size(518, 80);
             label10.TabIndex = 155;
-            label10.Text = "DASHBOARD";
+            label10.Text = "ADMIN DASHBOARD";
             // 
             // lblTime
             // 
@@ -678,7 +682,7 @@ namespace PAKOPointOfSale
             gbLowStocks.ForeColor = Color.Black;
             gbLowStocks.Location = new Point(862, 141);
             gbLowStocks.Name = "gbLowStocks";
-            gbLowStocks.Size = new Size(493, 427);
+            gbLowStocks.Size = new Size(493, 613);
             gbLowStocks.TabIndex = 185;
             gbLowStocks.TabStop = false;
             gbLowStocks.Text = "Low Stock Products";
@@ -688,39 +692,39 @@ namespace PAKOPointOfSale
             // 
             dtgvLowStocks.AllowUserToAddRows = false;
             dtgvLowStocks.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle5.ForeColor = Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = Color.White;
-            dtgvLowStocks.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle13.ForeColor = Color.Black;
+            dataGridViewCellStyle13.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = Color.White;
+            dtgvLowStocks.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             dtgvLowStocks.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dtgvLowStocks.BackgroundColor = SystemColors.ControlLight;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = SystemColors.Control;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle6.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            dtgvLowStocks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle14.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = SystemColors.Control;
+            dataGridViewCellStyle14.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle14.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle14.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = DataGridViewTriState.True;
+            dtgvLowStocks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             dtgvLowStocks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgvLowStocks.Columns.AddRange(new DataGridViewColumn[] { product_name2, quantity, supplier });
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = SystemColors.Window;
-            dataGridViewCellStyle7.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle7.ForeColor = Color.Black;
-            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.False;
-            dtgvLowStocks.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle15.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.BackColor = SystemColors.Window;
+            dataGridViewCellStyle15.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle15.ForeColor = Color.Black;
+            dataGridViewCellStyle15.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = DataGridViewTriState.False;
+            dtgvLowStocks.DefaultCellStyle = dataGridViewCellStyle15;
             dtgvLowStocks.Location = new Point(6, 24);
             dtgvLowStocks.Name = "dtgvLowStocks";
             dtgvLowStocks.ReadOnly = true;
             dtgvLowStocks.RowHeadersVisible = false;
-            dataGridViewCellStyle8.ForeColor = Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
-            dtgvLowStocks.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle16.ForeColor = Color.Black;
+            dataGridViewCellStyle16.SelectionBackColor = SystemColors.Highlight;
+            dtgvLowStocks.RowsDefaultCellStyle = dataGridViewCellStyle16;
             dtgvLowStocks.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgvLowStocks.Size = new Size(481, 391);
+            dtgvLowStocks.Size = new Size(481, 571);
             dtgvLowStocks.TabIndex = 11;
             // 
             // product_name2
@@ -773,7 +777,7 @@ namespace PAKOPointOfSale
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
-            ClientSize = new Size(1367, 797);
+            ClientSize = new Size(1367, 788);
             Controls.Add(lblFullName);
             Controls.Add(pictureBox4);
             Controls.Add(btnUac);

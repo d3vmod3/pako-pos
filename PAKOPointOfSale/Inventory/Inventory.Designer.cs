@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             dgvRecentlyAdded = new DataGridView();
             product_name = new DataGridViewTextBoxColumn();
             created_at = new DataGridViewTextBoxColumn();
@@ -89,7 +89,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 115);
+            label1.Location = new Point(12, 110);
             label1.Name = "label1";
             label1.Size = new Size(90, 15);
             label1.TabIndex = 3;
@@ -98,7 +98,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(435, 115);
+            label2.Location = new Point(456, 110);
             label2.Name = "label2";
             label2.Size = new Size(66, 15);
             label2.TabIndex = 4;
@@ -107,7 +107,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(858, 115);
+            label3.Location = new Point(886, 110);
             label3.Name = "label3";
             label3.Size = new Size(78, 15);
             label3.TabIndex = 5;
@@ -143,37 +143,37 @@
             // 
             dgvLowStocks.AllowUserToAddRows = false;
             dgvLowStocks.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle5.ForeColor = Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = Color.White;
-            dgvLowStocks.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = Color.White;
+            dgvLowStocks.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dgvLowStocks.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvLowStocks.BackgroundColor = SystemColors.ControlLight;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = SystemColors.Control;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle6.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            dgvLowStocks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = SystemColors.Control;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvLowStocks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvLowStocks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvLowStocks.Columns.AddRange(new DataGridViewColumn[] { product_name2, quantity, supplier });
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = SystemColors.Window;
-            dataGridViewCellStyle7.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle7.ForeColor = Color.Black;
-            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.False;
-            dgvLowStocks.DefaultCellStyle = dataGridViewCellStyle7;
-            dgvLowStocks.Location = new Point(435, 133);
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = SystemColors.Window;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dgvLowStocks.DefaultCellStyle = dataGridViewCellStyle3;
+            dgvLowStocks.Location = new Point(456, 136);
             dgvLowStocks.Name = "dgvLowStocks";
             dgvLowStocks.ReadOnly = true;
             dgvLowStocks.RowHeadersVisible = false;
-            dataGridViewCellStyle8.ForeColor = Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
-            dgvLowStocks.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dgvLowStocks.RowsDefaultCellStyle = dataGridViewCellStyle4;
             dgvLowStocks.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvLowStocks.Size = new Size(383, 569);
             dgvLowStocks.TabIndex = 12;
@@ -206,7 +206,7 @@
             dgvOutOfStocks.AllowUserToDeleteRows = false;
             dgvOutOfStocks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvOutOfStocks.Columns.AddRange(new DataGridViewColumn[] { product_name3, supplier3 });
-            dgvOutOfStocks.Location = new Point(858, 133);
+            dgvOutOfStocks.Location = new Point(886, 136);
             dgvOutOfStocks.Name = "dgvOutOfStocks";
             dgvOutOfStocks.ReadOnly = true;
             dgvOutOfStocks.RowHeadersVisible = false;
@@ -249,7 +249,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(623, 105);
+            label6.Location = new Point(631, 110);
             label6.Name = "label6";
             label6.Size = new Size(71, 15);
             label6.TabIndex = 17;
@@ -259,7 +259,7 @@
             // 
             cmbShowItemsLowStocks.FormattingEnabled = true;
             cmbShowItemsLowStocks.Items.AddRange(new object[] { "25", "50", "100", "All" });
-            cmbShowItemsLowStocks.Location = new Point(697, 102);
+            cmbShowItemsLowStocks.Location = new Point(708, 102);
             cmbShowItemsLowStocks.Name = "cmbShowItemsLowStocks";
             cmbShowItemsLowStocks.Size = new Size(121, 23);
             cmbShowItemsLowStocks.TabIndex = 16;
@@ -268,7 +268,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(1055, 110);
+            label7.Location = new Point(1063, 110);
             label7.Name = "label7";
             label7.Size = new Size(71, 15);
             label7.TabIndex = 19;
@@ -278,7 +278,7 @@
             // 
             cmbShowItemsOutOfStocks.FormattingEnabled = true;
             cmbShowItemsOutOfStocks.Items.AddRange(new object[] { "0", "25", "50", "100", "All" });
-            cmbShowItemsOutOfStocks.Location = new Point(1129, 107);
+            cmbShowItemsOutOfStocks.Location = new Point(1140, 102);
             cmbShowItemsOutOfStocks.Name = "cmbShowItemsOutOfStocks";
             cmbShowItemsOutOfStocks.Size = new Size(121, 23);
             cmbShowItemsOutOfStocks.TabIndex = 18;
@@ -288,7 +288,8 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1264, 714);
+            BackColor = Color.CadetBlue;
+            ClientSize = new Size(1370, 749);
             Controls.Add(label7);
             Controls.Add(cmbShowItemsOutOfStocks);
             Controls.Add(label6);
@@ -304,8 +305,12 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(dgvRecentlyAdded);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "Inventory";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Inventory";
+            WindowState = FormWindowState.Maximized;
             Load += Inventory_Load;
             ((System.ComponentModel.ISupportInitialize)dgvRecentlyAdded).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvLowStocks).EndInit();
