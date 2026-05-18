@@ -1014,7 +1014,7 @@ namespace PAKOPointOfSale.Transactions
                 if (cartAppliedQty > currentStock)
                 {
                     MessageBox.Show(
-                        $"The quantity for product '{product_name}' exceeds the available stock.",
+                        $"Cannot apply the requested quantity for '{product_name}' because only {currentStock} item(s) are currently in stock.",
                         "Insufficient Stock",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Warning
