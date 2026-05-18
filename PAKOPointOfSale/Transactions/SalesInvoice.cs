@@ -1004,6 +1004,24 @@ namespace PAKOPointOfSale.Transactions
             {
                 if (row.IsNewRow) continue;
 
+                //validate quantity against stock
+                decimal cartAppliedQty = 0;
+                int product_id = Convert.ToInt32(row.Cells["ID"].Value.ToString());
+                string product_name = row.Cells["product"].Value?.ToString();
+                cartAppliedQty = Convert.ToDecimal(row.Cells["appliedQty"].Value.ToString());
+                decimal currentStock = getProductCurrentQty(product_id);
+
+                if (cartAppliedQty > currentStock)
+                {
+                    MessageBox.Show(
+                        $"The quantity for product '{product_name}' exceeds the available stock.",
+                        "Insufficient Stock",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
+                    return false;
+                }
+
                 string discountType = row.Cells["discountType"].Value?.ToString() ?? "None";
 
                 if (discountType.Equals("None", StringComparison.OrdinalIgnoreCase) ||
@@ -1033,6 +1051,7 @@ namespace PAKOPointOfSale.Transactions
                     );
                     return false;
                 }
+
             }
             return true;
         }
