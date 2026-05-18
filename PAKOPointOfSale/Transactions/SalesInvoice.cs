@@ -88,6 +88,56 @@ namespace PAKOPointOfSale.Transactions
 
             }
         }
+
+        public bool ValidateProductQty(int product_id, decimal quantity)
+        {
+            decimal cartAppliedQty = 0;
+            decimal qtyToBeApplied = quantity;
+            decimal newQty = 0;
+
+            foreach (DataGridViewRow row in dtgvCart.Rows)
+            {
+                // Important: Skip the empty "new row" at the bottom if it exists
+                if (row.IsNewRow) continue;
+
+                // Search in a specific column (e.g., column index 0)
+                if (row.Cells["ID"].Value != null && row.Cells["ID"].Value.ToString().Equals(product_id.ToString()))
+                {
+                    // Store the value you need in a string
+                    cartAppliedQty = Convert.ToDecimal(row.Cells["appliedQty"].Value.ToString());
+                    newQty = qtyToBeApplied + cartAppliedQty;
+                    decimal currentStock = getProductCurrentQty(product_id);
+
+                    if (newQty > currentStock)
+                    {
+                        MessageBox.Show(
+                            $"Unable to add {qtyToBeApplied} unit(s). The cart already contains {cartAppliedQty} unit(s) of this product.",
+                            "Insufficient Stock",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning
+                        );
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+        public decimal getProductCurrentQty(int product_id)
+        {
+            decimal currentStock = 0;
+
+            using (var conn = new SqlConnection(Program.ConnString))
+            using (var cmd = new SqlCommand("SELECT quantity FROM Products WHERE id = @productId", conn))
+            {
+                cmd.Parameters.AddWithValue("@productId", product_id);
+                conn.Open();
+                var result = cmd.ExecuteScalar();
+                if (result != null)
+                    return currentStock = Convert.ToDecimal(result);
+            }
+            return 0;
+        }
         public void AddProductToCart(int id, string product, string brand, string unit,
     decimal price, string category, decimal quantity, decimal subTotal,
     bool? isPending = false, string? discountType = "none")

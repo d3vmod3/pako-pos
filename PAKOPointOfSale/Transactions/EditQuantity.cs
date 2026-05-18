@@ -96,24 +96,26 @@ namespace PAKOPointOfSale.Transactions
                 }
 
                 decimal subTotal = price * appliedQty;
-
-                // Add to cart
-                _salesInvoice.AddProductToCart(product_id, product, brand, unit, price, category, appliedQty, subTotal);
-                ActivityLogs.Log(
-                    user: LoggedInUser.FullName,
-                    action: "click",
-                    module: "Sales Invoice > Search Product > Clicked Ok button",
-                    description: "Double clicked an item",
-                    payload: new
-                    {
-                        product = product,
-                        brand = brand,
-                        quantity = appliedQty,
-                        unit_price = price.ToString(),
-                        category = category,
-                    }
-                );
-                this.Close();
+                if (_salesInvoice.ValidateProductQty(product_id, appliedQty))
+                { 
+                    // Add to cart
+                        _salesInvoice.AddProductToCart(product_id, product, brand, unit, price, category, appliedQty, subTotal);
+                    ActivityLogs.Log(
+                        user: LoggedInUser.FullName,
+                        action: "click",
+                        module: "Sales Invoice > Search Product > Clicked Ok button",
+                        description: "Double clicked an item",
+                        payload: new
+                        {
+                            product = product,
+                            brand = brand,
+                            quantity = appliedQty,
+                            unit_price = price.ToString(),
+                            category = category,
+                        }
+                    );
+                    this.Close();
+                }
             }
             catch (Exception ex)
             {
