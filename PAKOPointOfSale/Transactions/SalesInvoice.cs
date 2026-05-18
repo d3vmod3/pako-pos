@@ -111,7 +111,7 @@ namespace PAKOPointOfSale.Transactions
                     if (newQty > currentStock)
                     {
                         MessageBox.Show(
-                            $"Unable to add {qtyToBeApplied} unit(s). The cart already contains {cartAppliedQty} unit(s) of this product.",
+                            $"Unable to add {qtyToBeApplied} unit(s). The cart already contains {Math.Truncate(cartAppliedQty)} unit(s) of this product.",
                             "Insufficient Stock",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Warning
@@ -306,7 +306,7 @@ namespace PAKOPointOfSale.Transactions
                 if (qty > currentStock)
                 {
                     MessageBox.Show(
-                        $"Quantity cannot exceed available stock ({currentStock}).",
+                        $"Quantity cannot exceed available stock ({Math.Truncate(currentStock)}).",
                         "Stock Limit",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Warning
@@ -1014,7 +1014,7 @@ namespace PAKOPointOfSale.Transactions
                 if (cartAppliedQty > currentStock)
                 {
                     MessageBox.Show(
-                        $"Cannot apply the requested quantity for '{product_name}' because only {currentStock} item(s) are currently in stock.",
+                        $"Cannot apply the requested quantity for '{product_name}' because only {Math.Truncate(currentStock)} item(s) are currently in stock.",
                         "Insufficient Stock",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Warning
@@ -1366,6 +1366,7 @@ namespace PAKOPointOfSale.Transactions
                             string unit = reader["unit_of_measurement"].ToString();
                             decimal price = Convert.ToDecimal(reader["unit_price"]);
                             decimal quantity = Convert.ToDecimal(reader["appliedQty"]);
+                            quantity = Math.Truncate(quantity);
                             decimal subTotal = Convert.ToDecimal(reader["subTotal"]);
 
                             // category is unknown here — set it to empty or modify query to include it
