@@ -138,10 +138,13 @@ namespace PAKOPointOfSale.Options
                     case "Activity Logs":
                         grpBoxActivityLogs.Visible = true;
                         grpBoxBackupDatabase.Visible = false;
+                        loadActivityLogs();
                         break;
                     case "Backup Database":
                         grpBoxActivityLogs.Visible = false;
                         grpBoxBackupDatabase.Visible = true;
+                        lstOptions.SelectedItem = "Backup Database";
+                        loadBackupDatabaseLocation();
                         break;
                     default:
                         MessageBox.Show("Invalid option selected.");
@@ -311,6 +314,53 @@ namespace PAKOPointOfSale.Options
                     date_to = dtpTo.Value.ToString()
                 }
             );
+            if (activityLogsTable == null || activityLogsTable.Rows.Count == 0)
+            {
+                ActivityLogs.Log(
+                    user: LoggedInUser.FullName,
+                    action: "click",
+                    module: "Activity Logs",
+                    description: "Clicked Filter button",
+                    payload: new
+                    {
+                        status = "failed",
+                        reason = "No data loaded"
+                    }
+                );
+                MessageBox.Show("No data loaded.");
+                return;
+            }
+
+            try
+            {
+                // Get date values
+                DateTime fromDate = dtpFrom.Value.Date;
+                DateTime toDate = dtpTo.Value.Date.AddDays(1).AddTicks(-1); // include end of day
+
+                // Start building filter
+                string filter = $"timestamp >= #{fromDate:M/d/yyyy h:mm tt}# AND timestamp <= #{toDate:M/d/yyyy h:mm tt}#";
+
+
+
+                // Apply filter to DataView
+                activityLogsTable.DefaultView.RowFilter = filter;
+                dgvActivityLogs.DataSource = activityLogsTable.DefaultView;
+                ActivityLogs.Log(
+                    user: LoggedInUser.FullName,
+                    action: "click",
+                    module: "Activity Logs",
+                    description: "Clicked Filter button",
+                    payload: new
+                    {
+                        date_from = fromDate.ToString("yyyy-MM-dd"),
+                        date_to = toDate.ToString("yyyy-MM-dd")
+                    }
+                );
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error filtering suppliers: " + ex.Message);
+            }
         }
 
         private void dgvActivityLogs_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -329,8 +379,8 @@ namespace PAKOPointOfSale.Options
             bool canViewBackup = LoggedInUser.HasPermission("Backup Database", "view");
             bool canEditBackup = LoggedInUser.HasPermission("Backup Database", "edit");
 
-            grpBoxActivityLogs.Visible = canViewActivityLogs;
-            grpBoxBackupDatabase.Visible = canViewBackup;
+            //grpBoxActivityLogs.Visible = canViewActivityLogs;
+            //grpBoxBackupDatabase.Visible = canViewBackup;
 
             
 
