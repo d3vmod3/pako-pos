@@ -221,7 +221,7 @@ namespace PAKOPointOfSale.Supplier_Details
                     description: "Clicked Export button",
                     payload: null
                 );
-                using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "CSV files (*.csv)|*.csv", FileName = "Suppliers.csv" })
+                using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "CSV files (*.csv)|*.csv", FileName = $"Suppliers_{DateTime.Now:yyyyMMdd_HHmmss}.csv" })
                 {
                     if (sfd.ShowDialog() == DialogResult.OK)
                     {
@@ -238,7 +238,25 @@ namespace PAKOPointOfSale.Supplier_Details
                         {
                             if (!row.IsNewRow)
                             {
-                                var cells = headers.Select(c => "\"" + row.Cells[c.Index].Value?.ToString().Replace("\"", "\"\"") + "\"");
+                                var cells = headers.Select(column =>
+                                {
+                                    var value = row.Cells[column.Index].Value;
+
+                                    // Format DateTime columns to date only
+                                    if (value is DateTime dateValue)
+                                    {
+                                        return $"\"{dateValue:MM/dd/yyyy}\"";
+                                    }
+
+                                    if (value is bool isActive)
+                                    {
+                                        return $"\"{(isActive ? "Yes" : "No")}\"";
+                                    }
+
+                                    // Handle null values and escape quotes
+                                    return $"\"{value?.ToString().Replace("\"", "\"\"")}\"";
+                                });
+
                                 csv.AppendLine(string.Join(",", cells));
                             }
                         }

@@ -255,7 +255,7 @@ namespace PAKOPointOfSale.Categories
                 using (SaveFileDialog sfd = new SaveFileDialog()
                 {
                     Filter = "CSV files (*.csv)|*.csv",
-                    FileName = "Categories.csv"
+                    FileName = $"Categories_{DateTime.Now:yyyyMMdd_HHmmss}.csv",
                 })
                 {
                     if (sfd.ShowDialog() == DialogResult.OK)

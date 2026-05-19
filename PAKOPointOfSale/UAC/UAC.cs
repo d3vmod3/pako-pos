@@ -114,8 +114,42 @@ namespace PAKOPointOfSale.UAC
                     row.Cells["can_edit2"].Style.BackColor = Color.LightGray;
                     row.Cells["can_delete2"].Style.BackColor = Color.LightGray;
                 }
+                else if (module.Equals("Options", StringComparison.OrdinalIgnoreCase))
+                {
+                    row.Cells["can_add2"].ReadOnly = true;
+                    row.Cells["can_edit2"].ReadOnly = true;
+                    row.Cells["can_delete2"].ReadOnly = true;
+                    row.Cells["can_add2"].Style.BackColor = Color.LightGray;
+                    row.Cells["can_edit2"].Style.BackColor = Color.LightGray;
+                    row.Cells["can_delete2"].Style.BackColor = Color.LightGray;
+                }
+                else if (module.Equals("Activity Logs", StringComparison.OrdinalIgnoreCase))
+                {
+                    row.Cells["can_add2"].ReadOnly = true;
+                    row.Cells["can_edit2"].ReadOnly = true;
+                    row.Cells["can_delete2"].ReadOnly = true;
+                    row.Cells["can_add2"].Style.BackColor = Color.LightGray;
+                    row.Cells["can_edit2"].Style.BackColor = Color.LightGray;
+                    row.Cells["can_delete2"].Style.BackColor = Color.LightGray;
+                }
+                else if (module.Equals("Database Backup", StringComparison.OrdinalIgnoreCase))
+                {
+                    row.Cells["can_add2"].ReadOnly = true;
 
+                    row.Cells["can_delete2"].ReadOnly = true;
+                    row.Cells["can_add2"].Style.BackColor = Color.LightGray;
 
+                    row.Cells["can_delete2"].Style.BackColor = Color.LightGray;
+                }
+                else if (module.Equals("Dashboard", StringComparison.OrdinalIgnoreCase))
+                {
+                    row.Cells["can_add2"].ReadOnly = true;
+                    row.Cells["can_edit2"].ReadOnly = true;
+                    row.Cells["can_delete2"].ReadOnly = true;
+                    row.Cells["can_add2"].Style.BackColor = Color.LightGray;
+                    row.Cells["can_edit2"].Style.BackColor = Color.LightGray;
+                    row.Cells["can_delete2"].Style.BackColor = Color.LightGray;
+                }
             }
 
             // Optional: make module_name column read-only

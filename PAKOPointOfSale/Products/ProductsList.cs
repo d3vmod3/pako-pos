@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using PAKOPointOfSale.Categories;
 using System;
 using System.Collections.Generic;
@@ -441,7 +442,7 @@ namespace PAKOPointOfSale.Products
                 using (SaveFileDialog sfd = new SaveFileDialog())
                 {
                     sfd.Filter = "CSV files (*.csv)|*.csv";
-                    sfd.FileName = "ExportedData.csv";
+                    sfd.FileName = $"Products_{DateTime.Now:yyyyMMdd_HHmmss}.csv";
                     sfd.Title = "Save as CSV";
 
                     if (sfd.ShowDialog() == DialogResult.OK)
@@ -465,15 +466,28 @@ namespace PAKOPointOfSale.Products
                                     {
                                         var cells = visibleColumns.Select(c =>
                                         {
-                                            var value = row.Cells[c.Index].Value?.ToString() ?? "";
+                                            var value = row.Cells[c.Index].Value;
 
                                             // Prevent barcode scientific notation
-                                            if (c.HeaderText.ToLower().Contains("barcode"))
+                                            if 
+                                            (
+                                                c.HeaderText.ToLower().Contains("barcode")
+                                            )
                                             {
                                                 value = "=\"" + value + "\""; // Keeps exact digits
                                             }
 
-                                            return QuoteCsv(value);
+                                            if (value is DateTime dateValue)
+                                            {
+                                                return $"\"{dateValue:MM/dd/yyyy}\"";
+                                            }
+
+                                            if (value is bool isActive)
+                                            {
+                                                return $"\"{(isActive ? "Yes" : "No")}\"";
+                                            }
+
+                                            return $"\"{value?.ToString().Replace("\"", "\"\"")}\"";
                                         });
 
                                         sw.WriteLine(string.Join(",", cells));
@@ -491,15 +505,18 @@ namespace PAKOPointOfSale.Products
                                     file = sfd.FileName
                                 }
                             );
+                            
+                            var result = MessageBox.Show("CSV exported successfully!\nDo you want to open it now?", "Export Complete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                            MessageBox.Show("Data successfully exported to CSV!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                            // 🔹 Automatically open the file
-                            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo()
+                            if (result == DialogResult.Yes)
                             {
-                                FileName = sfd.FileName,
-                                UseShellExecute = true
-                            });
+
+                                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo()
+                                {
+                                    FileName = sfd.FileName,
+                                    UseShellExecute = true
+                                });
+                            }
                         }
                         catch (Exception ex)
                         {

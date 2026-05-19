@@ -33,6 +33,11 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             dtgvParkedTransactions = new DataGridView();
+            transactionBindingSource = new BindingSource(components);
+            txtSearch = new TextBox();
+            label1 = new Label();
+            btnClose = new Button();
+            btnExport = new Button();
             id = new DataGridViewTextBoxColumn();
             park_number = new DataGridViewTextBoxColumn();
             vat_amount = new DataGridViewTextBoxColumn();
@@ -46,14 +51,10 @@
             status = new DataGridViewTextBoxColumn();
             remarksDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             transactiontypeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            createdatDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            created_at = new DataGridViewTextBoxColumn();
             settle = new DataGridViewButtonColumn();
             salesinvoiceitemsDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             cancel = new DataGridViewButtonColumn();
-            transactionBindingSource = new BindingSource(components);
-            txtSearch = new TextBox();
-            label1 = new Label();
-            btnClose = new Button();
             ((System.ComponentModel.ISupportInitialize)dtgvParkedTransactions).BeginInit();
             ((System.ComponentModel.ISupportInitialize)transactionBindingSource).BeginInit();
             SuspendLayout();
@@ -73,7 +74,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dtgvParkedTransactions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dtgvParkedTransactions.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgvParkedTransactions.Columns.AddRange(new DataGridViewColumn[] { id, park_number, vat_amount, vatable_sales, vat_exempt, sub_total, grandtotalDataGridViewTextBoxColumn, paymentmethodDataGridViewTextBoxColumn, cashreceivedDataGridViewTextBoxColumn, cashchangeDataGridViewTextBoxColumn, status, remarksDataGridViewTextBoxColumn, transactiontypeDataGridViewTextBoxColumn, createdatDataGridViewTextBoxColumn, settle, salesinvoiceitemsDataGridViewTextBoxColumn, cancel });
+            dtgvParkedTransactions.Columns.AddRange(new DataGridViewColumn[] { id, park_number, vat_amount, vatable_sales, vat_exempt, sub_total, grandtotalDataGridViewTextBoxColumn, paymentmethodDataGridViewTextBoxColumn, cashreceivedDataGridViewTextBoxColumn, cashchangeDataGridViewTextBoxColumn, status, remarksDataGridViewTextBoxColumn, transactiontypeDataGridViewTextBoxColumn, created_at, settle, salesinvoiceitemsDataGridViewTextBoxColumn, cancel });
             dtgvParkedTransactions.DataSource = transactionBindingSource;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
@@ -95,12 +96,63 @@
             dtgvParkedTransactions.CellContentClick += dtgvParkedTransactions_CellContentClick;
             dtgvParkedTransactions.CellFormatting += dtgvParkedTransactions_CellFormatting;
             // 
+            // transactionBindingSource
+            // 
+            transactionBindingSource.DataSource = typeof(Transaction);
+            // 
+            // txtSearch
+            // 
+            txtSearch.Location = new Point(178, 13);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(307, 23);
+            txtSearch.TabIndex = 1;
+            txtSearch.TextChanged += textBox1_TextChanged;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(12, 16);
+            label1.Name = "label1";
+            label1.Size = new Size(160, 17);
+            label1.TabIndex = 2;
+            label1.Text = "Search Pending Number:";
+            // 
+            // btnClose
+            // 
+            btnClose.BackColor = Color.Red;
+            btnClose.FlatStyle = FlatStyle.Popup;
+            btnClose.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnClose.ForeColor = Color.Black;
+            btnClose.Location = new Point(911, 11);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(84, 24);
+            btnClose.TabIndex = 21;
+            btnClose.Text = "Close";
+            btnClose.UseVisualStyleBackColor = false;
+            btnClose.Click += btnClose_Click;
+            // 
+            // btnExport
+            // 
+            btnExport.BackColor = Color.Gold;
+            btnExport.FlatStyle = FlatStyle.Popup;
+            btnExport.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnExport.ForeColor = Color.Black;
+            btnExport.Location = new Point(803, 11);
+            btnExport.Name = "btnExport";
+            btnExport.Size = new Size(102, 25);
+            btnExport.TabIndex = 154;
+            btnExport.Text = "Export CSV";
+            btnExport.UseVisualStyleBackColor = false;
+            btnExport.Click += btnExport_Click;
+            // 
             // id
             // 
             id.DataPropertyName = "id";
             id.HeaderText = "ID";
             id.Name = "id";
             id.ReadOnly = true;
+            id.Visible = false;
             // 
             // park_number
             // 
@@ -197,13 +249,13 @@
             transactiontypeDataGridViewTextBoxColumn.Name = "transactiontypeDataGridViewTextBoxColumn";
             transactiontypeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // createdatDataGridViewTextBoxColumn
+            // created_at
             // 
-            createdatDataGridViewTextBoxColumn.DataPropertyName = "created_at";
-            createdatDataGridViewTextBoxColumn.HeaderText = "Date Pending";
-            createdatDataGridViewTextBoxColumn.MinimumWidth = 120;
-            createdatDataGridViewTextBoxColumn.Name = "createdatDataGridViewTextBoxColumn";
-            createdatDataGridViewTextBoxColumn.ReadOnly = true;
+            created_at.DataPropertyName = "created_at";
+            created_at.HeaderText = "Date Pending";
+            created_at.MinimumWidth = 120;
+            created_at.Name = "created_at";
+            created_at.ReadOnly = true;
             // 
             // settle
             // 
@@ -236,48 +288,13 @@
             cancel.Text = "Cancel";
             cancel.UseColumnTextForButtonValue = true;
             // 
-            // transactionBindingSource
-            // 
-            transactionBindingSource.DataSource = typeof(Transaction);
-            // 
-            // txtSearch
-            // 
-            txtSearch.Location = new Point(178, 13);
-            txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(307, 23);
-            txtSearch.TabIndex = 1;
-            txtSearch.TextChanged += textBox1_TextChanged;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(12, 16);
-            label1.Name = "label1";
-            label1.Size = new Size(160, 17);
-            label1.TabIndex = 2;
-            label1.Text = "Search Pending Number:";
-            // 
-            // btnClose
-            // 
-            btnClose.BackColor = Color.Red;
-            btnClose.FlatStyle = FlatStyle.Popup;
-            btnClose.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnClose.ForeColor = Color.Black;
-            btnClose.Location = new Point(911, 11);
-            btnClose.Name = "btnClose";
-            btnClose.Size = new Size(84, 24);
-            btnClose.TabIndex = 21;
-            btnClose.Text = "Close";
-            btnClose.UseVisualStyleBackColor = false;
-            btnClose.Click += btnClose_Click;
-            // 
             // ParkTransactionsList
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
             ClientSize = new Size(1000, 480);
+            Controls.Add(btnExport);
             Controls.Add(btnClose);
             Controls.Add(label1);
             Controls.Add(txtSearch);
@@ -301,6 +318,7 @@
         private TextBox txtSearch;
         private Label label1;
         private Button btnClose;
+        private Button btnExport;
         private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn park_number;
         private DataGridViewTextBoxColumn vat_amount;
@@ -314,7 +332,7 @@
         private DataGridViewTextBoxColumn status;
         private DataGridViewTextBoxColumn remarksDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn transactiontypeDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn createdatDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn created_at;
         private DataGridViewButtonColumn settle;
         private DataGridViewTextBoxColumn salesinvoiceitemsDataGridViewTextBoxColumn;
         private DataGridViewButtonColumn cancel;

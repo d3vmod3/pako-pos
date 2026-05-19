@@ -35,11 +35,13 @@ namespace PAKOPointOfSale.Options
                     case "Activity Logs":
                         grpBoxActivityLogs.Visible = true;
                         grpBoxBackupDatabase.Visible = false;
+                        lstOptions.SelectedItem = "Activity Logs";
                         loadActivityLogs();
                         break;
                     case "Backup Database":
                         grpBoxActivityLogs.Visible = false;
                         grpBoxBackupDatabase.Visible = true;
+                        lstOptions.SelectedItem = "Backup Database";
                         loadBackupDatabaseLocation();
                         break;
                     default:
@@ -47,6 +49,7 @@ namespace PAKOPointOfSale.Options
                         break;
                 }
             }
+            LoadPermissions();
 
         }
 
@@ -225,7 +228,7 @@ namespace PAKOPointOfSale.Options
                     description: "Clicked Export button",
                     payload: null
                 );
-                using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "CSV files (*.csv)|*.csv", FileName = "Suppliers.csv" })
+                using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "CSV files (*.csv)|*.csv", FileName = $"Activity_Logs_{DateTime.Now:yyyyMMdd_HHmmss}.csv" })
                 {
                     if (sfd.ShowDialog() == DialogResult.OK)
                     {
@@ -313,6 +316,39 @@ namespace PAKOPointOfSale.Options
         private void dgvActivityLogs_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void grpBoxBackupDatabase_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        public void LoadPermissions()
+        {
+            bool canViewActivityLogs = LoggedInUser.HasPermission("Activity Logs", "view");
+            bool canViewBackup = LoggedInUser.HasPermission("Backup Database", "view");
+            bool canEditBackup = LoggedInUser.HasPermission("Backup Database", "edit");
+
+            grpBoxActivityLogs.Visible = canViewActivityLogs;
+            grpBoxBackupDatabase.Visible = canViewBackup;
+
+            
+
+            btnChoosePath.Enabled = canEditBackup;
+            btnSaveDbaseBackupLocation.Enabled = canEditBackup;
+            btnBackup.Enabled = canEditBackup;
+
+            if(!canViewActivityLogs)
+            {
+                lstOptions.Items.Remove("Activity Logs");
+                
+            }
+
+            if(!canViewBackup)
+            {
+                lstOptions.Items.Remove("Backup Database");
+
+            }
         }
     }
 }

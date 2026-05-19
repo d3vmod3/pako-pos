@@ -51,16 +51,17 @@ namespace PAKOPointOfSale
                 MDIParent1 mainMenuForm = new MDIParent1();
                 if (is_reset(user_id) == false)
                 {
-                    if (userTypeId == 3)
+                    if (LoggedInUser.HasPermission("Dashboard", "view"))
+                    {
+                        mainMenuForm.ShowDialog();
+                        
+                    }
+                    else
                     {
                         Transactions.SalesInvoice salesInvoiceForm = new Transactions.SalesInvoice();
                         salesInvoiceForm.ShowDialog();
                     }
-                    else
-                    {
-                        mainMenuForm.ShowDialog();
-                    }
-                    return;
+                        return;
                 }
                 else
                 {

@@ -172,43 +172,7 @@ namespace PAKOPointOfSale.Transactions
 
         private void cmbStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (transactionsTable == null)
-                return;
 
-            string selectedType = cmbTransactionType.SelectedItem?.ToString() ?? "All";
-            DateTime startDate = dtpFrom.Value.Date;
-            DateTime endDate = dtpTo.Value.Date.AddDays(1); // exclusive end date
-
-            DataView dv = new DataView(transactionsTable);
-            List<string> filters = new List<string>();
-
-            if (selectedType != "All")
-                filters.Add($"transaction_type = '{selectedType}'");
-
-            filters.Add($"created_at >= #{startDate:MM/dd/yyyy}# AND created_at < #{endDate:MM/dd/yyyy}#");
-
-            dv.RowFilter = string.Join(" AND ", filters);
-            dtgvTransactions.DataSource = dv;
-
-            // --- Dynamic column visibility ---
-            if (dtgvTransactions.Columns.Contains("return_number") && dtgvTransactions.Columns.Contains("void_number"))
-            {
-                if (selectedType == "Void")
-                {
-                    dtgvTransactions.Columns["void_number"].Visible = true;
-                    dtgvTransactions.Columns["return_number"].Visible = false;
-                }
-                else if (selectedType == "Return")
-                {
-                    dtgvTransactions.Columns["return_number"].Visible = true;
-                    dtgvTransactions.Columns["void_number"].Visible = false;
-                }
-                else
-                {
-                    dtgvTransactions.Columns["return_number"].Visible = false;
-                    dtgvTransactions.Columns["void_number"].Visible = false;
-                }
-            }
 
             ActivityLogs.Log(
                 user: LoggedInUser.FullName,
@@ -254,7 +218,7 @@ namespace PAKOPointOfSale.Transactions
                 using (SaveFileDialog sfd = new SaveFileDialog()
                 {
                     Filter = "CSV files (*.csv)|*.csv",
-                    FileName = "Transactions.csv"
+                    FileName = $"Transactions_{DateTime.Now:yyyyMMdd_HHmmss}.csv"
                 })
                 {
                     if (sfd.ShowDialog() == DialogResult.OK)
@@ -280,7 +244,11 @@ namespace PAKOPointOfSale.Transactions
                                 object cellValue = row.Cells[c.Index].Value;
 
                                 // Treat invoice_number, void_number, return_number as string (preserve leading zeros)
-                                if (c.Name == "invoice_number" || c.Name == "void_number" || c.Name == "return_number")
+                                if (
+                                        c.Name == "invoice_number" ||
+                                        c.Name == "void_number" ||
+                                        c.Name == "return_number"
+                                    )
                                 {
                                     //return "'" + (cellValue?.ToString() ?? "");
                                     //return "=\"" + cellValue + "\"";
@@ -351,6 +319,69 @@ namespace PAKOPointOfSale.Transactions
         }
 
         private void dtpTo_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnFilter_Click_1(object sender, EventArgs e)
+        {
+            if (transactionsTable == null || transactionsTable.Rows.Count == 0)
+            {
+                ActivityLogs.Log(
+                    user: LoggedInUser.FullName,
+                    action: "click",
+                    module: "Transactions List",
+                    description: "Clicked Filter button",
+                    payload: new
+                    {
+                        status = "failed",
+                        reason = "No data loaded"
+                    }
+                );
+                MessageBox.Show("No data loaded.");
+                return;
+            }
+
+            if (transactionsTable == null)
+                return;
+
+            string selectedType = cmbTransactionType.SelectedItem?.ToString() ?? "All";
+            DateTime startDate = dtpFrom.Value.Date;
+            DateTime endDate = dtpTo.Value.Date.AddDays(1); // exclusive end date
+
+            DataView dv = new DataView(transactionsTable);
+            List<string> filters = new List<string>();
+
+            if (selectedType != "All")
+                filters.Add($"transaction_type = '{selectedType}'");
+
+            filters.Add($"created_at >= #{startDate:MM/dd/yyyy}# AND created_at < #{endDate:MM/dd/yyyy}#");
+
+            dv.RowFilter = string.Join(" AND ", filters);
+            dtgvTransactions.DataSource = dv;
+
+            // --- Dynamic column visibility ---
+            if (dtgvTransactions.Columns.Contains("return_number") && dtgvTransactions.Columns.Contains("void_number"))
+            {
+                if (selectedType == "Void")
+                {
+                    dtgvTransactions.Columns["void_number"].Visible = true;
+                    dtgvTransactions.Columns["return_number"].Visible = false;
+                }
+                else if (selectedType == "Return")
+                {
+                    dtgvTransactions.Columns["return_number"].Visible = true;
+                    dtgvTransactions.Columns["void_number"].Visible = false;
+                }
+                else
+                {
+                    dtgvTransactions.Columns["return_number"].Visible = false;
+                    dtgvTransactions.Columns["void_number"].Visible = false;
+                }
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
         {
 
         }

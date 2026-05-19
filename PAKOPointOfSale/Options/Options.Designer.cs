@@ -231,6 +231,7 @@
             grpBoxBackupDatabase.TabIndex = 1;
             grpBoxBackupDatabase.TabStop = false;
             grpBoxBackupDatabase.Text = "Backup Database";
+            grpBoxBackupDatabase.Enter += grpBoxBackupDatabase_Enter;
             // 
             // btnBackup
             // 

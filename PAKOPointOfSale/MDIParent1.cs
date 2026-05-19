@@ -437,18 +437,13 @@ namespace PAKOPointOfSale
 
         private void LoadDashboardViewPermission()
         {
-            if (!LoggedInUser.HasPermission("Top 5 Selling", "view"))
-            {
-                gbTop5Sellings.Visible = false;
-            }
-            if (!LoggedInUser.HasPermission("Sales", "view"))
-            {
-                gbSales.Visible = false;
-            }
-            if (!LoggedInUser.HasPermission("Low in Stock", "view"))
-            {
-                gbLowStocks.Visible = false;
-            }
+            gbTop5Sellings.Visible = LoggedInUser.HasPermission("Top 5 Selling", "view");
+            gbSales.Visible = LoggedInUser.HasPermission("Sales", "view");
+            gbLowStocks.Visible = LoggedInUser.HasPermission("Low in Stock", "view");
+            optionsToolStripMenuItem.Visible = LoggedInUser.HasPermission("Options", "view");
+            activityLogsToolStripMenuItem.Visible = LoggedInUser.HasPermission("Activity Logs", "view");
+            backupDatabaseToolStripMenuItem.Visible = LoggedInUser.HasPermission("Backup Database", "view");
+
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
@@ -596,6 +591,7 @@ namespace PAKOPointOfSale
             );
             UAC.UAC userAccessControlForm = new UAC.UAC();
             userAccessControlForm.ShowDialog();
+            LoadDashboardViewPermission();
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)

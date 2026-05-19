@@ -100,6 +100,7 @@ namespace PAKOPointOfSale.Transactions
             btnScan = new Button();
             btnRemove = new Button();
             btnTransactions = new Button();
+            lblFullName = new Label();
             ((System.ComponentModel.ISupportInitialize)productBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)userTypeBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dtgvCart).BeginInit();
@@ -722,7 +723,7 @@ namespace PAKOPointOfSale.Transactions
             label7.BackColor = Color.DimGray;
             label7.Font = new Font("Impact", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label7.ForeColor = Color.White;
-            label7.Location = new Point(1075, 19);
+            label7.Location = new Point(1075, 39);
             label7.Name = "label7";
             label7.Size = new Size(62, 29);
             label7.TabIndex = 153;
@@ -734,7 +735,7 @@ namespace PAKOPointOfSale.Transactions
             label8.BackColor = Color.DimGray;
             label8.Font = new Font("Impact", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label8.ForeColor = Color.White;
-            label8.Location = new Point(1075, 58);
+            label8.Location = new Point(1075, 68);
             label8.Name = "label8";
             label8.Size = new Size(66, 29);
             label8.TabIndex = 154;
@@ -746,7 +747,7 @@ namespace PAKOPointOfSale.Transactions
             lblDate.BackColor = Color.DimGray;
             lblDate.Font = new Font("Impact", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblDate.ForeColor = Color.White;
-            lblDate.Location = new Point(1178, 19);
+            lblDate.Location = new Point(1178, 39);
             lblDate.Name = "lblDate";
             lblDate.Size = new Size(26, 29);
             lblDate.TabIndex = 155;
@@ -758,7 +759,7 @@ namespace PAKOPointOfSale.Transactions
             lblTime.BackColor = Color.DimGray;
             lblTime.Font = new Font("Impact", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblTime.ForeColor = Color.White;
-            lblTime.Location = new Point(1178, 58);
+            lblTime.Location = new Point(1178, 68);
             lblTime.Name = "lblTime";
             lblTime.Size = new Size(26, 29);
             lblTime.TabIndex = 156;
@@ -863,12 +864,25 @@ namespace PAKOPointOfSale.Transactions
             btnTransactions.UseVisualStyleBackColor = false;
             btnTransactions.Click += btnTransactions_Click;
             // 
+            // lblFullName
+            // 
+            lblFullName.AutoSize = true;
+            lblFullName.BackColor = Color.WhiteSmoke;
+            lblFullName.Font = new Font("Impact", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblFullName.ForeColor = Color.Black;
+            lblFullName.Location = new Point(1075, 12);
+            lblFullName.Name = "lblFullName";
+            lblFullName.Size = new Size(71, 20);
+            lblFullName.TabIndex = 184;
+            lblFullName.Text = "Full Name";
+            // 
             // SalesInvoice
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
             ClientSize = new Size(1367, 777);
+            Controls.Add(lblFullName);
             Controls.Add(btnTransactions);
             Controls.Add(btnRemove);
             Controls.Add(btnScan);
@@ -999,5 +1013,6 @@ namespace PAKOPointOfSale.Transactions
         private DataGridViewTextBoxColumn vatAmount;
         private DataGridViewTextBoxColumn vatExempt;
         private Button btnTransactions;
+        private Label lblFullName;
     }
 }

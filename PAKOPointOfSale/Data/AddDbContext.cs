@@ -71,11 +71,25 @@ namespace WinFormsApp1.Data
                 new Permission { id = 22, user_type_id = 2, module_name = "Top 5 Selling", can_view = true, can_add = false, can_edit = false, can_delete = false },
                 new Permission { id = 23, user_type_id = 2, module_name = "Low in Stock", can_view = true, can_add = false, can_edit = false, can_delete = false },
                 new Permission { id = 24, user_type_id = 2, module_name = "Sales", can_view = true, can_add = false, can_edit = false, can_delete = false },
+                new Permission { id = 25, user_type_id = 2, module_name = "Dashboard", can_view = true },
 
                 //Dashboard Cashier
-                new Permission { id = 25, user_type_id = 3, module_name = "Top 5 Selling", can_view = false, can_add = false, can_edit = false, can_delete = false },
-                new Permission { id = 26, user_type_id = 3, module_name = "Low in Stock", can_view = true, can_add = false, can_edit = false, can_delete = false },
-                new Permission { id = 27, user_type_id = 3, module_name = "Sales", can_view = false, can_add = false, can_edit = false, can_delete = false }
+                new Permission { id = 26, user_type_id = 3, module_name = "Top 5 Selling", can_view = false, can_add = false, can_edit = false, can_delete = false },
+                new Permission { id = 27, user_type_id = 3, module_name = "Low in Stock", can_view = true, can_add = false, can_edit = false, can_delete = false },
+                new Permission { id = 28, user_type_id = 3, module_name = "Sales", can_view = false, can_add = false, can_edit = false, can_delete = false },
+
+                new Permission { id = 29, user_type_id = 3, module_name = "Dashboard", can_view = false},
+
+                //Options Admin
+                new Permission { id = 30, user_type_id = 2, module_name = "Options", can_view = true },
+                new Permission { id = 31, user_type_id = 2, module_name = "Activity Logs", can_view = true},
+                new Permission { id = 32, user_type_id = 2, module_name = "Backup Database", can_view = true, can_edit = true },
+
+
+                //Options Cashier
+                new Permission { id = 33, user_type_id = 3, module_name = "Options", can_view = false },
+                new Permission { id = 34, user_type_id = 3, module_name = "Activity Logs", can_view = false },
+                new Permission { id = 35, user_type_id = 3, module_name = "Backup Database", can_view = false, can_edit = false }
             );
 
 

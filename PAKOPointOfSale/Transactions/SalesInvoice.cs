@@ -37,6 +37,7 @@ namespace PAKOPointOfSale.Transactions
             dtgvCart.Columns["appliedQty"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dtgvCart.Columns["unit_price"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dtgvCart.Columns["subTotal"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            lblFullName.Text = "Cashier: " + LoggedInUser.FullName;
         }
 
         private void btnSearchProduct_Click(object sender, EventArgs e)
@@ -1095,14 +1096,36 @@ namespace PAKOPointOfSale.Transactions
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            ActivityLogs.Log(
+            if (LoggedInUser.HasPermission("Dashboard", "view"))
+            {
+                ActivityLogs.Log(
                 user: LoggedInUser.FullName,
                 action: "click",
                 module: "Sales Invoice",
                 description: "Clicked Close button",
                 payload: null
             );
-            this.Close();
+                this.Close();
+            }
+            else
+            {
+                var loginForm = new Login(); // Replace with your login form
+                loginForm.Show();
+                LoggedInUser.Logout(this);
+                ActivityLogs.Log(
+                    user: LoggedInUser.FullName,
+                    action: "click",
+                    module: "Logout",
+                    description: "Clicked Close button to Logout",
+                    payload: new
+                    {
+                        status = "success"
+                    }
+                );
+            }
+            
+
+            
         }
 
         private void button2_Click_Park(object sender, EventArgs e)

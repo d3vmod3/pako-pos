@@ -191,7 +191,7 @@ namespace PAKOPointOfSale.Users
                 using (SaveFileDialog sfd = new SaveFileDialog()
                 {
                     Filter = "CSV files (*.csv)|*.csv",
-                    FileName = "Categories.csv"
+                    FileName = $"Users_{DateTime.Now:yyyyMMdd_HHmmss}.csv"
                 })
                 {
                     if (sfd.ShowDialog() == DialogResult.OK)
@@ -251,7 +251,7 @@ namespace PAKOPointOfSale.Users
                             user: LoggedInUser.FullName,
                             action: "click",
                             module: "Users List",
-                            description: "Clicked Cancelled",
+                            description: "Clicked Cancel",
                             payload: new
                             {
                                 file = sfd.FileName

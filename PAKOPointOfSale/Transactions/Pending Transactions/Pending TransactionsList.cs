@@ -223,5 +223,115 @@ namespace PAKOPointOfSale.Transactions.Parked_Transactions
                 e.Handled = true; // Prevent further processing of the key event
             }
         }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            if (dtgvParkedTransactions.Rows.Count == 0)
+            {
+                MessageBox.Show("No data to export.");
+                ActivityLogs.Log(
+                    user: LoggedInUser.FullName,
+                    action: "click",
+                    module: "Pending Transactions",
+                    description: "Clicked Export button",
+                    payload: new
+                    {
+                        status = "failed",
+                        message = "No data to export."
+                    }
+                );
+                return;
+            }
+
+            try
+            {
+                // Ask where to save the CSV
+                using (SaveFileDialog sfd = new SaveFileDialog()
+                {
+                    Filter = "CSV files (*.csv)|*.csv",
+                    FileName = $"Pending_Transactions_{DateTime.Now:yyyyMMdd_HHmmss}.csv"
+                })
+                {
+                    if (sfd.ShowDialog() == DialogResult.OK)
+                    {
+                        StringBuilder csvContent = new StringBuilder();
+
+                        // Include only visible columns
+                        var visibleColumns = dtgvParkedTransactions.Columns
+                            .Cast<DataGridViewColumn>()
+                            .Where(c => c.Visible && !string.Equals(c.HeaderText, "", StringComparison.OrdinalIgnoreCase))
+                            .ToList();
+
+                        // Write header row
+                        csvContent.AppendLine(string.Join(",", visibleColumns.Select(c => "\"" + c.HeaderText + "\"")));
+
+                        // Write data rows
+                        foreach (DataGridViewRow row in dtgvParkedTransactions.Rows)
+                        {
+                            if (row.IsNewRow) continue; // skip the new row placeholder
+
+                            var values = visibleColumns.Select(c =>
+                            {
+                                var cellValue = row.Cells[c.Index].Value?.ToString() ?? "";
+                                if (
+                                        c.Name == "park_number" ||
+                                        c.Name == "created_at"
+                                    )
+                                {
+                                    //return "'" + (cellValue?.ToString() ?? "");
+                                    //return "=\"" + cellValue + "\"";
+                                    cellValue = "=\"" + cellValue + "\"";
+                                    return cellValue;
+                                }
+                                // Escape double quotes for CSV
+                                return "\"" + cellValue.Replace("\"", "\"\"") + "\"";
+                            });
+
+                            csvContent.AppendLine(string.Join(",", values));
+                        }
+
+                        // Save the CSV file
+                        File.WriteAllText(sfd.FileName, csvContent.ToString(), Encoding.UTF8);
+                        ActivityLogs.Log(
+                            user: LoggedInUser.FullName,
+                            action: "click",
+                            module: "Pending Transactions",
+                            description: "Saved CSV File",
+                            payload: new
+                            {
+                                file = sfd.FileName
+                            }
+                        );
+                        // Ask to open it
+                        var result = MessageBox.Show("Export successful! Do you want to open the file?", "Export Complete", MessageBoxButtons.YesNo);
+                        if (result == DialogResult.Yes)
+                        {
+                            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo()
+                            {
+                                FileName = sfd.FileName,
+                                UseShellExecute = true
+                            });
+                        }
+                    }
+                    else
+                    {
+                        ActivityLogs.Log(
+                            user: LoggedInUser.FullName,
+                            action: "click",
+                            module: "Pending Transactions",
+                            description: "Clicked Cancel",
+                            payload: new
+                            {
+                                file = sfd.FileName
+                            }
+                        );
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error exporting CSV: " + ex.Message);
+            }
+        }
     }
 }
