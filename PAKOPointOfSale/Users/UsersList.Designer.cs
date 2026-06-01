@@ -93,7 +93,7 @@
             dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle3;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(1342, 634);
-            dataGridView1.TabIndex = 0;
+            dataGridView1.TabIndex = 1;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // id
@@ -216,9 +216,10 @@
             // txtSearch
             // 
             txtSearch.Location = new Point(77, 98);
+            txtSearch.MaxLength = 20;
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(391, 23);
-            txtSearch.TabIndex = 1;
+            txtSearch.TabIndex = 0;
             txtSearch.TextChanged += txtSearch_TextChanged;
             // 
             // label1

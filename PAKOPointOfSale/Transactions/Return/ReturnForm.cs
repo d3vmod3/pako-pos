@@ -40,18 +40,30 @@ namespace PAKOPointOfSale.Transactions.Return
                     dgvReturnItems.Rows[rowIndex].Cells["product_brand"].Value = row.Cells["product_brand"].Value;
                     dgvReturnItems.Rows[rowIndex].Cells["quantity"].Value = row.Cells["remainingQty"].Value;
                     dgvReturnItems.Rows[rowIndex].Cells["remainingQty"].Value = row.Cells["remainingQty"].Value;
-                    dgvReturnItems.Rows[rowIndex].Cells["unit_price"].Value = row.Cells["unit_price"].Value;
-                    dgvReturnItems.Rows[rowIndex].Cells["total_amount"].Value = row.Cells["total_amount"].Value;
-                    dgvReturnItems.Rows[rowIndex].Cells["vat_amount"].Value = row.Cells["vat_amount"].Value;
-                    dgvReturnItems.Rows[rowIndex].Cells["vatable_sales"].Value = row.Cells["vatable_sales"].Value;
-                    dgvReturnItems.Rows[rowIndex].Cells["vat_exempt"].Value = row.Cells["vat_exempt"].Value; dgvReturnItems.Rows[rowIndex].Cells["discount"].Value = row.Cells["discount"].Value;
+                    dgvReturnItems.Rows[rowIndex].Cells["unit_price"].Value = N2(row.Cells["unit_price"].Value);
+                    dgvReturnItems.Rows[rowIndex].Cells["total_amount"].Value = N2(row.Cells["total_amount"].Value);
+                    dgvReturnItems.Rows[rowIndex].Cells["vat_amount"].Value = N2(row.Cells["vat_amount"].Value);
+                    dgvReturnItems.Rows[rowIndex].Cells["vatable_sales"].Value = N2(row.Cells["vatable_sales"].Value);
+                    dgvReturnItems.Rows[rowIndex].Cells["vat_exempt"].Value = N2(row.Cells["vat_exempt"].Value);
+                    dgvReturnItems.Rows[rowIndex].Cells["discount"].Value = N2(row.Cells["discount"].Value);
                     dgvReturnItems.Rows[rowIndex].Cells["discount_type"].Value = row.Cells["discount_type"].Value;
                     dgvReturnItems.Rows[rowIndex].Cells["unit_of_measurement"].Value = row.Cells["unit_of_measurement"].Value;
                     dgvReturnItems.Rows[rowIndex].Cells["transaction_id"].Value = row.Cells["transaction_id"].Value;
                 }
             }
             if (dgvReturnItems.Rows.Count == 0)
+            {
                 return;
+            }
+                
+            else
+            {
+                dgvReturnItems.Columns["total_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dgvReturnItems.Columns["vatable_sales"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dgvReturnItems.Columns["vat_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dgvReturnItems.Columns["unit_price"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            };
+
 
             foreach (DataGridViewRow row in dgvReturnItems.Rows)
             {
@@ -74,11 +86,11 @@ namespace PAKOPointOfSale.Transactions.Return
 
                 // Compute subtotal
                 decimal subTotal = remainingQty * price;
-                row.Cells["total_amount"].Value = subTotal.ToString("0.00");
+                row.Cells["total_amount"].Value = N2(subTotal);
 
                 // Compute VAT details
-                row.Cells["vatable_sales"].Value = Convert.ToString(SalesInvoiceFunctions.getVATableSales(price, remainingQty));
-                row.Cells["vat_amount"].Value = Convert.ToString(SalesInvoiceFunctions.getVATAmount(price, remainingQty));
+                row.Cells["vatable_sales"].Value = N2(SalesInvoiceFunctions.getVATableSales(price, remainingQty));
+                row.Cells["vat_amount"].Value = N2(SalesInvoiceFunctions.getVATAmount(price, remainingQty));
 
                 // Apply discount if applicable
                 if (!string.Equals(discountType, "none", StringComparison.OrdinalIgnoreCase))
@@ -100,6 +112,11 @@ namespace PAKOPointOfSale.Transactions.Return
             dgvReturnItems.Columns["discount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dgvReturnItems.Columns["total_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
+        }
+
+        private string N2(object value)
+        {
+            return Convert.ToDecimal(value).ToString("N2");
         }
 
         private void dgvReturnItems_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -455,9 +472,9 @@ namespace PAKOPointOfSale.Transactions.Return
                 // Restore original values
                 selectedRow.Cells["discount_type"].Value = "None";
                 selectedRow.Cells["discount"].Value = 0m;
-                selectedRow.Cells["total_amount"].Value = originalSubTotal;
-                selectedRow.Cells["vat_amount"].Value = 0.12m * (originalSubTotal / 1.12m);
-                selectedRow.Cells["vat_exempt"].Value = 0.00m;
+                selectedRow.Cells["total_amount"].Value = N2(originalSubTotal);
+                selectedRow.Cells["vat_amount"].Value = N2(0.12m * (originalSubTotal / 1.12m));
+                selectedRow.Cells["vat_exempt"].Value = N2(0.00m);
             }
             else
             {
@@ -469,7 +486,7 @@ namespace PAKOPointOfSale.Transactions.Return
                 {
                     discountAmount = SalesInvoiceFunctions.getSCDiscount(price, 0.05m, qty);
                     selectedRow.Cells["vat_amount"].Value = 0.00m;
-                    selectedRow.Cells["vat_exempt"].Value = 0.12m * ((price * qty) / 1.12m);
+                    selectedRow.Cells["vat_exempt"].Value = N2(0.12m * ((price * qty) / 1.12m));
                 }
                 else if (selectedDiscountType.Contains("Senior Citizen 20%") || selectedDiscountType.Contains("Person With Disability 20%") ||
                          selectedDiscountType.Contains("National Athletes and Coaches 20%"))
@@ -480,13 +497,13 @@ namespace PAKOPointOfSale.Transactions.Return
                     if (!selectedDiscountType.Contains("National Athletes and Coaches 20%"))
                     {
                         selectedRow.Cells["vat_amount"].Value = 0.00m;
-                        selectedRow.Cells["vat_exempt"].Value = 0.12m * ((price * qty) / 1.12m);
+                        selectedRow.Cells["vat_exempt"].Value = N2(0.12m * ((price * qty) / 1.12m));
                     }
                 }
 
                 // Update row with discount
-                selectedRow.Cells["discount"].Value = discountAmount;
-                selectedRow.Cells["total_amount"].Value = originalSubTotal - discountAmount;
+                selectedRow.Cells["discount"].Value = N2(discountAmount);
+                selectedRow.Cells["total_amount"].Value = N2(originalSubTotal - discountAmount);
             }
         }
 

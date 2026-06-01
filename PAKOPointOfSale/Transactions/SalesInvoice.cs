@@ -14,6 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinFormsApp1.Model;
+using static QuestPDF.Helpers.Colors;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using TextBox = System.Windows.Forms.TextBox;
 
@@ -151,7 +152,6 @@ namespace PAKOPointOfSale.Transactions
                     // ✅ Product exists → update quantity
                     decimal currentQty = Convert.ToDecimal(row.Cells[4].Value);
                     decimal newQty = currentQty + quantity;
-
                     row.Cells[4].Value = newQty;
 
                     // Recompute subtotal
@@ -174,22 +174,21 @@ namespace PAKOPointOfSale.Transactions
             }
 
             // ❌ If not found → add new row (your original logic)
-            string VATableSales = Convert.ToString(SalesInvoiceFunctions.getVATableSales(price, quantity));
-            string VATAmount = Convert.ToString(SalesInvoiceFunctions.getVATAmount(price, quantity));
-
+            decimal VATableSales = SalesInvoiceFunctions.getVATableSales(price, quantity);
+            decimal VATAmount = SalesInvoiceFunctions.getVATAmount(price, quantity);
             int rowIndex = dtgvCart.Rows.Add(
                 id,
                 product,
                 brand,
                 unit,
                 quantity,
-                price,
+                price.ToString("N2"),
                 category,
                 "none",
                 "0.00",
-                subTotal,
-                VATableSales,
-                VATAmount,
+                subTotal.ToString("N2"),
+                VATableSales.ToString("N2"),
+                VATAmount.ToString("N2"),
                 "0.00"
             );
 
@@ -232,12 +231,12 @@ namespace PAKOPointOfSale.Transactions
 
         private void num_CashAmount_ValueChanged(object sender, EventArgs e)
         {
-            lblChange.Text = Convert.ToString(Convert.ToDecimal(Convert.ToDecimal(txtCash.Text)) - Convert.ToDecimal(lblTotal.Text));
+            lblChange.Text = Convert.ToString(Convert.ToDecimal(Convert.ToDecimal(num_cash.Value)) - Convert.ToDecimal(lblTotal.Text));
         }
 
         private void num_CashAmount_KeyUp(object sender, KeyEventArgs e)
         {
-            lblChange.Text = Convert.ToString(Convert.ToDecimal(Convert.ToDecimal(txtCash.Text)) - Convert.ToDecimal(lblTotal.Text));
+            lblChange.Text = Convert.ToString(Convert.ToDecimal(Convert.ToDecimal(num_cash.Value)) - Convert.ToDecimal(lblTotal.Text));
         }
 
         private void dtgvCart_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -510,7 +509,7 @@ namespace PAKOPointOfSale.Transactions
                     cmd.Parameters.AddWithValue("@subTotal", totalOfSubtotal);
                     cmd.Parameters.AddWithValue("@grandTotal", grandTotal);
                     cmd.Parameters.AddWithValue("@payment", "cash");
-                    cmd.Parameters.AddWithValue("@cashReceived", Convert.ToDecimal(txtCash.Text));
+                    cmd.Parameters.AddWithValue("@cashReceived", Convert.ToDecimal(num_cash.Value));
                     cmd.Parameters.AddWithValue("@cashChange", Convert.ToDecimal(lblChange.Text));
                     cmd.Parameters.AddWithValue("@status", "success");
                     cmd.Parameters.AddWithValue("@created_at", DateTime.Now);
@@ -631,7 +630,7 @@ namespace PAKOPointOfSale.Transactions
                         {
                             status = "success",
                             invoice_number = invoiceNumber,
-                            message= "You chose not to print the receipt."
+                            message = "You chose not to print the receipt."
                         }
                     );
                     // ❌ Optionally do nothing or close the form
@@ -653,29 +652,35 @@ namespace PAKOPointOfSale.Transactions
 
         private void button6_Click(object sender, EventArgs e)
         {
-            txtCash.Text = txtCash.Text + "1";
+            if (Convert.ToDecimal(num_cash.Value.ToString() + "1") > num_cash.Maximum)
+            {
+                return; //num_cash.Value = num_cash.Maximum;
+            }
+            num_cash.Value = Convert.ToDecimal(num_cash.Value.ToString() + "1");
         }
 
         private void textBox1_TextChanged_1(object sender, EventArgs e)
         {
             int rowCount = dtgvCart.Rows.Count;
 
-            if (txtCash.Text.Trim() != "" && rowCount != 0)
+            if (num_cash.Value != 0 && rowCount != 0)
             {
                 decimal cash = 0;
                 decimal total = 0;
 
                 // Remove whitespace and try parse
-                decimal.TryParse(txtCash.Text.Trim(), out cash);
+                //decimal.TryParse(num_cash.Value, out cash);
                 decimal.TryParse(lblTotal.Text.Trim(), out total);
 
-                lblChange.Text = (cash - total).ToString("0.00");
+                lblChange.Text = (cash - total).ToString("N2");
             }
             else
             {
-                txtCash.Clear();
+                num_cash.Value = 0;
                 lblChange.Text = "0.00";
             }
+
+
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
@@ -694,27 +699,43 @@ namespace PAKOPointOfSale.Transactions
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            txtCash.Text = "1000.00";
+            decimal amount = 1000;
+
+            amount = Convert.ToDecimal(num_cash.Value + 1000);
+
+            num_cash.Value = amount;
         }
 
         private void btn5h_Click(object sender, EventArgs e)
         {
-            txtCash.Text = "500.00";
+            decimal amount = 500;
+
+            amount = Convert.ToDecimal(num_cash.Value + 500);
+
+            num_cash.Value = amount;
         }
 
         private void btn2h_Click(object sender, EventArgs e)
         {
-            txtCash.Text = "200.00";
+            decimal amount = 200;
+
+            amount = Convert.ToDecimal(num_cash.Value + 200);
+
+            num_cash.Value = amount;
         }
 
         private void btn1h_Click(object sender, EventArgs e)
         {
-            txtCash.Text = "100.00";
+            decimal amount = 100;
+
+            amount = Convert.ToDecimal(num_cash.Value + 100);
+
+            num_cash.Value = amount;
         }
 
         private void button15_Click(object sender, EventArgs e)
         {
-            txtCash.Clear();
+            num_cash.Value = 0;
         }
 
         private void txtCash_MouseLeave(object sender, EventArgs e)
@@ -724,52 +745,85 @@ namespace PAKOPointOfSale.Transactions
 
         private void btnKey2_Click(object sender, EventArgs e)
         {
-            txtCash.Text = txtCash.Text + "2";
+            if (Convert.ToDecimal(num_cash.Value.ToString() + "2") > num_cash.Maximum)
+            {
+                return; //num_cash.Value = num_cash.Maximum;
+            }
+            num_cash.Value = Convert.ToDecimal(num_cash.Value.ToString() + "2");
+
         }
 
         private void btnKey3_Click(object sender, EventArgs e)
         {
-            txtCash.Text = txtCash.Text + "3";
+            if (Convert.ToDecimal(num_cash.Value.ToString() + "3") > num_cash.Maximum)
+            {
+                return; //num_cash.Value = num_cash.Maximum;
+            }
+            num_cash.Value = Convert.ToDecimal(num_cash.Value.ToString() + "3");
         }
 
         private void btnKey4_Click(object sender, EventArgs e)
         {
-            txtCash.Text = txtCash.Text + "4";
+            if (Convert.ToDecimal(num_cash.Value.ToString() + "4") > num_cash.Maximum)
+            {
+                return; //num_cash.Value = num_cash.Maximum;
+            }
+            num_cash.Value = Convert.ToDecimal(num_cash.Value.ToString() + "4");
         }
 
         private void btnKey5_Click(object sender, EventArgs e)
         {
-            txtCash.Text = txtCash.Text + "5";
+            if (Convert.ToDecimal(num_cash.Value.ToString() + "5") > num_cash.Maximum)
+            {
+                return; //num_cash.Value = num_cash.Maximum;
+            }
+            num_cash.Value = Convert.ToDecimal(num_cash.Value.ToString() + "5");
         }
 
         private void btnKey6_Click(object sender, EventArgs e)
         {
-            txtCash.Text = txtCash.Text + "6";
+            if (Convert.ToDecimal(num_cash.Value.ToString() + "6") > num_cash.Maximum)
+            {
+                return; //num_cash.Value = num_cash.Maximum;
+            }
+            num_cash.Value = Convert.ToDecimal(num_cash.Value.ToString() + "6");
         }
 
         private void btnKey7_Click(object sender, EventArgs e)
         {
-            txtCash.Text = txtCash.Text + "7";
+            if (Convert.ToDecimal(num_cash.Value.ToString() + "7") > num_cash.Maximum)
+            {
+                return; //num_cash.Value = num_cash.Maximum;
+            }
+            num_cash.Value = Convert.ToDecimal(num_cash.Value.ToString() + "7");
         }
 
         private void btnKey8_Click(object sender, EventArgs e)
         {
-            txtCash.Text = txtCash.Text + "8";
+            if (Convert.ToDecimal(num_cash.Value.ToString() + "8") > num_cash.Maximum)
+            {
+                return; //num_cash.Value = num_cash.Maximum;
+            }
+            num_cash.Value = Convert.ToDecimal(num_cash.Value.ToString() + "8");
         }
 
         private void btnKey9_Click(object sender, EventArgs e)
         {
-            txtCash.Text = txtCash.Text + "9";
+            if (Convert.ToDecimal(num_cash.Value.ToString() + "9") > num_cash.Maximum)
+            {
+                return; //num_cash.Value = num_cash.Maximum;
+            }
+            num_cash.Value = Convert.ToDecimal(num_cash.Value.ToString() + "9");
         }
 
         private void btnDot_Click(object sender, EventArgs e)
         {
-            txtCash.Text = txtCash.Text + ".";
+            num_cash.Value = Convert.ToDecimal(num_cash.Value.ToString() + ".");
         }
 
         private void btn00_Click(object sender, EventArgs e)
         {
-            txtCash.Text = txtCash.Text + "0";
+            num_cash.Value = Convert.ToDecimal(num_cash.Value.ToString() + "0");
         }
 
         private void button1_Click_2(object sender, EventArgs e)
@@ -898,7 +952,7 @@ namespace PAKOPointOfSale.Transactions
                     }
                     row.Cells["discountAmount"].Value = discountAmount;
                     decimal subTotal = originalSubTotal - discountAmount;
-                    row.Cells["subTotal"].Value = subTotal.ToString("N2");  
+                    row.Cells["subTotal"].Value = subTotal.ToString("N2");
                 }
             }
         }
@@ -984,7 +1038,7 @@ namespace PAKOPointOfSale.Transactions
 
         private void btnClearCash_Click(object sender, EventArgs e)
         {
-            txtCash.Clear();
+            num_cash.Value = 0;
         }
 
         private bool validateTransaction()
@@ -1058,9 +1112,9 @@ namespace PAKOPointOfSale.Transactions
         }
         private bool isSufficient()
         {
-            if (txtCash.Text.Trim() != "")
+            if (num_cash.Value > 0)
             {
-                double cash = Convert.ToDouble(txtCash.Text.Trim());
+                double cash = Convert.ToDouble(num_cash.Value);
                 double total = Convert.ToDouble(lblTotal.Text);
                 if (cash < total)
                 {
@@ -1123,9 +1177,9 @@ namespace PAKOPointOfSale.Transactions
                     }
                 );
             }
-            
 
-            
+
+
         }
 
         private void button2_Click_Park(object sender, EventArgs e)
@@ -1414,7 +1468,7 @@ namespace PAKOPointOfSale.Transactions
             );
             if (parkedTransactions.ShowDialog() == DialogResult.OK)
             {
-                
+
                 clearCart();
                 TransactionID = parkedTransactions.TransactionId;
                 ParkNumber = parkedTransactions.ParkNumber;
@@ -1447,7 +1501,7 @@ namespace PAKOPointOfSale.Transactions
 
         private void clearCart()
         {
-            txtCash.Text = "";
+            num_cash.Value = 0;
             lblChange.Text = "0.00";
             lblParkLabel.Visible = false;
             lblParkNumber.Visible = false;
@@ -1696,6 +1750,35 @@ namespace PAKOPointOfSale.Transactions
             {
                 btnTransactions.PerformClick();
             }
+
+            if (e.KeyCode == Keys.Shift)
+            {
+                btn1k.PerformClick();
+            }
+
+            if (e.Control && (e.KeyCode == Keys.D1 || e.KeyCode == Keys.NumPad1))
+            {
+                btn1k.PerformClick();
+                e.Handled = true;
+            }
+
+            if (e.Control && (e.KeyCode == Keys.D2 || e.KeyCode == Keys.NumPad2))
+            {
+                btn5h.PerformClick();
+                e.Handled = true;
+            }
+
+            if (e.Control && (e.KeyCode == Keys.D3 || e.KeyCode == Keys.NumPad3))
+            {
+                btn2h.PerformClick();
+                e.Handled = true;
+            }
+
+            if (e.Control && (e.KeyCode == Keys.D4 || e.KeyCode == Keys.NumPad4))
+            {
+                btn1h.PerformClick();
+                e.Handled = true;
+            }
         }
 
         private void SalesInvoice_KeyPress(object sender, KeyPressEventArgs e)
@@ -1717,9 +1800,58 @@ namespace PAKOPointOfSale.Transactions
                 MessageBox.Show("You do not have permission to view Transactions", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            
+
             Transactions.TransactionsList transactionsListForm = new Transactions.TransactionsList();
             transactionsListForm.ShowDialog();
+        }
+
+        private void num_cash_ValueChanged(object sender, EventArgs e)
+        {
+            if (num_cash.Value > num_cash.Maximum)
+            {
+                return; //num_cash.Value = num_cash.Maximum;
+            }
+            num_cash.Value = Convert.ToDecimal(num_cash.Value.ToString("N2"));
+
+            lblChange.Text = Convert.ToDecimal
+                (Convert.ToDecimal(num_cash.Value) - Convert.ToDecimal(lblTotal.Text)).ToString("N2");
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void num_cash_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            // Allow only one decimal point
+            if (e.KeyChar == '.' && (sender as NumericUpDown).Text.IndexOf('.') > -1)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void num_cash_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (num_cash.Value > num_cash.Maximum)
+            {
+                return; //num_cash.Value = num_cash.Maximum;
+            }
+            num_cash.Value = Convert.ToDecimal(num_cash.Value.ToString("N2"));
+            lblChange.Text = Convert.ToDecimal
+                (Convert.ToDecimal(num_cash.Value) - Convert.ToDecimal(lblTotal.Text)).ToString("N2");
+        }
+
+        private void num_cash_Leave(object sender, EventArgs e)
+        {
+            num_cash.Text = num_cash.Value.ToString("N2");
+            lblChange.Text =Convert.ToDecimal
+                (Convert.ToDecimal(num_cash.Value) - Convert.ToDecimal(lblTotal.Text)).ToString("N2");
         }
     }
 }

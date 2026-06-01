@@ -100,7 +100,7 @@ namespace PAKOPointOfSale.Categories
             dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle5;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(1334, 646);
-            dataGridView1.TabIndex = 0;
+            dataGridView1.TabIndex = 1;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick_1;
             // 
             // id
@@ -186,9 +186,10 @@ namespace PAKOPointOfSale.Categories
             // txtSearch
             // 
             txtSearch.Location = new Point(66, 87);
+            txtSearch.MaxLength = 70;
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(351, 23);
-            txtSearch.TabIndex = 7;
+            txtSearch.TabIndex = 0;
             txtSearch.TextChanged += txtSearch_TextChanged;
             // 
             // label1

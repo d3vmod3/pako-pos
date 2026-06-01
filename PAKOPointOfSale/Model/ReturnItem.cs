@@ -14,8 +14,8 @@ namespace PAKOPointOfSale.Model
 
         [ForeignKey("product")]
         public int product_id { get; set; }
-        [Column(TypeName = "decimal(7,2)")]
-        public decimal quantity { get; set; }
+       
+        public int quantity { get; set; }
         public decimal unit_price { get; set; }
         public decimal vat_amount { get; set; }
         public decimal vatable_sales { get; set; }

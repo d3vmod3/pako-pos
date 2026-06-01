@@ -47,8 +47,8 @@ namespace PAKOPointOfSale.Transactions
                             p.sku,
                             p.quantity,
                             p.unit_of_measurement,
-                            p.cost_price,
-                            p.unit_price,
+                            FORMAT(p.cost_price, 'N2') AS cost_price,
+                            FORMAT(p.unit_price, 'N2') AS unit_price,
                             p.remarks,
                             p.status,
                             p.date_received,
@@ -61,6 +61,7 @@ namespace PAKOPointOfSale.Transactions
                         LEFT JOIN SupplierDetails s ON p.supplier_id = s.id
                         LEFT JOIN Categories c ON p.category_id = c.id
                         WHERE p.is_active = 1
+                        AND p.quantity > 0.00
                         ORDER BY p.created_at DESC;";
 
                     using (SqlDataAdapter adapter = new SqlDataAdapter(query, conn))
@@ -135,8 +136,8 @@ namespace PAKOPointOfSale.Transactions
                             p.sku,
                             p.quantity,
                             p.unit_of_measurement,
-                            p.cost_price,
-                            p.unit_price,
+                            FORMAT(p.cost_price, 'N2') AS cost_price,
+                            FORMAT(p.unit_price, 'N2') AS unit_price,
                             p.remarks,
                             p.status,
                             p.date_received,
@@ -149,6 +150,7 @@ namespace PAKOPointOfSale.Transactions
                         LEFT JOIN SupplierDetails s ON p.supplier_id = s.id
                         LEFT JOIN Categories c ON p.category_id = c.id
                         WHERE p.is_active = 1 AND barcode=@barcode
+                        AND p.quantity <= 0.00
                         ORDER BY p.created_at DESC;";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
@@ -207,6 +209,7 @@ namespace PAKOPointOfSale.Transactions
                 payload: null
             );
             this.Close();
+
         }
 
         private void SearchProduct_KeyPress(object sender, KeyPressEventArgs e)
@@ -240,6 +243,7 @@ namespace PAKOPointOfSale.Transactions
                     product = dataGridView1.Rows[e.RowIndex].Cells["product_name"].Value
                 }
             );
+
             setQuantityForm.ShowDialog(); // modal so user finishes editing first
             if (_barcode != "")
             {
@@ -250,5 +254,12 @@ namespace PAKOPointOfSale.Transactions
                 loadProducts();
             }
         }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 }

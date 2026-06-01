@@ -135,36 +135,53 @@ namespace PAKOPointOfSale
 
             string query = @"
                SELECT TOP 5
-                    p.product_name AS [product_name],
-                    SUM(sii.quantity) - ISNULL((
-                        SELECT SUM(ri.quantity)
-                        FROM ReturnItems ri
-                        INNER JOIN ReturnTransactions rt
-                            ON ri.return_transaction_id = rt.id
-                        WHERE ri.product_id = sii.product_id
-                    ), 0) AS [total_quantity_sold],
-                    SUM(sii.total_amount) - ISNULL((
-                        SELECT SUM(ri.total_amount)
-                        FROM ReturnItems ri
-                        INNER JOIN ReturnTransactions rt
-                            ON ri.return_transaction_id = rt.id
-                        WHERE ri.product_id = sii.product_id
-                    ), 0) AS [total_sales]
-                FROM SalesInvoiceItems sii
-                INNER JOIN Products p
-                    ON sii.product_id = p.id
-                INNER JOIN Transactions t
-                    ON sii.transaction_id = t.id
-                WHERE 
-                    t.transaction_type = 'Sales Invoice'
-                    AND sii.transaction_type = 'salesInvoice'
-                    AND t.status = 'success'
-                    AND t.status = 'success'
-                    AND t.created_at BETWEEN @from AND @to
-                    AND t.invoice_number NOT IN (SELECT invoice_number FROM VoidTransactions)
-                    AND t.created_at BETWEEN @from AND @to
-                GROUP BY p.product_name,sii.product_id
-                ORDER BY [total_quantity_sold] DESC;
+                p.product_name,
+
+                SUM(sii.quantity)
+                - ISNULL((
+                    SELECT SUM(ri.quantity)
+                    FROM ReturnItems ri
+                    INNER JOIN ReturnTransactions rt
+                        ON ri.return_transaction_id = rt.id
+                    WHERE ri.product_id = sii.product_id
+                ), 0) AS total_quantity_sold,
+
+                FORMAT(SUM(sii.total_amount)
+                - ISNULL((
+                    SELECT SUM(ri.total_amount)
+                    FROM ReturnItems ri
+                    INNER JOIN ReturnTransactions rt
+                        ON ri.return_transaction_id = rt.id
+                    WHERE ri.product_id = sii.product_id
+                ), 0),'N2') AS total_sales
+
+            FROM SalesInvoiceItems sii
+            INNER JOIN Products p
+                ON sii.product_id = p.id
+            INNER JOIN Transactions t
+                ON sii.transaction_id = t.id
+
+            WHERE 
+                t.transaction_type = 'Sales Invoice'
+                AND t.status = 'success'
+                AND t.created_at BETWEEN @from AND @to
+                AND t.invoice_number NOT IN (SELECT invoice_number FROM VoidTransactions)
+
+            GROUP BY 
+                p.product_name,
+                sii.product_id
+
+            HAVING 
+                SUM(sii.quantity)
+                - ISNULL((
+                    SELECT SUM(ri.quantity)
+                    FROM ReturnItems ri
+                    INNER JOIN ReturnTransactions rt
+                        ON ri.return_transaction_id = rt.id
+                    WHERE ri.product_id = sii.product_id
+                ), 0) > 0
+
+            ORDER BY total_quantity_sold DESC;
             ";
 
             using (var conn = new SqlConnection(connString))

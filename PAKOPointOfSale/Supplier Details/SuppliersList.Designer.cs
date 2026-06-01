@@ -101,9 +101,10 @@
             // txtSearch
             // 
             txtSearch.Location = new Point(77, 114);
+            txtSearch.MaxLength = 60;
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(217, 23);
-            txtSearch.TabIndex = 7;
+            txtSearch.TabIndex = 0;
             txtSearch.TextChanged += txtSearch_TextChanged;
             // 
             // lblSearch

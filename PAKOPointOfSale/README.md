@@ -1,4 +1,4 @@
-﻿#Install Nuget Packages for Database migrations
+﻿~#Install Nuget Packages for Database migrations
 1. In Visual Studio, go to Tools > NuGet Package Manager > Package Manager Console.
 
 2.Run the following commands one at a time in the Pacakage Manager Console located at the bottom of this window:

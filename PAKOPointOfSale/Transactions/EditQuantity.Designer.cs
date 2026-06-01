@@ -69,7 +69,7 @@
             // btnOk
             // 
             btnOk.BackColor = Color.CornflowerBlue;
-            btnOk.FlatStyle = FlatStyle.Popup;
+            btnOk.FlatStyle = FlatStyle.Flat;
             btnOk.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             btnOk.ForeColor = Color.Black;
             btnOk.Location = new Point(91, 362);
@@ -124,7 +124,7 @@
             num_AppliedQty.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             num_AppliedQty.ForeColor = Color.Black;
             num_AppliedQty.Location = new Point(178, 241);
-            num_AppliedQty.Maximum = new decimal(new int[] { 999999, 0, 0, 0 });
+            num_AppliedQty.Maximum = new decimal(new int[] { 4, 0, 0, 0 });
             num_AppliedQty.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             num_AppliedQty.Name = "num_AppliedQty";
             num_AppliedQty.Size = new Size(143, 25);
@@ -132,6 +132,7 @@
             num_AppliedQty.Value = new decimal(new int[] { 1, 0, 0, 0 });
             num_AppliedQty.ValueChanged += num_AppliedQty_ValueChanged;
             num_AppliedQty.KeyDown += num_AppliedQty_KeyDown;
+            num_AppliedQty.KeyPress += num_AppliedQty_KeyPress;
             // 
             // lblCurrentQty
             // 
@@ -247,9 +248,9 @@
             label6.ForeColor = Color.White;
             label6.Location = new Point(86, 19);
             label6.Name = "label6";
-            label6.Size = new Size(150, 29);
+            label6.Size = new Size(163, 29);
             label6.TabIndex = 114;
-            label6.Text = "EDIT QUANTITY";
+            label6.Text = "APPLY QUANTITY";
             // 
             // btnClose
             // 

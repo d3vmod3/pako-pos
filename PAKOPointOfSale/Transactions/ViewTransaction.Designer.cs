@@ -31,7 +31,7 @@ namespace PAKOPointOfSale.Transactions
         private void InitializeComponent()
         {
             components = new Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             btnProceed = new Button();
             dgvItems = new DataGridView();
             id = new DataGridViewTextBoxColumn();
@@ -123,14 +123,14 @@ namespace PAKOPointOfSale.Transactions
             dgvItems.AutoGenerateColumns = false;
             dgvItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvItems.BackgroundColor = SystemColors.ScrollBar;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = SystemColors.Control;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvItems.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvItems.Columns.AddRange(new DataGridViewColumn[] { id, product_id, transaction_id, dataGridViewTextBoxColumn1, quantity, unit_price, vat_amount, vatable_sales, vat_exempt, discount, discount_type, total_amount, unit_of_measurement, transaction, product, product_code, product_name, product_brand, selectReturn, remainingQty, reason });
             dgvItems.DataSource = salesInvoiceItemBindingSource;
@@ -488,7 +488,7 @@ namespace PAKOPointOfSale.Transactions
             lblGrandTotal.BackColor = Color.White;
             lblGrandTotal.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
             lblGrandTotal.ForeColor = Color.Black;
-            lblGrandTotal.Location = new Point(142, 476);
+            lblGrandTotal.Location = new Point(140, 476);
             lblGrandTotal.Name = "lblGrandTotal";
             lblGrandTotal.Size = new Size(40, 20);
             lblGrandTotal.TabIndex = 17;
@@ -526,7 +526,7 @@ namespace PAKOPointOfSale.Transactions
             lblCashReceived.BackColor = Color.White;
             lblCashReceived.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
             lblCashReceived.ForeColor = Color.Black;
-            lblCashReceived.Location = new Point(146, 521);
+            lblCashReceived.Location = new Point(140, 521);
             lblCashReceived.Name = "lblCashReceived";
             lblCashReceived.Size = new Size(40, 20);
             lblCashReceived.TabIndex = 21;
@@ -550,7 +550,7 @@ namespace PAKOPointOfSale.Transactions
             lblChange.BackColor = Color.White;
             lblChange.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
             lblChange.ForeColor = Color.Black;
-            lblChange.Location = new Point(146, 574);
+            lblChange.Location = new Point(140, 573);
             lblChange.Name = "lblChange";
             lblChange.Size = new Size(40, 20);
             lblChange.TabIndex = 23;
@@ -779,7 +779,7 @@ namespace PAKOPointOfSale.Transactions
             AutoScaleDimensions = new SizeF(8F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
-            ClientSize = new Size(1370, 788);
+            ClientSize = new Size(1370, 749);
             Controls.Add(btnViewReason);
             Controls.Add(btnClose);
             Controls.Add(button1);

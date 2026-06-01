@@ -43,14 +43,35 @@ namespace PAKOPointOfSale.Transactions
                             t.id,
                             RIGHT(REPLICATE('0', 10) + CAST(t.id AS VARCHAR(20)), 20) AS TransactionID,
                             t.invoice_number,
-                            t.sub_total,
-                            t.vat_amount,
-                            t.vatable_sales,
-                            t.vat_exempt,
-                            t.grand_total,
+
+                            FORMAT(
+                                CASE WHEN t.transaction_type = 'Sales Invoice' 
+                                     THEN t.sub_total ELSE -t.sub_total END, 
+                            'N2') AS sub_total,
+
+                            FORMAT(
+                                CASE WHEN t.transaction_type = 'Sales Invoice' 
+                                     THEN t.vat_amount ELSE -t.vat_amount END, 
+                            'N2') AS vat_amount,
+
+                            FORMAT(
+                                CASE WHEN t.transaction_type = 'Sales Invoice' 
+                                     THEN t.vatable_sales ELSE -t.vatable_sales END, 
+                            'N2') AS vatable_sales,
+
+                            FORMAT(
+                                CASE WHEN t.transaction_type = 'Sales Invoice' 
+                                     THEN t.vat_exempt ELSE -t.vat_exempt END, 
+                            'N2') AS vat_exempt,
+
+                            FORMAT(
+                                CASE WHEN t.transaction_type = 'Sales Invoice' 
+                                     THEN t.grand_total ELSE -t.grand_total END, 
+                            'N2') AS grand_total,
+
                             t.payment_method,
-                            t.cash_received,
-                            t.cash_change,
+                            FORMAT(t.cash_received, 'N2') AS cash_received,
+                            FORMAT(t.cash_change, 'N2') AS cash_change,
                             t.status,
                             t.transaction_type,
                             t.created_at,

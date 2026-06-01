@@ -52,7 +52,7 @@ namespace PAKOPointOfSale.Transactions
                                 lblCurrentQtyValue.Text = reader["quantity"].ToString();
                                 lblUOM.Text = reader["unit_of_measurement"].ToString();
                                 lblCategory.Text = reader["category"].ToString();
-                                lblUnitPrice.Text = reader["unit_price"].ToString();
+                                lblUnitPrice.Text = Convert.ToDecimal(reader["unit_price"]).ToString("N2");
                             }
                             else
                             {
@@ -88,7 +88,7 @@ namespace PAKOPointOfSale.Transactions
 
                 if (appliedQty > currentStock)
                 {
-                    MessageBox.Show($"Cannot add {appliedQty} units to cart. Only {currentStock} units available in stock.",
+                    MessageBox.Show($"Cannot add {appliedQty} unit to cart. There are {currentStock} units available in stock.",
                                     "Insufficient Stock",
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Warning);
@@ -97,9 +97,9 @@ namespace PAKOPointOfSale.Transactions
 
                 decimal subTotal = price * appliedQty;
                 if (_salesInvoice.ValidateProductQty(product_id, appliedQty))
-                { 
+                {
                     // Add to cart
-                        _salesInvoice.AddProductToCart(product_id, product, brand, unit, price, category, appliedQty, subTotal);
+                    _salesInvoice.AddProductToCart(product_id, product, brand, unit, price, category, appliedQty, subTotal);
                     ActivityLogs.Log(
                         user: LoggedInUser.FullName,
                         action: "click",
@@ -115,6 +115,10 @@ namespace PAKOPointOfSale.Transactions
                         }
                     );
                     this.Close();
+                    if (this.Owner != null && this.Owner is SearchProduct searchForm)
+                    {
+                        searchForm.Invoke(new Action(() => searchForm.button1.PerformClick()));
+                    }
                 }
             }
             catch (Exception ex)
@@ -165,6 +169,21 @@ namespace PAKOPointOfSale.Transactions
             if (e.KeyCode == Keys.Space)
             {
                 btnOk.PerformClick();
+            }
+        }
+
+        private void num_AppliedQty_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Block pag 4 digits na at hindi backspace
+            if (num_AppliedQty.Text.Replace(",", "").Length >= 4 && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
+            // Numbers at backspace lang payagan
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }

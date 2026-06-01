@@ -72,8 +72,8 @@ namespace PAKOPointOfSale.Transactions.Void
                                             vatableSales = Convert.ToDecimal(reader["vatable_sales"]);
                                             vatExempt = Convert.ToDecimal(reader["vat_exempt"]);
                                             paymentMethod = reader["payment_method"].ToString();
-                                            cashReceived = Convert.ToDecimal(reader["cash_received"]);
-                                            cashChange = Convert.ToDecimal(reader["cash_change"]);
+                                            cashReceived = 0.00m;
+                                            cashChange = 0.00m;
                                             createdAt = Convert.ToDateTime(reader["created_at"]);
                                         }
                                         else

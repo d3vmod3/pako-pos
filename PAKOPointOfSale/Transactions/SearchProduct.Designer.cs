@@ -29,14 +29,18 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             label1 = new Label();
             txtSearch = new TextBox();
             productBindingSource = new BindingSource(components);
             dataGridView1 = new DataGridView();
+            pictureBox2 = new PictureBox();
+            lblsearchproduct = new Label();
+            button1 = new Button();
             product_name = new DataGridViewTextBoxColumn();
             addToCart = new DataGridViewButtonColumn();
             id = new DataGridViewTextBoxColumn();
@@ -51,9 +55,6 @@
             statusDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             datereceivedDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             dateexpirationDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            pictureBox2 = new PictureBox();
-            lblsearchproduct = new Label();
-            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)productBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -74,9 +75,10 @@
             // txtSearch
             // 
             txtSearch.Location = new Point(135, 98);
+            txtSearch.MaxLength = 60;
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(327, 23);
-            txtSearch.TabIndex = 4;
+            txtSearch.TabIndex = 0;
             txtSearch.TextChanged += txtSearch_TextChanged;
             // 
             // productBindingSource
@@ -89,36 +91,73 @@
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = SystemColors.Control;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle5.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { product_name, addToCart, id, productdescriptionDataGridViewTextBoxColumn, productcodeDataGridViewTextBoxColumn, skuDataGridViewTextBoxColumn, quantityDataGridViewTextBoxColumn, unitofmeasurementDataGridViewTextBoxColumn, costpriceDataGridViewTextBoxColumn, unitpriceDataGridViewTextBoxColumn, remarksDataGridViewTextBoxColumn, statusDataGridViewTextBoxColumn, datereceivedDataGridViewTextBoxColumn, dateexpirationDataGridViewTextBoxColumn });
             dataGridView1.DataSource = productBindingSource;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = SystemColors.Window;
-            dataGridViewCellStyle7.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle7.ForeColor = Color.Black;
-            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = SystemColors.Window;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle4;
             dataGridView1.Location = new Point(12, 126);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
-            dataGridViewCellStyle8.ForeColor = Color.Black;
-            dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle5.ForeColor = Color.Black;
+            dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle5;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(1346, 632);
             dataGridView1.TabIndex = 3;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             dataGridView1.CellDoubleClick += dataGridView1_CellDoubleClick;
+            
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.BackColor = Color.DimGray;
+            pictureBox2.Location = new Point(-1, -1);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(1371, 90);
+            pictureBox2.TabIndex = 112;
+            pictureBox2.TabStop = false;
+            pictureBox2.Click += pictureBox2_Click;
+            // 
+            // lblsearchproduct
+            // 
+            lblsearchproduct.AutoSize = true;
+            lblsearchproduct.BackColor = Color.DimGray;
+            lblsearchproduct.Font = new Font("Impact", 39.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblsearchproduct.ForeColor = Color.White;
+            lblsearchproduct.Location = new Point(497, 9);
+            lblsearchproduct.Name = "lblsearchproduct";
+            lblsearchproduct.Size = new Size(396, 65);
+            lblsearchproduct.TabIndex = 114;
+            lblsearchproduct.Text = "SEARCH PRODUCT";
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.Red;
+            button1.FlatStyle = FlatStyle.Popup;
+            button1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = Color.Black;
+            button1.Location = new Point(1279, 96);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 26);
+            button1.TabIndex = 152;
+            button1.Text = "Close";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // product_name
             // 
@@ -130,9 +169,9 @@
             // addToCart
             // 
             addToCart.DataPropertyName = "id";
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.ForeColor = Color.Black;
-            addToCart.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            addToCart.DefaultCellStyle = dataGridViewCellStyle2;
             addToCart.HeaderText = "Action";
             addToCart.Name = "addToCart";
             addToCart.ReadOnly = true;
@@ -172,6 +211,8 @@
             // quantityDataGridViewTextBoxColumn
             // 
             quantityDataGridViewTextBoxColumn.DataPropertyName = "quantity";
+            dataGridViewCellStyle3.NullValue = null;
+            quantityDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
             quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
             quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
             quantityDataGridViewTextBoxColumn.ReadOnly = true;
@@ -226,41 +267,6 @@
             dateexpirationDataGridViewTextBoxColumn.Name = "dateexpirationDataGridViewTextBoxColumn";
             dateexpirationDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // pictureBox2
-            // 
-            pictureBox2.BackColor = Color.DimGray;
-            pictureBox2.Location = new Point(-1, -1);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(1371, 90);
-            pictureBox2.TabIndex = 112;
-            pictureBox2.TabStop = false;
-            // 
-            // lblsearchproduct
-            // 
-            lblsearchproduct.AutoSize = true;
-            lblsearchproduct.BackColor = Color.DimGray;
-            lblsearchproduct.Font = new Font("Impact", 39.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblsearchproduct.ForeColor = Color.White;
-            lblsearchproduct.Location = new Point(497, 9);
-            lblsearchproduct.Name = "lblsearchproduct";
-            lblsearchproduct.Size = new Size(396, 65);
-            lblsearchproduct.TabIndex = 114;
-            lblsearchproduct.Text = "SEARCH PRODUCT";
-            // 
-            // button1
-            // 
-            button1.BackColor = Color.Red;
-            button1.FlatStyle = FlatStyle.Popup;
-            button1.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.Black;
-            button1.Location = new Point(1279, 96);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 26);
-            button1.TabIndex = 152;
-            button1.Text = "Close";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
-            // 
             // SearchProduct
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -299,7 +305,7 @@
         private Label lblsearchproduct;
         private DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn supplierDataGridViewTextBoxColumn;
-        private Button button1;
+        public Button button1;
         private DataGridViewTextBoxColumn product_name;
         private DataGridViewButtonColumn addToCart;
         private DataGridViewTextBoxColumn id;

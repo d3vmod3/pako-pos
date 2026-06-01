@@ -72,7 +72,7 @@
             cmbRole.Location = new Point(95, 105);
             cmbRole.Name = "cmbRole";
             cmbRole.Size = new Size(328, 23);
-            cmbRole.TabIndex = 1;
+            cmbRole.TabIndex = 0;
             cmbRole.ValueMember = "id";
             cmbRole.SelectedIndexChanged += cmbRole_SelectedIndexChanged;
             cmbRole.SelectedValueChanged += cmbRole_SelectedValueChanged;

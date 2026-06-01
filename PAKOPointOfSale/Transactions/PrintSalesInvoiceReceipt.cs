@@ -96,11 +96,15 @@ namespace PAKOPointOfSale.Transactions
                 SaveAsPdf(invoiceNumber, items, vatAmount, vatableSales, vatExempt, subTotal, grandTotal,
                     paymentMethod, cashReceived, cashChange);
             }
-            //catch (Exception ex)
-            //{
-                //MessageBox.Show("Error generating receipt: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
-        
+        //catch (Exception ex)
+        //{
+        //MessageBox.Show("Error generating receipt: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //}
+        private string N2(object value)
+        {
+            return Convert.ToDecimal(value).ToString("N2");
+        }
+
 
         private static void SaveAsPdf(
             string invoiceNumber,
@@ -140,10 +144,10 @@ namespace PAKOPointOfSale.Transactions
                     // Use product code if product name is longer than 10 chars
                     string displayName = it.productName.Length > 10 ? it.productCode : it.productName;
 
-                    string qtyText = it.qty.ToString("0.##").PadLeft(5);
+                    string qtyText = it.qty.ToString().PadLeft(5);
                     string uom = it.uom.ToString();
-                    string priceText = it.unitPrice.ToString("F2").PadLeft(7);
-                    string totalText = it.total.ToString("F2").PadLeft(8);
+                    string priceText = it.unitPrice.ToString("N2").PadLeft(7);
+                    string totalText = it.total.ToString("N2").PadLeft(8);
 
                     // Format the line
                     gfx.DrawString($"{displayName.PadRight(10)}{qtyText}{uom}{priceText}{totalText}", font, XBrushes.Black, new XPoint(x, y));
@@ -152,21 +156,21 @@ namespace PAKOPointOfSale.Transactions
                     // Display discount if applicable
                     if (!string.IsNullOrWhiteSpace(it.discountType) && !it.discountType.Equals("none", StringComparison.OrdinalIgnoreCase) && it.discount > 0)
                     {
-                        gfx.DrawString($" -₱{it.discount:F2} ({it.discountType})", font, XBrushes.Black, new XPoint(x + 5, y));
+                        gfx.DrawString($" -₱{it.discount:N2} ({it.discountType})", font, XBrushes.Black, new XPoint(x + 5, y));
                         y += lineHeight;
                     }
                 }
 
                 gfx.DrawString("--------------------------------------", font, XBrushes.Black, new XPoint(x, y)); y += lineHeight;
-                gfx.DrawString($"Subtotal:     ₱{subTotal:F2}", font, XBrushes.Black, new XPoint(x, y)); y += lineHeight;
-                gfx.DrawString($"VATable Sales:      ₱{vatableSales:F2}", font, XBrushes.Black, new XPoint(x, y)); y += lineHeight;
-                gfx.DrawString($"VAT Amount (12%):    ₱{vatAmount:F2}", font, XBrushes.Black, new XPoint(x, y)); y += lineHeight;
-                gfx.DrawString($"VAT Exempt:   ₱{vatExempt:F2}", font, XBrushes.Black, new XPoint(x, y)); y += lineHeight;
+                gfx.DrawString($"Subtotal:     ₱{subTotal:N2}", font, XBrushes.Black, new XPoint(x, y)); y += lineHeight;
+                gfx.DrawString($"VATable Sales:      ₱{vatableSales:N2}", font, XBrushes.Black, new XPoint(x, y)); y += lineHeight;
+                gfx.DrawString($"VAT Amount (12%):    ₱{vatAmount:N2}", font, XBrushes.Black, new XPoint(x, y)); y += lineHeight;
+                gfx.DrawString($"VAT Exempt:   ₱{vatExempt:N2}", font, XBrushes.Black, new XPoint(x, y)); y += lineHeight;
                 gfx.DrawString("--------------------------------------", font, XBrushes.Black, new XPoint(x, y)); y += lineHeight;
-                gfx.DrawString($"GRAND TOTAL:  ₱{grandTotal:F2}", bold, XBrushes.Black, new XPoint(x, y)); y += lineHeight + 4;
+                gfx.DrawString($"GRAND TOTAL:  ₱{grandTotal:N2}", bold, XBrushes.Black, new XPoint(x, y)); y += lineHeight + 4;
                 gfx.DrawString($"Payment: {paymentMethod}", font, XBrushes.Black, new XPoint(x, y)); y += lineHeight;
-                gfx.DrawString($"Cash:         ₱{cashReceived:F2}", font, XBrushes.Black, new XPoint(x, y)); y += lineHeight;
-                gfx.DrawString($"Change:       ₱{cashChange:F2}", font, XBrushes.Black, new XPoint(x, y)); y += lineHeight + 8;
+                gfx.DrawString($"Cash:         ₱{cashReceived:N2}", font, XBrushes.Black, new XPoint(x, y)); y += lineHeight;
+                gfx.DrawString($"Change:       ₱{cashChange:N2}", font, XBrushes.Black, new XPoint(x, y)); y += lineHeight + 8;
                 gfx.DrawString("Thank you for your purchase!", font, XBrushes.Black, new XPoint(x, y)); y += lineHeight;
 
                 doc.Save(pdfPath);

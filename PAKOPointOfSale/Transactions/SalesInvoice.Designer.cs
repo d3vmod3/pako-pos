@@ -31,6 +31,8 @@ namespace PAKOPointOfSale.Transactions
         {
             components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SalesInvoice));
@@ -77,11 +79,11 @@ namespace PAKOPointOfSale.Transactions
             btnKey8 = new Button();
             btnKey6 = new Button();
             btnClearCash = new Button();
-            txtCash = new TextBox();
             btnDot = new Button();
             btn00 = new Button();
             btnApplyDiscount = new Button();
             panel1 = new Panel();
+            num_cash = new NumericUpDown();
             btnClearCart = new Button();
             printDocument1 = new System.Drawing.Printing.PrintDocument();
             pictureBox2 = new PictureBox();
@@ -107,6 +109,7 @@ namespace PAKOPointOfSale.Transactions
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)num_cash).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -148,26 +151,26 @@ namespace PAKOPointOfSale.Transactions
             dtgvCart.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dtgvCart.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgvCart.Columns.AddRange(new DataGridViewColumn[] { id, product, brand, unit_of_measurement, appliedQty, unit_price, category, discountType, discountAmount, subTotal, vatableSales, vatAmount, vatExempt });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dtgvCart.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = SystemColors.Window;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            dtgvCart.DefaultCellStyle = dataGridViewCellStyle4;
             dtgvCart.Location = new Point(12, 147);
             dtgvCart.Name = "dtgvCart";
             dtgvCart.RowHeadersVisible = false;
             dtgvCart.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dtgvCart.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = SystemColors.Control;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle5.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            dtgvCart.RowsDefaultCellStyle = dataGridViewCellStyle5;
             dtgvCart.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dtgvCart.Size = new Size(996, 459);
             dtgvCart.TabIndex = 4;
@@ -209,6 +212,8 @@ namespace PAKOPointOfSale.Transactions
             // 
             // unit_price
             // 
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleRight;
+            unit_price.DefaultCellStyle = dataGridViewCellStyle2;
             unit_price.HeaderText = "Price";
             unit_price.Name = "unit_price";
             unit_price.ReadOnly = true;
@@ -239,6 +244,8 @@ namespace PAKOPointOfSale.Transactions
             // subTotal
             // 
             subTotal.DataPropertyName = "subTotal";
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleRight;
+            subTotal.DefaultCellStyle = dataGridViewCellStyle3;
             subTotal.HeaderText = "Total";
             subTotal.Name = "subTotal";
             subTotal.ReadOnly = true;
@@ -407,6 +414,7 @@ namespace PAKOPointOfSale.Transactions
             groupBox2.TabIndex = 28;
             groupBox2.TabStop = false;
             groupBox2.Text = "Quick Amounts";
+            groupBox2.Enter += groupBox2_Enter;
             // 
             // btn1h
             // 
@@ -580,18 +588,6 @@ namespace PAKOPointOfSale.Transactions
             btnClearCash.UseVisualStyleBackColor = false;
             btnClearCash.Click += btnClearCash_Click;
             // 
-            // txtCash
-            // 
-            txtCash.Font = new Font("Impact", 15.75F);
-            txtCash.Location = new Point(105, 399);
-            txtCash.Multiline = true;
-            txtCash.Name = "txtCash";
-            txtCash.Size = new Size(227, 32);
-            txtCash.TabIndex = 42;
-            txtCash.TextChanged += textBox1_TextChanged_1;
-            txtCash.KeyPress += textBox1_KeyPress;
-            txtCash.MouseLeave += txtCash_MouseLeave;
-            // 
             // btnDot
             // 
             btnDot.BackColor = Color.LightSeaGreen;
@@ -633,9 +629,9 @@ namespace PAKOPointOfSale.Transactions
             // panel1
             // 
             panel1.BackColor = Color.LightSkyBlue;
+            panel1.Controls.Add(num_cash);
             panel1.Controls.Add(btnKey2);
             panel1.Controls.Add(groupBox2);
-            panel1.Controls.Add(txtCash);
             panel1.Controls.Add(btn00);
             panel1.Controls.Add(btnKey1);
             panel1.Controls.Add(groupBox1);
@@ -654,6 +650,24 @@ namespace PAKOPointOfSale.Transactions
             panel1.Size = new Size(344, 599);
             panel1.TabIndex = 46;
             panel1.Paint += panel1_Paint;
+            // 
+            // num_cash
+            // 
+            num_cash.BackColor = Color.White;
+            num_cash.DecimalPlaces = 2;
+            num_cash.Font = new Font("Impact", 15.75F);
+            num_cash.ForeColor = Color.Black;
+            num_cash.InterceptArrowKeys = false;
+            num_cash.Location = new Point(105, 400);
+            num_cash.Maximum = new decimal(new int[] { 1000000, 0, 0, 0 });
+            num_cash.Name = "num_cash";
+            num_cash.Size = new Size(225, 33);
+            num_cash.TabIndex = 45;
+            num_cash.TextAlign = HorizontalAlignment.Right;
+            num_cash.ThousandsSeparator = true;
+            num_cash.ValueChanged += num_cash_ValueChanged;
+            num_cash.KeyPress += num_cash_KeyPress;
+            num_cash.Leave += num_cash_Leave;
             // 
             // btnClearCart
             // 
@@ -924,6 +938,7 @@ namespace PAKOPointOfSale.Transactions
             groupBox2.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)num_cash).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
@@ -977,7 +992,6 @@ namespace PAKOPointOfSale.Transactions
         private Button btnKey8;
         private Button btnKey6;
         private Button btnClearCash;
-        private TextBox txtCash;
         private Button btnDot;
         private Button btn00;
         private Button btnApplyDiscount;
@@ -999,6 +1013,8 @@ namespace PAKOPointOfSale.Transactions
         private Button btnClearCart;
         private Button btnScan;
         private Button btnRemove;
+        private Button btnTransactions;
+        private Label lblFullName;
         private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn product;
         private DataGridViewTextBoxColumn brand;
@@ -1012,7 +1028,6 @@ namespace PAKOPointOfSale.Transactions
         private DataGridViewTextBoxColumn vatableSales;
         private DataGridViewTextBoxColumn vatAmount;
         private DataGridViewTextBoxColumn vatExempt;
-        private Button btnTransactions;
-        private Label lblFullName;
+        private NumericUpDown num_cash;
     }
 }

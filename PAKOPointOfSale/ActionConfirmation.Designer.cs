@@ -41,6 +41,7 @@
             // 
             txtUsername.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             txtUsername.Location = new Point(134, 44);
+            txtUsername.MaxLength = 20;
             txtUsername.Name = "txtUsername";
             txtUsername.Size = new Size(208, 25);
             txtUsername.TabIndex = 0;
@@ -92,7 +93,7 @@
             // 
             lblMessage.AutoSize = true;
             lblMessage.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
-            lblMessage.Location = new Point(172, 9);
+            lblMessage.Location = new Point(148, 9);
             lblMessage.Name = "lblMessage";
             lblMessage.Size = new Size(89, 17);
             lblMessage.TabIndex = 5;

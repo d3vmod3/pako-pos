@@ -91,7 +91,6 @@
             // 
             // num_quantity
             // 
-            num_quantity.DecimalPlaces = 2;
             num_quantity.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             num_quantity.Location = new Point(520, 291);
             num_quantity.Maximum = new decimal(new int[] { 999999, 0, 0, 0 });
@@ -118,16 +117,20 @@
             num_unitPrice.Name = "num_unitPrice";
             num_unitPrice.Size = new Size(350, 25);
             num_unitPrice.TabIndex = 106;
+            num_unitPrice.TextAlign = HorizontalAlignment.Right;
+            num_unitPrice.ThousandsSeparator = true;
             // 
             // num_costPrice
             // 
             num_costPrice.DecimalPlaces = 2;
             num_costPrice.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            num_costPrice.Location = new Point(940, 175);
+            num_costPrice.Location = new Point(937, 175);
             num_costPrice.Maximum = new decimal(new int[] { 999999, 0, 0, 0 });
             num_costPrice.Name = "num_costPrice";
-            num_costPrice.Size = new Size(350, 25);
+            num_costPrice.Size = new Size(353, 25);
             num_costPrice.TabIndex = 105;
+            num_costPrice.TextAlign = HorizontalAlignment.Right;
+            num_costPrice.ThousandsSeparator = true;
             // 
             // cmbUnitofMeasurements
             // 
@@ -476,7 +479,6 @@
             // 
             // num_low_quantity
             // 
-            num_low_quantity.DecimalPlaces = 2;
             num_low_quantity.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             num_low_quantity.Location = new Point(521, 346);
             num_low_quantity.Maximum = new decimal(new int[] { 999999, 0, 0, 0 });

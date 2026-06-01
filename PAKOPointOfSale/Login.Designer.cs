@@ -53,7 +53,7 @@
             btnLogin.Location = new Point(117, 405);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(117, 31);
-            btnLogin.TabIndex = 0;
+            btnLogin.TabIndex = 3;
             btnLogin.Text = "Login";
             btnLogin.UseVisualStyleBackColor = false;
             btnLogin.Click += button1_Click;
@@ -77,7 +77,7 @@
             txtUsername.Multiline = true;
             txtUsername.Name = "txtUsername";
             txtUsername.Size = new Size(250, 35);
-            txtUsername.TabIndex = 1;
+            txtUsername.TabIndex = 0;
             txtUsername.TextChanged += txtUsername_TextChanged;
             txtUsername.KeyDown += txtUsername_KeyDown;
             // 

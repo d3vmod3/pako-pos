@@ -21,6 +21,19 @@ namespace PAKOPointOfSale.Products
         private PrintDocument printDocument = new PrintDocument();
         private int currentRow = 0;
         private List<DataGridViewColumn> printableColumns;
+        string[] defaultChecked =
+        {
+            "Barcode",
+            "Product Name",
+            "Brand",
+            "Category",
+            "Code",
+            "Quantity",
+            "Unit",
+            "Unit Price",
+            "Date Received",
+            "Expiration Date"
+        };
         public ProductsList()
         {
             InitializeComponent();
@@ -46,6 +59,20 @@ namespace PAKOPointOfSale.Products
         {
             LoadProducts();
             loadPermissions();
+            setDefaultDisplayedColumns();
+            ApplyColumnVisibility();
+        }
+
+        public void setDefaultDisplayedColumns()
+        {
+            for (int i = 0; i < checkedListBox1.Items.Count; i++)
+            {
+                string item = checkedListBox1.Items[i].ToString();
+
+                bool isChecked = defaultChecked.Contains(item);
+                checkedListBox1.SetItemChecked(i, isChecked);
+            }
+
         }
         private void loadPermissions()
         {
@@ -83,8 +110,8 @@ namespace PAKOPointOfSale.Products
                     p.sku,
                     p.quantity,
                     p.unit_of_measurement,
-                    p.cost_price,
-                    p.unit_price,
+                    FORMAT(p.cost_price, 'N2') AS cost_price ,
+                    FORMAT(p.unit_price, 'N2') AS unit_price ,
                     p.remarks,
                     p.status,
                     p.date_received,
@@ -96,6 +123,7 @@ namespace PAKOPointOfSale.Products
                 FROM Products p
                 LEFT JOIN SupplierDetails s ON p.supplier_id = s.id
                 LEFT JOIN Categories c ON p.category_id = c.id
+
                 ORDER BY p.created_at DESC;";
 
                     using (SqlDataAdapter adapter = new SqlDataAdapter(query, conn))
@@ -112,9 +140,9 @@ namespace PAKOPointOfSale.Products
                 c.FlatStyle = FlatStyle.Flat;
                 c.DefaultCellStyle.ForeColor = Color.White;
                 c.DefaultCellStyle.BackColor = Color.LightBlue;
-/*                dataGridView1.Columns["unit_price"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                dataGridView1.Columns["quantity"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                dataGridView1.Columns["cost_price"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;*/
+                               dataGridView1.Columns["unit_price"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                                //dataGridView1.Columns["quantity"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                                dataGridView1.Columns["cost_price"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             }
             catch (Exception ex)
             {
@@ -186,8 +214,8 @@ namespace PAKOPointOfSale.Products
 
         private void btnFilter_Click(object sender, EventArgs e)
         {
-            
-            
+
+
             if (cmbFilterType.SelectedIndex <= 0)
             {
                 MessageBox.Show("Please choose filter type", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -469,7 +497,7 @@ namespace PAKOPointOfSale.Products
                                             var value = row.Cells[c.Index].Value;
 
                                             // Prevent barcode scientific notation
-                                            if 
+                                            if
                                             (
                                                 c.HeaderText.ToLower().Contains("barcode")
                                             )
@@ -505,7 +533,7 @@ namespace PAKOPointOfSale.Products
                                     file = sfd.FileName
                                 }
                             );
-                            
+
                             var result = MessageBox.Show("CSV exported successfully!\nDo you want to open it now?", "Export Complete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                             if (result == DialogResult.Yes)
@@ -676,6 +704,63 @@ namespace PAKOPointOfSale.Products
                 this.Close(); // Hide the current form
                 e.Handled = true; // Prevent further processing of the key event
             }
+        }
+
+        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+        private Dictionary<string, string> columnMap = new Dictionary<string, string>()
+        {
+            { "Barcode", "barcode" },
+            { "Product Name", "product_name" },
+            { "Brand", "productbrandDataGridViewTextBoxColumn" },
+            { "Category", "category_name" },
+            { "Supplier", "supplier_name" },
+            { "Description", "productdescriptionDataGridViewTextBoxColumn" },
+            { "Code", "productcodeDataGridViewTextBoxColumn" },
+            { "SKU", "skuDataGridViewTextBoxColumn" },
+            { "Quantity", "quantity" },
+            { "Unit", "unitofmeasurementDataGridViewTextBoxColumn" },
+            { "Cost Price", "cost_price" },
+            { "Unit Price", "unit_price" },
+            { "Remarks", "remarksDataGridViewTextBoxColumn" },
+            { "Status", "statusDataGridViewTextBoxColumn" },
+            { "Date Received", "datereceivedDataGridViewTextBoxColumn" },
+            { "Expiration Date", "dateexpirationDataGridViewTextBoxColumn" },
+            { "Date Created", "createdatDataGridViewTextBoxColumn" }
+        };
+
+        private void checkedListBox1_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            this.BeginInvoke((MethodInvoker)delegate
+            {
+                ApplyColumnVisibility();
+            });
+        }
+
+        private void ApplyColumnVisibility()
+        {
+            foreach (var item in checkedListBox1.Items)
+            {
+                string displayName = item.ToString();
+
+                if (columnMap.ContainsKey(displayName))
+                {
+                    string columnName = columnMap[displayName];
+
+                    if (dataGridView1.Columns.Contains(columnName))
+                    {
+                        bool visible = checkedListBox1.CheckedItems.Contains(item);
+                        dataGridView1.Columns[columnName].Visible = visible;
+                    }
+                }
+            }
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

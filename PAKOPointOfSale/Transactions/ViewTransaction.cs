@@ -40,8 +40,16 @@ namespace PAKOPointOfSale.Transactions
 
                 // Load transaction header
                 using (var cmdHeader = new SqlCommand(@"
-            SELECT id, invoice_number, sub_total, grand_total, vat_amount, vatable_sales, 
-                   vat_exempt, payment_method, cash_received, cash_change, status, transaction_type, created_at
+            SELECT id, invoice_number,
+            FORMAT(sub_total, 'N2') AS sub_total,
+            FORMAT(grand_total, 'N2') AS grand_total,
+            FORMAT(vat_amount, 'N2') AS vat_amount,
+            FORMAT(vatable_sales, 'N2') AS vatable_sales,
+            FORMAT(vat_exempt, 'N2') AS vat_exempt,
+            payment_method,
+            cash_received,
+            cash_change,
+            status, transaction_type, created_at
             FROM Transactions
             WHERE id = @id", conn))
                 {
@@ -54,15 +62,15 @@ namespace PAKOPointOfSale.Transactions
                             int transactionId = Convert.ToInt32(reader["id"]);
                             lblTransactionId.Text = transactionId.ToString().PadLeft(6, '0');
                             lblInvoiceNumber.Text = reader["invoice_number"].ToString();
-                            lblSubTotal.Text = Convert.ToDecimal(reader["sub_total"]).ToString("N2");
-                            lblGrandTotal.Text = Convert.ToDecimal(reader["grand_total"]).ToString("N2");
-                            lblVatableSales.Text = Convert.ToDecimal(reader["vat_amount"]).ToString("N2");
-                            lblVatAmount.Text = Convert.ToDecimal(reader["vat_amount"]).ToString("N2");
-                            lblVatExempt.Text = Convert.ToDecimal(reader["vat_exempt"]).ToString("N2");
+                            lblSubTotal.Text = N2(reader["sub_total"]);
+                            lblGrandTotal.Text = N2(reader["grand_total"]);
+                            lblVatableSales.Text = N2(reader["vat_amount"]);
+                            lblVatAmount.Text = N2(reader["vat_amount"]);
+                            lblVatExempt.Text = N2(reader["vat_exempt"]);
                             lblPaymentMethod.Text = reader["payment_method"].ToString();
-                            lblCashReceived.Text = Convert.ToDecimal(reader["cash_received"]).ToString("N2");
+                            lblCashReceived.Text = N2(reader["cash_received"]);
                             lblTransactionType.Text = reader["transaction_type"].ToString();
-                            lblChange.Text = Convert.ToDecimal(reader["cash_change"]).ToString("N2");
+                            lblChange.Text = N2(reader["cash_change"]);
                             lblTransactionDate.Text = Convert.ToDateTime(reader["created_at"]).ToString("yyyy-MM-dd HH:mm");
                         }
                     }
@@ -257,13 +265,13 @@ namespace PAKOPointOfSale.Transactions
                 }
 
             }
-            dgvItems.Columns["unit_price"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvItems.Columns["unit_price"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dgvItems.Columns["quantity"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvItems.Columns["remainingQty"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvItems.Columns["vat_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvItems.Columns["vatable_sales"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvItems.Columns["vat_exempt"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvItems.Columns["discount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvItems.Columns["vat_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvItems.Columns["vatable_sales"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvItems.Columns["vat_exempt"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvItems.Columns["discount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dgvItems.Columns["total_amount"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvItems.Columns["unit_of_measurement"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
@@ -285,6 +293,10 @@ namespace PAKOPointOfSale.Transactions
                 cmbInvoiceAction.Enabled = false;
                 btnProceed.Enabled = false;
             }
+        }
+        private string N2(object value)
+        {
+            return Convert.ToDecimal(value).ToString("N2");
         }
         private void btnProceed_Click(object sender, EventArgs e)
         {
@@ -404,12 +416,12 @@ namespace PAKOPointOfSale.Transactions
                     p.product_name,
                     p.product_brand,
                     si.quantity,
-                    si.unit_price,
-                    si.total_amount,
-                    si.vat_amount,
-                    si.vatable_sales,
-                    si.vat_exempt,
-                    si.discount,
+                    FORMAT(si.unit_price, 'N2')      AS unit_price,
+                    FORMAT(si.total_amount, 'N2')    AS total_amount,
+                    FORMAT(si.vat_amount, 'N2')      AS vat_amount,
+                    FORMAT(si.vatable_sales, 'N2')   AS vatable_sales,
+                    FORMAT(si.vat_exempt, 'N2')      AS vat_exempt,
+                    FORMAT(si.discount, 'N2')        AS discount,
                     si.discount_type,
                     si.unit_of_measurement
                 FROM SalesInvoiceItems si
@@ -427,12 +439,12 @@ namespace PAKOPointOfSale.Transactions
                     p.product_name,
                     p.product_brand,
                     ri.quantity,
-                    ri.unit_price,
-                    ri.total_amount,
-                    ri.vat_amount,
-                    ri.vatable_sales,
-                    ri.vat_exempt,
-                    ri.discount,
+                    FORMAT(ri.unit_price, 'N2')      AS unit_price,
+                    FORMAT(ri.total_amount, 'N2')    AS total_amount,
+                    FORMAT(ri.vat_amount, 'N2')      AS vat_amount,
+                    FORMAT(ri.vatable_sales, 'N2')   AS vatable_sales,
+                    FORMAT(ri.vat_exempt, 'N2')      AS vat_exempt,
+                    FORMAT(ri.discount, 'N2')        AS discount,
                     ri.discount_type,
                     ri.unit_of_measurement,
                     rt.invoice_number,
@@ -457,12 +469,12 @@ namespace PAKOPointOfSale.Transactions
                     p.product_name,
                     p.product_brand,
                     si.quantity,
-                    si.unit_price,
-                    si.total_amount,
-                    si.vat_amount,
-                    si.vatable_sales,
-                    si.vat_exempt,
-                    si.discount,
+                    FORMAT(si.unit_price, 'N2')      AS unit_price,
+                    FORMAT(si.total_amount, 'N2')    AS total_amount,
+                    FORMAT(si.vat_amount, 'N2')      AS vat_amount,
+                    FORMAT(si.vatable_sales, 'N2')   AS vatable_sales,
+                    FORMAT(si.vat_exempt, 'N2')      AS vat_exempt,
+                    FORMAT(si.discount, 'N2')        AS discount,
                     si.discount_type,
                     si.unit_of_measurement
                 FROM VoidTransactions vt

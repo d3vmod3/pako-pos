@@ -71,6 +71,8 @@ namespace PAKOPointOfSale.Transactions.Parked_Transactions
                 c.DefaultCellStyle.ForeColor = Color.White;
                 c.DefaultCellStyle.BackColor = Color.LightBlue;
 
+                dtgvParkedTransactions.Columns["sub_total"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
                 DataGridViewButtonColumn d = (DataGridViewButtonColumn)dtgvParkedTransactions.Columns["cancel"];
                 d.FlatStyle = FlatStyle.Flat;
                 d.DefaultCellStyle.ForeColor = Color.White;

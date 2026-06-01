@@ -24,9 +24,9 @@ namespace WinFormsApp1.Model
         public string? product_code { get; set; }
         [MaxLength(32)]
         public string sku { get; set; }
-        [Column(TypeName = "decimal(7,2)")]
-        public decimal quantity { get; set; }
-        public decimal low_stock_quantity { get; set; }
+        
+        public int quantity { get; set; }
+        public int low_stock_quantity { get; set; }
         public string unit_of_measurement { get; set; }
         public decimal cost_price { get; set; }
         public decimal unit_price { get; set; }
